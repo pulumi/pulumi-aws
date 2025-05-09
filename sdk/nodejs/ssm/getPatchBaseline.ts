@@ -46,6 +46,7 @@ export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.Invok
         "namePrefix": args.namePrefix,
         "operatingSystem": args.operatingSystem,
         "owner": args.owner,
+        "region": args.region,
     }, opts);
 }
 
@@ -71,6 +72,7 @@ export interface GetPatchBaselineArgs {
      * The following arguments are optional:
      */
     owner: string;
+    region?: string;
 }
 
 /**
@@ -117,6 +119,7 @@ export interface GetPatchBaselineResult {
     readonly namePrefix?: string;
     readonly operatingSystem?: string;
     readonly owner: string;
+    readonly region: string;
     /**
      * List of rejected patches.
      */
@@ -169,6 +172,7 @@ export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: 
         "namePrefix": args.namePrefix,
         "operatingSystem": args.operatingSystem,
         "owner": args.owner,
+        "region": args.region,
     }, opts);
 }
 
@@ -194,4 +198,5 @@ export interface GetPatchBaselineOutputArgs {
      * The following arguments are optional:
      */
     owner: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

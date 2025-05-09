@@ -216,6 +216,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Security group to apply this rule to.
         /// </summary>
         [Output("securityGroupId")]
@@ -357,6 +363,12 @@ namespace Pulumi.Aws.Ec2
         public InputUnion<string, Pulumi.Aws.Ec2.ProtocolType> Protocol { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Security group to apply this rule to.
         /// </summary>
         [Input("securityGroupId", required: true)]
@@ -452,6 +464,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("protocol")]
         public InputUnion<string, Pulumi.Aws.Ec2.ProtocolType>? Protocol { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Security group to apply this rule to.

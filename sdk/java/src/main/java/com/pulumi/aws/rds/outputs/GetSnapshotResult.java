@@ -81,6 +81,7 @@ public final class GetSnapshotResult {
      */
     private String originalSnapshotCreateTime;
     private Integer port;
+    private String region;
     /**
      * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
      * 
@@ -217,6 +218,9 @@ public final class GetSnapshotResult {
     public Integer port() {
         return this.port;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
      * 
@@ -293,6 +297,7 @@ public final class GetSnapshotResult {
         private String optionGroupName;
         private String originalSnapshotCreateTime;
         private Integer port;
+        private String region;
         private String snapshotCreateTime;
         private @Nullable String snapshotType;
         private String sourceDbSnapshotIdentifier;
@@ -322,6 +327,7 @@ public final class GetSnapshotResult {
     	      this.optionGroupName = defaults.optionGroupName;
     	      this.originalSnapshotCreateTime = defaults.originalSnapshotCreateTime;
     	      this.port = defaults.port;
+    	      this.region = defaults.region;
     	      this.snapshotCreateTime = defaults.snapshotCreateTime;
     	      this.snapshotType = defaults.snapshotType;
     	      this.sourceDbSnapshotIdentifier = defaults.sourceDbSnapshotIdentifier;
@@ -467,6 +473,14 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder snapshotCreateTime(String snapshotCreateTime) {
             if (snapshotCreateTime == null) {
               throw new MissingRequiredPropertyException("GetSnapshotResult", "snapshotCreateTime");
@@ -548,6 +562,7 @@ public final class GetSnapshotResult {
             _resultValue.optionGroupName = optionGroupName;
             _resultValue.originalSnapshotCreateTime = originalSnapshotCreateTime;
             _resultValue.port = port;
+            _resultValue.region = region;
             _resultValue.snapshotCreateTime = snapshotCreateTime;
             _resultValue.snapshotType = snapshotType;
             _resultValue.sourceDbSnapshotIdentifier = sourceDbSnapshotIdentifier;

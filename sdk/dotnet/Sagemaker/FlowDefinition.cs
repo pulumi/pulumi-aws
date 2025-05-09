@@ -187,6 +187,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.FlowDefinitionOutputConfig> OutputConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -281,6 +287,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.FlowDefinitionOutputConfigArgs> OutputConfig { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -341,6 +353,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("outputConfig")]
         public Input<Inputs.FlowDefinitionOutputConfigGetArgs>? OutputConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.

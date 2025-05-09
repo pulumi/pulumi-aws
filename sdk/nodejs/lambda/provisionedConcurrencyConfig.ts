@@ -88,6 +88,10 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
      */
     public readonly qualifier!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
      */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
@@ -108,6 +112,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["provisionedConcurrentExecutions"] = state ? state.provisionedConcurrentExecutions : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
         } else {
             const args = argsOrState as ProvisionedConcurrencyConfigArgs | undefined;
@@ -123,6 +128,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["provisionedConcurrentExecutions"] = args ? args.provisionedConcurrentExecutions : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -149,6 +155,10 @@ export interface ProvisionedConcurrencyConfigState {
      */
     qualifier?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
      */
     skipDestroy?: pulumi.Input<boolean>;
@@ -172,6 +182,10 @@ export interface ProvisionedConcurrencyConfigArgs {
      * The following arguments are optional:
      */
     qualifier: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
      */

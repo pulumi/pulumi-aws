@@ -69,6 +69,12 @@ namespace Pulumi.Aws.Pinpoint
         [Output("emailTemplates")]
         public Output<ImmutableArray<Outputs.EmailTemplateEmailTemplate>> EmailTemplates { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.Pinpoint
             set => _emailTemplates = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -178,6 +190,12 @@ namespace Pulumi.Aws.Pinpoint
             get => _emailTemplates ?? (_emailTemplates = new InputList<Inputs.EmailTemplateEmailTemplateGetArgs>());
             set => _emailTemplates = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

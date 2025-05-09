@@ -20,6 +20,11 @@ public final class SearchResult {
     private String id;
     private String queryString;
     /**
+     * @return Amazon Web Services Region in which the resource was created and exists.
+     * 
+     */
+    private String region;
+    /**
      * @return Number of resources that match the query. See `resource_count` below.
      * 
      */
@@ -41,6 +46,13 @@ public final class SearchResult {
     }
     public String queryString() {
         return this.queryString;
+    }
+    /**
+     * @return Amazon Web Services Region in which the resource was created and exists.
+     * 
+     */
+    public String region() {
+        return this.region;
     }
     /**
      * @return Number of resources that match the query. See `resource_count` below.
@@ -71,6 +83,7 @@ public final class SearchResult {
     public static final class Builder {
         private String id;
         private String queryString;
+        private String region;
         private List<SearchResourceCount> resourceCounts;
         private List<SearchResource> resources;
         private String viewArn;
@@ -79,6 +92,7 @@ public final class SearchResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.queryString = defaults.queryString;
+    	      this.region = defaults.region;
     	      this.resourceCounts = defaults.resourceCounts;
     	      this.resources = defaults.resources;
     	      this.viewArn = defaults.viewArn;
@@ -98,6 +112,14 @@ public final class SearchResult {
               throw new MissingRequiredPropertyException("SearchResult", "queryString");
             }
             this.queryString = queryString;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("SearchResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -134,6 +156,7 @@ public final class SearchResult {
             final var _resultValue = new SearchResult();
             _resultValue.id = id;
             _resultValue.queryString = queryString;
+            _resultValue.region = region;
             _resultValue.resourceCounts = resourceCounts;
             _resultValue.resources = resources;
             _resultValue.viewArn = viewArn;

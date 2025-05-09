@@ -87,6 +87,9 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -113,6 +116,9 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -161,6 +167,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Minimum engine version supported for the user.
         /// </summary>
         public readonly string MinimumEngineVersion;
+        public readonly string Region;
         /// <summary>
         /// Map of tags assigned to the user.
         /// </summary>
@@ -179,6 +186,8 @@ namespace Pulumi.Aws.MemoryDb
 
             string minimumEngineVersion,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string userName)
@@ -188,6 +197,7 @@ namespace Pulumi.Aws.MemoryDb
             AuthenticationModes = authenticationModes;
             Id = id;
             MinimumEngineVersion = minimumEngineVersion;
+            Region = region;
             Tags = tags;
             UserName = userName;
         }

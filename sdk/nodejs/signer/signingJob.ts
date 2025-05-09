@@ -117,6 +117,10 @@ export class SigningJob extends pulumi.CustomResource {
      */
     public /*out*/ readonly profileVersion!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM principal that requested the signing job.
      */
     public /*out*/ readonly requestedBy!: pulumi.Output<string>;
@@ -169,6 +173,7 @@ export class SigningJob extends pulumi.CustomResource {
             resourceInputs["platformId"] = state ? state.platformId : undefined;
             resourceInputs["profileName"] = state ? state.profileName : undefined;
             resourceInputs["profileVersion"] = state ? state.profileVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestedBy"] = state ? state.requestedBy : undefined;
             resourceInputs["revocationRecords"] = state ? state.revocationRecords : undefined;
             resourceInputs["signatureExpiresAt"] = state ? state.signatureExpiresAt : undefined;
@@ -190,6 +195,7 @@ export class SigningJob extends pulumi.CustomResource {
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["ignoreSigningJobFailure"] = args ? args.ignoreSigningJobFailure : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["completedAt"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -260,6 +266,10 @@ export interface SigningJobState {
      */
     profileVersion?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IAM principal that requested the signing job.
      */
     requestedBy?: pulumi.Input<string>;
@@ -305,6 +315,10 @@ export interface SigningJobArgs {
      * The name of the profile to initiate the signing operation.
      */
     profileName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The S3 bucket that contains the object to sign. See Source below for details.
      */

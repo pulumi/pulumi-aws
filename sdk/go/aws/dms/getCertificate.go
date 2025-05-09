@@ -54,6 +54,7 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 type LookupCertificateArgs struct {
 	// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
 	CertificateId string            `pulumi:"certificateId"`
+	Region        *string           `pulumi:"region"`
 	Tags          map[string]string `pulumi:"tags"`
 }
 
@@ -73,7 +74,8 @@ type LookupCertificateResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The key length of the cryptographic algorithm being used.
-	KeyLength int `pulumi:"keyLength"`
+	KeyLength int    `pulumi:"keyLength"`
+	Region    string `pulumi:"region"`
 	// The algorithm for the certificate.
 	SigningAlgorithm string            `pulumi:"signingAlgorithm"`
 	Tags             map[string]string `pulumi:"tags"`
@@ -96,6 +98,7 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 type LookupCertificateOutputArgs struct {
 	// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
 	CertificateId pulumi.StringInput    `pulumi:"certificateId"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 	Tags          pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -155,6 +158,10 @@ func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 // The key length of the cryptographic algorithm being used.
 func (o LookupCertificateResultOutput) KeyLength() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCertificateResult) int { return v.KeyLength }).(pulumi.IntOutput)
+}
+
+func (o LookupCertificateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The algorithm for the certificate.

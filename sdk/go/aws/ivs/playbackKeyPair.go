@@ -69,6 +69,8 @@ type PlaybackKeyPair struct {
 	//
 	// The following arguments are optional:
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -118,6 +120,8 @@ type playbackKeyPairState struct {
 	//
 	// The following arguments are optional:
 	PublicKey *string `pulumi:"publicKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -135,6 +139,8 @@ type PlaybackKeyPairState struct {
 	//
 	// The following arguments are optional:
 	PublicKey pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -152,6 +158,8 @@ type playbackKeyPairArgs struct {
 	//
 	// The following arguments are optional:
 	PublicKey string `pulumi:"publicKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -164,6 +172,8 @@ type PlaybackKeyPairArgs struct {
 	//
 	// The following arguments are optional:
 	PublicKey pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -275,6 +285,11 @@ func (o PlaybackKeyPairOutput) Name() pulumi.StringOutput {
 // The following arguments are optional:
 func (o PlaybackKeyPairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PlaybackKeyPairOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

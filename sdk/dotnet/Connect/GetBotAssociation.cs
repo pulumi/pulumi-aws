@@ -117,6 +117,9 @@ namespace Pulumi.Aws.Connect
         [Input("lexBot", required: true)]
         public Inputs.GetBotAssociationLexBotArgs LexBot { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetBotAssociationArgs()
         {
         }
@@ -137,6 +140,9 @@ namespace Pulumi.Aws.Connect
         [Input("lexBot", required: true)]
         public Input<Inputs.GetBotAssociationLexBotInputArgs> LexBot { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetBotAssociationInvokeArgs()
         {
         }
@@ -153,6 +159,7 @@ namespace Pulumi.Aws.Connect
         public readonly string Id;
         public readonly string InstanceId;
         public readonly Outputs.GetBotAssociationLexBotResult LexBot;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetBotAssociationResult(
@@ -160,11 +167,14 @@ namespace Pulumi.Aws.Connect
 
             string instanceId,
 
-            Outputs.GetBotAssociationLexBotResult lexBot)
+            Outputs.GetBotAssociationLexBotResult lexBot,
+
+            string region)
         {
             Id = id;
             InstanceId = instanceId;
             LexBot = lexBot;
+            Region = region;
         }
     }
 }

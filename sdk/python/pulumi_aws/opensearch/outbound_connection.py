@@ -27,7 +27,8 @@ class OutboundConnectionArgs:
                  remote_domain_info: pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'],
                  accept_connection: Optional[pulumi.Input[builtins.bool]] = None,
                  connection_mode: Optional[pulumi.Input[builtins.str]] = None,
-                 connection_properties: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesArgs']] = None):
+                 connection_properties: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundConnection resource.
         :param pulumi.Input[builtins.str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
@@ -36,6 +37,7 @@ class OutboundConnectionArgs:
         :param pulumi.Input[builtins.bool] accept_connection: Accepts the connection.
         :param pulumi.Input[builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         :param pulumi.Input['OutboundConnectionConnectionPropertiesArgs'] connection_properties: Configuration block for the outbound connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "connection_alias", connection_alias)
         pulumi.set(__self__, "local_domain_info", local_domain_info)
@@ -46,6 +48,8 @@ class OutboundConnectionArgs:
             pulumi.set(__self__, "connection_mode", connection_mode)
         if connection_properties is not None:
             pulumi.set(__self__, "connection_properties", connection_properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="connectionAlias")
@@ -119,6 +123,18 @@ class OutboundConnectionArgs:
     def connection_properties(self, value: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesArgs']]):
         pulumi.set(self, "connection_properties", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _OutboundConnectionState:
@@ -129,6 +145,7 @@ class _OutboundConnectionState:
                  connection_properties: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesArgs']] = None,
                  connection_status: Optional[pulumi.Input[builtins.str]] = None,
                  local_domain_info: Optional[pulumi.Input['OutboundConnectionLocalDomainInfoArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_domain_info: Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']] = None):
         """
         Input properties used for looking up and filtering OutboundConnection resources.
@@ -138,6 +155,7 @@ class _OutboundConnectionState:
         :param pulumi.Input['OutboundConnectionConnectionPropertiesArgs'] connection_properties: Configuration block for the outbound connection.
         :param pulumi.Input[builtins.str] connection_status: Status of the connection request.
         :param pulumi.Input['OutboundConnectionLocalDomainInfoArgs'] local_domain_info: Configuration block for the local Opensearch domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         if accept_connection is not None:
@@ -152,6 +170,8 @@ class _OutboundConnectionState:
             pulumi.set(__self__, "connection_status", connection_status)
         if local_domain_info is not None:
             pulumi.set(__self__, "local_domain_info", local_domain_info)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_domain_info is not None:
             pulumi.set(__self__, "remote_domain_info", remote_domain_info)
 
@@ -228,6 +248,18 @@ class _OutboundConnectionState:
         pulumi.set(self, "local_domain_info", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="remoteDomainInfo")
     def remote_domain_info(self) -> Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']]:
         """
@@ -253,6 +285,7 @@ class OutboundConnection(pulumi.CustomResource):
                  connection_mode: Optional[pulumi.Input[builtins.str]] = None,
                  connection_properties: Optional[pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']]] = None,
                  local_domain_info: Optional[pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_domain_info: Optional[pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']]] = None,
                  __props__=None):
         """
@@ -298,6 +331,7 @@ class OutboundConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         :param pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']] connection_properties: Configuration block for the outbound connection.
         :param pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']] local_domain_info: Configuration block for the local Opensearch domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         ...
@@ -362,6 +396,7 @@ class OutboundConnection(pulumi.CustomResource):
                  connection_mode: Optional[pulumi.Input[builtins.str]] = None,
                  connection_properties: Optional[pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']]] = None,
                  local_domain_info: Optional[pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_domain_info: Optional[pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -381,6 +416,7 @@ class OutboundConnection(pulumi.CustomResource):
             if local_domain_info is None and not opts.urn:
                 raise TypeError("Missing required property 'local_domain_info'")
             __props__.__dict__["local_domain_info"] = local_domain_info
+            __props__.__dict__["region"] = region
             if remote_domain_info is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_domain_info'")
             __props__.__dict__["remote_domain_info"] = remote_domain_info
@@ -401,6 +437,7 @@ class OutboundConnection(pulumi.CustomResource):
             connection_properties: Optional[pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']]] = None,
             connection_status: Optional[pulumi.Input[builtins.str]] = None,
             local_domain_info: Optional[pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             remote_domain_info: Optional[pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']]] = None) -> 'OutboundConnection':
         """
         Get an existing OutboundConnection resource's state with the given name, id, and optional extra
@@ -415,6 +452,7 @@ class OutboundConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']] connection_properties: Configuration block for the outbound connection.
         :param pulumi.Input[builtins.str] connection_status: Status of the connection request.
         :param pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']] local_domain_info: Configuration block for the local Opensearch domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -427,6 +465,7 @@ class OutboundConnection(pulumi.CustomResource):
         __props__.__dict__["connection_properties"] = connection_properties
         __props__.__dict__["connection_status"] = connection_status
         __props__.__dict__["local_domain_info"] = local_domain_info
+        __props__.__dict__["region"] = region
         __props__.__dict__["remote_domain_info"] = remote_domain_info
         return OutboundConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -477,6 +516,14 @@ class OutboundConnection(pulumi.CustomResource):
         Configuration block for the local Opensearch domain.
         """
         return pulumi.get(self, "local_domain_info")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="remoteDomainInfo")

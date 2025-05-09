@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of the service account in the given Grafana workspace
         /// </summary>
         [Output("serviceAccountId")]
@@ -126,6 +132,12 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Grafana workspace with which the service account is associated.
         /// </summary>
         [Input("workspaceId", required: true)]
@@ -150,6 +162,12 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Identifier of the service account in the given Grafana workspace

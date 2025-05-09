@@ -169,6 +169,8 @@ type Function struct {
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
 	// Function name. The function name does not have to be unique.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringPtrOutput `pulumi:"requestMappingTemplate"`
 	// Function response mapping template.
@@ -233,6 +235,8 @@ type functionState struct {
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// Function name. The function name does not have to be unique.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
 	// Function response mapping template.
@@ -262,6 +266,8 @@ type FunctionState struct {
 	MaxBatchSize pulumi.IntPtrInput
 	// Function name. The function name does not have to be unique.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringPtrInput
 	// Function response mapping template.
@@ -291,6 +297,8 @@ type functionArgs struct {
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// Function name. The function name does not have to be unique.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
 	// Function response mapping template.
@@ -317,6 +325,8 @@ type FunctionArgs struct {
 	MaxBatchSize pulumi.IntPtrInput
 	// Function name. The function name does not have to be unique.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringPtrInput
 	// Function response mapping template.
@@ -457,6 +467,11 @@ func (o FunctionOutput) MaxBatchSize() pulumi.IntPtrOutput {
 // Function name. The function name does not have to be unique.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FunctionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.

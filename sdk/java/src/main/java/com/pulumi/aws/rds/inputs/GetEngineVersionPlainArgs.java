@@ -187,6 +187,13 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.preferredVersions);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="version")
     private @Nullable String version;
 
@@ -208,6 +215,7 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
         this.preferredMajorTargets = $.preferredMajorTargets;
         this.preferredUpgradeTargets = $.preferredUpgradeTargets;
         this.preferredVersions = $.preferredVersions;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -390,6 +398,11 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public Builder version(@Nullable String version) {

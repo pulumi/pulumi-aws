@@ -155,6 +155,10 @@ export class BudgetAction extends pulumi.CustomResource {
      */
     public readonly notificationType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the budget action.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -194,6 +198,7 @@ export class BudgetAction extends pulumi.CustomResource {
             resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subscribers"] = state ? state.subscribers : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -232,6 +237,7 @@ export class BudgetAction extends pulumi.CustomResource {
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subscribers"] = args ? args.subscribers : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -289,6 +295,10 @@ export interface BudgetActionState {
      */
     notificationType?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the budget action.
      */
     status?: pulumi.Input<string>;
@@ -342,6 +352,10 @@ export interface BudgetActionArgs {
      * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      */
     notificationType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of subscribers. See Subscriber.
      */

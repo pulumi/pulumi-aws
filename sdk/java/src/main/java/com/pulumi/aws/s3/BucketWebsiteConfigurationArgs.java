@@ -97,6 +97,21 @@ public final class BucketWebsiteConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
@@ -136,6 +151,7 @@ public final class BucketWebsiteConfigurationArgs extends com.pulumi.resources.R
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.indexDocument = $.indexDocument;
         this.redirectAllRequestsTo = $.redirectAllRequestsTo;
+        this.region = $.region;
         this.routingRuleDetails = $.routingRuleDetails;
         this.routingRules = $.routingRules;
     }
@@ -261,6 +277,27 @@ public final class BucketWebsiteConfigurationArgs extends com.pulumi.resources.R
          */
         public Builder redirectAllRequestsTo(BucketWebsiteConfigurationRedirectAllRequestsToArgs redirectAllRequestsTo) {
             return redirectAllRequestsTo(Output.of(redirectAllRequestsTo));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

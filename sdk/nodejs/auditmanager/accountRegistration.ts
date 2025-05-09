@@ -76,6 +76,10 @@ export class AccountRegistration extends pulumi.CustomResource {
      */
     public readonly kmsKey!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of the account registration request.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -96,12 +100,14 @@ export class AccountRegistration extends pulumi.CustomResource {
             resourceInputs["delegatedAdminAccount"] = state ? state.delegatedAdminAccount : undefined;
             resourceInputs["deregisterOnDestroy"] = state ? state.deregisterOnDestroy : undefined;
             resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as AccountRegistrationArgs | undefined;
             resourceInputs["delegatedAdminAccount"] = args ? args.delegatedAdminAccount : undefined;
             resourceInputs["deregisterOnDestroy"] = args ? args.deregisterOnDestroy : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -126,6 +132,10 @@ export interface AccountRegistrationState {
      */
     kmsKey?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Status of the account registration request.
      */
     status?: pulumi.Input<string>;
@@ -147,4 +157,8 @@ export interface AccountRegistrationArgs {
      * KMS key identifier.
      */
     kmsKey?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

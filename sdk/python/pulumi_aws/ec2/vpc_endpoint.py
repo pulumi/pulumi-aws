@@ -28,6 +28,7 @@ class VpcEndpointArgs:
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -47,6 +48,7 @@ class VpcEndpointArgs:
         :param pulumi.Input[builtins.str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
                Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_configuration_arn: The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
@@ -70,6 +72,8 @@ class VpcEndpointArgs:
             pulumi.set(__self__, "policy", policy)
         if private_dns_enabled is not None:
             pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_configuration_arn is not None:
             pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
         if route_table_ids is not None:
@@ -163,6 +167,18 @@ class VpcEndpointArgs:
     @private_dns_enabled.setter
     def private_dns_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "private_dns_enabled", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceConfigurationArn")
@@ -300,6 +316,7 @@ class _VpcEndpointState:
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_managed: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -328,6 +345,7 @@ class _VpcEndpointState:
         :param pulumi.Input[builtins.str] prefix_list_id: The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
                Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_managed: Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         :param pulumi.Input[builtins.str] resource_configuration_arn: The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
@@ -366,6 +384,8 @@ class _VpcEndpointState:
             pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         if private_dns_enabled is not None:
             pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requester_managed is not None:
             pulumi.set(__self__, "requester_managed", requester_managed)
         if resource_configuration_arn is not None:
@@ -527,6 +547,18 @@ class _VpcEndpointState:
     @private_dns_enabled.setter
     def private_dns_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "private_dns_enabled", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="requesterManaged")
@@ -711,6 +743,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -861,6 +894,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
                Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_configuration_arn: The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
@@ -1030,6 +1064,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1055,6 +1090,7 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["policy"] = policy
             __props__.__dict__["private_dns_enabled"] = private_dns_enabled
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_configuration_arn"] = resource_configuration_arn
             __props__.__dict__["route_table_ids"] = route_table_ids
             __props__.__dict__["security_group_ids"] = security_group_ids
@@ -1098,6 +1134,7 @@ class VpcEndpoint(pulumi.CustomResource):
             policy: Optional[pulumi.Input[builtins.str]] = None,
             prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
             private_dns_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             requester_managed: Optional[pulumi.Input[builtins.bool]] = None,
             resource_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1131,6 +1168,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] prefix_list_id: The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
                Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_managed: Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         :param pulumi.Input[builtins.str] resource_configuration_arn: The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
@@ -1162,6 +1200,7 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__.__dict__["policy"] = policy
         __props__.__dict__["prefix_list_id"] = prefix_list_id
         __props__.__dict__["private_dns_enabled"] = private_dns_enabled
+        __props__.__dict__["region"] = region
         __props__.__dict__["requester_managed"] = requester_managed
         __props__.__dict__["resource_configuration_arn"] = resource_configuration_arn
         __props__.__dict__["route_table_ids"] = route_table_ids
@@ -1266,6 +1305,14 @@ class VpcEndpoint(pulumi.CustomResource):
         Defaults to `false`.
         """
         return pulumi.get(self, "private_dns_enabled")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requesterManaged")

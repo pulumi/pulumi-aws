@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Cognito
         public Output<string> ProviderType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The user pool id
         /// </summary>
         [Output("userPoolId")]
@@ -194,6 +200,12 @@ namespace Pulumi.Aws.Cognito
         public Input<string> ProviderType { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The user pool id
         /// </summary>
         [Input("userPoolId", required: true)]
@@ -254,6 +266,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The user pool id

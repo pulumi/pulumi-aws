@@ -60,6 +60,8 @@ type GuardrailVersion struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn pulumi.StringOutput `pulumi:"guardrailArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy pulumi.BoolPtrOutput              `pulumi:"skipDestroy"`
 	Timeouts    GuardrailVersionTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -106,6 +108,8 @@ type guardrailVersionState struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn *string `pulumi:"guardrailArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy *bool                     `pulumi:"skipDestroy"`
 	Timeouts    *GuardrailVersionTimeouts `pulumi:"timeouts"`
@@ -120,6 +124,8 @@ type GuardrailVersionState struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy pulumi.BoolPtrInput
 	Timeouts    GuardrailVersionTimeoutsPtrInput
@@ -138,6 +144,8 @@ type guardrailVersionArgs struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn string `pulumi:"guardrailArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy *bool                     `pulumi:"skipDestroy"`
 	Timeouts    *GuardrailVersionTimeouts `pulumi:"timeouts"`
@@ -151,6 +159,8 @@ type GuardrailVersionArgs struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy pulumi.BoolPtrInput
 	Timeouts    GuardrailVersionTimeoutsPtrInput
@@ -253,6 +263,11 @@ func (o GuardrailVersionOutput) Description() pulumi.StringPtrOutput {
 // The following arguments are optional:
 func (o GuardrailVersionOutput) GuardrailArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GuardrailVersion) pulumi.StringOutput { return v.GuardrailArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o GuardrailVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuardrailVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether to retain the old version of a previously deployed Guardrail. Default is `false`

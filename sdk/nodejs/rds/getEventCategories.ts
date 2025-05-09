@@ -41,6 +41,7 @@ export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
+        "region": args.region,
         "sourceType": args.sourceType,
     }, opts);
 }
@@ -49,6 +50,7 @@ export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.
  * A collection of arguments for invoking getEventCategories.
  */
 export interface GetEventCategoriesArgs {
+    region?: string;
     /**
      * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      */
@@ -67,6 +69,7 @@ export interface GetEventCategoriesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly sourceType?: string;
 }
 /**
@@ -106,6 +109,7 @@ export function getEventCategoriesOutput(args?: GetEventCategoriesOutputArgs, op
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getEventCategories:getEventCategories", {
+        "region": args.region,
         "sourceType": args.sourceType,
     }, opts);
 }
@@ -114,6 +118,7 @@ export function getEventCategoriesOutput(args?: GetEventCategoriesOutputArgs, op
  * A collection of arguments for invoking getEventCategories.
  */
 export interface GetEventCategoriesOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      */

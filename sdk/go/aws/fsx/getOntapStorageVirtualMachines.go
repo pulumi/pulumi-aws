@@ -61,6 +61,7 @@ func GetOntapStorageVirtualMachines(ctx *pulumi.Context, args *GetOntapStorageVi
 type GetOntapStorageVirtualMachinesArgs struct {
 	// Configuration block. Detailed below.
 	Filters []GetOntapStorageVirtualMachinesFilter `pulumi:"filters"`
+	Region  *string                                `pulumi:"region"`
 }
 
 // A collection of values returned by getOntapStorageVirtualMachines.
@@ -69,7 +70,8 @@ type GetOntapStorageVirtualMachinesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of all SVM IDs found.
-	Ids []string `pulumi:"ids"`
+	Ids    []string `pulumi:"ids"`
+	Region string   `pulumi:"region"`
 }
 
 func GetOntapStorageVirtualMachinesOutput(ctx *pulumi.Context, args GetOntapStorageVirtualMachinesOutputArgs, opts ...pulumi.InvokeOption) GetOntapStorageVirtualMachinesResultOutput {
@@ -85,6 +87,7 @@ func GetOntapStorageVirtualMachinesOutput(ctx *pulumi.Context, args GetOntapStor
 type GetOntapStorageVirtualMachinesOutputArgs struct {
 	// Configuration block. Detailed below.
 	Filters GetOntapStorageVirtualMachinesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                          `pulumi:"region"`
 }
 
 func (GetOntapStorageVirtualMachinesOutputArgs) ElementType() reflect.Type {
@@ -118,6 +121,10 @@ func (o GetOntapStorageVirtualMachinesResultOutput) Id() pulumi.StringOutput {
 // List of all SVM IDs found.
 func (o GetOntapStorageVirtualMachinesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachinesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOntapStorageVirtualMachinesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachinesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

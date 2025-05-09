@@ -191,6 +191,10 @@ export class BucketAcl extends pulumi.CustomResource {
      * Account ID of the expected bucket owner.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BucketAcl resource with the given unique name, arguments, and options.
@@ -209,6 +213,7 @@ export class BucketAcl extends pulumi.CustomResource {
             resourceInputs["acl"] = state ? state.acl : undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BucketAclArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -218,6 +223,7 @@ export class BucketAcl extends pulumi.CustomResource {
             resourceInputs["acl"] = args ? args.acl : undefined;
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucketAclV2:BucketAclV2" }, { type: "aws:s3/bucketAclV2:BucketAclV2" }] };
@@ -246,6 +252,10 @@ export interface BucketAclState {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -268,4 +278,8 @@ export interface BucketAclArgs {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

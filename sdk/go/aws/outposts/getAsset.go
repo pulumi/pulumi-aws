@@ -27,7 +27,8 @@ type GetAssetArgs struct {
 	// Outpost ARN.
 	Arn string `pulumi:"arn"`
 	// ID of the asset.
-	AssetId string `pulumi:"assetId"`
+	AssetId string  `pulumi:"assetId"`
+	Region  *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAsset.
@@ -44,6 +45,7 @@ type GetAssetResult struct {
 	RackElevation int `pulumi:"rackElevation"`
 	// Rack ID of the asset.
 	RackId string `pulumi:"rackId"`
+	Region string `pulumi:"region"`
 }
 
 func GetAssetOutput(ctx *pulumi.Context, args GetAssetOutputArgs, opts ...pulumi.InvokeOption) GetAssetResultOutput {
@@ -60,7 +62,8 @@ type GetAssetOutputArgs struct {
 	// Outpost ARN.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// ID of the asset.
-	AssetId pulumi.StringInput `pulumi:"assetId"`
+	AssetId pulumi.StringInput    `pulumi:"assetId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAssetOutputArgs) ElementType() reflect.Type {
@@ -113,6 +116,10 @@ func (o GetAssetResultOutput) RackElevation() pulumi.IntOutput {
 // Rack ID of the asset.
 func (o GetAssetResultOutput) RackId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetResult) string { return v.RackId }).(pulumi.StringOutput)
+}
+
+func (o GetAssetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAssetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

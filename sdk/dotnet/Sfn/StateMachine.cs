@@ -255,6 +255,12 @@ namespace Pulumi.Aws.Sfn
         [Output("publish")]
         public Output<bool?> Publish { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("revisionId")]
         public Output<string> RevisionId { get; private set; } = null!;
 
@@ -386,6 +392,12 @@ namespace Pulumi.Aws.Sfn
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -473,6 +485,12 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("revisionId")]
         public Input<string>? RevisionId { get; set; }

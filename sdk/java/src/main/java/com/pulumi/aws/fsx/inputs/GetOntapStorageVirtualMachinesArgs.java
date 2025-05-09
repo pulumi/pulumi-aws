@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx.inputs;
 import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,10 +32,18 @@ public final class GetOntapStorageVirtualMachinesArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetOntapStorageVirtualMachinesArgs() {}
 
     private GetOntapStorageVirtualMachinesArgs(GetOntapStorageVirtualMachinesArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -84,6 +93,15 @@ public final class GetOntapStorageVirtualMachinesArgs extends com.pulumi.resourc
          */
         public Builder filters(GetOntapStorageVirtualMachinesFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetOntapStorageVirtualMachinesArgs build() {

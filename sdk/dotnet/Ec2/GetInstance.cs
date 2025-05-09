@@ -195,6 +195,9 @@ namespace Pulumi.Aws.Ec2
             set => _instanceTags = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -265,6 +268,9 @@ namespace Pulumi.Aws.Ec2
             get => _instanceTags ?? (_instanceTags = new InputMap<string>());
             set => _instanceTags = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -425,6 +431,7 @@ namespace Pulumi.Aws.Ec2
         /// Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         /// </summary>
         public readonly string PublicIp;
+        public readonly string Region;
         /// <summary>
         /// Root block device mappings of the Instance
         /// </summary>
@@ -544,6 +551,8 @@ namespace Pulumi.Aws.Ec2
 
             string publicIp,
 
+            string region,
+
             ImmutableArray<Outputs.GetInstanceRootBlockDeviceResult> rootBlockDevices,
 
             ImmutableArray<string> secondaryPrivateIps,
@@ -602,6 +611,7 @@ namespace Pulumi.Aws.Ec2
             PrivateIp = privateIp;
             PublicDns = publicDns;
             PublicIp = publicIp;
+            Region = region;
             RootBlockDevices = rootBlockDevices;
             SecondaryPrivateIps = secondaryPrivateIps;
             SecurityGroups = securityGroups;

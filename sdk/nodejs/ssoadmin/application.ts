@@ -122,6 +122,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly portalOptions!: pulumi.Output<outputs.ssoadmin.ApplicationPortalOptions | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -155,6 +159,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["portalOptions"] = state ? state.portalOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -172,6 +177,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["portalOptions"] = args ? args.portalOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationAccount"] = undefined /*out*/;
@@ -222,6 +228,10 @@ export interface ApplicationState {
      */
     portalOptions?: pulumi.Input<inputs.ssoadmin.ApplicationPortalOptions>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      */
     status?: pulumi.Input<string>;
@@ -265,6 +275,10 @@ export interface ApplicationArgs {
      * Options for the portal associated with an application. See `portalOptions` below.
      */
     portalOptions?: pulumi.Input<inputs.ssoadmin.ApplicationPortalOptions>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      */

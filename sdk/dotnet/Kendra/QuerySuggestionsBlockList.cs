@@ -82,6 +82,12 @@ namespace Pulumi.Aws.Kendra
         public Output<string> QuerySuggestionsBlockListId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         /// </summary>
         [Output("roleArn")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -220,6 +232,12 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         [Input("querySuggestionsBlockListId")]
         public Input<string>? QuerySuggestionsBlockListId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// IAM (Identity and Access Management) role used to access the block list text file in S3.

@@ -73,6 +73,8 @@ type SigningProfile struct {
 	PlatformDisplayName pulumi.StringOutput `pulumi:"platformDisplayName"`
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId pulumi.StringOutput `pulumi:"platformId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
 	RevocationRecords SigningProfileRevocationRecordArrayOutput `pulumi:"revocationRecords"`
 	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
@@ -132,6 +134,8 @@ type signingProfileState struct {
 	PlatformDisplayName *string `pulumi:"platformDisplayName"`
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId *string `pulumi:"platformId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
 	RevocationRecords []SigningProfileRevocationRecord `pulumi:"revocationRecords"`
 	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
@@ -159,6 +163,8 @@ type SigningProfileState struct {
 	PlatformDisplayName pulumi.StringPtrInput
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
 	RevocationRecords SigningProfileRevocationRecordArrayInput
 	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
@@ -186,6 +192,8 @@ type signingProfileArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId string `pulumi:"platformId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
 	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
@@ -200,6 +208,8 @@ type SigningProfileArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
 	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
@@ -316,6 +326,11 @@ func (o SigningProfileOutput) PlatformDisplayName() pulumi.StringOutput {
 // The ID of the platform that is used by the target signing profile.
 func (o SigningProfileOutput) PlatformId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.PlatformId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SigningProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Revocation information for a signing profile. See `revocationRecord` Block below for details.

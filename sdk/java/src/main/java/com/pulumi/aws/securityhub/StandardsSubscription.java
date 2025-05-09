@@ -86,6 +86,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:securityhub/standardsSubscription:StandardsSubscription")
 public class StandardsSubscription extends com.pulumi.resources.CustomResource {
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ARN of a standard - see below.
      * 
      * Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):

@@ -39,6 +39,7 @@ class EndpointArgs:
                  postgres_settings: Optional[pulumi.Input['EndpointPostgresSettingsArgs']] = None,
                  redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[builtins.str]] = None,
                  server_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -65,6 +66,7 @@ class EndpointArgs:
         :param pulumi.Input[builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
                
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
@@ -106,6 +108,8 @@ class EndpointArgs:
             pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
             pulumi.set(__self__, "redshift_settings", redshift_settings)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_arn is not None:
@@ -322,6 +326,18 @@ class EndpointArgs:
         pulumi.set(self, "redshift_settings", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
     def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -429,6 +445,7 @@ class _EndpointState:
                  postgres_settings: Optional[pulumi.Input['EndpointPostgresSettingsArgs']] = None,
                  redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[builtins.str]] = None,
                  server_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -457,6 +474,7 @@ class _EndpointState:
         :param pulumi.Input[builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
                
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
@@ -504,6 +522,8 @@ class _EndpointState:
             pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
             pulumi.set(__self__, "redshift_settings", redshift_settings)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_arn is not None:
@@ -734,6 +754,18 @@ class _EndpointState:
         pulumi.set(self, "redshift_settings", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
     def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -857,6 +889,7 @@ class Endpoint(pulumi.CustomResource):
                  postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
                  redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
                  redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[builtins.str]] = None,
                  server_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -919,6 +952,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']] redshift_settings: Configuration block for Redshift settings. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
                
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
@@ -1002,6 +1036,7 @@ class Endpoint(pulumi.CustomResource):
                  postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
                  redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
                  redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[builtins.str]] = None,
                  server_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1041,6 +1076,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["postgres_settings"] = postgres_settings
             __props__.__dict__["redis_settings"] = redis_settings
             __props__.__dict__["redshift_settings"] = redshift_settings
+            __props__.__dict__["region"] = region
             __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
             __props__.__dict__["secrets_manager_arn"] = secrets_manager_arn
             __props__.__dict__["server_name"] = server_name
@@ -1080,6 +1116,7 @@ class Endpoint(pulumi.CustomResource):
             postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
             redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
             redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             secrets_manager_access_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             secrets_manager_arn: Optional[pulumi.Input[builtins.str]] = None,
             server_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1113,6 +1150,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']] redshift_settings: Configuration block for Redshift settings. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
                
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
@@ -1146,6 +1184,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["postgres_settings"] = postgres_settings
         __props__.__dict__["redis_settings"] = redis_settings
         __props__.__dict__["redshift_settings"] = redshift_settings
+        __props__.__dict__["region"] = region
         __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
         __props__.__dict__["secrets_manager_arn"] = secrets_manager_arn
         __props__.__dict__["server_name"] = server_name
@@ -1295,6 +1334,14 @@ class Endpoint(pulumi.CustomResource):
         Configuration block for Redshift settings. See below.
         """
         return pulumi.get(self, "redshift_settings")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")

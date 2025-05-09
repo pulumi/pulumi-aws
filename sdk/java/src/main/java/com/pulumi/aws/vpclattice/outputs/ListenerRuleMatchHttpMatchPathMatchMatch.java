@@ -17,7 +17,8 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatch {
      */
     private @Nullable String exact;
     /**
-     * @return Specifies a prefix type match. Matches the value with the prefix.
+     * @return Specifies a prefix type match.
+     * Matches the value with the prefix.
      * 
      */
     private @Nullable String prefix;
@@ -31,7 +32,8 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatch {
         return Optional.ofNullable(this.exact);
     }
     /**
-     * @return Specifies a prefix type match. Matches the value with the prefix.
+     * @return Specifies a prefix type match.
+     * Matches the value with the prefix.
      * 
      */
     public Optional<String> prefix() {

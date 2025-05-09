@@ -70,6 +70,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<ImmutableArray<string>> AuthorizedTargets { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.
         /// 
         /// The following arguments are optional:
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.SsoAdmin
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.
         /// 
         /// The following arguments are optional:
@@ -174,6 +186,12 @@ namespace Pulumi.Aws.SsoAdmin
             get => _authorizedTargets ?? (_authorizedTargets = new InputList<string>());
             set => _authorizedTargets = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.

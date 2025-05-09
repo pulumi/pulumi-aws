@@ -30,6 +30,7 @@ export function getDirectConnectGatewayAttachment(args?: GetDirectConnectGateway
     return pulumi.runtime.invoke("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {
         "dxGatewayId": args.dxGatewayId,
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
     }, opts);
@@ -47,6 +48,7 @@ export interface GetDirectConnectGatewayAttachmentArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */
@@ -71,6 +73,7 @@ export interface GetDirectConnectGatewayAttachmentResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Attachment.
      */
@@ -100,6 +103,7 @@ export function getDirectConnectGatewayAttachmentOutput(args?: GetDirectConnectG
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {
         "dxGatewayId": args.dxGatewayId,
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
     }, opts);
@@ -117,6 +121,7 @@ export interface GetDirectConnectGatewayAttachmentOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */

@@ -35,6 +35,7 @@ public final class GetPortfolioConstraintsResult {
      * 
      */
     private @Nullable String productId;
+    private String region;
 
     private GetPortfolioConstraintsResult() {}
     public Optional<String> acceptLanguage() {
@@ -68,6 +69,9 @@ public final class GetPortfolioConstraintsResult {
     public Optional<String> productId() {
         return Optional.ofNullable(this.productId);
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -83,6 +87,7 @@ public final class GetPortfolioConstraintsResult {
         private String id;
         private String portfolioId;
         private @Nullable String productId;
+        private String region;
         public Builder() {}
         public Builder(GetPortfolioConstraintsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -91,6 +96,7 @@ public final class GetPortfolioConstraintsResult {
     	      this.id = defaults.id;
     	      this.portfolioId = defaults.portfolioId;
     	      this.productId = defaults.productId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -132,6 +138,14 @@ public final class GetPortfolioConstraintsResult {
             this.productId = productId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetPortfolioConstraintsResult build() {
             final var _resultValue = new GetPortfolioConstraintsResult();
             _resultValue.acceptLanguage = acceptLanguage;
@@ -139,6 +153,7 @@ public final class GetPortfolioConstraintsResult {
             _resultValue.id = id;
             _resultValue.portfolioId = portfolioId;
             _resultValue.productId = productId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

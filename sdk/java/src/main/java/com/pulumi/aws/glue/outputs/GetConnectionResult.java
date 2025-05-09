@@ -19,10 +19,19 @@ public final class GetConnectionResult {
      */
     private String arn;
     /**
+     * @return A map of connection properties specific to the Athena compute environment.
+     * 
+     */
+    private Map<String,String> athenaProperties;
+    /**
      * @return Catalog ID of the Glue Connection.
      * 
      */
     private String catalogId;
+    /**
+     * @return A map of connection properties.
+     * 
+     */
     private Map<String,String> connectionProperties;
     /**
      * @return Type of Glue Connection.
@@ -50,6 +59,7 @@ public final class GetConnectionResult {
      * 
      */
     private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
+    private String region;
     /**
      * @return Tags assigned to the resource
      * 
@@ -65,12 +75,23 @@ public final class GetConnectionResult {
         return this.arn;
     }
     /**
+     * @return A map of connection properties specific to the Athena compute environment.
+     * 
+     */
+    public Map<String,String> athenaProperties() {
+        return this.athenaProperties;
+    }
+    /**
      * @return Catalog ID of the Glue Connection.
      * 
      */
     public String catalogId() {
         return this.catalogId;
     }
+    /**
+     * @return A map of connection properties.
+     * 
+     */
     public Map<String,String> connectionProperties() {
         return this.connectionProperties;
     }
@@ -112,6 +133,9 @@ public final class GetConnectionResult {
     public List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements() {
         return this.physicalConnectionRequirements;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Tags assigned to the resource
      * 
@@ -130,6 +154,7 @@ public final class GetConnectionResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private Map<String,String> athenaProperties;
         private String catalogId;
         private Map<String,String> connectionProperties;
         private String connectionType;
@@ -138,11 +163,13 @@ public final class GetConnectionResult {
         private List<String> matchCriterias;
         private String name;
         private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.athenaProperties = defaults.athenaProperties;
     	      this.catalogId = defaults.catalogId;
     	      this.connectionProperties = defaults.connectionProperties;
     	      this.connectionType = defaults.connectionType;
@@ -151,6 +178,7 @@ public final class GetConnectionResult {
     	      this.matchCriterias = defaults.matchCriterias;
     	      this.name = defaults.name;
     	      this.physicalConnectionRequirements = defaults.physicalConnectionRequirements;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -160,6 +188,14 @@ public final class GetConnectionResult {
               throw new MissingRequiredPropertyException("GetConnectionResult", "arn");
             }
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder athenaProperties(Map<String,String> athenaProperties) {
+            if (athenaProperties == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "athenaProperties");
+            }
+            this.athenaProperties = athenaProperties;
             return this;
         }
         @CustomType.Setter
@@ -233,6 +269,14 @@ public final class GetConnectionResult {
             return physicalConnectionRequirements(List.of(physicalConnectionRequirements));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetConnectionResult", "tags");
@@ -243,6 +287,7 @@ public final class GetConnectionResult {
         public GetConnectionResult build() {
             final var _resultValue = new GetConnectionResult();
             _resultValue.arn = arn;
+            _resultValue.athenaProperties = athenaProperties;
             _resultValue.catalogId = catalogId;
             _resultValue.connectionProperties = connectionProperties;
             _resultValue.connectionType = connectionType;
@@ -251,6 +296,7 @@ public final class GetConnectionResult {
             _resultValue.matchCriterias = matchCriterias;
             _resultValue.name = name;
             _resultValue.physicalConnectionRequirements = physicalConnectionRequirements;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

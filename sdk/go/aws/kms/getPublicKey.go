@@ -75,7 +75,8 @@ type GetPublicKeyArgs struct {
 	// * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	// * Alias name. E.g. - `alias/my-key`
 	// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-	KeyId string `pulumi:"keyId"`
+	KeyId  string  `pulumi:"keyId"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPublicKey.
@@ -96,6 +97,7 @@ type GetPublicKeyResult struct {
 	PublicKey string `pulumi:"publicKey"`
 	// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
 	PublicKeyPem string `pulumi:"publicKeyPem"`
+	Region       string `pulumi:"region"`
 	// Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
 	SigningAlgorithms []string `pulumi:"signingAlgorithms"`
 }
@@ -118,7 +120,8 @@ type GetPublicKeyOutputArgs struct {
 	// * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	// * Alias name. E.g. - `alias/my-key`
 	// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-	KeyId pulumi.StringInput `pulumi:"keyId"`
+	KeyId  pulumi.StringInput    `pulumi:"keyId"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPublicKeyOutputArgs) ElementType() reflect.Type {
@@ -181,6 +184,10 @@ func (o GetPublicKeyResultOutput) PublicKey() pulumi.StringOutput {
 // Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
 func (o GetPublicKeyResultOutput) PublicKeyPem() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicKeyResult) string { return v.PublicKeyPem }).(pulumi.StringOutput)
+}
+
+func (o GetPublicKeyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.

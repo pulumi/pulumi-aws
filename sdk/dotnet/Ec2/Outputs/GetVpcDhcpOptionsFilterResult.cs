@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string Name;
         /// <summary>
         /// Set of values for filtering.
+        /// 
+        /// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

@@ -223,6 +223,8 @@ type ExportTask struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Progress of the snapshot export task as a percentage.
 	PercentProgress pulumi.IntOutput `pulumi:"percentProgress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the Amazon S3 bucket to export the snapshot to.
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -303,6 +305,8 @@ type exportTaskState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Progress of the snapshot export task as a percentage.
 	PercentProgress *int `pulumi:"percentProgress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the Amazon S3 bucket to export the snapshot to.
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -339,6 +343,8 @@ type ExportTaskState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Progress of the snapshot export task as a percentage.
 	PercentProgress pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the Amazon S3 bucket to export the snapshot to.
 	S3BucketName pulumi.StringPtrInput
 	// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -375,6 +381,8 @@ type exportTaskArgs struct {
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
 	KmsKeyId string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the Amazon S3 bucket to export the snapshot to.
 	S3BucketName string `pulumi:"s3BucketName"`
 	// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -396,6 +404,8 @@ type ExportTaskArgs struct {
 	IamRoleArn pulumi.StringInput
 	// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
 	KmsKeyId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the Amazon S3 bucket to export the snapshot to.
 	S3BucketName pulumi.StringInput
 	// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -522,6 +532,11 @@ func (o ExportTaskOutput) KmsKeyId() pulumi.StringOutput {
 // Progress of the snapshot export task as a percentage.
 func (o ExportTaskOutput) PercentProgress() pulumi.IntOutput {
 	return o.ApplyT(func(v *ExportTask) pulumi.IntOutput { return v.PercentProgress }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ExportTaskOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the Amazon S3 bucket to export the snapshot to.

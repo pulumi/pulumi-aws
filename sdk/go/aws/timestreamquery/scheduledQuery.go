@@ -442,6 +442,8 @@ type ScheduledQuery struct {
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayOutput `pulumi:"recentlyFailedRuns"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationOutput `pulumi:"scheduleConfiguration"`
 	// State of the scheduled query, either `ENABLED` or `DISABLED`.
@@ -529,6 +531,8 @@ type scheduledQueryState struct {
 	QueryString *string `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration *ScheduledQueryScheduleConfiguration `pulumi:"scheduleConfiguration"`
 	// State of the scheduled query, either `ENABLED` or `DISABLED`.
@@ -569,6 +573,8 @@ type ScheduledQueryState struct {
 	QueryString pulumi.StringPtrInput
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationPtrInput
 	// State of the scheduled query, either `ENABLED` or `DISABLED`.
@@ -605,6 +611,8 @@ type scheduledQueryArgs struct {
 	QueryString string `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfiguration `pulumi:"scheduleConfiguration"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -634,6 +642,8 @@ type ScheduledQueryArgs struct {
 	QueryString pulumi.StringInput
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -794,6 +804,11 @@ func (o ScheduledQueryOutput) QueryString() pulumi.StringOutput {
 // Runtime summary for the last five failed scheduled query runs.
 func (o ScheduledQueryOutput) RecentlyFailedRuns() ScheduledQueryRecentlyFailedRunArrayOutput {
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryRecentlyFailedRunArrayOutput { return v.RecentlyFailedRuns }).(ScheduledQueryRecentlyFailedRunArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ScheduledQueryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block for schedule configuration for the query. See below.

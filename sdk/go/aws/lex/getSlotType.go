@@ -52,7 +52,8 @@ func LookupSlotType(ctx *pulumi.Context, args *LookupSlotTypeArgs, opts ...pulum
 // A collection of arguments for invoking getSlotType.
 type LookupSlotTypeArgs struct {
 	// Name of the slot type. The name is case sensitive.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Version of the slot type.
 	Version *string `pulumi:"version"`
 }
@@ -75,7 +76,8 @@ type LookupSlotTypeResult struct {
 	// Date when the $LATEST version of this slot type was updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Name of the slot type. The name is not case sensitive.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
 	// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -97,7 +99,8 @@ func LookupSlotTypeOutput(ctx *pulumi.Context, args LookupSlotTypeOutputArgs, op
 // A collection of arguments for invoking getSlotType.
 type LookupSlotTypeOutputArgs struct {
 	// Name of the slot type. The name is case sensitive.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the slot type.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -157,6 +160,10 @@ func (o LookupSlotTypeResultOutput) LastUpdatedDate() pulumi.StringOutput {
 // Name of the slot type. The name is not case sensitive.
 func (o LookupSlotTypeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSlotTypeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Determines the slot resolution strategy that Amazon Lex

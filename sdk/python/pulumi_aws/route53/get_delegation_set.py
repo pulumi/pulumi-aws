@@ -44,11 +44,17 @@ class GetDelegationSetResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        ARN of the Delegation Set.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="callerReference")
     def caller_reference(self) -> builtins.str:
+        """
+        Caller Reference of the delegation set.
+        """
         return pulumi.get(self, "caller_reference")
 
     @property
@@ -59,6 +65,9 @@ class GetDelegationSetResult:
     @property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> Sequence[builtins.str]:
+        """
+        List of DNS name servers for the delegation set.
+        """
         return pulumi.get(self, "name_servers")
 
 
@@ -94,8 +103,6 @@ def get_delegation_set(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: Delegation set ID.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['id'] = id
@@ -127,8 +134,6 @@ def get_delegation_set_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str id: Delegation set ID.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['id'] = id

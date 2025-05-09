@@ -272,6 +272,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly predictiveScalingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyPredictiveScalingConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
@@ -345,6 +349,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyType"] = state ? state.policyType : undefined;
             resourceInputs["predictiveScalingConfiguration"] = state ? state.predictiveScalingConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingAdjustment"] = state ? state.scalingAdjustment : undefined;
             resourceInputs["stepAdjustments"] = state ? state.stepAdjustments : undefined;
             resourceInputs["targetTrackingConfiguration"] = state ? state.targetTrackingConfiguration : undefined;
@@ -363,6 +368,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
             resourceInputs["predictiveScalingConfiguration"] = args ? args.predictiveScalingConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingAdjustment"] = args ? args.scalingAdjustment : undefined;
             resourceInputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
             resourceInputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
@@ -425,6 +431,10 @@ export interface PolicyState {
      * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
     predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
@@ -524,6 +534,10 @@ export interface PolicyArgs {
      * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
     predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales

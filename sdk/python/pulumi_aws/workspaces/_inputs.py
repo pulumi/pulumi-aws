@@ -18,6 +18,8 @@ from .. import _utilities
 __all__ = [
     'ConnectionAliasTimeoutsArgs',
     'ConnectionAliasTimeoutsArgsDict',
+    'DirectoryCertificateBasedAuthPropertiesArgs',
+    'DirectoryCertificateBasedAuthPropertiesArgsDict',
     'DirectorySamlPropertiesArgs',
     'DirectorySamlPropertiesArgsDict',
     'DirectorySelfServicePermissionsArgs',
@@ -84,6 +86,58 @@ class ConnectionAliasTimeoutsArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "delete", value)
+
+
+if not MYPY:
+    class DirectoryCertificateBasedAuthPropertiesArgsDict(TypedDict):
+        certificate_authority_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        """
+        status: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Status of certificate-based authentication. Default `DISABLED`.
+        """
+elif False:
+    DirectoryCertificateBasedAuthPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DirectoryCertificateBasedAuthPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        :param pulumi.Input[builtins.str] status: Status of certificate-based authentication. Default `DISABLED`.
+        """
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @certificate_authority_arn.setter
+    def certificate_authority_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "certificate_authority_arn", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Status of certificate-based authentication. Default `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:

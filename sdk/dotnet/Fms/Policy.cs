@@ -133,6 +133,12 @@ namespace Pulumi.Aws.Fms
         public Output<string> PolicyUpdateToken { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         /// </summary>
         [Output("remediationEnabled")]
@@ -266,6 +272,12 @@ namespace Pulumi.Aws.Fms
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         /// </summary>
         [Input("remediationEnabled")]
@@ -385,6 +397,12 @@ namespace Pulumi.Aws.Fms
         /// </summary>
         [Input("policyUpdateToken")]
         public Input<string>? PolicyUpdateToken { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.

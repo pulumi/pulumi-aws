@@ -85,7 +85,8 @@ type LookupContactFlowArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow by name
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Tags to assign to the Contact Flow.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Contact Flow.
@@ -105,6 +106,7 @@ type LookupContactFlowResult struct {
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
 	Name       string `pulumi:"name"`
+	Region     string `pulumi:"region"`
 	// Tags to assign to the Contact Flow.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Contact Flow.
@@ -127,7 +129,8 @@ type LookupContactFlowOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow by name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags to assign to the Contact Flow.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Type of Contact Flow.
@@ -183,6 +186,10 @@ func (o LookupContactFlowResultOutput) InstanceId() pulumi.StringOutput {
 
 func (o LookupContactFlowResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupContactFlowResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags to assign to the Contact Flow.

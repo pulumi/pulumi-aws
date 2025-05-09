@@ -24,6 +24,7 @@ export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions)
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:guardduty/getDetector:getDetector", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -36,6 +37,7 @@ export interface GetDetectorArgs {
      * ID of the detector.
      */
     id?: string;
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -59,6 +61,7 @@ export interface GetDetectorResult {
      */
     readonly findingPublishingFrequency: string;
     readonly id: string;
+    readonly region: string;
     /**
      * Service-linked role that grants GuardDuty access to the resources in the AWS account.
      */
@@ -89,6 +92,7 @@ export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.In
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:guardduty/getDetector:getDetector", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -101,6 +105,7 @@ export interface GetDetectorOutputArgs {
      * ID of the detector.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

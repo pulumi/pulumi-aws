@@ -262,6 +262,12 @@ namespace Pulumi.Aws.Acm
         public Output<string?> PrivateKey { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the certificate is eligible for managed renewal.
         /// </summary>
         [Output("renewalEligibility")]
@@ -435,6 +441,12 @@ namespace Pulumi.Aws.Acm
             }
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
 
@@ -598,6 +610,12 @@ namespace Pulumi.Aws.Acm
                 _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether the certificate is eligible for managed renewal.

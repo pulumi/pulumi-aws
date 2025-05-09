@@ -47,6 +47,13 @@ public final class GetParametersByPathArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.recursive);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
      * 
@@ -67,6 +74,7 @@ public final class GetParametersByPathArgs extends com.pulumi.resources.InvokeAr
     private GetParametersByPathArgs(GetParametersByPathArgs $) {
         this.path = $.path;
         this.recursive = $.recursive;
+        this.region = $.region;
         this.withDecryption = $.withDecryption;
     }
 
@@ -128,6 +136,15 @@ public final class GetParametersByPathArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder recursive(Boolean recursive) {
             return recursive(Output.of(recursive));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

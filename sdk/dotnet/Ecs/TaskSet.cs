@@ -132,6 +132,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Output("scale")]
@@ -306,6 +312,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Input("scale")]
@@ -428,6 +440,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.

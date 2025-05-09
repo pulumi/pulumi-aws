@@ -27,7 +27,7 @@ class GetActivityResult:
     """
     A collection of values returned by getActivity.
     """
-    def __init__(__self__, arn=None, creation_date=None, id=None, name=None):
+    def __init__(__self__, arn=None, creation_date=None, id=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetActivityResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -67,6 +70,11 @@ class GetActivityResult:
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetActivityResult(GetActivityResult):
     # pylint: disable=using-constant-test
@@ -77,11 +85,13 @@ class AwaitableGetActivityResult(GetActivityResult):
             arn=self.arn,
             creation_date=self.creation_date,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_activity(arn: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityResult:
     """
     Provides a Step Functions Activity data source
@@ -102,6 +112,7 @@ def get_activity(arn: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sfn/getActivity:getActivity', __args__, opts=opts, typ=GetActivityResult).value
 
@@ -109,9 +120,11 @@ def get_activity(arn: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_activity_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActivityResult]:
     """
     Provides a Step Functions Activity data source
@@ -132,10 +145,12 @@ def get_activity_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sfn/getActivity:getActivity', __args__, opts=opts, typ=GetActivityResult)
     return __ret__.apply(lambda __response__: GetActivityResult(
         arn=pulumi.get(__response__, 'arn'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

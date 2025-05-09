@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class InstanceTrustProviderAttachmentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final InstanceTrustProviderAttachmentArgs Empty = new InstanceTrustProviderAttachmentArgs();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * The ID of the Verified Access instance to attach the Trust Provider to.
@@ -47,6 +64,7 @@ public final class InstanceTrustProviderAttachmentArgs extends com.pulumi.resour
     private InstanceTrustProviderAttachmentArgs() {}
 
     private InstanceTrustProviderAttachmentArgs(InstanceTrustProviderAttachmentArgs $) {
+        this.region = $.region;
         this.verifiedaccessInstanceId = $.verifiedaccessInstanceId;
         this.verifiedaccessTrustProviderId = $.verifiedaccessTrustProviderId;
     }
@@ -67,6 +85,27 @@ public final class InstanceTrustProviderAttachmentArgs extends com.pulumi.resour
 
         public Builder(InstanceTrustProviderAttachmentArgs defaults) {
             $ = new InstanceTrustProviderAttachmentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

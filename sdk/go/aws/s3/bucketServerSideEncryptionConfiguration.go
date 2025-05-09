@@ -87,6 +87,8 @@ type BucketServerSideEncryptionConfiguration struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
 	Rules BucketServerSideEncryptionConfigurationRuleArrayOutput `pulumi:"rules"`
 }
@@ -140,6 +142,8 @@ type bucketServerSideEncryptionConfigurationState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
 	Rules []BucketServerSideEncryptionConfigurationRule `pulumi:"rules"`
 }
@@ -149,6 +153,8 @@ type BucketServerSideEncryptionConfigurationState struct {
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
 	Rules BucketServerSideEncryptionConfigurationRuleArrayInput
 }
@@ -162,6 +168,8 @@ type bucketServerSideEncryptionConfigurationArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
 	Rules []BucketServerSideEncryptionConfigurationRule `pulumi:"rules"`
 }
@@ -172,6 +180,8 @@ type BucketServerSideEncryptionConfigurationArgs struct {
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
 	Rules BucketServerSideEncryptionConfigurationRuleArrayInput
 }
@@ -271,6 +281,11 @@ func (o BucketServerSideEncryptionConfigurationOutput) Bucket() pulumi.StringOut
 // Account ID of the expected bucket owner.
 func (o BucketServerSideEncryptionConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketServerSideEncryptionConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.

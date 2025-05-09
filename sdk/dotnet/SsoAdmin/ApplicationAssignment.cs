@@ -83,6 +83,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ApplicationAssignment resource with the given unique name, arguments, and options.
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ApplicationAssignmentArgs()
         {
         }
@@ -172,6 +184,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ApplicationAssignmentState()
         {

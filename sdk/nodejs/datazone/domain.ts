@@ -131,6 +131,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
     public readonly singleSignOn!: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
@@ -164,6 +168,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["singleSignOn"] = state ? state.singleSignOn : undefined;
             resourceInputs["skipDeletionCheck"] = state ? state.skipDeletionCheck : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -178,6 +183,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainExecutionRole"] = args ? args.domainExecutionRole : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
             resourceInputs["skipDeletionCheck"] = args ? args.skipDeletionCheck : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -222,6 +228,10 @@ export interface DomainState {
      */
     portalUrl?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
     singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOn>;
@@ -259,6 +269,10 @@ export interface DomainArgs {
      * Name of the Domain.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */

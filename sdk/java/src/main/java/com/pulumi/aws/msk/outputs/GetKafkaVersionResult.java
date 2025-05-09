@@ -18,6 +18,7 @@ public final class GetKafkaVersionResult {
      */
     private String id;
     private @Nullable List<String> preferredVersions;
+    private String region;
     /**
      * @return Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
      * 
@@ -35,6 +36,9 @@ public final class GetKafkaVersionResult {
     }
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
@@ -58,6 +62,7 @@ public final class GetKafkaVersionResult {
     public static final class Builder {
         private String id;
         private @Nullable List<String> preferredVersions;
+        private String region;
         private String status;
         private String version;
         public Builder() {}
@@ -65,6 +70,7 @@ public final class GetKafkaVersionResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.preferredVersions = defaults.preferredVersions;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.version = defaults.version;
         }
@@ -87,6 +93,14 @@ public final class GetKafkaVersionResult {
             return preferredVersions(List.of(preferredVersions));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetKafkaVersionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetKafkaVersionResult", "status");
@@ -106,6 +120,7 @@ public final class GetKafkaVersionResult {
             final var _resultValue = new GetKafkaVersionResult();
             _resultValue.id = id;
             _resultValue.preferredVersions = preferredVersions;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.version = version;
             return _resultValue;

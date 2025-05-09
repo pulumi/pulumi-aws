@@ -71,6 +71,8 @@ type SharedDirectory struct {
 	Method pulumi.StringPtrOutput `pulumi:"method"`
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringOutput `pulumi:"sharedDirectoryId"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
@@ -128,6 +130,8 @@ type sharedDirectoryState struct {
 	Method *string `pulumi:"method"`
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes *string `pulumi:"notes"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId *string `pulumi:"sharedDirectoryId"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
@@ -143,6 +147,8 @@ type SharedDirectoryState struct {
 	Method pulumi.StringPtrInput
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringPtrInput
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
@@ -162,6 +168,8 @@ type sharedDirectoryArgs struct {
 	Method *string `pulumi:"method"`
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes *string `pulumi:"notes"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
 	//
 	// The following arguments are optional:
@@ -176,6 +184,8 @@ type SharedDirectoryArgs struct {
 	Method pulumi.StringPtrInput
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
 	//
 	// The following arguments are optional:
@@ -282,6 +292,11 @@ func (o SharedDirectoryOutput) Method() pulumi.StringPtrOutput {
 // Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 func (o SharedDirectoryOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedDirectory) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SharedDirectoryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SharedDirectory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.

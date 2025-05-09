@@ -63,6 +63,21 @@ public final class BuildState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Information indicating where your game build files are stored. See below.
      * 
      */
@@ -128,6 +143,7 @@ public final class BuildState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.name = $.name;
         this.operatingSystem = $.operatingSystem;
+        this.region = $.region;
         this.storageLocation = $.storageLocation;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -213,6 +229,27 @@ public final class BuildState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder operatingSystem(String operatingSystem) {
             return operatingSystem(Output.of(operatingSystem));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

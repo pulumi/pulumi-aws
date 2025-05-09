@@ -37,6 +37,21 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
      * 
@@ -83,6 +98,7 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.ResourceAr
 
     private ReservedCacheNodeArgs(ReservedCacheNodeArgs $) {
         this.cacheNodeCount = $.cacheNodeCount;
+        this.region = $.region;
         this.reservedCacheNodesOfferingId = $.reservedCacheNodesOfferingId;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
@@ -127,6 +143,27 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder cacheNodeCount(Integer cacheNodeCount) {
             return cacheNodeCount(Output.of(cacheNodeCount));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

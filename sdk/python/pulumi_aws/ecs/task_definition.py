@@ -34,6 +34,7 @@ class TaskDefinitionArgs:
                  pid_mode: Optional[pulumi.Input[builtins.str]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]]] = None,
                  proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -59,6 +60,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
@@ -89,6 +91,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "placement_constraints", placement_constraints)
         if proxy_configuration is not None:
             pulumi.set(__self__, "proxy_configuration", proxy_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requires_compatibilities is not None:
             pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
         if runtime_platform is not None:
@@ -253,6 +257,18 @@ class TaskDefinitionArgs:
         pulumi.set(self, "proxy_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -354,6 +370,7 @@ class _TaskDefinitionState:
                  pid_mode: Optional[pulumi.Input[builtins.str]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]]] = None,
                  proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  revision: Optional[pulumi.Input[builtins.int]] = None,
                  runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
@@ -383,6 +400,7 @@ class _TaskDefinitionState:
         :param pulumi.Input[builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[builtins.int] revision: Revision of the task in a particular family.
         :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
@@ -421,6 +439,8 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "placement_constraints", placement_constraints)
         if proxy_configuration is not None:
             pulumi.set(__self__, "proxy_configuration", proxy_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requires_compatibilities is not None:
             pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
         if revision is not None:
@@ -613,6 +633,18 @@ class _TaskDefinitionState:
         pulumi.set(self, "proxy_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -741,6 +773,7 @@ class TaskDefinition(pulumi.CustomResource):
                  pid_mode: Optional[pulumi.Input[builtins.str]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
                  proxy_configuration: Optional[pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  runtime_platform: Optional[pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -985,6 +1018,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
@@ -1244,6 +1278,7 @@ class TaskDefinition(pulumi.CustomResource):
                  pid_mode: Optional[pulumi.Input[builtins.str]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
                  proxy_configuration: Optional[pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  runtime_platform: Optional[pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1276,6 +1311,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["pid_mode"] = pid_mode
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["proxy_configuration"] = proxy_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["requires_compatibilities"] = requires_compatibilities
             __props__.__dict__["runtime_platform"] = runtime_platform
             __props__.__dict__["skip_destroy"] = skip_destroy
@@ -1311,6 +1347,7 @@ class TaskDefinition(pulumi.CustomResource):
             pid_mode: Optional[pulumi.Input[builtins.str]] = None,
             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
             proxy_configuration: Optional[pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             revision: Optional[pulumi.Input[builtins.int]] = None,
             runtime_platform: Optional[pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
@@ -1345,6 +1382,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[builtins.int] revision: Revision of the task in a particular family.
         :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
@@ -1373,6 +1411,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["pid_mode"] = pid_mode
         __props__.__dict__["placement_constraints"] = placement_constraints
         __props__.__dict__["proxy_configuration"] = proxy_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["requires_compatibilities"] = requires_compatibilities
         __props__.__dict__["revision"] = revision
         __props__.__dict__["runtime_platform"] = runtime_platform
@@ -1499,6 +1538,14 @@ class TaskDefinition(pulumi.CustomResource):
         Configuration block for the App Mesh proxy. Detailed below.
         """
         return pulumi.get(self, "proxy_configuration")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requiresCompatibilities")

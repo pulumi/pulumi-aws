@@ -52,6 +52,7 @@ export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:networkfirewall/getFirewall:getFirewall", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -66,8 +67,11 @@ export interface GetFirewallArgs {
     arn?: string;
     /**
      * Descriptive name of the firewall.
+     *
+     * One or more of these arguments is required.
      */
     name?: string;
+    region?: string;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -90,6 +94,10 @@ export interface GetFirewallResult {
      * Description of the firewall.
      */
     readonly description: string;
+    /**
+     * Set of types for which to collect analysis metrics.
+     */
+    readonly enabledAnalysisTypes: string[];
     /**
      * AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      */
@@ -114,6 +122,7 @@ export interface GetFirewallResult {
      * Descriptive name of the firewall.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations.
      */
@@ -180,6 +189,7 @@ export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("aws:networkfirewall/getFirewall:getFirewall", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -194,8 +204,11 @@ export interface GetFirewallOutputArgs {
     arn?: pulumi.Input<string>;
     /**
      * Descriptive name of the firewall.
+     *
+     * One or more of these arguments is required.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

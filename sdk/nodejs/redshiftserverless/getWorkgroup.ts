@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
 export function getWorkgroup(args: GetWorkgroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkgroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshiftserverless/getWorkgroup:getWorkgroup", {
+        "region": args.region,
         "workgroupName": args.workgroupName,
     }, opts);
 }
@@ -34,6 +35,7 @@ export function getWorkgroup(args: GetWorkgroupArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getWorkgroup.
  */
 export interface GetWorkgroupArgs {
+    region?: string;
     /**
      * The name of the workgroup associated with the database.
      */
@@ -65,6 +67,7 @@ export interface GetWorkgroupResult {
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
     readonly publiclyAccessible: boolean;
+    readonly region: string;
     /**
      * An array of security group IDs to associate with the workgroup.
      */
@@ -98,6 +101,7 @@ export interface GetWorkgroupResult {
 export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkgroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshiftserverless/getWorkgroup:getWorkgroup", {
+        "region": args.region,
         "workgroupName": args.workgroupName,
     }, opts);
 }
@@ -106,6 +110,7 @@ export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getWorkgroup.
  */
 export interface GetWorkgroupOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * The name of the workgroup associated with the database.
      */

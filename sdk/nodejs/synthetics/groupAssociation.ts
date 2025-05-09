@@ -70,6 +70,10 @@ export class GroupAssociation extends pulumi.CustomResource {
      * Name of the group that the canary will be associated with.
      */
     public readonly groupName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a GroupAssociation resource with the given unique name, arguments, and options.
@@ -88,6 +92,7 @@ export class GroupAssociation extends pulumi.CustomResource {
             resourceInputs["groupArn"] = state ? state.groupArn : undefined;
             resourceInputs["groupId"] = state ? state.groupId : undefined;
             resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GroupAssociationArgs | undefined;
             if ((!args || args.canaryArn === undefined) && !opts.urn) {
@@ -98,6 +103,7 @@ export class GroupAssociation extends pulumi.CustomResource {
             }
             resourceInputs["canaryArn"] = args ? args.canaryArn : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["groupArn"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
         }
@@ -123,6 +129,10 @@ export interface GroupAssociationState {
      * Name of the group that the canary will be associated with.
      */
     groupName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -137,4 +147,8 @@ export interface GroupAssociationArgs {
      * Name of the group that the canary will be associated with.
      */
     groupName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

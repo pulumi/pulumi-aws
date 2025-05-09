@@ -94,6 +94,9 @@ namespace Pulumi.Aws.Glue
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -120,6 +123,9 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -148,9 +154,16 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// A map of connection properties specific to the Athena compute environment.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> AthenaProperties;
+        /// <summary>
         /// Catalog ID of the Glue Connection.
         /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// A map of connection properties.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> ConnectionProperties;
         /// <summary>
         /// Type of Glue Connection.
@@ -173,6 +186,7 @@ namespace Pulumi.Aws.Glue
         /// A map of physical connection requirements, such as VPC and SecurityGroup.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> PhysicalConnectionRequirements;
+        public readonly string Region;
         /// <summary>
         /// Tags assigned to the resource
         /// </summary>
@@ -181,6 +195,8 @@ namespace Pulumi.Aws.Glue
         [OutputConstructor]
         private GetConnectionResult(
             string arn,
+
+            ImmutableDictionary<string, string> athenaProperties,
 
             string catalogId,
 
@@ -198,9 +214,12 @@ namespace Pulumi.Aws.Glue
 
             ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> physicalConnectionRequirements,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            AthenaProperties = athenaProperties;
             CatalogId = catalogId;
             ConnectionProperties = connectionProperties;
             ConnectionType = connectionType;
@@ -209,6 +228,7 @@ namespace Pulumi.Aws.Glue
             MatchCriterias = matchCriterias;
             Name = name;
             PhysicalConnectionRequirements = physicalConnectionRequirements;
+            Region = region;
             Tags = tags;
         }
     }

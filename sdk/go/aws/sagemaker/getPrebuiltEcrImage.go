@@ -71,7 +71,7 @@ type GetPrebuiltEcrImageResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id       string  `pulumi:"id"`
 	ImageTag *string `pulumi:"imageTag"`
-	Region   *string `pulumi:"region"`
+	Region   string  `pulumi:"region"`
 	// Account ID containing the image. For example, `469771592824`.
 	RegistryId string `pulumi:"registryId"`
 	// Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
@@ -132,8 +132,8 @@ func (o GetPrebuiltEcrImageResultOutput) ImageTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPrebuiltEcrImageResult) *string { return v.ImageTag }).(pulumi.StringPtrOutput)
 }
 
-func (o GetPrebuiltEcrImageResultOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetPrebuiltEcrImageResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o GetPrebuiltEcrImageResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Account ID containing the image. For example, `469771592824`.

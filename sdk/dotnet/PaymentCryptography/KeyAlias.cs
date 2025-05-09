@@ -82,6 +82,12 @@ namespace Pulumi.Aws.PaymentCryptography
         [Output("keyArn")]
         public Output<string?> KeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a KeyAlias resource with the given unique name, arguments, and options.
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.PaymentCryptography
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public KeyAliasArgs()
         {
         }
@@ -163,6 +175,12 @@ namespace Pulumi.Aws.PaymentCryptography
         /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public KeyAliasState()
         {

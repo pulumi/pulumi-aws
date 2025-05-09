@@ -70,6 +70,8 @@ type RiskConfiguration struct {
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput `pulumi:"compromisedCredentialsRiskConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrOutput `pulumi:"riskExceptionConfiguration"`
 	// The user pool ID.
@@ -115,6 +117,8 @@ type riskConfigurationState struct {
 	ClientId *string `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration *RiskConfigurationCompromisedCredentialsRiskConfiguration `pulumi:"compromisedCredentialsRiskConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration *RiskConfigurationRiskExceptionConfiguration `pulumi:"riskExceptionConfiguration"`
 	// The user pool ID.
@@ -128,6 +132,8 @@ type RiskConfigurationState struct {
 	ClientId pulumi.StringPtrInput
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrInput
 	// The user pool ID.
@@ -145,6 +151,8 @@ type riskConfigurationArgs struct {
 	ClientId *string `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration *RiskConfigurationCompromisedCredentialsRiskConfiguration `pulumi:"compromisedCredentialsRiskConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration *RiskConfigurationRiskExceptionConfiguration `pulumi:"riskExceptionConfiguration"`
 	// The user pool ID.
@@ -159,6 +167,8 @@ type RiskConfigurationArgs struct {
 	ClientId pulumi.StringPtrInput
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrInput
 	// The user pool ID.
@@ -269,6 +279,11 @@ func (o RiskConfigurationOutput) CompromisedCredentialsRiskConfiguration() RiskC
 	return o.ApplyT(func(v *RiskConfiguration) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
 		return v.CompromisedCredentialsRiskConfiguration
 	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RiskConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RiskConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The configuration to override the risk decision. See details below.

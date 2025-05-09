@@ -181,6 +181,21 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
@@ -281,6 +296,7 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
         this.kernelId = $.kernelId;
         this.name = $.name;
         this.ramdiskId = $.ramdiskId;
+        this.region = $.region;
         this.rootDeviceName = $.rootDeviceName;
         this.sriovNetSupport = $.sriovNetSupport;
         this.tags = $.tags;
@@ -547,6 +563,27 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder ramdiskId(String ramdiskId) {
             return ramdiskId(Output.of(ramdiskId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

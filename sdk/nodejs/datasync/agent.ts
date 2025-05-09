@@ -105,6 +105,10 @@ export class Agent extends pulumi.CustomResource {
      */
     public readonly privateLinkEndpoint!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */
     public readonly securityGroupArns!: pulumi.Output<string[] | undefined>;
@@ -143,6 +147,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateLinkEndpoint"] = state ? state.privateLinkEndpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
             resourceInputs["subnetArns"] = state ? state.subnetArns : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -154,6 +159,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateLinkEndpoint"] = args ? args.privateLinkEndpoint : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
             resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -190,6 +196,10 @@ export interface AgentState {
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      */
     privateLinkEndpoint?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */
@@ -232,6 +242,10 @@ export interface AgentArgs {
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      */
     privateLinkEndpoint?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */

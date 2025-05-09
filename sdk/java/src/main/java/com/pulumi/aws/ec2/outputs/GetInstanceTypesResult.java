@@ -24,6 +24,7 @@ public final class GetInstanceTypesResult {
      * 
      */
     private List<String> instanceTypes;
+    private String region;
 
     private GetInstanceTypesResult() {}
     public List<GetInstanceTypesFilter> filters() {
@@ -43,6 +44,9 @@ public final class GetInstanceTypesResult {
     public List<String> instanceTypes() {
         return this.instanceTypes;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +60,14 @@ public final class GetInstanceTypesResult {
         private @Nullable List<GetInstanceTypesFilter> filters;
         private String id;
         private List<String> instanceTypes;
+        private String region;
         public Builder() {}
         public Builder(GetInstanceTypesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.instanceTypes = defaults.instanceTypes;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -92,11 +98,20 @@ public final class GetInstanceTypesResult {
         public Builder instanceTypes(String... instanceTypes) {
             return instanceTypes(List.of(instanceTypes));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetInstanceTypesResult build() {
             final var _resultValue = new GetInstanceTypesResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.instanceTypes = instanceTypes;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

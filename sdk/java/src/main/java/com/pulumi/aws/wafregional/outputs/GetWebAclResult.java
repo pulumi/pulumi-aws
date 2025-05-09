@@ -16,6 +16,7 @@ public final class GetWebAclResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetWebAclResult() {}
     /**
@@ -27,6 +28,9 @@ public final class GetWebAclResult {
     }
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -40,11 +44,13 @@ public final class GetWebAclResult {
     public static final class Builder {
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetWebAclResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -63,10 +69,19 @@ public final class GetWebAclResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWebAclResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetWebAclResult build() {
             final var _resultValue = new GetWebAclResult();
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -92,13 +92,14 @@ type LookupRouteArgs struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	Region             *string `pulumi:"region"`
 	// ID of the specific Route Table containing the Route entry.
-	//
-	// The following arguments are optional:
 	RouteTableId string `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// VPC Peering Connection ID of the Route belonging to the Route Table.
+	//
+	// The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
@@ -117,6 +118,7 @@ type LookupRouteResult struct {
 	LocalGatewayId         string `pulumi:"localGatewayId"`
 	NatGatewayId           string `pulumi:"natGatewayId"`
 	NetworkInterfaceId     string `pulumi:"networkInterfaceId"`
+	Region                 string `pulumi:"region"`
 	RouteTableId           string `pulumi:"routeTableId"`
 	TransitGatewayId       string `pulumi:"transitGatewayId"`
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
@@ -155,13 +157,14 @@ type LookupRouteOutputArgs struct {
 	NatGatewayId pulumi.StringPtrInput `pulumi:"natGatewayId"`
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	Region             pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the specific Route Table containing the Route entry.
-	//
-	// The following arguments are optional:
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
 	// VPC Peering Connection ID of the Route belonging to the Route Table.
+	//
+	// The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
 	VpcPeeringConnectionId pulumi.StringPtrInput `pulumi:"vpcPeeringConnectionId"`
 }
 
@@ -231,6 +234,10 @@ func (o LookupRouteResultOutput) NatGatewayId() pulumi.StringOutput {
 
 func (o LookupRouteResultOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+func (o LookupRouteResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupRouteResultOutput) RouteTableId() pulumi.StringOutput {

@@ -114,6 +114,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicDefaultScopeId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The number of scopes in the IPAM.
         /// </summary>
         [Output("scopeCount")]
@@ -213,6 +219,12 @@ namespace Pulumi.Aws.Ec2
             set => _operatingRegions = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -299,6 +311,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("publicDefaultScopeId")]
         public Input<string>? PublicDefaultScopeId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The number of scopes in the IPAM.

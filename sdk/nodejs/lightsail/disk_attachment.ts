@@ -86,6 +86,10 @@ export class Disk_attachment extends pulumi.CustomResource {
      * The name of the Lightsail Instance to attach to.
      */
     public readonly instanceName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Disk_attachment resource with the given unique name, arguments, and options.
@@ -103,6 +107,7 @@ export class Disk_attachment extends pulumi.CustomResource {
             resourceInputs["diskName"] = state ? state.diskName : undefined;
             resourceInputs["diskPath"] = state ? state.diskPath : undefined;
             resourceInputs["instanceName"] = state ? state.instanceName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as Disk_attachmentArgs | undefined;
             if ((!args || args.diskName === undefined) && !opts.urn) {
@@ -117,6 +122,7 @@ export class Disk_attachment extends pulumi.CustomResource {
             resourceInputs["diskName"] = args ? args.diskName : undefined;
             resourceInputs["diskPath"] = args ? args.diskPath : undefined;
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Disk_attachment.__pulumiType, name, resourceInputs, opts);
@@ -139,6 +145,10 @@ export interface Disk_attachmentState {
      * The name of the Lightsail Instance to attach to.
      */
     instanceName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -157,4 +167,8 @@ export interface Disk_attachmentArgs {
      * The name of the Lightsail Instance to attach to.
      */
     instanceName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

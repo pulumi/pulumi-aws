@@ -486,6 +486,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ReaderEndpointAddress { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Number of replica nodes in each node group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Valid values are 0 to 5.
@@ -829,6 +835,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _preferredCacheClusterAzs ?? (_preferredCacheClusterAzs = new InputList<string>());
             set => _preferredCacheClusterAzs = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Number of replica nodes in each node group.
@@ -1204,6 +1216,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("readerEndpointAddress")]
         public Input<string>? ReaderEndpointAddress { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Number of replica nodes in each node group.

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAccessPointsArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,10 +31,18 @@ public final class GetAccessPointsArgs extends com.pulumi.resources.InvokeArgs {
         return this.fileSystemId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetAccessPointsArgs() {}
 
     private GetAccessPointsArgs(GetAccessPointsArgs $) {
         this.fileSystemId = $.fileSystemId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -72,6 +82,15 @@ public final class GetAccessPointsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetAccessPointsArgs build() {

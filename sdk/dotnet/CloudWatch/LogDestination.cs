@@ -56,6 +56,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         /// </summary>
         [Output("roleArn")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -174,6 +186,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.

@@ -71,6 +71,10 @@ export class MetricsDestination extends pulumi.CustomResource {
      * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
      */
     public readonly iamRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a MetricsDestination resource with the given unique name, arguments, and options.
@@ -89,6 +93,7 @@ export class MetricsDestination extends pulumi.CustomResource {
             resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
             resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as MetricsDestinationArgs | undefined;
             if ((!args || args.appMonitorName === undefined) && !opts.urn) {
@@ -101,6 +106,7 @@ export class MetricsDestination extends pulumi.CustomResource {
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MetricsDestination.__pulumiType, name, resourceInputs, opts);
@@ -127,6 +133,10 @@ export interface MetricsDestinationState {
      * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
      */
     iamRoleArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -149,4 +159,8 @@ export interface MetricsDestinationArgs {
      * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
      */
     iamRoleArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

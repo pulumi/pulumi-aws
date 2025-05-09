@@ -554,6 +554,12 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableArray<Outputs.BucketNotificationQueue>> Queues { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Notification configuration to SNS Topic. See below.
         /// </summary>
         [Output("topics")]
@@ -643,6 +649,12 @@ namespace Pulumi.Aws.S3
             set => _queues = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("topics")]
         private InputList<Inputs.BucketNotificationTopicArgs>? _topics;
 
@@ -700,6 +712,12 @@ namespace Pulumi.Aws.S3
             get => _queues ?? (_queues = new InputList<Inputs.BucketNotificationQueueGetArgs>());
             set => _queues = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("topics")]
         private InputList<Inputs.BucketNotificationTopicGetArgs>? _topics;

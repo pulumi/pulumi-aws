@@ -77,6 +77,21 @@ public final class MulticastDomainState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
@@ -143,6 +158,7 @@ public final class MulticastDomainState extends com.pulumi.resources.ResourceArg
         this.autoAcceptSharedAssociations = $.autoAcceptSharedAssociations;
         this.igmpv2Support = $.igmpv2Support;
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.staticSourcesSupport = $.staticSourcesSupport;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -249,6 +265,27 @@ public final class MulticastDomainState extends com.pulumi.resources.ResourceArg
          */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

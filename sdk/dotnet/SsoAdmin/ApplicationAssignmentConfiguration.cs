@@ -61,6 +61,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Output("assignmentRequired")]
         public Output<bool> AssignmentRequired { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ApplicationAssignmentConfiguration resource with the given unique name, arguments, and options.
@@ -119,6 +125,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("assignmentRequired", required: true)]
         public Input<bool> AssignmentRequired { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ApplicationAssignmentConfigurationArgs()
         {
         }
@@ -138,6 +150,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("assignmentRequired")]
         public Input<bool>? AssignmentRequired { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ApplicationAssignmentConfigurationState()
         {

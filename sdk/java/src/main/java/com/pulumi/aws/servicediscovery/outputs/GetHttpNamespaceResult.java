@@ -32,6 +32,7 @@ public final class GetHttpNamespaceResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Map of tags for the resource.
      * 
@@ -70,6 +71,9 @@ public final class GetHttpNamespaceResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags for the resource.
      * 
@@ -92,6 +96,7 @@ public final class GetHttpNamespaceResult {
         private String httpName;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetHttpNamespaceResult defaults) {
@@ -101,6 +106,7 @@ public final class GetHttpNamespaceResult {
     	      this.httpName = defaults.httpName;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -145,6 +151,14 @@ public final class GetHttpNamespaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetHttpNamespaceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetHttpNamespaceResult", "tags");
@@ -159,6 +173,7 @@ public final class GetHttpNamespaceResult {
             _resultValue.httpName = httpName;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

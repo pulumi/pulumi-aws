@@ -33,6 +33,13 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         return this.id;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Tags assigned to the resource
      * 
@@ -52,6 +59,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetConnectionPlainArgs(GetConnectionPlainArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -82,6 +90,11 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder id(String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

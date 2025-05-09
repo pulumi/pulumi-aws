@@ -32,6 +32,13 @@ public final class GetPipelineArgs extends com.pulumi.resources.InvokeArgs {
         return this.pipelineId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags assigned to the resource.
      * 
@@ -51,6 +58,7 @@ public final class GetPipelineArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetPipelineArgs(GetPipelineArgs $) {
         this.pipelineId = $.pipelineId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetPipelineArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder pipelineId(String pipelineId) {
             return pipelineId(Output.of(pipelineId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

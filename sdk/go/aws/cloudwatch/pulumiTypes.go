@@ -7849,10 +7849,6 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pul
 
 type GetContributorManagedInsightRulesManagedRule struct {
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-	//
-	// The following arguments are optional:
-	//
-	// There are no optional arguments.
 	ResourceArn string `pulumi:"resourceArn"`
 	// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
 	RuleStates []GetContributorManagedInsightRulesManagedRuleRuleState `pulumi:"ruleStates"`
@@ -7873,10 +7869,6 @@ type GetContributorManagedInsightRulesManagedRuleInput interface {
 
 type GetContributorManagedInsightRulesManagedRuleArgs struct {
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-	//
-	// The following arguments are optional:
-	//
-	// There are no optional arguments.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 	// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
 	RuleStates GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput `pulumi:"ruleStates"`
@@ -7936,10 +7928,6 @@ func (o GetContributorManagedInsightRulesManagedRuleOutput) ToGetContributorMana
 }
 
 // ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-//
-// The following arguments are optional:
-//
-// There are no optional arguments.
 func (o GetContributorManagedInsightRulesManagedRuleOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContributorManagedInsightRulesManagedRule) string { return v.ResourceArn }).(pulumi.StringOutput)
 }

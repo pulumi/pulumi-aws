@@ -123,6 +123,10 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The user pool ID for the user pool.
      */
     public readonly userPoolId!: pulumi.Output<string>;
@@ -147,6 +151,7 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
             resourceInputs["imageFile"] = state ? state.imageFile : undefined;
             resourceInputs["imageUrl"] = state ? state.imageUrl : undefined;
             resourceInputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as UserPoolUICustomizationArgs | undefined;
@@ -156,6 +161,7 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["css"] = args ? args.css : undefined;
             resourceInputs["imageFile"] = args ? args.imageFile : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["cssVersion"] = undefined /*out*/;
@@ -200,6 +206,10 @@ export interface UserPoolUICustomizationState {
      */
     lastModifiedDate?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The user pool ID for the user pool.
      */
     userPoolId?: pulumi.Input<string>;
@@ -221,6 +231,10 @@ export interface UserPoolUICustomizationArgs {
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      */
     imageFile?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user pool ID for the user pool.
      */

@@ -126,6 +126,20 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
         return this.dnsEntries;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */

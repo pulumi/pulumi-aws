@@ -48,6 +48,21 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags to add to the IPAM resource discovery association resource.
      * 
      */
@@ -67,6 +82,7 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
     private VpcIpamResourceDiscoveryAssociationArgs(VpcIpamResourceDiscoveryAssociationArgs $) {
         this.ipamId = $.ipamId;
         this.ipamResourceDiscoveryId = $.ipamResourceDiscoveryId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -128,6 +144,27 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
          */
         public Builder ipamResourceDiscoveryId(String ipamResourceDiscoveryId) {
             return ipamResourceDiscoveryId(Output.of(ipamResourceDiscoveryId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

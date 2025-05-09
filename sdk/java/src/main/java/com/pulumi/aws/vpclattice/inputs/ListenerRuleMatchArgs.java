@@ -6,9 +6,8 @@ package com.pulumi.aws.vpclattice.inputs;
 import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ListenerRuleMatchArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,17 +16,19 @@ public final class ListenerRuleMatchArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * The HTTP criteria that a rule must match.
+     * See `http_match` Block for details.
      * 
      */
-    @Import(name="httpMatch")
-    private @Nullable Output<ListenerRuleMatchHttpMatchArgs> httpMatch;
+    @Import(name="httpMatch", required=true)
+    private Output<ListenerRuleMatchHttpMatchArgs> httpMatch;
 
     /**
      * @return The HTTP criteria that a rule must match.
+     * See `http_match` Block for details.
      * 
      */
-    public Optional<Output<ListenerRuleMatchHttpMatchArgs>> httpMatch() {
-        return Optional.ofNullable(this.httpMatch);
+    public Output<ListenerRuleMatchHttpMatchArgs> httpMatch() {
+        return this.httpMatch;
     }
 
     private ListenerRuleMatchArgs() {}
@@ -56,17 +57,19 @@ public final class ListenerRuleMatchArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param httpMatch The HTTP criteria that a rule must match.
+         * See `http_match` Block for details.
          * 
          * @return builder
          * 
          */
-        public Builder httpMatch(@Nullable Output<ListenerRuleMatchHttpMatchArgs> httpMatch) {
+        public Builder httpMatch(Output<ListenerRuleMatchHttpMatchArgs> httpMatch) {
             $.httpMatch = httpMatch;
             return this;
         }
 
         /**
          * @param httpMatch The HTTP criteria that a rule must match.
+         * See `http_match` Block for details.
          * 
          * @return builder
          * 
@@ -76,6 +79,9 @@ public final class ListenerRuleMatchArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ListenerRuleMatchArgs build() {
+            if ($.httpMatch == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleMatchArgs", "httpMatch");
+            }
             return $;
         }
     }

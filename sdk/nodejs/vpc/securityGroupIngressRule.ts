@@ -105,6 +105,10 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
      */
     public readonly referencedSecurityGroupId!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the security group.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
@@ -146,6 +150,7 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
             resourceInputs["ipProtocol"] = state ? state.ipProtocol : undefined;
             resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
             resourceInputs["referencedSecurityGroupId"] = state ? state.referencedSecurityGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["securityGroupRuleId"] = state ? state.securityGroupRuleId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -166,6 +171,7 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
             resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
             resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
             resourceInputs["referencedSecurityGroupId"] = args ? args.referencedSecurityGroupId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["toPort"] = args ? args.toPort : undefined;
@@ -214,6 +220,10 @@ export interface SecurityGroupIngressRuleState {
      * The source security group that is referenced in the rule.
      */
     referencedSecurityGroupId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the security group.
      */
@@ -268,6 +278,10 @@ export interface SecurityGroupIngressRuleArgs {
      * The source security group that is referenced in the rule.
      */
     referencedSecurityGroupId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the security group.
      */

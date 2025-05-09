@@ -72,6 +72,7 @@ public final class GetVpcResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return State of the association.
      * 
@@ -166,6 +167,9 @@ public final class GetVpcResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return State of the association.
      * 
@@ -201,6 +205,7 @@ public final class GetVpcResult {
         private String ipv6CidrBlock;
         private String mainRouteTableId;
         private String ownerId;
+        private String region;
         private String state;
         private Map<String,String> tags;
         public Builder() {}
@@ -221,6 +226,7 @@ public final class GetVpcResult {
     	      this.ipv6CidrBlock = defaults.ipv6CidrBlock;
     	      this.mainRouteTableId = defaults.mainRouteTableId;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
         }
@@ -350,6 +356,14 @@ public final class GetVpcResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetVpcResult", "state");
@@ -382,6 +396,7 @@ public final class GetVpcResult {
             _resultValue.ipv6CidrBlock = ipv6CidrBlock;
             _resultValue.mainRouteTableId = mainRouteTableId;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             return _resultValue;

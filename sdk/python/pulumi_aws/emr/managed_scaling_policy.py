@@ -23,14 +23,18 @@ __all__ = ['ManagedScalingPolicyArgs', 'ManagedScalingPolicy']
 class ManagedScalingPolicyArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[builtins.str],
-                 compute_limits: pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]):
+                 compute_limits: pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedScalingPolicy resource.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "compute_limits", compute_limits)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -56,21 +60,37 @@ class ManagedScalingPolicyArgs:
     def compute_limits(self, value: pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]):
         pulumi.set(self, "compute_limits", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ManagedScalingPolicyState:
     def __init__(__self__, *,
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
-                 compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]] = None):
+                 compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedScalingPolicy resources.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
         if compute_limits is not None:
             pulumi.set(__self__, "compute_limits", compute_limits)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -96,6 +116,18 @@ class _ManagedScalingPolicyState:
     def compute_limits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]]):
         pulumi.set(self, "compute_limits", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class ManagedScalingPolicy(pulumi.CustomResource):
 
@@ -107,6 +139,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
@@ -149,6 +182,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]] compute_limits: Configuration block with compute limit settings. Described below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -210,6 +244,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,6 +260,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
             if compute_limits is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_limits'")
             __props__.__dict__["compute_limits"] = compute_limits
+            __props__.__dict__["region"] = region
         super(ManagedScalingPolicy, __self__).__init__(
             'aws:emr/managedScalingPolicy:ManagedScalingPolicy',
             resource_name,
@@ -236,7 +272,8 @@ class ManagedScalingPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_id: Optional[pulumi.Input[builtins.str]] = None,
-            compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None) -> 'ManagedScalingPolicy':
+            compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ManagedScalingPolicy':
         """
         Get an existing ManagedScalingPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -246,6 +283,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]] compute_limits: Configuration block with compute limit settings. Described below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -253,6 +291,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
 
         __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["compute_limits"] = compute_limits
+        __props__.__dict__["region"] = region
         return ManagedScalingPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -270,4 +309,12 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         Configuration block with compute limit settings. Described below.
         """
         return pulumi.get(self, "compute_limits")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -83,6 +83,10 @@ export class Repository extends pulumi.CustomResource {
     public readonly catalogData!: pulumi.Output<outputs.ecrpublic.RepositoryCatalogData | undefined>;
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID where the repository was created.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["catalogData"] = state ? state.catalogData : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
             resourceInputs["repositoryUri"] = state ? state.repositoryUri : undefined;
@@ -131,6 +136,7 @@ export class Repository extends pulumi.CustomResource {
             }
             resourceInputs["catalogData"] = args ? args.catalogData : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface RepositoryState {
      */
     catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
     forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry ID where the repository was created.
      */
@@ -187,6 +197,10 @@ export interface RepositoryArgs {
      */
     catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
     forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the repository.
      */

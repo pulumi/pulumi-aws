@@ -87,6 +87,7 @@ public final class GetWorkspaceResult {
      * 
      */
     private String permissionType;
+    private String region;
     /**
      * @return IAM role ARN that the workspace assumes.
      * 
@@ -216,6 +217,9 @@ public final class GetWorkspaceResult {
     public String permissionType() {
         return this.permissionType;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return IAM role ARN that the workspace assumes.
      * 
@@ -275,6 +279,7 @@ public final class GetWorkspaceResult {
         private String organizationRoleName;
         private List<String> organizationalUnits;
         private String permissionType;
+        private String region;
         private String roleArn;
         private String samlConfigurationStatus;
         private String stackSetName;
@@ -299,6 +304,7 @@ public final class GetWorkspaceResult {
     	      this.organizationRoleName = defaults.organizationRoleName;
     	      this.organizationalUnits = defaults.organizationalUnits;
     	      this.permissionType = defaults.permissionType;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.samlConfigurationStatus = defaults.samlConfigurationStatus;
     	      this.stackSetName = defaults.stackSetName;
@@ -440,6 +446,14 @@ public final class GetWorkspaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetWorkspaceResult", "roleArn");
@@ -504,6 +518,7 @@ public final class GetWorkspaceResult {
             _resultValue.organizationRoleName = organizationRoleName;
             _resultValue.organizationalUnits = organizationalUnits;
             _resultValue.permissionType = permissionType;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.samlConfigurationStatus = samlConfigurationStatus;
             _resultValue.stackSetName = stackSetName;

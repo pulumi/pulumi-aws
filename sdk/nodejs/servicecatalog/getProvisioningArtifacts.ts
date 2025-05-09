@@ -28,6 +28,7 @@ export function getProvisioningArtifacts(args: GetProvisioningArtifactsArgs, opt
     return pulumi.runtime.invoke("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", {
         "acceptLanguage": args.acceptLanguage,
         "productId": args.productId,
+        "region": args.region,
     }, opts);
 }
 
@@ -45,6 +46,7 @@ export interface GetProvisioningArtifactsArgs {
      * The following arguments are optional:
      */
     productId: string;
+    region?: string;
 }
 
 /**
@@ -61,6 +63,7 @@ export interface GetProvisioningArtifactsResult {
      * List with information about the provisioning artifacts. See details below.
      */
     readonly provisioningArtifactDetails: outputs.servicecatalog.GetProvisioningArtifactsProvisioningArtifactDetail[];
+    readonly region: string;
 }
 /**
  * Lists the provisioning artifacts for the specified product.
@@ -83,6 +86,7 @@ export function getProvisioningArtifactsOutput(args: GetProvisioningArtifactsOut
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", {
         "acceptLanguage": args.acceptLanguage,
         "productId": args.productId,
+        "region": args.region,
     }, opts);
 }
 
@@ -100,4 +104,5 @@ export interface GetProvisioningArtifactsOutputArgs {
      * The following arguments are optional:
      */
     productId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -38,6 +38,7 @@ public final class GetGroupResult {
      */
     private String id;
     private String identityStoreId;
+    private String region;
 
     private GetGroupResult() {}
     public Optional<GetGroupAlternateIdentifier> alternateIdentifier() {
@@ -77,6 +78,9 @@ public final class GetGroupResult {
     public String identityStoreId() {
         return this.identityStoreId;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -94,6 +98,7 @@ public final class GetGroupResult {
         private String groupId;
         private String id;
         private String identityStoreId;
+        private String region;
         public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,6 +109,7 @@ public final class GetGroupResult {
     	      this.groupId = defaults.groupId;
     	      this.id = defaults.id;
     	      this.identityStoreId = defaults.identityStoreId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -163,6 +169,14 @@ public final class GetGroupResult {
             this.identityStoreId = identityStoreId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetGroupResult build() {
             final var _resultValue = new GetGroupResult();
             _resultValue.alternateIdentifier = alternateIdentifier;
@@ -172,6 +186,7 @@ public final class GetGroupResult {
             _resultValue.groupId = groupId;
             _resultValue.id = id;
             _resultValue.identityStoreId = identityStoreId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

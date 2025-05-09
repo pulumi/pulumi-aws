@@ -88,6 +88,8 @@ type User struct {
 	PreferredLanguage pulumi.StringPtrOutput `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
 	ProfileUrl pulumi.StringPtrOutput `pulumi:"profileUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The user's time zone.
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// The user's title.
@@ -163,6 +165,8 @@ type userState struct {
 	PreferredLanguage *string `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
 	ProfileUrl *string `pulumi:"profileUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The user's time zone.
 	Timezone *string `pulumi:"timezone"`
 	// The user's title.
@@ -200,6 +204,8 @@ type UserState struct {
 	PreferredLanguage pulumi.StringPtrInput
 	// An URL that may be associated with the user.
 	ProfileUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The user's time zone.
 	Timezone pulumi.StringPtrInput
 	// The user's title.
@@ -239,6 +245,8 @@ type userArgs struct {
 	PreferredLanguage *string `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
 	ProfileUrl *string `pulumi:"profileUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The user's time zone.
 	Timezone *string `pulumi:"timezone"`
 	// The user's title.
@@ -273,6 +281,8 @@ type UserArgs struct {
 	PreferredLanguage pulumi.StringPtrInput
 	// An URL that may be associated with the user.
 	ProfileUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The user's time zone.
 	Timezone pulumi.StringPtrInput
 	// The user's title.
@@ -425,6 +435,11 @@ func (o UserOutput) PreferredLanguage() pulumi.StringPtrOutput {
 // An URL that may be associated with the user.
 func (o UserOutput) ProfileUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.ProfileUrl }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The user's time zone.

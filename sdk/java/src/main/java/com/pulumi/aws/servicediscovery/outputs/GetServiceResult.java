@@ -52,6 +52,7 @@ public final class GetServiceResult {
      * 
      */
     private String namespaceId;
+    private String region;
     /**
      * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -111,6 +112,9 @@ public final class GetServiceResult {
     public String namespaceId() {
         return this.namespaceId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -136,6 +140,7 @@ public final class GetServiceResult {
         private String id;
         private String name;
         private String namespaceId;
+        private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
@@ -148,6 +153,7 @@ public final class GetServiceResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -225,6 +231,14 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -240,6 +254,7 @@ public final class GetServiceResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

@@ -20,13 +20,17 @@ __all__ = ['SerialConsoleAccessArgs', 'SerialConsoleAccess']
 @pulumi.input_type
 class SerialConsoleAccessArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SerialConsoleAccess resource.
         :param pulumi.Input[builtins.bool] enabled: Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -39,18 +43,34 @@ class SerialConsoleAccessArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _SerialConsoleAccessState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SerialConsoleAccess resources.
         :param pulumi.Input[builtins.bool] enabled: Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -63,6 +83,18 @@ class _SerialConsoleAccessState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 class SerialConsoleAccess(pulumi.CustomResource):
@@ -74,6 +106,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
@@ -100,6 +133,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enabled: Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -145,6 +179,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -155,6 +190,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
             __props__ = SerialConsoleAccessArgs.__new__(SerialConsoleAccessArgs)
 
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["region"] = region
         super(SerialConsoleAccess, __self__).__init__(
             'aws:ec2/serialConsoleAccess:SerialConsoleAccess',
             resource_name,
@@ -165,7 +201,8 @@ class SerialConsoleAccess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[builtins.bool]] = None) -> 'SerialConsoleAccess':
+            enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'SerialConsoleAccess':
         """
         Get an existing SerialConsoleAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -174,12 +211,14 @@ class SerialConsoleAccess(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enabled: Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _SerialConsoleAccessState.__new__(_SerialConsoleAccessState)
 
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["region"] = region
         return SerialConsoleAccess(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -189,4 +228,12 @@ class SerialConsoleAccess(pulumi.CustomResource):
         Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

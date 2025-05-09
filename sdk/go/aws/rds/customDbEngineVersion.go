@@ -216,6 +216,8 @@ type CustomDbEngineVersion struct {
 	ManifestComputed pulumi.StringOutput `pulumi:"manifestComputed"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
 	ManifestHash pulumi.StringPtrOutput `pulumi:"manifestHash"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
@@ -292,6 +294,8 @@ type customDbEngineVersionState struct {
 	ManifestComputed *string `pulumi:"manifestComputed"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
 	ManifestHash *string `pulumi:"manifestHash"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
@@ -333,6 +337,8 @@ type CustomDbEngineVersionState struct {
 	ManifestComputed pulumi.StringPtrInput
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
 	ManifestHash pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
 	SourceImageId pulumi.StringPtrInput
 	// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
@@ -366,6 +372,8 @@ type customDbEngineVersionArgs struct {
 	Manifest *string `pulumi:"manifest"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
 	ManifestHash *string `pulumi:"manifestHash"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
@@ -396,6 +404,8 @@ type CustomDbEngineVersionArgs struct {
 	Manifest pulumi.StringPtrInput
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
 	ManifestHash pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
 	SourceImageId pulumi.StringPtrInput
 	// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
@@ -566,6 +576,11 @@ func (o CustomDbEngineVersionOutput) ManifestComputed() pulumi.StringOutput {
 // Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
 func (o CustomDbEngineVersionOutput) ManifestHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.ManifestHash }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CustomDbEngineVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.

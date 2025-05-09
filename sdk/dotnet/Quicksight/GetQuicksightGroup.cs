@@ -119,6 +119,9 @@ namespace Pulumi.Aws.Quicksight
         [Input("namespace")]
         public string? Namespace { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetQuicksightGroupArgs()
         {
         }
@@ -146,6 +149,9 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetQuicksightGroupInvokeArgs()
         {
@@ -176,6 +182,7 @@ namespace Pulumi.Aws.Quicksight
         /// The principal ID of the group.
         /// </summary>
         public readonly string PrincipalId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetQuicksightGroupResult(
@@ -191,7 +198,9 @@ namespace Pulumi.Aws.Quicksight
 
             string? @namespace,
 
-            string principalId)
+            string principalId,
+
+            string region)
         {
             Arn = arn;
             AwsAccountId = awsAccountId;
@@ -200,6 +209,7 @@ namespace Pulumi.Aws.Quicksight
             Id = id;
             Namespace = @namespace;
             PrincipalId = principalId;
+            Region = region;
         }
     }
 }

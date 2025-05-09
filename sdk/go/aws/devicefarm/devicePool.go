@@ -68,6 +68,8 @@ type DevicePool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayOutput `pulumi:"rules"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -123,6 +125,8 @@ type devicePoolState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn *string `pulumi:"projectArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules []DevicePoolRule `pulumi:"rules"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,6 +147,8 @@ type DevicePoolState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -165,6 +171,8 @@ type devicePoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn string `pulumi:"projectArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules []DevicePoolRule `pulumi:"rules"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,6 +189,8 @@ type DevicePoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -297,6 +307,11 @@ func (o DevicePoolOutput) Name() pulumi.StringOutput {
 // The ARN of the project for the device pool.
 func (o DevicePoolOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DevicePoolOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The device pool's rules. See Rule.

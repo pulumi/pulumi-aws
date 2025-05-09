@@ -55,6 +55,8 @@ type RequestValidator struct {
 
 	// Name of the request validator
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
@@ -98,6 +100,8 @@ func GetRequestValidator(ctx *pulumi.Context,
 type requestValidatorState struct {
 	// Name of the request validator
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApi interface{} `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
@@ -109,6 +113,8 @@ type requestValidatorState struct {
 type RequestValidatorState struct {
 	// Name of the request validator
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApi pulumi.Input
 	// Boolean whether to validate request body. Defaults to `false`.
@@ -124,6 +130,8 @@ func (RequestValidatorState) ElementType() reflect.Type {
 type requestValidatorArgs struct {
 	// Name of the request validator
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApi interface{} `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
@@ -136,6 +144,8 @@ type requestValidatorArgs struct {
 type RequestValidatorArgs struct {
 	// Name of the request validator
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApi pulumi.Input
 	// Boolean whether to validate request body. Defaults to `false`.
@@ -234,6 +244,11 @@ func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.
 // Name of the request validator
 func (o RequestValidatorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RequestValidatorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the associated Rest API

@@ -21,6 +21,7 @@ public final class GetBucketPolicyResult {
      * 
      */
     private String policy;
+    private String region;
 
     private GetBucketPolicyResult() {}
     public String bucket() {
@@ -40,6 +41,9 @@ public final class GetBucketPolicyResult {
     public String policy() {
         return this.policy;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -53,12 +57,14 @@ public final class GetBucketPolicyResult {
         private String bucket;
         private String id;
         private String policy;
+        private String region;
         public Builder() {}
         public Builder(GetBucketPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.id = defaults.id;
     	      this.policy = defaults.policy;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -85,11 +91,20 @@ public final class GetBucketPolicyResult {
             this.policy = policy;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBucketPolicyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetBucketPolicyResult build() {
             final var _resultValue = new GetBucketPolicyResult();
             _resultValue.bucket = bucket;
             _resultValue.id = id;
             _resultValue.policy = policy;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

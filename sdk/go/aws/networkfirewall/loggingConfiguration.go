@@ -142,6 +142,8 @@ type LoggingConfiguration struct {
 	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLoggingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -184,6 +186,8 @@ type loggingConfigurationState struct {
 	FirewallArn *string `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration *LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LoggingConfigurationState struct {
@@ -191,6 +195,8 @@ type LoggingConfigurationState struct {
 	FirewallArn pulumi.StringPtrInput
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LoggingConfigurationState) ElementType() reflect.Type {
@@ -202,6 +208,8 @@ type loggingConfigurationArgs struct {
 	FirewallArn string `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LoggingConfiguration resource.
@@ -210,6 +218,8 @@ type LoggingConfigurationArgs struct {
 	FirewallArn pulumi.StringInput
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LoggingConfigurationArgs) ElementType() reflect.Type {
@@ -309,6 +319,11 @@ func (o LoggingConfigurationOutput) LoggingConfiguration() LoggingConfigurationL
 	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfigurationLoggingConfigurationOutput {
 		return v.LoggingConfiguration
 	}).(LoggingConfigurationLoggingConfigurationOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LoggingConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LoggingConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -237,6 +237,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
     public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.SpotInstanceRequestRootBlockDevice>;
@@ -388,6 +392,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["privateIp"] = state ? state.privateIp : undefined;
             resourceInputs["publicDns"] = state ? state.publicDns : undefined;
             resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
             resourceInputs["secondaryPrivateIps"] = state ? state.secondaryPrivateIps : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
@@ -445,6 +450,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["placementPartitionNumber"] = args ? args.placementPartitionNumber : undefined;
             resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
             resourceInputs["privateIp"] = args ? args.privateIp : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
             resourceInputs["secondaryPrivateIps"] = args ? args.secondaryPrivateIps : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
@@ -641,6 +647,10 @@ export interface SpotInstanceRequestState {
      * The public IP address assigned to the instance, if applicable.
      */
     publicIp?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
@@ -880,6 +890,10 @@ export interface SpotInstanceRequestArgs {
      * Private IP address to associate with the instance in a VPC.
      */
     privateIp?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */

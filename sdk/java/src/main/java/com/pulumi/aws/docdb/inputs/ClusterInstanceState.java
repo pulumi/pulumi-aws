@@ -406,6 +406,21 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies whether the DB cluster is encrypted.
      * 
      */
@@ -491,6 +506,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.promotionTier = $.promotionTier;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.storageEncrypted = $.storageEncrypted;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -1034,6 +1050,27 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
 
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

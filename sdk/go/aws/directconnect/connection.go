@@ -141,6 +141,8 @@ type Connection struct {
 	PortEncryptionStatus pulumi.StringOutput `pulumi:"portEncryptionStatus"`
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
 	//
 	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
@@ -217,6 +219,8 @@ type connectionState struct {
 	PortEncryptionStatus *string `pulumi:"portEncryptionStatus"`
 	// The name of the service provider associated with the connection.
 	ProviderName *string `pulumi:"providerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
 	//
 	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
@@ -258,6 +262,8 @@ type ConnectionState struct {
 	PortEncryptionStatus pulumi.StringPtrInput
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
 	//
 	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
@@ -287,6 +293,8 @@ type connectionArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the service provider associated with the connection.
 	ProviderName *string `pulumi:"providerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
 	//
 	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
@@ -309,6 +317,8 @@ type ConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
 	//
 	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
@@ -469,6 +479,11 @@ func (o ConnectionOutput) PortEncryptionStatus() pulumi.StringOutput {
 // The name of the service provider associated with the connection.
 func (o ConnectionOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.

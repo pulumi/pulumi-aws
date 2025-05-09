@@ -52,6 +52,7 @@ public final class GetServiceNetworkResult {
      * 
      */
     private Integer numberOfAssociatedVpcs;
+    private String region;
     private String serviceNetworkIdentifier;
     private Map<String,String> tags;
 
@@ -112,6 +113,9 @@ public final class GetServiceNetworkResult {
     public Integer numberOfAssociatedVpcs() {
         return this.numberOfAssociatedVpcs;
     }
+    public String region() {
+        return this.region;
+    }
     public String serviceNetworkIdentifier() {
         return this.serviceNetworkIdentifier;
     }
@@ -136,6 +140,7 @@ public final class GetServiceNetworkResult {
         private String name;
         private Integer numberOfAssociatedServices;
         private Integer numberOfAssociatedVpcs;
+        private String region;
         private String serviceNetworkIdentifier;
         private Map<String,String> tags;
         public Builder() {}
@@ -149,6 +154,7 @@ public final class GetServiceNetworkResult {
     	      this.name = defaults.name;
     	      this.numberOfAssociatedServices = defaults.numberOfAssociatedServices;
     	      this.numberOfAssociatedVpcs = defaults.numberOfAssociatedVpcs;
+    	      this.region = defaults.region;
     	      this.serviceNetworkIdentifier = defaults.serviceNetworkIdentifier;
     	      this.tags = defaults.tags;
         }
@@ -218,6 +224,14 @@ public final class GetServiceNetworkResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceNetworkIdentifier(String serviceNetworkIdentifier) {
             if (serviceNetworkIdentifier == null) {
               throw new MissingRequiredPropertyException("GetServiceNetworkResult", "serviceNetworkIdentifier");
@@ -243,6 +257,7 @@ public final class GetServiceNetworkResult {
             _resultValue.name = name;
             _resultValue.numberOfAssociatedServices = numberOfAssociatedServices;
             _resultValue.numberOfAssociatedVpcs = numberOfAssociatedVpcs;
+            _resultValue.region = region;
             _resultValue.serviceNetworkIdentifier = serviceNetworkIdentifier;
             _resultValue.tags = tags;
             return _resultValue;

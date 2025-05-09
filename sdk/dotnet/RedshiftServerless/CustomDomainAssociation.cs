@@ -78,6 +78,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> CustomDomainName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the workgroup.
         /// </summary>
         [Output("workgroupName")]
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string> CustomDomainName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the workgroup.
         /// </summary>
         [Input("workgroupName", required: true)]
@@ -172,6 +184,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the workgroup.

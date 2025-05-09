@@ -150,6 +150,10 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly redirectUrl!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for the storage connectors to enable.
      * See `storageConnectors` below.
      */
@@ -193,6 +197,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["feedbackUrl"] = state ? state.feedbackUrl : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageConnectors"] = state ? state.storageConnectors : undefined;
             resourceInputs["streamingExperienceSettings"] = state ? state.streamingExperienceSettings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -208,6 +213,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["feedbackUrl"] = args ? args.feedbackUrl : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageConnectors"] = args ? args.storageConnectors : undefined;
             resourceInputs["streamingExperienceSettings"] = args ? args.streamingExperienceSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -270,6 +276,10 @@ export interface StackState {
      */
     redirectUrl?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for the storage connectors to enable.
      * See `storageConnectors` below.
      */
@@ -331,6 +341,10 @@ export interface StackArgs {
      * URL that users are redirected to after their streaming session ends.
      */
     redirectUrl?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the storage connectors to enable.
      * See `storageConnectors` below.

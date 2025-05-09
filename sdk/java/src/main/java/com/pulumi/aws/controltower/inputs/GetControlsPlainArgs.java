@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetControlsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetControlsPlainArgs Empty = new GetControlsPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * The ARN of the organizational unit.
@@ -31,6 +40,7 @@ public final class GetControlsPlainArgs extends com.pulumi.resources.InvokeArgs 
     private GetControlsPlainArgs() {}
 
     private GetControlsPlainArgs(GetControlsPlainArgs $) {
+        this.region = $.region;
         this.targetIdentifier = $.targetIdentifier;
     }
 
@@ -50,6 +60,11 @@ public final class GetControlsPlainArgs extends com.pulumi.resources.InvokeArgs 
 
         public Builder(GetControlsPlainArgs defaults) {
             $ = new GetControlsPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

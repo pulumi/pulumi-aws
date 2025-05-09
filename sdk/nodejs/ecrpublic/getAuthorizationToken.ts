@@ -18,10 +18,19 @@ import * as utilities from "../utilities";
  * const token = aws.ecrpublic.getAuthorizationToken({});
  * ```
  */
-export function getAuthorizationToken(opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
+export function getAuthorizationToken(args?: GetAuthorizationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getAuthorizationToken.
+ */
+export interface GetAuthorizationTokenArgs {
+    region?: string;
 }
 
 /**
@@ -44,6 +53,7 @@ export interface GetAuthorizationTokenResult {
      * Password decoded from the authorization token.
      */
     readonly password: string;
+    readonly region: string;
     /**
      * User name decoded from the authorization token.
      */
@@ -63,8 +73,17 @@ export interface GetAuthorizationTokenResult {
  * const token = aws.ecrpublic.getAuthorizationToken({});
  * ```
  */
-export function getAuthorizationTokenOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationTokenResult> {
+export function getAuthorizationTokenOutput(args?: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationTokenResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getAuthorizationToken.
+ */
+export interface GetAuthorizationTokenOutputArgs {
+    region?: pulumi.Input<string>;
 }

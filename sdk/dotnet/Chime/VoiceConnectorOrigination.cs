@@ -74,6 +74,12 @@ namespace Pulumi.Aws.Chime
         public Output<bool?> Disabled { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
         /// </summary>
         [Output("routes")]
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.Chime
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("routes", required: true)]
         private InputList<Inputs.VoiceConnectorOriginationRouteArgs>? _routes;
 
@@ -172,6 +184,12 @@ namespace Pulumi.Aws.Chime
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.VoiceConnectorOriginationRouteGetArgs>? _routes;

@@ -9,39 +9,52 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTemplatesResult {
+    private @Nullable String awsRegion;
     private String id;
     /**
      * @return AWS Region to which the template applies.
      * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
+     * 
      */
-    private String region;
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    private @Nullable String region;
     /**
      * @return A list of quota increase templates for specified region. See `templates`.
      * 
      */
-    private @Nullable List<GetTemplatesTemplate> templates;
+    private List<GetTemplatesTemplate> templates;
 
     private GetTemplatesResult() {}
+    public Optional<String> awsRegion() {
+        return Optional.ofNullable(this.awsRegion);
+    }
     public String id() {
         return this.id;
     }
     /**
      * @return AWS Region to which the template applies.
      * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
+     * 
      */
-    public String region() {
-        return this.region;
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
     /**
      * @return A list of quota increase templates for specified region. See `templates`.
      * 
      */
     public List<GetTemplatesTemplate> templates() {
-        return this.templates == null ? List.of() : this.templates;
+        return this.templates;
     }
 
     public static Builder builder() {
@@ -53,17 +66,25 @@ public final class GetTemplatesResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String awsRegion;
         private String id;
-        private String region;
-        private @Nullable List<GetTemplatesTemplate> templates;
+        private @Nullable String region;
+        private List<GetTemplatesTemplate> templates;
         public Builder() {}
         public Builder(GetTemplatesResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.awsRegion = defaults.awsRegion;
     	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.templates = defaults.templates;
         }
 
+        @CustomType.Setter
+        public Builder awsRegion(@Nullable String awsRegion) {
+
+            this.awsRegion = awsRegion;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -73,16 +94,16 @@ public final class GetTemplatesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            if (region == null) {
-              throw new MissingRequiredPropertyException("GetTemplatesResult", "region");
-            }
+        public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
-        public Builder templates(@Nullable List<GetTemplatesTemplate> templates) {
-
+        public Builder templates(List<GetTemplatesTemplate> templates) {
+            if (templates == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesResult", "templates");
+            }
             this.templates = templates;
             return this;
         }
@@ -91,6 +112,7 @@ public final class GetTemplatesResult {
         }
         public GetTemplatesResult build() {
             final var _resultValue = new GetTemplatesResult();
+            _resultValue.awsRegion = awsRegion;
             _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.templates = templates;

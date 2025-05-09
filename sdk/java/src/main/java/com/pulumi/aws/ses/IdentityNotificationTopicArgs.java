@@ -63,6 +63,21 @@ public final class IdentityNotificationTopicArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
      * 
      */
@@ -83,6 +98,7 @@ public final class IdentityNotificationTopicArgs extends com.pulumi.resources.Re
         this.identity = $.identity;
         this.includeOriginalHeaders = $.includeOriginalHeaders;
         this.notificationType = $.notificationType;
+        this.region = $.region;
         this.topicArn = $.topicArn;
     }
 
@@ -165,6 +181,27 @@ public final class IdentityNotificationTopicArgs extends com.pulumi.resources.Re
          */
         public Builder notificationType(String notificationType) {
             return notificationType(Output.of(notificationType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

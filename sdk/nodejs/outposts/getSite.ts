@@ -24,6 +24,7 @@ export function getSite(args?: GetSiteArgs, opts?: pulumi.InvokeOptions): Promis
     return pulumi.runtime.invoke("aws:outposts/getSite:getSite", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,7 @@ export interface GetSiteArgs {
      * Name of the Site.
      */
     name?: string;
+    region?: string;
 }
 
 /**
@@ -55,6 +57,7 @@ export interface GetSiteResult {
     readonly description: string;
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Provides details about an Outposts Site.
@@ -76,6 +79,7 @@ export function getSiteOutput(args?: GetSiteOutputArgs, opts?: pulumi.InvokeOutp
     return pulumi.runtime.invokeOutput("aws:outposts/getSite:getSite", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -91,4 +95,5 @@ export interface GetSiteOutputArgs {
      * Name of the Site.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -51,7 +51,8 @@ func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opt
 // A collection of arguments for invoking getEmailIdentity.
 type LookupEmailIdentityArgs struct {
 	// Email identity.
-	Email string `pulumi:"email"`
+	Email  string  `pulumi:"email"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEmailIdentity.
@@ -61,7 +62,8 @@ type LookupEmailIdentityResult struct {
 	// Email identity.
 	Email string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityResultOutput {
@@ -76,7 +78,8 @@ func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutp
 // A collection of arguments for invoking getEmailIdentity.
 type LookupEmailIdentityOutputArgs struct {
 	// Email identity.
-	Email pulumi.StringInput `pulumi:"email"`
+	Email  pulumi.StringInput    `pulumi:"email"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupEmailIdentityOutputArgs) ElementType() reflect.Type {
@@ -111,6 +114,10 @@ func (o LookupEmailIdentityResultOutput) Email() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupEmailIdentityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupEmailIdentityResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

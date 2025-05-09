@@ -49,6 +49,7 @@ public final class GetModelResult {
      * 
      */
     private String providerName;
+    private String region;
     /**
      * @return Indicates whether the model supports streaming.
      * 
@@ -111,6 +112,9 @@ public final class GetModelResult {
     public String providerName() {
         return this.providerName;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Indicates whether the model supports streaming.
      * 
@@ -137,6 +141,7 @@ public final class GetModelResult {
         private String modelName;
         private List<String> outputModalities;
         private String providerName;
+        private String region;
         private Boolean responseStreamingSupported;
         public Builder() {}
         public Builder(GetModelResult defaults) {
@@ -150,6 +155,7 @@ public final class GetModelResult {
     	      this.modelName = defaults.modelName;
     	      this.outputModalities = defaults.outputModalities;
     	      this.providerName = defaults.providerName;
+    	      this.region = defaults.region;
     	      this.responseStreamingSupported = defaults.responseStreamingSupported;
         }
 
@@ -238,6 +244,14 @@ public final class GetModelResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetModelResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder responseStreamingSupported(Boolean responseStreamingSupported) {
             if (responseStreamingSupported == null) {
               throw new MissingRequiredPropertyException("GetModelResult", "responseStreamingSupported");
@@ -256,6 +270,7 @@ public final class GetModelResult {
             _resultValue.modelName = modelName;
             _resultValue.outputModalities = outputModalities;
             _resultValue.providerName = providerName;
+            _resultValue.region = region;
             _resultValue.responseStreamingSupported = responseStreamingSupported;
             return _resultValue;
         }

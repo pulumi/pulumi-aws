@@ -35,6 +35,7 @@ public final class GetCredentialsResult {
      * 
      */
     private String id;
+    private String region;
     private String workgroupName;
 
     private GetCredentialsResult() {}
@@ -72,6 +73,9 @@ public final class GetCredentialsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public String workgroupName() {
         return this.workgroupName;
     }
@@ -91,6 +95,7 @@ public final class GetCredentialsResult {
         private @Nullable Integer durationSeconds;
         private String expiration;
         private String id;
+        private String region;
         private String workgroupName;
         public Builder() {}
         public Builder(GetCredentialsResult defaults) {
@@ -101,6 +106,7 @@ public final class GetCredentialsResult {
     	      this.durationSeconds = defaults.durationSeconds;
     	      this.expiration = defaults.expiration;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.workgroupName = defaults.workgroupName;
         }
 
@@ -149,6 +155,14 @@ public final class GetCredentialsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workgroupName(String workgroupName) {
             if (workgroupName == null) {
               throw new MissingRequiredPropertyException("GetCredentialsResult", "workgroupName");
@@ -164,6 +178,7 @@ public final class GetCredentialsResult {
             _resultValue.durationSeconds = durationSeconds;
             _resultValue.expiration = expiration;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.workgroupName = workgroupName;
             return _resultValue;
         }

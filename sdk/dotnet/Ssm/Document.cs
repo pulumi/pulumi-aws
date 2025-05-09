@@ -199,6 +199,12 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableArray<string>> PlatformTypes { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The schema version of the document.
         /// </summary>
         [Output("schemaVersion")]
@@ -327,6 +333,12 @@ namespace Pulumi.Aws.Ssm
             get => _permissions ?? (_permissions = new InputMap<string>());
             set => _permissions = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -485,6 +497,12 @@ namespace Pulumi.Aws.Ssm
             get => _platformTypes ?? (_platformTypes = new InputList<string>());
             set => _platformTypes = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The schema version of the document.

@@ -32,6 +32,13 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="serverSideEncryption")
     private @Nullable GetTableServerSideEncryption serverSideEncryption;
 
@@ -50,6 +57,7 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetTablePlainArgs(GetTablePlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.serverSideEncryption = $.serverSideEncryption;
         this.tags = $.tags;
     }
@@ -80,6 +88,11 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

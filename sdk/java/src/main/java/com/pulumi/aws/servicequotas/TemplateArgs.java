@@ -9,11 +9,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TemplateArgs Empty = new TemplateArgs();
+
+    /**
+     * AWS Region to which the template applies.
+     * 
+     */
+    @Import(name="awsRegion")
+    private @Nullable Output<String> awsRegion;
+
+    /**
+     * @return AWS Region to which the template applies.
+     * 
+     */
+    public Optional<Output<String>> awsRegion() {
+        return Optional.ofNullable(this.awsRegion);
+    }
 
     /**
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
@@ -31,18 +48,26 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS Region to which the template applies.
+     * AWS Region to which the template applies. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Import(name="region", required=true)
-    private Output<String> region;
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region to which the template applies.
+     * @return AWS Region to which the template applies. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -78,6 +103,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     private TemplateArgs() {}
 
     private TemplateArgs(TemplateArgs $) {
+        this.awsRegion = $.awsRegion;
         this.quotaCode = $.quotaCode;
         this.region = $.region;
         this.serviceCode = $.serviceCode;
@@ -103,6 +129,27 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param awsRegion AWS Region to which the template applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRegion(@Nullable Output<String> awsRegion) {
+            $.awsRegion = awsRegion;
+            return this;
+        }
+
+        /**
+         * @param awsRegion AWS Region to which the template applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRegion(String awsRegion) {
+            return awsRegion(Output.of(awsRegion));
+        }
+
+        /**
          * @param quotaCode Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
          * 
          * @return builder
@@ -124,22 +171,30 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region AWS Region to which the template applies.
+         * @param region AWS Region to which the template applies. Use `aws.getRegion` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use aws.getRegion instead.
+         * 
          */
-        public Builder region(Output<String> region) {
+        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+        public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region AWS Region to which the template applies.
+         * @param region AWS Region to which the template applies. Use `aws.getRegion` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use aws.getRegion instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -189,9 +244,6 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         public TemplateArgs build() {
             if ($.quotaCode == null) {
                 throw new MissingRequiredPropertyException("TemplateArgs", "quotaCode");
-            }
-            if ($.region == null) {
-                throw new MissingRequiredPropertyException("TemplateArgs", "region");
             }
             if ($.serviceCode == null) {
                 throw new MissingRequiredPropertyException("TemplateArgs", "serviceCode");

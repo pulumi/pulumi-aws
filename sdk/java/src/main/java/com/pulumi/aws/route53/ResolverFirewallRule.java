@@ -243,6 +243,20 @@ public class ResolverFirewallRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> qType() {
         return Codegen.optional(this.qType);
     }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
 
     /**
      *

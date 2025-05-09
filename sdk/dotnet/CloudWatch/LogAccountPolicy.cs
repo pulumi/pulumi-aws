@@ -160,6 +160,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> PolicyType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.
         /// </summary>
         [Output("scope")]
@@ -236,6 +242,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string> PolicyType { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.
         /// </summary>
         [Input("scope")]
@@ -272,6 +284,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.

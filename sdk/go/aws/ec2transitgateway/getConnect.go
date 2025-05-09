@@ -87,6 +87,7 @@ func LookupConnect(ctx *pulumi.Context, args *LookupConnectArgs, opts ...pulumi.
 type LookupConnectArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetConnectFilter `pulumi:"filters"`
+	Region  *string            `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Connect.
@@ -100,6 +101,7 @@ type LookupConnectResult struct {
 	Id string `pulumi:"id"`
 	// Tunnel protocol
 	Protocol string `pulumi:"protocol"`
+	Region   string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect
 	Tags                    map[string]string `pulumi:"tags"`
 	TransitGatewayConnectId string            `pulumi:"transitGatewayConnectId"`
@@ -122,6 +124,7 @@ func LookupConnectOutput(ctx *pulumi.Context, args LookupConnectOutputArgs, opts
 type LookupConnectOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetConnectFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput      `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Connect.
@@ -159,6 +162,10 @@ func (o LookupConnectResultOutput) Id() pulumi.StringOutput {
 // Tunnel protocol
 func (o LookupConnectResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o LookupConnectResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Connect

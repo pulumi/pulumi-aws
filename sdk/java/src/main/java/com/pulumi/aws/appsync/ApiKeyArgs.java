@@ -62,12 +62,28 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.expires);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private ApiKeyArgs() {}
 
     private ApiKeyArgs(ApiKeyArgs $) {
         this.apiId = $.apiId;
         this.description = $.description;
         this.expires = $.expires;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -149,6 +165,27 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder expires(String expires) {
             return expires(Output.of(expires));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public ApiKeyArgs build() {

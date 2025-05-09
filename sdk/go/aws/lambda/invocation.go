@@ -137,6 +137,8 @@ type Invocation struct {
 	LifecycleScope pulumi.StringPtrOutput `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// String result of the lambda function invocation.
 	Result       pulumi.StringOutput    `pulumi:"result"`
 	TerraformKey pulumi.StringPtrOutput `pulumi:"terraformKey"`
@@ -190,6 +192,8 @@ type invocationState struct {
 	LifecycleScope *string `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// String result of the lambda function invocation.
 	Result       *string `pulumi:"result"`
 	TerraformKey *string `pulumi:"terraformKey"`
@@ -208,6 +212,8 @@ type InvocationState struct {
 	LifecycleScope pulumi.StringPtrInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// String result of the lambda function invocation.
 	Result       pulumi.StringPtrInput
 	TerraformKey pulumi.StringPtrInput
@@ -229,7 +235,9 @@ type invocationArgs struct {
 	// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
 	LifecycleScope *string `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier    *string `pulumi:"qualifier"`
+	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region       *string `pulumi:"region"`
 	TerraformKey *string `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -246,7 +254,9 @@ type InvocationArgs struct {
 	// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
 	LifecycleScope pulumi.StringPtrInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier    pulumi.StringPtrInput
+	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region       pulumi.StringPtrInput
 	TerraformKey pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapInput
@@ -359,6 +369,11 @@ func (o InvocationOutput) LifecycleScope() pulumi.StringPtrOutput {
 // Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 func (o InvocationOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InvocationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // String result of the lambda function invocation.

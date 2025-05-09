@@ -32,6 +32,7 @@ public final class GetStateMachineResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return The revision identifier for the state machine.
      * 
@@ -83,6 +84,9 @@ public final class GetStateMachineResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The revision identifier for the state machine.
      * 
@@ -120,6 +124,7 @@ public final class GetStateMachineResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private String revisionId;
         private String roleArn;
         private String status;
@@ -132,6 +137,7 @@ public final class GetStateMachineResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.revisionId = defaults.revisionId;
     	      this.roleArn = defaults.roleArn;
     	      this.status = defaults.status;
@@ -186,6 +192,14 @@ public final class GetStateMachineResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetStateMachineResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder revisionId(String revisionId) {
             if (revisionId == null) {
               throw new MissingRequiredPropertyException("GetStateMachineResult", "revisionId");
@@ -217,6 +231,7 @@ public final class GetStateMachineResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.revisionId = revisionId;
             _resultValue.roleArn = roleArn;
             _resultValue.status = status;

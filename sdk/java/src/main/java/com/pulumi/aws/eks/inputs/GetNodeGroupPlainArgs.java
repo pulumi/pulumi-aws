@@ -46,6 +46,13 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.nodeGroupName;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags.
      * 
@@ -66,6 +73,7 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
     private GetNodeGroupPlainArgs(GetNodeGroupPlainArgs $) {
         this.clusterName = $.clusterName;
         this.nodeGroupName = $.nodeGroupName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -106,6 +114,11 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder nodeGroupName(String nodeGroupName) {
             $.nodeGroupName = nodeGroupName;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

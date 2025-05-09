@@ -82,6 +82,10 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
      */
     public readonly identityCenterArn!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -108,12 +112,14 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["identityCenterApplicationArn"] = state ? state.identityCenterApplicationArn : undefined;
             resourceInputs["identityCenterArn"] = state ? state.identityCenterArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AccessGrantsInstanceArgs | undefined;
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["identityCenterArn"] = args ? args.identityCenterArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accessGrantsInstanceArn"] = undefined /*out*/;
             resourceInputs["accessGrantsInstanceId"] = undefined /*out*/;
@@ -147,6 +153,10 @@ export interface AccessGrantsInstanceState {
      */
     identityCenterArn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -165,6 +175,10 @@ export interface AccessGrantsInstanceArgs {
      * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      */
     identityCenterArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

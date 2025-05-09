@@ -60,6 +60,7 @@ class S3EndpointArgs:
                  parquet_timestamp_in_millisecond: Optional[pulumi.Input[builtins.bool]] = None,
                  parquet_version: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_transactions: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rfc4180: Optional[pulumi.Input[builtins.bool]] = None,
                  row_group_length: Optional[pulumi.Input[builtins.int]] = None,
                  server_side_encryption_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -112,6 +113,7 @@ class S3EndpointArgs:
         :param pulumi.Input[builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         :param pulumi.Input[builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[builtins.int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
         :param pulumi.Input[builtins.str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
@@ -197,6 +199,8 @@ class S3EndpointArgs:
             pulumi.set(__self__, "parquet_version", parquet_version)
         if preserve_transactions is not None:
             pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rfc4180 is not None:
             pulumi.set(__self__, "rfc4180", rfc4180)
         if row_group_length is not None:
@@ -698,6 +702,18 @@ class S3EndpointArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def rfc4180(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
@@ -838,6 +854,7 @@ class _S3EndpointState:
                  parquet_timestamp_in_millisecond: Optional[pulumi.Input[builtins.bool]] = None,
                  parquet_version: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_transactions: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rfc4180: Optional[pulumi.Input[builtins.bool]] = None,
                  row_group_length: Optional[pulumi.Input[builtins.int]] = None,
                  server_side_encryption_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -893,6 +910,7 @@ class _S3EndpointState:
         :param pulumi.Input[builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         :param pulumi.Input[builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[builtins.int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
         :param pulumi.Input[builtins.str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
@@ -991,6 +1009,8 @@ class _S3EndpointState:
             pulumi.set(__self__, "parquet_version", parquet_version)
         if preserve_transactions is not None:
             pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rfc4180 is not None:
             pulumi.set(__self__, "rfc4180", rfc4180)
         if row_group_length is not None:
@@ -1520,6 +1540,18 @@ class _S3EndpointState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def rfc4180(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
@@ -1700,6 +1732,7 @@ class S3Endpoint(pulumi.CustomResource):
                  parquet_timestamp_in_millisecond: Optional[pulumi.Input[builtins.bool]] = None,
                  parquet_version: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_transactions: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rfc4180: Optional[pulumi.Input[builtins.bool]] = None,
                  row_group_length: Optional[pulumi.Input[builtins.int]] = None,
                  server_side_encryption_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1843,6 +1876,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         :param pulumi.Input[builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[builtins.int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
         :param pulumi.Input[builtins.str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
@@ -2007,6 +2041,7 @@ class S3Endpoint(pulumi.CustomResource):
                  parquet_timestamp_in_millisecond: Optional[pulumi.Input[builtins.bool]] = None,
                  parquet_version: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_transactions: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rfc4180: Optional[pulumi.Input[builtins.bool]] = None,
                  row_group_length: Optional[pulumi.Input[builtins.int]] = None,
                  server_side_encryption_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -2070,6 +2105,7 @@ class S3Endpoint(pulumi.CustomResource):
             __props__.__dict__["parquet_timestamp_in_millisecond"] = parquet_timestamp_in_millisecond
             __props__.__dict__["parquet_version"] = parquet_version
             __props__.__dict__["preserve_transactions"] = preserve_transactions
+            __props__.__dict__["region"] = region
             __props__.__dict__["rfc4180"] = rfc4180
             __props__.__dict__["row_group_length"] = row_group_length
             __props__.__dict__["server_side_encryption_kms_key_id"] = server_side_encryption_kms_key_id
@@ -2138,6 +2174,7 @@ class S3Endpoint(pulumi.CustomResource):
             parquet_timestamp_in_millisecond: Optional[pulumi.Input[builtins.bool]] = None,
             parquet_version: Optional[pulumi.Input[builtins.str]] = None,
             preserve_transactions: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rfc4180: Optional[pulumi.Input[builtins.bool]] = None,
             row_group_length: Optional[pulumi.Input[builtins.int]] = None,
             server_side_encryption_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -2198,6 +2235,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         :param pulumi.Input[builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[builtins.int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
         :param pulumi.Input[builtins.str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
@@ -2258,6 +2296,7 @@ class S3Endpoint(pulumi.CustomResource):
         __props__.__dict__["parquet_timestamp_in_millisecond"] = parquet_timestamp_in_millisecond
         __props__.__dict__["parquet_version"] = parquet_version
         __props__.__dict__["preserve_transactions"] = preserve_transactions
+        __props__.__dict__["region"] = region
         __props__.__dict__["rfc4180"] = rfc4180
         __props__.__dict__["row_group_length"] = row_group_length
         __props__.__dict__["server_side_encryption_kms_key_id"] = server_side_encryption_kms_key_id
@@ -2606,6 +2645,14 @@ class S3Endpoint(pulumi.CustomResource):
         Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "preserve_transactions")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -8,6 +8,7 @@ import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationLogsAnomalyDetectionAr
 import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationOpsCenterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,12 +63,28 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.opsCenter);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private ServiceIntegrationState() {}
 
     private ServiceIntegrationState(ServiceIntegrationState $) {
         this.kmsServerSideEncryption = $.kmsServerSideEncryption;
         this.logsAnomalyDetection = $.logsAnomalyDetection;
         this.opsCenter = $.opsCenter;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -149,6 +166,27 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
          */
         public Builder opsCenter(ServiceIntegrationOpsCenterArgs opsCenter) {
             return opsCenter(Output.of(opsCenter));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public ServiceIntegrationState build() {

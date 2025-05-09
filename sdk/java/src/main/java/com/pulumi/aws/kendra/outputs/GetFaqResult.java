@@ -55,6 +55,7 @@ public final class GetFaqResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
@@ -144,6 +145,9 @@ public final class GetFaqResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
@@ -199,6 +203,7 @@ public final class GetFaqResult {
         private String indexId;
         private String languageCode;
         private String name;
+        private String region;
         private String roleArn;
         private List<GetFaqS3Path> s3Paths;
         private String status;
@@ -217,6 +222,7 @@ public final class GetFaqResult {
     	      this.indexId = defaults.indexId;
     	      this.languageCode = defaults.languageCode;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.s3Paths = defaults.s3Paths;
     	      this.status = defaults.status;
@@ -305,6 +311,14 @@ public final class GetFaqResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetFaqResult", "roleArn");
@@ -359,6 +373,7 @@ public final class GetFaqResult {
             _resultValue.indexId = indexId;
             _resultValue.languageCode = languageCode;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.s3Paths = s3Paths;
             _resultValue.status = status;

@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("API")
  *                 .build())
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(cluster.arn())
  *             .version("1.31")
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .subnetIds(                
@@ -432,7 +432,7 @@ import javax.annotation.Nullable;
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("CONFIG_MAP")
  *                 .build())
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(cluster.arn())
  *             .version("1.31")
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .endpointPrivateAccess(true)
@@ -696,6 +696,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> platformVersion() {
         return this.platformVersion;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.

@@ -51,6 +51,21 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      * 
      */
@@ -130,6 +145,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     private ReplicatorArgs(ReplicatorArgs $) {
         this.description = $.description;
         this.kafkaClusters = $.kafkaClusters;
+        this.region = $.region;
         this.replicationInfoList = $.replicationInfoList;
         this.replicatorName = $.replicatorName;
         this.serviceExecutionRoleArn = $.serviceExecutionRoleArn;
@@ -205,6 +221,27 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kafkaClusters(ReplicatorKafkaClusterArgs... kafkaClusters) {
             return kafkaClusters(List.of(kafkaClusters));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

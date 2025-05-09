@@ -79,6 +79,12 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block(s) containing lifecycle rules for the bucket.
         /// </summary>
         [Output("rules")]
@@ -136,6 +142,12 @@ namespace Pulumi.Aws.S3Control
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules", required: true)]
         private InputList<Inputs.BucketLifecycleConfigurationRuleArgs>? _rules;
 
@@ -161,6 +173,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.BucketLifecycleConfigurationRuleGetArgs>? _rules;

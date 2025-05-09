@@ -30,6 +30,7 @@ public final class GetContactsRotationResult {
      * 
      */
     private List<GetContactsRotationRecurrence> recurrences;
+    private String region;
     /**
      * @return The date and time, in RFC 3339 format, that the rotation goes into effect.
      * 
@@ -74,6 +75,9 @@ public final class GetContactsRotationResult {
     public List<GetContactsRotationRecurrence> recurrences() {
         return this.recurrences;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The date and time, in RFC 3339 format, that the rotation goes into effect.
      * 
@@ -110,6 +114,7 @@ public final class GetContactsRotationResult {
         private String id;
         private String name;
         private List<GetContactsRotationRecurrence> recurrences;
+        private String region;
         private String startTime;
         private Map<String,String> tags;
         private String timeZoneId;
@@ -121,6 +126,7 @@ public final class GetContactsRotationResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.recurrences = defaults.recurrences;
+    	      this.region = defaults.region;
     	      this.startTime = defaults.startTime;
     	      this.tags = defaults.tags;
     	      this.timeZoneId = defaults.timeZoneId;
@@ -173,6 +179,14 @@ public final class GetContactsRotationResult {
             return recurrences(List.of(recurrences));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContactsRotationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder startTime(String startTime) {
             if (startTime == null) {
               throw new MissingRequiredPropertyException("GetContactsRotationResult", "startTime");
@@ -203,6 +217,7 @@ public final class GetContactsRotationResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.recurrences = recurrences;
+            _resultValue.region = region;
             _resultValue.startTime = startTime;
             _resultValue.tags = tags;
             _resultValue.timeZoneId = timeZoneId;

@@ -20,6 +20,7 @@ public final class GetAppregistryAttributeGroupAssociationsResult {
     private List<String> attributeGroupIds;
     private @Nullable String id;
     private @Nullable String name;
+    private String region;
 
     private GetAppregistryAttributeGroupAssociationsResult() {}
     /**
@@ -35,6 +36,9 @@ public final class GetAppregistryAttributeGroupAssociationsResult {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -48,12 +52,14 @@ public final class GetAppregistryAttributeGroupAssociationsResult {
         private List<String> attributeGroupIds;
         private @Nullable String id;
         private @Nullable String name;
+        private String region;
         public Builder() {}
         public Builder(GetAppregistryAttributeGroupAssociationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attributeGroupIds = defaults.attributeGroupIds;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -79,11 +85,20 @@ public final class GetAppregistryAttributeGroupAssociationsResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAppregistryAttributeGroupAssociationsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetAppregistryAttributeGroupAssociationsResult build() {
             final var _resultValue = new GetAppregistryAttributeGroupAssociationsResult();
             _resultValue.attributeGroupIds = attributeGroupIds;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

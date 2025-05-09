@@ -69,6 +69,10 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      */
     public readonly reservationType!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
             resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reservationType"] = state ? state.reservationType : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
@@ -108,6 +113,7 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
             }
             resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reservationType"] = args ? args.reservationType : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["ownerId"] = undefined /*out*/;
@@ -134,6 +140,10 @@ export interface SubnetCidrReservationState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      */
     reservationType?: pulumi.Input<string>;
@@ -155,6 +165,10 @@ export interface SubnetCidrReservationArgs {
      * A brief description of the reservation.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      */

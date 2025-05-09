@@ -56,6 +56,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<int> ApplicationVersionId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp of the application snapshot.
         /// </summary>
         [Output("snapshotCreationTimestamp")]
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string> ApplicationName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the application snapshot.
         /// </summary>
         [Input("snapshotName", required: true)]
@@ -144,6 +156,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// </summary>
         [Input("applicationVersionId")]
         public Input<int>? ApplicationVersionId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The timestamp of the application snapshot.

@@ -44,6 +44,7 @@ public final class GetLinkResult {
      */
     private String linkId;
     private String linkIdentifier;
+    private String region;
     /**
      * @return Types of data that the source account shares with the monitoring account.
      * 
@@ -102,6 +103,9 @@ public final class GetLinkResult {
     public String linkIdentifier() {
         return this.linkIdentifier;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Types of data that the source account shares with the monitoring account.
      * 
@@ -136,6 +140,7 @@ public final class GetLinkResult {
         private List<GetLinkLinkConfiguration> linkConfigurations;
         private String linkId;
         private String linkIdentifier;
+        private String region;
         private List<String> resourceTypes;
         private String sinkArn;
         private Map<String,String> tags;
@@ -149,6 +154,7 @@ public final class GetLinkResult {
     	      this.linkConfigurations = defaults.linkConfigurations;
     	      this.linkId = defaults.linkId;
     	      this.linkIdentifier = defaults.linkIdentifier;
+    	      this.region = defaults.region;
     	      this.resourceTypes = defaults.resourceTypes;
     	      this.sinkArn = defaults.sinkArn;
     	      this.tags = defaults.tags;
@@ -214,6 +220,14 @@ public final class GetLinkResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceTypes(List<String> resourceTypes) {
             if (resourceTypes == null) {
               throw new MissingRequiredPropertyException("GetLinkResult", "resourceTypes");
@@ -249,6 +263,7 @@ public final class GetLinkResult {
             _resultValue.linkConfigurations = linkConfigurations;
             _resultValue.linkId = linkId;
             _resultValue.linkIdentifier = linkIdentifier;
+            _resultValue.region = region;
             _resultValue.resourceTypes = resourceTypes;
             _resultValue.sinkArn = sinkArn;
             _resultValue.tags = tags;

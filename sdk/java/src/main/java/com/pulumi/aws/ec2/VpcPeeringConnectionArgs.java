@@ -102,6 +102,21 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      * 
@@ -156,6 +171,7 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
         this.peerOwnerId = $.peerOwnerId;
         this.peerRegion = $.peerRegion;
         this.peerVpcId = $.peerVpcId;
+        this.region = $.region;
         this.requester = $.requester;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
@@ -288,6 +304,27 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
          */
         public Builder peerVpcId(String peerVpcId) {
             return peerVpcId(Output.of(peerVpcId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

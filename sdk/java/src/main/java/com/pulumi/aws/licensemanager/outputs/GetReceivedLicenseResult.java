@@ -79,6 +79,7 @@ public final class GetReceivedLicenseResult {
      * 
      */
     private List<GetReceivedLicenseReceivedMetadata> receivedMetadatas;
+    private String region;
     /**
      * @return Granted license status.
      * 
@@ -184,6 +185,9 @@ public final class GetReceivedLicenseResult {
     public List<GetReceivedLicenseReceivedMetadata> receivedMetadatas() {
         return this.receivedMetadatas;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Granted license status.
      * 
@@ -228,6 +232,7 @@ public final class GetReceivedLicenseResult {
         private String productName;
         private String productSku;
         private List<GetReceivedLicenseReceivedMetadata> receivedMetadatas;
+        private String region;
         private String status;
         private List<GetReceivedLicenseValidity> validities;
         private String version;
@@ -247,6 +252,7 @@ public final class GetReceivedLicenseResult {
     	      this.productName = defaults.productName;
     	      this.productSku = defaults.productSku;
     	      this.receivedMetadatas = defaults.receivedMetadatas;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.validities = defaults.validities;
     	      this.version = defaults.version;
@@ -372,6 +378,14 @@ public final class GetReceivedLicenseResult {
             return receivedMetadatas(List.of(receivedMetadatas));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "status");
@@ -413,6 +427,7 @@ public final class GetReceivedLicenseResult {
             _resultValue.productName = productName;
             _resultValue.productSku = productSku;
             _resultValue.receivedMetadatas = receivedMetadatas;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.validities = validities;
             _resultValue.version = version;

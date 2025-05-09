@@ -76,6 +76,10 @@ export class StreamConsumer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      */
     public readonly streamArn!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class StreamConsumer extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["creationTimestamp"] = state ? state.creationTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["streamArn"] = state ? state.streamArn : undefined;
         } else {
             const args = argsOrState as StreamConsumerArgs | undefined;
@@ -103,6 +108,7 @@ export class StreamConsumer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'streamArn'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["streamArn"] = args ? args.streamArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
@@ -129,6 +135,10 @@ export interface StreamConsumerState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      */
     streamArn?: pulumi.Input<string>;
@@ -142,6 +152,10 @@ export interface StreamConsumerArgs {
      * Name of the stream consumer.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      */

@@ -96,14 +96,6 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class GetFrameworkArgs : global::Pulumi.InvokeArgs
     {
-        [Input("controlSets")]
-        private List<Inputs.GetFrameworkControlSetArgs>? _controlSets;
-        public List<Inputs.GetFrameworkControlSetArgs> ControlSets
-        {
-            get => _controlSets ?? (_controlSets = new List<Inputs.GetFrameworkControlSetArgs>());
-            set => _controlSets = value;
-        }
-
         [Input("frameworkType", required: true)]
         public string FrameworkType { get; set; } = null!;
 
@@ -113,6 +105,9 @@ namespace Pulumi.Aws.Auditmanager
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetFrameworkArgs()
         {
         }
@@ -121,14 +116,6 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class GetFrameworkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("controlSets")]
-        private InputList<Inputs.GetFrameworkControlSetInputArgs>? _controlSets;
-        public InputList<Inputs.GetFrameworkControlSetInputArgs> ControlSets
-        {
-            get => _controlSets ?? (_controlSets = new InputList<Inputs.GetFrameworkControlSetInputArgs>());
-            set => _controlSets = value;
-        }
-
         [Input("frameworkType", required: true)]
         public Input<string> FrameworkType { get; set; } = null!;
 
@@ -137,6 +124,9 @@ namespace Pulumi.Aws.Auditmanager
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetFrameworkInvokeArgs()
         {
@@ -155,6 +145,7 @@ namespace Pulumi.Aws.Auditmanager
         public readonly string FrameworkType;
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
@@ -173,6 +164,8 @@ namespace Pulumi.Aws.Auditmanager
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -182,6 +175,7 @@ namespace Pulumi.Aws.Auditmanager
             FrameworkType = frameworkType;
             Id = id;
             Name = name;
+            Region = region;
             Tags = tags;
         }
     }

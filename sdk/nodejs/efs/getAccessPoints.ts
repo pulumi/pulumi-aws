@@ -22,6 +22,7 @@ export function getAccessPoints(args: GetAccessPointsArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:efs/getAccessPoints:getAccessPoints", {
         "fileSystemId": args.fileSystemId,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetAccessPointsArgs {
      * EFS File System identifier.
      */
     fileSystemId: string;
+    region?: string;
 }
 
 /**
@@ -52,6 +54,7 @@ export interface GetAccessPointsResult {
      * Set of identifiers.
      */
     readonly ids: string[];
+    readonly region: string;
 }
 /**
  * Provides information about multiple Elastic File System (EFS) Access Points.
@@ -71,6 +74,7 @@ export function getAccessPointsOutput(args: GetAccessPointsOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:efs/getAccessPoints:getAccessPoints", {
         "fileSystemId": args.fileSystemId,
+        "region": args.region,
     }, opts);
 }
 
@@ -82,4 +86,5 @@ export interface GetAccessPointsOutputArgs {
      * EFS File System identifier.
      */
     fileSystemId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

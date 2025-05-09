@@ -3,12 +3,10 @@
 
 package com.pulumi.aws.redshift.inputs;
 
-import com.pulumi.aws.redshift.inputs.GetProducerDataSharesDataShareArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,21 +15,6 @@ import javax.annotation.Nullable;
 public final class GetProducerDataSharesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetProducerDataSharesArgs Empty = new GetProducerDataSharesArgs();
-
-    /**
-     * An array of all data shares in the producer. See `data_shares` below.
-     * 
-     */
-    @Import(name="dataShares")
-    private @Nullable Output<List<GetProducerDataSharesDataShareArgs>> dataShares;
-
-    /**
-     * @return An array of all data shares in the producer. See `data_shares` below.
-     * 
-     */
-    public Optional<Output<List<GetProducerDataSharesDataShareArgs>>> dataShares() {
-        return Optional.ofNullable(this.dataShares);
-    }
 
     /**
      * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
@@ -52,6 +35,13 @@ public final class GetProducerDataSharesArgs extends com.pulumi.resources.Invoke
         return this.producerArn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
      * 
@@ -70,8 +60,8 @@ public final class GetProducerDataSharesArgs extends com.pulumi.resources.Invoke
     private GetProducerDataSharesArgs() {}
 
     private GetProducerDataSharesArgs(GetProducerDataSharesArgs $) {
-        this.dataShares = $.dataShares;
         this.producerArn = $.producerArn;
+        this.region = $.region;
         this.status = $.status;
     }
 
@@ -91,37 +81,6 @@ public final class GetProducerDataSharesArgs extends com.pulumi.resources.Invoke
 
         public Builder(GetProducerDataSharesArgs defaults) {
             $ = new GetProducerDataSharesArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param dataShares An array of all data shares in the producer. See `data_shares` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dataShares(@Nullable Output<List<GetProducerDataSharesDataShareArgs>> dataShares) {
-            $.dataShares = dataShares;
-            return this;
-        }
-
-        /**
-         * @param dataShares An array of all data shares in the producer. See `data_shares` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dataShares(List<GetProducerDataSharesDataShareArgs> dataShares) {
-            return dataShares(Output.of(dataShares));
-        }
-
-        /**
-         * @param dataShares An array of all data shares in the producer. See `data_shares` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dataShares(GetProducerDataSharesDataShareArgs... dataShares) {
-            return dataShares(List.of(dataShares));
         }
 
         /**
@@ -147,6 +106,15 @@ public final class GetProducerDataSharesArgs extends com.pulumi.resources.Invoke
          */
         public Builder producerArn(String producerArn) {
             return producerArn(Output.of(producerArn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

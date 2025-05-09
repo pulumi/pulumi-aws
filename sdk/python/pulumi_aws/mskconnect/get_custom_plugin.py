@@ -27,7 +27,7 @@ class GetCustomPluginResult:
     """
     A collection of values returned by getCustomPlugin.
     """
-    def __init__(__self__, arn=None, description=None, id=None, latest_revision=None, name=None, state=None, tags=None):
+    def __init__(__self__, arn=None, description=None, id=None, latest_revision=None, name=None, region=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetCustomPluginResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -89,6 +92,11 @@ class GetCustomPluginResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         the state of the custom plugin.
@@ -115,11 +123,13 @@ class AwaitableGetCustomPluginResult(GetCustomPluginResult):
             id=self.id,
             latest_revision=self.latest_revision,
             name=self.name,
+            region=self.region,
             state=self.state,
             tags=self.tags)
 
 
 def get_custom_plugin(name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomPluginResult:
     """
@@ -140,6 +150,7 @@ def get_custom_plugin(name: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mskconnect/getCustomPlugin:getCustomPlugin', __args__, opts=opts, typ=GetCustomPluginResult).value
@@ -150,9 +161,11 @@ def get_custom_plugin(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         latest_revision=pulumi.get(__ret__, 'latest_revision'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_custom_plugin_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
@@ -173,6 +186,7 @@ def get_custom_plugin_output(name: Optional[pulumi.Input[builtins.str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mskconnect/getCustomPlugin:getCustomPlugin', __args__, opts=opts, typ=GetCustomPluginResult)
@@ -182,5 +196,6 @@ def get_custom_plugin_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         latest_revision=pulumi.get(__response__, 'latest_revision'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

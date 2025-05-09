@@ -302,6 +302,12 @@ namespace Pulumi.Aws.Mwaa
         public Output<string?> PluginsS3Path { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The requirements.txt file version you want to use.
         /// </summary>
         [Output("requirementsS3ObjectVersion")]
@@ -542,6 +548,12 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? PluginsS3Path { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The requirements.txt file version you want to use.
         /// </summary>
         [Input("requirementsS3ObjectVersion")]
@@ -741,6 +753,12 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("pluginsS3Path")]
         public Input<string>? PluginsS3Path { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The requirements.txt file version you want to use.

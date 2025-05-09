@@ -165,6 +165,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int> NetmaskLength { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the resource.
         /// </summary>
         [Output("resourceId")]
@@ -264,6 +270,12 @@ namespace Pulumi.Aws.Ec2
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public VpcIpamPoolCidrAllocationArgs()
         {
         }
@@ -310,6 +322,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the resource.

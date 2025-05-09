@@ -61,7 +61,8 @@ type GetComponentsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetComponentsFilter `pulumi:"filters"`
 	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner *string `pulumi:"owner"`
+	Owner  *string `pulumi:"owner"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getComponents.
@@ -72,8 +73,9 @@ type GetComponentsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of names of the matched Image Builder Components.
-	Names []string `pulumi:"names"`
-	Owner *string  `pulumi:"owner"`
+	Names  []string `pulumi:"names"`
+	Owner  *string  `pulumi:"owner"`
+	Region string   `pulumi:"region"`
 }
 
 func GetComponentsOutput(ctx *pulumi.Context, args GetComponentsOutputArgs, opts ...pulumi.InvokeOption) GetComponentsResultOutput {
@@ -90,7 +92,8 @@ type GetComponentsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetComponentsFilterArrayInput `pulumi:"filters"`
 	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	Owner  pulumi.StringPtrInput `pulumi:"owner"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetComponentsOutputArgs) ElementType() reflect.Type {
@@ -133,6 +136,10 @@ func (o GetComponentsResultOutput) Names() pulumi.StringArrayOutput {
 
 func (o GetComponentsResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetComponentsResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o GetComponentsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetComponentsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

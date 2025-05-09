@@ -29,6 +29,7 @@ class VpcConnectionArgs:
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['VpcConnectionTimeoutsArgs']] = None):
         """
@@ -42,6 +43,7 @@ class VpcConnectionArgs:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[builtins.str] name: The display name for the VPC connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -54,6 +56,8 @@ class VpcConnectionArgs:
             pulumi.set(__self__, "dns_resolvers", dns_resolvers)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -147,6 +151,18 @@ class VpcConnectionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -175,6 +191,7 @@ class _VpcConnectionState:
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -189,6 +206,7 @@ class _VpcConnectionState:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[builtins.str] name: The display name for the VPC connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role to associate with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
@@ -208,6 +226,8 @@ class _VpcConnectionState:
             pulumi.set(__self__, "dns_resolvers", dns_resolvers)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if security_group_ids is not None:
@@ -282,6 +302,18 @@ class _VpcConnectionState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -378,6 +410,7 @@ class VpcConnection(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -449,6 +482,7 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[builtins.str] name: The display name for the VPC connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role to associate with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
@@ -540,6 +574,7 @@ class VpcConnection(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -558,6 +593,7 @@ class VpcConnection(pulumi.CustomResource):
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["dns_resolvers"] = dns_resolvers
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -590,6 +626,7 @@ class VpcConnection(pulumi.CustomResource):
             aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
             dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -609,6 +646,7 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[builtins.str] name: The display name for the VPC connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role to associate with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
@@ -627,6 +665,7 @@ class VpcConnection(pulumi.CustomResource):
         __props__.__dict__["aws_account_id"] = aws_account_id
         __props__.__dict__["dns_resolvers"] = dns_resolvers
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -675,6 +714,14 @@ class VpcConnection(pulumi.CustomResource):
         The display name for the VPC connection.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

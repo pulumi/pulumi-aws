@@ -76,6 +76,21 @@ public final class NetworkInterfacePermissionState extends com.pulumi.resources.
         return Optional.ofNullable(this.permission);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="timeouts")
     private @Nullable Output<NetworkInterfacePermissionTimeoutsArgs> timeouts;
 
@@ -90,6 +105,7 @@ public final class NetworkInterfacePermissionState extends com.pulumi.resources.
         this.networkInterfaceId = $.networkInterfaceId;
         this.networkInterfacePermissionId = $.networkInterfacePermissionId;
         this.permission = $.permission;
+        this.region = $.region;
         this.timeouts = $.timeouts;
     }
 
@@ -193,6 +209,27 @@ public final class NetworkInterfacePermissionState extends com.pulumi.resources.
          */
         public Builder permission(String permission) {
             return permission(Output.of(permission));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder timeouts(@Nullable Output<NetworkInterfacePermissionTimeoutsArgs> timeouts) {

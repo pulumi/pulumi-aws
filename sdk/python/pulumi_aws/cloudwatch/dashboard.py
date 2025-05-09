@@ -21,14 +21,18 @@ __all__ = ['DashboardArgs', 'Dashboard']
 class DashboardArgs:
     def __init__(__self__, *,
                  dashboard_body: pulumi.Input[builtins.str],
-                 dashboard_name: pulumi.Input[builtins.str]):
+                 dashboard_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
         :param pulumi.Input[builtins.str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[builtins.str] dashboard_name: The name of the dashboard.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "dashboard_body", dashboard_body)
         pulumi.set(__self__, "dashboard_name", dashboard_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dashboardBody")
@@ -54,18 +58,32 @@ class DashboardArgs:
     def dashboard_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "dashboard_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DashboardState:
     def __init__(__self__, *,
                  dashboard_arn: Optional[pulumi.Input[builtins.str]] = None,
                  dashboard_body: Optional[pulumi.Input[builtins.str]] = None,
-                 dashboard_name: Optional[pulumi.Input[builtins.str]] = None):
+                 dashboard_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
         :param pulumi.Input[builtins.str] dashboard_arn: The Amazon Resource Name (ARN) of the dashboard.
         :param pulumi.Input[builtins.str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[builtins.str] dashboard_name: The name of the dashboard.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if dashboard_arn is not None:
             pulumi.set(__self__, "dashboard_arn", dashboard_arn)
@@ -73,6 +91,8 @@ class _DashboardState:
             pulumi.set(__self__, "dashboard_body", dashboard_body)
         if dashboard_name is not None:
             pulumi.set(__self__, "dashboard_name", dashboard_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dashboardArn")
@@ -110,6 +130,18 @@ class _DashboardState:
     def dashboard_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "dashboard_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class Dashboard(pulumi.CustomResource):
 
@@ -121,6 +153,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_body: Optional[pulumi.Input[builtins.str]] = None,
                  dashboard_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Dashboard resource.
@@ -181,6 +214,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[builtins.str] dashboard_name: The name of the dashboard.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -260,6 +294,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_body: Optional[pulumi.Input[builtins.str]] = None,
                  dashboard_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,6 +310,7 @@ class Dashboard(pulumi.CustomResource):
             if dashboard_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard_name'")
             __props__.__dict__["dashboard_name"] = dashboard_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["dashboard_arn"] = None
         super(Dashboard, __self__).__init__(
             'aws:cloudwatch/dashboard:Dashboard',
@@ -288,7 +324,8 @@ class Dashboard(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             dashboard_arn: Optional[pulumi.Input[builtins.str]] = None,
             dashboard_body: Optional[pulumi.Input[builtins.str]] = None,
-            dashboard_name: Optional[pulumi.Input[builtins.str]] = None) -> 'Dashboard':
+            dashboard_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Dashboard':
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -299,6 +336,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] dashboard_arn: The Amazon Resource Name (ARN) of the dashboard.
         :param pulumi.Input[builtins.str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[builtins.str] dashboard_name: The name of the dashboard.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -307,6 +345,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["dashboard_arn"] = dashboard_arn
         __props__.__dict__["dashboard_body"] = dashboard_body
         __props__.__dict__["dashboard_name"] = dashboard_name
+        __props__.__dict__["region"] = region
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -332,4 +371,12 @@ class Dashboard(pulumi.CustomResource):
         The name of the dashboard.
         """
         return pulumi.get(self, "dashboard_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

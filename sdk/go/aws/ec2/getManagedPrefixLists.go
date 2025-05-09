@@ -26,6 +26,7 @@ func GetManagedPrefixLists(ctx *pulumi.Context, args *GetManagedPrefixListsArgs,
 type GetManagedPrefixListsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetManagedPrefixListsFilter `pulumi:"filters"`
+	Region  *string                       `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired .
 	//
@@ -40,8 +41,9 @@ type GetManagedPrefixListsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of all the managed prefix list ids found.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetManagedPrefixListsOutput(ctx *pulumi.Context, args GetManagedPrefixListsOutputArgs, opts ...pulumi.InvokeOption) GetManagedPrefixListsResultOutput {
@@ -57,6 +59,7 @@ func GetManagedPrefixListsOutput(ctx *pulumi.Context, args GetManagedPrefixLists
 type GetManagedPrefixListsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetManagedPrefixListsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                 `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired .
 	//
@@ -96,6 +99,10 @@ func (o GetManagedPrefixListsResultOutput) Id() pulumi.StringOutput {
 // List of all the managed prefix list ids found.
 func (o GetManagedPrefixListsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetManagedPrefixListsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetManagedPrefixListsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedPrefixListsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetManagedPrefixListsResultOutput) Tags() pulumi.StringMapOutput {

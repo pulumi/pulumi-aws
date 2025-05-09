@@ -74,6 +74,12 @@ namespace Pulumi.Aws.Backup
         [Output("minRetentionDays")]
         public Output<int?> MinRetentionDays { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a VaultLockConfiguration resource with the given unique name, arguments, and options.
@@ -144,6 +150,12 @@ namespace Pulumi.Aws.Backup
         [Input("minRetentionDays")]
         public Input<int>? MinRetentionDays { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public VaultLockConfigurationArgs()
         {
         }
@@ -181,6 +193,12 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("minRetentionDays")]
         public Input<int>? MinRetentionDays { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public VaultLockConfigurationState()
         {

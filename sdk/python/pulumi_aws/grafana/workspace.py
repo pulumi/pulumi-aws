@@ -34,6 +34,7 @@ class WorkspaceArgs:
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[builtins.str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -54,6 +55,7 @@ class WorkspaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[builtins.str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -80,6 +82,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "organization_role_name", organization_role_name)
         if organizational_units is not None:
             pulumi.set(__self__, "organizational_units", organizational_units)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if stack_set_name is not None:
@@ -236,6 +240,18 @@ class WorkspaceArgs:
         pulumi.set(self, "organizational_units", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -301,6 +317,7 @@ class _WorkspaceState:
                  organization_role_name: Optional[pulumi.Input[builtins.str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  permission_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  saml_configuration_status: Optional[pulumi.Input[builtins.str]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -325,6 +342,7 @@ class _WorkspaceState:
         :param pulumi.Input[builtins.str] permission_type: The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -359,6 +377,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "organizational_units", organizational_units)
         if permission_type is not None:
             pulumi.set(__self__, "permission_type", permission_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if saml_configuration_status is not None:
@@ -543,6 +563,18 @@ class _WorkspaceState:
         pulumi.set(self, "permission_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -632,6 +664,7 @@ class Workspace(pulumi.CustomResource):
                  organization_role_name: Optional[pulumi.Input[builtins.str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  permission_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -719,6 +752,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] permission_type: The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -823,6 +857,7 @@ class Workspace(pulumi.CustomResource):
                  organization_role_name: Optional[pulumi.Input[builtins.str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  permission_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -854,6 +889,7 @@ class Workspace(pulumi.CustomResource):
             if permission_type is None and not opts.urn:
                 raise TypeError("Missing required property 'permission_type'")
             __props__.__dict__["permission_type"] = permission_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["stack_set_name"] = stack_set_name
             __props__.__dict__["tags"] = tags
@@ -886,6 +922,7 @@ class Workspace(pulumi.CustomResource):
             organization_role_name: Optional[pulumi.Input[builtins.str]] = None,
             organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             permission_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             saml_configuration_status: Optional[pulumi.Input[builtins.str]] = None,
             stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -915,6 +952,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] permission_type: The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -939,6 +977,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["organization_role_name"] = organization_role_name
         __props__.__dict__["organizational_units"] = organizational_units
         __props__.__dict__["permission_type"] = permission_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["saml_configuration_status"] = saml_configuration_status
         __props__.__dict__["stack_set_name"] = stack_set_name
@@ -1060,6 +1099,14 @@ class Workspace(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "permission_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

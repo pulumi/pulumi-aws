@@ -182,6 +182,10 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -237,6 +241,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["readerEndpoints"] = state ? state.readerEndpoints : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["snapshotArnsToRestores"] = state ? state.snapshotArnsToRestores : undefined;
             resourceInputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
@@ -258,6 +263,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snapshotArnsToRestores"] = args ? args.snapshotArnsToRestores : undefined;
             resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
@@ -334,6 +340,10 @@ export interface ServerlessCacheState {
      */
     readerEndpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheReaderEndpoint>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -400,6 +410,10 @@ export interface ServerlessCacheArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */

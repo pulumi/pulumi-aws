@@ -33,12 +33,16 @@ public final class GetSecurityGroupRulesArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      * 
      */
     @Import(name="tags")
@@ -47,9 +51,6 @@ public final class GetSecurityGroupRulesArgs extends com.pulumi.resources.Invoke
     /**
      * @return Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -60,6 +61,7 @@ public final class GetSecurityGroupRulesArgs extends com.pulumi.resources.Invoke
 
     private GetSecurityGroupRulesArgs(GetSecurityGroupRulesArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -112,12 +114,18 @@ public final class GetSecurityGroupRulesArgs extends com.pulumi.resources.Invoke
             return filters(List.of(filters));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired security group rule.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
          * 
          * @return builder
          * 
@@ -130,9 +138,6 @@ public final class GetSecurityGroupRulesArgs extends com.pulumi.resources.Invoke
         /**
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired security group rule.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
          * 
          * @return builder
          * 

@@ -158,6 +158,21 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      * 
      */
@@ -259,6 +274,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         this.lifecycleConfigName = $.lifecycleConfigName;
         this.name = $.name;
         this.platformIdentifier = $.platformIdentifier;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.rootAccess = $.rootAccess;
         this.securityGroups = $.securityGroups;
@@ -485,6 +501,27 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder platformIdentifier(String platformIdentifier) {
             return platformIdentifier(Output.of(platformIdentifier));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

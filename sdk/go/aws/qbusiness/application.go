@@ -72,8 +72,10 @@ type Application struct {
 	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
 	//
 	// The following arguments are optional:
-	IdentityCenterInstanceArn pulumi.StringOutput    `pulumi:"identityCenterInstanceArn"`
-	Tags                      pulumi.StringMapOutput `pulumi:"tags"`
+	IdentityCenterInstanceArn pulumi.StringOutput `pulumi:"identityCenterInstanceArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput    `pulumi:"region"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts ApplicationTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -135,8 +137,10 @@ type applicationState struct {
 	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
 	//
 	// The following arguments are optional:
-	IdentityCenterInstanceArn *string           `pulumi:"identityCenterInstanceArn"`
-	Tags                      map[string]string `pulumi:"tags"`
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string    `pulumi:"tagsAll"`
 	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
@@ -161,7 +165,9 @@ type ApplicationState struct {
 	//
 	// The following arguments are optional:
 	IdentityCenterInstanceArn pulumi.StringPtrInput
-	Tags                      pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ApplicationTimeoutsPtrInput
@@ -185,9 +191,11 @@ type applicationArgs struct {
 	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
 	//
 	// The following arguments are optional:
-	IdentityCenterInstanceArn string               `pulumi:"identityCenterInstanceArn"`
-	Tags                      map[string]string    `pulumi:"tags"`
-	Timeouts                  *ApplicationTimeouts `pulumi:"timeouts"`
+	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string              `pulumi:"region"`
+	Tags     map[string]string    `pulumi:"tags"`
+	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -206,8 +214,10 @@ type ApplicationArgs struct {
 	//
 	// The following arguments are optional:
 	IdentityCenterInstanceArn pulumi.StringInput
-	Tags                      pulumi.StringMapInput
-	Timeouts                  ApplicationTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	Timeouts ApplicationTimeoutsPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -337,6 +347,11 @@ func (o ApplicationOutput) IdentityCenterApplicationArn() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ApplicationOutput) IdentityCenterInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IdentityCenterInstanceArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ApplicationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {

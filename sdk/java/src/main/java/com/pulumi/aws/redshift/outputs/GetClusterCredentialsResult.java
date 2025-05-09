@@ -36,6 +36,7 @@ public final class GetClusterCredentialsResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetClusterCredentialsResult() {}
     public Optional<Boolean> autoCreate() {
@@ -77,6 +78,9 @@ public final class GetClusterCredentialsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -96,6 +100,7 @@ public final class GetClusterCredentialsResult {
         private @Nullable Integer durationSeconds;
         private String expiration;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetClusterCredentialsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,6 +113,7 @@ public final class GetClusterCredentialsResult {
     	      this.durationSeconds = defaults.durationSeconds;
     	      this.expiration = defaults.expiration;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -177,6 +183,14 @@ public final class GetClusterCredentialsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterCredentialsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetClusterCredentialsResult build() {
             final var _resultValue = new GetClusterCredentialsResult();
             _resultValue.autoCreate = autoCreate;
@@ -188,6 +202,7 @@ public final class GetClusterCredentialsResult {
             _resultValue.durationSeconds = durationSeconds;
             _resultValue.expiration = expiration;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

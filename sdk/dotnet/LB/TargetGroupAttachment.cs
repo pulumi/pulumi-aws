@@ -102,6 +102,12 @@ namespace Pulumi.Aws.LB
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the target group with which to register targets.
         /// </summary>
         [Output("targetGroupArn")]
@@ -178,6 +184,12 @@ namespace Pulumi.Aws.LB
         public Input<int>? Port { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the target group with which to register targets.
         /// </summary>
         [Input("targetGroupArn", required: true)]
@@ -210,6 +222,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the target group with which to register targets.

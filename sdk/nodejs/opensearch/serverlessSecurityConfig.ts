@@ -61,6 +61,10 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for SAML options.
      */
     public readonly samlOptions!: pulumi.Output<outputs.opensearch.ServerlessSecurityConfigSamlOptions | undefined>;
@@ -87,6 +91,7 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
             resourceInputs["configVersion"] = state ? state.configVersion : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["samlOptions"] = state ? state.samlOptions : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
@@ -96,6 +101,7 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["configVersion"] = undefined /*out*/;
@@ -122,6 +128,10 @@ export interface ServerlessSecurityConfigState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for SAML options.
      */
     samlOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigSamlOptions>;
@@ -145,6 +155,10 @@ export interface ServerlessSecurityConfigArgs {
      * Name of the policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for SAML options.
      */

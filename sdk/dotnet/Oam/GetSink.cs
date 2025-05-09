@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetSinkArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ARN of the sink.
         /// </summary>
@@ -119,6 +122,9 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetSinkInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ARN of the sink.
         /// </summary>
@@ -159,6 +165,7 @@ namespace Pulumi.Aws.Oam
         /// Name of the sink.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Random ID string that AWS generated as part of the sink ARN.
         /// </summary>
@@ -177,6 +184,8 @@ namespace Pulumi.Aws.Oam
 
             string name,
 
+            string region,
+
             string sinkId,
 
             string sinkIdentifier,
@@ -186,6 +195,7 @@ namespace Pulumi.Aws.Oam
             Arn = arn;
             Id = id;
             Name = name;
+            Region = region;
             SinkId = sinkId;
             SinkIdentifier = sinkIdentifier;
             Tags = tags;

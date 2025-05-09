@@ -18,6 +18,7 @@ public final class GetPermissionSetsResult {
     private List<String> arns;
     private String id;
     private String instanceArn;
+    private String region;
 
     private GetPermissionSetsResult() {}
     /**
@@ -33,6 +34,9 @@ public final class GetPermissionSetsResult {
     public String instanceArn() {
         return this.instanceArn;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -46,12 +50,14 @@ public final class GetPermissionSetsResult {
         private List<String> arns;
         private String id;
         private String instanceArn;
+        private String region;
         public Builder() {}
         public Builder(GetPermissionSetsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
     	      this.id = defaults.id;
     	      this.instanceArn = defaults.instanceArn;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -81,11 +87,20 @@ public final class GetPermissionSetsResult {
             this.instanceArn = instanceArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetPermissionSetsResult build() {
             final var _resultValue = new GetPermissionSetsResult();
             _resultValue.arns = arns;
             _resultValue.id = id;
             _resultValue.instanceArn = instanceArn;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

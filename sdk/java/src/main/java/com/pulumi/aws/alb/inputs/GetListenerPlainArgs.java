@@ -61,6 +61,13 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.port);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -74,6 +81,7 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
         this.arn = $.arn;
         this.loadBalancerArn = $.loadBalancerArn;
         this.port = $.port;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -125,6 +133,11 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder port(@Nullable Integer port) {
             $.port = port;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

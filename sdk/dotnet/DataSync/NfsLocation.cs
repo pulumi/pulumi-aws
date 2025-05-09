@@ -70,6 +70,12 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.NfsLocationOnPremConfig> OnPremConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         /// </summary>
         [Output("serverHostname")]
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.NfsLocationOnPremConfigArgs> OnPremConfig { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         /// </summary>
         [Input("serverHostname", required: true)]
@@ -203,6 +215,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("onPremConfig")]
         public Input<Inputs.NfsLocationOnPremConfigGetArgs>? OnPremConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.

@@ -87,6 +87,10 @@ export class InstanceState extends pulumi.CustomResource {
      */
     public readonly instanceId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * State of the instance. Valid values are `stopped`, `running`.
      *
      * The following arguments are optional:
@@ -108,6 +112,7 @@ export class InstanceState extends pulumi.CustomResource {
             const state = argsOrState as InstanceStateState | undefined;
             resourceInputs["force"] = state ? state.force : undefined;
             resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as InstanceStateArgs | undefined;
@@ -119,6 +124,7 @@ export class InstanceState extends pulumi.CustomResource {
             }
             resourceInputs["force"] = args ? args.force : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,6 +145,10 @@ export interface InstanceStateState {
      */
     instanceId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * State of the instance. Valid values are `stopped`, `running`.
      *
      * The following arguments are optional:
@@ -158,6 +168,10 @@ export interface InstanceStateArgs {
      * ID of the instance.
      */
     instanceId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * State of the instance. Valid values are `stopped`, `running`.
      *

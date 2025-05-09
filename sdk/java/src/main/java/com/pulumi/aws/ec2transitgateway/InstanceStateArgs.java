@@ -48,6 +48,21 @@ public final class InstanceStateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * State of the instance. Valid values are `stopped`, `running`.
      * 
      * The following arguments are optional:
@@ -71,6 +86,7 @@ public final class InstanceStateArgs extends com.pulumi.resources.ResourceArgs {
     private InstanceStateArgs(InstanceStateArgs $) {
         this.force = $.force;
         this.instanceId = $.instanceId;
+        this.region = $.region;
         this.state = $.state;
     }
 
@@ -132,6 +148,27 @@ public final class InstanceStateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -39,6 +39,7 @@ public final class GetTableResult {
     private GetTablePointInTimeRecovery pointInTimeRecovery;
     private String rangeKey;
     private Integer readCapacity;
+    private String region;
     private List<GetTableReplica> replicas;
     private GetTableServerSideEncryption serverSideEncryption;
     private String streamArn;
@@ -94,6 +95,9 @@ public final class GetTableResult {
     public Integer readCapacity() {
         return this.readCapacity;
     }
+    public String region() {
+        return this.region;
+    }
     public List<GetTableReplica> replicas() {
         return this.replicas;
     }
@@ -147,6 +151,7 @@ public final class GetTableResult {
         private GetTablePointInTimeRecovery pointInTimeRecovery;
         private String rangeKey;
         private Integer readCapacity;
+        private String region;
         private List<GetTableReplica> replicas;
         private GetTableServerSideEncryption serverSideEncryption;
         private String streamArn;
@@ -173,6 +178,7 @@ public final class GetTableResult {
     	      this.pointInTimeRecovery = defaults.pointInTimeRecovery;
     	      this.rangeKey = defaults.rangeKey;
     	      this.readCapacity = defaults.readCapacity;
+    	      this.region = defaults.region;
     	      this.replicas = defaults.replicas;
     	      this.serverSideEncryption = defaults.serverSideEncryption;
     	      this.streamArn = defaults.streamArn;
@@ -302,6 +308,14 @@ public final class GetTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder replicas(List<GetTableReplica> replicas) {
             if (replicas == null) {
               throw new MissingRequiredPropertyException("GetTableResult", "replicas");
@@ -399,6 +413,7 @@ public final class GetTableResult {
             _resultValue.pointInTimeRecovery = pointInTimeRecovery;
             _resultValue.rangeKey = rangeKey;
             _resultValue.readCapacity = readCapacity;
+            _resultValue.region = region;
             _resultValue.replicas = replicas;
             _resultValue.serverSideEncryption = serverSideEncryption;
             _resultValue.streamArn = streamArn;

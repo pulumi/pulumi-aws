@@ -22,6 +22,7 @@ public final class GetTopicResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Map of tags for the resource.
      * 
@@ -46,6 +47,9 @@ public final class GetTopicResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags for the resource.
      * 
@@ -66,6 +70,7 @@ public final class GetTopicResult {
         private String arn;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetTopicResult defaults) {
@@ -73,6 +78,7 @@ public final class GetTopicResult {
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -101,6 +107,14 @@ public final class GetTopicResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetTopicResult", "tags");
@@ -113,6 +127,7 @@ public final class GetTopicResult {
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

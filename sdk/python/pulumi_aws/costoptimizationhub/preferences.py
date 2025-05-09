@@ -21,14 +21,18 @@ __all__ = ['PreferencesArgs', 'Preferences']
 class PreferencesArgs:
     def __init__(__self__, *,
                  member_account_discount_visibility: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Preferences resource.
         :param pulumi.Input[builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
         if member_account_discount_visibility is not None:
             pulumi.set(__self__, "member_account_discount_visibility", member_account_discount_visibility)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if savings_estimation_mode is not None:
             pulumi.set(__self__, "savings_estimation_mode", savings_estimation_mode)
 
@@ -43,6 +47,18 @@ class PreferencesArgs:
     @member_account_discount_visibility.setter
     def member_account_discount_visibility(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "member_account_discount_visibility", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="savingsEstimationMode")
@@ -61,14 +77,18 @@ class PreferencesArgs:
 class _PreferencesState:
     def __init__(__self__, *,
                  member_account_discount_visibility: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Preferences resources.
         :param pulumi.Input[builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
         if member_account_discount_visibility is not None:
             pulumi.set(__self__, "member_account_discount_visibility", member_account_discount_visibility)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if savings_estimation_mode is not None:
             pulumi.set(__self__, "savings_estimation_mode", savings_estimation_mode)
 
@@ -83,6 +103,18 @@ class _PreferencesState:
     @member_account_discount_visibility.setter
     def member_account_discount_visibility(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "member_account_discount_visibility", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="savingsEstimationMode")
@@ -106,6 +138,7 @@ class Preferences(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  member_account_discount_visibility: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -144,6 +177,7 @@ class Preferences(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
         ...
@@ -201,6 +235,7 @@ class Preferences(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  member_account_discount_visibility: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -212,6 +247,7 @@ class Preferences(pulumi.CustomResource):
             __props__ = PreferencesArgs.__new__(PreferencesArgs)
 
             __props__.__dict__["member_account_discount_visibility"] = member_account_discount_visibility
+            __props__.__dict__["region"] = region
             __props__.__dict__["savings_estimation_mode"] = savings_estimation_mode
         super(Preferences, __self__).__init__(
             'aws:costoptimizationhub/preferences:Preferences',
@@ -224,6 +260,7 @@ class Preferences(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             member_account_discount_visibility: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None) -> 'Preferences':
         """
         Get an existing Preferences resource's state with the given name, id, and optional extra
@@ -233,6 +270,7 @@ class Preferences(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -240,6 +278,7 @@ class Preferences(pulumi.CustomResource):
         __props__ = _PreferencesState.__new__(_PreferencesState)
 
         __props__.__dict__["member_account_discount_visibility"] = member_account_discount_visibility
+        __props__.__dict__["region"] = region
         __props__.__dict__["savings_estimation_mode"] = savings_estimation_mode
         return Preferences(resource_name, opts=opts, __props__=__props__)
 
@@ -250,6 +289,14 @@ class Preferences(pulumi.CustomResource):
         Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
         """
         return pulumi.get(self, "member_account_discount_visibility")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="savingsEstimationMode")

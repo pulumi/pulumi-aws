@@ -54,6 +54,8 @@ type LookupMultiRegionAccessPointArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The name of the Multi-Region Access Point.
 	Name string `pulumi:"name"`
+	// The name of the region.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getMultiRegionAccessPoint.
@@ -72,6 +74,8 @@ type LookupMultiRegionAccessPointResult struct {
 	Name string `pulumi:"name"`
 	// Public Access Block of the Multi-Region Access Point. Detailed below.
 	PublicAccessBlocks []GetMultiRegionAccessPointPublicAccessBlock `pulumi:"publicAccessBlocks"`
+	// The name of the region.
+	Region string `pulumi:"region"`
 	// A collection of the regions and buckets associated with the Multi-Region Access Point.
 	Regions []GetMultiRegionAccessPointRegion `pulumi:"regions"`
 	// The current status of the Multi-Region Access Point.
@@ -93,6 +97,8 @@ type LookupMultiRegionAccessPointOutputArgs struct {
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The name of the Multi-Region Access Point.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the region.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupMultiRegionAccessPointOutputArgs) ElementType() reflect.Type {
@@ -152,6 +158,11 @@ func (o LookupMultiRegionAccessPointResultOutput) PublicAccessBlocks() GetMultiR
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) []GetMultiRegionAccessPointPublicAccessBlock {
 		return v.PublicAccessBlocks
 	}).(GetMultiRegionAccessPointPublicAccessBlockArrayOutput)
+}
+
+// The name of the region.
+func (o LookupMultiRegionAccessPointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A collection of the regions and buckets associated with the Multi-Region Access Point.

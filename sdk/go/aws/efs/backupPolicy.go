@@ -64,6 +64,8 @@ type BackupPolicy struct {
 	BackupPolicy BackupPolicyBackupPolicyOutput `pulumi:"backupPolicy"`
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -106,6 +108,8 @@ type backupPolicyState struct {
 	BackupPolicy *BackupPolicyBackupPolicy `pulumi:"backupPolicy"`
 	// The ID of the EFS file system.
 	FileSystemId *string `pulumi:"fileSystemId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BackupPolicyState struct {
@@ -113,6 +117,8 @@ type BackupPolicyState struct {
 	BackupPolicy BackupPolicyBackupPolicyPtrInput
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BackupPolicyState) ElementType() reflect.Type {
@@ -124,6 +130,8 @@ type backupPolicyArgs struct {
 	BackupPolicy BackupPolicyBackupPolicy `pulumi:"backupPolicy"`
 	// The ID of the EFS file system.
 	FileSystemId string `pulumi:"fileSystemId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BackupPolicy resource.
@@ -132,6 +140,8 @@ type BackupPolicyArgs struct {
 	BackupPolicy BackupPolicyBackupPolicyInput
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BackupPolicyArgs) ElementType() reflect.Type {
@@ -229,6 +239,11 @@ func (o BackupPolicyOutput) BackupPolicy() BackupPolicyBackupPolicyOutput {
 // The ID of the EFS file system.
 func (o BackupPolicyOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BackupPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BackupPolicyArrayOutput struct{ *pulumi.OutputState }

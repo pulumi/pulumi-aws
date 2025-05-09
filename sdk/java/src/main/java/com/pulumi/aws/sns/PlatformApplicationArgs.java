@@ -182,6 +182,21 @@ public final class PlatformApplicationArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      * 
      */
@@ -229,6 +244,7 @@ public final class PlatformApplicationArgs extends com.pulumi.resources.Resource
         this.platform = $.platform;
         this.platformCredential = $.platformCredential;
         this.platformPrincipal = $.platformPrincipal;
+        this.region = $.region;
         this.successFeedbackRoleArn = $.successFeedbackRoleArn;
         this.successFeedbackSampleRate = $.successFeedbackSampleRate;
     }
@@ -480,6 +496,27 @@ public final class PlatformApplicationArgs extends com.pulumi.resources.Resource
          */
         public Builder platformPrincipal(String platformPrincipal) {
             return platformPrincipal(Output.of(platformPrincipal));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

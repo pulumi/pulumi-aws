@@ -73,6 +73,8 @@ type KxScalingGroup struct {
 	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of scaling group.
 	// * `CREATING` – The scaling group creation is in progress.
 	// * `CREATE_FAILED` – The scaling group creation has failed.
@@ -148,6 +150,8 @@ type kxScalingGroupState struct {
 	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the scaling group that you want to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of scaling group.
 	// * `CREATING` – The scaling group creation is in progress.
 	// * `CREATE_FAILED` – The scaling group creation has failed.
@@ -185,6 +189,8 @@ type KxScalingGroupState struct {
 	LastModifiedTimestamp pulumi.StringPtrInput
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of scaling group.
 	// * `CREATING` – The scaling group creation is in progress.
 	// * `CREATE_FAILED` – The scaling group creation has failed.
@@ -218,6 +224,8 @@ type kxScalingGroupArgs struct {
 	HostType string `pulumi:"hostType"`
 	// Unique name for the scaling group that you want to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -236,6 +244,8 @@ type KxScalingGroupArgs struct {
 	HostType pulumi.StringInput
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -369,6 +379,11 @@ func (o KxScalingGroupOutput) LastModifiedTimestamp() pulumi.StringOutput {
 // Unique name for the scaling group that you want to create.
 func (o KxScalingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o KxScalingGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of scaling group.

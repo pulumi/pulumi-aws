@@ -287,6 +287,10 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly period!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      */
@@ -348,6 +352,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["namespace"] = state ? state.namespace : undefined;
             resourceInputs["okActions"] = state ? state.okActions : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["statistic"] = state ? state.statistic : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -379,6 +384,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["okActions"] = args ? args.okActions : undefined;
             resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["statistic"] = args ? args.statistic : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threshold"] = args ? args.threshold : undefined;
@@ -471,6 +477,10 @@ export interface MetricAlarmState {
      * Valid values are `10`, `30`, or any multiple of `60`.
      */
     period?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -578,6 +588,10 @@ export interface MetricAlarmArgs {
      * Valid values are `10`, `30`, or any multiple of `60`.
      */
     period?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`

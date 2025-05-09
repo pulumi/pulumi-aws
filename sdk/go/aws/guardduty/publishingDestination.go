@@ -198,6 +198,8 @@ type PublishingDestination struct {
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPublishingDestination registers a new resource with the given unique name, arguments, and options.
@@ -249,6 +251,8 @@ type publishingDestinationState struct {
 	DetectorId *string `pulumi:"detectorId"`
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PublishingDestinationState struct {
@@ -262,6 +266,8 @@ type PublishingDestinationState struct {
 	DetectorId pulumi.StringPtrInput
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PublishingDestinationState) ElementType() reflect.Type {
@@ -279,6 +285,8 @@ type publishingDestinationArgs struct {
 	DetectorId string `pulumi:"detectorId"`
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PublishingDestination resource.
@@ -293,6 +301,8 @@ type PublishingDestinationArgs struct {
 	DetectorId pulumi.StringInput
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PublishingDestinationArgs) ElementType() reflect.Type {
@@ -402,6 +412,11 @@ func (o PublishingDestinationOutput) DetectorId() pulumi.StringOutput {
 // The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 func (o PublishingDestinationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PublishingDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PublishingDestinationArrayOutput struct{ *pulumi.OutputState }

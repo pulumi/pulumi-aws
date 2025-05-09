@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Efs
         [Input("fileSystemId", required: true)]
         public string FileSystemId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAccessPointsArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetAccessPointsInvokeArgs()
         {
@@ -130,6 +136,7 @@ namespace Pulumi.Aws.Efs
         /// Set of identifiers.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAccessPointsResult(
@@ -139,12 +146,15 @@ namespace Pulumi.Aws.Efs
 
             string id,
 
-            ImmutableArray<string> ids)
+            ImmutableArray<string> ids,
+
+            string region)
         {
             Arns = arns;
             FileSystemId = fileSystemId;
             Id = id;
             Ids = ids;
+            Region = region;
         }
     }
 }

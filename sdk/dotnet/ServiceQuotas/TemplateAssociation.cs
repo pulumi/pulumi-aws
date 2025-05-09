@@ -42,6 +42,12 @@ namespace Pulumi.Aws.ServiceQuotas
     [AwsResourceType("aws:servicequotas/templateAssociation:TemplateAssociation")]
     public partial class TemplateAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
@@ -97,6 +103,12 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class TemplateAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
@@ -108,6 +120,12 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class TemplateAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 

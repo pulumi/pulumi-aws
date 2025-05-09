@@ -72,6 +72,10 @@ export class ApiMapping extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
     public readonly stage!: pulumi.Output<string>;
@@ -92,6 +96,7 @@ export class ApiMapping extends pulumi.CustomResource {
             resourceInputs["apiId"] = state ? state.apiId : undefined;
             resourceInputs["apiMappingKey"] = state ? state.apiMappingKey : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["stage"] = state ? state.stage : undefined;
         } else {
             const args = argsOrState as ApiMappingArgs | undefined;
@@ -107,6 +112,7 @@ export class ApiMapping extends pulumi.CustomResource {
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["apiMappingKey"] = args ? args.apiMappingKey : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["stage"] = args ? args.stage : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +137,10 @@ export interface ApiMappingState {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
     stage?: pulumi.Input<string>;
@@ -152,6 +162,10 @@ export interface ApiMappingArgs {
      * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */

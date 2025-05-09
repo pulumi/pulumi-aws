@@ -50,6 +50,7 @@ func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts 
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsArgs struct {
+	Region *string `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -62,6 +63,7 @@ type GetUserPoolClientsResult struct {
 	ClientNames []string `pulumi:"clientNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
+	Region     string `pulumi:"region"`
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -76,6 +78,7 @@ func GetUserPoolClientsOutput(ctx *pulumi.Context, args GetUserPoolClientsOutput
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -112,6 +115,10 @@ func (o GetUserPoolClientsResultOutput) ClientNames() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetUserPoolClientsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolClientsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolClientsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolClientsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetUserPoolClientsResultOutput) UserPoolId() pulumi.StringOutput {

@@ -99,6 +99,8 @@ type LogSubscription struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogSubscription registers a new resource with the given unique name, arguments, and options.
@@ -147,6 +149,8 @@ type logSubscriptionState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName *string `pulumi:"logGroupName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LogSubscriptionState struct {
@@ -154,6 +158,8 @@ type LogSubscriptionState struct {
 	DirectoryId pulumi.StringPtrInput
 	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogSubscriptionState) ElementType() reflect.Type {
@@ -165,6 +171,8 @@ type logSubscriptionArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName string `pulumi:"logGroupName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogSubscription resource.
@@ -173,6 +181,8 @@ type LogSubscriptionArgs struct {
 	DirectoryId pulumi.StringInput
 	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogSubscriptionArgs) ElementType() reflect.Type {
@@ -270,6 +280,11 @@ func (o LogSubscriptionOutput) DirectoryId() pulumi.StringOutput {
 // Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 func (o LogSubscriptionOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogSubscription) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LogSubscriptionArrayOutput struct{ *pulumi.OutputState }

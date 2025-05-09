@@ -53,7 +53,8 @@ func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getInput.
 type LookupInputArgs struct {
 	// The ID of the Input.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInput.
@@ -75,7 +76,8 @@ type LookupInputResult struct {
 	// A list of the MediaConnect Flows.
 	MediaConnectFlows []GetInputMediaConnectFlow `pulumi:"mediaConnectFlows"`
 	// Name of the input.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn string `pulumi:"roleArn"`
 	// List of input security groups.
@@ -102,7 +104,8 @@ func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...
 // A collection of arguments for invoking getInput.
 type LookupInputOutputArgs struct {
 	// The ID of the Input.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupInputOutputArgs) ElementType() reflect.Type {
@@ -170,6 +173,10 @@ func (o LookupInputResultOutput) MediaConnectFlows() GetInputMediaConnectFlowArr
 // Name of the input.
 func (o LookupInputResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupInputResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInputResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the role this input assumes during and after creation.

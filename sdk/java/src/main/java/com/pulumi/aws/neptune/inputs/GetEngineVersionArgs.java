@@ -61,6 +61,13 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.preferredVersions);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
      * 
@@ -82,6 +89,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         this.engine = $.engine;
         this.parameterGroupFamily = $.parameterGroupFamily;
         this.preferredVersions = $.preferredVersions;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -174,6 +182,15 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

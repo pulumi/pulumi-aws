@@ -59,6 +59,10 @@ export class StaticIp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The support code.
      */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
@@ -79,10 +83,12 @@ export class StaticIp extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["supportCode"] = state ? state.supportCode : undefined;
         } else {
             const args = argsOrState as StaticIpArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["supportCode"] = undefined /*out*/;
@@ -109,6 +115,10 @@ export interface StaticIpState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The support code.
      */
     supportCode?: pulumi.Input<string>;
@@ -122,4 +132,8 @@ export interface StaticIpArgs {
      * The name for the allocated static IP
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

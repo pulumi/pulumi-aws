@@ -32,6 +32,7 @@ export function getPrincipalApplicationAssignments(args: GetPrincipalApplication
         "instanceArn": args.instanceArn,
         "principalId": args.principalId,
         "principalType": args.principalType,
+        "region": args.region,
     }, opts);
 }
 
@@ -55,6 +56,7 @@ export interface GetPrincipalApplicationAssignmentsArgs {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     principalType: string;
+    region?: string;
 }
 
 /**
@@ -75,6 +77,7 @@ export interface GetPrincipalApplicationAssignmentsResult {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     readonly principalType: string;
+    readonly region: string;
 }
 /**
  * Data source for viewing AWS SSO Admin Principal Application Assignments.
@@ -101,6 +104,7 @@ export function getPrincipalApplicationAssignmentsOutput(args: GetPrincipalAppli
         "instanceArn": args.instanceArn,
         "principalId": args.principalId,
         "principalType": args.principalType,
+        "region": args.region,
     }, opts);
 }
 
@@ -124,4 +128,5 @@ export interface GetPrincipalApplicationAssignmentsOutputArgs {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     principalType: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

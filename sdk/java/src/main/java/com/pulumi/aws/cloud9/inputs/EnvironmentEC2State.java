@@ -154,6 +154,21 @@ public final class EnvironmentEC2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      * 
      */
@@ -224,6 +239,7 @@ public final class EnvironmentEC2State extends com.pulumi.resources.ResourceArgs
         this.instanceType = $.instanceType;
         this.name = $.name;
         this.ownerArn = $.ownerArn;
+        this.region = $.region;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -430,6 +446,27 @@ public final class EnvironmentEC2State extends com.pulumi.resources.ResourceArgs
          */
         public Builder ownerArn(String ownerArn) {
             return ownerArn(Output.of(ownerArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

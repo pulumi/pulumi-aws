@@ -88,6 +88,10 @@ export class HsmConfiguration extends pulumi.CustomResource {
      */
     public readonly hsmServerPublicCertificate!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -116,6 +120,7 @@ export class HsmConfiguration extends pulumi.CustomResource {
             resourceInputs["hsmPartitionName"] = state ? state.hsmPartitionName : undefined;
             resourceInputs["hsmPartitionPassword"] = state ? state.hsmPartitionPassword : undefined;
             resourceInputs["hsmServerPublicCertificate"] = state ? state.hsmServerPublicCertificate : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -144,6 +149,7 @@ export class HsmConfiguration extends pulumi.CustomResource {
             resourceInputs["hsmPartitionName"] = args ? args.hsmPartitionName : undefined;
             resourceInputs["hsmPartitionPassword"] = args?.hsmPartitionPassword ? pulumi.secret(args.hsmPartitionPassword) : undefined;
             resourceInputs["hsmServerPublicCertificate"] = args ? args.hsmServerPublicCertificate : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -188,6 +194,10 @@ export interface HsmConfigurationState {
      */
     hsmServerPublicCertificate?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -225,6 +235,10 @@ export interface HsmConfigurationArgs {
      * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
      */
     hsmServerPublicCertificate: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

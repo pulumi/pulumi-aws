@@ -46,6 +46,21 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
      * 
      */
@@ -80,6 +95,7 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
     private ResolverDnsSecConfigState(ResolverDnsSecConfigState $) {
         this.arn = $.arn;
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.resourceId = $.resourceId;
         this.validationStatus = $.validationStatus;
     }
@@ -142,6 +158,27 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
          */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

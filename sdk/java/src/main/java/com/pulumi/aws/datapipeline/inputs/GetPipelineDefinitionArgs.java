@@ -48,11 +48,19 @@ public final class GetPipelineDefinitionArgs extends com.pulumi.resources.Invoke
         return this.pipelineId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPipelineDefinitionArgs() {}
 
     private GetPipelineDefinitionArgs(GetPipelineDefinitionArgs $) {
         this.parameterValues = $.parameterValues;
         this.pipelineId = $.pipelineId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -123,6 +131,15 @@ public final class GetPipelineDefinitionArgs extends com.pulumi.resources.Invoke
          */
         public Builder pipelineId(String pipelineId) {
             return pipelineId(Output.of(pipelineId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetPipelineDefinitionArgs build() {

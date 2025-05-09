@@ -30,6 +30,7 @@ public final class GetPrincipalApplicationAssignmentsResult {
      * 
      */
     private String principalType;
+    private String region;
 
     private GetPrincipalApplicationAssignmentsResult() {}
     /**
@@ -59,6 +60,9 @@ public final class GetPrincipalApplicationAssignmentsResult {
     public String principalType() {
         return this.principalType;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -74,6 +78,7 @@ public final class GetPrincipalApplicationAssignmentsResult {
         private String instanceArn;
         private String principalId;
         private String principalType;
+        private String region;
         public Builder() {}
         public Builder(GetPrincipalApplicationAssignmentsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -82,6 +87,7 @@ public final class GetPrincipalApplicationAssignmentsResult {
     	      this.instanceArn = defaults.instanceArn;
     	      this.principalId = defaults.principalId;
     	      this.principalType = defaults.principalType;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -125,6 +131,14 @@ public final class GetPrincipalApplicationAssignmentsResult {
             this.principalType = principalType;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalApplicationAssignmentsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetPrincipalApplicationAssignmentsResult build() {
             final var _resultValue = new GetPrincipalApplicationAssignmentsResult();
             _resultValue.applicationAssignments = applicationAssignments;
@@ -132,6 +146,7 @@ public final class GetPrincipalApplicationAssignmentsResult {
             _resultValue.instanceArn = instanceArn;
             _resultValue.principalId = principalId;
             _resultValue.principalType = principalType;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

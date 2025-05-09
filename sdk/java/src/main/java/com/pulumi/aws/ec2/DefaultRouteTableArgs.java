@@ -54,6 +54,21 @@ public final class DefaultRouteTableArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Set of objects. Detailed below
      * 
      */
@@ -88,6 +103,7 @@ public final class DefaultRouteTableArgs extends com.pulumi.resources.ResourceAr
     private DefaultRouteTableArgs(DefaultRouteTableArgs $) {
         this.defaultRouteTableId = $.defaultRouteTableId;
         this.propagatingVgws = $.propagatingVgws;
+        this.region = $.region;
         this.routes = $.routes;
         this.tags = $.tags;
     }
@@ -164,6 +180,27 @@ public final class DefaultRouteTableArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder propagatingVgws(String... propagatingVgws) {
             return propagatingVgws(List.of(propagatingVgws));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -57,6 +57,7 @@ export function getVpcIpams(args?: GetVpcIpamsArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:ec2/getVpcIpams:getVpcIpams", {
         "filters": args.filters,
         "ipamIds": args.ipamIds,
+        "region": args.region,
     }, opts);
 }
 
@@ -67,14 +68,14 @@ export interface GetVpcIpamsArgs {
     /**
      * Custom filter block as described below.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available IPAMs.
      */
     filters?: inputs.ec2.GetVpcIpamsFilter[];
     /**
      * IDs of the IPAM resources to query for.
      */
     ipamIds?: string[];
+    region?: string;
 }
 
 /**
@@ -91,6 +92,7 @@ export interface GetVpcIpamsResult {
      * List of IPAM resources matching the provided arguments.
      */
     readonly ipams: outputs.ec2.GetVpcIpamsIpam[];
+    readonly region: string;
 }
 /**
  * Data source for managing VPC IPAMs.
@@ -142,6 +144,7 @@ export function getVpcIpamsOutput(args?: GetVpcIpamsOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpams:getVpcIpams", {
         "filters": args.filters,
         "ipamIds": args.ipamIds,
+        "region": args.region,
     }, opts);
 }
 
@@ -152,12 +155,12 @@ export interface GetVpcIpamsOutputArgs {
     /**
      * Custom filter block as described below.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available IPAMs.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamsFilterArgs>[]>;
     /**
      * IDs of the IPAM resources to query for.
      */
     ipamIds?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
 }

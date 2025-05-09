@@ -38,6 +38,8 @@ type Deployment struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Description of the deployment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// REST API identifier.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -83,6 +85,8 @@ type deploymentState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the deployment.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// REST API identifier.
 	RestApi interface{} `pulumi:"restApi"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -96,6 +100,8 @@ type DeploymentState struct {
 	CreatedDate pulumi.StringPtrInput
 	// Description of the deployment.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// REST API identifier.
 	RestApi pulumi.Input
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -111,6 +117,8 @@ func (DeploymentState) ElementType() reflect.Type {
 type deploymentArgs struct {
 	// Description of the deployment.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// REST API identifier.
 	RestApi interface{} `pulumi:"restApi"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -123,6 +131,8 @@ type deploymentArgs struct {
 type DeploymentArgs struct {
 	// Description of the deployment.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// REST API identifier.
 	RestApi pulumi.Input
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -226,6 +236,11 @@ func (o DeploymentOutput) CreatedDate() pulumi.StringOutput {
 // Description of the deployment.
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DeploymentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // REST API identifier.

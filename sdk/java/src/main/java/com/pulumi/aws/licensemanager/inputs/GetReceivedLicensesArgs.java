@@ -6,6 +6,7 @@ package com.pulumi.aws.licensemanager.inputs;
 import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,9 +20,6 @@ public final class GetReceivedLicensesArgs extends com.pulumi.resources.InvokeAr
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetReceivedLicensesFilterArgs>> filters;
@@ -29,18 +27,23 @@ public final class GetReceivedLicensesArgs extends com.pulumi.resources.InvokeAr
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     public Optional<Output<List<GetReceivedLicensesFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetReceivedLicensesArgs() {}
 
     private GetReceivedLicensesArgs(GetReceivedLicensesArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -64,9 +67,6 @@ public final class GetReceivedLicensesArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -78,9 +78,6 @@ public final class GetReceivedLicensesArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -91,14 +88,20 @@ public final class GetReceivedLicensesArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
         public Builder filters(GetReceivedLicensesFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetReceivedLicensesArgs build() {

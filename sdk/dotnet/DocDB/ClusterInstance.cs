@@ -228,6 +228,12 @@ namespace Pulumi.Aws.DocDB
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the DB cluster is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
@@ -405,6 +411,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("promotionTier")]
         public Input<int>? PromotionTier { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -585,6 +597,12 @@ namespace Pulumi.Aws.DocDB
 
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted.

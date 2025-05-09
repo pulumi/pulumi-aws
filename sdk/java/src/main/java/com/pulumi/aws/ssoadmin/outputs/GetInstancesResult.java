@@ -26,6 +26,7 @@ public final class GetInstancesResult {
      * 
      */
     private List<String> identityStoreIds;
+    private String region;
 
     private GetInstancesResult() {}
     /**
@@ -49,6 +50,9 @@ public final class GetInstancesResult {
     public List<String> identityStoreIds() {
         return this.identityStoreIds;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,12 +66,14 @@ public final class GetInstancesResult {
         private List<String> arns;
         private String id;
         private List<String> identityStoreIds;
+        private String region;
         public Builder() {}
         public Builder(GetInstancesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
     	      this.id = defaults.id;
     	      this.identityStoreIds = defaults.identityStoreIds;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -100,11 +106,20 @@ public final class GetInstancesResult {
         public Builder identityStoreIds(String... identityStoreIds) {
             return identityStoreIds(List.of(identityStoreIds));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetInstancesResult build() {
             final var _resultValue = new GetInstancesResult();
             _resultValue.arns = arns;
             _resultValue.id = id;
             _resultValue.identityStoreIds = identityStoreIds;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

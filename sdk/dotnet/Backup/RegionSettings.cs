@@ -64,6 +64,12 @@ namespace Pulumi.Aws.Backup
     public partial class RegionSettings : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         /// </summary>
         [Output("resourceTypeManagementPreference")]
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RegionSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTypeManagementPreference")]
         private InputMap<bool>? _resourceTypeManagementPreference;
 
@@ -153,6 +165,12 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RegionSettingsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTypeManagementPreference")]
         private InputMap<bool>? _resourceTypeManagementPreference;
 

@@ -84,6 +84,8 @@ type EventEndpoint struct {
 	EventBuses EventEndpointEventBusArrayOutput `pulumi:"eventBuses"`
 	// The name of the global endpoint.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Parameters used for replication. Documented below.
 	ReplicationConfig EventEndpointReplicationConfigPtrOutput `pulumi:"replicationConfig"`
 	// The ARN of the IAM role used for replication between event buses.
@@ -138,6 +140,8 @@ type eventEndpointState struct {
 	EventBuses []EventEndpointEventBus `pulumi:"eventBuses"`
 	// The name of the global endpoint.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters used for replication. Documented below.
 	ReplicationConfig *EventEndpointReplicationConfig `pulumi:"replicationConfig"`
 	// The ARN of the IAM role used for replication between event buses.
@@ -157,6 +161,8 @@ type EventEndpointState struct {
 	EventBuses EventEndpointEventBusArrayInput
 	// The name of the global endpoint.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters used for replication. Documented below.
 	ReplicationConfig EventEndpointReplicationConfigPtrInput
 	// The ARN of the IAM role used for replication between event buses.
@@ -176,6 +182,8 @@ type eventEndpointArgs struct {
 	EventBuses []EventEndpointEventBus `pulumi:"eventBuses"`
 	// The name of the global endpoint.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters used for replication. Documented below.
 	ReplicationConfig *EventEndpointReplicationConfig `pulumi:"replicationConfig"`
 	// The ARN of the IAM role used for replication between event buses.
@@ -192,6 +200,8 @@ type EventEndpointArgs struct {
 	EventBuses EventEndpointEventBusArrayInput
 	// The name of the global endpoint.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters used for replication. Documented below.
 	ReplicationConfig EventEndpointReplicationConfigPtrInput
 	// The ARN of the IAM role used for replication between event buses.
@@ -310,6 +320,11 @@ func (o EventEndpointOutput) EventBuses() EventEndpointEventBusArrayOutput {
 // The name of the global endpoint.
 func (o EventEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Parameters used for replication. Documented below.

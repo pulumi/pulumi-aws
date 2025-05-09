@@ -25,6 +25,7 @@ class ConnectionArgs:
                  encryption_mode: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_macsec: Optional[pulumi.Input[builtins.bool]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -35,6 +36,7 @@ class ConnectionArgs:
         :param pulumi.Input[builtins.str] encryption_mode: The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
         :param pulumi.Input[builtins.str] name: The name of the connection.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
                
                > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
@@ -49,6 +51,8 @@ class ConnectionArgs:
             pulumi.set(__self__, "name", name)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_macsec is not None:
             pulumi.set(__self__, "request_macsec", request_macsec)
         if skip_destroy is not None:
@@ -117,6 +121,18 @@ class ConnectionArgs:
         pulumi.set(self, "provider_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestMacsec")
     def request_macsec(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -171,6 +187,7 @@ class _ConnectionState:
                  partner_name: Optional[pulumi.Input[builtins.str]] = None,
                  port_encryption_status: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_macsec: Optional[pulumi.Input[builtins.bool]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -191,6 +208,7 @@ class _ConnectionState:
         :param pulumi.Input[builtins.str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
         :param pulumi.Input[builtins.str] port_encryption_status: The MAC Security (MACsec) port link status of the connection.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
                
                > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
@@ -225,6 +243,8 @@ class _ConnectionState:
             pulumi.set(__self__, "port_encryption_status", port_encryption_status)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_macsec is not None:
             pulumi.set(__self__, "request_macsec", request_macsec)
         if skip_destroy is not None:
@@ -393,6 +413,18 @@ class _ConnectionState:
         pulumi.set(self, "provider_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestMacsec")
     def request_macsec(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -468,6 +500,7 @@ class Connection(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_macsec: Optional[pulumi.Input[builtins.bool]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -533,6 +566,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         :param pulumi.Input[builtins.str] name: The name of the connection.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
                
                > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
@@ -619,6 +653,7 @@ class Connection(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_macsec: Optional[pulumi.Input[builtins.bool]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -640,6 +675,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["provider_name"] = provider_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["request_macsec"] = request_macsec
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["tags"] = tags
@@ -676,6 +712,7 @@ class Connection(pulumi.CustomResource):
             partner_name: Optional[pulumi.Input[builtins.str]] = None,
             port_encryption_status: Optional[pulumi.Input[builtins.str]] = None,
             provider_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             request_macsec: Optional[pulumi.Input[builtins.bool]] = None,
             skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -701,6 +738,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
         :param pulumi.Input[builtins.str] port_encryption_status: The MAC Security (MACsec) port link status of the connection.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the connection.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
                
                > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
@@ -726,6 +764,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["partner_name"] = partner_name
         __props__.__dict__["port_encryption_status"] = port_encryption_status
         __props__.__dict__["provider_name"] = provider_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["request_macsec"] = request_macsec
         __props__.__dict__["skip_destroy"] = skip_destroy
         __props__.__dict__["tags"] = tags
@@ -836,6 +875,14 @@ class Connection(pulumi.CustomResource):
         The name of the service provider associated with the connection.
         """
         return pulumi.get(self, "provider_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requestMacsec")

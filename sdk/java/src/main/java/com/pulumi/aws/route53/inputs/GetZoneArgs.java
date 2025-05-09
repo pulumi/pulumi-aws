@@ -50,12 +50,20 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
+     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
+     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -165,6 +173,10 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param tags Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
+         * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
+         * 
          * @return builder
          * 
          */
@@ -175,6 +187,10 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param tags Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
+         * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
          * 
          * @return builder
          * 

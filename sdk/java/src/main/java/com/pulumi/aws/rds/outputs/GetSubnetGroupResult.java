@@ -27,6 +27,7 @@ public final class GetSubnetGroupResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Provides the status of the DB subnet group.
      * 
@@ -73,6 +74,9 @@ public final class GetSubnetGroupResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Provides the status of the DB subnet group.
      * 
@@ -115,6 +119,7 @@ public final class GetSubnetGroupResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private String status;
         private List<String> subnetIds;
         private List<String> supportedNetworkTypes;
@@ -126,6 +131,7 @@ public final class GetSubnetGroupResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.subnetIds = defaults.subnetIds;
     	      this.supportedNetworkTypes = defaults.supportedNetworkTypes;
@@ -162,6 +168,14 @@ public final class GetSubnetGroupResult {
               throw new MissingRequiredPropertyException("GetSubnetGroupResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -208,6 +222,7 @@ public final class GetSubnetGroupResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.subnetIds = subnetIds;
             _resultValue.supportedNetworkTypes = supportedNetworkTypes;

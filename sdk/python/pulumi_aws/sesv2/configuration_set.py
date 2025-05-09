@@ -24,6 +24,7 @@ class ConfigurationSetArgs:
     def __init__(__self__, *,
                  configuration_set_name: pulumi.Input[builtins.str],
                  delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
                  sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
                  suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
@@ -34,6 +35,7 @@ class ConfigurationSetArgs:
         The set of arguments for constructing a ConfigurationSet resource.
         :param pulumi.Input[builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
         :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
         :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
@@ -44,6 +46,8 @@ class ConfigurationSetArgs:
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         if delivery_options is not None:
             pulumi.set(__self__, "delivery_options", delivery_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reputation_options is not None:
             pulumi.set(__self__, "reputation_options", reputation_options)
         if sending_options is not None:
@@ -80,6 +84,18 @@ class ConfigurationSetArgs:
     @delivery_options.setter
     def delivery_options(self, value: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]):
         pulumi.set(self, "delivery_options", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="reputationOptions")
@@ -160,6 +176,7 @@ class _ConfigurationSetState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  configuration_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
                  sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
                  suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
@@ -172,6 +189,7 @@ class _ConfigurationSetState:
         :param pulumi.Input[builtins.str] arn: ARN of the Configuration Set.
         :param pulumi.Input[builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
         :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
         :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
@@ -185,6 +203,8 @@ class _ConfigurationSetState:
             pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         if delivery_options is not None:
             pulumi.set(__self__, "delivery_options", delivery_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reputation_options is not None:
             pulumi.set(__self__, "reputation_options", reputation_options)
         if sending_options is not None:
@@ -235,6 +255,18 @@ class _ConfigurationSetState:
     @delivery_options.setter
     def delivery_options(self, value: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]):
         pulumi.set(self, "delivery_options", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="reputationOptions")
@@ -328,6 +360,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
                  sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
                  suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
@@ -382,6 +415,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
         :param pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
         :param pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']] suppression_options: An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
@@ -455,6 +489,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
                  sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
                  suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
@@ -474,6 +509,7 @@ class ConfigurationSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'configuration_set_name'")
             __props__.__dict__["configuration_set_name"] = configuration_set_name
             __props__.__dict__["delivery_options"] = delivery_options
+            __props__.__dict__["region"] = region
             __props__.__dict__["reputation_options"] = reputation_options
             __props__.__dict__["sending_options"] = sending_options
             __props__.__dict__["suppression_options"] = suppression_options
@@ -495,6 +531,7 @@ class ConfigurationSet(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             configuration_set_name: Optional[pulumi.Input[builtins.str]] = None,
             delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
             sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
             suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
@@ -512,6 +549,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the Configuration Set.
         :param pulumi.Input[builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
         :param pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
         :param pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']] suppression_options: An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
@@ -526,6 +564,7 @@ class ConfigurationSet(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["configuration_set_name"] = configuration_set_name
         __props__.__dict__["delivery_options"] = delivery_options
+        __props__.__dict__["region"] = region
         __props__.__dict__["reputation_options"] = reputation_options
         __props__.__dict__["sending_options"] = sending_options
         __props__.__dict__["suppression_options"] = suppression_options
@@ -558,6 +597,14 @@ class ConfigurationSet(pulumi.CustomResource):
         An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
         """
         return pulumi.get(self, "delivery_options")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="reputationOptions")

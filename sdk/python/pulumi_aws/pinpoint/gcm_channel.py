@@ -24,12 +24,14 @@ class GcmChannelArgs:
                  api_key: Optional[pulumi.Input[builtins.str]] = None,
                  default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_json: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GcmChannel resource.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         if api_key is not None:
@@ -38,6 +40,8 @@ class GcmChannelArgs:
             pulumi.set(__self__, "default_authentication_method", default_authentication_method)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_json is not None:
             pulumi.set(__self__, "service_json", service_json)
 
@@ -87,6 +91,18 @@ class GcmChannelArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceJson")
     def service_json(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "service_json")
@@ -103,12 +119,14 @@ class _GcmChannelState:
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_json: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GcmChannel resources.
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -118,6 +136,8 @@ class _GcmChannelState:
             pulumi.set(__self__, "default_authentication_method", default_authentication_method)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_json is not None:
             pulumi.set(__self__, "service_json", service_json)
 
@@ -167,6 +187,18 @@ class _GcmChannelState:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceJson")
     def service_json(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "service_json")
@@ -188,6 +220,7 @@ class GcmChannel(pulumi.CustomResource):
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_json: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -207,6 +240,7 @@ class GcmChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -245,6 +279,7 @@ class GcmChannel(pulumi.CustomResource):
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_json: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -261,6 +296,7 @@ class GcmChannel(pulumi.CustomResource):
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["default_authentication_method"] = default_authentication_method
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["region"] = region
             __props__.__dict__["service_json"] = None if service_json is None else pulumi.Output.secret(service_json)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "serviceJson"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -278,6 +314,7 @@ class GcmChannel(pulumi.CustomResource):
             application_id: Optional[pulumi.Input[builtins.str]] = None,
             default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_json: Optional[pulumi.Input[builtins.str]] = None) -> 'GcmChannel':
         """
         Get an existing GcmChannel resource's state with the given name, id, and optional extra
@@ -289,6 +326,7 @@ class GcmChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,6 +336,7 @@ class GcmChannel(pulumi.CustomResource):
         __props__.__dict__["application_id"] = application_id
         __props__.__dict__["default_authentication_method"] = default_authentication_method
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_json"] = service_json
         return GcmChannel(resource_name, opts=opts, __props__=__props__)
 
@@ -329,6 +368,14 @@ class GcmChannel(pulumi.CustomResource):
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceJson")

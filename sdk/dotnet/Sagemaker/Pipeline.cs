@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> PipelineName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
         [Output("roleArn")]
@@ -205,6 +211,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
         [Input("roleArn")]
@@ -283,6 +295,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.

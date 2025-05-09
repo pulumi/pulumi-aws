@@ -22,6 +22,7 @@ export function getAcl(args: GetAclArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getAcl:getAcl", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetAclArgs {
      * Name of the ACL.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags assigned to the ACL.
      */
@@ -57,6 +59,7 @@ export interface GetAclResult {
      */
     readonly minimumEngineVersion: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags assigned to the ACL.
      */
@@ -84,6 +87,7 @@ export function getAclOutput(args: GetAclOutputArgs, opts?: pulumi.InvokeOutputO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:memorydb/getAcl:getAcl", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -96,6 +100,7 @@ export interface GetAclOutputArgs {
      * Name of the ACL.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the ACL.
      */

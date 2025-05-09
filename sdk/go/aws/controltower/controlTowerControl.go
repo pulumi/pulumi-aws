@@ -31,6 +31,8 @@ type ControlTowerControl struct {
 	ControlIdentifier pulumi.StringOutput `pulumi:"controlIdentifier"`
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters ControlTowerControlParameterArrayOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -79,6 +81,8 @@ type controlTowerControlState struct {
 	ControlIdentifier *string `pulumi:"controlIdentifier"`
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters []ControlTowerControlParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -92,6 +96,8 @@ type ControlTowerControlState struct {
 	ControlIdentifier pulumi.StringPtrInput
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters ControlTowerControlParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -107,6 +113,8 @@ type controlTowerControlArgs struct {
 	ControlIdentifier string `pulumi:"controlIdentifier"`
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters []ControlTowerControlParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -119,6 +127,8 @@ type ControlTowerControlArgs struct {
 	ControlIdentifier pulumi.StringInput
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters ControlTowerControlParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -225,6 +235,11 @@ func (o ControlTowerControlOutput) ControlIdentifier() pulumi.StringOutput {
 // Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 func (o ControlTowerControlOutput) Parameters() ControlTowerControlParameterArrayOutput {
 	return o.ApplyT(func(v *ControlTowerControl) ControlTowerControlParameterArrayOutput { return v.Parameters }).(ControlTowerControlParameterArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ControlTowerControlOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControlTowerControl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the organizational unit.

@@ -61,6 +61,7 @@ public final class GetNetworkInsightsAnalysisResult {
      * 
      */
     private Boolean pathFound;
+    private String region;
     /**
      * @return The components in the path from destination to source.
      * 
@@ -151,6 +152,9 @@ public final class GetNetworkInsightsAnalysisResult {
     public Boolean pathFound() {
         return this.pathFound;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The components in the path from destination to source.
      * 
@@ -209,6 +213,7 @@ public final class GetNetworkInsightsAnalysisResult {
         private String networkInsightsAnalysisId;
         private String networkInsightsPathId;
         private Boolean pathFound;
+        private String region;
         private List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents;
         private String startDate;
         private String status;
@@ -228,6 +233,7 @@ public final class GetNetworkInsightsAnalysisResult {
     	      this.networkInsightsAnalysisId = defaults.networkInsightsAnalysisId;
     	      this.networkInsightsPathId = defaults.networkInsightsPathId;
     	      this.pathFound = defaults.pathFound;
+    	      this.region = defaults.region;
     	      this.returnPathComponents = defaults.returnPathComponents;
     	      this.startDate = defaults.startDate;
     	      this.status = defaults.status;
@@ -330,6 +336,14 @@ public final class GetNetworkInsightsAnalysisResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder returnPathComponents(List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents) {
             if (returnPathComponents == null) {
               throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "returnPathComponents");
@@ -392,6 +406,7 @@ public final class GetNetworkInsightsAnalysisResult {
             _resultValue.networkInsightsAnalysisId = networkInsightsAnalysisId;
             _resultValue.networkInsightsPathId = networkInsightsPathId;
             _resultValue.pathFound = pathFound;
+            _resultValue.region = region;
             _resultValue.returnPathComponents = returnPathComponents;
             _resultValue.startDate = startDate;
             _resultValue.status = status;

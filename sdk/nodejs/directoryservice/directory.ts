@@ -192,6 +192,10 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the security group created by the directory.
      */
     public /*out*/ readonly securityGroupId!: pulumi.Output<string>;
@@ -243,6 +247,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["enableSso"] = state ? state.enableSso : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["shortName"] = state ? state.shortName : undefined;
             resourceInputs["size"] = state ? state.size : undefined;
@@ -266,6 +271,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["enableSso"] = args ? args.enableSso : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["shortName"] = args ? args.shortName : undefined;
             resourceInputs["size"] = args ? args.size : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -327,6 +333,10 @@ export interface DirectoryState {
      * The password for the directory administrator or connector user.
      */
     password?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the security group created by the directory.
      */
@@ -393,6 +403,10 @@ export interface DirectoryArgs {
      * The password for the directory administrator or connector user.
      */
     password: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The short name of the directory, such as `CORP`.
      */

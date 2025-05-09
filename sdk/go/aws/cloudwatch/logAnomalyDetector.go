@@ -89,8 +89,10 @@ type LogAnomalyDetector struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayOutput `pulumi:"logGroupArnLists"`
-	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll          pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewLogAnomalyDetector registers a new resource with the given unique name, arguments, and options.
@@ -145,9 +147,11 @@ type logAnomalyDetectorState struct {
 	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
 	//
 	// The following arguments are optional:
-	LogGroupArnLists []string          `pulumi:"logGroupArnLists"`
-	Tags             map[string]string `pulumi:"tags"`
-	TagsAll          map[string]string `pulumi:"tagsAll"`
+	LogGroupArnLists []string `pulumi:"logGroupArnLists"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type LogAnomalyDetectorState struct {
@@ -168,8 +172,10 @@ type LogAnomalyDetectorState struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayInput
-	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (LogAnomalyDetectorState) ElementType() reflect.Type {
@@ -191,8 +197,10 @@ type logAnomalyDetectorArgs struct {
 	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
 	//
 	// The following arguments are optional:
-	LogGroupArnLists []string          `pulumi:"logGroupArnLists"`
-	Tags             map[string]string `pulumi:"tags"`
+	LogGroupArnLists []string `pulumi:"logGroupArnLists"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogAnomalyDetector resource.
@@ -212,7 +220,9 @@ type LogAnomalyDetectorArgs struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayInput
-	Tags             pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (LogAnomalyDetectorArgs) ElementType() reflect.Type {
@@ -341,6 +351,11 @@ func (o LogAnomalyDetectorOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The following arguments are optional:
 func (o LogAnomalyDetectorOutput) LogGroupArnLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringArrayOutput { return v.LogGroupArnLists }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogAnomalyDetectorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LogAnomalyDetectorOutput) Tags() pulumi.StringMapOutput {

@@ -16,6 +16,21 @@ public final class RouteTablePropagationState extends com.pulumi.resources.Resou
     public static final RouteTablePropagationState Empty = new RouteTablePropagationState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of the resource
      * 
      */
@@ -78,6 +93,7 @@ public final class RouteTablePropagationState extends com.pulumi.resources.Resou
     private RouteTablePropagationState() {}
 
     private RouteTablePropagationState(RouteTablePropagationState $) {
+        this.region = $.region;
         this.resourceId = $.resourceId;
         this.resourceType = $.resourceType;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
@@ -100,6 +116,27 @@ public final class RouteTablePropagationState extends com.pulumi.resources.Resou
 
         public Builder(RouteTablePropagationState defaults) {
             $ = new RouteTablePropagationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

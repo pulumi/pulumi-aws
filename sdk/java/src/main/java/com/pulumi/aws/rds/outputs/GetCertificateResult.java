@@ -36,6 +36,7 @@ public final class GetCertificateResult {
     private @Nullable Boolean defaultForNewLaunches;
     private String id;
     private @Nullable Boolean latestValidTill;
+    private String region;
     /**
      * @return Thumbprint of the certificate.
      * 
@@ -90,6 +91,9 @@ public final class GetCertificateResult {
     public Optional<Boolean> latestValidTill() {
         return Optional.ofNullable(this.latestValidTill);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Thumbprint of the certificate.
      * 
@@ -128,6 +132,7 @@ public final class GetCertificateResult {
         private @Nullable Boolean defaultForNewLaunches;
         private String id;
         private @Nullable Boolean latestValidTill;
+        private String region;
         private String thumbprint;
         private String validFrom;
         private String validTill;
@@ -141,6 +146,7 @@ public final class GetCertificateResult {
     	      this.defaultForNewLaunches = defaults.defaultForNewLaunches;
     	      this.id = defaults.id;
     	      this.latestValidTill = defaults.latestValidTill;
+    	      this.region = defaults.region;
     	      this.thumbprint = defaults.thumbprint;
     	      this.validFrom = defaults.validFrom;
     	      this.validTill = defaults.validTill;
@@ -199,6 +205,14 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             if (thumbprint == null) {
               throw new MissingRequiredPropertyException("GetCertificateResult", "thumbprint");
@@ -231,6 +245,7 @@ public final class GetCertificateResult {
             _resultValue.defaultForNewLaunches = defaultForNewLaunches;
             _resultValue.id = id;
             _resultValue.latestValidTill = latestValidTill;
+            _resultValue.region = region;
             _resultValue.thumbprint = thumbprint;
             _resultValue.validFrom = validFrom;
             _resultValue.validTill = validTill;

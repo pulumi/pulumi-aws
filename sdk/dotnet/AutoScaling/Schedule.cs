@@ -108,6 +108,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> Recurrence { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of this scaling action.
         /// 
         /// The following arguments are optional:
@@ -212,6 +218,12 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Recurrence { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of this scaling action.
         /// 
         /// The following arguments are optional:
@@ -282,6 +294,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("recurrence")]
         public Input<string>? Recurrence { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of this scaling action.

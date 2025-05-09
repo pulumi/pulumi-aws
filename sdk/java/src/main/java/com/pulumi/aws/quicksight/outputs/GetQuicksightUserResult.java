@@ -45,6 +45,7 @@ public final class GetQuicksightUserResult {
      * 
      */
     private String principalId;
+    private String region;
     private String userName;
     /**
      * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
@@ -104,6 +105,9 @@ public final class GetQuicksightUserResult {
     public String principalId() {
         return this.principalId;
     }
+    public String region() {
+        return this.region;
+    }
     public String userName() {
         return this.userName;
     }
@@ -135,6 +139,7 @@ public final class GetQuicksightUserResult {
         private String identityType;
         private @Nullable String namespace;
         private String principalId;
+        private String region;
         private String userName;
         private String userRole;
         public Builder() {}
@@ -148,6 +153,7 @@ public final class GetQuicksightUserResult {
     	      this.identityType = defaults.identityType;
     	      this.namespace = defaults.namespace;
     	      this.principalId = defaults.principalId;
+    	      this.region = defaults.region;
     	      this.userName = defaults.userName;
     	      this.userRole = defaults.userRole;
         }
@@ -215,6 +221,14 @@ public final class GetQuicksightUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightUserResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userName(String userName) {
             if (userName == null) {
               throw new MissingRequiredPropertyException("GetQuicksightUserResult", "userName");
@@ -240,6 +254,7 @@ public final class GetQuicksightUserResult {
             _resultValue.identityType = identityType;
             _resultValue.namespace = namespace;
             _resultValue.principalId = principalId;
+            _resultValue.region = region;
             _resultValue.userName = userName;
             _resultValue.userRole = userRole;
             return _resultValue;

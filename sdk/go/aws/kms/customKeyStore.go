@@ -137,8 +137,10 @@ type CustomKeyStore struct {
 	// The following arguments are optional:
 	CustomKeyStoreName pulumi.StringOutput `pulumi:"customKeyStoreName"`
 	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType               pulumi.StringOutput                                     `pulumi:"customKeyStoreType"`
-	KeyStorePassword                 pulumi.StringPtrOutput                                  `pulumi:"keyStorePassword"`
+	CustomKeyStoreType pulumi.StringOutput    `pulumi:"customKeyStoreType"`
+	KeyStorePassword   pulumi.StringPtrOutput `pulumi:"keyStorePassword"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                           pulumi.StringOutput                                     `pulumi:"region"`
 	TrustAnchorCertificate           pulumi.StringPtrOutput                                  `pulumi:"trustAnchorCertificate"`
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput `pulumi:"xksProxyAuthenticationCredential"`
 	XksProxyConnectivity             pulumi.StringPtrOutput                                  `pulumi:"xksProxyConnectivity"`
@@ -186,8 +188,10 @@ type customKeyStoreState struct {
 	// The following arguments are optional:
 	CustomKeyStoreName *string `pulumi:"customKeyStoreName"`
 	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType               *string                                         `pulumi:"customKeyStoreType"`
-	KeyStorePassword                 *string                                         `pulumi:"keyStorePassword"`
+	CustomKeyStoreType *string `pulumi:"customKeyStoreType"`
+	KeyStorePassword   *string `pulumi:"keyStorePassword"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                           *string                                         `pulumi:"region"`
 	TrustAnchorCertificate           *string                                         `pulumi:"trustAnchorCertificate"`
 	XksProxyAuthenticationCredential *CustomKeyStoreXksProxyAuthenticationCredential `pulumi:"xksProxyAuthenticationCredential"`
 	XksProxyConnectivity             *string                                         `pulumi:"xksProxyConnectivity"`
@@ -203,8 +207,10 @@ type CustomKeyStoreState struct {
 	// The following arguments are optional:
 	CustomKeyStoreName pulumi.StringPtrInput
 	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType               pulumi.StringPtrInput
-	KeyStorePassword                 pulumi.StringPtrInput
+	CustomKeyStoreType pulumi.StringPtrInput
+	KeyStorePassword   pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                           pulumi.StringPtrInput
 	TrustAnchorCertificate           pulumi.StringPtrInput
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrInput
 	XksProxyConnectivity             pulumi.StringPtrInput
@@ -224,8 +230,10 @@ type customKeyStoreArgs struct {
 	// The following arguments are optional:
 	CustomKeyStoreName string `pulumi:"customKeyStoreName"`
 	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType               *string                                         `pulumi:"customKeyStoreType"`
-	KeyStorePassword                 *string                                         `pulumi:"keyStorePassword"`
+	CustomKeyStoreType *string `pulumi:"customKeyStoreType"`
+	KeyStorePassword   *string `pulumi:"keyStorePassword"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                           *string                                         `pulumi:"region"`
 	TrustAnchorCertificate           *string                                         `pulumi:"trustAnchorCertificate"`
 	XksProxyAuthenticationCredential *CustomKeyStoreXksProxyAuthenticationCredential `pulumi:"xksProxyAuthenticationCredential"`
 	XksProxyConnectivity             *string                                         `pulumi:"xksProxyConnectivity"`
@@ -242,8 +250,10 @@ type CustomKeyStoreArgs struct {
 	// The following arguments are optional:
 	CustomKeyStoreName pulumi.StringInput
 	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType               pulumi.StringPtrInput
-	KeyStorePassword                 pulumi.StringPtrInput
+	CustomKeyStoreType pulumi.StringPtrInput
+	KeyStorePassword   pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                           pulumi.StringPtrInput
 	TrustAnchorCertificate           pulumi.StringPtrInput
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrInput
 	XksProxyConnectivity             pulumi.StringPtrInput
@@ -357,6 +367,11 @@ func (o CustomKeyStoreOutput) CustomKeyStoreType() pulumi.StringOutput {
 
 func (o CustomKeyStoreOutput) KeyStorePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.KeyStorePassword }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CustomKeyStoreOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o CustomKeyStoreOutput) TrustAnchorCertificate() pulumi.StringPtrOutput {

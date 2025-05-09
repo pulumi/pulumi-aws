@@ -25,12 +25,14 @@ class RuleArgs:
                  metric_name: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input[builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[builtins.str] name: The name or description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -38,6 +40,8 @@ class RuleArgs:
             pulumi.set(__self__, "name", name)
         if predicates is not None:
             pulumi.set(__self__, "predicates", predicates)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -79,6 +83,18 @@ class RuleArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -97,6 +113,7 @@ class _RuleState:
                  metric_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -105,6 +122,7 @@ class _RuleState:
         :param pulumi.Input[builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[builtins.str] name: The name or description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -116,6 +134,8 @@ class _RuleState:
             pulumi.set(__self__, "name", name)
         if predicates is not None:
             pulumi.set(__self__, "predicates", predicates)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -171,6 +191,18 @@ class _RuleState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -205,6 +237,7 @@ class Rule(pulumi.CustomResource):
                  metric_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -257,6 +290,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[builtins.str] name: The name or description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -328,6 +362,7 @@ class Rule(pulumi.CustomResource):
                  metric_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -343,6 +378,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["metric_name"] = metric_name
             __props__.__dict__["name"] = name
             __props__.__dict__["predicates"] = predicates
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -360,6 +396,7 @@ class Rule(pulumi.CustomResource):
             metric_name: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Rule':
         """
@@ -373,6 +410,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[builtins.str] name: The name or description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -384,6 +422,7 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["metric_name"] = metric_name
         __props__.__dict__["name"] = name
         __props__.__dict__["predicates"] = predicates
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Rule(resource_name, opts=opts, __props__=__props__)
@@ -419,6 +458,14 @@ class Rule(pulumi.CustomResource):
         The objects to include in a rule (documented below).
         """
         return pulumi.get(self, "predicates")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

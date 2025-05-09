@@ -40,7 +40,7 @@ export type EventDestination = import("./eventDestination").EventDestination;
 export const EventDestination: typeof import("./eventDestination").EventDestination = null as any;
 utilities.lazyLoad(exports, ["EventDestination"], () => require("./eventDestination"));
 
-export { GetActiveReceiptRuleSetResult } from "./getActiveReceiptRuleSet";
+export { GetActiveReceiptRuleSetArgs, GetActiveReceiptRuleSetResult, GetActiveReceiptRuleSetOutputArgs } from "./getActiveReceiptRuleSet";
 export const getActiveReceiptRuleSet: typeof import("./getActiveReceiptRuleSet").getActiveReceiptRuleSet = null as any;
 export const getActiveReceiptRuleSetOutput: typeof import("./getActiveReceiptRuleSet").getActiveReceiptRuleSetOutput = null as any;
 utilities.lazyLoad(exports, ["getActiveReceiptRuleSet","getActiveReceiptRuleSetOutput"], () => require("./getActiveReceiptRuleSet"));

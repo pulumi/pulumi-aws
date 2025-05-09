@@ -89,6 +89,12 @@ namespace Pulumi.Aws.Rbin
         public Output<string> LockState { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         /// </summary>
         [Output("resourceTags")]
@@ -178,6 +184,12 @@ namespace Pulumi.Aws.Rbin
         [Input("lockConfiguration")]
         public Input<Inputs.RuleLockConfigurationArgs>? LockConfiguration { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTags")]
         private InputList<Inputs.RuleResourceTagArgs>? _resourceTags;
 
@@ -246,6 +258,12 @@ namespace Pulumi.Aws.Rbin
         /// </summary>
         [Input("lockState")]
         public Input<string>? LockState { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceTags")]
         private InputList<Inputs.RuleResourceTagGetArgs>? _resourceTags;

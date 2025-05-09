@@ -28,6 +28,7 @@ public final class GetApplicationResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetApplicationResult() {}
     public GetApplicationAppversionLifecycle appversionLifecycle() {
@@ -57,6 +58,9 @@ public final class GetApplicationResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -72,6 +76,7 @@ public final class GetApplicationResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,6 +85,7 @@ public final class GetApplicationResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -122,6 +128,14 @@ public final class GetApplicationResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetApplicationResult build() {
             final var _resultValue = new GetApplicationResult();
             _resultValue.appversionLifecycle = appversionLifecycle;
@@ -129,6 +143,7 @@ public final class GetApplicationResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

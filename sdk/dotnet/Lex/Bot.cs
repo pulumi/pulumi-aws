@@ -187,6 +187,12 @@ namespace Pulumi.Aws.Lex
         public Output<string?> ProcessBehavior { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// When you send a request to create or update a bot, Amazon Lex sets the status response
         /// element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
         /// build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
@@ -338,6 +344,12 @@ namespace Pulumi.Aws.Lex
         public Input<string>? ProcessBehavior { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         /// </summary>
         [Input("voiceId")]
@@ -462,6 +474,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("processBehavior")]
         public Input<string>? ProcessBehavior { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// When you send a request to create or update a bot, Amazon Lex sets the status response

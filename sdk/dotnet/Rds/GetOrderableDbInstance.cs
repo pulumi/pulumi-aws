@@ -273,6 +273,9 @@ namespace Pulumi.Aws.Rds
         [Input("readReplicaCapable")]
         public bool? ReadReplicaCapable { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
         /// </summary>
@@ -443,6 +446,9 @@ namespace Pulumi.Aws.Rds
         [Input("readReplicaCapable")]
         public Input<bool>? ReadReplicaCapable { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
         /// </summary>
@@ -598,6 +604,7 @@ namespace Pulumi.Aws.Rds
         public readonly ImmutableArray<string> PreferredEngineVersions;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
         public readonly bool ReadReplicaCapable;
+        public readonly string Region;
         public readonly string StorageType;
         public readonly ImmutableArray<string> SupportedEngineModes;
         public readonly ImmutableArray<string> SupportedNetworkTypes;
@@ -653,6 +660,8 @@ namespace Pulumi.Aws.Rds
 
             bool readReplicaCapable,
 
+            string region,
+
             string storageType,
 
             ImmutableArray<string> supportedEngineModes,
@@ -700,6 +709,7 @@ namespace Pulumi.Aws.Rds
             PreferredEngineVersions = preferredEngineVersions;
             PreferredInstanceClasses = preferredInstanceClasses;
             ReadReplicaCapable = readReplicaCapable;
+            Region = region;
             StorageType = storageType;
             SupportedEngineModes = supportedEngineModes;
             SupportedNetworkTypes = supportedNetworkTypes;

@@ -71,7 +71,8 @@ type LookupTargetGroupArgs struct {
 	Arn                            *string `pulumi:"arn"`
 	LoadBalancingAnomalyMitigation *string `pulumi:"loadBalancingAnomalyMitigation"`
 	// Unique name of the target group.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
@@ -98,6 +99,7 @@ type LookupTargetGroupResult struct {
 	Protocol                       string                   `pulumi:"protocol"`
 	ProtocolVersion                string                   `pulumi:"protocolVersion"`
 	ProxyProtocolV2                bool                     `pulumi:"proxyProtocolV2"`
+	Region                         string                   `pulumi:"region"`
 	SlowStart                      int                      `pulumi:"slowStart"`
 	Stickiness                     GetTargetGroupStickiness `pulumi:"stickiness"`
 	Tags                           map[string]string        `pulumi:"tags"`
@@ -120,7 +122,8 @@ type LookupTargetGroupOutputArgs struct {
 	Arn                            pulumi.StringPtrInput `pulumi:"arn"`
 	LoadBalancingAnomalyMitigation pulumi.StringPtrInput `pulumi:"loadBalancingAnomalyMitigation"`
 	// Unique name of the target group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
@@ -213,6 +216,10 @@ func (o LookupTargetGroupResultOutput) ProtocolVersion() pulumi.StringOutput {
 
 func (o LookupTargetGroupResultOutput) ProxyProtocolV2() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) bool { return v.ProxyProtocolV2 }).(pulumi.BoolOutput)
+}
+
+func (o LookupTargetGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupTargetGroupResultOutput) SlowStart() pulumi.IntOutput {

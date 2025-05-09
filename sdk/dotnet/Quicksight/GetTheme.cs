@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -132,6 +135,9 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -196,6 +202,7 @@ namespace Pulumi.Aws.Quicksight
         /// A set of resource permissions on the theme. See permissions.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemePermissionResult> Permissions;
+        public readonly string Region;
         /// <summary>
         /// The theme creation status.
         /// </summary>
@@ -234,6 +241,8 @@ namespace Pulumi.Aws.Quicksight
 
             ImmutableArray<Outputs.GetThemePermissionResult> permissions,
 
+            string region,
+
             string status,
 
             ImmutableDictionary<string, string> tags,
@@ -253,6 +262,7 @@ namespace Pulumi.Aws.Quicksight
             LastUpdatedTime = lastUpdatedTime;
             Name = name;
             Permissions = permissions;
+            Region = region;
             Status = status;
             Tags = tags;
             ThemeId = themeId;

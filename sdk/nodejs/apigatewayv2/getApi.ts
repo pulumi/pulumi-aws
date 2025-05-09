@@ -25,6 +25,7 @@ export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getApi:getApi", {
         "apiId": args.apiId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetApiArgs {
      * API identifier.
      */
     apiId: string;
+    region?: string;
     /**
      * Map of resource tags.
      */
@@ -93,6 +95,7 @@ export interface GetApiResult {
      * API protocol.
      */
     readonly protocolType: string;
+    readonly region: string;
     /**
      * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      */
@@ -124,6 +127,7 @@ export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOutputO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigatewayv2/getApi:getApi", {
         "apiId": args.apiId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -136,6 +140,7 @@ export interface GetApiOutputArgs {
      * API identifier.
      */
     apiId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of resource tags.
      */

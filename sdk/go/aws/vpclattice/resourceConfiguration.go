@@ -147,6 +147,8 @@ type ResourceConfiguration struct {
 	PortRanges pulumi.StringArrayOutput `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -204,6 +206,8 @@ type resourceConfigurationState struct {
 	PortRanges []string `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol *string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -232,6 +236,8 @@ type ResourceConfigurationState struct {
 	PortRanges pulumi.StringArrayInput
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -262,6 +268,8 @@ type resourceConfigurationArgs struct {
 	PortRanges []string `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol *string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -287,6 +295,8 @@ type ResourceConfigurationArgs struct {
 	PortRanges pulumi.StringArrayInput
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -412,6 +422,11 @@ func (o ResourceConfigurationOutput) PortRanges() pulumi.StringArrayOutput {
 // Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 func (o ResourceConfigurationOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourceConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.

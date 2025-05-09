@@ -22,6 +22,7 @@ public final class GetUserGroupsResult {
      * 
      */
     private String id;
+    private String region;
     private String userPoolId;
 
     private GetUserGroupsResult() {}
@@ -39,6 +40,9 @@ public final class GetUserGroupsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public String userPoolId() {
         return this.userPoolId;
     }
@@ -54,12 +58,14 @@ public final class GetUserGroupsResult {
     public static final class Builder {
         private List<GetUserGroupsGroup> groups;
         private String id;
+        private String region;
         private String userPoolId;
         public Builder() {}
         public Builder(GetUserGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.userPoolId = defaults.userPoolId;
         }
 
@@ -83,6 +89,14 @@ public final class GetUserGroupsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserGroupsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             if (userPoolId == null) {
               throw new MissingRequiredPropertyException("GetUserGroupsResult", "userPoolId");
@@ -94,6 +108,7 @@ public final class GetUserGroupsResult {
             final var _resultValue = new GetUserGroupsResult();
             _resultValue.groups = groups;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.userPoolId = userPoolId;
             return _resultValue;
         }

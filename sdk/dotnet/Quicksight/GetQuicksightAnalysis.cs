@@ -95,8 +95,6 @@ namespace Pulumi.Aws.Quicksight
     {
         /// <summary>
         /// Identifier for the analysis.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("analysisId", required: true)]
         public string AnalysisId { get; set; } = null!;
@@ -106,6 +104,9 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -125,8 +126,6 @@ namespace Pulumi.Aws.Quicksight
     {
         /// <summary>
         /// Identifier for the analysis.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;
@@ -136,6 +135,9 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -167,6 +169,7 @@ namespace Pulumi.Aws.Quicksight
         public readonly string LastUpdatedTime;
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetQuicksightAnalysisPermissionResult> Permissions;
+        public readonly string Region;
         public readonly string Status;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string ThemeArn;
@@ -191,6 +194,8 @@ namespace Pulumi.Aws.Quicksight
 
             ImmutableArray<Outputs.GetQuicksightAnalysisPermissionResult> permissions,
 
+            string region,
+
             string status,
 
             ImmutableDictionary<string, string> tags,
@@ -206,6 +211,7 @@ namespace Pulumi.Aws.Quicksight
             LastUpdatedTime = lastUpdatedTime;
             Name = name;
             Permissions = permissions;
+            Region = region;
             Status = status;
             Tags = tags;
             ThemeArn = themeArn;

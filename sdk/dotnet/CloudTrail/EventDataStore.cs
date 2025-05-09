@@ -162,6 +162,12 @@ namespace Pulumi.Aws.CloudTrail
         public Output<bool?> OrganizationEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         /// </summary>
         [Output("retentionPeriod")]
@@ -280,6 +286,12 @@ namespace Pulumi.Aws.CloudTrail
         public Input<bool>? OrganizationEnabled { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         /// </summary>
         [Input("retentionPeriod")]
@@ -364,6 +376,12 @@ namespace Pulumi.Aws.CloudTrail
         /// </summary>
         [Input("organizationEnabled")]
         public Input<bool>? OrganizationEnabled { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.

@@ -129,6 +129,10 @@ export class User extends pulumi.CustomResource {
     public readonly password!: pulumi.Output<string | undefined>;
     public /*out*/ readonly preferredMfaSetting!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * current user status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -181,6 +185,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["mfaSettingLists"] = state ? state.mfaSettingLists : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["preferredMfaSetting"] = state ? state.preferredMfaSetting : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["sub"] = state ? state.sub : undefined;
             resourceInputs["temporaryPassword"] = state ? state.temporaryPassword : undefined;
@@ -202,6 +207,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["forceAliasCreation"] = args ? args.forceAliasCreation : undefined;
             resourceInputs["messageAction"] = args ? args.messageAction : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["temporaryPassword"] = args?.temporaryPassword ? pulumi.secret(args.temporaryPassword) : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -256,6 +262,10 @@ export interface UserState {
      */
     password?: pulumi.Input<string>;
     preferredMfaSetting?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * current user status.
      */
@@ -318,6 +328,10 @@ export interface UserArgs {
      * The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
      */
     password?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user's temporary password. Conflicts with `password`.
      */

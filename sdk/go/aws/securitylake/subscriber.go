@@ -70,6 +70,8 @@ type Subscriber struct {
 	AccessType pulumi.StringOutput `pulumi:"accessType"`
 	// ARN of the Data Lake.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 	// The name of the resource share.
@@ -131,6 +133,8 @@ type subscriberState struct {
 	AccessType *string `pulumi:"accessType"`
 	// ARN of the Data Lake.
 	Arn *string `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 	// The name of the resource share.
@@ -163,6 +167,8 @@ type SubscriberState struct {
 	AccessType pulumi.StringPtrInput
 	// ARN of the Data Lake.
 	Arn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn pulumi.StringPtrInput
 	// The name of the resource share.
@@ -197,6 +203,8 @@ func (SubscriberState) ElementType() reflect.Type {
 type subscriberArgs struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType *string `pulumi:"accessType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Sources []SubscriberSource `pulumi:"sources"`
 	// The description for your subscriber account in Security Lake.
@@ -214,6 +222,8 @@ type subscriberArgs struct {
 type SubscriberArgs struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Sources SubscriberSourceArrayInput
 	// The description for your subscriber account in Security Lake.
@@ -322,6 +332,11 @@ func (o SubscriberOutput) AccessType() pulumi.StringOutput {
 // ARN of the Data Lake.
 func (o SubscriberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SubscriberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.

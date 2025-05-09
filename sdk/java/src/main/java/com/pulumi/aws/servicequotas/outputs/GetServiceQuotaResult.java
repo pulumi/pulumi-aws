@@ -41,6 +41,7 @@ public final class GetServiceQuotaResult {
     private String id;
     private String quotaCode;
     private String quotaName;
+    private String region;
     private String serviceCode;
     /**
      * @return Name of the service.
@@ -100,6 +101,9 @@ public final class GetServiceQuotaResult {
     public String quotaName() {
         return this.quotaName;
     }
+    public String region() {
+        return this.region;
+    }
     public String serviceCode() {
         return this.serviceCode;
     }
@@ -141,6 +145,7 @@ public final class GetServiceQuotaResult {
         private String id;
         private String quotaCode;
         private String quotaName;
+        private String region;
         private String serviceCode;
         private String serviceName;
         private List<GetServiceQuotaUsageMetric> usageMetrics;
@@ -155,6 +160,7 @@ public final class GetServiceQuotaResult {
     	      this.id = defaults.id;
     	      this.quotaCode = defaults.quotaCode;
     	      this.quotaName = defaults.quotaName;
+    	      this.region = defaults.region;
     	      this.serviceCode = defaults.serviceCode;
     	      this.serviceName = defaults.serviceName;
     	      this.usageMetrics = defaults.usageMetrics;
@@ -218,6 +224,14 @@ public final class GetServiceQuotaResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceCode(String serviceCode) {
             if (serviceCode == null) {
               throw new MissingRequiredPropertyException("GetServiceQuotaResult", "serviceCode");
@@ -261,6 +275,7 @@ public final class GetServiceQuotaResult {
             _resultValue.id = id;
             _resultValue.quotaCode = quotaCode;
             _resultValue.quotaName = quotaName;
+            _resultValue.region = region;
             _resultValue.serviceCode = serviceCode;
             _resultValue.serviceName = serviceName;
             _resultValue.usageMetrics = usageMetrics;

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration? SharePointConfiguration;
         /// <summary>
-        /// Type of storage for the data source. Valid values: `S3`.
+        /// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
         /// </summary>
         public readonly string Type;
         /// <summary>

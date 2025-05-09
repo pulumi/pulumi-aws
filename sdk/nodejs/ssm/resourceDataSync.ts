@@ -100,6 +100,10 @@ export class ResourceDataSync extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon S3 configuration details for the sync.
      */
     public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination>;
@@ -118,6 +122,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResourceDataSyncState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3Destination"] = state ? state.s3Destination : undefined;
         } else {
             const args = argsOrState as ResourceDataSyncArgs | undefined;
@@ -125,6 +130,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
                 throw new Error("Missing required property 's3Destination'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -141,6 +147,10 @@ export interface ResourceDataSyncState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon S3 configuration details for the sync.
      */
     s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3Destination>;
@@ -154,6 +164,10 @@ export interface ResourceDataSyncArgs {
      * Name for the configuration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon S3 configuration details for the sync.
      */

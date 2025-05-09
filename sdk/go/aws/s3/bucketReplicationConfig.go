@@ -12,275 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an independent configuration resource for S3 bucket [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html).
-//
-// > **NOTE:** S3 Buckets only support a single replication configuration. Declaring multiple `s3.BucketReplicationConfig` resources to the same S3 Bucket will cause a perpetual difference in configuration.
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ### Using replication configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"s3.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			replicationRole, err := iam.NewRole(ctx, "replication", &iam.RoleArgs{
-//				Name:             pulumi.String("tf-iam-role-replication-12345"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			destination, err := s3.NewBucket(ctx, "destination", &s3.BucketArgs{
-//				Bucket: pulumi.String("tf-test-bucket-destination-12345"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			source, err := s3.NewBucket(ctx, "source", &s3.BucketArgs{
-//				Bucket: pulumi.String("tf-test-bucket-source-12345"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			replication := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetReplicationConfiguration"),
-//							pulumi.String("s3:ListBucket"),
-//						},
-//						Resources: pulumi.StringArray{
-//							source.Arn,
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetObjectVersionForReplication"),
-//							pulumi.String("s3:GetObjectVersionAcl"),
-//							pulumi.String("s3:GetObjectVersionTagging"),
-//						},
-//						Resources: pulumi.StringArray{
-//							source.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:ReplicateObject"),
-//							pulumi.String("s3:ReplicateDelete"),
-//							pulumi.String("s3:ReplicateTags"),
-//						},
-//						Resources: pulumi.StringArray{
-//							destination.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			replicationPolicy, err := iam.NewPolicy(ctx, "replication", &iam.PolicyArgs{
-//				Name: pulumi.String("tf-iam-role-policy-replication-12345"),
-//				Policy: pulumi.String(replication.ApplyT(func(replication iam.GetPolicyDocumentResult) (*string, error) {
-//					return &replication.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "replication", &iam.RolePolicyAttachmentArgs{
-//				Role:      replicationRole.Name,
-//				PolicyArn: replicationPolicy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioning(ctx, "destination", &s3.BucketVersioningArgs{
-//				Bucket: destination.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "source_bucket_acl", &s3.BucketAclArgs{
-//				Bucket: source.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			sourceBucketVersioning, err := s3.NewBucketVersioning(ctx, "source", &s3.BucketVersioningArgs{
-//				Bucket: source.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketReplicationConfig(ctx, "replication", &s3.BucketReplicationConfigArgs{
-//				Role:   replicationRole.Arn,
-//				Bucket: source.ID(),
-//				Rules: s3.BucketReplicationConfigRuleArray{
-//					&s3.BucketReplicationConfigRuleArgs{
-//						Id: pulumi.String("foobar"),
-//						Filter: &s3.BucketReplicationConfigRuleFilterArgs{
-//							Prefix: pulumi.String("foo"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//						Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
-//							Bucket:       destination.Arn,
-//							StorageClass: pulumi.String("STANDARD"),
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				sourceBucketVersioning,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Bi-Directional Replication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ... other configuration ...
-//			east, err := s3.NewBucket(ctx, "east", &s3.BucketArgs{
-//				Bucket: pulumi.String("tf-test-bucket-east-12345"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			eastBucketVersioning, err := s3.NewBucketVersioning(ctx, "east", &s3.BucketVersioningArgs{
-//				Bucket: east.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			west, err := s3.NewBucket(ctx, "west", &s3.BucketArgs{
-//				Bucket: pulumi.String("tf-test-bucket-west-12345"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			westBucketVersioning, err := s3.NewBucketVersioning(ctx, "west", &s3.BucketVersioningArgs{
-//				Bucket: west.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketReplicationConfig(ctx, "east_to_west", &s3.BucketReplicationConfigArgs{
-//				Role:   pulumi.Any(eastReplication.Arn),
-//				Bucket: east.ID(),
-//				Rules: s3.BucketReplicationConfigRuleArray{
-//					&s3.BucketReplicationConfigRuleArgs{
-//						Id: pulumi.String("foobar"),
-//						Filter: &s3.BucketReplicationConfigRuleFilterArgs{
-//							Prefix: pulumi.String("foo"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//						Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
-//							Bucket:       west.Arn,
-//							StorageClass: pulumi.String("STANDARD"),
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				eastBucketVersioning,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketReplicationConfig(ctx, "west_to_east", &s3.BucketReplicationConfigArgs{
-//				Role:   pulumi.Any(westReplication.Arn),
-//				Bucket: west.ID(),
-//				Rules: s3.BucketReplicationConfigRuleArray{
-//					&s3.BucketReplicationConfigRuleArgs{
-//						Id: pulumi.String("foobar"),
-//						Filter: &s3.BucketReplicationConfigRuleFilterArgs{
-//							Prefix: pulumi.String("foo"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//						Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
-//							Bucket:       east.Arn,
-//							StorageClass: pulumi.String("STANDARD"),
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				westBucketVersioning,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
@@ -293,6 +24,8 @@ type BucketReplicationConfig struct {
 
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// List of configuration blocks describing the rules managing the replication. See below.
@@ -356,6 +89,8 @@ func GetBucketReplicationConfig(ctx *pulumi.Context,
 type bucketReplicationConfigState struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket *string `pulumi:"bucket"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role *string `pulumi:"role"`
 	// List of configuration blocks describing the rules managing the replication. See below.
@@ -374,6 +109,8 @@ type bucketReplicationConfigState struct {
 type BucketReplicationConfigState struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringPtrInput
 	// List of configuration blocks describing the rules managing the replication. See below.
@@ -396,6 +133,8 @@ func (BucketReplicationConfigState) ElementType() reflect.Type {
 type bucketReplicationConfigArgs struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket string `pulumi:"bucket"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role string `pulumi:"role"`
 	// List of configuration blocks describing the rules managing the replication. See below.
@@ -415,6 +154,8 @@ type bucketReplicationConfigArgs struct {
 type BucketReplicationConfigArgs struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringInput
 	// List of configuration blocks describing the rules managing the replication. See below.
@@ -520,6 +261,11 @@ func (o BucketReplicationConfigOutput) ToBucketReplicationConfigOutputWithContex
 // Name of the source S3 bucket you want Amazon S3 to monitor.
 func (o BucketReplicationConfigOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketReplicationConfig) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketReplicationConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketReplicationConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role for Amazon S3 to assume when replicating the objects.

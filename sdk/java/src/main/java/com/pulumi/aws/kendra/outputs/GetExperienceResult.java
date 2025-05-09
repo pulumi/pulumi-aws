@@ -55,6 +55,7 @@ public final class GetExperienceResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      * 
@@ -134,6 +135,9 @@ public final class GetExperienceResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      * 
@@ -175,6 +179,7 @@ public final class GetExperienceResult {
         private String id;
         private String indexId;
         private String name;
+        private String region;
         private String roleArn;
         private String status;
         private String updatedAt;
@@ -191,6 +196,7 @@ public final class GetExperienceResult {
     	      this.id = defaults.id;
     	      this.indexId = defaults.indexId;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.status = defaults.status;
     	      this.updatedAt = defaults.updatedAt;
@@ -283,6 +289,14 @@ public final class GetExperienceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetExperienceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetExperienceResult", "roleArn");
@@ -318,6 +332,7 @@ public final class GetExperienceResult {
             _resultValue.id = id;
             _resultValue.indexId = indexId;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.status = status;
             _resultValue.updatedAt = updatedAt;

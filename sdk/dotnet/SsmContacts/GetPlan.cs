@@ -99,6 +99,9 @@ namespace Pulumi.Aws.SsmContacts
         [Input("contactId", required: true)]
         public string ContactId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPlanArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.SsmContacts
         /// </summary>
         [Input("contactId", required: true)]
         public Input<string> ContactId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPlanInvokeArgs()
         {
@@ -128,6 +134,7 @@ namespace Pulumi.Aws.SsmContacts
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
         /// </summary>
@@ -139,10 +146,13 @@ namespace Pulumi.Aws.SsmContacts
 
             string id,
 
+            string region,
+
             ImmutableArray<Outputs.GetPlanStageResult> stages)
         {
             ContactId = contactId;
             Id = id;
+            Region = region;
             Stages = stages;
         }
     }

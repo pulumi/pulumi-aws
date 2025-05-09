@@ -131,6 +131,9 @@ namespace Pulumi.Aws.LB
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetTrustStoreArgs()
         {
         }
@@ -153,6 +156,9 @@ namespace Pulumi.Aws.LB
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetTrustStoreInvokeArgs()
         {
         }
@@ -169,6 +175,7 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetTrustStoreResult(
@@ -176,11 +183,14 @@ namespace Pulumi.Aws.LB
 
             string id,
 
-            string name)
+            string name,
+
+            string region)
         {
             Arn = arn;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Declare the data source
-//			rules, err := inspector.GetRulesPackages(ctx, map[string]interface{}{}, nil)
+//			rules, err := inspector.GetRulesPackages(ctx, &inspector.GetRulesPackagesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -64,14 +64,19 @@ import (
 //	}
 //
 // ```
-func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
+func GetRulesPackages(ctx *pulumi.Context, args *GetRulesPackagesArgs, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRulesPackagesResult
-	err := ctx.Invoke("aws:inspector/getRulesPackages:getRulesPackages", nil, &rv, opts...)
+	err := ctx.Invoke("aws:inspector/getRulesPackages:getRulesPackages", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getRulesPackages.
+type GetRulesPackagesArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRulesPackages.
@@ -79,14 +84,26 @@ type GetRulesPackagesResult struct {
 	// List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func GetRulesPackagesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRulesPackagesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetRulesPackagesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:inspector/getRulesPackages:getRulesPackages", nil, GetRulesPackagesResultOutput{}, options).(GetRulesPackagesResultOutput), nil
-	}).(GetRulesPackagesResultOutput)
+func GetRulesPackagesOutput(ctx *pulumi.Context, args GetRulesPackagesOutputArgs, opts ...pulumi.InvokeOption) GetRulesPackagesResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetRulesPackagesResultOutput, error) {
+			args := v.(GetRulesPackagesArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:inspector/getRulesPackages:getRulesPackages", args, GetRulesPackagesResultOutput{}, options).(GetRulesPackagesResultOutput), nil
+		}).(GetRulesPackagesResultOutput)
+}
+
+// A collection of arguments for invoking getRulesPackages.
+type GetRulesPackagesOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetRulesPackagesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRulesPackagesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getRulesPackages.
@@ -112,6 +129,10 @@ func (o GetRulesPackagesResultOutput) Arns() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetRulesPackagesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRulesPackagesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRulesPackagesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRulesPackagesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

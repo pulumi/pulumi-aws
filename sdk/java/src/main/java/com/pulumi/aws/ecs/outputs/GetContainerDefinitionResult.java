@@ -59,6 +59,7 @@ public final class GetContainerDefinitionResult {
      * 
      */
     private Integer memoryReservation;
+    private String region;
     private String taskDefinition;
 
     private GetContainerDefinitionResult() {}
@@ -128,6 +129,9 @@ public final class GetContainerDefinitionResult {
     public Integer memoryReservation() {
         return this.memoryReservation;
     }
+    public String region() {
+        return this.region;
+    }
     public String taskDefinition() {
         return this.taskDefinition;
     }
@@ -151,6 +155,7 @@ public final class GetContainerDefinitionResult {
         private String imageDigest;
         private Integer memory;
         private Integer memoryReservation;
+        private String region;
         private String taskDefinition;
         public Builder() {}
         public Builder(GetContainerDefinitionResult defaults) {
@@ -165,6 +170,7 @@ public final class GetContainerDefinitionResult {
     	      this.imageDigest = defaults.imageDigest;
     	      this.memory = defaults.memory;
     	      this.memoryReservation = defaults.memoryReservation;
+    	      this.region = defaults.region;
     	      this.taskDefinition = defaults.taskDefinition;
         }
 
@@ -249,6 +255,14 @@ public final class GetContainerDefinitionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder taskDefinition(String taskDefinition) {
             if (taskDefinition == null) {
               throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "taskDefinition");
@@ -268,6 +282,7 @@ public final class GetContainerDefinitionResult {
             _resultValue.imageDigest = imageDigest;
             _resultValue.memory = memory;
             _resultValue.memoryReservation = memoryReservation;
+            _resultValue.region = region;
             _resultValue.taskDefinition = taskDefinition;
             return _resultValue;
         }

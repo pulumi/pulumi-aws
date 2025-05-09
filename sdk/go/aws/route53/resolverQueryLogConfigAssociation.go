@@ -51,6 +51,8 @@ import (
 type ResolverQueryLogConfigAssociation struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringOutput `pulumi:"resolverQueryLogConfigId"`
 	// The ID of a VPC that you want this query logging configuration to log queries for.
@@ -93,6 +95,8 @@ func GetResolverQueryLogConfigAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
 type resolverQueryLogConfigAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
 	// The ID of a VPC that you want this query logging configuration to log queries for.
@@ -100,6 +104,8 @@ type resolverQueryLogConfigAssociationState struct {
 }
 
 type ResolverQueryLogConfigAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringPtrInput
 	// The ID of a VPC that you want this query logging configuration to log queries for.
@@ -111,6 +117,8 @@ func (ResolverQueryLogConfigAssociationState) ElementType() reflect.Type {
 }
 
 type resolverQueryLogConfigAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId string `pulumi:"resolverQueryLogConfigId"`
 	// The ID of a VPC that you want this query logging configuration to log queries for.
@@ -119,6 +127,8 @@ type resolverQueryLogConfigAssociationArgs struct {
 
 // The set of arguments for constructing a ResolverQueryLogConfigAssociation resource.
 type ResolverQueryLogConfigAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringInput
 	// The ID of a VPC that you want this query logging configuration to log queries for.
@@ -210,6 +220,11 @@ func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssocia
 
 func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssociationOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResolverQueryLogConfigAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLogConfigAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.

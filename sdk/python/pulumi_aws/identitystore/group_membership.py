@@ -22,16 +22,20 @@ class GroupMembershipArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[builtins.str],
                  identity_store_id: pulumi.Input[builtins.str],
-                 member_id: pulumi.Input[builtins.str]):
+                 member_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GroupMembership resource.
         :param pulumi.Input[builtins.str] group_id: The identifier for a group in the Identity Store.
         :param pulumi.Input[builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[builtins.str] member_id: The identifier for a user in the Identity Store.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
         pulumi.set(__self__, "member_id", member_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="groupId")
@@ -69,6 +73,18 @@ class GroupMembershipArgs:
     def member_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "member_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _GroupMembershipState:
@@ -76,13 +92,15 @@ class _GroupMembershipState:
                  group_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
                  member_id: Optional[pulumi.Input[builtins.str]] = None,
-                 membership_id: Optional[pulumi.Input[builtins.str]] = None):
+                 membership_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
         :param pulumi.Input[builtins.str] group_id: The identifier for a group in the Identity Store.
         :param pulumi.Input[builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[builtins.str] member_id: The identifier for a user in the Identity Store.
         :param pulumi.Input[builtins.str] membership_id: The identifier of the newly created group membership in the Identity Store.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -92,6 +110,8 @@ class _GroupMembershipState:
             pulumi.set(__self__, "member_id", member_id)
         if membership_id is not None:
             pulumi.set(__self__, "membership_id", membership_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="groupId")
@@ -141,6 +161,18 @@ class _GroupMembershipState:
     def membership_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "membership_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class GroupMembership(pulumi.CustomResource):
 
@@ -153,6 +185,7 @@ class GroupMembership(pulumi.CustomResource):
                  group_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
                  member_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS IdentityStore Group Membership.
@@ -195,6 +228,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] group_id: The identifier for a group in the Identity Store.
         :param pulumi.Input[builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[builtins.str] member_id: The identifier for a user in the Identity Store.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -256,6 +290,7 @@ class GroupMembership(pulumi.CustomResource):
                  group_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
                  member_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -274,6 +309,7 @@ class GroupMembership(pulumi.CustomResource):
             if member_id is None and not opts.urn:
                 raise TypeError("Missing required property 'member_id'")
             __props__.__dict__["member_id"] = member_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["membership_id"] = None
         super(GroupMembership, __self__).__init__(
             'aws:identitystore/groupMembership:GroupMembership',
@@ -288,7 +324,8 @@ class GroupMembership(pulumi.CustomResource):
             group_id: Optional[pulumi.Input[builtins.str]] = None,
             identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
             member_id: Optional[pulumi.Input[builtins.str]] = None,
-            membership_id: Optional[pulumi.Input[builtins.str]] = None) -> 'GroupMembership':
+            membership_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'GroupMembership':
         """
         Get an existing GroupMembership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -300,6 +337,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[builtins.str] member_id: The identifier for a user in the Identity Store.
         :param pulumi.Input[builtins.str] membership_id: The identifier of the newly created group membership in the Identity Store.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,6 +347,7 @@ class GroupMembership(pulumi.CustomResource):
         __props__.__dict__["identity_store_id"] = identity_store_id
         __props__.__dict__["member_id"] = member_id
         __props__.__dict__["membership_id"] = membership_id
+        __props__.__dict__["region"] = region
         return GroupMembership(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -342,4 +381,12 @@ class GroupMembership(pulumi.CustomResource):
         The identifier of the newly created group membership in the Identity Store.
         """
         return pulumi.get(self, "membership_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

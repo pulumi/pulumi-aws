@@ -71,6 +71,10 @@ export class TemplateAlias extends pulumi.CustomResource {
      */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the template.
      */
     public readonly templateId!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class TemplateAlias extends pulumi.CustomResource {
             resourceInputs["aliasName"] = state ? state.aliasName : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["templateId"] = state ? state.templateId : undefined;
             resourceInputs["templateVersionNumber"] = state ? state.templateVersionNumber : undefined;
         } else {
@@ -112,6 +117,7 @@ export class TemplateAlias extends pulumi.CustomResource {
             }
             resourceInputs["aliasName"] = args ? args.aliasName : undefined;
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["templateId"] = args ? args.templateId : undefined;
             resourceInputs["templateVersionNumber"] = args ? args.templateVersionNumber : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export interface TemplateAliasState {
      */
     awsAccountId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the template.
      */
     templateId?: pulumi.Input<string>;
@@ -161,6 +171,10 @@ export interface TemplateAliasArgs {
      * AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the template.
      */

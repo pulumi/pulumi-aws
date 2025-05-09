@@ -63,6 +63,10 @@ export class EventSourcesConfig extends pulumi.CustomResource {
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      */
     public readonly eventSources!: pulumi.Output<outputs.devopsguru.EventSourcesConfigEventSource[] | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EventSourcesConfig resource with the given unique name, arguments, and options.
@@ -78,9 +82,11 @@ export class EventSourcesConfig extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventSourcesConfigState | undefined;
             resourceInputs["eventSources"] = state ? state.eventSources : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EventSourcesConfigArgs | undefined;
             resourceInputs["eventSources"] = args ? args.eventSources : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventSourcesConfig.__pulumiType, name, resourceInputs, opts);
@@ -95,6 +101,10 @@ export interface EventSourcesConfigState {
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      */
     eventSources?: pulumi.Input<pulumi.Input<inputs.devopsguru.EventSourcesConfigEventSource>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -105,4 +115,8 @@ export interface EventSourcesConfigArgs {
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      */
     eventSources?: pulumi.Input<pulumi.Input<inputs.devopsguru.EventSourcesConfigEventSource>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

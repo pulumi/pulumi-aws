@@ -39,6 +39,7 @@ export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, op
     return pulumi.runtime.invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "engineType": args.engineType,
         "hostInstanceType": args.hostInstanceType,
+        "region": args.region,
         "storageType": args.storageType,
     }, opts);
 }
@@ -55,6 +56,7 @@ export interface GetInstanceTypeOfferingsArgs {
      * Filter response by host instance type.
      */
     hostInstanceType?: string;
+    region?: string;
     /**
      * Filter response by storage type.
      */
@@ -81,6 +83,7 @@ export interface GetInstanceTypeOfferingsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Broker's storage type.
      */
@@ -118,6 +121,7 @@ export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOu
     return pulumi.runtime.invokeOutput("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "engineType": args.engineType,
         "hostInstanceType": args.hostInstanceType,
+        "region": args.region,
         "storageType": args.storageType,
     }, opts);
 }
@@ -134,6 +138,7 @@ export interface GetInstanceTypeOfferingsOutputArgs {
      * Filter response by host instance type.
      */
     hostInstanceType?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Filter response by storage type.
      */

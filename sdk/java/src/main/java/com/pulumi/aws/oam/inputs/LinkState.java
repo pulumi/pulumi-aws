@@ -94,6 +94,21 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Types of data that the source account shares with the monitoring account.
      * 
      */
@@ -172,6 +187,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         this.labelTemplate = $.labelTemplate;
         this.linkConfiguration = $.linkConfiguration;
         this.linkId = $.linkId;
+        this.region = $.region;
         this.resourceTypes = $.resourceTypes;
         this.sinkArn = $.sinkArn;
         this.sinkIdentifier = $.sinkIdentifier;
@@ -300,6 +316,27 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder linkId(String linkId) {
             return linkId(Output.of(linkId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         public readonly string Id;
         public readonly string? ImageTag;
-        public readonly string? Region;
+        public readonly string Region;
         /// <summary>
         /// Account ID containing the image. For example, `469771592824`.
         /// </summary>
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Sagemaker
 
             string? imageTag,
 
-            string? region,
+            string region,
 
             string registryId,
 

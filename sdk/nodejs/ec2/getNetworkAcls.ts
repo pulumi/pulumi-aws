@@ -62,6 +62,7 @@ export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -73,11 +74,9 @@ export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOp
 export interface GetNetworkAclsArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: inputs.ec2.GetNetworkAclsFilter[];
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.
@@ -102,6 +101,7 @@ export interface GetNetworkAclsResult {
      * List of all the network ACL ids found.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
@@ -160,6 +160,7 @@ export function getNetworkAclsOutput(args?: GetNetworkAclsOutputArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -171,11 +172,9 @@ export function getNetworkAclsOutput(args?: GetNetworkAclsOutputArgs, opts?: pul
 export interface GetNetworkAclsOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkAclsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.

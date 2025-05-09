@@ -83,6 +83,8 @@ type Environment struct {
 	Monitors EnvironmentMonitorArrayOutput `pulumi:"monitors"`
 	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
 	// or `ROLLED_BACK`.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -137,6 +139,8 @@ type environmentState struct {
 	Monitors []EnvironmentMonitor `pulumi:"monitors"`
 	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
 	// or `ROLLED_BACK`.
 	State *string `pulumi:"state"`
@@ -159,6 +163,8 @@ type EnvironmentState struct {
 	Monitors EnvironmentMonitorArrayInput
 	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
 	// or `ROLLED_BACK`.
 	State pulumi.StringPtrInput
@@ -181,6 +187,8 @@ type environmentArgs struct {
 	Monitors []EnvironmentMonitor `pulumi:"monitors"`
 	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -195,6 +203,8 @@ type EnvironmentArgs struct {
 	Monitors EnvironmentMonitorArrayInput
 	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -314,6 +324,11 @@ func (o EnvironmentOutput) Monitors() EnvironmentMonitorArrayOutput {
 // Name for the environment. Must be between 1 and 64 characters in length.
 func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EnvironmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`

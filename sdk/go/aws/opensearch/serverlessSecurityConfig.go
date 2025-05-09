@@ -32,6 +32,8 @@ type ServerlessSecurityConfig struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for SAML options.
 	SamlOptions ServerlessSecurityConfigSamlOptionsPtrOutput `pulumi:"samlOptions"`
 	// Type of configuration. Must be `saml`.
@@ -79,6 +81,8 @@ type serverlessSecurityConfigState struct {
 	Description *string `pulumi:"description"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for SAML options.
 	SamlOptions *ServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
 	// Type of configuration. Must be `saml`.
@@ -94,6 +98,8 @@ type ServerlessSecurityConfigState struct {
 	Description pulumi.StringPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for SAML options.
 	SamlOptions ServerlessSecurityConfigSamlOptionsPtrInput
 	// Type of configuration. Must be `saml`.
@@ -111,6 +117,8 @@ type serverlessSecurityConfigArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for SAML options.
 	SamlOptions *ServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
 	// Type of configuration. Must be `saml`.
@@ -125,6 +133,8 @@ type ServerlessSecurityConfigArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for SAML options.
 	SamlOptions ServerlessSecurityConfigSamlOptionsPtrInput
 	// Type of configuration. Must be `saml`.
@@ -233,6 +243,11 @@ func (o ServerlessSecurityConfigOutput) Description() pulumi.StringPtrOutput {
 // Name of the policy.
 func (o ServerlessSecurityConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServerlessSecurityConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block for SAML options.

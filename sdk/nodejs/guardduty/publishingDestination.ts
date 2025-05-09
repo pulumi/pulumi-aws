@@ -142,6 +142,10 @@ export class PublishingDestination extends pulumi.CustomResource {
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PublishingDestination resource with the given unique name, arguments, and options.
@@ -160,6 +164,7 @@ export class PublishingDestination extends pulumi.CustomResource {
             resourceInputs["destinationType"] = state ? state.destinationType : undefined;
             resourceInputs["detectorId"] = state ? state.detectorId : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PublishingDestinationArgs | undefined;
             if ((!args || args.destinationArn === undefined) && !opts.urn) {
@@ -175,6 +180,7 @@ export class PublishingDestination extends pulumi.CustomResource {
             resourceInputs["destinationType"] = args ? args.destinationType : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PublishingDestination.__pulumiType, name, resourceInputs, opts);
@@ -203,6 +209,10 @@ export interface PublishingDestinationState {
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -227,4 +237,8 @@ export interface PublishingDestinationArgs {
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     kmsKeyArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

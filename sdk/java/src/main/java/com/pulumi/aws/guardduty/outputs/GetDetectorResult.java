@@ -29,6 +29,7 @@ public final class GetDetectorResult {
      */
     private String findingPublishingFrequency;
     private String id;
+    private String region;
     /**
      * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
      * 
@@ -70,6 +71,9 @@ public final class GetDetectorResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
      * 
@@ -105,6 +109,7 @@ public final class GetDetectorResult {
         private List<GetDetectorFeature> features;
         private String findingPublishingFrequency;
         private String id;
+        private String region;
         private String serviceRoleArn;
         private String status;
         private Map<String,String> tags;
@@ -115,6 +120,7 @@ public final class GetDetectorResult {
     	      this.features = defaults.features;
     	      this.findingPublishingFrequency = defaults.findingPublishingFrequency;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.serviceRoleArn = defaults.serviceRoleArn;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
@@ -156,6 +162,14 @@ public final class GetDetectorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDetectorResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceRoleArn(String serviceRoleArn) {
             if (serviceRoleArn == null) {
               throw new MissingRequiredPropertyException("GetDetectorResult", "serviceRoleArn");
@@ -185,6 +199,7 @@ public final class GetDetectorResult {
             _resultValue.features = features;
             _resultValue.findingPublishingFrequency = findingPublishingFrequency;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.serviceRoleArn = serviceRoleArn;
             _resultValue.status = status;
             _resultValue.tags = tags;

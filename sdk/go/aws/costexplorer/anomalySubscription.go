@@ -325,6 +325,8 @@ type AnomalySubscription struct {
 	MonitorArnLists pulumi.StringArrayOutput `pulumi:"monitorArnLists"`
 	// The name for the subscription.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -384,6 +386,8 @@ type anomalySubscriptionState struct {
 	MonitorArnLists []string `pulumi:"monitorArnLists"`
 	// The name for the subscription.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -405,6 +409,8 @@ type AnomalySubscriptionState struct {
 	MonitorArnLists pulumi.StringArrayInput
 	// The name for the subscription.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -428,6 +434,8 @@ type anomalySubscriptionArgs struct {
 	MonitorArnLists []string `pulumi:"monitorArnLists"`
 	// The name for the subscription.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -446,6 +454,8 @@ type AnomalySubscriptionArgs struct {
 	MonitorArnLists pulumi.StringArrayInput
 	// The name for the subscription.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -564,6 +574,11 @@ func (o AnomalySubscriptionOutput) MonitorArnLists() pulumi.StringArrayOutput {
 // The name for the subscription.
 func (o AnomalySubscriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AnomalySubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A subscriber configuration. Multiple subscribers can be defined.

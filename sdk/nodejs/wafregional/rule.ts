@@ -99,6 +99,10 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly predicates!: pulumi.Output<outputs.wafregional.RulePredicate[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -124,6 +128,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["metricName"] = state ? state.metricName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["predicates"] = state ? state.predicates : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -134,6 +139,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["metricName"] = args ? args.metricName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["predicates"] = args ? args.predicates : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -164,6 +170,10 @@ export interface RuleState {
      */
     predicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RulePredicate>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -189,6 +199,10 @@ export interface RuleArgs {
      * The objects to include in a rule (documented below).
      */
     predicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RulePredicate>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

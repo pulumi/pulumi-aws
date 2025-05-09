@@ -32,6 +32,7 @@ export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions
     return pulumi.runtime.invoke("aws:kms/getPublicKey:getPublicKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
+        "region": args.region,
     }, opts);
 }
 
@@ -51,6 +52,7 @@ export interface GetPublicKeyArgs {
      * * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
      */
     keyId: string;
+    region?: string;
 }
 
 /**
@@ -87,6 +89,7 @@ export interface GetPublicKeyResult {
      * Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
      */
     readonly publicKeyPem: string;
+    readonly region: string;
     /**
      * Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
      */
@@ -120,6 +123,7 @@ export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.I
     return pulumi.runtime.invokeOutput("aws:kms/getPublicKey:getPublicKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
+        "region": args.region,
     }, opts);
 }
 
@@ -139,4 +143,5 @@ export interface GetPublicKeyOutputArgs {
      * * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
      */
     keyId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -61,6 +61,13 @@ public final class GetGatewayRoutePlainArgs extends com.pulumi.resources.InvokeA
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags.
      * 
@@ -97,6 +104,7 @@ public final class GetGatewayRoutePlainArgs extends com.pulumi.resources.InvokeA
         this.meshName = $.meshName;
         this.meshOwner = $.meshOwner;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
         this.virtualGatewayName = $.virtualGatewayName;
     }
@@ -149,6 +157,11 @@ public final class GetGatewayRoutePlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

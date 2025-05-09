@@ -191,6 +191,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// prefix lists. The given filters must match exactly one prefix list
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetManagedPrefixListFilterArgs> Filters
         {
@@ -209,6 +213,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -235,6 +242,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// prefix lists. The given filters must match exactly one prefix list
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetManagedPrefixListFilterInputArgs> Filters
         {
@@ -253,6 +264,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -305,6 +319,7 @@ namespace Pulumi.Aws.Ec2
         /// Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
@@ -329,6 +344,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             int version)
@@ -341,6 +358,7 @@ namespace Pulumi.Aws.Ec2
             MaxEntries = maxEntries;
             Name = name;
             OwnerId = ownerId;
+            Region = region;
             Tags = tags;
             Version = version;
         }

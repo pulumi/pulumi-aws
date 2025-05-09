@@ -20,6 +20,7 @@ public final class GetDefaultKmsKeyResult {
      * 
      */
     private String keyArn;
+    private String region;
 
     private GetDefaultKmsKeyResult() {}
     /**
@@ -36,6 +37,9 @@ public final class GetDefaultKmsKeyResult {
     public String keyArn() {
         return this.keyArn;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -48,11 +52,13 @@ public final class GetDefaultKmsKeyResult {
     public static final class Builder {
         private String id;
         private String keyArn;
+        private String region;
         public Builder() {}
         public Builder(GetDefaultKmsKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.keyArn = defaults.keyArn;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -71,10 +77,19 @@ public final class GetDefaultKmsKeyResult {
             this.keyArn = keyArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDefaultKmsKeyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetDefaultKmsKeyResult build() {
             final var _resultValue = new GetDefaultKmsKeyResult();
             _resultValue.id = id;
             _resultValue.keyArn = keyArn;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

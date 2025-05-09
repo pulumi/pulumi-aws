@@ -31,6 +31,21 @@ public final class NetworkAclAssociationState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the associated Subnet.
      * 
      */
@@ -49,6 +64,7 @@ public final class NetworkAclAssociationState extends com.pulumi.resources.Resou
 
     private NetworkAclAssociationState(NetworkAclAssociationState $) {
         this.networkAclId = $.networkAclId;
+        this.region = $.region;
         this.subnetId = $.subnetId;
     }
 
@@ -89,6 +105,27 @@ public final class NetworkAclAssociationState extends com.pulumi.resources.Resou
          */
         public Builder networkAclId(String networkAclId) {
             return networkAclId(Output.of(networkAclId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

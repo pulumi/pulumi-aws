@@ -61,6 +61,13 @@ public final class GetContactFlowPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Tags to assign to the Contact Flow.
      * 
@@ -97,6 +104,7 @@ public final class GetContactFlowPlainArgs extends com.pulumi.resources.InvokeAr
         this.contactFlowId = $.contactFlowId;
         this.instanceId = $.instanceId;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -149,6 +157,11 @@ public final class GetContactFlowPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

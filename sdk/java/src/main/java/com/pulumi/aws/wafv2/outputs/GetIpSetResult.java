@@ -37,6 +37,7 @@ public final class GetIpSetResult {
      */
     private String ipAddressVersion;
     private String name;
+    private String region;
     private String scope;
 
     private GetIpSetResult() {}
@@ -78,6 +79,9 @@ public final class GetIpSetResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     public String scope() {
         return this.scope;
     }
@@ -97,6 +101,7 @@ public final class GetIpSetResult {
         private String id;
         private String ipAddressVersion;
         private String name;
+        private String region;
         private String scope;
         public Builder() {}
         public Builder(GetIpSetResult defaults) {
@@ -107,6 +112,7 @@ public final class GetIpSetResult {
     	      this.id = defaults.id;
     	      this.ipAddressVersion = defaults.ipAddressVersion;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.scope = defaults.scope;
         }
 
@@ -162,6 +168,14 @@ public final class GetIpSetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetIpSetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scope(String scope) {
             if (scope == null) {
               throw new MissingRequiredPropertyException("GetIpSetResult", "scope");
@@ -177,6 +191,7 @@ public final class GetIpSetResult {
             _resultValue.id = id;
             _resultValue.ipAddressVersion = ipAddressVersion;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.scope = scope;
             return _resultValue;
         }

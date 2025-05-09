@@ -69,6 +69,8 @@ type ReplicationTask struct {
 	CdcStartTime pulumi.StringPtrOutput `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringOutput `pulumi:"migrationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringOutput `pulumi:"replicationInstanceArn"`
 	// ARN for the replication task.
@@ -149,6 +151,8 @@ type replicationTaskState struct {
 	CdcStartTime *string `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType *string `pulumi:"migrationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn *string `pulumi:"replicationInstanceArn"`
 	// ARN for the replication task.
@@ -182,6 +186,8 @@ type ReplicationTaskState struct {
 	CdcStartTime pulumi.StringPtrInput
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringPtrInput
 	// ARN for the replication task.
@@ -219,6 +225,8 @@ type replicationTaskArgs struct {
 	CdcStartTime *string `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType string `pulumi:"migrationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
 	// Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
@@ -247,6 +255,8 @@ type ReplicationTaskArgs struct {
 	CdcStartTime pulumi.StringPtrInput
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringInput
 	// Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
@@ -367,6 +377,11 @@ func (o ReplicationTaskOutput) CdcStartTime() pulumi.StringPtrOutput {
 // Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 func (o ReplicationTaskOutput) MigrationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.MigrationType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReplicationTaskOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the replication instance.

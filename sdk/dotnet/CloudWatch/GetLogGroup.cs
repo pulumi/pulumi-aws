@@ -93,6 +93,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -162,6 +168,7 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string LogGroupClass;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Number of days log events retained in the specified log group.
         /// </summary>
@@ -185,6 +192,8 @@ namespace Pulumi.Aws.CloudWatch
 
             string name,
 
+            string region,
+
             int retentionInDays,
 
             ImmutableDictionary<string, string> tags)
@@ -195,6 +204,7 @@ namespace Pulumi.Aws.CloudWatch
             KmsKeyId = kmsKeyId;
             LogGroupClass = logGroupClass;
             Name = name;
+            Region = region;
             RetentionInDays = retentionInDays;
             Tags = tags;
         }

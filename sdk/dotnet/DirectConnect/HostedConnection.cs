@@ -56,6 +56,12 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> ConnectionId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region where the connection is located.
+        /// </summary>
+        [Output("connectionRegion")]
+        public Output<string> ConnectionRegion { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
         [Output("hasLogicalRedundancy")]
@@ -110,7 +116,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> ProviderName { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region where the connection is located.
+        /// (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -230,6 +236,12 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? ConnectionId { get; set; }
 
         /// <summary>
+        /// The AWS Region where the connection is located.
+        /// </summary>
+        [Input("connectionRegion")]
+        public Input<string>? ConnectionRegion { get; set; }
+
+        /// <summary>
         /// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
         [Input("hasLogicalRedundancy")]
@@ -284,7 +296,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? ProviderName { get; set; }
 
         /// <summary>
-        /// The AWS Region where the connection is located.
+        /// (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

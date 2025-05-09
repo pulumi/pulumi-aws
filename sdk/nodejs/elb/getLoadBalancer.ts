@@ -33,6 +33,7 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elb/getLoadBalancer:getLoadBalancer", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,6 +46,7 @@ export interface GetLoadBalancerArgs {
      * Unique name of the load balancer.
      */
     name: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -70,6 +72,7 @@ export interface GetLoadBalancerResult {
     readonly internal: boolean;
     readonly listeners: outputs.elb.GetLoadBalancerListener[];
     readonly name: string;
+    readonly region: string;
     readonly securityGroups: string[];
     readonly sourceSecurityGroup: string;
     readonly sourceSecurityGroupId: string;
@@ -103,6 +106,7 @@ export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elb/getLoadBalancer:getLoadBalancer", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -115,5 +119,6 @@ export interface GetLoadBalancerOutputArgs {
      * Unique name of the load balancer.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

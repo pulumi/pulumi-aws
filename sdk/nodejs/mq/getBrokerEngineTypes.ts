@@ -28,6 +28,7 @@ export function getBrokerEngineTypes(args?: GetBrokerEngineTypesArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", {
         "engineType": args.engineType,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,7 @@ export interface GetBrokerEngineTypesArgs {
      * The MQ engine type to return version details for.
      */
     engineType?: string;
+    region?: string;
 }
 
 /**
@@ -57,6 +59,7 @@ export interface GetBrokerEngineTypesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Retrieve information about available broker engines.
@@ -79,6 +82,7 @@ export function getBrokerEngineTypesOutput(args?: GetBrokerEngineTypesOutputArgs
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", {
         "engineType": args.engineType,
+        "region": args.region,
     }, opts);
 }
 
@@ -90,4 +94,5 @@ export interface GetBrokerEngineTypesOutputArgs {
      * The MQ engine type to return version details for.
      */
     engineType?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

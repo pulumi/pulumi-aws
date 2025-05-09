@@ -81,6 +81,21 @@ public final class DevicePoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The device pool&#39;s rules. See Rule.
      * 
      */
@@ -117,6 +132,7 @@ public final class DevicePoolArgs extends com.pulumi.resources.ResourceArgs {
         this.maxDevices = $.maxDevices;
         this.name = $.name;
         this.projectArn = $.projectArn;
+        this.region = $.region;
         this.rules = $.rules;
         this.tags = $.tags;
     }
@@ -221,6 +237,27 @@ public final class DevicePoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectArn(String projectArn) {
             return projectArn(Output.of(projectArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.accessanalyzer.inputs;
 
+import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AnalyzerConfigurationUnusedAccessArgs Empty = new AnalyzerConfigurationUnusedAccessArgs();
+
+    /**
+     * A block for analysis rules. Documented below
+     * 
+     */
+    @Import(name="analysisRule")
+    private @Nullable Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs> analysisRule;
+
+    /**
+     * @return A block for analysis rules. Documented below
+     * 
+     */
+    public Optional<Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs>> analysisRule() {
+        return Optional.ofNullable(this.analysisRule);
+    }
 
     /**
      * The specified access age in days for which to generate findings for unused access.
@@ -33,6 +49,7 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
     private AnalyzerConfigurationUnusedAccessArgs() {}
 
     private AnalyzerConfigurationUnusedAccessArgs(AnalyzerConfigurationUnusedAccessArgs $) {
+        this.analysisRule = $.analysisRule;
         this.unusedAccessAge = $.unusedAccessAge;
     }
 
@@ -52,6 +69,27 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
 
         public Builder(AnalyzerConfigurationUnusedAccessArgs defaults) {
             $ = new AnalyzerConfigurationUnusedAccessArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param analysisRule A block for analysis rules. Documented below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analysisRule(@Nullable Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs> analysisRule) {
+            $.analysisRule = analysisRule;
+            return this;
+        }
+
+        /**
+         * @param analysisRule A block for analysis rules. Documented below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analysisRule(AnalyzerConfigurationUnusedAccessAnalysisRuleArgs analysisRule) {
+            return analysisRule(Output.of(analysisRule));
         }
 
         /**

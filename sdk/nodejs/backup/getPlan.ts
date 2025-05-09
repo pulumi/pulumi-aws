@@ -25,6 +25,7 @@ export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getPlan:getPlan", {
         "planId": args.planId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetPlanArgs {
      * Backup plan ID.
      */
     planId: string;
+    region?: string;
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
@@ -60,6 +62,7 @@ export interface GetPlanResult {
      */
     readonly name: string;
     readonly planId: string;
+    readonly region: string;
     /**
      * Rules of a backup plan.
      */
@@ -91,6 +94,7 @@ export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:backup/getPlan:getPlan", {
         "planId": args.planId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -103,6 +107,7 @@ export interface GetPlanOutputArgs {
      * Backup plan ID.
      */
     planId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the plans you create.
      */

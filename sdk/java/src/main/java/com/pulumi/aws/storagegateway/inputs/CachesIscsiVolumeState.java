@@ -139,6 +139,21 @@ public final class CachesIscsiVolumeState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      * 
      */
@@ -284,6 +299,7 @@ public final class CachesIscsiVolumeState extends com.pulumi.resources.ResourceA
         this.lunNumber = $.lunNumber;
         this.networkInterfaceId = $.networkInterfaceId;
         this.networkInterfacePort = $.networkInterfacePort;
+        this.region = $.region;
         this.snapshotId = $.snapshotId;
         this.sourceVolumeArn = $.sourceVolumeArn;
         this.tags = $.tags;
@@ -479,6 +495,27 @@ public final class CachesIscsiVolumeState extends com.pulumi.resources.ResourceA
          */
         public Builder networkInterfacePort(Integer networkInterfacePort) {
             return networkInterfacePort(Output.of(networkInterfacePort));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

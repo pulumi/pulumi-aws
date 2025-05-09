@@ -63,6 +63,7 @@ export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -73,11 +74,9 @@ export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pul
 export interface GetNetworkInterfacesArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: inputs.ec2.GetNetworkInterfacesFilter[];
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.
@@ -98,6 +97,7 @@ export interface GetNetworkInterfacesResult {
      * List of all the network interface ids found.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -156,6 +156,7 @@ export function getNetworkInterfacesOutput(args?: GetNetworkInterfacesOutputArgs
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -166,11 +167,9 @@ export function getNetworkInterfacesOutput(args?: GetNetworkInterfacesOutputArgs
 export interface GetNetworkInterfacesOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInterfacesFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.

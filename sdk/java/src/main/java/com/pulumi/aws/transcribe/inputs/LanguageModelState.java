@@ -92,6 +92,21 @@ public final class LanguageModelState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.modelName);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -114,6 +129,7 @@ public final class LanguageModelState extends com.pulumi.resources.ResourceArgs 
         this.inputDataConfig = $.inputDataConfig;
         this.languageCode = $.languageCode;
         this.modelName = $.modelName;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -239,6 +255,27 @@ public final class LanguageModelState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder modelName(String modelName) {
             return modelName(Output.of(modelName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

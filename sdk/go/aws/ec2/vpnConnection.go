@@ -217,6 +217,8 @@ type VpnConnection struct {
 	LocalIpv6NetworkCidr pulumi.StringOutput `pulumi:"localIpv6NetworkCidr"`
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType pulumi.StringOutput `pulumi:"outsideIpAddressType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringOutput `pulumi:"remoteIpv4NetworkCidr"`
 	// The IPv6 CIDR on the AWS side of the VPN connection.
@@ -411,6 +413,8 @@ type vpnConnectionState struct {
 	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
 	// The IPv6 CIDR on the AWS side of the VPN connection.
@@ -558,6 +562,8 @@ type VpnConnectionState struct {
 	LocalIpv6NetworkCidr pulumi.StringPtrInput
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringPtrInput
 	// The IPv6 CIDR on the AWS side of the VPN connection.
@@ -701,6 +707,8 @@ type vpnConnectionArgs struct {
 	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
 	// The IPv6 CIDR on the AWS side of the VPN connection.
@@ -813,6 +821,8 @@ type VpnConnectionArgs struct {
 	LocalIpv6NetworkCidr pulumi.StringPtrInput
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringPtrInput
 	// The IPv6 CIDR on the AWS side of the VPN connection.
@@ -1043,6 +1053,11 @@ func (o VpnConnectionOutput) LocalIpv6NetworkCidr() pulumi.StringOutput {
 // Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 func (o VpnConnectionOutput) OutsideIpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.OutsideIpAddressType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpnConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The IPv4 CIDR on the AWS side of the VPN connection.

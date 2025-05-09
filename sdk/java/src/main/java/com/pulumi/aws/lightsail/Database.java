@@ -612,6 +612,20 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.ramSize;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      * 
      */

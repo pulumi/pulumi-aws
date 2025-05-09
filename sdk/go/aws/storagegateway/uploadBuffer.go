@@ -102,6 +102,8 @@ type UploadBuffer struct {
 	DiskPath pulumi.StringOutput `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewUploadBuffer registers a new resource with the given unique name, arguments, and options.
@@ -143,6 +145,8 @@ type uploadBufferState struct {
 	DiskPath *string `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type UploadBufferState struct {
@@ -152,6 +156,8 @@ type UploadBufferState struct {
 	DiskPath pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (UploadBufferState) ElementType() reflect.Type {
@@ -165,6 +171,8 @@ type uploadBufferArgs struct {
 	DiskPath *string `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a UploadBuffer resource.
@@ -175,6 +183,8 @@ type UploadBufferArgs struct {
 	DiskPath pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (UploadBufferArgs) ElementType() reflect.Type {
@@ -277,6 +287,11 @@ func (o UploadBufferOutput) DiskPath() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the gateway.
 func (o UploadBufferOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UploadBuffer) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UploadBufferOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UploadBuffer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type UploadBufferArrayOutput struct{ *pulumi.OutputState }

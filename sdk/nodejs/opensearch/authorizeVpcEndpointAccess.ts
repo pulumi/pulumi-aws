@@ -73,6 +73,10 @@ export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
      * Name of OpenSearch Service domain to provide access to.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AuthorizeVpcEndpointAccess resource with the given unique name, arguments, and options.
@@ -90,6 +94,7 @@ export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
             resourceInputs["account"] = state ? state.account : undefined;
             resourceInputs["authorizedPrincipals"] = state ? state.authorizedPrincipals : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AuthorizeVpcEndpointAccessArgs | undefined;
             if ((!args || args.account === undefined) && !opts.urn) {
@@ -100,6 +105,7 @@ export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
             }
             resourceInputs["account"] = args ? args.account : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["authorizedPrincipals"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,6 +129,10 @@ export interface AuthorizeVpcEndpointAccessState {
      * Name of OpenSearch Service domain to provide access to.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -137,4 +147,8 @@ export interface AuthorizeVpcEndpointAccessArgs {
      * Name of OpenSearch Service domain to provide access to.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

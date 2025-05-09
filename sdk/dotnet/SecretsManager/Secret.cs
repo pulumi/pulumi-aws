@@ -92,6 +92,12 @@ namespace Pulumi.Aws.SecretsManager
         public Output<int?> RecoveryWindowInDays { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block to support secret replication. See details below.
         /// </summary>
         [Output("replicas")]
@@ -197,6 +203,12 @@ namespace Pulumi.Aws.SecretsManager
         [Input("recoveryWindowInDays")]
         public Input<int>? RecoveryWindowInDays { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("replicas")]
         private InputList<Inputs.SecretReplicaArgs>? _replicas;
 
@@ -276,6 +288,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("recoveryWindowInDays")]
         public Input<int>? RecoveryWindowInDays { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("replicas")]
         private InputList<Inputs.SecretReplicaGetArgs>? _replicas;

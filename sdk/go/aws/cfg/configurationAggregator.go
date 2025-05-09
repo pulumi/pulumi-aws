@@ -135,6 +135,8 @@ type ConfigurationAggregator struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
@@ -181,6 +183,8 @@ type configurationAggregatorState struct {
 	Name *string `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
@@ -198,6 +202,8 @@ type ConfigurationAggregatorState struct {
 	Name pulumi.StringPtrInput
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
@@ -217,6 +223,8 @@ type configurationAggregatorArgs struct {
 	Name *string `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
@@ -231,6 +239,8 @@ type ConfigurationAggregatorArgs struct {
 	Name pulumi.StringPtrInput
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
@@ -346,6 +356,11 @@ func (o ConfigurationAggregatorOutput) OrganizationAggregationSource() Configura
 	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
 		return v.OrganizationAggregationSource
 	}).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConfigurationAggregatorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

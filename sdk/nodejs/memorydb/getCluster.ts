@@ -25,6 +25,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getCluster:getCluster", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetClusterArgs {
      * Name of the cluster.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags assigned to the cluster.
      */
@@ -120,6 +122,7 @@ export interface GetClusterResult {
      * Port number that this node is listening on.
      */
     readonly port: number;
+    readonly region: string;
     /**
      * Set of VPC Security Group ID-s associated with this cluster.
      */
@@ -171,6 +174,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:memorydb/getCluster:getCluster", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -183,6 +187,7 @@ export interface GetClusterOutputArgs {
      * Name of the cluster.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the cluster.
      */

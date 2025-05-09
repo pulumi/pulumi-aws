@@ -18,6 +18,21 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
     public static final RouteTableAssociationArgs Empty = new RouteTableAssociationArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
      * 
      */
@@ -65,6 +80,7 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
     private RouteTableAssociationArgs() {}
 
     private RouteTableAssociationArgs(RouteTableAssociationArgs $) {
+        this.region = $.region;
         this.replaceExistingAssociation = $.replaceExistingAssociation;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
@@ -86,6 +102,27 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
 
         public Builder(RouteTableAssociationArgs defaults) {
             $ = new RouteTableAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

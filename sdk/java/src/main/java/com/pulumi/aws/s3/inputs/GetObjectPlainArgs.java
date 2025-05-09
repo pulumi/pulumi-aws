@@ -68,6 +68,13 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.range);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags assigned to the object.
      * 
@@ -105,6 +112,7 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.checksumMode = $.checksumMode;
         this.key = $.key;
         this.range = $.range;
+        this.region = $.region;
         this.tags = $.tags;
         this.versionId = $.versionId;
     }
@@ -162,6 +170,11 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder range(@Nullable String range) {
             $.range = range;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

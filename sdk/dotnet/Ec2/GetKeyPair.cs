@@ -152,6 +152,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Key Pairs. The given filters must match exactly one Key Pair
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetKeyPairFilterArgs> Filters
         {
@@ -176,6 +180,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("keyPairId")]
         public string? KeyPairId { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -202,6 +209,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Key Pairs. The given filters must match exactly one Key Pair
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetKeyPairFilterInputArgs> Filters
         {
@@ -226,6 +237,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("keyPairId")]
         public Input<string>? KeyPairId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -277,6 +291,7 @@ namespace Pulumi.Aws.Ec2
         /// Public key material.
         /// </summary>
         public readonly string PublicKey;
+        public readonly string Region;
         /// <summary>
         /// Any tags assigned to the Key Pair.
         /// </summary>
@@ -304,6 +319,8 @@ namespace Pulumi.Aws.Ec2
 
             string publicKey,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -316,6 +333,7 @@ namespace Pulumi.Aws.Ec2
             KeyPairId = keyPairId;
             KeyType = keyType;
             PublicKey = publicKey;
+            Region = region;
             Tags = tags;
         }
     }

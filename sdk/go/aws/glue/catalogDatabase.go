@@ -101,6 +101,8 @@ type CatalogDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -155,6 +157,8 @@ type catalogDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters map[string]string `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -180,6 +184,8 @@ type CatalogDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -207,6 +213,8 @@ type catalogDatabaseArgs struct {
 	Name *string `pulumi:"name"`
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters map[string]string `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
@@ -229,6 +237,8 @@ type CatalogDatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
@@ -362,6 +372,11 @@ func (o CatalogDatabaseOutput) Name() pulumi.StringOutput {
 // List of key-value pairs that define parameters and properties of the database.
 func (o CatalogDatabaseOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CatalogDatabaseOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -219,6 +219,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -256,6 +259,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -296,6 +302,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// EC2 Transit Gateway Route Table identifier
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Route Table
         /// </summary>
@@ -317,6 +324,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string id,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string transitGatewayId)
@@ -326,6 +335,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             DefaultPropagationRouteTable = defaultPropagationRouteTable;
             Filters = filters;
             Id = id;
+            Region = region;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
         }

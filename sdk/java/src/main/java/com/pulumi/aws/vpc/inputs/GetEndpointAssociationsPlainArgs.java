@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetEndpointAssociationsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEndpointAssociationsPlainArgs Empty = new GetEndpointAssociationsPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * ID of the specific VPC Endpoint to retrieve.
@@ -31,6 +40,7 @@ public final class GetEndpointAssociationsPlainArgs extends com.pulumi.resources
     private GetEndpointAssociationsPlainArgs() {}
 
     private GetEndpointAssociationsPlainArgs(GetEndpointAssociationsPlainArgs $) {
+        this.region = $.region;
         this.vpcEndpointId = $.vpcEndpointId;
     }
 
@@ -50,6 +60,11 @@ public final class GetEndpointAssociationsPlainArgs extends com.pulumi.resources
 
         public Builder(GetEndpointAssociationsPlainArgs defaults) {
             $ = new GetEndpointAssociationsPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

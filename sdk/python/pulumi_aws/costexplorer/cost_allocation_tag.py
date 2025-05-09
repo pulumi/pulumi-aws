@@ -21,14 +21,18 @@ __all__ = ['CostAllocationTagArgs', 'CostAllocationTag']
 class CostAllocationTagArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[builtins.str],
-                 tag_key: pulumi.Input[builtins.str]):
+                 tag_key: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CostAllocationTag resource.
         :param pulumi.Input[builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         :param pulumi.Input[builtins.str] tag_key: The key for the cost allocation tag.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "tag_key", tag_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -54,25 +58,53 @@ class CostAllocationTagArgs:
     def tag_key(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "tag_key", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _CostAllocationTagState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tag_key: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering CostAllocationTag resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         :param pulumi.Input[builtins.str] tag_key: The key for the cost allocation tag.
         :param pulumi.Input[builtins.str] type: The type of cost allocation tag.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tag_key is not None:
             pulumi.set(__self__, "tag_key", tag_key)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -119,6 +151,7 @@ class CostAllocationTag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tag_key: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -146,6 +179,7 @@ class CostAllocationTag(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         :param pulumi.Input[builtins.str] tag_key: The key for the cost allocation tag.
         """
@@ -192,6 +226,7 @@ class CostAllocationTag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tag_key: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -203,6 +238,7 @@ class CostAllocationTag(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CostAllocationTagArgs.__new__(CostAllocationTagArgs)
 
+            __props__.__dict__["region"] = region
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
@@ -220,6 +256,7 @@ class CostAllocationTag(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tag_key: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'CostAllocationTag':
@@ -230,6 +267,7 @@ class CostAllocationTag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         :param pulumi.Input[builtins.str] tag_key: The key for the cost allocation tag.
         :param pulumi.Input[builtins.str] type: The type of cost allocation tag.
@@ -238,10 +276,19 @@ class CostAllocationTag(pulumi.CustomResource):
 
         __props__ = _CostAllocationTagState.__new__(_CostAllocationTagState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["tag_key"] = tag_key
         __props__.__dict__["type"] = type
         return CostAllocationTag(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

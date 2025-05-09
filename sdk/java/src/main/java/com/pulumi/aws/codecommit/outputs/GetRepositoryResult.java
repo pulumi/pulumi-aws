@@ -35,6 +35,7 @@ public final class GetRepositoryResult {
      * 
      */
     private String kmsKeyId;
+    private String region;
     /**
      * @return ID of the repository.
      * 
@@ -78,6 +79,9 @@ public final class GetRepositoryResult {
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ID of the repository.
      * 
@@ -103,6 +107,7 @@ public final class GetRepositoryResult {
         private String cloneUrlSsh;
         private String id;
         private String kmsKeyId;
+        private String region;
         private String repositoryId;
         private String repositoryName;
         public Builder() {}
@@ -113,6 +118,7 @@ public final class GetRepositoryResult {
     	      this.cloneUrlSsh = defaults.cloneUrlSsh;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
+    	      this.region = defaults.region;
     	      this.repositoryId = defaults.repositoryId;
     	      this.repositoryName = defaults.repositoryName;
         }
@@ -158,6 +164,14 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repositoryId(String repositoryId) {
             if (repositoryId == null) {
               throw new MissingRequiredPropertyException("GetRepositoryResult", "repositoryId");
@@ -180,6 +194,7 @@ public final class GetRepositoryResult {
             _resultValue.cloneUrlSsh = cloneUrlSsh;
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.region = region;
             _resultValue.repositoryId = repositoryId;
             _resultValue.repositoryName = repositoryName;
             return _resultValue;

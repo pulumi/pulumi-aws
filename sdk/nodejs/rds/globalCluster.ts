@@ -247,6 +247,10 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
@@ -288,6 +292,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
             resourceInputs["globalClusterMembers"] = state ? state.globalClusterMembers : undefined;
             resourceInputs["globalClusterResourceId"] = state ? state.globalClusterResourceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = state ? state.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -304,6 +309,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -369,6 +375,10 @@ export interface GlobalClusterState {
      */
     globalClusterResourceId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
@@ -418,6 +428,10 @@ export interface GlobalClusterArgs {
      * Global cluster identifier.
      */
     globalClusterIdentifier: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */

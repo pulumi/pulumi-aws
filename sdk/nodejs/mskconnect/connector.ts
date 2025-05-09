@@ -149,6 +149,10 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly plugins!: pulumi.Output<outputs.mskconnect.ConnectorPlugin[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *
      * The following arguments are optional:
@@ -195,6 +199,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["logDelivery"] = state ? state.logDelivery : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["plugins"] = state ? state.plugins : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceExecutionRoleArn"] = state ? state.serviceExecutionRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -236,6 +241,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["logDelivery"] = args ? args.logDelivery : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["plugins"] = args ? args.plugins : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workerConfiguration"] = args ? args.workerConfiguration : undefined;
@@ -296,6 +302,10 @@ export interface ConnectorState {
      * Specifies which plugins to use for the connector. See `plugin` Block for details.
      */
     plugins?: pulumi.Input<pulumi.Input<inputs.mskconnect.ConnectorPlugin>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *
@@ -364,6 +374,10 @@ export interface ConnectorArgs {
      * Specifies which plugins to use for the connector. See `plugin` Block for details.
      */
     plugins: pulumi.Input<pulumi.Input<inputs.mskconnect.ConnectorPlugin>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *

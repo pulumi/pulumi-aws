@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResolverFirewallDomainListPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -16,8 +18,6 @@ public final class GetResolverFirewallDomainListPlainArgs extends com.pulumi.res
     /**
      * The ID of the domain list.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     @Import(name="firewallDomainListId", required=true)
     private String firewallDomainListId;
@@ -25,17 +25,23 @@ public final class GetResolverFirewallDomainListPlainArgs extends com.pulumi.res
     /**
      * @return The ID of the domain list.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     public String firewallDomainListId() {
         return this.firewallDomainListId;
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetResolverFirewallDomainListPlainArgs() {}
 
     private GetResolverFirewallDomainListPlainArgs(GetResolverFirewallDomainListPlainArgs $) {
         this.firewallDomainListId = $.firewallDomainListId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -59,13 +65,16 @@ public final class GetResolverFirewallDomainListPlainArgs extends com.pulumi.res
         /**
          * @param firewallDomainListId The ID of the domain list.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
         public Builder firewallDomainListId(String firewallDomainListId) {
             $.firewallDomainListId = firewallDomainListId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

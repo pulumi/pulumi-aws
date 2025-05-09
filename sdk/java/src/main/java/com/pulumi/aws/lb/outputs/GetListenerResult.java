@@ -28,6 +28,7 @@ public final class GetListenerResult {
     private List<GetListenerMutualAuthentication> mutualAuthentications;
     private Integer port;
     private String protocol;
+    private String region;
     private String sslPolicy;
     private Map<String,String> tags;
 
@@ -63,6 +64,9 @@ public final class GetListenerResult {
     public String protocol() {
         return this.protocol;
     }
+    public String region() {
+        return this.region;
+    }
     public String sslPolicy() {
         return this.sslPolicy;
     }
@@ -88,6 +92,7 @@ public final class GetListenerResult {
         private List<GetListenerMutualAuthentication> mutualAuthentications;
         private Integer port;
         private String protocol;
+        private String region;
         private String sslPolicy;
         private Map<String,String> tags;
         public Builder() {}
@@ -102,6 +107,7 @@ public final class GetListenerResult {
     	      this.mutualAuthentications = defaults.mutualAuthentications;
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
+    	      this.region = defaults.region;
     	      this.sslPolicy = defaults.sslPolicy;
     	      this.tags = defaults.tags;
         }
@@ -185,6 +191,14 @@ public final class GetListenerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sslPolicy(String sslPolicy) {
             if (sslPolicy == null) {
               throw new MissingRequiredPropertyException("GetListenerResult", "sslPolicy");
@@ -211,6 +225,7 @@ public final class GetListenerResult {
             _resultValue.mutualAuthentications = mutualAuthentications;
             _resultValue.port = port;
             _resultValue.protocol = protocol;
+            _resultValue.region = region;
             _resultValue.sslPolicy = sslPolicy;
             _resultValue.tags = tags;
             return _resultValue;

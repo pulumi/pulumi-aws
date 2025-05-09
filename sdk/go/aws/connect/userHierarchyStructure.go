@@ -105,6 +105,8 @@ type UserHierarchyStructure struct {
 	HierarchyStructure UserHierarchyStructureHierarchyStructureOutput `pulumi:"hierarchyStructure"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewUserHierarchyStructure registers a new resource with the given unique name, arguments, and options.
@@ -147,6 +149,8 @@ type userHierarchyStructureState struct {
 	HierarchyStructure *UserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructure"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId *string `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type UserHierarchyStructureState struct {
@@ -154,6 +158,8 @@ type UserHierarchyStructureState struct {
 	HierarchyStructure UserHierarchyStructureHierarchyStructurePtrInput
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (UserHierarchyStructureState) ElementType() reflect.Type {
@@ -165,6 +171,8 @@ type userHierarchyStructureArgs struct {
 	HierarchyStructure UserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructure"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId string `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a UserHierarchyStructure resource.
@@ -173,6 +181,8 @@ type UserHierarchyStructureArgs struct {
 	HierarchyStructure UserHierarchyStructureHierarchyStructureInput
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (UserHierarchyStructureArgs) ElementType() reflect.Type {
@@ -272,6 +282,11 @@ func (o UserHierarchyStructureOutput) HierarchyStructure() UserHierarchyStructur
 // Specifies the identifier of the hosting Amazon Connect Instance.
 func (o UserHierarchyStructureOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyStructure) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserHierarchyStructureOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserHierarchyStructure) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type UserHierarchyStructureArrayOutput struct{ *pulumi.OutputState }

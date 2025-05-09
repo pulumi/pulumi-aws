@@ -226,6 +226,12 @@ namespace Pulumi.Aws.Rds
         public Output<int> PercentProgress { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.
         /// </summary>
         [Output("s3BucketName")]
@@ -361,6 +367,12 @@ namespace Pulumi.Aws.Rds
         public Input<string> KmsKeyId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.
         /// </summary>
         [Input("s3BucketName", required: true)]
@@ -432,6 +444,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("percentProgress")]
         public Input<int>? PercentProgress { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.

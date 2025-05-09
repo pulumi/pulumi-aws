@@ -94,6 +94,21 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -131,6 +146,7 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
         this.gatewayArn = $.gatewayArn;
         this.locationArn = $.locationArn;
         this.password = $.password;
+        this.region = $.region;
         this.tags = $.tags;
         this.username = $.username;
     }
@@ -256,6 +272,27 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

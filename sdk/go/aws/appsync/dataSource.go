@@ -151,6 +151,8 @@ type DataSource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrOutput `pulumi:"opensearchserviceConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
@@ -215,6 +217,8 @@ type dataSourceState struct {
 	Name *string `pulumi:"name"`
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
@@ -244,6 +248,8 @@ type DataSourceState struct {
 	Name pulumi.StringPtrInput
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
@@ -275,6 +281,8 @@ type dataSourceArgs struct {
 	Name *string `pulumi:"name"`
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
@@ -303,6 +311,8 @@ type DataSourceArgs struct {
 	Name pulumi.StringPtrInput
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
@@ -446,6 +456,11 @@ func (o DataSourceOutput) Name() pulumi.StringOutput {
 // Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 func (o DataSourceOutput) OpensearchserviceConfig() DataSourceOpensearchserviceConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceOpensearchserviceConfigPtrOutput { return v.OpensearchserviceConfig }).(DataSourceOpensearchserviceConfigPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DataSourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // AWS RDS settings. See `relationalDatabaseConfig` Block for details.

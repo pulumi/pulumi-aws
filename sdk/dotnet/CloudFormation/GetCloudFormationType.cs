@@ -96,6 +96,9 @@ namespace Pulumi.Aws.CloudFormation
         [Input("arn")]
         public string? Arn { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// CloudFormation Registry Type. For example, `RESOURCE`.
         /// </summary>
@@ -127,6 +130,9 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// CloudFormation Registry Type. For example, `RESOURCE`.
@@ -193,6 +199,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Provisioning behavior of the CloudFormation Type.
         /// </summary>
         public readonly string ProvisioningType;
+        public readonly string Region;
         /// <summary>
         /// JSON document of the CloudFormation Type schema.
         /// </summary>
@@ -232,6 +239,8 @@ namespace Pulumi.Aws.CloudFormation
 
             string provisioningType,
 
+            string region,
+
             string schema,
 
             string sourceUrl,
@@ -256,6 +265,7 @@ namespace Pulumi.Aws.CloudFormation
             IsDefaultVersion = isDefaultVersion;
             LoggingConfigs = loggingConfigs;
             ProvisioningType = provisioningType;
+            Region = region;
             Schema = schema;
             SourceUrl = sourceUrl;
             Type = type;

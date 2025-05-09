@@ -29,6 +29,7 @@ export function getCatalogTable(args: GetCatalogTableArgs, opts?: pulumi.InvokeO
         "databaseName": args.databaseName,
         "name": args.name,
         "queryAsOfTime": args.queryAsOfTime,
+        "region": args.region,
         "transactionId": args.transactionId,
     }, opts);
 }
@@ -53,6 +54,10 @@ export interface GetCatalogTableArgs {
      * The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
      */
     queryAsOfTime?: string;
+    /**
+     * Region of the target table.
+     */
+    region?: string;
     /**
      * The transaction ID at which to read the table contents.
      */
@@ -105,6 +110,10 @@ export interface GetCatalogTableResult {
     readonly partitionKeys: outputs.glue.GetCatalogTablePartitionKey[];
     readonly queryAsOfTime?: string;
     /**
+     * Region of the target table.
+     */
+    readonly region: string;
+    /**
      * Retention time for this table.
      */
     readonly retention: number;
@@ -152,6 +161,7 @@ export function getCatalogTableOutput(args: GetCatalogTableOutputArgs, opts?: pu
         "databaseName": args.databaseName,
         "name": args.name,
         "queryAsOfTime": args.queryAsOfTime,
+        "region": args.region,
         "transactionId": args.transactionId,
     }, opts);
 }
@@ -176,6 +186,10 @@ export interface GetCatalogTableOutputArgs {
      * The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
      */
     queryAsOfTime?: pulumi.Input<string>;
+    /**
+     * Region of the target table.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The transaction ID at which to read the table contents.
      */

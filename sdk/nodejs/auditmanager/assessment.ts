@@ -97,9 +97,13 @@ export class Assessment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of roles for the assessment. See `roles` below.
      */
-    public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[]>;
+    public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      */
@@ -138,6 +142,7 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["frameworkId"] = state ? state.frameworkId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["rolesAlls"] = state ? state.rolesAlls : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
@@ -149,13 +154,11 @@ export class Assessment extends pulumi.CustomResource {
             if ((!args || args.frameworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frameworkId'");
             }
-            if ((!args || args.roles === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roles'");
-            }
             resourceInputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -193,6 +196,10 @@ export interface AssessmentState {
      * Name of the assessment.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of roles for the assessment. See `roles` below.
      */
@@ -239,9 +246,13 @@ export interface AssessmentArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of roles for the assessment. See `roles` below.
      */
-    roles: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
+    roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
      *

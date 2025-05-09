@@ -23,12 +23,16 @@ __all__ = ['VpcBlockPublicAccessOptionsArgs', 'VpcBlockPublicAccessOptions']
 class VpcBlockPublicAccessOptionsArgs:
     def __init__(__self__, *,
                  internet_gateway_block_mode: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcBlockPublicAccessOptions resource.
         :param pulumi.Input[builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "internet_gateway_block_mode", internet_gateway_block_mode)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -46,6 +50,18 @@ class VpcBlockPublicAccessOptionsArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -60,12 +76,14 @@ class _VpcBlockPublicAccessOptionsState:
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  aws_region: Optional[pulumi.Input[builtins.str]] = None,
                  internet_gateway_block_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering VpcBlockPublicAccessOptions resources.
         :param pulumi.Input[builtins.str] aws_account_id: The AWS account id to which these options apply.
         :param pulumi.Input[builtins.str] aws_region: The AWS region to which these options apply.
         :param pulumi.Input[builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -73,6 +91,8 @@ class _VpcBlockPublicAccessOptionsState:
             pulumi.set(__self__, "aws_region", aws_region)
         if internet_gateway_block_mode is not None:
             pulumi.set(__self__, "internet_gateway_block_mode", internet_gateway_block_mode)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -114,6 +134,18 @@ class _VpcBlockPublicAccessOptionsState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -131,6 +163,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_block_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -158,6 +191,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -203,6 +237,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_block_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -216,6 +251,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
             if internet_gateway_block_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'internet_gateway_block_mode'")
             __props__.__dict__["internet_gateway_block_mode"] = internet_gateway_block_mode
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["aws_account_id"] = None
             __props__.__dict__["aws_region"] = None
@@ -232,6 +268,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
             aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
             aws_region: Optional[pulumi.Input[builtins.str]] = None,
             internet_gateway_block_mode: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None) -> 'VpcBlockPublicAccessOptions':
         """
         Get an existing VpcBlockPublicAccessOptions resource's state with the given name, id, and optional extra
@@ -243,6 +280,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_account_id: The AWS account id to which these options apply.
         :param pulumi.Input[builtins.str] aws_region: The AWS region to which these options apply.
         :param pulumi.Input[builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -251,6 +289,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         __props__.__dict__["aws_account_id"] = aws_account_id
         __props__.__dict__["aws_region"] = aws_region
         __props__.__dict__["internet_gateway_block_mode"] = internet_gateway_block_mode
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         return VpcBlockPublicAccessOptions(resource_name, opts=opts, __props__=__props__)
 
@@ -277,6 +316,14 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
         """
         return pulumi.get(self, "internet_gateway_block_mode")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

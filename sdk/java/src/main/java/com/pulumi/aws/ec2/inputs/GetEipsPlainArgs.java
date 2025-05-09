@@ -32,6 +32,13 @@ public final class GetEipsPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      * 
@@ -51,6 +58,7 @@ public final class GetEipsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetEipsPlainArgs(GetEipsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,11 @@ public final class GetEipsPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filters(GetEipsFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

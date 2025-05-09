@@ -28,13 +28,16 @@ class GetEndpointAssociationsResult:
     """
     A collection of values returned by getEndpointAssociations.
     """
-    def __init__(__self__, associations=None, id=None, vpc_endpoint_id=None):
+    def __init__(__self__, associations=None, id=None, region=None, vpc_endpoint_id=None):
         if associations and not isinstance(associations, list):
             raise TypeError("Expected argument 'associations' to be a list")
         pulumi.set(__self__, "associations", associations)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if vpc_endpoint_id and not isinstance(vpc_endpoint_id, str):
             raise TypeError("Expected argument 'vpc_endpoint_id' to be a str")
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -56,6 +59,11 @@ class GetEndpointAssociationsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> builtins.str:
         return pulumi.get(self, "vpc_endpoint_id")
@@ -69,10 +77,12 @@ class AwaitableGetEndpointAssociationsResult(GetEndpointAssociationsResult):
         return GetEndpointAssociationsResult(
             associations=self.associations,
             id=self.id,
+            region=self.region,
             vpc_endpoint_id=self.vpc_endpoint_id)
 
 
-def get_endpoint_associations(vpc_endpoint_id: Optional[builtins.str] = None,
+def get_endpoint_associations(region: Optional[builtins.str] = None,
+                              vpc_endpoint_id: Optional[builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointAssociationsResult:
     """
     Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
@@ -92,6 +102,7 @@ def get_endpoint_associations(vpc_endpoint_id: Optional[builtins.str] = None,
     :param builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['vpcEndpointId'] = vpc_endpoint_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:vpc/getEndpointAssociations:getEndpointAssociations', __args__, opts=opts, typ=GetEndpointAssociationsResult).value
@@ -99,8 +110,10 @@ def get_endpoint_associations(vpc_endpoint_id: Optional[builtins.str] = None,
     return AwaitableGetEndpointAssociationsResult(
         associations=pulumi.get(__ret__, 'associations'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'))
-def get_endpoint_associations_output(vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_endpoint_associations_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                     vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointAssociationsResult]:
     """
     Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
@@ -120,10 +133,12 @@ def get_endpoint_associations_output(vpc_endpoint_id: Optional[pulumi.Input[buil
     :param builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['vpcEndpointId'] = vpc_endpoint_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:vpc/getEndpointAssociations:getEndpointAssociations', __args__, opts=opts, typ=GetEndpointAssociationsResult)
     return __ret__.apply(lambda __response__: GetEndpointAssociationsResult(
         associations=pulumi.get(__response__, 'associations'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         vpc_endpoint_id=pulumi.get(__response__, 'vpc_endpoint_id')))

@@ -50,6 +50,7 @@ export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -80,6 +81,7 @@ export interface GetVpcArgs {
      * ID of the specific VPC to retrieve.
      */
     id?: string;
+    region?: string;
     /**
      * Current state of the desired VPC.
      * Can be either `"pending"` or `"available"`.
@@ -145,6 +147,7 @@ export interface GetVpcResult {
      * ID of the AWS account that owns the VPC.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * State of the association.
      */
@@ -194,6 +197,7 @@ export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOutput
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -224,6 +228,7 @@ export interface GetVpcOutputArgs {
      * ID of the specific VPC to retrieve.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Current state of the desired VPC.
      * Can be either `"pending"` or `"available"`.

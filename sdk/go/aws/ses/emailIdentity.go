@@ -54,6 +54,8 @@ type EmailIdentity struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The email address to assign to SES.
 	Email pulumi.StringOutput `pulumi:"email"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEmailIdentity registers a new resource with the given unique name, arguments, and options.
@@ -93,6 +95,8 @@ type emailIdentityState struct {
 	Arn *string `pulumi:"arn"`
 	// The email address to assign to SES.
 	Email *string `pulumi:"email"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EmailIdentityState struct {
@@ -100,6 +104,8 @@ type EmailIdentityState struct {
 	Arn pulumi.StringPtrInput
 	// The email address to assign to SES.
 	Email pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EmailIdentityState) ElementType() reflect.Type {
@@ -109,12 +115,16 @@ func (EmailIdentityState) ElementType() reflect.Type {
 type emailIdentityArgs struct {
 	// The email address to assign to SES.
 	Email string `pulumi:"email"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EmailIdentity resource.
 type EmailIdentityArgs struct {
 	// The email address to assign to SES.
 	Email pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EmailIdentityArgs) ElementType() reflect.Type {
@@ -212,6 +222,11 @@ func (o EmailIdentityOutput) Arn() pulumi.StringOutput {
 // The email address to assign to SES.
 func (o EmailIdentityOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EmailIdentityOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EmailIdentityArrayOutput struct{ *pulumi.OutputState }

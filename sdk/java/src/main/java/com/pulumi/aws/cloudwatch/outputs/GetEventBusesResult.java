@@ -25,6 +25,7 @@ public final class GetEventBusesResult {
      */
     private String id;
     private @Nullable String namePrefix;
+    private String region;
 
     private GetEventBusesResult() {}
     /**
@@ -44,6 +45,9 @@ public final class GetEventBusesResult {
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -57,12 +61,14 @@ public final class GetEventBusesResult {
         private List<GetEventBusesEventBus> eventBuses;
         private String id;
         private @Nullable String namePrefix;
+        private String region;
         public Builder() {}
         public Builder(GetEventBusesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventBuses = defaults.eventBuses;
     	      this.id = defaults.id;
     	      this.namePrefix = defaults.namePrefix;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -90,11 +96,20 @@ public final class GetEventBusesResult {
             this.namePrefix = namePrefix;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEventBusesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetEventBusesResult build() {
             final var _resultValue = new GetEventBusesResult();
             _resultValue.eventBuses = eventBuses;
             _resultValue.id = id;
             _resultValue.namePrefix = namePrefix;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

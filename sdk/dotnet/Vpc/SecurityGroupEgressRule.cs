@@ -100,6 +100,12 @@ namespace Pulumi.Aws.Vpc
         public Output<string?> ReferencedSecurityGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the security group.
         /// </summary>
         [Output("securityGroupId")]
@@ -218,6 +224,12 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? ReferencedSecurityGroupId { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the security group.
         /// </summary>
         [Input("securityGroupId", required: true)]
@@ -296,6 +308,12 @@ namespace Pulumi.Aws.Vpc
         /// </summary>
         [Input("referencedSecurityGroupId")]
         public Input<string>? ReferencedSecurityGroupId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the security group.

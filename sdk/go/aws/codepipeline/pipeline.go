@@ -250,6 +250,8 @@ type Pipeline struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType pulumi.StringPtrOutput `pulumi:"pipelineType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
@@ -317,6 +319,8 @@ type pipelineState struct {
 	Name *string `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType *string `pulumi:"pipelineType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
@@ -346,6 +350,8 @@ type PipelineState struct {
 	Name pulumi.StringPtrInput
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A stage block. Stages are documented below.
@@ -377,6 +383,8 @@ type pipelineArgs struct {
 	Name *string `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType *string `pulumi:"pipelineType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
@@ -401,6 +409,8 @@ type PipelineArgs struct {
 	Name pulumi.StringPtrInput
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringInput
 	// A stage block. Stages are documented below.
@@ -525,6 +535,11 @@ func (o PipelineOutput) Name() pulumi.StringOutput {
 // Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 func (o PipelineOutput) PipelineType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineType }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PipelineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.

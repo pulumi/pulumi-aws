@@ -23,6 +23,7 @@ export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "type": args.type,
     }, opts);
@@ -36,6 +37,7 @@ export interface GetDnsNamespaceArgs {
      * Name of the namespace.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -67,6 +69,7 @@ export interface GetDnsNamespaceResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags for the resource.
      */
@@ -92,6 +95,7 @@ export function getDnsNamespaceOutput(args: GetDnsNamespaceOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "type": args.type,
     }, opts);
@@ -105,6 +109,7 @@ export interface GetDnsNamespaceOutputArgs {
      * Name of the namespace.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

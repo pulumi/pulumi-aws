@@ -126,6 +126,9 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -164,6 +167,9 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -198,6 +204,7 @@ namespace Pulumi.Aws.SsoAdmin
         public readonly string Id;
         public readonly string InstanceArn;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Relay state URL used to redirect users within the application during the federation authentication process.
         /// </summary>
@@ -225,6 +232,8 @@ namespace Pulumi.Aws.SsoAdmin
 
             string name,
 
+            string region,
+
             string relayState,
 
             string sessionDuration,
@@ -237,6 +246,7 @@ namespace Pulumi.Aws.SsoAdmin
             Id = id;
             InstanceArn = instanceArn;
             Name = name;
+            Region = region;
             RelayState = relayState;
             SessionDuration = sessionDuration;
             Tags = tags;

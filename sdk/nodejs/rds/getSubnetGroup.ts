@@ -22,6 +22,7 @@ export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getSubnetGroup:getSubnetGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetSubnetGroupArgs {
      * Name of the RDS database subnet group.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -52,6 +54,7 @@ export interface GetSubnetGroupResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Provides the status of the DB subnet group.
      */
@@ -87,6 +90,7 @@ export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getSubnetGroup:getSubnetGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -98,4 +102,5 @@ export interface GetSubnetGroupOutputArgs {
      * Name of the RDS database subnet group.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

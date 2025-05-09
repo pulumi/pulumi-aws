@@ -63,6 +63,10 @@ export class OptIn extends pulumi.CustomResource {
      */
     public readonly principals!: pulumi.Output<outputs.lakeformation.OptInPrincipal[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Structure for the resource. See Resource for more details.
      */
     public readonly resourceDatas!: pulumi.Output<outputs.lakeformation.OptInResourceData[] | undefined>;
@@ -84,11 +88,13 @@ export class OptIn extends pulumi.CustomResource {
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["lastUpdatedBy"] = state ? state.lastUpdatedBy : undefined;
             resourceInputs["principals"] = state ? state.principals : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceDatas"] = state ? state.resourceDatas : undefined;
         } else {
             const args = argsOrState as OptInArgs | undefined;
             resourceInputs["conditions"] = args ? args.conditions : undefined;
             resourceInputs["principals"] = args ? args.principals : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceDatas"] = args ? args.resourceDatas : undefined;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["lastUpdatedBy"] = undefined /*out*/;
@@ -116,6 +122,10 @@ export interface OptInState {
      */
     principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Structure for the resource. See Resource for more details.
      */
     resourceDatas?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInResourceData>[]>;
@@ -133,6 +143,10 @@ export interface OptInArgs {
      * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
      */
     principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Structure for the resource. See Resource for more details.
      */

@@ -104,6 +104,20 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
         return this.keyRole;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      * 
      */

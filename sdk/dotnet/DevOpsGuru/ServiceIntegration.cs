@@ -104,6 +104,12 @@ namespace Pulumi.Aws.DevOpsGuru
         [Output("opsCenter")]
         public Output<Outputs.ServiceIntegrationOpsCenter?> OpsCenter { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ServiceIntegration resource with the given unique name, arguments, and options.
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.DevOpsGuru
         [Input("opsCenter")]
         public Input<Inputs.ServiceIntegrationOpsCenterArgs>? OpsCenter { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ServiceIntegrationArgs()
         {
         }
@@ -193,6 +205,12 @@ namespace Pulumi.Aws.DevOpsGuru
         /// </summary>
         [Input("opsCenter")]
         public Input<Inputs.ServiceIntegrationOpsCenterGetArgs>? OpsCenter { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ServiceIntegrationState()
         {

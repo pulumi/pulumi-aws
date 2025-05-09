@@ -58,15 +58,17 @@ type GetLocalGatewayArgs struct {
 	// Custom filter block as described below.
 	Filters []GetLocalGatewayFilter `pulumi:"filters"`
 	// Id of the specific Local Gateway to retrieve.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Current state of the desired Local Gateway.
 	// Can be either `"pending"` or `"available"`.
 	State *string `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired Local Gateway.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available
+	// Local Gateways in the current region. The given filters must match exactly one
+	// Local Gateway whose data will be exported as attributes.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -78,6 +80,7 @@ type GetLocalGatewayResult struct {
 	OutpostArn string `pulumi:"outpostArn"`
 	// AWS account identifier that owns the Local Gateway.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// State of the local gateway.
 	State string            `pulumi:"state"`
 	Tags  map[string]string `pulumi:"tags"`
@@ -97,15 +100,17 @@ type GetLocalGatewayOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetLocalGatewayFilterArrayInput `pulumi:"filters"`
 	// Id of the specific Local Gateway to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Current state of the desired Local Gateway.
 	// Can be either `"pending"` or `"available"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired Local Gateway.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available
+	// Local Gateways in the current region. The given filters must match exactly one
+	// Local Gateway whose data will be exported as attributes.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -144,6 +149,10 @@ func (o GetLocalGatewayResultOutput) OutpostArn() pulumi.StringOutput {
 // AWS account identifier that owns the Local Gateway.
 func (o GetLocalGatewayResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o GetLocalGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the local gateway.

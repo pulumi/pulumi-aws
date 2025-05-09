@@ -122,6 +122,12 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> PolicyDetails { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the private CA to associate with the policy.
         /// </summary>
         [Output("resourceArn")]
@@ -180,6 +186,12 @@ namespace Pulumi.Aws.Acmpca
         public Input<string> PolicyDetails { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the private CA to associate with the policy.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -198,6 +210,12 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("policy")]
         public Input<string>? PolicyDetails { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the private CA to associate with the policy.

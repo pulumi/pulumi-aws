@@ -100,6 +100,10 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     public readonly recordSizeKib!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      */
     public readonly storageCapacityQuotaGib!: pulumi.Output<number>;
@@ -144,6 +148,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
             resourceInputs["parentVolumeId"] = state ? state.parentVolumeId : undefined;
             resourceInputs["readOnly"] = state ? state.readOnly : undefined;
             resourceInputs["recordSizeKib"] = state ? state.recordSizeKib : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageCapacityQuotaGib"] = state ? state.storageCapacityQuotaGib : undefined;
             resourceInputs["storageCapacityReservationGib"] = state ? state.storageCapacityReservationGib : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -164,6 +169,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
             resourceInputs["parentVolumeId"] = args ? args.parentVolumeId : undefined;
             resourceInputs["readOnly"] = args ? args.readOnly : undefined;
             resourceInputs["recordSizeKib"] = args ? args.recordSizeKib : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageCapacityQuotaGib"] = args ? args.storageCapacityQuotaGib : undefined;
             resourceInputs["storageCapacityReservationGib"] = args ? args.storageCapacityReservationGib : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -221,6 +227,10 @@ export interface OpenZfsVolumeState {
      * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      */
     recordSizeKib?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      */
@@ -284,6 +294,10 @@ export interface OpenZfsVolumeArgs {
      * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      */
     recordSizeKib?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      */

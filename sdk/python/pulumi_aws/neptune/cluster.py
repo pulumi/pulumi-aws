@@ -44,6 +44,7 @@ class ClusterArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -76,6 +77,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.int] port: The port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
@@ -129,6 +131,8 @@ class ClusterArgs:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_source_identifier is not None:
             pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if serverless_v2_scaling_configuration is not None:
@@ -411,6 +415,18 @@ class ClusterArgs:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -538,6 +554,7 @@ class _ClusterState:
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  reader_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -577,6 +594,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[builtins.str] reader_endpoint: A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
@@ -643,6 +661,8 @@ class _ClusterState:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if reader_endpoint is not None:
             pulumi.set(__self__, "reader_endpoint", reader_endpoint)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_source_identifier is not None:
             pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if serverless_v2_scaling_configuration is not None:
@@ -999,6 +1019,18 @@ class _ClusterState:
         pulumi.set(self, "reader_endpoint", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1137,6 +1169,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1208,6 +1241,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
@@ -1298,6 +1332,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1337,6 +1372,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+            __props__.__dict__["region"] = region
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
             __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
@@ -1390,6 +1426,7 @@ class Cluster(pulumi.CustomResource):
             preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
             reader_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
             serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
             skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1434,6 +1471,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[builtins.str] reader_endpoint: A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
@@ -1476,6 +1514,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["reader_endpoint"] = reader_endpoint
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_source_identifier"] = replication_source_identifier
         __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
@@ -1710,6 +1749,14 @@ class Cluster(pulumi.CustomResource):
         A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         """
         return pulumi.get(self, "reader_endpoint")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicationSourceIdentifier")

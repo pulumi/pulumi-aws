@@ -31,6 +31,7 @@ export function getLocalGateway(args?: GetLocalGatewayArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invoke("aws:ec2/getLocalGateway:getLocalGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -48,6 +49,7 @@ export interface GetLocalGatewayArgs {
      * Id of the specific Local Gateway to retrieve.
      */
     id?: string;
+    region?: string;
     /**
      * Current state of the desired Local Gateway.
      * Can be either `"pending"` or `"available"`.
@@ -57,8 +59,9 @@ export interface GetLocalGatewayArgs {
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * Local Gateways in the current region. The given filters must match exactly one
+     * Local Gateway whose data will be exported as attributes.
      */
     tags?: {[key: string]: string};
 }
@@ -77,6 +80,7 @@ export interface GetLocalGatewayResult {
      * AWS account identifier that owns the Local Gateway.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * State of the local gateway.
      */
@@ -107,6 +111,7 @@ export function getLocalGatewayOutput(args?: GetLocalGatewayOutputArgs, opts?: p
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGateway:getLocalGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -124,6 +129,7 @@ export interface GetLocalGatewayOutputArgs {
      * Id of the specific Local Gateway to retrieve.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Current state of the desired Local Gateway.
      * Can be either `"pending"` or `"available"`.
@@ -133,8 +139,9 @@ export interface GetLocalGatewayOutputArgs {
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * Local Gateways in the current region. The given filters must match exactly one
+     * Local Gateway whose data will be exported as attributes.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

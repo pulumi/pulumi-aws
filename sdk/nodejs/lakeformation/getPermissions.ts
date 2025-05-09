@@ -81,6 +81,7 @@ export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOpt
         "lfTag": args.lfTag,
         "lfTagPolicy": args.lfTagPolicy,
         "principal": args.principal,
+        "region": args.region,
         "table": args.table,
         "tableWithColumns": args.tableWithColumns,
     }, opts);
@@ -124,6 +125,7 @@ export interface GetPermissionsArgs {
      * One of the following is required:
      */
     principal: string;
+    region?: string;
     /**
      * Configuration block for a table resource. Detailed below.
      */
@@ -160,6 +162,7 @@ export interface GetPermissionsResult {
      */
     readonly permissionsWithGrantOptions: string[];
     readonly principal: string;
+    readonly region: string;
     readonly table: outputs.lakeformation.GetPermissionsTable;
     readonly tableWithColumns: outputs.lakeformation.GetPermissionsTableWithColumns;
 }
@@ -237,6 +240,7 @@ export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulu
         "lfTag": args.lfTag,
         "lfTagPolicy": args.lfTagPolicy,
         "principal": args.principal,
+        "region": args.region,
         "table": args.table,
         "tableWithColumns": args.tableWithColumns,
     }, opts);
@@ -280,6 +284,7 @@ export interface GetPermissionsOutputArgs {
      * One of the following is required:
      */
     principal: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for a table resource. Detailed below.
      */

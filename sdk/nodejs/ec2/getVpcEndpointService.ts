@@ -145,7 +145,9 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly privateDnsNames: string[];
     /**
-     * Region of the endpoint service.
+     * (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
+     *
+     * @deprecated region is deprecated. Use serviceRegion instead.
      */
     readonly region: string;
     readonly service?: string;
@@ -154,6 +156,10 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly serviceId: string;
     readonly serviceName: string;
+    /**
+     * Region of the endpoint service.
+     */
+    readonly serviceRegion: string;
     readonly serviceRegions?: string[];
     readonly serviceType: string;
     /**

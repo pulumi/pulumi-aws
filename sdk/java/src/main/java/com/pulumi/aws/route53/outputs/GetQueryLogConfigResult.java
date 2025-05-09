@@ -15,7 +15,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQueryLogConfigResult {
+    /**
+     * @return Computed ARN of the Route53 Resolver Query Logging Configuration.
+     * 
+     */
     private String arn;
+    /**
+     * @return The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group or a Kinesis Data Firehose delivery stream.
+     * 
+     */
     private String destinationArn;
     private @Nullable List<GetQueryLogConfigFilter> filters;
     /**
@@ -23,16 +31,41 @@ public final class GetQueryLogConfigResult {
      * 
      */
     private String id;
+    /**
+     * @return The name of the query logging configuration.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return The AWS account ID for the account that created the query logging configuration.
+     * 
+     */
     private String ownerId;
+    private String region;
     private @Nullable String resolverQueryLogConfigId;
+    /**
+     * @return An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
+     * 
+     */
     private String shareStatus;
+    /**
+     * @return Map of tags to assign to the service.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetQueryLogConfigResult() {}
+    /**
+     * @return Computed ARN of the Route53 Resolver Query Logging Configuration.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group or a Kinesis Data Firehose delivery stream.
+     * 
+     */
     public String destinationArn() {
         return this.destinationArn;
     }
@@ -46,18 +79,37 @@ public final class GetQueryLogConfigResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the query logging configuration.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return The AWS account ID for the account that created the query logging configuration.
+     * 
+     */
     public String ownerId() {
         return this.ownerId;
+    }
+    public String region() {
+        return this.region;
     }
     public Optional<String> resolverQueryLogConfigId() {
         return Optional.ofNullable(this.resolverQueryLogConfigId);
     }
+    /**
+     * @return An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
+     * 
+     */
     public String shareStatus() {
         return this.shareStatus;
     }
+    /**
+     * @return Map of tags to assign to the service.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -77,6 +129,7 @@ public final class GetQueryLogConfigResult {
         private String id;
         private @Nullable String name;
         private String ownerId;
+        private String region;
         private @Nullable String resolverQueryLogConfigId;
         private String shareStatus;
         private Map<String,String> tags;
@@ -89,6 +142,7 @@ public final class GetQueryLogConfigResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.resolverQueryLogConfigId = defaults.resolverQueryLogConfigId;
     	      this.shareStatus = defaults.shareStatus;
     	      this.tags = defaults.tags;
@@ -142,6 +196,14 @@ public final class GetQueryLogConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQueryLogConfigResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resolverQueryLogConfigId(@Nullable String resolverQueryLogConfigId) {
 
             this.resolverQueryLogConfigId = resolverQueryLogConfigId;
@@ -171,6 +233,7 @@ public final class GetQueryLogConfigResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.resolverQueryLogConfigId = resolverQueryLogConfigId;
             _resultValue.shareStatus = shareStatus;
             _resultValue.tags = tags;

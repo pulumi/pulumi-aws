@@ -39,6 +39,7 @@ public final class GetEventIntegrationResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Metadata that you can assign to help organize the report plans you create.
      * 
@@ -84,6 +85,9 @@ public final class GetEventIntegrationResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Metadata that you can assign to help organize the report plans you create.
      * 
@@ -107,6 +111,7 @@ public final class GetEventIntegrationResult {
         private String eventbridgeBus;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetEventIntegrationResult defaults) {
@@ -117,6 +122,7 @@ public final class GetEventIntegrationResult {
     	      this.eventbridgeBus = defaults.eventbridgeBus;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -172,6 +178,14 @@ public final class GetEventIntegrationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEventIntegrationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetEventIntegrationResult", "tags");
@@ -187,6 +201,7 @@ public final class GetEventIntegrationResult {
             _resultValue.eventbridgeBus = eventbridgeBus;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

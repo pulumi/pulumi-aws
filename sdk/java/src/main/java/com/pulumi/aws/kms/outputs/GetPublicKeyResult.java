@@ -49,6 +49,7 @@ public final class GetPublicKeyResult {
      * 
      */
     private String publicKeyPem;
+    private String region;
     /**
      * @return Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
      * 
@@ -111,6 +112,9 @@ public final class GetPublicKeyResult {
     public String publicKeyPem() {
         return this.publicKeyPem;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
      * 
@@ -137,6 +141,7 @@ public final class GetPublicKeyResult {
         private String keyUsage;
         private String publicKey;
         private String publicKeyPem;
+        private String region;
         private List<String> signingAlgorithms;
         public Builder() {}
         public Builder(GetPublicKeyResult defaults) {
@@ -150,6 +155,7 @@ public final class GetPublicKeyResult {
     	      this.keyUsage = defaults.keyUsage;
     	      this.publicKey = defaults.publicKey;
     	      this.publicKeyPem = defaults.publicKeyPem;
+    	      this.region = defaults.region;
     	      this.signingAlgorithms = defaults.signingAlgorithms;
         }
 
@@ -230,6 +236,14 @@ public final class GetPublicKeyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder signingAlgorithms(List<String> signingAlgorithms) {
             if (signingAlgorithms == null) {
               throw new MissingRequiredPropertyException("GetPublicKeyResult", "signingAlgorithms");
@@ -251,6 +265,7 @@ public final class GetPublicKeyResult {
             _resultValue.keyUsage = keyUsage;
             _resultValue.publicKey = publicKey;
             _resultValue.publicKeyPem = publicKeyPem;
+            _resultValue.region = region;
             _resultValue.signingAlgorithms = signingAlgorithms;
             return _resultValue;
         }

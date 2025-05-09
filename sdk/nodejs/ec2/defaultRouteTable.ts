@@ -110,6 +110,10 @@ export class DefaultRouteTable extends pulumi.CustomResource {
      */
     public readonly propagatingVgws!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of objects. Detailed below
      */
     public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
@@ -143,6 +147,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routes"] = state ? state.routes : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -154,6 +159,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             }
             resourceInputs["defaultRouteTableId"] = args ? args.defaultRouteTableId : undefined;
             resourceInputs["propagatingVgws"] = args ? args.propagatingVgws : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routes"] = args ? args.routes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -189,6 +195,10 @@ export interface DefaultRouteTableState {
      */
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Set of objects. Detailed below
      */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
@@ -220,6 +230,10 @@ export interface DefaultRouteTableArgs {
      * List of virtual gateways for propagation.
      */
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of objects. Detailed below
      */

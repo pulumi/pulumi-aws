@@ -80,6 +80,8 @@ type FeatureGroup struct {
 	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrOutput `pulumi:"onlineStoreConfig"`
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName pulumi.StringOutput `pulumi:"recordIdentifierFeatureName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -150,6 +152,8 @@ type featureGroupState struct {
 	OnlineStoreConfig *FeatureGroupOnlineStoreConfig `pulumi:"onlineStoreConfig"`
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName *string `pulumi:"recordIdentifierFeatureName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn *string `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -176,6 +180,8 @@ type FeatureGroupState struct {
 	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrInput
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringPtrInput
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -204,6 +210,8 @@ type featureGroupArgs struct {
 	OnlineStoreConfig *FeatureGroupOnlineStoreConfig `pulumi:"onlineStoreConfig"`
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName string `pulumi:"recordIdentifierFeatureName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn string `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -227,6 +235,8 @@ type FeatureGroupArgs struct {
 	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrInput
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringInput
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -359,6 +369,11 @@ func (o FeatureGroupOutput) OnlineStoreConfig() FeatureGroupOnlineStoreConfigPtr
 // The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 func (o FeatureGroupOutput) RecordIdentifierFeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.RecordIdentifierFeatureName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FeatureGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.

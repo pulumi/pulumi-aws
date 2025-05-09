@@ -49,6 +49,21 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the organizational unit.
      * 
      * The following arguments are optional:
@@ -72,6 +87,7 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
     private ControlTowerControlArgs(ControlTowerControlArgs $) {
         this.controlIdentifier = $.controlIdentifier;
         this.parameters = $.parameters;
+        this.region = $.region;
         this.targetIdentifier = $.targetIdentifier;
     }
 
@@ -143,6 +159,27 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
          */
         public Builder parameters(ControlTowerControlParameterArgs... parameters) {
             return parameters(List.of(parameters));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

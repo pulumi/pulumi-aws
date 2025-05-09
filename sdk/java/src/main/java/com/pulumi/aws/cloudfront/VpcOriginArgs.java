@@ -18,9 +18,17 @@ public final class VpcOriginArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VpcOriginArgs Empty = new VpcOriginArgs();
 
+    /**
+     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -32,9 +40,21 @@ public final class VpcOriginArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
+    /**
+     * The VPC origin endpoint configuration.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="vpcOriginEndpointConfig")
     private @Nullable Output<VpcOriginVpcOriginEndpointConfigArgs> vpcOriginEndpointConfig;
 
+    /**
+     * @return The VPC origin endpoint configuration.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Optional<Output<VpcOriginVpcOriginEndpointConfigArgs>> vpcOriginEndpointConfig() {
         return Optional.ofNullable(this.vpcOriginEndpointConfig);
     }
@@ -65,11 +85,23 @@ public final class VpcOriginArgs extends com.pulumi.resources.ResourceArgs {
             $ = new VpcOriginArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tags Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -83,11 +115,27 @@ public final class VpcOriginArgs extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
+        /**
+         * @param vpcOriginEndpointConfig The VPC origin endpoint configuration.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcOriginEndpointConfig(@Nullable Output<VpcOriginVpcOriginEndpointConfigArgs> vpcOriginEndpointConfig) {
             $.vpcOriginEndpointConfig = vpcOriginEndpointConfig;
             return this;
         }
 
+        /**
+         * @param vpcOriginEndpointConfig The VPC origin endpoint configuration.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcOriginEndpointConfig(VpcOriginVpcOriginEndpointConfigArgs vpcOriginEndpointConfig) {
             return vpcOriginEndpointConfig(Output.of(vpcOriginEndpointConfig));
         }

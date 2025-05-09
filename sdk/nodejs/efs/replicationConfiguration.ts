@@ -112,6 +112,10 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly originalSourceFileSystemArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      */
     public /*out*/ readonly sourceFileSystemArn!: pulumi.Output<string>;
@@ -140,6 +144,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
             resourceInputs["creationTime"] = state ? state.creationTime : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["originalSourceFileSystemArn"] = state ? state.originalSourceFileSystemArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceFileSystemArn"] = state ? state.sourceFileSystemArn : undefined;
             resourceInputs["sourceFileSystemId"] = state ? state.sourceFileSystemId : undefined;
             resourceInputs["sourceFileSystemRegion"] = state ? state.sourceFileSystemRegion : undefined;
@@ -152,6 +157,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceFileSystemId'");
             }
             resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceFileSystemId"] = args ? args.sourceFileSystemId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["originalSourceFileSystemArn"] = undefined /*out*/;
@@ -182,6 +188,10 @@ export interface ReplicationConfigurationState {
      */
     originalSourceFileSystemArn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      */
     sourceFileSystemArn?: pulumi.Input<string>;
@@ -203,6 +213,10 @@ export interface ReplicationConfigurationArgs {
      * A destination configuration block (documented below).
      */
     destination: pulumi.Input<inputs.efs.ReplicationConfigurationDestination>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the file system that is to be replicated.
      */

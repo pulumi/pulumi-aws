@@ -25,6 +25,7 @@ class SourceApiAssociationArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  merged_api_arn: Optional[pulumi.Input[builtins.str]] = None,
                  merged_api_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_api_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_api_association_configs: Optional[pulumi.Input[Sequence[pulumi.Input['SourceApiAssociationSourceApiAssociationConfigArgs']]]] = None,
                  source_api_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -34,6 +35,7 @@ class SourceApiAssociationArgs:
         :param pulumi.Input[builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         :param pulumi.Input[builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
@@ -43,6 +45,8 @@ class SourceApiAssociationArgs:
             pulumi.set(__self__, "merged_api_arn", merged_api_arn)
         if merged_api_id is not None:
             pulumi.set(__self__, "merged_api_id", merged_api_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_api_arn is not None:
             pulumi.set(__self__, "source_api_arn", source_api_arn)
         if source_api_association_configs is not None:
@@ -87,6 +91,18 @@ class SourceApiAssociationArgs:
     @merged_api_id.setter
     def merged_api_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "merged_api_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sourceApiArn")
@@ -139,6 +155,7 @@ class _SourceApiAssociationState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  merged_api_arn: Optional[pulumi.Input[builtins.str]] = None,
                  merged_api_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_api_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_api_association_configs: Optional[pulumi.Input[Sequence[pulumi.Input['SourceApiAssociationSourceApiAssociationConfigArgs']]]] = None,
                  source_api_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -150,6 +167,7 @@ class _SourceApiAssociationState:
         :param pulumi.Input[builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         :param pulumi.Input[builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
@@ -163,6 +181,8 @@ class _SourceApiAssociationState:
             pulumi.set(__self__, "merged_api_arn", merged_api_arn)
         if merged_api_id is not None:
             pulumi.set(__self__, "merged_api_id", merged_api_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_api_arn is not None:
             pulumi.set(__self__, "source_api_arn", source_api_arn)
         if source_api_association_configs is not None:
@@ -233,6 +253,18 @@ class _SourceApiAssociationState:
         pulumi.set(self, "merged_api_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceApiArn")
     def source_api_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -286,6 +318,7 @@ class SourceApiAssociation(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  merged_api_arn: Optional[pulumi.Input[builtins.str]] = None,
                  merged_api_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_api_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_api_association_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SourceApiAssociationSourceApiAssociationConfigArgs', 'SourceApiAssociationSourceApiAssociationConfigArgsDict']]]]] = None,
                  source_api_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -321,6 +354,7 @@ class SourceApiAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         :param pulumi.Input[builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
@@ -373,6 +407,7 @@ class SourceApiAssociation(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  merged_api_arn: Optional[pulumi.Input[builtins.str]] = None,
                  merged_api_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_api_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_api_association_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SourceApiAssociationSourceApiAssociationConfigArgs', 'SourceApiAssociationSourceApiAssociationConfigArgsDict']]]]] = None,
                  source_api_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -389,6 +424,7 @@ class SourceApiAssociation(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["merged_api_arn"] = merged_api_arn
             __props__.__dict__["merged_api_id"] = merged_api_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["source_api_arn"] = source_api_arn
             __props__.__dict__["source_api_association_configs"] = source_api_association_configs
             __props__.__dict__["source_api_id"] = source_api_id
@@ -410,6 +446,7 @@ class SourceApiAssociation(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             merged_api_arn: Optional[pulumi.Input[builtins.str]] = None,
             merged_api_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_api_arn: Optional[pulumi.Input[builtins.str]] = None,
             source_api_association_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SourceApiAssociationSourceApiAssociationConfigArgs', 'SourceApiAssociationSourceApiAssociationConfigArgsDict']]]]] = None,
             source_api_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -426,6 +463,7 @@ class SourceApiAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         :param pulumi.Input[builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
@@ -438,6 +476,7 @@ class SourceApiAssociation(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["merged_api_arn"] = merged_api_arn
         __props__.__dict__["merged_api_id"] = merged_api_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_api_arn"] = source_api_arn
         __props__.__dict__["source_api_association_configs"] = source_api_association_configs
         __props__.__dict__["source_api_id"] = source_api_id
@@ -483,6 +522,14 @@ class SourceApiAssociation(pulumi.CustomResource):
         ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         """
         return pulumi.get(self, "merged_api_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sourceApiArn")

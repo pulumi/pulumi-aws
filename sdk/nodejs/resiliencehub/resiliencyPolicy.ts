@@ -108,6 +108,10 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicy | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -141,6 +145,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
             resourceInputs["estimatedCostTier"] = state ? state.estimatedCostTier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tier"] = state ? state.tier : undefined;
@@ -154,6 +159,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -200,6 +206,10 @@ export interface ResiliencyPolicyState {
      */
     policy?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicy>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -240,6 +250,10 @@ export interface ResiliencyPolicyArgs {
      * The following arguments are optional:
      */
     policy?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicy>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

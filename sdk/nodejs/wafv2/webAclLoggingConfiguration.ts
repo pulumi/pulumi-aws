@@ -122,6 +122,10 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
      */
     public readonly redactedFields!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationRedactedField[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -142,6 +146,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["logDestinationConfigs"] = state ? state.logDestinationConfigs : undefined;
             resourceInputs["loggingFilter"] = state ? state.loggingFilter : undefined;
             resourceInputs["redactedFields"] = state ? state.redactedFields : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as WebAclLoggingConfigurationArgs | undefined;
@@ -154,6 +159,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
             resourceInputs["loggingFilter"] = args ? args.loggingFilter : undefined;
             resourceInputs["redactedFields"] = args ? args.redactedFields : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -178,6 +184,10 @@ export interface WebAclLoggingConfigurationState {
      */
     redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */
     resourceArn?: pulumi.Input<string>;
@@ -199,6 +209,10 @@ export interface WebAclLoggingConfigurationArgs {
      * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
     redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */

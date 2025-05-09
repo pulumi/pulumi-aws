@@ -71,6 +71,8 @@ type PackageAssociation struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     pulumi.StringOutput `pulumi:"packageId"`
 	ReferencePath pulumi.StringOutput `pulumi:"referencePath"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPackageAssociation registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +116,8 @@ type packageAssociationState struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     *string `pulumi:"packageId"`
 	ReferencePath *string `pulumi:"referencePath"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PackageAssociationState struct {
@@ -122,6 +126,8 @@ type PackageAssociationState struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     pulumi.StringPtrInput
 	ReferencePath pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PackageAssociationState) ElementType() reflect.Type {
@@ -133,6 +139,8 @@ type packageAssociationArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Internal ID of the package to associate with a domain.
 	PackageId string `pulumi:"packageId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PackageAssociation resource.
@@ -141,6 +149,8 @@ type PackageAssociationArgs struct {
 	DomainName pulumi.StringInput
 	// Internal ID of the package to associate with a domain.
 	PackageId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PackageAssociationArgs) ElementType() reflect.Type {
@@ -242,6 +252,11 @@ func (o PackageAssociationOutput) PackageId() pulumi.StringOutput {
 
 func (o PackageAssociationOutput) ReferencePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.ReferencePath }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PackageAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PackageAssociationArrayOutput struct{ *pulumi.OutputState }

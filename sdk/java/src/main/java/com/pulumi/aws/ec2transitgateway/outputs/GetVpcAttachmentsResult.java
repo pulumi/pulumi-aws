@@ -24,6 +24,7 @@ public final class GetVpcAttachmentsResult {
      * 
      */
     private List<String> ids;
+    private String region;
 
     private GetVpcAttachmentsResult() {}
     public List<GetVpcAttachmentsFilter> filters() {
@@ -43,6 +44,9 @@ public final class GetVpcAttachmentsResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +60,14 @@ public final class GetVpcAttachmentsResult {
         private @Nullable List<GetVpcAttachmentsFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         public Builder() {}
         public Builder(GetVpcAttachmentsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -92,11 +98,20 @@ public final class GetVpcAttachmentsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetVpcAttachmentsResult build() {
             final var _resultValue = new GetVpcAttachmentsResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

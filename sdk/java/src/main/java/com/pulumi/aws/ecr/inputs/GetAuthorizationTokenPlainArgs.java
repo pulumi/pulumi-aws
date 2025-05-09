@@ -14,6 +14,13 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
 
     public static final GetAuthorizationTokenPlainArgs Empty = new GetAuthorizationTokenPlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * AWS account ID of the ECR Repository. If not specified the default account is assumed.
      * 
@@ -32,6 +39,7 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
     private GetAuthorizationTokenPlainArgs() {}
 
     private GetAuthorizationTokenPlainArgs(GetAuthorizationTokenPlainArgs $) {
+        this.region = $.region;
         this.registryId = $.registryId;
     }
 
@@ -51,6 +59,11 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
 
         public Builder(GetAuthorizationTokenPlainArgs defaults) {
             $ = new GetAuthorizationTokenPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

@@ -75,6 +75,10 @@ export class Tag extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the DynamoDB resource to tag.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class Tag extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
@@ -111,6 +116,7 @@ export class Tag extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
         }
@@ -127,6 +133,10 @@ export interface TagState {
      * Tag name.
      */
     key?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the DynamoDB resource to tag.
      */
@@ -145,6 +155,10 @@ export interface TagArgs {
      * Tag name.
      */
     key: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the DynamoDB resource to tag.
      */

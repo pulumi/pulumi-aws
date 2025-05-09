@@ -262,6 +262,7 @@ type GetScriptArgs struct {
 	DagNodes []GetScriptDagNode `pulumi:"dagNodes"`
 	// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
 	Language *string `pulumi:"language"`
+	Region   *string `pulumi:"region"`
 }
 
 // A collection of values returned by getScript.
@@ -273,6 +274,7 @@ type GetScriptResult struct {
 	Language *string `pulumi:"language"`
 	// Python script generated from the DAG when the `language` argument is set to `PYTHON`.
 	PythonScript string `pulumi:"pythonScript"`
+	Region       string `pulumi:"region"`
 	// Scala code generated from the DAG when the `language` argument is set to `SCALA`.
 	ScalaCode string `pulumi:"scalaCode"`
 }
@@ -294,6 +296,7 @@ type GetScriptOutputArgs struct {
 	DagNodes GetScriptDagNodeArrayInput `pulumi:"dagNodes"`
 	// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
 	Language pulumi.StringPtrInput `pulumi:"language"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetScriptOutputArgs) ElementType() reflect.Type {
@@ -335,6 +338,10 @@ func (o GetScriptResultOutput) Language() pulumi.StringPtrOutput {
 // Python script generated from the DAG when the `language` argument is set to `PYTHON`.
 func (o GetScriptResultOutput) PythonScript() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptResult) string { return v.PythonScript }).(pulumi.StringOutput)
+}
+
+func (o GetScriptResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScriptResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Scala code generated from the DAG when the `language` argument is set to `SCALA`.

@@ -170,6 +170,21 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
@@ -286,6 +301,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         this.kmsKeyId = $.kmsKeyId;
         this.licenseModel = $.licenseModel;
         this.port = $.port;
+        this.region = $.region;
         this.sharedAccounts = $.sharedAccounts;
         this.snapshotType = $.snapshotType;
         this.sourceDbClusterSnapshotArn = $.sourceDbClusterSnapshotArn;
@@ -532,6 +548,27 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

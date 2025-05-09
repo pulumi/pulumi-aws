@@ -54,6 +54,7 @@ class ClusterArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -108,6 +109,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
@@ -180,6 +182,8 @@ class ClusterArgs:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_arn is not None:
@@ -593,6 +597,18 @@ class ClusterArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -708,6 +724,7 @@ class _ClusterState:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -771,6 +788,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
@@ -862,6 +880,8 @@ class _ClusterState:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_arn is not None:
@@ -1373,6 +1393,18 @@ class _ClusterState:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -1497,6 +1529,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -1593,6 +1626,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
@@ -1694,6 +1728,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -1745,6 +1780,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_arn"] = snapshot_arn
             __props__.__dict__["snapshot_cluster_identifier"] = snapshot_cluster_identifier
@@ -1812,6 +1848,7 @@ class Cluster(pulumi.CustomResource):
             port: Optional[pulumi.Input[builtins.int]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
             publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
             snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -1880,6 +1917,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
@@ -1932,6 +1970,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
         __props__.__dict__["snapshot_arn"] = snapshot_arn
         __props__.__dict__["snapshot_cluster_identifier"] = snapshot_cluster_identifier
@@ -2275,6 +2314,14 @@ class Cluster(pulumi.CustomResource):
         If true, the cluster can be accessed from a public network. Default is `false`.
         """
         return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="skipFinalSnapshot")

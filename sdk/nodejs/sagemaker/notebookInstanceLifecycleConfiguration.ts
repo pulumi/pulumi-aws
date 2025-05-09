@@ -80,6 +80,10 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
      */
     public readonly onStart!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -105,6 +109,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["onCreate"] = state ? state.onCreate : undefined;
             resourceInputs["onStart"] = state ? state.onStart : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -112,6 +117,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["onCreate"] = args ? args.onCreate : undefined;
             resourceInputs["onStart"] = args ? args.onStart : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export interface NotebookInstanceLifecycleConfigurationState {
      */
     onStart?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -167,6 +177,10 @@ export interface NotebookInstanceLifecycleConfigurationArgs {
      * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
      */
     onStart?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

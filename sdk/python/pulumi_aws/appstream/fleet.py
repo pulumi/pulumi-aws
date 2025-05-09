@@ -37,6 +37,7 @@ class FleetArgs:
                  max_sessions_per_instance: Optional[pulumi.Input[builtins.int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_view: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
@@ -59,6 +60,7 @@ class FleetArgs:
         :param pulumi.Input[builtins.str] name: Unique name for the fleet.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to attach to AppStream instances.
         :param pulumi.Input['FleetVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
@@ -91,6 +93,8 @@ class FleetArgs:
             pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if stream_view is not None:
             pulumi.set(__self__, "stream_view", stream_view)
         if tags is not None:
@@ -281,6 +285,18 @@ class FleetArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="streamView")
     def stream_view(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -337,6 +353,7 @@ class _FleetState:
                  max_sessions_per_instance: Optional[pulumi.Input[builtins.int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  stream_view: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -363,6 +380,7 @@ class _FleetState:
         :param pulumi.Input[builtins.str] name: Unique name for the fleet.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         :param pulumi.Input[builtins.str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to attach to AppStream instances.
@@ -402,6 +420,8 @@ class _FleetState:
             pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if stream_view is not None:
@@ -621,6 +641,18 @@ class _FleetState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
@@ -700,6 +732,7 @@ class Fleet(pulumi.CustomResource):
                  max_sessions_per_instance: Optional[pulumi.Input[builtins.int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_view: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
@@ -761,6 +794,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Unique name for the fleet.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to attach to AppStream instances.
         :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
@@ -839,6 +873,7 @@ class Fleet(pulumi.CustomResource):
                  max_sessions_per_instance: Optional[pulumi.Input[builtins.int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_view: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
@@ -870,6 +905,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["max_sessions_per_instance"] = max_sessions_per_instance
             __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["stream_view"] = stream_view
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config
@@ -904,6 +940,7 @@ class Fleet(pulumi.CustomResource):
             max_sessions_per_instance: Optional[pulumi.Input[builtins.int]] = None,
             max_user_duration_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             stream_view: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -935,6 +972,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Unique name for the fleet.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         :param pulumi.Input[builtins.str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to attach to AppStream instances.
@@ -961,6 +999,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["max_sessions_per_instance"] = max_sessions_per_instance
         __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["state"] = state
         __props__.__dict__["stream_view"] = stream_view
         __props__.__dict__["tags"] = tags
@@ -1105,6 +1144,14 @@ class Fleet(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

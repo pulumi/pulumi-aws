@@ -69,6 +69,10 @@ export class EnrollmentStatus extends pulumi.CustomResource {
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      */
     public readonly includeMemberAccounts!: pulumi.Output<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -85,10 +89,12 @@ export class EnrollmentStatus extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EnrollmentStatusState | undefined;
             resourceInputs["includeMemberAccounts"] = state ? state.includeMemberAccounts : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as EnrollmentStatusArgs | undefined;
             resourceInputs["includeMemberAccounts"] = args ? args.includeMemberAccounts : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -104,6 +110,10 @@ export interface EnrollmentStatusState {
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      */
     includeMemberAccounts?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
 }
 
@@ -115,4 +125,8 @@ export interface EnrollmentStatusArgs {
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      */
     includeMemberAccounts?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

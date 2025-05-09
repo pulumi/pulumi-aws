@@ -99,17 +99,8 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("applicationArn", required: true)]
         public string ApplicationArn { get; set; } = null!;
 
-        [Input("portalOptions")]
-        private List<Inputs.GetApplicationPortalOptionArgs>? _portalOptions;
-
-        /// <summary>
-        /// Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-        /// </summary>
-        public List<Inputs.GetApplicationPortalOptionArgs> PortalOptions
-        {
-            get => _portalOptions ?? (_portalOptions = new List<Inputs.GetApplicationPortalOptionArgs>());
-            set => _portalOptions = value;
-        }
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetApplicationArgs()
         {
@@ -125,17 +116,8 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
-        [Input("portalOptions")]
-        private InputList<Inputs.GetApplicationPortalOptionInputArgs>? _portalOptions;
-
-        /// <summary>
-        /// Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-        /// </summary>
-        public InputList<Inputs.GetApplicationPortalOptionInputArgs> PortalOptions
-        {
-            get => _portalOptions ?? (_portalOptions = new InputList<Inputs.GetApplicationPortalOptionInputArgs>());
-            set => _portalOptions = value;
-        }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetApplicationInvokeArgs()
         {
@@ -176,6 +158,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationPortalOptionResult> PortalOptions;
+        public readonly string Region;
         /// <summary>
         /// Status of the application.
         /// </summary>
@@ -199,6 +182,8 @@ namespace Pulumi.Aws.SsoAdmin
 
             ImmutableArray<Outputs.GetApplicationPortalOptionResult> portalOptions,
 
+            string region,
+
             string status)
         {
             ApplicationAccount = applicationAccount;
@@ -209,6 +194,7 @@ namespace Pulumi.Aws.SsoAdmin
             InstanceArn = instanceArn;
             Name = name;
             PortalOptions = portalOptions;
+            Region = region;
             Status = status;
         }
     }

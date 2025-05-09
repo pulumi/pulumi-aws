@@ -145,6 +145,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly pipelineName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -177,6 +181,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineArn"] = state ? state.pipelineArn : undefined;
             resourceInputs["pipelineConfigurationBody"] = state ? state.pipelineConfigurationBody : undefined;
             resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -202,6 +207,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["minUnits"] = args ? args.minUnits : undefined;
             resourceInputs["pipelineConfigurationBody"] = args ? args.pipelineConfigurationBody : undefined;
             resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
@@ -257,6 +263,10 @@ export interface PipelineState {
      */
     pipelineName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -302,6 +312,10 @@ export interface PipelineArgs {
      * The following arguments are optional:
      */
     pipelineName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

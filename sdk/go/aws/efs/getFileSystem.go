@@ -68,6 +68,7 @@ type LookupFileSystemArgs struct {
 	CreationToken *string `pulumi:"creationToken"`
 	// ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId *string `pulumi:"fileSystemId"`
+	Region       *string `pulumi:"region"`
 	// Restricts the list to the file system with these tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -102,6 +103,7 @@ type LookupFileSystemResult struct {
 	Protections     []GetFileSystemProtection `pulumi:"protections"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
 	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
+	Region                       string  `pulumi:"region"`
 	// Current byte count used by the file system.
 	SizeInBytes int `pulumi:"sizeInBytes"`
 	// A map of tags to assign to the file system.
@@ -125,6 +127,7 @@ type LookupFileSystemOutputArgs struct {
 	CreationToken pulumi.StringPtrInput `pulumi:"creationToken"`
 	// ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	// Restricts the list to the file system with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -219,6 +222,10 @@ func (o LookupFileSystemResultOutput) Protections() GetFileSystemProtectionArray
 // The throughput, measured in MiB/s, that you want to provision for the file system.
 func (o LookupFileSystemResultOutput) ProvisionedThroughputInMibps() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupFileSystemResult) float64 { return v.ProvisionedThroughputInMibps }).(pulumi.Float64Output)
+}
+
+func (o LookupFileSystemResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Current byte count used by the file system.

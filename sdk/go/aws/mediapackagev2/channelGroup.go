@@ -58,6 +58,8 @@ type ChannelGroup struct {
 	EgressDomain pulumi.StringOutput `pulumi:"egressDomain"`
 	// A unique identifier naming the channel group
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -102,6 +104,8 @@ type channelGroupState struct {
 	EgressDomain *string `pulumi:"egressDomain"`
 	// A unique identifier naming the channel group
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -117,6 +121,8 @@ type ChannelGroupState struct {
 	EgressDomain pulumi.StringPtrInput
 	// A unique identifier naming the channel group
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -132,6 +138,8 @@ type channelGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// A unique identifier naming the channel group
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -142,6 +150,8 @@ type ChannelGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// A unique identifier naming the channel group
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -251,6 +261,11 @@ func (o ChannelGroupOutput) EgressDomain() pulumi.StringOutput {
 // A unique identifier naming the channel group
 func (o ChannelGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ChannelGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

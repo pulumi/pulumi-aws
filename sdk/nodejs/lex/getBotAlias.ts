@@ -24,6 +24,7 @@ export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions):
     return pulumi.runtime.invoke("aws:lex/getBotAlias:getBotAlias", {
         "botName": args.botName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,7 @@ export interface GetBotAliasArgs {
      * Name of the bot alias. The name is case sensitive.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -81,6 +83,7 @@ export interface GetBotAliasResult {
      * Name of the alias. The name is not case sensitive.
      */
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Provides details about a specific Amazon Lex Bot Alias.
@@ -102,6 +105,7 @@ export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.Inv
     return pulumi.runtime.invokeOutput("aws:lex/getBotAlias:getBotAlias", {
         "botName": args.botName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -117,4 +121,5 @@ export interface GetBotAliasOutputArgs {
      * Name of the bot alias. The name is case sensitive.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

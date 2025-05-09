@@ -21,14 +21,18 @@ __all__ = ['SnapshotCreateVolumePermissionArgs', 'SnapshotCreateVolumePermission
 class SnapshotCreateVolumePermissionArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[builtins.str],
-                 snapshot_id: pulumi.Input[builtins.str]):
+                 snapshot_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SnapshotCreateVolumePermission resource.
         :param pulumi.Input[builtins.str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[builtins.str] snapshot_id: A snapshot ID
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -54,19 +58,35 @@ class SnapshotCreateVolumePermissionArgs:
     def snapshot_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "snapshot_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _SnapshotCreateVolumePermissionState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.
         :param pulumi.Input[builtins.str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_id: A snapshot ID
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
 
@@ -81,6 +101,18 @@ class _SnapshotCreateVolumePermissionState:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="snapshotId")
@@ -104,6 +136,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -127,6 +160,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_id: A snapshot ID
         """
         ...
@@ -169,6 +203,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -182,6 +217,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["region"] = region
             if snapshot_id is None and not opts.urn:
                 raise TypeError("Missing required property 'snapshot_id'")
             __props__.__dict__["snapshot_id"] = snapshot_id
@@ -196,6 +232,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_id: Optional[pulumi.Input[builtins.str]] = None) -> 'SnapshotCreateVolumePermission':
         """
         Get an existing SnapshotCreateVolumePermission resource's state with the given name, id, and optional extra
@@ -205,6 +242,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_id: A snapshot ID
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -212,6 +250,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         __props__ = _SnapshotCreateVolumePermissionState.__new__(_SnapshotCreateVolumePermissionState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["snapshot_id"] = snapshot_id
         return SnapshotCreateVolumePermission(resource_name, opts=opts, __props__=__props__)
 
@@ -222,6 +261,14 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snapshotId")

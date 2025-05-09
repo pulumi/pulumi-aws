@@ -62,6 +62,7 @@ func GetKafkaVersion(ctx *pulumi.Context, args *GetKafkaVersionArgs, opts ...pul
 type GetKafkaVersionArgs struct {
 	// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
 	PreferredVersions []string `pulumi:"preferredVersions"`
+	Region            *string  `pulumi:"region"`
 	// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
 	Version *string `pulumi:"version"`
 }
@@ -71,6 +72,7 @@ type GetKafkaVersionResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                string   `pulumi:"id"`
 	PreferredVersions []string `pulumi:"preferredVersions"`
+	Region            string   `pulumi:"region"`
 	// Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
 	Status  string `pulumi:"status"`
 	Version string `pulumi:"version"`
@@ -89,6 +91,7 @@ func GetKafkaVersionOutput(ctx *pulumi.Context, args GetKafkaVersionOutputArgs, 
 type GetKafkaVersionOutputArgs struct {
 	// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
+	Region            pulumi.StringPtrInput   `pulumi:"region"`
 	// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -119,6 +122,10 @@ func (o GetKafkaVersionResultOutput) Id() pulumi.StringOutput {
 
 func (o GetKafkaVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetKafkaVersionResult) []string { return v.PreferredVersions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetKafkaVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.

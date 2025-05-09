@@ -18,11 +18,12 @@ namespace Pulumi.Aws.Alb.Outputs
         /// </summary>
         public readonly string? AdvertiseTrustStoreCaNames;
         /// <summary>
-        /// Whether client certificate expiry is ignored. Default is `false`.
+        /// Whether client certificate expiry is ignored.
+        /// Default is `false`.
         /// </summary>
         public readonly bool? IgnoreClientCertificateExpiry;
         /// <summary>
-        /// Valid values are `off`, `verify` and `passthrough`.
+        /// Valid values are `off`, `passthrough`, and `verify`.
         /// </summary>
         public readonly string Mode;
         /// <summary>

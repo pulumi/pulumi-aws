@@ -59,6 +59,8 @@ type ConditionalForwarder struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayOutput `pulumi:"dnsIps"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName pulumi.StringOutput `pulumi:"remoteDomainName"`
 }
@@ -112,6 +114,8 @@ type conditionalForwarderState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps []string `pulumi:"dnsIps"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName *string `pulumi:"remoteDomainName"`
 }
@@ -121,6 +125,8 @@ type ConditionalForwarderState struct {
 	DirectoryId pulumi.StringPtrInput
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName pulumi.StringPtrInput
 }
@@ -134,6 +140,8 @@ type conditionalForwarderArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps []string `pulumi:"dnsIps"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName string `pulumi:"remoteDomainName"`
 }
@@ -144,6 +152,8 @@ type ConditionalForwarderArgs struct {
 	DirectoryId pulumi.StringInput
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName pulumi.StringInput
 }
@@ -243,6 +253,11 @@ func (o ConditionalForwarderOutput) DirectoryId() pulumi.StringOutput {
 // A list of forwarder IP addresses.
 func (o ConditionalForwarderOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConditionalForwarder) pulumi.StringArrayOutput { return v.DnsIps }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConditionalForwarderOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConditionalForwarder) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The fully qualified domain name of the remote domain for which forwarders will be used.

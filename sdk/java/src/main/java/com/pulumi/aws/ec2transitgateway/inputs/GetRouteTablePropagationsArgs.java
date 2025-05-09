@@ -39,10 +39,15 @@ public final class GetRouteTablePropagationsArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Import(name="transitGatewayRouteTableId", required=true)
@@ -50,8 +55,6 @@ public final class GetRouteTablePropagationsArgs extends com.pulumi.resources.In
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayRouteTableId() {
@@ -62,6 +65,7 @@ public final class GetRouteTablePropagationsArgs extends com.pulumi.resources.In
 
     private GetRouteTablePropagationsArgs(GetRouteTablePropagationsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
     }
 
@@ -123,10 +127,17 @@ public final class GetRouteTablePropagationsArgs extends com.pulumi.resources.In
             return filters(List.of(filters));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -138,8 +149,6 @@ public final class GetRouteTablePropagationsArgs extends com.pulumi.resources.In
 
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -86,6 +86,12 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
         [Output("subnetId")]
@@ -156,6 +162,12 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
         [Input("subnetId")]
@@ -204,6 +216,12 @@ namespace Pulumi.Aws.CloudHsmV2
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.

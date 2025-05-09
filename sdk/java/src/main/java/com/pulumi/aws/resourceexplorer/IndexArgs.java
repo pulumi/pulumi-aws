@@ -19,6 +19,21 @@ public final class IndexArgs extends com.pulumi.resources.ResourceArgs {
     public static final IndexArgs Empty = new IndexArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -58,6 +73,7 @@ public final class IndexArgs extends com.pulumi.resources.ResourceArgs {
     private IndexArgs() {}
 
     private IndexArgs(IndexArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
         this.type = $.type;
@@ -79,6 +95,27 @@ public final class IndexArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(IndexArgs defaults) {
             $ = new IndexArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

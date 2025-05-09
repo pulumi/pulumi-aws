@@ -89,7 +89,8 @@ type LookupSnapshotArgs struct {
 	IncludeShared *bool `pulumi:"includeShared"`
 	// If more than one result is returned, use the most
 	// recent Snapshot.
-	MostRecent *bool `pulumi:"mostRecent"`
+	MostRecent *bool   `pulumi:"mostRecent"`
+	Region     *string `pulumi:"region"`
 	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -131,6 +132,7 @@ type LookupSnapshotResult struct {
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
 	OriginalSnapshotCreateTime string `pulumi:"originalSnapshotCreateTime"`
 	Port                       int    `pulumi:"port"`
+	Region                     string `pulumi:"region"`
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
 	SnapshotCreateTime string  `pulumi:"snapshotCreateTime"`
 	SnapshotType       *string `pulumi:"snapshotType"`
@@ -171,7 +173,8 @@ type LookupSnapshotOutputArgs struct {
 	IncludeShared pulumi.BoolPtrInput `pulumi:"includeShared"`
 	// If more than one result is returned, use the most
 	// recent Snapshot.
-	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -282,6 +285,10 @@ func (o LookupSnapshotResultOutput) OriginalSnapshotCreateTime() pulumi.StringOu
 
 func (o LookupSnapshotResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o LookupSnapshotResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.

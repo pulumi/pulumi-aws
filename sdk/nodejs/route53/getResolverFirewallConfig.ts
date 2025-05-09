@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
 export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", {
+        "region": args.region,
         "resourceId": args.resourceId,
     }, opts);
 }
@@ -33,10 +34,9 @@ export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, o
  * A collection of arguments for invoking getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigArgs {
+    region?: string;
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
-     *
-     * The following attribute is additionally exported:
      */
     resourceId: string;
 }
@@ -45,12 +45,19 @@ export interface GetResolverFirewallConfigArgs {
  * A collection of values returned by getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigResult {
+    /**
+     * Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
+     */
     readonly firewallFailOpen: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
+     */
     readonly ownerId: string;
+    readonly region: string;
     readonly resourceId: string;
 }
 /**
@@ -74,6 +81,7 @@ export interface GetResolverFirewallConfigResult {
 export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverFirewallConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", {
+        "region": args.region,
         "resourceId": args.resourceId,
     }, opts);
 }
@@ -82,10 +90,9 @@ export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigO
  * A collection of arguments for invoking getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
-     *
-     * The following attribute is additionally exported:
      */
     resourceId: pulumi.Input<string>;
 }

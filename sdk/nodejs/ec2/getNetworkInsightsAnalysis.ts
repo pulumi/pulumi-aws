@@ -27,6 +27,7 @@ export function getNetworkInsightsAnalysis(args?: GetNetworkInsightsAnalysisArgs
     return pulumi.runtime.invoke("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", {
         "filters": args.filters,
         "networkInsightsAnalysisId": args.networkInsightsAnalysisId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,12 +38,17 @@ export function getNetworkInsightsAnalysis(args?: GetNetworkInsightsAnalysisArgs
 export interface GetNetworkInsightsAnalysisArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetNetworkInsightsAnalysisFilter[];
     /**
      * ID of the Network Insights Analysis to select.
      */
     networkInsightsAnalysisId?: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -84,6 +90,7 @@ export interface GetNetworkInsightsAnalysisResult {
      * Set to `true` if the destination was reachable.
      */
     readonly pathFound: boolean;
+    readonly region: string;
     /**
      * The components in the path from destination to source.
      */
@@ -126,6 +133,7 @@ export function getNetworkInsightsAnalysisOutput(args?: GetNetworkInsightsAnalys
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", {
         "filters": args.filters,
         "networkInsightsAnalysisId": args.networkInsightsAnalysisId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -136,11 +144,16 @@ export function getNetworkInsightsAnalysisOutput(args?: GetNetworkInsightsAnalys
 export interface GetNetworkInsightsAnalysisOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsAnalysisFilterArgs>[]>;
     /**
      * ID of the Network Insights Analysis to select.
      */
     networkInsightsAnalysisId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

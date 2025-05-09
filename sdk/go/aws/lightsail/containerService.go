@@ -190,6 +190,8 @@ type ContainerService struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames ContainerServicePublicDomainNamesPtrOutput `pulumi:"publicDomainNames"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Lightsail resource type of the container service (i.e., ContainerService).
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// The scale specification for the container service. The scale specifies the allocated compute
@@ -277,6 +279,8 @@ type containerServiceState struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames *ContainerServicePublicDomainNames `pulumi:"publicDomainNames"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Lightsail resource type of the container service (i.e., ContainerService).
 	ResourceType *string `pulumi:"resourceType"`
 	// The scale specification for the container service. The scale specifies the allocated compute
@@ -329,6 +333,8 @@ type ContainerServiceState struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames ContainerServicePublicDomainNamesPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Lightsail resource type of the container service (i.e., ContainerService).
 	ResourceType pulumi.StringPtrInput
 	// The scale specification for the container service. The scale specifies the allocated compute
@@ -371,6 +377,8 @@ type containerServiceArgs struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames *ContainerServicePublicDomainNames `pulumi:"publicDomainNames"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
 	Scale int `pulumi:"scale"`
@@ -400,6 +408,8 @@ type ContainerServiceArgs struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames ContainerServicePublicDomainNamesPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
 	Scale pulumi.IntInput
@@ -559,6 +569,11 @@ func (o ContainerServiceOutput) PrivateRegistryAccess() ContainerServicePrivateR
 // Defined below.
 func (o ContainerServiceOutput) PublicDomainNames() ContainerServicePublicDomainNamesPtrOutput {
 	return o.ApplyT(func(v *ContainerService) ContainerServicePublicDomainNamesPtrOutput { return v.PublicDomainNames }).(ContainerServicePublicDomainNamesPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ContainerServiceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Lightsail resource type of the container service (i.e., ContainerService).

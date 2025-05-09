@@ -33,6 +33,8 @@ public final class GetServiceQuotaPlainArgs extends com.pulumi.resources.InvokeA
     /**
      * Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
      * 
+     * &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+     * 
      */
     @Import(name="quotaName")
     private @Nullable String quotaName;
@@ -40,9 +42,18 @@ public final class GetServiceQuotaPlainArgs extends com.pulumi.resources.InvokeA
     /**
      * @return Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
      * 
+     * &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+     * 
      */
     public Optional<String> quotaName() {
         return Optional.ofNullable(this.quotaName);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -65,6 +76,7 @@ public final class GetServiceQuotaPlainArgs extends com.pulumi.resources.InvokeA
     private GetServiceQuotaPlainArgs(GetServiceQuotaPlainArgs $) {
         this.quotaCode = $.quotaCode;
         this.quotaName = $.quotaName;
+        this.region = $.region;
         this.serviceCode = $.serviceCode;
     }
 
@@ -100,11 +112,18 @@ public final class GetServiceQuotaPlainArgs extends com.pulumi.resources.InvokeA
         /**
          * @param quotaName Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
          * 
+         * &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+         * 
          * @return builder
          * 
          */
         public Builder quotaName(@Nullable String quotaName) {
             $.quotaName = quotaName;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

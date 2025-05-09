@@ -68,6 +68,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the EC2 resource to manage the tag for.
         /// </summary>
         [Output("resourceId")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the EC2 resource to manage the tag for.
         /// </summary>
         [Input("resourceId", required: true)]
@@ -156,6 +168,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the EC2 resource to manage the tag for.

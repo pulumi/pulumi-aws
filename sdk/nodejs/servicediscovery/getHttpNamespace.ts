@@ -20,6 +20,7 @@ export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicediscovery/getHttpNamespace:getHttpNamespace", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -32,6 +33,7 @@ export interface GetHttpNamespaceArgs {
      * Name of the http namespace.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -59,6 +61,7 @@ export interface GetHttpNamespaceResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags for the resource.
      */
@@ -80,6 +83,7 @@ export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicediscovery/getHttpNamespace:getHttpNamespace", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -92,6 +96,7 @@ export interface GetHttpNamespaceOutputArgs {
      * Name of the http namespace.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

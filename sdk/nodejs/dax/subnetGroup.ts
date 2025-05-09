@@ -67,6 +67,10 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of VPC subnet IDs for the subnet group.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
@@ -90,6 +94,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             const state = argsOrState as SubnetGroupState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -99,6 +104,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
@@ -119,6 +125,10 @@ export interface SubnetGroupState {
      * The name of the subnet group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
@@ -141,6 +151,10 @@ export interface SubnetGroupArgs {
      * The name of the subnet group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */

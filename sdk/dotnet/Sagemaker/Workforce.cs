@@ -114,6 +114,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.WorkforceOidcConfig?> OidcConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         /// </summary>
         [Output("sourceIpConfig")]
@@ -196,6 +202,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.WorkforceOidcConfigArgs>? OidcConfig { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         /// </summary>
         [Input("sourceIpConfig")]
@@ -238,6 +250,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("oidcConfig")]
         public Input<Inputs.WorkforceOidcConfigGetArgs>? OidcConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.

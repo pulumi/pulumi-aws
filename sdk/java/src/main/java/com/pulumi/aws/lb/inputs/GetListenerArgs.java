@@ -62,6 +62,13 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.port);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -75,6 +82,7 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
         this.arn = $.arn;
         this.loadBalancerArn = $.loadBalancerArn;
         this.port = $.port;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -157,6 +165,15 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

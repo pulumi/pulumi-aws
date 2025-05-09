@@ -133,6 +133,10 @@ export class Trust extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDateTime!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Fully qualified domain name of the remote Directory.
      */
     public readonly remoteDomainName!: pulumi.Output<string>;
@@ -192,6 +196,7 @@ export class Trust extends pulumi.CustomResource {
             resourceInputs["deleteAssociatedConditionalForwarder"] = state ? state.deleteAssociatedConditionalForwarder : undefined;
             resourceInputs["directoryId"] = state ? state.directoryId : undefined;
             resourceInputs["lastUpdatedDateTime"] = state ? state.lastUpdatedDateTime : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;
             resourceInputs["selectiveAuth"] = state ? state.selectiveAuth : undefined;
             resourceInputs["stateLastUpdatedDateTime"] = state ? state.stateLastUpdatedDateTime : undefined;
@@ -217,6 +222,7 @@ export class Trust extends pulumi.CustomResource {
             resourceInputs["conditionalForwarderIpAddrs"] = args ? args.conditionalForwarderIpAddrs : undefined;
             resourceInputs["deleteAssociatedConditionalForwarder"] = args ? args.deleteAssociatedConditionalForwarder : undefined;
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
             resourceInputs["selectiveAuth"] = args ? args.selectiveAuth : undefined;
             resourceInputs["trustDirection"] = args ? args.trustDirection : undefined;
@@ -258,6 +264,10 @@ export interface TrustState {
      * Date and time when the Trust was last updated.
      */
     lastUpdatedDateTime?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Fully qualified domain name of the remote Directory.
      */
@@ -318,6 +328,10 @@ export interface TrustArgs {
      * ID of the Directory.
      */
     directoryId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Fully qualified domain name of the remote Directory.
      */

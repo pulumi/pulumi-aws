@@ -113,6 +113,12 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Permission { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         /// </summary>
         [Output("s3PrefixType")]
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.S3Control
         public Input<string> Permission { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         /// </summary>
         [Input("s3PrefixType")]
@@ -273,6 +285,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.

@@ -105,6 +105,9 @@ namespace Pulumi.Aws.Kms
         [Input("customKeyStoreName")]
         public string? CustomKeyStoreName { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetCustomKeyStoreArgs()
         {
         }
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("customKeyStoreName")]
         public Input<string>? CustomKeyStoreName { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetCustomKeyStoreInvokeArgs()
         {
@@ -150,6 +156,7 @@ namespace Pulumi.Aws.Kms
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// The trust anchor certificate of the associated CloudHSM cluster.
         /// </summary>
@@ -169,6 +176,8 @@ namespace Pulumi.Aws.Kms
 
             string id,
 
+            string region,
+
             string trustAnchorCertificate)
         {
             CloudHsmClusterId = cloudHsmClusterId;
@@ -177,6 +186,7 @@ namespace Pulumi.Aws.Kms
             CustomKeyStoreId = customKeyStoreId;
             CustomKeyStoreName = customKeyStoreName;
             Id = id;
+            Region = region;
             TrustAnchorCertificate = trustAnchorCertificate;
         }
     }

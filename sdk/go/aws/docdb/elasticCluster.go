@@ -77,6 +77,8 @@ type ElasticCluster struct {
 	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntOutput `pulumi:"shardCapacity"`
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -165,6 +167,8 @@ type elasticClusterState struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity *int `pulumi:"shardCapacity"`
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -202,6 +206,8 @@ type ElasticClusterState struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntPtrInput
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -239,6 +245,8 @@ type elasticClusterArgs struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity int `pulumi:"shardCapacity"`
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -272,6 +280,8 @@ type ElasticClusterArgs struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntInput
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -422,6 +432,11 @@ func (o ElasticClusterOutput) PreferredBackupWindow() pulumi.StringOutput {
 // Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 func (o ElasticClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ElasticClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64

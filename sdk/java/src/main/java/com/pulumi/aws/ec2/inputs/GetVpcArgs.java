@@ -96,6 +96,13 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Current state of the desired VPC.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
@@ -144,6 +151,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         this.dhcpOptionsId = $.dhcpOptionsId;
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.state = $.state;
         this.tags = $.tags;
     }
@@ -281,6 +289,15 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

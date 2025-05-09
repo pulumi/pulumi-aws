@@ -32,6 +32,13 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         return this.certificateId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -43,6 +50,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetCertificateArgs(GetCertificateArgs $) {
         this.certificateId = $.certificateId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -83,6 +91,15 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder certificateId(String certificateId) {
             return certificateId(Output.of(certificateId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

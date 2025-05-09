@@ -29,10 +29,18 @@ public final class GetQueuesPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.queueNamePrefix);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetQueuesPlainArgs() {}
 
     private GetQueuesPlainArgs(GetQueuesPlainArgs $) {
         this.queueNamePrefix = $.queueNamePrefix;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -61,6 +69,11 @@ public final class GetQueuesPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder queueNamePrefix(@Nullable String queueNamePrefix) {
             $.queueNamePrefix = queueNamePrefix;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

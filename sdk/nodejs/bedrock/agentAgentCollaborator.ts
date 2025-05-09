@@ -156,6 +156,10 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
      */
     public readonly prepareAgent!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configure relaying the history to the collaborator.
      */
     public readonly relayConversationHistory!: pulumi.Output<string>;
@@ -181,6 +185,7 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
             resourceInputs["collaboratorId"] = state ? state.collaboratorId : undefined;
             resourceInputs["collaboratorName"] = state ? state.collaboratorName : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relayConversationHistory"] = state ? state.relayConversationHistory : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
@@ -200,6 +205,7 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
             resourceInputs["collaborationInstruction"] = args ? args.collaborationInstruction : undefined;
             resourceInputs["collaboratorName"] = args ? args.collaboratorName : undefined;
             resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["relayConversationHistory"] = args ? args.relayConversationHistory : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["collaboratorId"] = undefined /*out*/;
@@ -233,6 +239,10 @@ export interface AgentAgentCollaboratorState {
      */
     prepareAgent?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configure relaying the history to the collaborator.
      */
     relayConversationHistory?: pulumi.Input<string>;
@@ -258,6 +268,10 @@ export interface AgentAgentCollaboratorArgs {
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     prepareAgent?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configure relaying the history to the collaborator.
      */

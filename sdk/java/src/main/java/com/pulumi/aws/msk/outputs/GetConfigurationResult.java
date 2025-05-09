@@ -38,6 +38,7 @@ public final class GetConfigurationResult {
      */
     private Integer latestRevision;
     private String name;
+    private String region;
     /**
      * @return Contents of the server.properties file.
      * 
@@ -83,6 +84,9 @@ public final class GetConfigurationResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Contents of the server.properties file.
      * 
@@ -106,6 +110,7 @@ public final class GetConfigurationResult {
         private List<String> kafkaVersions;
         private Integer latestRevision;
         private String name;
+        private String region;
         private String serverProperties;
         public Builder() {}
         public Builder(GetConfigurationResult defaults) {
@@ -116,6 +121,7 @@ public final class GetConfigurationResult {
     	      this.kafkaVersions = defaults.kafkaVersions;
     	      this.latestRevision = defaults.latestRevision;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.serverProperties = defaults.serverProperties;
         }
 
@@ -171,6 +177,14 @@ public final class GetConfigurationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serverProperties(String serverProperties) {
             if (serverProperties == null) {
               throw new MissingRequiredPropertyException("GetConfigurationResult", "serverProperties");
@@ -186,6 +200,7 @@ public final class GetConfigurationResult {
             _resultValue.kafkaVersions = kafkaVersions;
             _resultValue.latestRevision = latestRevision;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.serverProperties = serverProperties;
             return _resultValue;
         }

@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getStateMachineVersions(args: GetStateMachineVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getStateMachineVersions:getStateMachineVersions", {
+        "region": args.region,
         "statemachineArn": args.statemachineArn,
     }, opts);
 }
@@ -31,6 +32,7 @@ export function getStateMachineVersions(args: GetStateMachineVersionsArgs, opts?
  * A collection of arguments for invoking getStateMachineVersions.
  */
 export interface GetStateMachineVersionsArgs {
+    region?: string;
     /**
      * ARN of the State Machine.
      */
@@ -45,6 +47,7 @@ export interface GetStateMachineVersionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly statemachineArn: string;
     /**
      * ARN List identifying the statemachine versions.
@@ -70,6 +73,7 @@ export interface GetStateMachineVersionsResult {
 export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStateMachineVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sfn/getStateMachineVersions:getStateMachineVersions", {
+        "region": args.region,
         "statemachineArn": args.statemachineArn,
     }, opts);
 }
@@ -78,6 +82,7 @@ export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutpu
  * A collection of arguments for invoking getStateMachineVersions.
  */
 export interface GetStateMachineVersionsOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * ARN of the State Machine.
      */

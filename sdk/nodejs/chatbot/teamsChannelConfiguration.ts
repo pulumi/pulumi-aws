@@ -97,6 +97,10 @@ export class TeamsChannelConfiguration extends pulumi.CustomResource {
      */
     public readonly loggingLevel!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      */
     public readonly snsTopicArns!: pulumi.Output<string[]>;
@@ -148,6 +152,7 @@ export class TeamsChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["guardrailPolicyArns"] = state ? state.guardrailPolicyArns : undefined;
             resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             resourceInputs["loggingLevel"] = state ? state.loggingLevel : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snsTopicArns"] = state ? state.snsTopicArns : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -179,6 +184,7 @@ export class TeamsChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["guardrailPolicyArns"] = args ? args.guardrailPolicyArns : undefined;
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["teamId"] = args ? args.teamId : undefined;
@@ -226,6 +232,10 @@ export interface TeamsChannelConfigurationState {
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      */
     loggingLevel?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      */
@@ -287,6 +297,10 @@ export interface TeamsChannelConfigurationArgs {
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      */
     loggingLevel?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      */

@@ -187,6 +187,8 @@ type Service struct {
 	NetworkConfiguration ServiceNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration ServiceObservabilityConfigurationPtrOutput `pulumi:"observabilityConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 	// Name of the service.
@@ -255,6 +257,8 @@ type serviceState struct {
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId *string `pulumi:"serviceId"`
 	// Name of the service.
@@ -288,6 +292,8 @@ type ServiceState struct {
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration ServiceObservabilityConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId pulumi.StringPtrInput
 	// Name of the service.
@@ -323,6 +329,8 @@ type serviceArgs struct {
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the service.
 	ServiceName string `pulumi:"serviceName"`
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -347,6 +355,8 @@ type ServiceArgs struct {
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration ServiceObservabilityConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the service.
 	ServiceName pulumi.StringInput
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -477,6 +487,11 @@ func (o ServiceOutput) NetworkConfiguration() ServiceNetworkConfigurationOutput 
 // The observability configuration of your service. See Observability Configuration below for more details.
 func (o ServiceOutput) ObservabilityConfiguration() ServiceObservabilityConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceObservabilityConfigurationPtrOutput { return v.ObservabilityConfiguration }).(ServiceObservabilityConfigurationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.

@@ -40,6 +40,7 @@ public final class GetAccessEntryResult {
      */
     private String modifiedAt;
     private String principalArn;
+    private String region;
     private @Nullable Map<String,String> tags;
     /**
      * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
@@ -99,6 +100,9 @@ public final class GetAccessEntryResult {
     public String principalArn() {
         return this.principalArn;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -140,6 +144,7 @@ public final class GetAccessEntryResult {
         private List<String> kubernetesGroups;
         private String modifiedAt;
         private String principalArn;
+        private String region;
         private @Nullable Map<String,String> tags;
         private Map<String,String> tagsAll;
         private String type;
@@ -154,6 +159,7 @@ public final class GetAccessEntryResult {
     	      this.kubernetesGroups = defaults.kubernetesGroups;
     	      this.modifiedAt = defaults.modifiedAt;
     	      this.principalArn = defaults.principalArn;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.tagsAll = defaults.tagsAll;
     	      this.type = defaults.type;
@@ -220,6 +226,14 @@ public final class GetAccessEntryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAccessEntryResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -258,6 +272,7 @@ public final class GetAccessEntryResult {
             _resultValue.kubernetesGroups = kubernetesGroups;
             _resultValue.modifiedAt = modifiedAt;
             _resultValue.principalArn = principalArn;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.tagsAll = tagsAll;
             _resultValue.type = type;

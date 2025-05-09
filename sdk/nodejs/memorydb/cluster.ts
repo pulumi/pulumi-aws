@@ -147,6 +147,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -224,6 +228,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["numShards"] = state ? state.numShards : undefined;
             resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["shards"] = state ? state.shards : undefined;
             resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
@@ -260,6 +265,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["numShards"] = args ? args.numShards : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
@@ -363,6 +369,10 @@ export interface ClusterState {
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      */
     port?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      */
@@ -483,6 +493,10 @@ export interface ClusterArgs {
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      */
     port?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      */

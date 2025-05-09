@@ -31,6 +31,7 @@ public final class GetParametersByPathResult {
     private List<String> names;
     private String path;
     private @Nullable Boolean recursive;
+    private String region;
     /**
      * @return A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
      * 
@@ -71,6 +72,9 @@ public final class GetParametersByPathResult {
     public Optional<Boolean> recursive() {
         return Optional.ofNullable(this.recursive);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
      * 
@@ -103,6 +107,7 @@ public final class GetParametersByPathResult {
         private List<String> names;
         private String path;
         private @Nullable Boolean recursive;
+        private String region;
         private List<String> types;
         private List<String> values;
         private @Nullable Boolean withDecryption;
@@ -114,6 +119,7 @@ public final class GetParametersByPathResult {
     	      this.names = defaults.names;
     	      this.path = defaults.path;
     	      this.recursive = defaults.recursive;
+    	      this.region = defaults.region;
     	      this.types = defaults.types;
     	      this.values = defaults.values;
     	      this.withDecryption = defaults.withDecryption;
@@ -164,6 +170,14 @@ public final class GetParametersByPathResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetParametersByPathResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder types(List<String> types) {
             if (types == null) {
               throw new MissingRequiredPropertyException("GetParametersByPathResult", "types");
@@ -198,6 +212,7 @@ public final class GetParametersByPathResult {
             _resultValue.names = names;
             _resultValue.path = path;
             _resultValue.recursive = recursive;
+            _resultValue.region = region;
             _resultValue.types = types;
             _resultValue.values = values;
             _resultValue.withDecryption = withDecryption;

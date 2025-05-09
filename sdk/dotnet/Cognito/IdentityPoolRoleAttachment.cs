@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Cognito
         public Output<string> IdentityPoolId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A List of Role Mapping.
         /// </summary>
         [Output("roleMappings")]
@@ -93,6 +99,12 @@ namespace Pulumi.Aws.Cognito
         [Input("identityPoolId", required: true)]
         public Input<string> IdentityPoolId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("roleMappings")]
         private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>? _roleMappings;
 
@@ -130,6 +142,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("identityPoolId")]
         public Input<string>? IdentityPoolId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("roleMappings")]
         private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs>? _roleMappings;

@@ -64,6 +64,8 @@ type Configuration struct {
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
 	// Name of the configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
 	ServerProperties pulumi.StringOutput `pulumi:"serverProperties"`
 }
@@ -111,6 +113,8 @@ type configurationState struct {
 	LatestRevision *int `pulumi:"latestRevision"`
 	// Name of the configuration.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
 	ServerProperties *string `pulumi:"serverProperties"`
 }
@@ -126,6 +130,8 @@ type ConfigurationState struct {
 	LatestRevision pulumi.IntPtrInput
 	// Name of the configuration.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
 	ServerProperties pulumi.StringPtrInput
 }
@@ -141,6 +147,8 @@ type configurationArgs struct {
 	KafkaVersions []string `pulumi:"kafkaVersions"`
 	// Name of the configuration.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
 	ServerProperties string `pulumi:"serverProperties"`
 }
@@ -153,6 +161,8 @@ type ConfigurationArgs struct {
 	KafkaVersions pulumi.StringArrayInput
 	// Name of the configuration.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
 	ServerProperties pulumi.StringInput
 }
@@ -267,6 +277,11 @@ func (o ConfigurationOutput) LatestRevision() pulumi.IntOutput {
 // Name of the configuration.
 func (o ConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).

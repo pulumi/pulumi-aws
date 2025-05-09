@@ -32,6 +32,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         /// </summary>
         [Output("resourceArn")]
@@ -104,6 +110,12 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class ContributorManagedInsightRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -141,6 +153,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.

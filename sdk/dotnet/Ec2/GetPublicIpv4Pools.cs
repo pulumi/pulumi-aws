@@ -183,6 +183,9 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -218,6 +221,9 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -252,6 +258,7 @@ namespace Pulumi.Aws.Ec2
         /// List of all the pool IDs found.
         /// </summary>
         public readonly ImmutableArray<string> PoolIds;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
@@ -262,11 +269,14 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> poolIds,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Filters = filters;
             Id = id;
             PoolIds = poolIds;
+            Region = region;
             Tags = tags;
         }
     }

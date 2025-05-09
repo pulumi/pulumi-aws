@@ -49,6 +49,7 @@ public final class GetJobQueueResult {
      * 
      */
     private Integer priority;
+    private String region;
     /**
      * @return The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
      * 
@@ -123,6 +124,9 @@ public final class GetJobQueueResult {
     public Integer priority() {
         return this.priority;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
      * 
@@ -175,6 +179,7 @@ public final class GetJobQueueResult {
         private List<GetJobQueueJobStateTimeLimitAction> jobStateTimeLimitActions;
         private String name;
         private Integer priority;
+        private String region;
         private String schedulingPolicyArn;
         private String state;
         private String status;
@@ -189,6 +194,7 @@ public final class GetJobQueueResult {
     	      this.jobStateTimeLimitActions = defaults.jobStateTimeLimitActions;
     	      this.name = defaults.name;
     	      this.priority = defaults.priority;
+    	      this.region = defaults.region;
     	      this.schedulingPolicyArn = defaults.schedulingPolicyArn;
     	      this.state = defaults.state;
     	      this.status = defaults.status;
@@ -251,6 +257,14 @@ public final class GetJobQueueResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schedulingPolicyArn(String schedulingPolicyArn) {
             if (schedulingPolicyArn == null) {
               throw new MissingRequiredPropertyException("GetJobQueueResult", "schedulingPolicyArn");
@@ -298,6 +312,7 @@ public final class GetJobQueueResult {
             _resultValue.jobStateTimeLimitActions = jobStateTimeLimitActions;
             _resultValue.name = name;
             _resultValue.priority = priority;
+            _resultValue.region = region;
             _resultValue.schedulingPolicyArn = schedulingPolicyArn;
             _resultValue.state = state;
             _resultValue.status = status;

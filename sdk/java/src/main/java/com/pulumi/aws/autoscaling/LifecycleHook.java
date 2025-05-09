@@ -201,6 +201,20 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notificationTargetArn);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */

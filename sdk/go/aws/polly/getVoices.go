@@ -82,6 +82,7 @@ type GetVoicesArgs struct {
 	IncludeAdditionalLanguageCodes *bool `pulumi:"includeAdditionalLanguageCodes"`
 	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
 	LanguageCode *string `pulumi:"languageCode"`
+	Region       *string `pulumi:"region"`
 	// List of voices with their properties. See `voices` Attribute Reference below.
 	Voices []GetVoicesVoice `pulumi:"voices"`
 }
@@ -94,6 +95,7 @@ type GetVoicesResult struct {
 	IncludeAdditionalLanguageCodes *bool  `pulumi:"includeAdditionalLanguageCodes"`
 	// Language code of the voice.
 	LanguageCode *string `pulumi:"languageCode"`
+	Region       string  `pulumi:"region"`
 	// List of voices with their properties. See `voices` Attribute Reference below.
 	Voices []GetVoicesVoice `pulumi:"voices"`
 }
@@ -115,6 +117,7 @@ type GetVoicesOutputArgs struct {
 	IncludeAdditionalLanguageCodes pulumi.BoolPtrInput `pulumi:"includeAdditionalLanguageCodes"`
 	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
 	LanguageCode pulumi.StringPtrInput `pulumi:"languageCode"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	// List of voices with their properties. See `voices` Attribute Reference below.
 	Voices GetVoicesVoiceArrayInput `pulumi:"voices"`
 }
@@ -154,6 +157,10 @@ func (o GetVoicesResultOutput) IncludeAdditionalLanguageCodes() pulumi.BoolPtrOu
 // Language code of the voice.
 func (o GetVoicesResultOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetVoicesResult) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
+}
+
+func (o GetVoicesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVoicesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of voices with their properties. See `voices` Attribute Reference below.

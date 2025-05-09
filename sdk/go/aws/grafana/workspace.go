@@ -164,6 +164,8 @@ type Workspace struct {
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringOutput `pulumi:"permissionType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrOutput `pulumi:"roleArn"`
 	SamlConfigurationStatus pulumi.StringOutput    `pulumi:"samlConfigurationStatus"`
@@ -246,6 +248,8 @@ type workspaceState struct {
 	//
 	// The following arguments are optional:
 	PermissionType *string `pulumi:"permissionType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 *string `pulumi:"roleArn"`
 	SamlConfigurationStatus *string `pulumi:"samlConfigurationStatus"`
@@ -290,6 +294,8 @@ type WorkspaceState struct {
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrInput
 	SamlConfigurationStatus pulumi.StringPtrInput
@@ -334,6 +340,8 @@ type workspaceArgs struct {
 	//
 	// The following arguments are optional:
 	PermissionType string `pulumi:"permissionType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn *string `pulumi:"roleArn"`
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
@@ -372,6 +380,8 @@ type WorkspaceArgs struct {
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM role ARN that the workspace assumes.
 	RoleArn pulumi.StringPtrInput
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
@@ -539,6 +549,11 @@ func (o WorkspaceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 // The following arguments are optional:
 func (o WorkspaceOutput) PermissionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PermissionType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WorkspaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The IAM role ARN that the workspace assumes.

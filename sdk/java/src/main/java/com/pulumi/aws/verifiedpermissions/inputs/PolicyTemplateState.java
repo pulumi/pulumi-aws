@@ -76,6 +76,21 @@ public final class PolicyTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Defines the content of the statement, written in Cedar policy language.
      * 
      * The following arguments are optional:
@@ -101,6 +116,7 @@ public final class PolicyTemplateState extends com.pulumi.resources.ResourceArgs
         this.description = $.description;
         this.policyStoreId = $.policyStoreId;
         this.policyTemplateId = $.policyTemplateId;
+        this.region = $.region;
         this.statement = $.statement;
     }
 
@@ -204,6 +220,27 @@ public final class PolicyTemplateState extends com.pulumi.resources.ResourceArgs
          */
         public Builder policyTemplateId(String policyTemplateId) {
             return policyTemplateId(Output.of(policyTemplateId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

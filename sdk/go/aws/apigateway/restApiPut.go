@@ -95,6 +95,8 @@ type RestApiPut struct {
 	FailOnWarnings pulumi.BoolOutput `pulumi:"failOnWarnings"`
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the associated REST API.
 	//
 	// The following arguments are optional:
@@ -146,6 +148,8 @@ type restApiPutState struct {
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 	Parameters map[string]string `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the associated REST API.
 	//
 	// The following arguments are optional:
@@ -162,6 +166,8 @@ type RestApiPutState struct {
 	FailOnWarnings pulumi.BoolPtrInput
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 	Parameters pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the associated REST API.
 	//
 	// The following arguments are optional:
@@ -182,6 +188,8 @@ type restApiPutArgs struct {
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 	Parameters map[string]string `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the associated REST API.
 	//
 	// The following arguments are optional:
@@ -199,6 +207,8 @@ type RestApiPutArgs struct {
 	FailOnWarnings pulumi.BoolPtrInput
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 	Parameters pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the associated REST API.
 	//
 	// The following arguments are optional:
@@ -308,6 +318,11 @@ func (o RestApiPutOutput) FailOnWarnings() pulumi.BoolOutput {
 // Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 func (o RestApiPutOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestApiPut) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RestApiPutOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestApiPut) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the associated REST API.

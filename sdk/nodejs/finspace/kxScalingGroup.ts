@@ -94,6 +94,10 @@ export class KxScalingGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of scaling group.
      * * `CREATING` – The scaling group creation is in progress.
      * * `CREATE_FAILED` – The scaling group creation has failed.
@@ -139,6 +143,7 @@ export class KxScalingGroup extends pulumi.CustomResource {
             resourceInputs["hostType"] = state ? state.hostType : undefined;
             resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusReason"] = state ? state.statusReason : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -158,6 +163,7 @@ export class KxScalingGroup extends pulumi.CustomResource {
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["hostType"] = args ? args.hostType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -211,6 +217,10 @@ export interface KxScalingGroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of scaling group.
      * * `CREATING` – The scaling group creation is in progress.
      * * `CREATE_FAILED` – The scaling group creation has failed.
@@ -258,6 +268,10 @@ export interface KxScalingGroupArgs {
      * Unique name for the scaling group that you want to create.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
      */

@@ -35,8 +35,6 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Identifier for the data set.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
@@ -44,11 +42,16 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Identifier for the data set.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Output<String> dataSetId() {
         return this.dataSetId;
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     @Import(name="tags")
@@ -63,6 +66,7 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
     private GetDataSetArgs(GetDataSetArgs $) {
         this.awsAccountId = $.awsAccountId;
         this.dataSetId = $.dataSetId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -108,8 +112,6 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param dataSetId Identifier for the data set.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -121,13 +123,20 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param dataSetId Identifier for the data set.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
         public Builder dataSetId(String dataSetId) {
             return dataSetId(Output.of(dataSetId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

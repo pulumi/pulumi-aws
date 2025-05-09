@@ -26,6 +26,7 @@ public final class GetVpcIpamPoolCidrsResult {
      */
     private List<GetVpcIpamPoolCidrsIpamPoolCidr> ipamPoolCidrs;
     private String ipamPoolId;
+    private String region;
 
     private GetVpcIpamPoolCidrsResult() {}
     public List<GetVpcIpamPoolCidrsFilter> filters() {
@@ -48,6 +49,9 @@ public final class GetVpcIpamPoolCidrsResult {
     public String ipamPoolId() {
         return this.ipamPoolId;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,6 +66,7 @@ public final class GetVpcIpamPoolCidrsResult {
         private String id;
         private List<GetVpcIpamPoolCidrsIpamPoolCidr> ipamPoolCidrs;
         private String ipamPoolId;
+        private String region;
         public Builder() {}
         public Builder(GetVpcIpamPoolCidrsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,6 +74,7 @@ public final class GetVpcIpamPoolCidrsResult {
     	      this.id = defaults.id;
     	      this.ipamPoolCidrs = defaults.ipamPoolCidrs;
     	      this.ipamPoolId = defaults.ipamPoolId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -107,12 +113,21 @@ public final class GetVpcIpamPoolCidrsResult {
             this.ipamPoolId = ipamPoolId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamPoolCidrsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetVpcIpamPoolCidrsResult build() {
             final var _resultValue = new GetVpcIpamPoolCidrsResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ipamPoolCidrs = ipamPoolCidrs;
             _resultValue.ipamPoolId = ipamPoolId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -23,6 +23,7 @@ public final class GetResourcesResult {
      */
     private String id;
     private @Nullable Boolean includeComplianceDetails;
+    private String region;
     private @Nullable List<String> resourceArnLists;
     /**
      * @return List of objects matching the search criteria.
@@ -45,6 +46,9 @@ public final class GetResourcesResult {
     }
     public Optional<Boolean> includeComplianceDetails() {
         return Optional.ofNullable(this.includeComplianceDetails);
+    }
+    public String region() {
+        return this.region;
     }
     public List<String> resourceArnLists() {
         return this.resourceArnLists == null ? List.of() : this.resourceArnLists;
@@ -75,6 +79,7 @@ public final class GetResourcesResult {
         private @Nullable Boolean excludeCompliantResources;
         private String id;
         private @Nullable Boolean includeComplianceDetails;
+        private String region;
         private @Nullable List<String> resourceArnLists;
         private List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
         private @Nullable List<String> resourceTypeFilters;
@@ -85,6 +90,7 @@ public final class GetResourcesResult {
     	      this.excludeCompliantResources = defaults.excludeCompliantResources;
     	      this.id = defaults.id;
     	      this.includeComplianceDetails = defaults.includeComplianceDetails;
+    	      this.region = defaults.region;
     	      this.resourceArnLists = defaults.resourceArnLists;
     	      this.resourceTagMappingLists = defaults.resourceTagMappingLists;
     	      this.resourceTypeFilters = defaults.resourceTypeFilters;
@@ -109,6 +115,14 @@ public final class GetResourcesResult {
         public Builder includeComplianceDetails(@Nullable Boolean includeComplianceDetails) {
 
             this.includeComplianceDetails = includeComplianceDetails;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -154,6 +168,7 @@ public final class GetResourcesResult {
             _resultValue.excludeCompliantResources = excludeCompliantResources;
             _resultValue.id = id;
             _resultValue.includeComplianceDetails = includeComplianceDetails;
+            _resultValue.region = region;
             _resultValue.resourceArnLists = resourceArnLists;
             _resultValue.resourceTagMappingLists = resourceTagMappingLists;
             _resultValue.resourceTypeFilters = resourceTypeFilters;

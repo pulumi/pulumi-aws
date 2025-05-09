@@ -90,6 +90,8 @@ type TableReplica struct {
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrOutput `pulumi:"pointInTimeRecovery"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrOutput `pulumi:"tableClassOverride"`
 	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,6 +145,8 @@ type tableReplicaState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride *string `pulumi:"tableClassOverride"`
 	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,6 +168,8 @@ type TableReplicaState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrInput
 	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -187,6 +193,8 @@ type tableReplicaArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride *string `pulumi:"tableClassOverride"`
 	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -205,6 +213,8 @@ type TableReplicaArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrInput
 	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -323,6 +333,11 @@ func (o TableReplicaOutput) KmsKeyArn() pulumi.StringOutput {
 // Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 func (o TableReplicaOutput) PointInTimeRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.BoolPtrOutput { return v.PointInTimeRecovery }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TableReplicaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.

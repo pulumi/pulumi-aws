@@ -77,6 +77,13 @@ public final class GetVpcIpamPoolPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.ipamPoolId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags to assigned to the resource.
      * 
@@ -99,6 +106,7 @@ public final class GetVpcIpamPoolPlainArgs extends com.pulumi.resources.InvokeAr
         this.filters = $.filters;
         this.id = $.id;
         this.ipamPoolId = $.ipamPoolId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -171,6 +179,11 @@ public final class GetVpcIpamPoolPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder ipamPoolId(@Nullable String ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

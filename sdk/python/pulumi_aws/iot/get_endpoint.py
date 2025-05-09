@@ -27,7 +27,7 @@ class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
-    def __init__(__self__, endpoint_address=None, endpoint_type=None, id=None):
+    def __init__(__self__, endpoint_address=None, endpoint_type=None, id=None, region=None):
         if endpoint_address and not isinstance(endpoint_address, str):
             raise TypeError("Expected argument 'endpoint_address' to be a str")
         pulumi.set(__self__, "endpoint_address", endpoint_address)
@@ -37,6 +37,9 @@ class GetEndpointResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="endpointAddress")
@@ -64,6 +67,11 @@ class GetEndpointResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetEndpointResult(GetEndpointResult):
     # pylint: disable=using-constant-test
@@ -73,10 +81,12 @@ class AwaitableGetEndpointResult(GetEndpointResult):
         return GetEndpointResult(
             endpoint_address=self.endpoint_address,
             endpoint_type=self.endpoint_type,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_endpoint(endpoint_type: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Returns a unique endpoint specific to the AWS account making the call.
@@ -86,14 +96,17 @@ def get_endpoint(endpoint_type: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['endpointType'] = endpoint_type
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
 
     return AwaitableGetEndpointResult(
         endpoint_address=pulumi.get(__ret__, 'endpoint_address'),
         endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Returns a unique endpoint specific to the AWS account making the call.
@@ -103,9 +116,11 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[builtins.s
     """
     __args__ = dict()
     __args__['endpointType'] = endpoint_type
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iot/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
     return __ret__.apply(lambda __response__: GetEndpointResult(
         endpoint_address=pulumi.get(__response__, 'endpoint_address'),
         endpoint_type=pulumi.get(__response__, 'endpoint_type'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

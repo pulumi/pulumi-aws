@@ -140,6 +140,12 @@ namespace Pulumi.Aws.Connect
         [Output("lexBot")]
         public Output<Outputs.BotAssociationLexBot> LexBot { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BotAssociation resource with the given unique name, arguments, and options.
@@ -198,6 +204,12 @@ namespace Pulumi.Aws.Connect
         [Input("lexBot", required: true)]
         public Input<Inputs.BotAssociationLexBotArgs> LexBot { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public BotAssociationArgs()
         {
         }
@@ -217,6 +229,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("lexBot")]
         public Input<Inputs.BotAssociationLexBotGetArgs>? LexBot { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public BotAssociationState()
         {

@@ -155,6 +155,10 @@ export class Target extends pulumi.CustomResource {
      */
     public readonly minCapacity!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -199,6 +203,7 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             resourceInputs["minCapacity"] = state ? state.minCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["scalableDimension"] = state ? state.scalableDimension : undefined;
@@ -225,6 +230,7 @@ export class Target extends pulumi.CustomResource {
             }
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
@@ -255,6 +261,10 @@ export interface TargetState {
      * Min capacity of the scalable target.
      */
     minCapacity?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
@@ -297,6 +307,10 @@ export interface TargetArgs {
      * Min capacity of the scalable target.
      */
     minCapacity: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */

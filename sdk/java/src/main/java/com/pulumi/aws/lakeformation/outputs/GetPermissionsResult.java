@@ -44,6 +44,7 @@ public final class GetPermissionsResult {
      */
     private List<String> permissionsWithGrantOptions;
     private String principal;
+    private String region;
     private GetPermissionsTable table;
     private GetPermissionsTableWithColumns tableWithColumns;
 
@@ -93,6 +94,9 @@ public final class GetPermissionsResult {
     public String principal() {
         return this.principal;
     }
+    public String region() {
+        return this.region;
+    }
     public GetPermissionsTable table() {
         return this.table;
     }
@@ -120,6 +124,7 @@ public final class GetPermissionsResult {
         private List<String> permissions;
         private List<String> permissionsWithGrantOptions;
         private String principal;
+        private String region;
         private GetPermissionsTable table;
         private GetPermissionsTableWithColumns tableWithColumns;
         public Builder() {}
@@ -136,6 +141,7 @@ public final class GetPermissionsResult {
     	      this.permissions = defaults.permissions;
     	      this.permissionsWithGrantOptions = defaults.permissionsWithGrantOptions;
     	      this.principal = defaults.principal;
+    	      this.region = defaults.region;
     	      this.table = defaults.table;
     	      this.tableWithColumns = defaults.tableWithColumns;
         }
@@ -231,6 +237,14 @@ public final class GetPermissionsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder table(GetPermissionsTable table) {
             if (table == null) {
               throw new MissingRequiredPropertyException("GetPermissionsResult", "table");
@@ -259,6 +273,7 @@ public final class GetPermissionsResult {
             _resultValue.permissions = permissions;
             _resultValue.permissionsWithGrantOptions = permissionsWithGrantOptions;
             _resultValue.principal = principal;
+            _resultValue.region = region;
             _resultValue.table = table;
             _resultValue.tableWithColumns = tableWithColumns;
             return _resultValue;

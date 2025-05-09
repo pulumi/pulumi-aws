@@ -21,6 +21,7 @@ public final class GetClustersResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetClustersResult() {}
     /**
@@ -37,6 +38,9 @@ public final class GetClustersResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +53,13 @@ public final class GetClustersResult {
     public static final class Builder {
         private List<String> clusterArns;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetClustersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterArns = defaults.clusterArns;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -75,10 +81,19 @@ public final class GetClustersResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClustersResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetClustersResult build() {
             final var _resultValue = new GetClustersResult();
             _resultValue.clusterArns = clusterArns;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -76,6 +76,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly pricingPlan!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A detail pricing plan of the  reserved queue. See below.
      */
     public readonly reservationPlanSettings!: pulumi.Output<outputs.mediaconvert.QueueReservationPlanSettings>;
@@ -110,6 +114,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pricingPlan"] = state ? state.pricingPlan : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reservationPlanSettings"] = state ? state.reservationPlanSettings : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -120,6 +125,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reservationPlanSettings"] = args ? args.reservationPlanSettings : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -155,6 +161,10 @@ export interface QueueState {
      * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      */
     pricingPlan?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */
@@ -193,6 +203,10 @@ export interface QueueArgs {
      * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      */
     pricingPlan?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */

@@ -53,7 +53,8 @@ func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessS
 // A collection of arguments for invoking getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigArgs struct {
 	// The unique identifier of the security configuration.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// SAML options for the security configuration.
 	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
 }
@@ -69,6 +70,7 @@ type LookupServerlessSecurityConfigResult struct {
 	Id          string `pulumi:"id"`
 	// The date the configuration was last modified.
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
+	Region           string `pulumi:"region"`
 	// SAML options for the security configuration.
 	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
 	// The type of security configuration.
@@ -87,7 +89,8 @@ func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServer
 // A collection of arguments for invoking getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigOutputArgs struct {
 	// The unique identifier of the security configuration.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// SAML options for the security configuration.
 	SamlOptions GetServerlessSecurityConfigSamlOptionArrayInput `pulumi:"samlOptions"`
 }
@@ -133,6 +136,10 @@ func (o LookupServerlessSecurityConfigResultOutput) Id() pulumi.StringOutput {
 // The date the configuration was last modified.
 func (o LookupServerlessSecurityConfigResultOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessSecurityConfigResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // SAML options for the security configuration.

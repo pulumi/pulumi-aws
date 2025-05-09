@@ -65,6 +65,21 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.keyStorePassword);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="trustAnchorCertificate")
     private @Nullable Output<String> trustAnchorCertificate;
 
@@ -114,6 +129,7 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
         this.customKeyStoreName = $.customKeyStoreName;
         this.customKeyStoreType = $.customKeyStoreType;
         this.keyStorePassword = $.keyStorePassword;
+        this.region = $.region;
         this.trustAnchorCertificate = $.trustAnchorCertificate;
         this.xksProxyAuthenticationCredential = $.xksProxyAuthenticationCredential;
         this.xksProxyConnectivity = $.xksProxyConnectivity;
@@ -202,6 +218,27 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder keyStorePassword(String keyStorePassword) {
             return keyStorePassword(Output.of(keyStorePassword));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder trustAnchorCertificate(@Nullable Output<String> trustAnchorCertificate) {

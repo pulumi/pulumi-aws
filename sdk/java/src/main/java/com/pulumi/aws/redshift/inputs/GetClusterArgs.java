@@ -32,6 +32,13 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         return this.clusterIdentifier;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Tags associated to the cluster
      * 
@@ -51,6 +58,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetClusterArgs(GetClusterArgs $) {
         this.clusterIdentifier = $.clusterIdentifier;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

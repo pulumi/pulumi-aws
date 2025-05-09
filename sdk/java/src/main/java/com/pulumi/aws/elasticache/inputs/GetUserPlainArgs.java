@@ -61,6 +61,13 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.passwords);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Identifier for the user.
      * 
@@ -99,6 +106,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.engine = $.engine;
         this.noPasswordRequired = $.noPasswordRequired;
         this.passwords = $.passwords;
+        this.region = $.region;
         this.userId = $.userId;
         this.userName = $.userName;
     }
@@ -158,6 +166,11 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder passwords(String... passwords) {
             return passwords(List.of(passwords));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

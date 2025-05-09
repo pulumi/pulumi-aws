@@ -85,6 +85,10 @@ export class TableItem extends pulumi.CustomResource {
      */
     public readonly rangeKey!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the table to contain the item.
      */
     public readonly tableName!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class TableItem extends pulumi.CustomResource {
             resourceInputs["hashKey"] = state ? state.hashKey : undefined;
             resourceInputs["item"] = state ? state.item : undefined;
             resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableItemArgs | undefined;
@@ -120,6 +125,7 @@ export class TableItem extends pulumi.CustomResource {
             resourceInputs["hashKey"] = args ? args.hashKey : undefined;
             resourceInputs["item"] = args ? args.item : undefined;
             resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -144,6 +150,10 @@ export interface TableItemState {
      */
     rangeKey?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the table to contain the item.
      */
     tableName?: pulumi.Input<string>;
@@ -165,6 +175,10 @@ export interface TableItemArgs {
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
     rangeKey?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the table to contain the item.
      */

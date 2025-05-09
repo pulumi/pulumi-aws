@@ -132,6 +132,21 @@ public final class NetworkInsightsAnalysisState extends com.pulumi.resources.Res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
@@ -261,6 +276,7 @@ public final class NetworkInsightsAnalysisState extends com.pulumi.resources.Res
         this.forwardPathComponents = $.forwardPathComponents;
         this.networkInsightsPathId = $.networkInsightsPathId;
         this.pathFound = $.pathFound;
+        this.region = $.region;
         this.returnPathComponents = $.returnPathComponents;
         this.startDate = $.startDate;
         this.status = $.status;
@@ -478,6 +494,27 @@ public final class NetworkInsightsAnalysisState extends com.pulumi.resources.Res
          */
         public Builder pathFound(Boolean pathFound) {
             return pathFound(Output.of(pathFound));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -102,6 +102,9 @@ namespace Pulumi.Aws.Lambda
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAliasArgs()
         {
         }
@@ -121,6 +124,9 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetAliasInvokeArgs()
         {
@@ -154,6 +160,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string InvokeArn;
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAliasResult(
@@ -169,7 +176,9 @@ namespace Pulumi.Aws.Lambda
 
             string invokeArn,
 
-            string name)
+            string name,
+
+            string region)
         {
             Arn = arn;
             Description = description;
@@ -178,6 +187,7 @@ namespace Pulumi.Aws.Lambda
             Id = id;
             InvokeArn = invokeArn;
             Name = name;
+            Region = region;
         }
     }
 }

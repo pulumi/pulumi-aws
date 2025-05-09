@@ -28,7 +28,7 @@ class GetRoutingProfileResult:
     """
     A collection of values returned by getRoutingProfile.
     """
-    def __init__(__self__, arn=None, default_outbound_queue_id=None, description=None, id=None, instance_id=None, media_concurrencies=None, name=None, queue_configs=None, routing_profile_id=None, tags=None):
+    def __init__(__self__, arn=None, default_outbound_queue_id=None, description=None, id=None, instance_id=None, media_concurrencies=None, name=None, queue_configs=None, region=None, routing_profile_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetRoutingProfileResult:
         if queue_configs and not isinstance(queue_configs, list):
             raise TypeError("Expected argument 'queue_configs' to be a list")
         pulumi.set(__self__, "queue_configs", queue_configs)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if routing_profile_id and not isinstance(routing_profile_id, str):
             raise TypeError("Expected argument 'routing_profile_id' to be a str")
         pulumi.set(__self__, "routing_profile_id", routing_profile_id)
@@ -119,6 +122,11 @@ class GetRoutingProfileResult:
         return pulumi.get(self, "queue_configs")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> builtins.str:
         return pulumi.get(self, "routing_profile_id")
@@ -146,12 +154,14 @@ class AwaitableGetRoutingProfileResult(GetRoutingProfileResult):
             media_concurrencies=self.media_concurrencies,
             name=self.name,
             queue_configs=self.queue_configs,
+            region=self.region,
             routing_profile_id=self.routing_profile_id,
             tags=self.tags)
 
 
 def get_routing_profile(instance_id: Optional[builtins.str] = None,
                         name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         routing_profile_id: Optional[builtins.str] = None,
                         tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoutingProfileResult:
@@ -189,6 +199,7 @@ def get_routing_profile(instance_id: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['routingProfileId'] = routing_profile_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -203,10 +214,12 @@ def get_routing_profile(instance_id: Optional[builtins.str] = None,
         media_concurrencies=pulumi.get(__ret__, 'media_concurrencies'),
         name=pulumi.get(__ret__, 'name'),
         queue_configs=pulumi.get(__ret__, 'queue_configs'),
+        region=pulumi.get(__ret__, 'region'),
         routing_profile_id=pulumi.get(__ret__, 'routing_profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_routing_profile_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
                                name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                routing_profile_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingProfileResult]:
@@ -244,6 +257,7 @@ def get_routing_profile_output(instance_id: Optional[pulumi.Input[builtins.str]]
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['routingProfileId'] = routing_profile_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -257,5 +271,6 @@ def get_routing_profile_output(instance_id: Optional[pulumi.Input[builtins.str]]
         media_concurrencies=pulumi.get(__response__, 'media_concurrencies'),
         name=pulumi.get(__response__, 'name'),
         queue_configs=pulumi.get(__response__, 'queue_configs'),
+        region=pulumi.get(__response__, 'region'),
         routing_profile_id=pulumi.get(__response__, 'routing_profile_id'),
         tags=pulumi.get(__response__, 'tags')))

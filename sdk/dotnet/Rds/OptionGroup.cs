@@ -133,6 +133,12 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<Outputs.OptionGroupOption>> Options { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         /// </summary>
         [Output("skipDestroy")]
@@ -239,6 +245,12 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         /// </summary>
         [Input("skipDestroy")]
@@ -312,6 +324,12 @@ namespace Pulumi.Aws.Rds
             get => _options ?? (_options = new InputList<Inputs.OptionGroupOptionGetArgs>());
             set => _options = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.

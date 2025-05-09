@@ -112,7 +112,10 @@ type LookupFirewallPolicyArgs struct {
 	// ARN of the firewall policy.
 	Arn *string `pulumi:"arn"`
 	// Descriptive name of the firewall policy.
-	Name *string `pulumi:"name"`
+	//
+	// One or more of these arguments is required.
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -125,8 +128,9 @@ type LookupFirewallPolicyResult struct {
 	// The [policy][2] for the specified firewall policy.
 	FirewallPolicies []GetFirewallPolicyFirewallPolicy `pulumi:"firewallPolicies"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string  `pulumi:"id"`
-	Name *string `pulumi:"name"`
+	Id     string  `pulumi:"id"`
+	Name   *string `pulumi:"name"`
+	Region string  `pulumi:"region"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
 	// Token used for optimistic locking.
@@ -147,7 +151,10 @@ type LookupFirewallPolicyOutputArgs struct {
 	// ARN of the firewall policy.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Descriptive name of the firewall policy.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	//
+	// One or more of these arguments is required.
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the firewall policy.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -192,6 +199,10 @@ func (o LookupFirewallPolicyResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupFirewallPolicyResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFirewallPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the firewall policy.

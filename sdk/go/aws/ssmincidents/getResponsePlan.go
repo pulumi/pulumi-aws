@@ -27,7 +27,8 @@ func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts 
 // A collection of arguments for invoking getResponsePlan.
 type LookupResponsePlanArgs struct {
 	// The Amazon Resource Name (ARN) of the response plan.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -49,7 +50,8 @@ type LookupResponsePlanResult struct {
 	// Information about third-party services integrated into the response plan. The following values are supported:
 	Integrations []GetResponsePlanIntegration `pulumi:"integrations"`
 	// The name of the PagerDuty configuration.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -66,7 +68,8 @@ func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutput
 // A collection of arguments for invoking getResponsePlan.
 type LookupResponsePlanOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the response plan.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -131,6 +134,10 @@ func (o LookupResponsePlanResultOutput) Integrations() GetResponsePlanIntegratio
 // The name of the PagerDuty configuration.
 func (o LookupResponsePlanResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupResponsePlanResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The tags applied to the response plan.

@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomerGateway{}
 	case "aws:ec2/dedicatedHost:DedicatedHost":
 		r = &DedicatedHost{}
+	case "aws:ec2/defaultCreditSpecification:DefaultCreditSpecification":
+		r = &DefaultCreditSpecification{}
 	case "aws:ec2/defaultNetworkAcl:DefaultNetworkAcl":
 		r = &DefaultNetworkAcl{}
 	case "aws:ec2/defaultRouteTable:DefaultRouteTable":
@@ -280,6 +282,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/dedicatedHost",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/defaultCreditSpecification",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

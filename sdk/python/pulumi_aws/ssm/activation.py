@@ -24,6 +24,7 @@ class ActivationArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  expiration_date: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_limit: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -32,6 +33,7 @@ class ActivationArgs:
         :param pulumi.Input[builtins.str] description: The description of the resource that you want to register.
         :param pulumi.Input[builtins.str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[builtins.str] name: The default name of the registered managed instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -42,6 +44,8 @@ class ActivationArgs:
             pulumi.set(__self__, "expiration_date", expiration_date)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registration_limit is not None:
             pulumi.set(__self__, "registration_limit", registration_limit)
         if tags is not None:
@@ -96,6 +100,18 @@ class ActivationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registrationLimit")
     def registration_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -129,6 +145,7 @@ class _ActivationState:
                  expired: Optional[pulumi.Input[builtins.bool]] = None,
                  iam_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_count: Optional[pulumi.Input[builtins.int]] = None,
                  registration_limit: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -141,6 +158,7 @@ class _ActivationState:
         :param pulumi.Input[builtins.bool] expired: If the current activation has expired.
         :param pulumi.Input[builtins.str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[builtins.str] name: The default name of the registered managed instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] registration_count: The number of managed instances that are currently registered using this activation.
         :param pulumi.Input[builtins.int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -158,6 +176,8 @@ class _ActivationState:
             pulumi.set(__self__, "iam_role", iam_role)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registration_count is not None:
             pulumi.set(__self__, "registration_count", registration_count)
         if registration_limit is not None:
@@ -240,6 +260,18 @@ class _ActivationState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registrationCount")
     def registration_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -300,6 +332,7 @@ class Activation(pulumi.CustomResource):
                  expiration_date: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_limit: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -349,6 +382,7 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[builtins.str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[builtins.str] name: The default name of the registered managed instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -417,6 +451,7 @@ class Activation(pulumi.CustomResource):
                  expiration_date: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_limit: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -434,6 +469,7 @@ class Activation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'iam_role'")
             __props__.__dict__["iam_role"] = iam_role
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["registration_limit"] = registration_limit
             __props__.__dict__["tags"] = tags
             __props__.__dict__["activation_code"] = None
@@ -456,6 +492,7 @@ class Activation(pulumi.CustomResource):
             expired: Optional[pulumi.Input[builtins.bool]] = None,
             iam_role: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registration_count: Optional[pulumi.Input[builtins.int]] = None,
             registration_limit: Optional[pulumi.Input[builtins.int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -473,6 +510,7 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] expired: If the current activation has expired.
         :param pulumi.Input[builtins.str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[builtins.str] name: The default name of the registered managed instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] registration_count: The number of managed instances that are currently registered using this activation.
         :param pulumi.Input[builtins.int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -488,6 +526,7 @@ class Activation(pulumi.CustomResource):
         __props__.__dict__["expired"] = expired
         __props__.__dict__["iam_role"] = iam_role
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["registration_count"] = registration_count
         __props__.__dict__["registration_limit"] = registration_limit
         __props__.__dict__["tags"] = tags
@@ -541,6 +580,14 @@ class Activation(pulumi.CustomResource):
         The default name of the registered managed instance.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registrationCount")

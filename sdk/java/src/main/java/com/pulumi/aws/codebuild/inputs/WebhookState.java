@@ -110,6 +110,21 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
      * 
      */
@@ -163,6 +178,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         this.manualCreation = $.manualCreation;
         this.payloadUrl = $.payloadUrl;
         this.projectName = $.projectName;
+        this.region = $.region;
         this.scopeConfiguration = $.scopeConfiguration;
         this.secret = $.secret;
         this.url = $.url;
@@ -320,6 +336,27 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

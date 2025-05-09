@@ -59,6 +59,7 @@ public final class GetDirectoryResult {
      */
     private String name;
     private List<GetDirectoryRadiusSetting> radiusSettings;
+    private String region;
     /**
      * @return ID of the security group created by the directory/connector.
      * 
@@ -152,6 +153,9 @@ public final class GetDirectoryResult {
     public List<GetDirectoryRadiusSetting> radiusSettings() {
         return this.radiusSettings;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ID of the security group created by the directory/connector.
      * 
@@ -211,6 +215,7 @@ public final class GetDirectoryResult {
         private String id;
         private String name;
         private List<GetDirectoryRadiusSetting> radiusSettings;
+        private String region;
         private String securityGroupId;
         private String shortName;
         private String size;
@@ -231,6 +236,7 @@ public final class GetDirectoryResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.radiusSettings = defaults.radiusSettings;
+    	      this.region = defaults.region;
     	      this.securityGroupId = defaults.securityGroupId;
     	      this.shortName = defaults.shortName;
     	      this.size = defaults.size;
@@ -337,6 +343,14 @@ public final class GetDirectoryResult {
             return radiusSettings(List.of(radiusSettings));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
             if (securityGroupId == null) {
               throw new MissingRequiredPropertyException("GetDirectoryResult", "securityGroupId");
@@ -400,6 +414,7 @@ public final class GetDirectoryResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.radiusSettings = radiusSettings;
+            _resultValue.region = region;
             _resultValue.securityGroupId = securityGroupId;
             _resultValue.shortName = shortName;
             _resultValue.size = size;

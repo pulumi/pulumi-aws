@@ -96,6 +96,9 @@ namespace Pulumi.Aws.Batch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -121,6 +124,9 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -157,6 +163,7 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
@@ -196,6 +203,8 @@ namespace Pulumi.Aws.Batch
 
             string name,
 
+            string region,
+
             string serviceRole,
 
             string state,
@@ -214,6 +223,7 @@ namespace Pulumi.Aws.Batch
             EcsClusterArn = ecsClusterArn;
             Id = id;
             Name = name;
+            Region = region;
             ServiceRole = serviceRole;
             State = state;
             Status = status;

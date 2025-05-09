@@ -171,6 +171,9 @@ namespace Pulumi.Aws.Connect
         [Input("queueId")]
         public string? QueueId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -208,6 +211,9 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("queueId")]
         public Input<string>? QueueId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -261,6 +267,7 @@ namespace Pulumi.Aws.Connect
         /// Identifier for the Queue.
         /// </summary>
         public readonly string QueueId;
+        public readonly string Region;
         /// <summary>
         /// Description of the Queue. Values are `ENABLED` or `DISABLED`.
         /// </summary>
@@ -290,6 +297,8 @@ namespace Pulumi.Aws.Connect
 
             string queueId,
 
+            string region,
+
             string status,
 
             ImmutableDictionary<string, string> tags)
@@ -303,6 +312,7 @@ namespace Pulumi.Aws.Connect
             Name = name;
             OutboundCallerConfigs = outboundCallerConfigs;
             QueueId = queueId;
+            Region = region;
             Status = status;
             Tags = tags;
         }

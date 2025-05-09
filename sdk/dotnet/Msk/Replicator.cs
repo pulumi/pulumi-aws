@@ -134,6 +134,12 @@ namespace Pulumi.Aws.Msk
         public Output<ImmutableArray<Outputs.ReplicatorKafkaCluster>> KafkaClusters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
         [Output("replicationInfoList")]
@@ -228,6 +234,12 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
         [Input("replicationInfoList", required: true)]
@@ -303,6 +315,12 @@ namespace Pulumi.Aws.Msk
             get => _kafkaClusters ?? (_kafkaClusters = new InputList<Inputs.ReplicatorKafkaClusterGetArgs>());
             set => _kafkaClusters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.

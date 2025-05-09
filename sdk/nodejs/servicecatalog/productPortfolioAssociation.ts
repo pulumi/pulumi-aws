@@ -72,6 +72,10 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
      */
     public readonly productId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the source portfolio.
      */
     public readonly sourcePortfolioId!: pulumi.Output<string | undefined>;
@@ -92,6 +96,7 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
             resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
             resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
             resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourcePortfolioId"] = state ? state.sourcePortfolioId : undefined;
         } else {
             const args = argsOrState as ProductPortfolioAssociationArgs | undefined;
@@ -104,6 +109,7 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
             resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
             resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
             resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourcePortfolioId"] = args ? args.sourcePortfolioId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -130,6 +136,10 @@ export interface ProductPortfolioAssociationState {
      */
     productId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Identifier of the source portfolio.
      */
     sourcePortfolioId?: pulumi.Input<string>;
@@ -153,6 +163,10 @@ export interface ProductPortfolioAssociationArgs {
      * The following arguments are optional:
      */
     productId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the source portfolio.
      */

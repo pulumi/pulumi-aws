@@ -31,6 +31,7 @@ public final class GetClusterResult {
      * 
      */
     private Integer pendingTasksCount;
+    private String region;
     /**
      * @return The number of registered container instances for the ECS Cluster
      * 
@@ -86,6 +87,9 @@ public final class GetClusterResult {
      */
     public Integer pendingTasksCount() {
         return this.pendingTasksCount;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return The number of registered container instances for the ECS Cluster
@@ -143,6 +147,7 @@ public final class GetClusterResult {
         private String clusterName;
         private String id;
         private Integer pendingTasksCount;
+        private String region;
         private Integer registeredContainerInstancesCount;
         private Integer runningTasksCount;
         private List<GetClusterServiceConnectDefault> serviceConnectDefaults;
@@ -156,6 +161,7 @@ public final class GetClusterResult {
     	      this.clusterName = defaults.clusterName;
     	      this.id = defaults.id;
     	      this.pendingTasksCount = defaults.pendingTasksCount;
+    	      this.region = defaults.region;
     	      this.registeredContainerInstancesCount = defaults.registeredContainerInstancesCount;
     	      this.runningTasksCount = defaults.runningTasksCount;
     	      this.serviceConnectDefaults = defaults.serviceConnectDefaults;
@@ -194,6 +200,14 @@ public final class GetClusterResult {
               throw new MissingRequiredPropertyException("GetClusterResult", "pendingTasksCount");
             }
             this.pendingTasksCount = pendingTasksCount;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -256,6 +270,7 @@ public final class GetClusterResult {
             _resultValue.clusterName = clusterName;
             _resultValue.id = id;
             _resultValue.pendingTasksCount = pendingTasksCount;
+            _resultValue.region = region;
             _resultValue.registeredContainerInstancesCount = registeredContainerInstancesCount;
             _resultValue.runningTasksCount = runningTasksCount;
             _resultValue.serviceConnectDefaults = serviceConnectDefaults;

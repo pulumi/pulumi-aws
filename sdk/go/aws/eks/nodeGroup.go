@@ -246,6 +246,8 @@ type NodeGroup struct {
 	NodeRepairConfig NodeGroupNodeRepairConfigOutput `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringOutput `pulumi:"releaseVersion"`
 	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
@@ -340,6 +342,8 @@ type nodeGroupState struct {
 	NodeRepairConfig *NodeGroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn *string `pulumi:"nodeRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
 	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
@@ -393,6 +397,8 @@ type NodeGroupState struct {
 	NodeRepairConfig NodeGroupNodeRepairConfigPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringPtrInput
 	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
@@ -448,6 +454,8 @@ type nodeGroupArgs struct {
 	NodeRepairConfig *NodeGroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
 	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
@@ -494,6 +502,8 @@ type NodeGroupArgs struct {
 	NodeRepairConfig NodeGroupNodeRepairConfigPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringPtrInput
 	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
@@ -664,6 +674,11 @@ func (o NodeGroupOutput) NodeRepairConfig() NodeGroupNodeRepairConfigOutput {
 // Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 func (o NodeGroupOutput) NodeRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.NodeRoleArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NodeGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.

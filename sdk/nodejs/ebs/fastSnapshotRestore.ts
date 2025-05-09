@@ -65,6 +65,10 @@ export class FastSnapshotRestore extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the snapshot.
      */
     public readonly snapshotId!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class FastSnapshotRestore extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FastSnapshotRestoreState | undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -100,6 +105,7 @@ export class FastSnapshotRestore extends pulumi.CustomResource {
                 throw new Error("Missing required property 'snapshotId'");
             }
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["state"] = undefined /*out*/;
@@ -117,6 +123,10 @@ export interface FastSnapshotRestoreState {
      * Availability zone in which to enable fast snapshot restores.
      */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the snapshot.
      */
@@ -136,6 +146,10 @@ export interface FastSnapshotRestoreArgs {
      * Availability zone in which to enable fast snapshot restores.
      */
     availabilityZone: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the snapshot.
      */

@@ -184,6 +184,8 @@ type StackInstances struct {
 	OperationPreferences StackInstancesOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides pulumi.StringMapOutput `pulumi:"parameterOverrides"`
+	// Region that the stack instance is associated with.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
 	// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
@@ -241,6 +243,8 @@ type stackInstancesState struct {
 	OperationPreferences *StackInstancesOperationPreferences `pulumi:"operationPreferences"`
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
+	// Region that the stack instance is associated with.
+	Region *string `pulumi:"region"`
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions []string `pulumi:"regions"`
 	// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
@@ -266,6 +270,8 @@ type StackInstancesState struct {
 	OperationPreferences StackInstancesOperationPreferencesPtrInput
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides pulumi.StringMapInput
+	// Region that the stack instance is associated with.
+	Region pulumi.StringPtrInput
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions pulumi.StringArrayInput
 	// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
@@ -295,6 +301,8 @@ type stackInstancesArgs struct {
 	OperationPreferences *StackInstancesOperationPreferences `pulumi:"operationPreferences"`
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
+	// Region that the stack instance is associated with.
+	Region *string `pulumi:"region"`
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions []string `pulumi:"regions"`
 	// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
@@ -317,6 +325,8 @@ type StackInstancesArgs struct {
 	OperationPreferences StackInstancesOperationPreferencesPtrInput
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides pulumi.StringMapInput
+	// Region that the stack instance is associated with.
+	Region pulumi.StringPtrInput
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions pulumi.StringArrayInput
 	// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
@@ -437,6 +447,11 @@ func (o StackInstancesOutput) OperationPreferences() StackInstancesOperationPref
 // Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 func (o StackInstancesOutput) ParameterOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StackInstances) pulumi.StringMapOutput { return v.ParameterOverrides }).(pulumi.StringMapOutput)
+}
+
+// Region that the stack instance is associated with.
+func (o StackInstancesOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackInstances) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Regions where you want to create stack instances in the specified `accounts`.

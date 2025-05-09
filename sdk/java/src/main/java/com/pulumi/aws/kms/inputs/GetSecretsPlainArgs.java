@@ -6,13 +6,23 @@ package com.pulumi.aws.kms.inputs;
 import com.pulumi.aws.kms.inputs.GetSecretsSecret;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecretsPlainArgs Empty = new GetSecretsPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
@@ -32,6 +42,7 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetSecretsPlainArgs() {}
 
     private GetSecretsPlainArgs(GetSecretsPlainArgs $) {
+        this.region = $.region;
         this.secrets = $.secrets;
     }
 
@@ -51,6 +62,11 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetSecretsPlainArgs defaults) {
             $ = new GetSecretsPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

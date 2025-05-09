@@ -141,6 +141,10 @@ export class DeploymentConfig extends pulumi.CustomResource {
      */
     public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
     public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
@@ -167,6 +171,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
             resourceInputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
             resourceInputs["minimumHealthyHosts"] = state ? state.minimumHealthyHosts : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["trafficRoutingConfig"] = state ? state.trafficRoutingConfig : undefined;
             resourceInputs["zonalConfig"] = state ? state.zonalConfig : undefined;
         } else {
@@ -174,6 +179,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
             resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
             resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
             resourceInputs["zonalConfig"] = args ? args.zonalConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -209,6 +215,10 @@ export interface DeploymentConfigState {
      */
     minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
     trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
@@ -234,6 +244,10 @@ export interface DeploymentConfigArgs {
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
     minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */

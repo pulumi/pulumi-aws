@@ -138,6 +138,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OntapVolumeType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
         [Output("securityStyle")]
@@ -318,6 +324,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? OntapVolumeType { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
         [Input("securityStyle")]
@@ -470,6 +482,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("ontapVolumeType")]
         public Input<string>? OntapVolumeType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.

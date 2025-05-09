@@ -65,6 +65,10 @@ export class ConnectionAssociation extends pulumi.CustomResource {
      * The ID of the LAG with which to associate the connection.
      */
     public readonly lagId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConnectionAssociation resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class ConnectionAssociation extends pulumi.CustomResource {
             const state = argsOrState as ConnectionAssociationState | undefined;
             resourceInputs["connectionId"] = state ? state.connectionId : undefined;
             resourceInputs["lagId"] = state ? state.lagId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConnectionAssociationArgs | undefined;
             if ((!args || args.connectionId === undefined) && !opts.urn) {
@@ -91,6 +96,7 @@ export class ConnectionAssociation extends pulumi.CustomResource {
             }
             resourceInputs["connectionId"] = args ? args.connectionId : undefined;
             resourceInputs["lagId"] = args ? args.lagId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConnectionAssociation.__pulumiType, name, resourceInputs, opts);
@@ -109,6 +115,10 @@ export interface ConnectionAssociationState {
      * The ID of the LAG with which to associate the connection.
      */
     lagId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -123,4 +133,8 @@ export interface ConnectionAssociationArgs {
      * The ID of the LAG with which to associate the connection.
      */
     lagId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

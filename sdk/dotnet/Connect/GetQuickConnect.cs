@@ -171,6 +171,9 @@ namespace Pulumi.Aws.Connect
         [Input("quickConnectId")]
         public string? QuickConnectId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -208,6 +211,9 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("quickConnectId")]
         public Input<string>? QuickConnectId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -253,6 +259,7 @@ namespace Pulumi.Aws.Connect
         /// Identifier for the Quick Connect.
         /// </summary>
         public readonly string QuickConnectId;
+        public readonly string Region;
         /// <summary>
         /// Map of tags to assign to the Quick Connect.
         /// </summary>
@@ -274,6 +281,8 @@ namespace Pulumi.Aws.Connect
 
             string quickConnectId,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -283,6 +292,7 @@ namespace Pulumi.Aws.Connect
             Name = name;
             QuickConnectConfigs = quickConnectConfigs;
             QuickConnectId = quickConnectId;
+            Region = region;
             Tags = tags;
         }
     }

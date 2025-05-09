@@ -27,6 +27,7 @@ export function getWindowsFileSystem(args: GetWindowsFileSystemArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,7 @@ export interface GetWindowsFileSystemArgs {
      * Identifier of the file system (e.g. `fs-12345678`).
      */
     id: string;
+    region?: string;
     /**
      * The tags to associate with the file system.
      */
@@ -111,6 +113,7 @@ export interface GetWindowsFileSystemResult {
      * Specifies the subnet in which you want the preferred file server to be located.
      */
     readonly preferredSubnetId: string;
+    readonly region: string;
     readonly securityGroupIds: string[];
     readonly skipFinalBackup: boolean;
     /**
@@ -162,6 +165,7 @@ export function getWindowsFileSystemOutput(args: GetWindowsFileSystemOutputArgs,
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -174,6 +178,7 @@ export interface GetWindowsFileSystemOutputArgs {
      * Identifier of the file system (e.g. `fs-12345678`).
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The tags to associate with the file system.
      */

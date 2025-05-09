@@ -22,15 +22,19 @@ class HostedTransitVirtualInterfaceAcceptorArgs:
     def __init__(__self__, *,
                  dx_gateway_id: pulumi.Input[builtins.str],
                  virtual_interface_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a HostedTransitVirtualInterfaceAcceptor resource.
         :param pulumi.Input[builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
         pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -60,6 +64,18 @@ class HostedTransitVirtualInterfaceAcceptorArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -76,6 +92,7 @@ class _HostedTransitVirtualInterfaceAcceptorState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -83,6 +100,7 @@ class _HostedTransitVirtualInterfaceAcceptorState:
         Input properties used for looking up and filtering HostedTransitVirtualInterfaceAcceptor resources.
         :param pulumi.Input[builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
@@ -91,6 +109,8 @@ class _HostedTransitVirtualInterfaceAcceptorState:
             pulumi.set(__self__, "arn", arn)
         if dx_gateway_id is not None:
             pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -121,6 +141,18 @@ class _HostedTransitVirtualInterfaceAcceptorState:
     @dx_gateway_id.setter
     def dx_gateway_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "dx_gateway_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -168,6 +200,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -216,6 +249,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
         """
@@ -283,6 +317,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -297,6 +332,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
             if dx_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dx_gateway_id'")
             __props__.__dict__["dx_gateway_id"] = dx_gateway_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if virtual_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_interface_id'")
@@ -315,6 +351,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None) -> 'HostedTransitVirtualInterfaceAcceptor':
@@ -327,6 +364,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
@@ -337,6 +375,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["dx_gateway_id"] = dx_gateway_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["virtual_interface_id"] = virtual_interface_id
@@ -357,6 +396,14 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         The ID of the Direct Connect gateway to which to connect the virtual interface.
         """
         return pulumi.get(self, "dx_gateway_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

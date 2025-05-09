@@ -265,6 +265,21 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the IAM role associated with this job.
      * 
      */
@@ -402,6 +417,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         this.nonOverridableArguments = $.nonOverridableArguments;
         this.notificationProperty = $.notificationProperty;
         this.numberOfWorkers = $.numberOfWorkers;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.securityConfiguration = $.securityConfiguration;
         this.sourceControlDetails = $.sourceControlDetails;
@@ -773,6 +789,27 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder numberOfWorkers(Integer numberOfWorkers) {
             return numberOfWorkers(Output.of(numberOfWorkers));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -41,6 +41,7 @@ public final class GetBrokerResult {
     private GetBrokerLogs logs;
     private GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime;
     private Boolean publiclyAccessible;
+    private String region;
     private List<String> securityGroups;
     private String storageType;
     private List<String> subnetIds;
@@ -103,6 +104,9 @@ public final class GetBrokerResult {
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
+    public String region() {
+        return this.region;
+    }
     public List<String> securityGroups() {
         return this.securityGroups;
     }
@@ -145,6 +149,7 @@ public final class GetBrokerResult {
         private GetBrokerLogs logs;
         private GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime;
         private Boolean publiclyAccessible;
+        private String region;
         private List<String> securityGroups;
         private String storageType;
         private List<String> subnetIds;
@@ -170,6 +175,7 @@ public final class GetBrokerResult {
     	      this.logs = defaults.logs;
     	      this.maintenanceWindowStartTime = defaults.maintenanceWindowStartTime;
     	      this.publiclyAccessible = defaults.publiclyAccessible;
+    	      this.region = defaults.region;
     	      this.securityGroups = defaults.securityGroups;
     	      this.storageType = defaults.storageType;
     	      this.subnetIds = defaults.subnetIds;
@@ -323,6 +329,14 @@ public final class GetBrokerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             if (securityGroups == null) {
               throw new MissingRequiredPropertyException("GetBrokerResult", "securityGroups");
@@ -390,6 +404,7 @@ public final class GetBrokerResult {
             _resultValue.logs = logs;
             _resultValue.maintenanceWindowStartTime = maintenanceWindowStartTime;
             _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.region = region;
             _resultValue.securityGroups = securityGroups;
             _resultValue.storageType = storageType;
             _resultValue.subnetIds = subnetIds;

@@ -257,7 +257,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly alpnPolicy!: pulumi.Output<string | undefined>;
     /**
-     * ARN of the listener (matches `id`).
+     * ARN of the listener.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -286,6 +286,10 @@ export class Listener extends pulumi.CustomResource {
      * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      */
     public readonly protocol!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
@@ -402,6 +406,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["mutualAuthentication"] = state ? state.mutualAuthentication : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingHttpRequestXAmznMtlsClientcertHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertHeaderName : undefined;
             resourceInputs["routingHttpRequestXAmznMtlsClientcertIssuerHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName : undefined;
             resourceInputs["routingHttpRequestXAmznMtlsClientcertLeafHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertLeafHeaderName : undefined;
@@ -440,6 +445,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["mutualAuthentication"] = args ? args.mutualAuthentication : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingHttpRequestXAmznMtlsClientcertHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertHeaderName : undefined;
             resourceInputs["routingHttpRequestXAmznMtlsClientcertIssuerHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName : undefined;
             resourceInputs["routingHttpRequestXAmznMtlsClientcertLeafHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertLeafHeaderName : undefined;
@@ -481,7 +487,7 @@ export interface ListenerState {
      */
     alpnPolicy?: pulumi.Input<string>;
     /**
-     * ARN of the listener (matches `id`).
+     * ARN of the listener.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -510,6 +516,10 @@ export interface ListenerState {
      * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      */
     protocol?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
@@ -640,6 +650,10 @@ export interface ListenerArgs {
      * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      */
     protocol?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */

@@ -77,6 +77,10 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
     public readonly serviceIdentifier!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
             resourceInputs["customDomainName"] = state ? state.customDomainName : undefined;
             resourceInputs["dnsEntries"] = state ? state.dnsEntries : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceIdentifier"] = state ? state.serviceIdentifier : undefined;
             resourceInputs["serviceNetworkIdentifier"] = state ? state.serviceNetworkIdentifier : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -128,6 +133,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
             if ((!args || args.serviceNetworkIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNetworkIdentifier'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
             resourceInputs["serviceNetworkIdentifier"] = args ? args.serviceNetworkIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -164,6 +170,10 @@ export interface ServiceNetworkServiceAssociationState {
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
     serviceIdentifier?: pulumi.Input<string>;
@@ -190,6 +200,10 @@ export interface ServiceNetworkServiceAssociationState {
  * The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
  */
 export interface ServiceNetworkServiceAssociationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */

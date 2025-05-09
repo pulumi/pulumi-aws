@@ -21,6 +21,7 @@ public final class GetResourceResult {
      * 
      */
     private String lastModified;
+    private String region;
     /**
      * @return Role that the resource was registered with.
      * 
@@ -45,6 +46,9 @@ public final class GetResourceResult {
     public String lastModified() {
         return this.lastModified;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Role that the resource was registered with.
      * 
@@ -65,6 +69,7 @@ public final class GetResourceResult {
         private String arn;
         private String id;
         private String lastModified;
+        private String region;
         private String roleArn;
         public Builder() {}
         public Builder(GetResourceResult defaults) {
@@ -72,6 +77,7 @@ public final class GetResourceResult {
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.lastModified = defaults.lastModified;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
         }
 
@@ -100,6 +106,14 @@ public final class GetResourceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetResourceResult", "roleArn");
@@ -112,6 +126,7 @@ public final class GetResourceResult {
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.lastModified = lastModified;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             return _resultValue;
         }

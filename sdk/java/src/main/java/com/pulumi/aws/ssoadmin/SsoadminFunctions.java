@@ -10,6 +10,8 @@ import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersPlainArgs;
+import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
+import com.pulumi.aws.ssoadmin.inputs.GetInstancesPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
@@ -28,7 +30,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class SsoadminFunctions {
@@ -787,6 +788,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -800,7 +802,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         ctx.export("arn", example.arns()[0]);
      *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
@@ -812,7 +815,7 @@ public final class SsoadminFunctions {
      * 
      */
     public static Output<GetInstancesResult> getInstances() {
-        return getInstances(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getInstances(GetInstancesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
@@ -828,6 +831,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -841,7 +845,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         ctx.export("arn", example.arns()[0]);
      *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
@@ -853,7 +858,7 @@ public final class SsoadminFunctions {
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
-        return getInstancesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getInstancesPlain(GetInstancesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
@@ -869,6 +874,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -882,7 +888,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         ctx.export("arn", example.arns()[0]);
      *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
@@ -893,7 +900,7 @@ public final class SsoadminFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetInstancesResult> getInstances(InvokeArgs args) {
+    public static Output<GetInstancesResult> getInstances(GetInstancesArgs args) {
         return getInstances(args, InvokeOptions.Empty);
     }
     /**
@@ -910,6 +917,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -923,7 +931,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         ctx.export("arn", example.arns()[0]);
      *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
@@ -934,7 +943,7 @@ public final class SsoadminFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args) {
+    public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args) {
         return getInstancesPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -951,6 +960,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -964,7 +974,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         ctx.export("arn", example.arns()[0]);
      *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
@@ -975,7 +986,7 @@ public final class SsoadminFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetInstancesResult> getInstances(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssoadmin/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -992,6 +1003,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1005,7 +1017,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         ctx.export("arn", example.arns()[0]);
      *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
@@ -1016,7 +1029,7 @@ public final class SsoadminFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetInstancesResult> getInstances(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ssoadmin/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1033,6 +1046,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1046,7 +1060,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         ctx.export("arn", example.arns()[0]);
      *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
@@ -1057,7 +1072,7 @@ public final class SsoadminFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssoadmin/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1074,6 +1089,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1088,7 +1104,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1120,6 +1137,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1134,7 +1152,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1166,6 +1185,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1180,7 +1200,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1212,6 +1233,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1226,7 +1248,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1258,6 +1281,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1272,7 +1296,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1306,6 +1331,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1320,7 +1346,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1352,6 +1379,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1366,7 +1394,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1398,6 +1427,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1412,7 +1442,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1444,6 +1475,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1458,7 +1490,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
      *             .instanceArn(example.arns()[0])
@@ -1490,6 +1523,7 @@ public final class SsoadminFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1504,7 +1538,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
      *             .instanceArn(example.arns()[0])

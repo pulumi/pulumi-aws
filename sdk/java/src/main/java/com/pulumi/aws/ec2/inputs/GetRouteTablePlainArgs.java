@@ -47,6 +47,13 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.gatewayId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ID of the specific Route Table to retrieve.
      * 
@@ -112,6 +119,7 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
     private GetRouteTablePlainArgs(GetRouteTablePlainArgs $) {
         this.filters = $.filters;
         this.gatewayId = $.gatewayId;
+        this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
@@ -165,6 +173,11 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder gatewayId(@Nullable String gatewayId) {
             $.gatewayId = gatewayId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

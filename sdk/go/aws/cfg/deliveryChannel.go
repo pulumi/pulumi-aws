@@ -129,6 +129,8 @@ type DeliveryChannel struct {
 
 	// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the S3 bucket used to store the configuration history.
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// The prefix for the specified S3 bucket.
@@ -176,6 +178,8 @@ func GetDeliveryChannel(ctx *pulumi.Context,
 type deliveryChannelState struct {
 	// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the S3 bucket used to store the configuration history.
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// The prefix for the specified S3 bucket.
@@ -191,6 +195,8 @@ type deliveryChannelState struct {
 type DeliveryChannelState struct {
 	// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the S3 bucket used to store the configuration history.
 	S3BucketName pulumi.StringPtrInput
 	// The prefix for the specified S3 bucket.
@@ -210,6 +216,8 @@ func (DeliveryChannelState) ElementType() reflect.Type {
 type deliveryChannelArgs struct {
 	// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the S3 bucket used to store the configuration history.
 	S3BucketName string `pulumi:"s3BucketName"`
 	// The prefix for the specified S3 bucket.
@@ -226,6 +234,8 @@ type deliveryChannelArgs struct {
 type DeliveryChannelArgs struct {
 	// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the S3 bucket used to store the configuration history.
 	S3BucketName pulumi.StringInput
 	// The prefix for the specified S3 bucket.
@@ -328,6 +338,11 @@ func (o DeliveryChannelOutput) ToDeliveryChannelOutputWithContext(ctx context.Co
 // The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
 func (o DeliveryChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DeliveryChannelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the S3 bucket used to store the configuration history.

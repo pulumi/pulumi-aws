@@ -96,6 +96,21 @@ public final class RecommendationPreferencesState extends com.pulumi.resources.R
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
      * 
      */
@@ -163,6 +178,7 @@ public final class RecommendationPreferencesState extends com.pulumi.resources.R
         this.inferredWorkloadTypes = $.inferredWorkloadTypes;
         this.lookBackPeriod = $.lookBackPeriod;
         this.preferredResources = $.preferredResources;
+        this.region = $.region;
         this.resourceType = $.resourceType;
         this.savingsEstimationMode = $.savingsEstimationMode;
         this.scope = $.scope;
@@ -300,6 +316,27 @@ public final class RecommendationPreferencesState extends com.pulumi.resources.R
          */
         public Builder preferredResources(RecommendationPreferencesPreferredResourceArgs... preferredResources) {
             return preferredResources(List.of(preferredResources));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -74,6 +74,10 @@ export class Partner extends pulumi.CustomResource {
      */
     public readonly partnerName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * (Optional) The partner integration status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class Partner extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["partnerName"] = state ? state.partnerName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusMessage"] = state ? state.statusMessage : undefined;
         } else {
@@ -119,6 +124,7 @@ export class Partner extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["partnerName"] = args ? args.partnerName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
         }
@@ -147,6 +153,10 @@ export interface PartnerState {
      * The name of the partner that is authorized to send data.
      */
     partnerName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * (Optional) The partner integration status.
      */
@@ -177,4 +187,8 @@ export interface PartnerArgs {
      * The name of the partner that is authorized to send data.
      */
     partnerName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

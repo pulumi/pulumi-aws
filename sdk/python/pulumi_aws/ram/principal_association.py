@@ -21,14 +21,18 @@ __all__ = ['PrincipalAssociationArgs', 'PrincipalAssociation']
 class PrincipalAssociationArgs:
     def __init__(__self__, *,
                  principal: pulumi.Input[builtins.str],
-                 resource_share_arn: pulumi.Input[builtins.str]):
+                 resource_share_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PrincipalAssociation resource.
         :param pulumi.Input[builtins.str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "principal", principal)
         pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -54,19 +58,35 @@ class PrincipalAssociationArgs:
     def resource_share_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_share_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PrincipalAssociationState:
     def __init__(__self__, *,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_share_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrincipalAssociation resources.
         :param pulumi.Input[builtins.str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_share_arn is not None:
             pulumi.set(__self__, "resource_share_arn", resource_share_arn)
 
@@ -81,6 +101,18 @@ class _PrincipalAssociationState:
     @principal.setter
     def principal(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceShareArn")
@@ -104,6 +136,7 @@ class PrincipalAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_share_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -155,6 +188,7 @@ class PrincipalAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
         ...
@@ -225,6 +259,7 @@ class PrincipalAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_share_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -238,6 +273,7 @@ class PrincipalAssociation(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+            __props__.__dict__["region"] = region
             if resource_share_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_share_arn'")
             __props__.__dict__["resource_share_arn"] = resource_share_arn
@@ -252,6 +288,7 @@ class PrincipalAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             principal: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_share_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'PrincipalAssociation':
         """
         Get an existing PrincipalAssociation resource's state with the given name, id, and optional extra
@@ -261,6 +298,7 @@ class PrincipalAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -268,6 +306,7 @@ class PrincipalAssociation(pulumi.CustomResource):
         __props__ = _PrincipalAssociationState.__new__(_PrincipalAssociationState)
 
         __props__.__dict__["principal"] = principal
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_share_arn"] = resource_share_arn
         return PrincipalAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -278,6 +317,14 @@ class PrincipalAssociation(pulumi.CustomResource):
         The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         """
         return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceShareArn")

@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.ResourceArgs {
@@ -60,12 +62,28 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.R
         return this.networkInterfaceId;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private NetworkInterfaceAttachmentArgs() {}
 
     private NetworkInterfaceAttachmentArgs(NetworkInterfaceAttachmentArgs $) {
         this.deviceIndex = $.deviceIndex;
         this.instanceId = $.instanceId;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,6 +165,27 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.R
          */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public NetworkInterfaceAttachmentArgs build() {

@@ -102,6 +102,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly outputBucket!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
     public readonly role!: pulumi.Output<string>;
@@ -142,6 +146,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notifications"] = state ? state.notifications : undefined;
             resourceInputs["outputBucket"] = state ? state.outputBucket : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["thumbnailConfig"] = state ? state.thumbnailConfig : undefined;
             resourceInputs["thumbnailConfigPermissions"] = state ? state.thumbnailConfigPermissions : undefined;
@@ -160,6 +165,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
             resourceInputs["outputBucket"] = args ? args.outputBucket : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["thumbnailConfig"] = args ? args.thumbnailConfig : undefined;
             resourceInputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
@@ -206,6 +212,10 @@ export interface PipelineState {
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
     outputBucket?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
@@ -259,6 +269,10 @@ export interface PipelineArgs {
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
     outputBucket?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */

@@ -90,6 +90,9 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ID for an SFTP server.
         /// </summary>
@@ -116,6 +119,9 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ID for an SFTP server.
         /// </summary>
@@ -184,6 +190,7 @@ namespace Pulumi.Aws.Transfer
         /// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
+        public readonly string Region;
         /// <summary>
         /// The name of the security policy that is attached to the server.
         /// </summary>
@@ -224,6 +231,8 @@ namespace Pulumi.Aws.Transfer
 
             ImmutableArray<string> protocols,
 
+            string region,
+
             string securityPolicyName,
 
             string serverId,
@@ -244,6 +253,7 @@ namespace Pulumi.Aws.Transfer
             InvocationRole = invocationRole;
             LoggingRole = loggingRole;
             Protocols = protocols;
+            Region = region;
             SecurityPolicyName = securityPolicyName;
             ServerId = serverId;
             StructuredLogDestinations = structuredLogDestinations;

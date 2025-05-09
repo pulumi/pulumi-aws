@@ -35,6 +35,7 @@ public final class GetAttachmentResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return ID of the resource.
      * 
@@ -104,6 +105,9 @@ public final class GetAttachmentResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ID of the resource.
      * 
@@ -171,6 +175,7 @@ public final class GetAttachmentResult {
         private String associationTransitGatewayRouteTableId;
         private @Nullable List<GetAttachmentFilter> filters;
         private String id;
+        private String region;
         private String resourceId;
         private String resourceOwnerId;
         private String resourceType;
@@ -187,6 +192,7 @@ public final class GetAttachmentResult {
     	      this.associationTransitGatewayRouteTableId = defaults.associationTransitGatewayRouteTableId;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.resourceId = defaults.resourceId;
     	      this.resourceOwnerId = defaults.resourceOwnerId;
     	      this.resourceType = defaults.resourceType;
@@ -236,6 +242,14 @@ public final class GetAttachmentResult {
               throw new MissingRequiredPropertyException("GetAttachmentResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -309,6 +323,7 @@ public final class GetAttachmentResult {
             _resultValue.associationTransitGatewayRouteTableId = associationTransitGatewayRouteTableId;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.resourceId = resourceId;
             _resultValue.resourceOwnerId = resourceOwnerId;
             _resultValue.resourceType = resourceType;

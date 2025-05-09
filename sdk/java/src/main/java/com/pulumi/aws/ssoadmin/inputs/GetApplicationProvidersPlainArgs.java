@@ -3,9 +3,8 @@
 
 package com.pulumi.aws.ssoadmin.inputs;
 
-import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersApplicationProvider;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,25 +14,17 @@ public final class GetApplicationProvidersPlainArgs extends com.pulumi.resources
 
     public static final GetApplicationProvidersPlainArgs Empty = new GetApplicationProvidersPlainArgs();
 
-    /**
-     * A list of application providers available in the current region. See `application_providers` below.
-     * 
-     */
-    @Import(name="applicationProviders")
-    private @Nullable List<GetApplicationProvidersApplicationProvider> applicationProviders;
+    @Import(name="region")
+    private @Nullable String region;
 
-    /**
-     * @return A list of application providers available in the current region. See `application_providers` below.
-     * 
-     */
-    public Optional<List<GetApplicationProvidersApplicationProvider>> applicationProviders() {
-        return Optional.ofNullable(this.applicationProviders);
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetApplicationProvidersPlainArgs() {}
 
     private GetApplicationProvidersPlainArgs(GetApplicationProvidersPlainArgs $) {
-        this.applicationProviders = $.applicationProviders;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -54,25 +45,9 @@ public final class GetApplicationProvidersPlainArgs extends com.pulumi.resources
             $ = new GetApplicationProvidersPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationProviders A list of application providers available in the current region. See `application_providers` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applicationProviders(@Nullable List<GetApplicationProvidersApplicationProvider> applicationProviders) {
-            $.applicationProviders = applicationProviders;
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
-        }
-
-        /**
-         * @param applicationProviders A list of application providers available in the current region. See `application_providers` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applicationProviders(GetApplicationProvidersApplicationProvider... applicationProviders) {
-            return applicationProviders(List.of(applicationProviders));
         }
 
         public GetApplicationProvidersPlainArgs build() {

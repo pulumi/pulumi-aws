@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Workspaces
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The current state of the connection alias.
         /// </summary>
         [Output("state")]
@@ -128,6 +134,12 @@ namespace Pulumi.Aws.Workspaces
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -162,6 +174,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The current state of the connection alias.

@@ -116,6 +116,7 @@ type GetEngineVersionArgs struct {
 	PreferredUpgradeTargets []string `pulumi:"preferredUpgradeTargets"`
 	// Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
 	PreferredVersions []string `pulumi:"preferredVersions"`
+	Region            *string  `pulumi:"region"`
 	Version           *string  `pulumi:"version"`
 }
 
@@ -140,6 +141,7 @@ type GetEngineVersionResult struct {
 	PreferredMajorTargets   []string `pulumi:"preferredMajorTargets"`
 	PreferredUpgradeTargets []string `pulumi:"preferredUpgradeTargets"`
 	PreferredVersions       []string `pulumi:"preferredVersions"`
+	Region                  string   `pulumi:"region"`
 	// Status of the engine version, either `available` or `deprecated`.
 	Status string `pulumi:"status"`
 	// Set of character sets supported by th engine version.
@@ -214,6 +216,7 @@ type GetEngineVersionOutputArgs struct {
 	PreferredUpgradeTargets pulumi.StringArrayInput `pulumi:"preferredUpgradeTargets"`
 	// Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
+	Region            pulumi.StringPtrInput   `pulumi:"region"`
 	Version           pulumi.StringPtrInput   `pulumi:"version"`
 }
 
@@ -298,6 +301,10 @@ func (o GetEngineVersionResultOutput) PreferredUpgradeTargets() pulumi.StringArr
 
 func (o GetEngineVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.PreferredVersions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEngineVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the engine version, either `available` or `deprecated`.

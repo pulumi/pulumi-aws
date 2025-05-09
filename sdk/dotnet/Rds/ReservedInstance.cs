@@ -131,6 +131,12 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<Outputs.ReservedInstanceRecurringCharge>> RecurringCharges { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Customer-specified identifier to track this reservation.
         /// </summary>
         [Output("reservationId")]
@@ -225,6 +231,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("offeringId", required: true)]
         public Input<string> OfferingId { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Customer-specified identifier to track this reservation.
@@ -331,6 +343,12 @@ namespace Pulumi.Aws.Rds
             get => _recurringCharges ?? (_recurringCharges = new InputList<Inputs.ReservedInstanceRecurringChargeGetArgs>());
             set => _recurringCharges = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Customer-specified identifier to track this reservation.

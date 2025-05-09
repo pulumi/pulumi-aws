@@ -28,6 +28,7 @@ class EventDestinationArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  kinesis_destination: Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None):
         """
         The set of arguments for constructing a EventDestination resource.
@@ -37,6 +38,7 @@ class EventDestinationArgs:
         :param pulumi.Input[builtins.bool] enabled: If true, the event destination will be enabled
         :param pulumi.Input['EventDestinationKinesisDestinationArgs'] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[builtins.str] name: The name of the event destination
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['EventDestinationSnsDestinationArgs'] sns_destination: Send the events to an SNS Topic destination
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
@@ -51,6 +53,8 @@ class EventDestinationArgs:
             pulumi.set(__self__, "kinesis_destination", kinesis_destination)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sns_destination is not None:
             pulumi.set(__self__, "sns_destination", sns_destination)
 
@@ -127,6 +131,18 @@ class EventDestinationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snsDestination")
     def sns_destination(self) -> Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]:
         """
@@ -151,6 +167,7 @@ class _EventDestinationState:
                  kinesis_destination: Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']] = None,
                  matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None):
         """
         Input properties used for looking up and filtering EventDestination resources.
@@ -161,6 +178,7 @@ class _EventDestinationState:
         :param pulumi.Input['EventDestinationKinesisDestinationArgs'] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[builtins.str] name: The name of the event destination
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['EventDestinationSnsDestinationArgs'] sns_destination: Send the events to an SNS Topic destination
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
@@ -179,6 +197,8 @@ class _EventDestinationState:
             pulumi.set(__self__, "matching_types", matching_types)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sns_destination is not None:
             pulumi.set(__self__, "sns_destination", sns_destination)
 
@@ -267,6 +287,18 @@ class _EventDestinationState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snsDestination")
     def sns_destination(self) -> Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]:
         """
@@ -295,6 +327,7 @@ class EventDestination(pulumi.CustomResource):
                  kinesis_destination: Optional[pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
                  matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_destination: Optional[pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None,
                  __props__=None):
         """
@@ -378,6 +411,7 @@ class EventDestination(pulumi.CustomResource):
         :param pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[builtins.str] name: The name of the event destination
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']] sns_destination: Send the events to an SNS Topic destination
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
@@ -482,6 +516,7 @@ class EventDestination(pulumi.CustomResource):
                  kinesis_destination: Optional[pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
                  matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_destination: Optional[pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -502,6 +537,7 @@ class EventDestination(pulumi.CustomResource):
                 raise TypeError("Missing required property 'matching_types'")
             __props__.__dict__["matching_types"] = matching_types
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["sns_destination"] = sns_destination
             __props__.__dict__["arn"] = None
         super(EventDestination, __self__).__init__(
@@ -521,6 +557,7 @@ class EventDestination(pulumi.CustomResource):
             kinesis_destination: Optional[pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
             matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sns_destination: Optional[pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None) -> 'EventDestination':
         """
         Get an existing EventDestination resource's state with the given name, id, and optional extra
@@ -536,6 +573,7 @@ class EventDestination(pulumi.CustomResource):
         :param pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[builtins.str] name: The name of the event destination
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']] sns_destination: Send the events to an SNS Topic destination
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
@@ -551,6 +589,7 @@ class EventDestination(pulumi.CustomResource):
         __props__.__dict__["kinesis_destination"] = kinesis_destination
         __props__.__dict__["matching_types"] = matching_types
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["sns_destination"] = sns_destination
         return EventDestination(resource_name, opts=opts, __props__=__props__)
 
@@ -609,6 +648,14 @@ class EventDestination(pulumi.CustomResource):
         The name of the event destination
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snsDestination")

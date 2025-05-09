@@ -135,6 +135,8 @@ type RepositoryCreationTemplate struct {
 	LifecyclePolicy pulumi.StringPtrOutput `pulumi:"lifecyclePolicy"`
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix pulumi.StringOutput `pulumi:"prefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID the repository creation template applies to.
 	RegistryId       pulumi.StringOutput    `pulumi:"registryId"`
 	RepositoryPolicy pulumi.StringPtrOutput `pulumi:"repositoryPolicy"`
@@ -192,6 +194,8 @@ type repositoryCreationTemplateState struct {
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix *string `pulumi:"prefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The registry ID the repository creation template applies to.
 	RegistryId       *string `pulumi:"registryId"`
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
@@ -214,6 +218,8 @@ type RepositoryCreationTemplateState struct {
 	LifecyclePolicy pulumi.StringPtrInput
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The registry ID the repository creation template applies to.
 	RegistryId       pulumi.StringPtrInput
 	RepositoryPolicy pulumi.StringPtrInput
@@ -239,7 +245,9 @@ type repositoryCreationTemplateArgs struct {
 	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-	Prefix           string  `pulumi:"prefix"`
+	Prefix string `pulumi:"prefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region           *string `pulumi:"region"`
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
 	// A map of tags to assign to any created repositories.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -260,7 +268,9 @@ type RepositoryCreationTemplateArgs struct {
 	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
 	LifecyclePolicy pulumi.StringPtrInput
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-	Prefix           pulumi.StringInput
+	Prefix pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region           pulumi.StringPtrInput
 	RepositoryPolicy pulumi.StringPtrInput
 	// A map of tags to assign to any created repositories.
 	ResourceTags pulumi.StringMapInput
@@ -388,6 +398,11 @@ func (o RepositoryCreationTemplateOutput) LifecyclePolicy() pulumi.StringPtrOutp
 // The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 func (o RepositoryCreationTemplateOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RepositoryCreationTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registry ID the repository creation template applies to.

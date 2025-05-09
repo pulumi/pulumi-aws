@@ -95,6 +95,10 @@ export class ImageVersion extends pulumi.CustomResource {
      */
     public readonly programmingLang!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The maintainer description of the image version.
      */
     public readonly releaseNotes!: pulumi.Output<string | undefined>;
@@ -130,6 +134,7 @@ export class ImageVersion extends pulumi.CustomResource {
             resourceInputs["mlFramework"] = state ? state.mlFramework : undefined;
             resourceInputs["processor"] = state ? state.processor : undefined;
             resourceInputs["programmingLang"] = state ? state.programmingLang : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["releaseNotes"] = state ? state.releaseNotes : undefined;
             resourceInputs["vendorGuidance"] = state ? state.vendorGuidance : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -148,6 +153,7 @@ export class ImageVersion extends pulumi.CustomResource {
             resourceInputs["mlFramework"] = args ? args.mlFramework : undefined;
             resourceInputs["processor"] = args ? args.processor : undefined;
             resourceInputs["programmingLang"] = args ? args.programmingLang : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["releaseNotes"] = args ? args.releaseNotes : undefined;
             resourceInputs["vendorGuidance"] = args ? args.vendorGuidance : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -202,6 +208,10 @@ export interface ImageVersionState {
      */
     programmingLang?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The maintainer description of the image version.
      */
     releaseNotes?: pulumi.Input<string>;
@@ -247,6 +257,10 @@ export interface ImageVersionArgs {
      * The supported programming language and its version.
      */
     programmingLang?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The maintainer description of the image version.
      */

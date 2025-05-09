@@ -96,6 +96,12 @@ namespace Pulumi.Aws.Chatbot
         public Output<string> LoggingLevel { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         /// </summary>
         [Output("snsTopicArns")]
@@ -230,6 +236,12 @@ namespace Pulumi.Aws.Chatbot
         [Input("loggingLevel")]
         public Input<string>? LoggingLevel { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("snsTopicArns")]
         private InputList<string>? _snsTopicArns;
 
@@ -338,6 +350,12 @@ namespace Pulumi.Aws.Chatbot
         /// </summary>
         [Input("loggingLevel")]
         public Input<string>? LoggingLevel { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("snsTopicArns")]
         private InputList<string>? _snsTopicArns;

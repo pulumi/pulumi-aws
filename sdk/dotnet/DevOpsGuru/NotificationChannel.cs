@@ -85,6 +85,12 @@ namespace Pulumi.Aws.DevOpsGuru
         public Output<Outputs.NotificationChannelFilters?> Filters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// SNS noficiation channel configurations. See the `sns` argument reference below.
         /// 
         /// The following arguments are optional:
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.DevOpsGuru
         public Input<Inputs.NotificationChannelFiltersArgs>? Filters { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// SNS noficiation channel configurations. See the `sns` argument reference below.
         /// 
         /// The following arguments are optional:
@@ -165,6 +177,12 @@ namespace Pulumi.Aws.DevOpsGuru
         /// </summary>
         [Input("filters")]
         public Input<Inputs.NotificationChannelFiltersGetArgs>? Filters { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// SNS noficiation channel configurations. See the `sns` argument reference below.

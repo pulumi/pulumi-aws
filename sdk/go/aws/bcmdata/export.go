@@ -91,7 +91,9 @@ type Export struct {
 	pulumi.CustomResourceState
 
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   ExportExportPtrOutput   `pulumi:"export"`
+	Export ExportExportPtrOutput `pulumi:"export"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput     `pulumi:"region"`
 	Tags     pulumi.StringMapOutput  `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
 	Timeouts ExportTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -128,7 +130,9 @@ func GetExport(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   *ExportExport     `pulumi:"export"`
+	Export *ExportExport `pulumi:"export"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string           `pulumi:"region"`
 	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *ExportTimeouts   `pulumi:"timeouts"`
@@ -136,7 +140,9 @@ type exportState struct {
 
 type ExportState struct {
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   ExportExportPtrInput
+	Export ExportExportPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ExportTimeoutsPtrInput
@@ -148,7 +154,9 @@ func (ExportState) ElementType() reflect.Type {
 
 type exportArgs struct {
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   *ExportExport     `pulumi:"export"`
+	Export *ExportExport `pulumi:"export"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string           `pulumi:"region"`
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *ExportTimeouts   `pulumi:"timeouts"`
 }
@@ -156,7 +164,9 @@ type exportArgs struct {
 // The set of arguments for constructing a Export resource.
 type ExportArgs struct {
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   ExportExportPtrInput
+	Export ExportExportPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	Timeouts ExportTimeoutsPtrInput
 }
@@ -251,6 +261,11 @@ func (o ExportOutput) ToExportOutputWithContext(ctx context.Context) ExportOutpu
 // The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 func (o ExportOutput) Export() ExportExportPtrOutput {
 	return o.ApplyT(func(v *Export) ExportExportPtrOutput { return v.Export }).(ExportExportPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ExportOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ExportOutput) Tags() pulumi.StringMapOutput {

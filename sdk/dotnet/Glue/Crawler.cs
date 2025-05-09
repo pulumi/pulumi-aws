@@ -319,6 +319,12 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.CrawlerRecrawlPolicy?> RecrawlPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         /// </summary>
         [Output("role")]
@@ -551,6 +557,12 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.CrawlerRecrawlPolicyArgs>? RecrawlPolicy { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         /// </summary>
         [Input("role", required: true)]
@@ -755,6 +767,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("recrawlPolicy")]
         public Input<Inputs.CrawlerRecrawlPolicyGetArgs>? RecrawlPolicy { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.

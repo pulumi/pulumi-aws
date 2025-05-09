@@ -194,6 +194,12 @@ namespace Pulumi.Aws.CloudFormation
         public Output<ImmutableDictionary<string, string>?> ParameterOverrides { get; private set; } = null!;
 
         /// <summary>
+        /// Region that the stack instance is associated with.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Regions where you want to create stack instances in the specified `accounts`.
         /// </summary>
         [Output("regions")]
@@ -313,6 +319,12 @@ namespace Pulumi.Aws.CloudFormation
             set => _parameterOverrides = value;
         }
 
+        /// <summary>
+        /// Region that the stack instance is associated with.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("regions")]
         private InputList<string>? _regions;
 
@@ -388,6 +400,12 @@ namespace Pulumi.Aws.CloudFormation
             get => _parameterOverrides ?? (_parameterOverrides = new InputMap<string>());
             set => _parameterOverrides = value;
         }
+
+        /// <summary>
+        /// Region that the stack instance is associated with.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("regions")]
         private InputList<string>? _regions;

@@ -86,6 +86,21 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      * 
      */
@@ -138,6 +153,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         this.fileSystemId = $.fileSystemId;
         this.ownerId = $.ownerId;
         this.posixUser = $.posixUser;
+        this.region = $.region;
         this.rootDirectory = $.rootDirectory;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -252,6 +268,27 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder posixUser(AccessPointPosixUserArgs posixUser) {
             return posixUser(Output.of(posixUser));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

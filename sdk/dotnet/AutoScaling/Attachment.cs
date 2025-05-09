@@ -73,6 +73,12 @@ namespace Pulumi.Aws.AutoScaling
         [Output("lbTargetGroupArn")]
         public Output<string?> LbTargetGroupArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Attachment resource with the given unique name, arguments, and options.
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.AutoScaling
         [Input("lbTargetGroupArn")]
         public Input<string>? LbTargetGroupArn { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public AttachmentArgs()
         {
         }
@@ -162,6 +174,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("lbTargetGroupArn")]
         public Input<string>? LbTargetGroupArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public AttachmentState()
         {

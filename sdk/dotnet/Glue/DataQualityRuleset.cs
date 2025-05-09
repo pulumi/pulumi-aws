@@ -148,6 +148,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> RecommendationRunId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         /// </summary>
         [Output("ruleset")]
@@ -230,6 +236,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         /// </summary>
         [Input("ruleset", required: true)]
@@ -308,6 +320,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("recommendationRunId")]
         public Input<string>? RecommendationRunId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.

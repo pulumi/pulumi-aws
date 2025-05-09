@@ -17,6 +17,13 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetVirtualClusterArgs Empty = new GetVirtualClusterArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value mapping of resource tags.
      * 
@@ -50,6 +57,7 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
     private GetVirtualClusterArgs() {}
 
     private GetVirtualClusterArgs(GetVirtualClusterArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.virtualClusterId = $.virtualClusterId;
     }
@@ -70,6 +78,15 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetVirtualClusterArgs defaults) {
             $ = new GetVirtualClusterArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

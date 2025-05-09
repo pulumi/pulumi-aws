@@ -47,11 +47,19 @@ public final class GetContainerRecipesArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.owner);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetContainerRecipesArgs() {}
 
     private GetContainerRecipesArgs(GetContainerRecipesArgs $) {
         this.filters = $.filters;
         this.owner = $.owner;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -122,6 +130,15 @@ public final class GetContainerRecipesArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetContainerRecipesArgs build() {

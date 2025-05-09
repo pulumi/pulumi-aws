@@ -21,6 +21,7 @@ public final class GetAuthorizersResult {
      * 
      */
     private List<String> ids;
+    private String region;
     private String restApiId;
 
     private GetAuthorizersResult() {}
@@ -38,6 +39,9 @@ public final class GetAuthorizersResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
     public String restApiId() {
         return this.restApiId;
     }
@@ -53,12 +57,14 @@ public final class GetAuthorizersResult {
     public static final class Builder {
         private String id;
         private List<String> ids;
+        private String region;
         private String restApiId;
         public Builder() {}
         public Builder(GetAuthorizersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
     	      this.restApiId = defaults.restApiId;
         }
 
@@ -82,6 +88,14 @@ public final class GetAuthorizersResult {
             return ids(List.of(ids));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizersResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restApiId(String restApiId) {
             if (restApiId == null) {
               throw new MissingRequiredPropertyException("GetAuthorizersResult", "restApiId");
@@ -93,6 +107,7 @@ public final class GetAuthorizersResult {
             final var _resultValue = new GetAuthorizersResult();
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             _resultValue.restApiId = restApiId;
             return _resultValue;
         }

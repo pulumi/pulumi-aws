@@ -73,6 +73,8 @@ type DeploymentStrategy struct {
 	GrowthType pulumi.StringPtrOutput `pulumi:"growthType"`
 	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
 	ReplicateTo pulumi.StringOutput `pulumi:"replicateTo"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -134,6 +136,8 @@ type deploymentStrategyState struct {
 	GrowthType *string `pulumi:"growthType"`
 	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
 	ReplicateTo *string `pulumi:"replicateTo"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -157,6 +161,8 @@ type DeploymentStrategyState struct {
 	GrowthType pulumi.StringPtrInput
 	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
 	ReplicateTo pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -182,6 +188,8 @@ type deploymentStrategyArgs struct {
 	GrowthType *string `pulumi:"growthType"`
 	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
 	ReplicateTo string `pulumi:"replicateTo"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -202,6 +210,8 @@ type DeploymentStrategyArgs struct {
 	GrowthType pulumi.StringPtrInput
 	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
 	ReplicateTo pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -328,6 +338,11 @@ func (o DeploymentStrategyOutput) GrowthType() pulumi.StringPtrOutput {
 // Name for the deployment strategy. Must be between 1 and 64 characters in length.
 func (o DeploymentStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DeploymentStrategyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.

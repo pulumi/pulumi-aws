@@ -23,6 +23,7 @@ __all__ = ['CollectionArgs', 'Collection']
 class CollectionArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['CollectionTimeoutsArgs']] = None):
         """
@@ -30,9 +31,12 @@ class CollectionArgs:
         :param pulumi.Input[builtins.str] collection_id: The name of the collection
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "collection_id", collection_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -51,6 +55,18 @@ class CollectionArgs:
     @collection_id.setter
     def collection_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "collection_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -80,6 +96,7 @@ class _CollectionState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  collection_id: Optional[pulumi.Input[builtins.str]] = None,
                  face_model_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['CollectionTimeoutsArgs']] = None):
@@ -90,6 +107,7 @@ class _CollectionState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] face_model_version: The Face Model Version that the collection was initialized with
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -99,6 +117,8 @@ class _CollectionState:
             pulumi.set(__self__, "collection_id", collection_id)
         if face_model_version is not None:
             pulumi.set(__self__, "face_model_version", face_model_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -146,6 +166,18 @@ class _CollectionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -187,6 +219,7 @@ class Collection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['CollectionTimeoutsArgs', 'CollectionTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -219,6 +252,7 @@ class Collection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] collection_id: The name of the collection
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -267,6 +301,7 @@ class Collection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['CollectionTimeoutsArgs', 'CollectionTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -281,6 +316,7 @@ class Collection(pulumi.CustomResource):
             if collection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'collection_id'")
             __props__.__dict__["collection_id"] = collection_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -299,6 +335,7 @@ class Collection(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             collection_id: Optional[pulumi.Input[builtins.str]] = None,
             face_model_version: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['CollectionTimeoutsArgs', 'CollectionTimeoutsArgsDict']]] = None) -> 'Collection':
@@ -314,6 +351,7 @@ class Collection(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] face_model_version: The Face Model Version that the collection was initialized with
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -324,6 +362,7 @@ class Collection(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["collection_id"] = collection_id
         __props__.__dict__["face_model_version"] = face_model_version
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -354,6 +393,14 @@ class Collection(pulumi.CustomResource):
         The Face Model Version that the collection was initialized with
         """
         return pulumi.get(self, "face_model_version")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

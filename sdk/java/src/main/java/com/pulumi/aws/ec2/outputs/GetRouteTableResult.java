@@ -42,6 +42,7 @@ public final class GetRouteTableResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return Route Table ID.
      * 
@@ -99,6 +100,9 @@ public final class GetRouteTableResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Route Table ID.
      * 
@@ -142,6 +146,7 @@ public final class GetRouteTableResult {
         private String gatewayId;
         private String id;
         private String ownerId;
+        private String region;
         private String routeTableId;
         private List<GetRouteTableRoute> routes;
         private String subnetId;
@@ -156,6 +161,7 @@ public final class GetRouteTableResult {
     	      this.gatewayId = defaults.gatewayId;
     	      this.id = defaults.id;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.routeTableId = defaults.routeTableId;
     	      this.routes = defaults.routes;
     	      this.subnetId = defaults.subnetId;
@@ -216,6 +222,14 @@ public final class GetRouteTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
             if (routeTableId == null) {
               throw new MissingRequiredPropertyException("GetRouteTableResult", "routeTableId");
@@ -266,6 +280,7 @@ public final class GetRouteTableResult {
             _resultValue.gatewayId = gatewayId;
             _resultValue.id = id;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.routeTableId = routeTableId;
             _resultValue.routes = routes;
             _resultValue.subnetId = subnetId;

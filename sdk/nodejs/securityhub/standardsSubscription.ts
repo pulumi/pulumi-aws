@@ -66,6 +66,10 @@ export class StandardsSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of a standard - see below.
      *
      * Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -95,12 +99,14 @@ export class StandardsSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardsSubscriptionState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["standardsArn"] = state ? state.standardsArn : undefined;
         } else {
             const args = argsOrState as StandardsSubscriptionArgs | undefined;
             if ((!args || args.standardsArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'standardsArn'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -112,6 +118,10 @@ export class StandardsSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StandardsSubscription resources.
  */
 export interface StandardsSubscriptionState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of a standard - see below.
      *
@@ -134,6 +144,10 @@ export interface StandardsSubscriptionState {
  * The set of arguments for constructing a StandardsSubscription resource.
  */
 export interface StandardsSubscriptionArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of a standard - see below.
      *

@@ -27,6 +27,7 @@ public final class GetCertificateResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetCertificateResult() {}
     public String arn() {
@@ -56,6 +57,9 @@ public final class GetCertificateResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -71,6 +75,7 @@ public final class GetCertificateResult {
         private String certificateAuthorityArn;
         private String certificateChain;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,6 +84,7 @@ public final class GetCertificateResult {
     	      this.certificateAuthorityArn = defaults.certificateAuthorityArn;
     	      this.certificateChain = defaults.certificateChain;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -121,6 +127,14 @@ public final class GetCertificateResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetCertificateResult build() {
             final var _resultValue = new GetCertificateResult();
             _resultValue.arn = arn;
@@ -128,6 +142,7 @@ public final class GetCertificateResult {
             _resultValue.certificateAuthorityArn = certificateAuthorityArn;
             _resultValue.certificateChain = certificateChain;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

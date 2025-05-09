@@ -80,6 +80,10 @@ export class Grant extends pulumi.CustomResource {
      */
     public readonly operations!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
@@ -110,6 +114,7 @@ export class Grant extends pulumi.CustomResource {
             resourceInputs["keyId"] = state ? state.keyId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["operations"] = state ? state.operations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retireOnDelete"] = state ? state.retireOnDelete : undefined;
             resourceInputs["retiringPrincipal"] = state ? state.retiringPrincipal : undefined;
         } else {
@@ -129,6 +134,7 @@ export class Grant extends pulumi.CustomResource {
             resourceInputs["keyId"] = args ? args.keyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["operations"] = args ? args.operations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retireOnDelete"] = args ? args.retireOnDelete : undefined;
             resourceInputs["retiringPrincipal"] = args ? args.retiringPrincipal : undefined;
             resourceInputs["grantId"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface GrantState {
      */
     operations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
@@ -216,6 +226,10 @@ export interface GrantArgs {
      * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      */
     operations: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.

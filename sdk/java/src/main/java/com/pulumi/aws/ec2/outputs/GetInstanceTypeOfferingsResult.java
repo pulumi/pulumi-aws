@@ -36,6 +36,7 @@ public final class GetInstanceTypeOfferingsResult {
      * 
      */
     private List<String> locations;
+    private String region;
 
     private GetInstanceTypeOfferingsResult() {}
     public List<GetInstanceTypeOfferingsFilter> filters() {
@@ -72,6 +73,9 @@ public final class GetInstanceTypeOfferingsResult {
     public List<String> locations() {
         return this.locations;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -88,6 +92,7 @@ public final class GetInstanceTypeOfferingsResult {
         private @Nullable String locationType;
         private List<String> locationTypes;
         private List<String> locations;
+        private String region;
         public Builder() {}
         public Builder(GetInstanceTypeOfferingsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,6 +102,7 @@ public final class GetInstanceTypeOfferingsResult {
     	      this.locationType = defaults.locationType;
     	      this.locationTypes = defaults.locationTypes;
     	      this.locations = defaults.locations;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -155,6 +161,14 @@ public final class GetInstanceTypeOfferingsResult {
         public Builder locations(String... locations) {
             return locations(List.of(locations));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetInstanceTypeOfferingsResult build() {
             final var _resultValue = new GetInstanceTypeOfferingsResult();
             _resultValue.filters = filters;
@@ -163,6 +177,7 @@ public final class GetInstanceTypeOfferingsResult {
             _resultValue.locationType = locationType;
             _resultValue.locationTypes = locationTypes;
             _resultValue.locations = locations;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

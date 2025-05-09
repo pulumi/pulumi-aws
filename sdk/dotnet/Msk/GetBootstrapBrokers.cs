@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Msk
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetBootstrapBrokersArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetBootstrapBrokersInvokeArgs()
         {
@@ -162,6 +168,7 @@ namespace Pulumi.Aws.Msk
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetBootstrapBrokersResult(
@@ -187,7 +194,9 @@ namespace Pulumi.Aws.Msk
 
             string clusterArn,
 
-            string id)
+            string id,
+
+            string region)
         {
             BootstrapBrokers = bootstrapBrokers;
             BootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
@@ -201,6 +210,7 @@ namespace Pulumi.Aws.Msk
             BootstrapBrokersVpcConnectivityTls = bootstrapBrokersVpcConnectivityTls;
             ClusterArn = clusterArn;
             Id = id;
+            Region = region;
         }
     }
 }

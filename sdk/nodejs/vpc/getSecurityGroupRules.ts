@@ -29,6 +29,7 @@ export function getSecurityGroupRules(args?: GetSecurityGroupRulesArgs, opts?: p
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -41,12 +42,10 @@ export interface GetSecurityGroupRulesArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.vpc.GetSecurityGroupRulesFilter[];
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     tags?: {[key: string]: string};
 }
@@ -61,6 +60,7 @@ export interface GetSecurityGroupRulesResult {
      * List of all the security group rule IDs found.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -85,6 +85,7 @@ export function getSecurityGroupRulesOutput(args?: GetSecurityGroupRulesOutputAr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -97,12 +98,10 @@ export interface GetSecurityGroupRulesOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRulesFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

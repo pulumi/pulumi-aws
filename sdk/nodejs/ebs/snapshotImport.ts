@@ -101,6 +101,10 @@ export class SnapshotImport extends pulumi.CustomResource {
      */
     public readonly permanentRestore!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */
     public readonly roleName!: pulumi.Output<string | undefined>;
@@ -150,6 +154,7 @@ export class SnapshotImport extends pulumi.CustomResource {
             resourceInputs["ownerAlias"] = state ? state.ownerAlias : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["permanentRestore"] = state ? state.permanentRestore : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleName"] = state ? state.roleName : undefined;
             resourceInputs["storageTier"] = state ? state.storageTier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -168,6 +173,7 @@ export class SnapshotImport extends pulumi.CustomResource {
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["permanentRestore"] = args ? args.permanentRestore : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["storageTier"] = args ? args.storageTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -232,6 +238,10 @@ export interface SnapshotImportState {
      */
     permanentRestore?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */
     roleName?: pulumi.Input<string>;
@@ -286,6 +296,10 @@ export interface SnapshotImportArgs {
      * Indicates whether to permanently restore an archived snapshot.
      */
     permanentRestore?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */

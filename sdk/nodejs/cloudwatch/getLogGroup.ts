@@ -22,6 +22,7 @@ export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetLogGroupArgs {
      * Name of the Cloudwatch log group
      */
     name: string;
+    region?: string;
     /**
      * Map of tags to assign to the resource.
      */
@@ -65,6 +67,7 @@ export interface GetLogGroupResult {
      */
     readonly logGroupClass: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Number of days log events retained in the specified log group.
      */
@@ -92,6 +95,7 @@ export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getLogGroup:getLogGroup", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -104,6 +108,7 @@ export interface GetLogGroupOutputArgs {
      * Name of the Cloudwatch log group
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource.
      */

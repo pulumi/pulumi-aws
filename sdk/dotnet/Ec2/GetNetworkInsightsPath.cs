@@ -92,6 +92,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Network Insights Paths. The given filters must match exactly one Network Insights Path
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetNetworkInsightsPathFilterArgs> Filters
         {
@@ -104,6 +108,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkInsightsPathId")]
         public string? NetworkInsightsPathId { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -130,6 +137,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Network Insights Paths. The given filters must match exactly one Network Insights Path
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetNetworkInsightsPathFilterInputArgs> Filters
         {
@@ -142,6 +153,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkInsightsPathId")]
         public Input<string>? NetworkInsightsPathId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -203,6 +217,7 @@ namespace Pulumi.Aws.Ec2
         /// Protocol.
         /// </summary>
         public readonly string Protocol;
+        public readonly string Region;
         /// <summary>
         /// AWS resource that is the source of the path.
         /// </summary>
@@ -244,6 +259,8 @@ namespace Pulumi.Aws.Ec2
 
             string protocol,
 
+            string region,
+
             string source,
 
             string sourceArn,
@@ -263,6 +280,7 @@ namespace Pulumi.Aws.Ec2
             Id = id;
             NetworkInsightsPathId = networkInsightsPathId;
             Protocol = protocol;
+            Region = region;
             Source = source;
             SourceArn = sourceArn;
             SourceIp = sourceIp;

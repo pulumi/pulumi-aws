@@ -61,7 +61,8 @@ type LookupDevEnvironmentArgs struct {
 	// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
 	EnvId string `pulumi:"envId"`
 	// The name of the project in the space.
-	ProjectName string `pulumi:"projectName"`
+	ProjectName string  `pulumi:"projectName"`
+	Region      *string `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories []GetDevEnvironmentRepository `pulumi:"repositories"`
 	// The name of the space.
@@ -89,6 +90,7 @@ type LookupDevEnvironmentResult struct {
 	// Information about the amount of storage allocated to the Dev Environment.
 	PersistentStorages []GetDevEnvironmentPersistentStorage `pulumi:"persistentStorages"`
 	ProjectName        string                               `pulumi:"projectName"`
+	Region             string                               `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories []GetDevEnvironmentRepository `pulumi:"repositories"`
 	SpaceName    string                        `pulumi:"spaceName"`
@@ -117,7 +119,8 @@ type LookupDevEnvironmentOutputArgs struct {
 	// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
 	EnvId pulumi.StringInput `pulumi:"envId"`
 	// The name of the project in the space.
-	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	ProjectName pulumi.StringInput    `pulumi:"projectName"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories GetDevEnvironmentRepositoryArrayInput `pulumi:"repositories"`
 	// The name of the space.
@@ -190,6 +193,10 @@ func (o LookupDevEnvironmentResultOutput) PersistentStorages() GetDevEnvironment
 
 func (o LookupDevEnvironmentResultOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDevEnvironmentResult) string { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+func (o LookupDevEnvironmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDevEnvironmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The source repository that contains the branch to clone into the Dev Environment.

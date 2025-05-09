@@ -120,6 +120,8 @@ type Workforce struct {
 	CognitoConfig WorkforceCognitoConfigPtrOutput `pulumi:"cognitoConfig"`
 	// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
 	OidcConfig WorkforceOidcConfigPtrOutput `pulumi:"oidcConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig WorkforceSourceIpConfigOutput `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
@@ -169,6 +171,8 @@ type workforceState struct {
 	CognitoConfig *WorkforceCognitoConfig `pulumi:"cognitoConfig"`
 	// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
 	OidcConfig *WorkforceOidcConfig `pulumi:"oidcConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig *WorkforceSourceIpConfig `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
@@ -186,6 +190,8 @@ type WorkforceState struct {
 	CognitoConfig WorkforceCognitoConfigPtrInput
 	// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
 	OidcConfig WorkforceOidcConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig WorkforceSourceIpConfigPtrInput
 	// The subdomain for your OIDC Identity Provider.
@@ -205,6 +211,8 @@ type workforceArgs struct {
 	CognitoConfig *WorkforceCognitoConfig `pulumi:"cognitoConfig"`
 	// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
 	OidcConfig *WorkforceOidcConfig `pulumi:"oidcConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig *WorkforceSourceIpConfig `pulumi:"sourceIpConfig"`
 	// The name of the Workforce (must be unique).
@@ -219,6 +227,8 @@ type WorkforceArgs struct {
 	CognitoConfig WorkforceCognitoConfigPtrInput
 	// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
 	OidcConfig WorkforceOidcConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig WorkforceSourceIpConfigPtrInput
 	// The name of the Workforce (must be unique).
@@ -327,6 +337,11 @@ func (o WorkforceOutput) CognitoConfig() WorkforceCognitoConfigPtrOutput {
 // Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
 func (o WorkforceOutput) OidcConfig() WorkforceOidcConfigPtrOutput {
 	return o.ApplyT(func(v *Workforce) WorkforceOidcConfigPtrOutput { return v.OidcConfig }).(WorkforceOidcConfigPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WorkforceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workforce) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.

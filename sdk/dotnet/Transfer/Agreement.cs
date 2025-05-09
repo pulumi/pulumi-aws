@@ -91,6 +91,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string> PartnerProfileId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Output("serverId")]
@@ -185,6 +191,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string> PartnerProfileId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Input("serverId", required: true)]
@@ -259,6 +271,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("partnerProfileId")]
         public Input<string>? PartnerProfileId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.

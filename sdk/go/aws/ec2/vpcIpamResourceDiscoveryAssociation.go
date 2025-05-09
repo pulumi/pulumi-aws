@@ -72,6 +72,8 @@ type VpcIpamResourceDiscoveryAssociation struct {
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The lifecycle state of the association when you associate or disassociate a resource discovery.
 	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags to add to the IPAM resource discovery association resource.
@@ -130,6 +132,8 @@ type vpcIpamResourceDiscoveryAssociationState struct {
 	IsDefault *bool `pulumi:"isDefault"`
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The lifecycle state of the association when you associate or disassociate a resource discovery.
 	State *string `pulumi:"state"`
 	// A map of tags to add to the IPAM resource discovery association resource.
@@ -153,6 +157,8 @@ type VpcIpamResourceDiscoveryAssociationState struct {
 	IsDefault pulumi.BoolPtrInput
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The lifecycle state of the association when you associate or disassociate a resource discovery.
 	State pulumi.StringPtrInput
 	// A map of tags to add to the IPAM resource discovery association resource.
@@ -170,6 +176,8 @@ type vpcIpamResourceDiscoveryAssociationArgs struct {
 	IpamId string `pulumi:"ipamId"`
 	// The ID of the Resource Discovery to associate.
 	IpamResourceDiscoveryId string `pulumi:"ipamResourceDiscoveryId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -180,6 +188,8 @@ type VpcIpamResourceDiscoveryAssociationArgs struct {
 	IpamId pulumi.StringInput
 	// The ID of the Resource Discovery to associate.
 	IpamResourceDiscoveryId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags pulumi.StringMapInput
 }
@@ -304,6 +314,11 @@ func (o VpcIpamResourceDiscoveryAssociationOutput) IsDefault() pulumi.BoolOutput
 // The account ID for the account that manages the Resource Discovery
 func (o VpcIpamResourceDiscoveryAssociationOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcIpamResourceDiscoveryAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The lifecycle state of the association when you associate or disassociate a resource discovery.

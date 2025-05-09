@@ -121,6 +121,21 @@ public final class LogAnomalyDetectorArgs extends com.pulumi.resources.ResourceA
         return this.logGroupArnLists;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -138,6 +153,7 @@ public final class LogAnomalyDetectorArgs extends com.pulumi.resources.ResourceA
         this.filterPattern = $.filterPattern;
         this.kmsKeyId = $.kmsKeyId;
         this.logGroupArnLists = $.logGroupArnLists;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -308,6 +324,27 @@ public final class LogAnomalyDetectorArgs extends com.pulumi.resources.ResourceA
          */
         public Builder logGroupArnLists(String... logGroupArnLists) {
             return logGroupArnLists(List.of(logGroupArnLists));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

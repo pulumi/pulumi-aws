@@ -72,6 +72,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly monitorName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -96,6 +100,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["aggregationPeriod"] = state ? state.aggregationPeriod : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["monitorName"] = state ? state.monitorName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -105,6 +110,7 @@ export class Monitor extends pulumi.CustomResource {
             }
             resourceInputs["aggregationPeriod"] = args ? args.aggregationPeriod : undefined;
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -133,6 +139,10 @@ export interface MonitorState {
      */
     monitorName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -156,6 +166,10 @@ export interface MonitorArgs {
      * The following arguments are optional:
      */
     monitorName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

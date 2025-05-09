@@ -21,14 +21,18 @@ __all__ = ['StaticIpAttachmentArgs', 'StaticIpAttachment']
 class StaticIpAttachmentArgs:
     def __init__(__self__, *,
                  instance_name: pulumi.Input[builtins.str],
-                 static_ip_name: pulumi.Input[builtins.str]):
+                 static_ip_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StaticIpAttachment resource.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "static_ip_name", static_ip_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -54,23 +58,39 @@ class StaticIpAttachmentArgs:
     def static_ip_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "static_ip_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _StaticIpAttachmentState:
     def __init__(__self__, *,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_ip_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticIpAttachment resources.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[builtins.str] ip_address: The allocated static IP address
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
         """
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if static_ip_name is not None:
             pulumi.set(__self__, "static_ip_name", static_ip_name)
 
@@ -99,6 +119,18 @@ class _StaticIpAttachmentState:
         pulumi.set(self, "ip_address", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="staticIpName")
     def static_ip_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -120,6 +152,7 @@ class StaticIpAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_ip_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -148,6 +181,7 @@ class StaticIpAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
         """
         ...
@@ -195,6 +229,7 @@ class StaticIpAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_ip_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -208,6 +243,7 @@ class StaticIpAttachment(pulumi.CustomResource):
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
+            __props__.__dict__["region"] = region
             if static_ip_name is None and not opts.urn:
                 raise TypeError("Missing required property 'static_ip_name'")
             __props__.__dict__["static_ip_name"] = static_ip_name
@@ -224,6 +260,7 @@ class StaticIpAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_name: Optional[pulumi.Input[builtins.str]] = None,
             ip_address: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             static_ip_name: Optional[pulumi.Input[builtins.str]] = None) -> 'StaticIpAttachment':
         """
         Get an existing StaticIpAttachment resource's state with the given name, id, and optional extra
@@ -234,6 +271,7 @@ class StaticIpAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[builtins.str] ip_address: The allocated static IP address
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -242,6 +280,7 @@ class StaticIpAttachment(pulumi.CustomResource):
 
         __props__.__dict__["instance_name"] = instance_name
         __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["region"] = region
         __props__.__dict__["static_ip_name"] = static_ip_name
         return StaticIpAttachment(resource_name, opts=opts, __props__=__props__)
 
@@ -260,6 +299,14 @@ class StaticIpAttachment(pulumi.CustomResource):
         The allocated static IP address
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="staticIpName")

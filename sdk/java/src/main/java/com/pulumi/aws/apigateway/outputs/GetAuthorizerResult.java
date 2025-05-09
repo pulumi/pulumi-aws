@@ -58,6 +58,7 @@ public final class GetAuthorizerResult {
      * 
      */
     private List<String> providerArns;
+    private String region;
     private String restApiId;
     /**
      * @return Type of the authorizer.
@@ -132,6 +133,9 @@ public final class GetAuthorizerResult {
     public List<String> providerArns() {
         return this.providerArns;
     }
+    public String region() {
+        return this.region;
+    }
     public String restApiId() {
         return this.restApiId;
     }
@@ -162,6 +166,7 @@ public final class GetAuthorizerResult {
         private String identityValidationExpression;
         private String name;
         private List<String> providerArns;
+        private String region;
         private String restApiId;
         private String type;
         public Builder() {}
@@ -177,6 +182,7 @@ public final class GetAuthorizerResult {
     	      this.identityValidationExpression = defaults.identityValidationExpression;
     	      this.name = defaults.name;
     	      this.providerArns = defaults.providerArns;
+    	      this.region = defaults.region;
     	      this.restApiId = defaults.restApiId;
     	      this.type = defaults.type;
         }
@@ -265,6 +271,14 @@ public final class GetAuthorizerResult {
             return providerArns(List.of(providerArns));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restApiId(String restApiId) {
             if (restApiId == null) {
               throw new MissingRequiredPropertyException("GetAuthorizerResult", "restApiId");
@@ -292,6 +306,7 @@ public final class GetAuthorizerResult {
             _resultValue.identityValidationExpression = identityValidationExpression;
             _resultValue.name = name;
             _resultValue.providerArns = providerArns;
+            _resultValue.region = region;
             _resultValue.restApiId = restApiId;
             _resultValue.type = type;
             return _resultValue;

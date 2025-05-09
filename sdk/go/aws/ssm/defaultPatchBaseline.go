@@ -98,6 +98,8 @@ type DefaultPatchBaseline struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDefaultPatchBaseline registers a new resource with the given unique name, arguments, and options.
@@ -156,6 +158,8 @@ type defaultPatchBaselineState struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DefaultPatchBaselineState struct {
@@ -179,6 +183,8 @@ type DefaultPatchBaselineState struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DefaultPatchBaselineState) ElementType() reflect.Type {
@@ -206,6 +212,8 @@ type defaultPatchBaselineArgs struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem string `pulumi:"operatingSystem"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DefaultPatchBaseline resource.
@@ -230,6 +238,8 @@ type DefaultPatchBaselineArgs struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DefaultPatchBaselineArgs) ElementType() reflect.Type {
@@ -343,6 +353,11 @@ func (o DefaultPatchBaselineOutput) BaselineId() pulumi.StringOutput {
 // `WINDOWS`.
 func (o DefaultPatchBaselineOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DefaultPatchBaselineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DefaultPatchBaselineArrayOutput struct{ *pulumi.OutputState }

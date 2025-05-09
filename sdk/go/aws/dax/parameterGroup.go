@@ -65,6 +65,8 @@ type ParameterGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parameters of the parameter group.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +105,8 @@ type parameterGroupState struct {
 	Name *string `pulumi:"name"`
 	// The parameters of the parameter group.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ParameterGroupState struct {
@@ -112,6 +116,8 @@ type ParameterGroupState struct {
 	Name pulumi.StringPtrInput
 	// The parameters of the parameter group.
 	Parameters ParameterGroupParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -125,6 +131,8 @@ type parameterGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The parameters of the parameter group.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
@@ -135,6 +143,8 @@ type ParameterGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The parameters of the parameter group.
 	Parameters ParameterGroupParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -237,6 +247,11 @@ func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 // The parameters of the parameter group.
 func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ParameterGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ParameterGroupArrayOutput struct{ *pulumi.OutputState }

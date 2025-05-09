@@ -24,7 +24,8 @@ class AuthorizationRuleArgs:
                  target_network_cidr: pulumi.Input[builtins.str],
                  access_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  authorize_all_groups: Optional[pulumi.Input[builtins.bool]] = None,
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AuthorizationRule resource.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
@@ -32,6 +33,7 @@ class AuthorizationRuleArgs:
         :param pulumi.Input[builtins.str] access_group_id: The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[builtins.bool] authorize_all_groups: Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[builtins.str] description: A brief description of the authorization rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         pulumi.set(__self__, "target_network_cidr", target_network_cidr)
@@ -41,6 +43,8 @@ class AuthorizationRuleArgs:
             pulumi.set(__self__, "authorize_all_groups", authorize_all_groups)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -102,6 +106,18 @@ class AuthorizationRuleArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AuthorizationRuleState:
@@ -110,6 +126,7 @@ class _AuthorizationRuleState:
                  authorize_all_groups: Optional[pulumi.Input[builtins.bool]] = None,
                  client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_network_cidr: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthorizationRule resources.
@@ -117,6 +134,7 @@ class _AuthorizationRuleState:
         :param pulumi.Input[builtins.bool] authorize_all_groups: Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[builtins.str] description: A brief description of the authorization rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_network_cidr: The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         if access_group_id is not None:
@@ -127,6 +145,8 @@ class _AuthorizationRuleState:
             pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_network_cidr is not None:
             pulumi.set(__self__, "target_network_cidr", target_network_cidr)
 
@@ -179,6 +199,18 @@ class _AuthorizationRuleState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="targetNetworkCidr")
     def target_network_cidr(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -203,6 +235,7 @@ class AuthorizationRule(pulumi.CustomResource):
                  authorize_all_groups: Optional[pulumi.Input[builtins.bool]] = None,
                  client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -244,6 +277,7 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] authorize_all_groups: Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[builtins.str] description: A brief description of the authorization rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_network_cidr: The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         ...
@@ -304,6 +338,7 @@ class AuthorizationRule(pulumi.CustomResource):
                  authorize_all_groups: Optional[pulumi.Input[builtins.bool]] = None,
                  client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -320,6 +355,7 @@ class AuthorizationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_vpn_endpoint_id'")
             __props__.__dict__["client_vpn_endpoint_id"] = client_vpn_endpoint_id
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             if target_network_cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'target_network_cidr'")
             __props__.__dict__["target_network_cidr"] = target_network_cidr
@@ -337,6 +373,7 @@ class AuthorizationRule(pulumi.CustomResource):
             authorize_all_groups: Optional[pulumi.Input[builtins.bool]] = None,
             client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target_network_cidr: Optional[pulumi.Input[builtins.str]] = None) -> 'AuthorizationRule':
         """
         Get an existing AuthorizationRule resource's state with the given name, id, and optional extra
@@ -349,6 +386,7 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] authorize_all_groups: Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[builtins.str] description: A brief description of the authorization rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_network_cidr: The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -359,6 +397,7 @@ class AuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["authorize_all_groups"] = authorize_all_groups
         __props__.__dict__["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         __props__.__dict__["description"] = description
+        __props__.__dict__["region"] = region
         __props__.__dict__["target_network_cidr"] = target_network_cidr
         return AuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
@@ -393,6 +432,14 @@ class AuthorizationRule(pulumi.CustomResource):
         A brief description of the authorization rule.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="targetNetworkCidr")

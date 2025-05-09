@@ -66,8 +66,10 @@ type EmailTemplate struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 	EmailTemplates EmailTemplateEmailTemplateArrayOutput `pulumi:"emailTemplates"`
-	Tags           pulumi.StringMapOutput                `pulumi:"tags"`
-	TagsAll        pulumi.StringMapOutput                `pulumi:"tagsAll"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	TemplateName pulumi.StringOutput `pulumi:"templateName"`
 }
@@ -109,8 +111,10 @@ type emailTemplateState struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 	EmailTemplates []EmailTemplateEmailTemplate `pulumi:"emailTemplates"`
-	Tags           map[string]string            `pulumi:"tags"`
-	TagsAll        map[string]string            `pulumi:"tagsAll"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	TemplateName *string `pulumi:"templateName"`
 }
@@ -120,8 +124,10 @@ type EmailTemplateState struct {
 	Arn pulumi.StringPtrInput
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 	EmailTemplates EmailTemplateEmailTemplateArrayInput
-	Tags           pulumi.StringMapInput
-	TagsAll        pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	TemplateName pulumi.StringPtrInput
 }
@@ -133,7 +139,9 @@ func (EmailTemplateState) ElementType() reflect.Type {
 type emailTemplateArgs struct {
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 	EmailTemplates []EmailTemplateEmailTemplate `pulumi:"emailTemplates"`
-	Tags           map[string]string            `pulumi:"tags"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	TemplateName string `pulumi:"templateName"`
 }
@@ -142,7 +150,9 @@ type emailTemplateArgs struct {
 type EmailTemplateArgs struct {
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 	EmailTemplates EmailTemplateEmailTemplateArrayInput
-	Tags           pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	TemplateName pulumi.StringInput
 }
@@ -242,6 +252,11 @@ func (o EmailTemplateOutput) Arn() pulumi.StringOutput {
 // Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 func (o EmailTemplateOutput) EmailTemplates() EmailTemplateEmailTemplateArrayOutput {
 	return o.ApplyT(func(v *EmailTemplate) EmailTemplateEmailTemplateArrayOutput { return v.EmailTemplates }).(EmailTemplateEmailTemplateArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EmailTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o EmailTemplateOutput) Tags() pulumi.StringMapOutput {

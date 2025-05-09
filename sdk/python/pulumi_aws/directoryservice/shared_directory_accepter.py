@@ -20,12 +20,16 @@ __all__ = ['SharedDirectoryAccepterArgs', 'SharedDirectoryAccepter']
 @pulumi.input_type
 class SharedDirectoryAccepterArgs:
     def __init__(__self__, *,
-                 shared_directory_id: pulumi.Input[builtins.str]):
+                 shared_directory_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SharedDirectoryAccepter resource.
         :param pulumi.Input[builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "shared_directory_id", shared_directory_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="sharedDirectoryId")
@@ -39,6 +43,18 @@ class SharedDirectoryAccepterArgs:
     def shared_directory_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "shared_directory_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _SharedDirectoryAccepterState:
@@ -47,6 +63,7 @@ class _SharedDirectoryAccepterState:
                  notes: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  owner_directory_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_directory_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SharedDirectoryAccepter resources.
@@ -54,6 +71,7 @@ class _SharedDirectoryAccepterState:
         :param pulumi.Input[builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         :param pulumi.Input[builtins.str] owner_account_id: Account identifier of the directory owner.
         :param pulumi.Input[builtins.str] owner_directory_id: Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
         if method is not None:
@@ -64,6 +82,8 @@ class _SharedDirectoryAccepterState:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
         if owner_directory_id is not None:
             pulumi.set(__self__, "owner_directory_id", owner_directory_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shared_directory_id is not None:
             pulumi.set(__self__, "shared_directory_id", shared_directory_id)
 
@@ -116,6 +136,18 @@ class _SharedDirectoryAccepterState:
         pulumi.set(self, "owner_directory_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sharedDirectoryId")
     def shared_directory_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -136,6 +168,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -168,6 +201,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
         ...
@@ -219,6 +253,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -229,6 +264,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SharedDirectoryAccepterArgs.__new__(SharedDirectoryAccepterArgs)
 
+            __props__.__dict__["region"] = region
             if shared_directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_directory_id'")
             __props__.__dict__["shared_directory_id"] = shared_directory_id
@@ -250,6 +286,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
             notes: Optional[pulumi.Input[builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
             owner_directory_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             shared_directory_id: Optional[pulumi.Input[builtins.str]] = None) -> 'SharedDirectoryAccepter':
         """
         Get an existing SharedDirectoryAccepter resource's state with the given name, id, and optional extra
@@ -262,6 +299,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         :param pulumi.Input[builtins.str] owner_account_id: Account identifier of the directory owner.
         :param pulumi.Input[builtins.str] owner_directory_id: Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -272,6 +310,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         __props__.__dict__["notes"] = notes
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["owner_directory_id"] = owner_directory_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["shared_directory_id"] = shared_directory_id
         return SharedDirectoryAccepter(resource_name, opts=opts, __props__=__props__)
 
@@ -306,6 +345,14 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
         """
         return pulumi.get(self, "owner_directory_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sharedDirectoryId")

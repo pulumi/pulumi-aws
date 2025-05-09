@@ -25,6 +25,7 @@ class InstanceArgs:
                  cidr_endpoints_custom_subdomain: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -32,6 +33,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
         :param pulumi.Input[builtins.str] description: A description for the AWS Verified Access Instance.
         :param pulumi.Input[builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cidr_endpoints_custom_subdomain is not None:
@@ -40,6 +42,8 @@ class InstanceArgs:
             pulumi.set(__self__, "description", description)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -83,6 +87,18 @@ class InstanceArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -112,6 +128,7 @@ class _InstanceState:
                  fips_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  last_updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]]] = None):
@@ -122,6 +139,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.str] description: A description for the AWS Verified Access Instance.
         :param pulumi.Input[builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[builtins.str] last_updated_time: The time that the Verified Access Instance was last updated.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """
@@ -137,6 +155,8 @@ class _InstanceState:
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name_servers is not None:
             pulumi.set(__self__, "name_servers", name_servers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -215,6 +235,18 @@ class _InstanceState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -258,6 +290,7 @@ class Instance(pulumi.CustomResource):
                  cidr_endpoints_custom_subdomain: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -310,6 +343,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
         :param pulumi.Input[builtins.str] description: A description for the AWS Verified Access Instance.
         :param pulumi.Input[builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -380,6 +414,7 @@ class Instance(pulumi.CustomResource):
                  cidr_endpoints_custom_subdomain: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -394,6 +429,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["cidr_endpoints_custom_subdomain"] = cidr_endpoints_custom_subdomain
             __props__.__dict__["description"] = description
             __props__.__dict__["fips_enabled"] = fips_enabled
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["creation_time"] = None
@@ -416,6 +452,7 @@ class Instance(pulumi.CustomResource):
             fips_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             last_updated_time: Optional[pulumi.Input[builtins.str]] = None,
             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict']]]]] = None) -> 'Instance':
@@ -431,6 +468,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description for the AWS Verified Access Instance.
         :param pulumi.Input[builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[builtins.str] last_updated_time: The time that the Verified Access Instance was last updated.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """
@@ -444,6 +482,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["fips_enabled"] = fips_enabled
         __props__.__dict__["last_updated_time"] = last_updated_time
         __props__.__dict__["name_servers"] = name_servers
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["verified_access_trust_providers"] = verified_access_trust_providers
@@ -493,6 +532,14 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> pulumi.Output[Sequence[builtins.str]]:
         return pulumi.get(self, "name_servers")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

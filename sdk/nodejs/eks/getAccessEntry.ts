@@ -25,6 +25,7 @@ export function getAccessEntry(args: GetAccessEntryArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("aws:eks/getAccessEntry:getAccessEntry", {
         "clusterName": args.clusterName,
         "principalArn": args.principalArn,
+        "region": args.region,
         "tags": args.tags,
         "tagsAll": args.tagsAll,
     }, opts);
@@ -42,6 +43,7 @@ export interface GetAccessEntryArgs {
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     principalArn: string;
+    region?: string;
     tags?: {[key: string]: string};
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
@@ -75,6 +77,7 @@ export interface GetAccessEntryResult {
      */
     readonly modifiedAt: string;
     readonly principalArn: string;
+    readonly region: string;
     readonly tags?: {[key: string]: string};
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
@@ -110,6 +113,7 @@ export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulu
     return pulumi.runtime.invokeOutput("aws:eks/getAccessEntry:getAccessEntry", {
         "clusterName": args.clusterName,
         "principalArn": args.principalArn,
+        "region": args.region,
         "tags": args.tags,
         "tagsAll": args.tagsAll,
     }, opts);
@@ -127,6 +131,7 @@ export interface GetAccessEntryOutputArgs {
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     principalArn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTrackerAssociationArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,6 +31,13 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
         return this.consumerArn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Name of the tracker resource associated with a geofence collection.
      * 
@@ -48,6 +57,7 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
 
     private GetTrackerAssociationArgs(GetTrackerAssociationArgs $) {
         this.consumerArn = $.consumerArn;
+        this.region = $.region;
         this.trackerName = $.trackerName;
     }
 
@@ -88,6 +98,15 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
          */
         public Builder consumerArn(String consumerArn) {
             return consumerArn(Output.of(consumerArn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

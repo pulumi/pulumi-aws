@@ -38,6 +38,7 @@ public final class GetContactChannelResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Type of the contact channel.
      * 
@@ -83,6 +84,9 @@ public final class GetContactChannelResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Type of the contact channel.
      * 
@@ -106,6 +110,7 @@ public final class GetContactChannelResult {
         private List<GetContactChannelDeliveryAddress> deliveryAddresses;
         private String id;
         private String name;
+        private String region;
         private String type;
         public Builder() {}
         public Builder(GetContactChannelResult defaults) {
@@ -116,6 +121,7 @@ public final class GetContactChannelResult {
     	      this.deliveryAddresses = defaults.deliveryAddresses;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.type = defaults.type;
         }
 
@@ -171,6 +177,14 @@ public final class GetContactChannelResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContactChannelResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetContactChannelResult", "type");
@@ -186,6 +200,7 @@ public final class GetContactChannelResult {
             _resultValue.deliveryAddresses = deliveryAddresses;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.type = type;
             return _resultValue;
         }

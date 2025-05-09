@@ -32,8 +32,8 @@ namespace Pulumi.Aws.DirectConnect
         /// });
         /// ```
         /// </summary>
-        public static Task<GetLocationsResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("aws:directconnect/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetLocationsResult> InvokeAsync(GetLocationsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("aws:directconnect/getLocations:getLocations", args ?? new GetLocationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about the AWS Direct Connect locations in the current AWS Region.
@@ -56,8 +56,8 @@ namespace Pulumi.Aws.DirectConnect
         /// });
         /// ```
         /// </summary>
-        public static Output<GetLocationsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("aws:directconnect/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetLocationsResult> Invoke(GetLocationsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("aws:directconnect/getLocations:getLocations", args ?? new GetLocationsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about the AWS Direct Connect locations in the current AWS Region.
@@ -80,8 +80,31 @@ namespace Pulumi.Aws.DirectConnect
         /// });
         /// ```
         /// </summary>
-        public static Output<GetLocationsResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("aws:directconnect/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetLocationsResult> Invoke(GetLocationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("aws:directconnect/getLocations:getLocations", args ?? new GetLocationsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetLocationsArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetLocationsArgs()
+        {
+        }
+        public static new GetLocationsArgs Empty => new GetLocationsArgs();
+    }
+
+    public sealed class GetLocationsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetLocationsInvokeArgs()
+        {
+        }
+        public static new GetLocationsInvokeArgs Empty => new GetLocationsInvokeArgs();
     }
 
 
@@ -96,15 +119,19 @@ namespace Pulumi.Aws.DirectConnect
         /// Code for the locations.
         /// </summary>
         public readonly ImmutableArray<string> LocationCodes;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetLocationsResult(
             string id,
 
-            ImmutableArray<string> locationCodes)
+            ImmutableArray<string> locationCodes,
+
+            string region)
         {
             Id = id;
             LocationCodes = locationCodes;
+            Region = region;
         }
     }
 }

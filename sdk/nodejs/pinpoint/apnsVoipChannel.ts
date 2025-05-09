@@ -97,6 +97,10 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
      */
     public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      */
     public readonly teamId!: pulumi.Output<string | undefined>;
@@ -128,6 +132,7 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
             resourceInputs["defaultAuthenticationMethod"] = state ? state.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["teamId"] = state ? state.teamId : undefined;
             resourceInputs["tokenKey"] = state ? state.tokenKey : undefined;
             resourceInputs["tokenKeyId"] = state ? state.tokenKeyId : undefined;
@@ -142,6 +147,7 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
             resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["teamId"] = args?.teamId ? pulumi.secret(args.teamId) : undefined;
             resourceInputs["tokenKey"] = args?.tokenKey ? pulumi.secret(args.tokenKey) : undefined;
             resourceInputs["tokenKeyId"] = args?.tokenKeyId ? pulumi.secret(args.tokenKeyId) : undefined;
@@ -190,6 +196,10 @@ export interface ApnsVoipChannelState {
      * If you choose to use __Key credentials__ you will have to provide:
      */
     privateKey?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      */
@@ -241,6 +251,10 @@ export interface ApnsVoipChannelArgs {
      * If you choose to use __Key credentials__ you will have to provide:
      */
     privateKey?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      */

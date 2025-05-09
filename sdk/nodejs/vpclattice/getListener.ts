@@ -25,6 +25,7 @@ export function getListener(args: GetListenerArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getListener:getListener", {
         "listenerIdentifier": args.listenerIdentifier,
+        "region": args.region,
         "serviceIdentifier": args.serviceIdentifier,
         "tags": args.tags,
     }, opts);
@@ -38,6 +39,7 @@ export interface GetListenerArgs {
      * ID or Amazon Resource Name (ARN) of the listener
      */
     listenerIdentifier: string;
+    region?: string;
     /**
      * ID or Amazon Resource Name (ARN) of the service network
      */
@@ -89,6 +91,7 @@ export interface GetListenerResult {
      * The listener protocol. Either `HTTPS` or `HTTP`.
      */
     readonly protocol: string;
+    readonly region: string;
     /**
      * The ARN of the service.
      */
@@ -121,6 +124,7 @@ export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpclattice/getListener:getListener", {
         "listenerIdentifier": args.listenerIdentifier,
+        "region": args.region,
         "serviceIdentifier": args.serviceIdentifier,
         "tags": args.tags,
     }, opts);
@@ -134,6 +138,7 @@ export interface GetListenerOutputArgs {
      * ID or Amazon Resource Name (ARN) of the listener
      */
     listenerIdentifier: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * ID or Amazon Resource Name (ARN) of the service network
      */

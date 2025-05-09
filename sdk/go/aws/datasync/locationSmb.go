@@ -68,6 +68,8 @@ type LocationSmb struct {
 	MountOptions LocationSmbMountOptionsPtrOutput `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has file permissions in the SMB.
 	Password pulumi.StringOutput `pulumi:"password"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
 	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -143,6 +145,8 @@ type locationSmbState struct {
 	MountOptions *LocationSmbMountOptions `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has file permissions in the SMB.
 	Password *string `pulumi:"password"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
 	ServerHostname *string `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -167,6 +171,8 @@ type LocationSmbState struct {
 	MountOptions LocationSmbMountOptionsPtrInput
 	// The password of the user who can mount the share and has file permissions in the SMB.
 	Password pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
 	ServerHostname pulumi.StringPtrInput
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -193,6 +199,8 @@ type locationSmbArgs struct {
 	MountOptions *LocationSmbMountOptions `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has file permissions in the SMB.
 	Password string `pulumi:"password"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
 	ServerHostname string `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -213,6 +221,8 @@ type LocationSmbArgs struct {
 	MountOptions LocationSmbMountOptionsPtrInput
 	// The password of the user who can mount the share and has file permissions in the SMB.
 	Password pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
 	ServerHostname pulumi.StringInput
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -333,6 +343,11 @@ func (o LocationSmbOutput) MountOptions() LocationSmbMountOptionsPtrOutput {
 // The password of the user who can mount the share and has file permissions in the SMB.
 func (o LocationSmbOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LocationSmbOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationSmb) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.

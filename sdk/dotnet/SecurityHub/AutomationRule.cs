@@ -115,6 +115,12 @@ namespace Pulumi.Aws.SecurityHub
         public Output<bool> IsTerminal { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the rule.
         /// </summary>
         [Output("ruleName")]
@@ -215,6 +221,12 @@ namespace Pulumi.Aws.SecurityHub
         public Input<bool>? IsTerminal { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the rule.
         /// </summary>
         [Input("ruleName", required: true)]
@@ -283,6 +295,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("isTerminal")]
         public Input<bool>? IsTerminal { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the rule.

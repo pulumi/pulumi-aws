@@ -40,6 +40,7 @@ public final class GetReportPlanResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
@@ -95,6 +96,9 @@ public final class GetReportPlanResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
@@ -132,6 +136,7 @@ public final class GetReportPlanResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
         private List<GetReportPlanReportSetting> reportSettings;
         private Map<String,String> tags;
@@ -144,6 +149,7 @@ public final class GetReportPlanResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.reportDeliveryChannels = defaults.reportDeliveryChannels;
     	      this.reportSettings = defaults.reportSettings;
     	      this.tags = defaults.tags;
@@ -198,6 +204,14 @@ public final class GetReportPlanResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder reportDeliveryChannels(List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels) {
             if (reportDeliveryChannels == null) {
               throw new MissingRequiredPropertyException("GetReportPlanResult", "reportDeliveryChannels");
@@ -235,6 +249,7 @@ public final class GetReportPlanResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.reportDeliveryChannels = reportDeliveryChannels;
             _resultValue.reportSettings = reportSettings;
             _resultValue.tags = tags;

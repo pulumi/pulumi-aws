@@ -112,6 +112,21 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      * 
@@ -197,6 +212,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         this.peerOwnerId = $.peerOwnerId;
         this.peerRegion = $.peerRegion;
         this.peerVpcId = $.peerVpcId;
+        this.region = $.region;
         this.requester = $.requester;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -348,6 +364,27 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
          */
         public Builder peerVpcId(String peerVpcId) {
             return peerVpcId(Output.of(peerVpcId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

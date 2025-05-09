@@ -21,6 +21,7 @@ public final class GetVpnAttachmentResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Key-value tags for the EC2 Transit Gateway VPN Attachment
      * 
@@ -39,6 +40,9 @@ public final class GetVpnAttachmentResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Key-value tags for the EC2 Transit Gateway VPN Attachment
@@ -65,6 +69,7 @@ public final class GetVpnAttachmentResult {
     public static final class Builder {
         private @Nullable List<GetVpnAttachmentFilter> filters;
         private String id;
+        private String region;
         private Map<String,String> tags;
         private @Nullable String transitGatewayId;
         private @Nullable String vpnConnectionId;
@@ -73,6 +78,7 @@ public final class GetVpnAttachmentResult {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.transitGatewayId = defaults.transitGatewayId;
     	      this.vpnConnectionId = defaults.vpnConnectionId;
@@ -93,6 +99,14 @@ public final class GetVpnAttachmentResult {
               throw new MissingRequiredPropertyException("GetVpnAttachmentResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpnAttachmentResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -119,6 +133,7 @@ public final class GetVpnAttachmentResult {
             final var _resultValue = new GetVpnAttachmentResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.transitGatewayId = transitGatewayId;
             _resultValue.vpnConnectionId = vpnConnectionId;

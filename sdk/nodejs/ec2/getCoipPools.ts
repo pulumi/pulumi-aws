@@ -15,6 +15,7 @@ export function getCoipPools(args?: GetCoipPoolsArgs, opts?: pulumi.InvokeOption
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getCoipPools:getCoipPools", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -30,6 +31,7 @@ export interface GetCoipPoolsArgs {
      * which take the following arguments:
      */
     filters?: inputs.ec2.GetCoipPoolsFilter[];
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
@@ -50,6 +52,7 @@ export interface GetCoipPoolsResult {
      * Set of COIP Pool Identifiers
      */
     readonly poolIds: string[];
+    readonly region: string;
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -60,6 +63,7 @@ export function getCoipPoolsOutput(args?: GetCoipPoolsOutputArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getCoipPools:getCoipPools", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -75,6 +79,7 @@ export interface GetCoipPoolsOutputArgs {
      * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.

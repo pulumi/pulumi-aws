@@ -93,6 +93,21 @@ public final class LocationFsxWindowsState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      * 
      */
@@ -190,6 +205,7 @@ public final class LocationFsxWindowsState extends com.pulumi.resources.Resource
         this.domain = $.domain;
         this.fsxFilesystemArn = $.fsxFilesystemArn;
         this.password = $.password;
+        this.region = $.region;
         this.securityGroupArns = $.securityGroupArns;
         this.subdirectory = $.subdirectory;
         this.tags = $.tags;
@@ -319,6 +335,27 @@ public final class LocationFsxWindowsState extends com.pulumi.resources.Resource
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

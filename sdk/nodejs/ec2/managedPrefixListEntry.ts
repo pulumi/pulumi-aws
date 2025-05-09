@@ -82,6 +82,10 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
      * The ID of the prefix list.
      */
     public readonly prefixListId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ManagedPrefixListEntry resource with the given unique name, arguments, and options.
@@ -99,6 +103,7 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
             resourceInputs["cidr"] = state ? state.cidr : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ManagedPrefixListEntryArgs | undefined;
             if ((!args || args.cidr === undefined) && !opts.urn) {
@@ -110,6 +115,7 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
             resourceInputs["cidr"] = args ? args.cidr : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedPrefixListEntry.__pulumiType, name, resourceInputs, opts);
@@ -132,6 +138,10 @@ export interface ManagedPrefixListEntryState {
      * The ID of the prefix list.
      */
     prefixListId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -150,4 +160,8 @@ export interface ManagedPrefixListEntryArgs {
      * The ID of the prefix list.
      */
     prefixListId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -42,6 +42,12 @@ namespace Pulumi.Aws.Iot
         public Output<int?> CredentialDuration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the role to which the alias refers.
         /// </summary>
         [Output("roleArn")]
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Iot
         public Input<int>? CredentialDuration { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The identity of the role to which the alias refers.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -160,6 +172,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("credentialDuration")]
         public Input<int>? CredentialDuration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The identity of the role to which the alias refers.

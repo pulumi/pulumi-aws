@@ -31,6 +31,7 @@ class MaintenanceWindowTaskArgs:
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
                  task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None):
@@ -45,6 +46,7 @@ class MaintenanceWindowTaskArgs:
         :param pulumi.Input[builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[builtins.str] name: The name of the maintenance window task.
         :param pulumi.Input[builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs'] task_invocation_parameters: Configuration block with parameters for task execution.
@@ -64,6 +66,8 @@ class MaintenanceWindowTaskArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_role_arn is not None:
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if targets is not None:
@@ -180,6 +184,18 @@ class MaintenanceWindowTaskArgs:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -226,6 +242,7 @@ class _MaintenanceWindowTaskState:
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
                  task_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -242,6 +259,7 @@ class _MaintenanceWindowTaskState:
         :param pulumi.Input[builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[builtins.str] name: The name of the maintenance window task.
         :param pulumi.Input[builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[builtins.str] task_arn: The ARN of the task to execute.
@@ -264,6 +282,8 @@ class _MaintenanceWindowTaskState:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_role_arn is not None:
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if targets is not None:
@@ -364,6 +384,18 @@ class _MaintenanceWindowTaskState:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -462,6 +494,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
                  task_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -605,6 +638,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[builtins.str] name: The name of the maintenance window task.
         :param pulumi.Input[builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[builtins.str] task_arn: The ARN of the task to execute.
@@ -767,6 +801,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
                  task_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -788,6 +823,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             __props__.__dict__["max_errors"] = max_errors
             __props__.__dict__["name"] = name
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["region"] = region
             __props__.__dict__["service_role_arn"] = service_role_arn
             __props__.__dict__["targets"] = targets
             if task_arn is None and not opts.urn:
@@ -819,6 +855,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             max_errors: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             priority: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
             task_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -840,6 +877,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[builtins.str] name: The name of the maintenance window task.
         :param pulumi.Input[builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[builtins.str] task_arn: The ARN of the task to execute.
@@ -859,6 +897,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         __props__.__dict__["max_errors"] = max_errors
         __props__.__dict__["name"] = name
         __props__.__dict__["priority"] = priority
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["targets"] = targets
         __props__.__dict__["task_arn"] = task_arn
@@ -923,6 +962,14 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceRoleArn")

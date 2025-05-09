@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetInstanceStorageConfigArgs extends com.pulumi.resources.InvokeArgs {
@@ -44,6 +46,13 @@ public final class GetInstanceStorageConfigArgs extends com.pulumi.resources.Inv
         return this.instanceId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
      * 
@@ -64,6 +73,7 @@ public final class GetInstanceStorageConfigArgs extends com.pulumi.resources.Inv
     private GetInstanceStorageConfigArgs(GetInstanceStorageConfigArgs $) {
         this.associationId = $.associationId;
         this.instanceId = $.instanceId;
+        this.region = $.region;
         this.resourceType = $.resourceType;
     }
 
@@ -125,6 +135,15 @@ public final class GetInstanceStorageConfigArgs extends com.pulumi.resources.Inv
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

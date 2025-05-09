@@ -23,6 +23,7 @@ public final class GetLbsResult {
      * 
      */
     private String id;
+    private String region;
     private @Nullable Map<String,String> tags;
 
     private GetLbsResult() {}
@@ -40,6 +41,9 @@ public final class GetLbsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -55,12 +59,14 @@ public final class GetLbsResult {
     public static final class Builder {
         private List<String> arns;
         private String id;
+        private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLbsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -84,6 +90,14 @@ public final class GetLbsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLbsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -93,6 +107,7 @@ public final class GetLbsResult {
             final var _resultValue = new GetLbsResult();
             _resultValue.arns = arns;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

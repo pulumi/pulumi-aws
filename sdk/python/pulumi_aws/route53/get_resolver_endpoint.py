@@ -29,7 +29,7 @@ class GetResolverEndpointResult:
     """
     A collection of values returned by getResolverEndpoint.
     """
-    def __init__(__self__, arn=None, direction=None, filters=None, id=None, ip_addresses=None, name=None, protocols=None, resolver_endpoint_id=None, resolver_endpoint_type=None, status=None, vpc_id=None):
+    def __init__(__self__, arn=None, direction=None, filters=None, id=None, ip_addresses=None, name=None, protocols=None, region=None, resolver_endpoint_id=None, resolver_endpoint_type=None, status=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +51,9 @@ class GetResolverEndpointResult:
         if protocols and not isinstance(protocols, list):
             raise TypeError("Expected argument 'protocols' to be a list")
         pulumi.set(__self__, "protocols", protocols)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resolver_endpoint_id and not isinstance(resolver_endpoint_id, str):
             raise TypeError("Expected argument 'resolver_endpoint_id' to be a str")
         pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
@@ -67,11 +70,17 @@ class GetResolverEndpointResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        Computed ARN of the Route53 Resolver Endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def direction(self) -> builtins.str:
+        """
+        Direction of the queries to or from the Resolver Endpoint .
+        """
         return pulumi.get(self, "direction")
 
     @property
@@ -90,6 +99,9 @@ class GetResolverEndpointResult:
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Sequence[builtins.str]:
+        """
+        List of IPaddresses that have been associated with the Resolver Endpoint.
+        """
         return pulumi.get(self, "ip_addresses")
 
     @property
@@ -100,7 +112,15 @@ class GetResolverEndpointResult:
     @property
     @pulumi.getter
     def protocols(self) -> Sequence[builtins.str]:
+        """
+        The protocols used by the Resolver endpoint.
+        """
         return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resolverEndpointId")
@@ -110,16 +130,25 @@ class GetResolverEndpointResult:
     @property
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> builtins.str:
+        """
+        The Resolver endpoint IP address type.
+        """
         return pulumi.get(self, "resolver_endpoint_type")
 
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
+        """
+        Current status of the Resolver Endpoint.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> builtins.str:
+        """
+        ID of the Host VPC that the Resolver Endpoint resides in.
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -136,6 +165,7 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
             ip_addresses=self.ip_addresses,
             name=self.name,
             protocols=self.protocols,
+            region=self.region,
             resolver_endpoint_id=self.resolver_endpoint_id,
             resolver_endpoint_type=self.resolver_endpoint_type,
             status=self.status,
@@ -143,6 +173,7 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
 
 
 def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]] = None,
+                          region: Optional[builtins.str] = None,
                           resolver_endpoint_id: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverEndpointResult:
     """
@@ -173,12 +204,11 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
     :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
-           
-           In addition to all arguments above, the following attributes are exported:
     :param builtins.str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['resolverEndpointId'] = resolver_endpoint_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverEndpoint:getResolverEndpoint', __args__, opts=opts, typ=GetResolverEndpointResult).value
@@ -191,11 +221,13 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
         name=pulumi.get(__ret__, 'name'),
         protocols=pulumi.get(__ret__, 'protocols'),
+        region=pulumi.get(__ret__, 'region'),
         resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
         resolver_endpoint_type=pulumi.get(__ret__, 'resolver_endpoint_type'),
         status=pulumi.get(__ret__, 'status'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]]]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  resolver_endpoint_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverEndpointResult]:
     """
@@ -226,12 +258,11 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
     :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
-           
-           In addition to all arguments above, the following attributes are exported:
     :param builtins.str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['resolverEndpointId'] = resolver_endpoint_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverEndpoint:getResolverEndpoint', __args__, opts=opts, typ=GetResolverEndpointResult)
@@ -243,6 +274,7 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
         ip_addresses=pulumi.get(__response__, 'ip_addresses'),
         name=pulumi.get(__response__, 'name'),
         protocols=pulumi.get(__response__, 'protocols'),
+        region=pulumi.get(__response__, 'region'),
         resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),
         resolver_endpoint_type=pulumi.get(__response__, 'resolver_endpoint_type'),
         status=pulumi.get(__response__, 'status'),

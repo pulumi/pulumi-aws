@@ -131,6 +131,10 @@ export class Collaboration extends pulumi.CustomResource {
      */
     public readonly queryLogStatus!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key value pairs which tag the collaboration.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -159,6 +163,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["members"] = state ? state.members : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["queryLogStatus"] = state ? state.queryLogStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["updateTime"] = state ? state.updateTime : undefined;
@@ -183,6 +188,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["members"] = args ? args.members : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -248,6 +254,10 @@ export interface CollaborationState {
      */
     queryLogStatus?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key value pairs which tag the collaboration.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -299,6 +309,10 @@ export interface CollaborationArgs {
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      */
     queryLogStatus: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key value pairs which tag the collaboration.
      */

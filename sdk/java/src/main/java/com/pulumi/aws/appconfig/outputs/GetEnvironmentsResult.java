@@ -22,6 +22,7 @@ public final class GetEnvironmentsResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetEnvironmentsResult() {}
     public String applicationId() {
@@ -41,6 +42,9 @@ public final class GetEnvironmentsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -54,12 +58,14 @@ public final class GetEnvironmentsResult {
         private String applicationId;
         private List<String> environmentIds;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetEnvironmentsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationId = defaults.applicationId;
     	      this.environmentIds = defaults.environmentIds;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -89,11 +95,20 @@ public final class GetEnvironmentsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetEnvironmentsResult build() {
             final var _resultValue = new GetEnvironmentsResult();
             _resultValue.applicationId = applicationId;
             _resultValue.environmentIds = environmentIds;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Macie2
     public partial class ClassificationExportConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for a S3 Destination. Defined below
         /// </summary>
         [Output("s3Destination")]
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.Macie2
     public sealed class ClassificationExportConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for a S3 Destination. Defined below
         /// </summary>
         [Input("s3Destination")]
@@ -120,6 +132,12 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class ClassificationExportConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Configuration block for a S3 Destination. Defined below
         /// </summary>

@@ -288,6 +288,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
     public readonly storageMode!: pulumi.Output<string>;
@@ -344,6 +348,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = state ? state.loggingInfo : undefined;
             resourceInputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
             resourceInputs["openMonitoring"] = state ? state.openMonitoring : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageMode"] = state ? state.storageMode : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -370,6 +375,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
             resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
             resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageMode"] = args ? args.storageMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -491,6 +497,10 @@ export interface ClusterState {
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
     storageMode?: pulumi.Input<string>;
@@ -556,6 +566,10 @@ export interface ClusterArgs {
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */

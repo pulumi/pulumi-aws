@@ -71,6 +71,12 @@ namespace Pulumi.Aws.M2
         public Output<bool?> ForceStop { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Start the application once deployed.
         /// </summary>
         [Output("start")]
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.M2
         public Input<bool>? ForceStop { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Start the application once deployed.
         /// </summary>
         [Input("start", required: true)]
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.M2
 
         [Input("forceStop")]
         public Input<bool>? ForceStop { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Start the application once deployed.

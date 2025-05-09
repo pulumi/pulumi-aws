@@ -20,12 +20,16 @@ __all__ = ['MemberAssociationArgs', 'MemberAssociation']
 @pulumi.input_type
 class MemberAssociationArgs:
     def __init__(__self__, *,
-                 account_id: pulumi.Input[builtins.str]):
+                 account_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a MemberAssociation resource.
         :param pulumi.Input[builtins.str] account_id: ID of the account to associate
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -39,18 +43,32 @@ class MemberAssociationArgs:
     def account_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _MemberAssociationState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  delegated_admin_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relationship_status: Optional[pulumi.Input[builtins.str]] = None,
                  updated_at: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering MemberAssociation resources.
         :param pulumi.Input[builtins.str] account_id: ID of the account to associate
         :param pulumi.Input[builtins.str] delegated_admin_account_id: Account ID of the delegated administrator account
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relationship_status: Status of the member relationship
         :param pulumi.Input[builtins.str] updated_at: Date and time of the last update of the relationship
         """
@@ -58,6 +76,8 @@ class _MemberAssociationState:
             pulumi.set(__self__, "account_id", account_id)
         if delegated_admin_account_id is not None:
             pulumi.set(__self__, "delegated_admin_account_id", delegated_admin_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relationship_status is not None:
             pulumi.set(__self__, "relationship_status", relationship_status)
         if updated_at is not None:
@@ -86,6 +106,18 @@ class _MemberAssociationState:
     @delegated_admin_account_id.setter
     def delegated_admin_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "delegated_admin_account_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="relationshipStatus")
@@ -121,6 +153,7 @@ class MemberAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for associating accounts to existing Inspector instances.
@@ -147,6 +180,7 @@ class MemberAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: ID of the account to associate
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -192,6 +226,7 @@ class MemberAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -204,6 +239,7 @@ class MemberAssociation(pulumi.CustomResource):
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["delegated_admin_account_id"] = None
             __props__.__dict__["relationship_status"] = None
             __props__.__dict__["updated_at"] = None
@@ -219,6 +255,7 @@ class MemberAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[builtins.str]] = None,
             delegated_admin_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             relationship_status: Optional[pulumi.Input[builtins.str]] = None,
             updated_at: Optional[pulumi.Input[builtins.str]] = None) -> 'MemberAssociation':
         """
@@ -230,6 +267,7 @@ class MemberAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: ID of the account to associate
         :param pulumi.Input[builtins.str] delegated_admin_account_id: Account ID of the delegated administrator account
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relationship_status: Status of the member relationship
         :param pulumi.Input[builtins.str] updated_at: Date and time of the last update of the relationship
         """
@@ -239,6 +277,7 @@ class MemberAssociation(pulumi.CustomResource):
 
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["delegated_admin_account_id"] = delegated_admin_account_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["relationship_status"] = relationship_status
         __props__.__dict__["updated_at"] = updated_at
         return MemberAssociation(resource_name, opts=opts, __props__=__props__)
@@ -258,6 +297,14 @@ class MemberAssociation(pulumi.CustomResource):
         Account ID of the delegated administrator account
         """
         return pulumi.get(self, "delegated_admin_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="relationshipStatus")

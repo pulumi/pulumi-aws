@@ -187,6 +187,12 @@ namespace Pulumi.Aws.DirectConnect
         [Output("proposalId")]
         public Output<string?> ProposalId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -272,6 +278,12 @@ namespace Pulumi.Aws.DirectConnect
         [Input("proposalId")]
         public Input<string>? ProposalId { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GatewayAssociationArgs()
         {
         }
@@ -336,6 +348,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("proposalId")]
         public Input<string>? ProposalId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GatewayAssociationState()
         {

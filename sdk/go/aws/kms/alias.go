@@ -64,6 +64,8 @@ type Alias struct {
 	// Creates an unique alias beginning with the specified prefix.
 	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the target key identifier.
 	TargetKeyArn pulumi.StringOutput `pulumi:"targetKeyArn"`
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
@@ -110,6 +112,8 @@ type aliasState struct {
 	// Creates an unique alias beginning with the specified prefix.
 	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the target key identifier.
 	TargetKeyArn *string `pulumi:"targetKeyArn"`
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
@@ -124,6 +128,8 @@ type AliasState struct {
 	// Creates an unique alias beginning with the specified prefix.
 	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the target key identifier.
 	TargetKeyArn pulumi.StringPtrInput
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
@@ -140,6 +146,8 @@ type aliasArgs struct {
 	// Creates an unique alias beginning with the specified prefix.
 	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
 	TargetKeyId string `pulumi:"targetKeyId"`
 }
@@ -151,6 +159,8 @@ type AliasArgs struct {
 	// Creates an unique alias beginning with the specified prefix.
 	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
 	TargetKeyId pulumi.StringInput
 }
@@ -256,6 +266,11 @@ func (o AliasOutput) Name() pulumi.StringOutput {
 // The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
 func (o AliasOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the target key identifier.

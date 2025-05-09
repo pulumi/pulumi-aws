@@ -85,6 +85,10 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
      */
     public readonly internetGatewayExclusionMode!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) the excluded resource.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
@@ -120,6 +124,7 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcBlockPublicAccessExclusionState | undefined;
             resourceInputs["internetGatewayExclusionMode"] = state ? state.internetGatewayExclusionMode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -132,6 +137,7 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'internetGatewayExclusionMode'");
             }
             resourceInputs["internetGatewayExclusionMode"] = args ? args.internetGatewayExclusionMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -154,6 +160,10 @@ export interface VpcBlockPublicAccessExclusionState {
      * The following arguments are optional:
      */
     internetGatewayExclusionMode?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) the excluded resource.
      */
@@ -187,6 +197,10 @@ export interface VpcBlockPublicAccessExclusionArgs {
      * The following arguments are optional:
      */
     internetGatewayExclusionMode: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
      */

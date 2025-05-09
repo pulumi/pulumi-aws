@@ -18,6 +18,7 @@ public final class GetBotAssociationResult {
     private String id;
     private String instanceId;
     private GetBotAssociationLexBot lexBot;
+    private String region;
 
     private GetBotAssociationResult() {}
     /**
@@ -33,6 +34,9 @@ public final class GetBotAssociationResult {
     public GetBotAssociationLexBot lexBot() {
         return this.lexBot;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -46,12 +50,14 @@ public final class GetBotAssociationResult {
         private String id;
         private String instanceId;
         private GetBotAssociationLexBot lexBot;
+        private String region;
         public Builder() {}
         public Builder(GetBotAssociationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
     	      this.lexBot = defaults.lexBot;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -78,11 +84,20 @@ public final class GetBotAssociationResult {
             this.lexBot = lexBot;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBotAssociationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetBotAssociationResult build() {
             final var _resultValue = new GetBotAssociationResult();
             _resultValue.id = id;
             _resultValue.instanceId = instanceId;
             _resultValue.lexBot = lexBot;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

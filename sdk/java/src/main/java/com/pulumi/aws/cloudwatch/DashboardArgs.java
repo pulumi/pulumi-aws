@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
@@ -44,11 +46,27 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         return this.dashboardName;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private DashboardArgs() {}
 
     private DashboardArgs(DashboardArgs $) {
         this.dashboardBody = $.dashboardBody;
         this.dashboardName = $.dashboardName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -109,6 +127,27 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dashboardName(String dashboardName) {
             return dashboardName(Output.of(dashboardName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public DashboardArgs build() {

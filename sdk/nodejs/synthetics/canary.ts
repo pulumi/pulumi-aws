@@ -104,6 +104,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for individual canary runs. Detailed below.
      */
     public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig>;
@@ -188,6 +192,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["failureRetentionPeriod"] = state ? state.failureRetentionPeriod : undefined;
             resourceInputs["handler"] = state ? state.handler : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["runConfig"] = state ? state.runConfig : undefined;
             resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
             resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
@@ -227,6 +232,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
             resourceInputs["handler"] = args ? args.handler : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["runConfig"] = args ? args.runConfig : undefined;
             resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
             resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
@@ -290,6 +296,10 @@ export interface CanaryState {
      * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for individual canary runs. Detailed below.
      */
@@ -386,6 +396,10 @@ export interface CanaryArgs {
      * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for individual canary runs. Detailed below.
      */

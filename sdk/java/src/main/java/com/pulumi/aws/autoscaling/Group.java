@@ -1223,6 +1223,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.protectFromScaleIn);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      * 
      */

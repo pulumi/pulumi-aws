@@ -105,6 +105,8 @@ type OptionGroup struct {
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -166,6 +168,8 @@ type optionGroupState struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -189,6 +193,8 @@ type OptionGroupState struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -214,6 +220,8 @@ type optionGroupArgs struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -234,6 +242,8 @@ type OptionGroupArgs struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -360,6 +370,11 @@ func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 // The options to apply. See `option` Block below for more details.
 func (o OptionGroupOutput) Options() OptionGroupOptionArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionArrayOutput { return v.Options }).(OptionGroupOptionArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OptionGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.

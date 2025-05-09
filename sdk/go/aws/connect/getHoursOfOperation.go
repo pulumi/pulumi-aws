@@ -85,7 +85,8 @@ type LookupHoursOfOperationArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Hours of Operation by name
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the Hours of Operation.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -105,7 +106,8 @@ type LookupHoursOfOperationResult struct {
 	// Identifier of the hosting Amazon Connect Instance.
 	InstanceId string `pulumi:"instanceId"`
 	// Name of the Hours of Operation.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags to assign to the Hours of Operation.
 	Tags map[string]string `pulumi:"tags"`
 	// Time zone of the Hours of Operation.
@@ -128,7 +130,8 @@ type LookupHoursOfOperationOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Hours of Operation by name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the Hours of Operation.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -185,6 +188,10 @@ func (o LookupHoursOfOperationResultOutput) InstanceId() pulumi.StringOutput {
 // Name of the Hours of Operation.
 func (o LookupHoursOfOperationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupHoursOfOperationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the Hours of Operation.

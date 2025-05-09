@@ -297,6 +297,9 @@ namespace Pulumi.Aws
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
         /// </summary>
@@ -305,6 +308,10 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Zone ID of the availability zone to select.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// availability zones. The given filters must match exactly one availability
+        /// zone whose data will be exported as attributes.
         /// </summary>
         [Input("zoneId")]
         public string? ZoneId { get; set; }
@@ -341,6 +348,9 @@ namespace Pulumi.Aws
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
         /// </summary>
@@ -349,6 +359,10 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Zone ID of the availability zone to select.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// availability zones. The given filters must match exactly one availability
+        /// zone whose data will be exported as attributes.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
@@ -366,7 +380,11 @@ namespace Pulumi.Aws
         public readonly bool? AllAvailabilityZones;
         public readonly ImmutableArray<Outputs.GetAvailabilityZoneFilterResult> Filters;
         /// <summary>
-        /// For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+        /// The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+        /// </summary>
+        public readonly string GroupLongName;
+        /// <summary>
+        /// The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
         /// </summary>
         public readonly string GroupName;
         /// <summary>
@@ -396,9 +414,6 @@ namespace Pulumi.Aws
         /// Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         /// </summary>
         public readonly string ParentZoneName;
-        /// <summary>
-        /// Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-        /// </summary>
         public readonly string Region;
         public readonly string State;
         public readonly string ZoneId;
@@ -412,6 +427,8 @@ namespace Pulumi.Aws
             bool? allAvailabilityZones,
 
             ImmutableArray<Outputs.GetAvailabilityZoneFilterResult> filters,
+
+            string groupLongName,
 
             string groupName,
 
@@ -439,6 +456,7 @@ namespace Pulumi.Aws
         {
             AllAvailabilityZones = allAvailabilityZones;
             Filters = filters;
+            GroupLongName = groupLongName;
             GroupName = groupName;
             Id = id;
             Name = name;

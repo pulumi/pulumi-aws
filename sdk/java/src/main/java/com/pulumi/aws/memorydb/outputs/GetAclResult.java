@@ -28,6 +28,7 @@ public final class GetAclResult {
      */
     private String minimumEngineVersion;
     private String name;
+    private String region;
     /**
      * @return Map of tags assigned to the ACL.
      * 
@@ -64,6 +65,9 @@ public final class GetAclResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags assigned to the ACL.
      * 
@@ -92,6 +96,7 @@ public final class GetAclResult {
         private String id;
         private String minimumEngineVersion;
         private String name;
+        private String region;
         private Map<String,String> tags;
         private List<String> userNames;
         public Builder() {}
@@ -101,6 +106,7 @@ public final class GetAclResult {
     	      this.id = defaults.id;
     	      this.minimumEngineVersion = defaults.minimumEngineVersion;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.userNames = defaults.userNames;
         }
@@ -138,6 +144,14 @@ public final class GetAclResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetAclResult", "tags");
@@ -162,6 +176,7 @@ public final class GetAclResult {
             _resultValue.id = id;
             _resultValue.minimumEngineVersion = minimumEngineVersion;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.userNames = userNames;
             return _resultValue;

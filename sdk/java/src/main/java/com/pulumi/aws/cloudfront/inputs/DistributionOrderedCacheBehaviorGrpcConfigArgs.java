@@ -16,14 +16,14 @@ public final class DistributionOrderedCacheBehaviorGrpcConfigArgs extends com.pu
     public static final DistributionOrderedCacheBehaviorGrpcConfigArgs Empty = new DistributionOrderedCacheBehaviorGrpcConfigArgs();
 
     /**
-     * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+     * Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -55,7 +55,7 @@ public final class DistributionOrderedCacheBehaviorGrpcConfigArgs extends com.pu
         }
 
         /**
-         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DistributionOrderedCacheBehaviorGrpcConfigArgs extends com.pu
         }
 
         /**
-         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 

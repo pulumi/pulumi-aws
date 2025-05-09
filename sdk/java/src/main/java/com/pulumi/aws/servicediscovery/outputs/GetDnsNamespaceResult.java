@@ -32,6 +32,7 @@ public final class GetDnsNamespaceResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Map of tags for the resource.
      * 
@@ -71,6 +72,9 @@ public final class GetDnsNamespaceResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags for the resource.
      * 
@@ -96,6 +100,7 @@ public final class GetDnsNamespaceResult {
         private String hostedZone;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         private String type;
         public Builder() {}
@@ -106,6 +111,7 @@ public final class GetDnsNamespaceResult {
     	      this.hostedZone = defaults.hostedZone;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
@@ -151,6 +157,14 @@ public final class GetDnsNamespaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDnsNamespaceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetDnsNamespaceResult", "tags");
@@ -173,6 +187,7 @@ public final class GetDnsNamespaceResult {
             _resultValue.hostedZone = hostedZone;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.type = type;
             return _resultValue;

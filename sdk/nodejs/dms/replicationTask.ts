@@ -80,6 +80,10 @@ export class ReplicationTask extends pulumi.CustomResource {
      */
     public readonly migrationType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the replication instance.
      */
     public readonly replicationInstanceArn!: pulumi.Output<string>;
@@ -144,6 +148,7 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["cdcStartPosition"] = state ? state.cdcStartPosition : undefined;
             resourceInputs["cdcStartTime"] = state ? state.cdcStartTime : undefined;
             resourceInputs["migrationType"] = state ? state.migrationType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
             resourceInputs["replicationTaskArn"] = state ? state.replicationTaskArn : undefined;
             resourceInputs["replicationTaskId"] = state ? state.replicationTaskId : undefined;
@@ -179,6 +184,7 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["cdcStartPosition"] = args ? args.cdcStartPosition : undefined;
             resourceInputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;
             resourceInputs["migrationType"] = args ? args.migrationType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
             resourceInputs["replicationTaskId"] = args ? args.replicationTaskId : undefined;
             resourceInputs["replicationTaskSettings"] = args ? args.replicationTaskSettings : undefined;
@@ -213,6 +219,10 @@ export interface ReplicationTaskState {
      * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
     migrationType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the replication instance.
      */
@@ -279,6 +289,10 @@ export interface ReplicationTaskArgs {
      * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
     migrationType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the replication instance.
      */

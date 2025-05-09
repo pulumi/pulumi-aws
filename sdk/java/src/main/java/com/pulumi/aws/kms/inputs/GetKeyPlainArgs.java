@@ -54,11 +54,27 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.keyId;
     }
 
+    /**
+     * The AWS Region of a primary or replica key in a multi-Region key.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return The AWS Region of a primary or replica key in a multi-Region key.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetKeyPlainArgs() {}
 
     private GetKeyPlainArgs(GetKeyPlainArgs $) {
         this.grantTokens = $.grantTokens;
         this.keyId = $.keyId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -112,6 +128,17 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder keyId(String keyId) {
             $.keyId = keyId;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region of a primary or replica key in a multi-Region key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

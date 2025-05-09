@@ -236,6 +236,8 @@ type Rule struct {
 	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the config rule
 	RuleId pulumi.StringOutput `pulumi:"ruleId"`
 	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
@@ -293,6 +295,8 @@ type ruleState struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the config rule
 	RuleId *string `pulumi:"ruleId"`
 	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
@@ -318,6 +322,8 @@ type RuleState struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the config rule
 	RuleId pulumi.StringPtrInput
 	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
@@ -345,6 +351,8 @@ type ruleArgs struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
 	Scope *RuleScope `pulumi:"scope"`
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
@@ -365,6 +373,8 @@ type RuleArgs struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
 	Scope RuleScopePtrInput
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
@@ -488,6 +498,11 @@ func (o RuleOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
 // The name of the rule
 func (o RuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the config rule

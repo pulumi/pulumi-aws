@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetBucketPolicyArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,10 +31,18 @@ public final class GetBucketPolicyArgs extends com.pulumi.resources.InvokeArgs {
         return this.bucket;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetBucketPolicyArgs() {}
 
     private GetBucketPolicyArgs(GetBucketPolicyArgs $) {
         this.bucket = $.bucket;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -72,6 +82,15 @@ public final class GetBucketPolicyArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetBucketPolicyArgs build() {

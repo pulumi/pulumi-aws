@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -58,7 +58,8 @@ func GetGroups(ctx *pulumi.Context, args *GetGroupsArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getGroups.
 type GetGroupsArgs struct {
 	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
-	IdentityStoreId string `pulumi:"identityStoreId"`
+	IdentityStoreId string  `pulumi:"identityStoreId"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroups.
@@ -68,6 +69,7 @@ type GetGroupsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
+	Region          string `pulumi:"region"`
 }
 
 func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulumi.InvokeOption) GetGroupsResultOutput {
@@ -82,7 +84,8 @@ func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulu
 // A collection of arguments for invoking getGroups.
 type GetGroupsOutputArgs struct {
 	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
-	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+	IdentityStoreId pulumi.StringInput    `pulumi:"identityStoreId"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetGroupsOutputArgs) ElementType() reflect.Type {
@@ -116,6 +119,10 @@ func (o GetGroupsResultOutput) Id() pulumi.StringOutput {
 
 func (o GetGroupsResultOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsResult) string { return v.IdentityStoreId }).(pulumi.StringOutput)
+}
+
+func (o GetGroupsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

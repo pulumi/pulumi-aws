@@ -29,6 +29,7 @@ public final class GetLogGroupsResult {
      * 
      */
     private List<String> logGroupNames;
+    private String region;
 
     private GetLogGroupsResult() {}
     /**
@@ -55,6 +56,9 @@ public final class GetLogGroupsResult {
     public List<String> logGroupNames() {
         return this.logGroupNames;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -69,6 +73,7 @@ public final class GetLogGroupsResult {
         private String id;
         private @Nullable String logGroupNamePrefix;
         private List<String> logGroupNames;
+        private String region;
         public Builder() {}
         public Builder(GetLogGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,6 +81,7 @@ public final class GetLogGroupsResult {
     	      this.id = defaults.id;
     	      this.logGroupNamePrefix = defaults.logGroupNamePrefix;
     	      this.logGroupNames = defaults.logGroupNames;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -114,12 +120,21 @@ public final class GetLogGroupsResult {
         public Builder logGroupNames(String... logGroupNames) {
             return logGroupNames(List.of(logGroupNames));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetLogGroupsResult build() {
             final var _resultValue = new GetLogGroupsResult();
             _resultValue.arns = arns;
             _resultValue.id = id;
             _resultValue.logGroupNamePrefix = logGroupNamePrefix;
             _resultValue.logGroupNames = logGroupNames;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -147,6 +147,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType")]
         public string? InstanceType { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetSpotPriceArgs()
         {
         }
@@ -179,6 +182,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetSpotPriceInvokeArgs()
         {
         }
@@ -196,6 +202,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         public readonly string? InstanceType;
+        public readonly string Region;
         /// <summary>
         /// Most recent Spot Price value for the given instance type and AZ.
         /// </summary>
@@ -215,6 +222,8 @@ namespace Pulumi.Aws.Ec2
 
             string? instanceType,
 
+            string region,
+
             string spotPrice,
 
             string spotPriceTimestamp)
@@ -223,6 +232,7 @@ namespace Pulumi.Aws.Ec2
             Filters = filters;
             Id = id;
             InstanceType = instanceType;
+            Region = region;
             SpotPrice = spotPrice;
             SpotPriceTimestamp = spotPriceTimestamp;
         }

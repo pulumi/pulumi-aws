@@ -126,6 +126,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableArray<string>> Features { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Account-Level throttle settings. See exported fields below.
         /// </summary>
         [Output("throttleSettings")]
@@ -183,6 +189,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("cloudwatchRoleArn")]
         public Input<string>? CloudwatchRoleArn { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public AccountArgs()
         {
         }
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.ApiGateway
             get => _features ?? (_features = new InputList<string>());
             set => _features = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("throttleSettings")]
         private InputList<Inputs.AccountThrottleSettingGetArgs>? _throttleSettings;

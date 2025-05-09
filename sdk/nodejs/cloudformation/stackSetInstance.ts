@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.cloudformation.StackSetInstance("example", {
  *     accountId: "123456789012",
- *     region: "us-east-1",
+ *     stackSetInstanceRegion: "us-east-1",
  *     stackSetName: exampleAwsCloudformationStackSet.name,
  * });
  * ```
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *     deploymentTargets: {
  *         organizationalUnitIds: [exampleAwsOrganizationsOrganization.roots[0].id],
  *     },
- *     region: "us-east-1",
+ *     stackSetInstanceRegion: "us-east-1",
  *     stackSetName: exampleAwsCloudformationStackSet.name,
  * });
  * ```
@@ -159,7 +159,9 @@ export class StackSetInstance extends pulumi.CustomResource {
      */
     public readonly parameterOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+     *
+     * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -174,6 +176,10 @@ export class StackSetInstance extends pulumi.CustomResource {
      * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      */
     public /*out*/ readonly stackInstanceSummaries!: pulumi.Output<outputs.cloudformation.StackSetInstanceStackInstanceSummary[]>;
+    /**
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     */
+    public readonly stackSetInstanceRegion!: pulumi.Output<string>;
     /**
      * Name of the StackSet.
      */
@@ -202,6 +208,7 @@ export class StackSetInstance extends pulumi.CustomResource {
             resourceInputs["retainStack"] = state ? state.retainStack : undefined;
             resourceInputs["stackId"] = state ? state.stackId : undefined;
             resourceInputs["stackInstanceSummaries"] = state ? state.stackInstanceSummaries : undefined;
+            resourceInputs["stackSetInstanceRegion"] = state ? state.stackSetInstanceRegion : undefined;
             resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
         } else {
             const args = argsOrState as StackSetInstanceArgs | undefined;
@@ -215,6 +222,7 @@ export class StackSetInstance extends pulumi.CustomResource {
             resourceInputs["parameterOverrides"] = args ? args.parameterOverrides : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retainStack"] = args ? args.retainStack : undefined;
+            resourceInputs["stackSetInstanceRegion"] = args ? args.stackSetInstanceRegion : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["organizationalUnitId"] = undefined /*out*/;
             resourceInputs["stackId"] = undefined /*out*/;
@@ -254,7 +262,9 @@ export interface StackSetInstanceState {
      */
     parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+     *
+     * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
      */
     region?: pulumi.Input<string>;
     /**
@@ -269,6 +279,10 @@ export interface StackSetInstanceState {
      * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      */
     stackInstanceSummaries?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetInstanceStackInstanceSummary>[]>;
+    /**
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     */
+    stackSetInstanceRegion?: pulumi.Input<string>;
     /**
      * Name of the StackSet.
      */
@@ -300,13 +314,19 @@ export interface StackSetInstanceArgs {
      */
     parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+     *
+     * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
      */
     region?: pulumi.Input<string>;
     /**
      * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      */
     retainStack?: pulumi.Input<boolean>;
+    /**
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     */
+    stackSetInstanceRegion?: pulumi.Input<string>;
     /**
      * Name of the StackSet.
      */

@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
 export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretRotationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretRotation:getSecretRotation", {
+        "region": args.region,
         "secretId": args.secretId,
     }, opts);
 }
@@ -34,6 +35,7 @@ export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getSecretRotation.
  */
 export interface GetSecretRotationArgs {
+    region?: string;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
@@ -48,6 +50,7 @@ export interface GetSecretRotationResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * ARN of the secret.
      */
@@ -81,6 +84,7 @@ export interface GetSecretRotationResult {
 export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretRotationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecretRotation:getSecretRotation", {
+        "region": args.region,
         "secretId": args.secretId,
     }, opts);
 }
@@ -89,6 +93,7 @@ export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?
  * A collection of arguments for invoking getSecretRotation.
  */
 export interface GetSecretRotationOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */

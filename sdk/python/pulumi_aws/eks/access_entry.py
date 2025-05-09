@@ -23,6 +23,7 @@ class AccessEntryArgs:
                  cluster_name: pulumi.Input[builtins.str],
                  principal_arn: pulumi.Input[builtins.str],
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -34,6 +35,7 @@ class AccessEntryArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
@@ -43,6 +45,8 @@ class AccessEntryArgs:
         pulumi.set(__self__, "principal_arn", principal_arn)
         if kubernetes_groups is not None:
             pulumi.set(__self__, "kubernetes_groups", kubernetes_groups)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -89,6 +93,18 @@ class AccessEntryArgs:
     @kubernetes_groups.setter
     def kubernetes_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "kubernetes_groups", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -148,6 +164,7 @@ class _AccessEntryState:
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  modified_at: Optional[pulumi.Input[builtins.str]] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -162,6 +179,7 @@ class _AccessEntryState:
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
@@ -179,6 +197,8 @@ class _AccessEntryState:
             pulumi.set(__self__, "modified_at", modified_at)
         if principal_arn is not None:
             pulumi.set(__self__, "principal_arn", principal_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -264,6 +284,18 @@ class _AccessEntryState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -322,6 +354,7 @@ class AccessEntry(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -361,6 +394,7 @@ class AccessEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
@@ -417,6 +451,7 @@ class AccessEntry(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -437,6 +472,7 @@ class AccessEntry(pulumi.CustomResource):
             if principal_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_arn'")
             __props__.__dict__["principal_arn"] = principal_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["type"] = type
@@ -460,6 +496,7 @@ class AccessEntry(pulumi.CustomResource):
             kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             modified_at: Optional[pulumi.Input[builtins.str]] = None,
             principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None,
@@ -479,6 +516,7 @@ class AccessEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
@@ -494,6 +532,7 @@ class AccessEntry(pulumi.CustomResource):
         __props__.__dict__["kubernetes_groups"] = kubernetes_groups
         __props__.__dict__["modified_at"] = modified_at
         __props__.__dict__["principal_arn"] = principal_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
@@ -549,6 +588,14 @@ class AccessEntry(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "principal_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

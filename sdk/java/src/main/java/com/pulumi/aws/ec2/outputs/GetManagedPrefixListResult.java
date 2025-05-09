@@ -52,6 +52,7 @@ public final class GetManagedPrefixListResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -112,6 +113,9 @@ public final class GetManagedPrefixListResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -140,6 +144,7 @@ public final class GetManagedPrefixListResult {
         private Integer maxEntries;
         private String name;
         private String ownerId;
+        private String region;
         private Map<String,String> tags;
         private Integer version;
         public Builder() {}
@@ -153,6 +158,7 @@ public final class GetManagedPrefixListResult {
     	      this.maxEntries = defaults.maxEntries;
     	      this.name = defaults.name;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
         }
@@ -226,6 +232,14 @@ public final class GetManagedPrefixListResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "tags");
@@ -251,6 +265,7 @@ public final class GetManagedPrefixListResult {
             _resultValue.maxEntries = maxEntries;
             _resultValue.name = name;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.version = version;
             return _resultValue;

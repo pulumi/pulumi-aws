@@ -83,6 +83,10 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
      * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      */
     public readonly localeSpecification!: pulumi.Output<{[key: string]: outputs.lex.V2modelsBotVersionLocaleSpecification}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotVersionTimeouts | undefined>;
 
     /**
@@ -102,6 +106,7 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
             resourceInputs["botVersion"] = state ? state.botVersion : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["localeSpecification"] = state ? state.localeSpecification : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as V2modelsBotVersionArgs | undefined;
@@ -115,6 +120,7 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
             resourceInputs["botVersion"] = args ? args.botVersion : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["localeSpecification"] = args ? args.localeSpecification : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -145,6 +151,10 @@ export interface V2modelsBotVersionState {
      * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      */
     localeSpecification?: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;
 }
 
@@ -171,5 +181,9 @@ export interface V2modelsBotVersionArgs {
      * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      */
     localeSpecification: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;
 }

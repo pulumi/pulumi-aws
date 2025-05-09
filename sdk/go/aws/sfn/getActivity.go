@@ -53,7 +53,8 @@ type LookupActivityArgs struct {
 	// ARN that identifies the activity.
 	Arn *string `pulumi:"arn"`
 	// Name that identifies the activity.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getActivity.
@@ -62,8 +63,9 @@ type LookupActivityResult struct {
 	// Date the activity was created.
 	CreationDate string `pulumi:"creationDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, opts ...pulumi.InvokeOption) LookupActivityResultOutput {
@@ -80,7 +82,8 @@ type LookupActivityOutputArgs struct {
 	// ARN that identifies the activity.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name that identifies the activity.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupActivityOutputArgs) ElementType() reflect.Type {
@@ -118,6 +121,10 @@ func (o LookupActivityResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupActivityResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActivityResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupActivityResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActivityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

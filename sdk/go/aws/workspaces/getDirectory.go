@@ -51,7 +51,8 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryArgs struct {
 	// Directory identifier for registration in WorkSpaces service.
-	DirectoryId string `pulumi:"directoryId"`
+	DirectoryId string  `pulumi:"directoryId"`
+	Region      *string `pulumi:"region"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -59,7 +60,8 @@ type LookupDirectoryArgs struct {
 // A collection of values returned by getDirectory.
 type LookupDirectoryResult struct {
 	// Directory alias.
-	Alias string `pulumi:"alias"`
+	Alias                          string                                     `pulumi:"alias"`
+	CertificateBasedAuthProperties []GetDirectoryCertificateBasedAuthProperty `pulumi:"certificateBasedAuthProperties"`
 	// User name for the service account.
 	CustomerUserName string `pulumi:"customerUserName"`
 	DirectoryId      string `pulumi:"directoryId"`
@@ -75,6 +77,7 @@ type LookupDirectoryResult struct {
 	Id string `pulumi:"id"`
 	// Identifiers of the IP access control groups associated with the directory.
 	IpGroupIds []string `pulumi:"ipGroupIds"`
+	Region     string   `pulumi:"region"`
 	// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 	RegistrationCode string                     `pulumi:"registrationCode"`
 	SamlProperties   []GetDirectorySamlProperty `pulumi:"samlProperties"`
@@ -104,7 +107,8 @@ func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, 
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryOutputArgs struct {
 	// Directory identifier for registration in WorkSpaces service.
-	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
+	DirectoryId pulumi.StringInput    `pulumi:"directoryId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -131,6 +135,12 @@ func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutputWithContext(ct
 // Directory alias.
 func (o LookupDirectoryResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+func (o LookupDirectoryResultOutput) CertificateBasedAuthProperties() GetDirectoryCertificateBasedAuthPropertyArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryCertificateBasedAuthProperty {
+		return v.CertificateBasedAuthProperties
+	}).(GetDirectoryCertificateBasedAuthPropertyArrayOutput)
 }
 
 // User name for the service account.
@@ -170,6 +180,10 @@ func (o LookupDirectoryResultOutput) Id() pulumi.StringOutput {
 // Identifiers of the IP access control groups associated with the directory.
 func (o LookupDirectoryResultOutput) IpGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []string { return v.IpGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupDirectoryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.

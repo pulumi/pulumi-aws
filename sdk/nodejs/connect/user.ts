@@ -197,6 +197,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly phoneConfig!: pulumi.Output<outputs.connect.UserPhoneConfig>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The identifier of the routing profile for the user.
      */
     public readonly routingProfileId!: pulumi.Output<string>;
@@ -239,6 +243,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["phoneConfig"] = state ? state.phoneConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingProfileId"] = state ? state.routingProfileId : undefined;
             resourceInputs["securityProfileIds"] = state ? state.securityProfileIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -265,6 +270,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["phoneConfig"] = args ? args.phoneConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingProfileId"] = args ? args.routingProfileId : undefined;
             resourceInputs["securityProfileIds"] = args ? args.securityProfileIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -315,6 +321,10 @@ export interface UserState {
      * A block that contains information about the phone settings for the user. Documented below.
      */
     phoneConfig?: pulumi.Input<inputs.connect.UserPhoneConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The identifier of the routing profile for the user.
      */
@@ -370,6 +380,10 @@ export interface UserArgs {
      * A block that contains information about the phone settings for the user. Documented below.
      */
     phoneConfig: pulumi.Input<inputs.connect.UserPhoneConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The identifier of the routing profile for the user.
      */

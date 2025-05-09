@@ -79,6 +79,12 @@ namespace Pulumi.Aws.VerifiedAccess
         [Output("policyReferenceName")]
         public Output<string> PolicyReferenceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("sseSpecification")]
         public Output<Outputs.TrustProviderSseSpecification> SseSpecification { get; private set; } = null!;
 
@@ -187,6 +193,12 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("policyReferenceName", required: true)]
         public Input<string> PolicyReferenceName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("sseSpecification")]
         public Input<Inputs.TrustProviderSseSpecificationArgs>? SseSpecification { get; set; }
 
@@ -267,6 +279,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("policyReferenceName")]
         public Input<string>? PolicyReferenceName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("sseSpecification")]
         public Input<Inputs.TrustProviderSseSpecificationGetArgs>? SseSpecification { get; set; }

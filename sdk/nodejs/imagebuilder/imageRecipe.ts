@@ -117,6 +117,10 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      */
     public readonly systemsManagerAgent!: pulumi.Output<outputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
@@ -165,6 +169,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["parentImage"] = state ? state.parentImage : undefined;
             resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["systemsManagerAgent"] = state ? state.systemsManagerAgent : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -187,6 +192,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentImage"] = args ? args.parentImage : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["systemsManagerAgent"] = args ? args.systemsManagerAgent : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
@@ -244,6 +250,10 @@ export interface ImageRecipeState {
      */
     platform?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      */
     systemsManagerAgent?: pulumi.Input<inputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
@@ -295,6 +305,10 @@ export interface ImageRecipeArgs {
      * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      */
     parentImage: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      */

@@ -99,17 +99,8 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("applicationArn", required: true)]
         public string ApplicationArn { get; set; } = null!;
 
-        [Input("applicationAssignments")]
-        private List<Inputs.GetApplicationAssignmentsApplicationAssignmentArgs>? _applicationAssignments;
-
-        /// <summary>
-        /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
-        /// </summary>
-        public List<Inputs.GetApplicationAssignmentsApplicationAssignmentArgs> ApplicationAssignments
-        {
-            get => _applicationAssignments ?? (_applicationAssignments = new List<Inputs.GetApplicationAssignmentsApplicationAssignmentArgs>());
-            set => _applicationAssignments = value;
-        }
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetApplicationAssignmentsArgs()
         {
@@ -125,17 +116,8 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
-        [Input("applicationAssignments")]
-        private InputList<Inputs.GetApplicationAssignmentsApplicationAssignmentInputArgs>? _applicationAssignments;
-
-        /// <summary>
-        /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
-        /// </summary>
-        public InputList<Inputs.GetApplicationAssignmentsApplicationAssignmentInputArgs> ApplicationAssignments
-        {
-            get => _applicationAssignments ?? (_applicationAssignments = new InputList<Inputs.GetApplicationAssignmentsApplicationAssignmentInputArgs>());
-            set => _applicationAssignments = value;
-        }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetApplicationAssignmentsInvokeArgs()
         {
@@ -156,6 +138,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationAssignmentsApplicationAssignmentResult> ApplicationAssignments;
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetApplicationAssignmentsResult(
@@ -163,11 +146,14 @@ namespace Pulumi.Aws.SsoAdmin
 
             ImmutableArray<Outputs.GetApplicationAssignmentsApplicationAssignmentResult> applicationAssignments,
 
-            string id)
+            string id,
+
+            string region)
         {
             ApplicationArn = applicationArn;
             ApplicationAssignments = applicationAssignments;
             Id = id;
+            Region = region;
         }
     }
 }

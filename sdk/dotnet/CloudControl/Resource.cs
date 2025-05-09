@@ -59,6 +59,12 @@ namespace Pulumi.Aws.CloudControl
         public Output<string> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         /// </summary>
         [Output("roleArn")]
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.CloudControl
         public Input<string> DesiredState { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         /// </summary>
         [Input("roleArn")]
@@ -195,6 +207,12 @@ namespace Pulumi.Aws.CloudControl
         /// </summary>
         [Input("properties")]
         public Input<string>? Properties { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.

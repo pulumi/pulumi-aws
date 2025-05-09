@@ -51,7 +51,8 @@ func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, o
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupArgs struct {
 	// DB parameter group name.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getParameterGroup.
@@ -63,8 +64,9 @@ type LookupParameterGroupResult struct {
 	// Family of the parameter group.
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupParameterGroupResultOutput {
@@ -79,7 +81,8 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupOutputArgs struct {
 	// DB parameter group name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupParameterGroupOutputArgs) ElementType() reflect.Type {
@@ -123,6 +126,10 @@ func (o LookupParameterGroupResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupParameterGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupParameterGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

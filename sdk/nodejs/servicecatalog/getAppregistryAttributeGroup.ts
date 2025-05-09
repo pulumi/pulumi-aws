@@ -27,6 +27,7 @@ export function getAppregistryAttributeGroup(args?: GetAppregistryAttributeGroup
         "arn": args.arn,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -46,6 +47,7 @@ export interface GetAppregistryAttributeGroupArgs {
      * Name of the Attribute Group to find.
      */
     name?: string;
+    region?: string;
 }
 
 /**
@@ -63,6 +65,7 @@ export interface GetAppregistryAttributeGroupResult {
     readonly description: string;
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -91,6 +94,7 @@ export function getAppregistryAttributeGroupOutput(args?: GetAppregistryAttribut
         "arn": args.arn,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -110,4 +114,5 @@ export interface GetAppregistryAttributeGroupOutputArgs {
      * Name of the Attribute Group to find.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

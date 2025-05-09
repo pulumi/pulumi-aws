@@ -30,6 +30,7 @@ public final class GetSecurityGroupsResult {
      * 
      */
     private List<String> ids;
+    private String region;
     private Map<String,String> tags;
     /**
      * @return VPC IDs of the matched security groups. The data source&#39;s tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
@@ -62,6 +63,9 @@ public final class GetSecurityGroupsResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -86,6 +90,7 @@ public final class GetSecurityGroupsResult {
         private @Nullable List<GetSecurityGroupsFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         private Map<String,String> tags;
         private List<String> vpcIds;
         public Builder() {}
@@ -95,6 +100,7 @@ public final class GetSecurityGroupsResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.vpcIds = defaults.vpcIds;
         }
@@ -139,6 +145,14 @@ public final class GetSecurityGroupsResult {
             return ids(List.of(ids));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetSecurityGroupsResult", "tags");
@@ -163,6 +177,7 @@ public final class GetSecurityGroupsResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.vpcIds = vpcIds;
             return _resultValue;

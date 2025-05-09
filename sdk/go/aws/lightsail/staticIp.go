@@ -49,6 +49,8 @@ type StaticIp struct {
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// The name for the allocated static IP
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The support code.
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 }
@@ -89,6 +91,8 @@ type staticIpState struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name for the allocated static IP
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The support code.
 	SupportCode *string `pulumi:"supportCode"`
 }
@@ -100,6 +104,8 @@ type StaticIpState struct {
 	IpAddress pulumi.StringPtrInput
 	// The name for the allocated static IP
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The support code.
 	SupportCode pulumi.StringPtrInput
 }
@@ -111,12 +117,16 @@ func (StaticIpState) ElementType() reflect.Type {
 type staticIpArgs struct {
 	// The name for the allocated static IP
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a StaticIp resource.
 type StaticIpArgs struct {
 	// The name for the allocated static IP
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (StaticIpArgs) ElementType() reflect.Type {
@@ -219,6 +229,11 @@ func (o StaticIpOutput) IpAddress() pulumi.StringOutput {
 // The name for the allocated static IP
 func (o StaticIpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StaticIpOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The support code.

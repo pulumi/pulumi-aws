@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAuthorizersPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAuthorizersPlainArgs Empty = new GetAuthorizersPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * ID of the associated REST API.
@@ -31,6 +40,7 @@ public final class GetAuthorizersPlainArgs extends com.pulumi.resources.InvokeAr
     private GetAuthorizersPlainArgs() {}
 
     private GetAuthorizersPlainArgs(GetAuthorizersPlainArgs $) {
+        this.region = $.region;
         this.restApiId = $.restApiId;
     }
 
@@ -50,6 +60,11 @@ public final class GetAuthorizersPlainArgs extends com.pulumi.resources.InvokeAr
 
         public Builder(GetAuthorizersPlainArgs defaults) {
             $ = new GetAuthorizersPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

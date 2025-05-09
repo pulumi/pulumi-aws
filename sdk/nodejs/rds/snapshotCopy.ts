@@ -125,6 +125,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     public readonly presignedUrl!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
@@ -189,6 +193,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["optionGroupName"] = state ? state.optionGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["presignedUrl"] = state ? state.presignedUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
             resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
             resourceInputs["sourceDbSnapshotIdentifier"] = state ? state.sourceDbSnapshotIdentifier : undefined;
@@ -212,6 +217,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             resourceInputs["presignedUrl"] = args ? args.presignedUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["sourceDbSnapshotIdentifier"] = args ? args.sourceDbSnapshotIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -295,6 +301,10 @@ export interface SnapshotCopyState {
      */
     presignedUrl?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
@@ -357,6 +367,10 @@ export interface SnapshotCopyArgs {
      * he URL that contains a Signature Version 4 signed request.
      */
     presignedUrl?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */

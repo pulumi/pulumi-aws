@@ -100,6 +100,10 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
      * The Object Lambda Access Point resource policy document.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ObjectLambdaAccessPointPolicy resource with the given unique name, arguments, and options.
@@ -118,6 +122,7 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
             resourceInputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ObjectLambdaAccessPointPolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -126,6 +131,7 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["hasPublicAccessPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,6 +159,10 @@ export interface ObjectLambdaAccessPointPolicyState {
      * The Object Lambda Access Point resource policy document.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -171,4 +181,8 @@ export interface ObjectLambdaAccessPointPolicyArgs {
      * The Object Lambda Access Point resource policy document.
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -52,6 +52,7 @@ func LookupUserPool(ctx *pulumi.Context, args *LookupUserPoolArgs, opts ...pulum
 
 // A collection of arguments for invoking getUserPool.
 type LookupUserPoolArgs struct {
+	Region *string `pulumi:"region"`
 	// The cognito pool ID
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -89,6 +90,7 @@ type LookupUserPoolResult struct {
 	MfaConfiguration string `pulumi:"mfaConfiguration"`
 	// - Name of the attribute.
 	Name             string                       `pulumi:"name"`
+	Region           string                       `pulumi:"region"`
 	SchemaAttributes []GetUserPoolSchemaAttribute `pulumi:"schemaAttributes"`
 	// The contents of the SMS authentication message.
 	SmsAuthenticationMessage string `pulumi:"smsAuthenticationMessage"`
@@ -118,6 +120,7 @@ func LookupUserPoolOutput(ctx *pulumi.Context, args LookupUserPoolOutputArgs, op
 
 // A collection of arguments for invoking getUserPool.
 type LookupUserPoolOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The cognito pool ID
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -218,6 +221,10 @@ func (o LookupUserPoolResultOutput) MfaConfiguration() pulumi.StringOutput {
 // - Name of the attribute.
 func (o LookupUserPoolResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupUserPoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupUserPoolResultOutput) SchemaAttributes() GetUserPoolSchemaAttributeArrayOutput {

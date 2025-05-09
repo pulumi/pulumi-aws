@@ -65,7 +65,9 @@ type ServiceQuota struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode pulumi.StringOutput `pulumi:"quotaCode"`
 	// Name of the quota.
-	QuotaName     pulumi.StringOutput `pulumi:"quotaName"`
+	QuotaName pulumi.StringOutput `pulumi:"quotaName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region        pulumi.StringOutput `pulumi:"region"`
 	RequestId     pulumi.StringOutput `pulumi:"requestId"`
 	RequestStatus pulumi.StringOutput `pulumi:"requestStatus"`
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
@@ -126,7 +128,9 @@ type serviceQuotaState struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode *string `pulumi:"quotaCode"`
 	// Name of the quota.
-	QuotaName     *string `pulumi:"quotaName"`
+	QuotaName *string `pulumi:"quotaName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region        *string `pulumi:"region"`
 	RequestId     *string `pulumi:"requestId"`
 	RequestStatus *string `pulumi:"requestStatus"`
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
@@ -149,7 +153,9 @@ type ServiceQuotaState struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode pulumi.StringPtrInput
 	// Name of the quota.
-	QuotaName     pulumi.StringPtrInput
+	QuotaName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region        pulumi.StringPtrInput
 	RequestId     pulumi.StringPtrInput
 	RequestStatus pulumi.StringPtrInput
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
@@ -169,6 +175,8 @@ func (ServiceQuotaState) ElementType() reflect.Type {
 type serviceQuotaArgs struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode string `pulumi:"quotaCode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode string `pulumi:"serviceCode"`
 	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
@@ -179,6 +187,8 @@ type serviceQuotaArgs struct {
 type ServiceQuotaArgs struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode pulumi.StringInput
 	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
@@ -295,6 +305,11 @@ func (o ServiceQuotaOutput) QuotaCode() pulumi.StringOutput {
 // Name of the quota.
 func (o ServiceQuotaOutput) QuotaName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.QuotaName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceQuotaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ServiceQuotaOutput) RequestId() pulumi.StringOutput {

@@ -27,6 +27,7 @@ public final class GetConnectorResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return A map of tags assigned to the resource.
      * 
@@ -63,6 +64,9 @@ public final class GetConnectorResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A map of tags assigned to the resource.
      * 
@@ -91,6 +95,7 @@ public final class GetConnectorResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         private String version;
         public Builder() {}
@@ -100,6 +105,7 @@ public final class GetConnectorResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
         }
@@ -137,6 +143,14 @@ public final class GetConnectorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConnectorResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetConnectorResult", "tags");
@@ -158,6 +172,7 @@ public final class GetConnectorResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.version = version;
             return _resultValue;

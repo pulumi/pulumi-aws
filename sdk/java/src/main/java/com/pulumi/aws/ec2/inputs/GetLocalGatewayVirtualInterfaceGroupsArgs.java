@@ -33,6 +33,13 @@ public final class GetLocalGatewayVirtualInterfaceGroupsArgs extends com.pulumi.
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      * 
@@ -52,6 +59,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsArgs extends com.pulumi.
 
     private GetLocalGatewayVirtualInterfaceGroupsArgs(GetLocalGatewayVirtualInterfaceGroupsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -102,6 +110,15 @@ public final class GetLocalGatewayVirtualInterfaceGroupsArgs extends com.pulumi.
          */
         public Builder filters(GetLocalGatewayVirtualInterfaceGroupsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -179,6 +179,8 @@ type Domain struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// A block that specifies the process of matching duplicate profiles. Documented below.
 	Matching DomainMatchingPtrOutput `pulumi:"matching"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
 	RuleBasedMatching DomainRuleBasedMatchingPtrOutput `pulumi:"ruleBasedMatching"`
 	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -237,6 +239,8 @@ type domainState struct {
 	DomainName *string `pulumi:"domainName"`
 	// A block that specifies the process of matching duplicate profiles. Documented below.
 	Matching *DomainMatching `pulumi:"matching"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
 	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
 	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -260,6 +264,8 @@ type DomainState struct {
 	DomainName pulumi.StringPtrInput
 	// A block that specifies the process of matching duplicate profiles. Documented below.
 	Matching DomainMatchingPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
 	RuleBasedMatching DomainRuleBasedMatchingPtrInput
 	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -285,6 +291,8 @@ type domainArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// A block that specifies the process of matching duplicate profiles. Documented below.
 	Matching *DomainMatching `pulumi:"matching"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
 	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
 	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -307,6 +315,8 @@ type DomainArgs struct {
 	DomainName pulumi.StringInput
 	// A block that specifies the process of matching duplicate profiles. Documented below.
 	Matching DomainMatchingPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
 	RuleBasedMatching DomainRuleBasedMatchingPtrInput
 	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -432,6 +442,11 @@ func (o DomainOutput) DomainName() pulumi.StringOutput {
 // A block that specifies the process of matching duplicate profiles. Documented below.
 func (o DomainOutput) Matching() DomainMatchingPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainMatchingPtrOutput { return v.Matching }).(DomainMatchingPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.

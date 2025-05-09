@@ -48,6 +48,21 @@ public final class CloudFormationTypeArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
      * 
      */
@@ -97,6 +112,7 @@ public final class CloudFormationTypeArgs extends com.pulumi.resources.ResourceA
     private CloudFormationTypeArgs(CloudFormationTypeArgs $) {
         this.executionRoleArn = $.executionRoleArn;
         this.loggingConfig = $.loggingConfig;
+        this.region = $.region;
         this.schemaHandlerPackage = $.schemaHandlerPackage;
         this.type = $.type;
         this.typeName = $.typeName;
@@ -160,6 +176,27 @@ public final class CloudFormationTypeArgs extends com.pulumi.resources.ResourceA
          */
         public Builder loggingConfig(CloudFormationTypeLoggingConfigArgs loggingConfig) {
             return loggingConfig(Output.of(loggingConfig));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

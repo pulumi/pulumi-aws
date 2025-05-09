@@ -128,6 +128,12 @@ namespace Pulumi.Aws.Connect
         public Output<string?> ParentGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Tags to apply to the hierarchy group. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.Connect
         [Input("parentGroupId")]
         public Input<string>? ParentGroupId { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -272,6 +284,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("parentGroupId")]
         public Input<string>? ParentGroupId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

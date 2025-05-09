@@ -51,6 +51,8 @@ import (
 type CostAllocationTag struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The key for the cost allocation tag.
@@ -95,6 +97,8 @@ func GetCostAllocationTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CostAllocationTag resources.
 type costAllocationTagState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status *string `pulumi:"status"`
 	// The key for the cost allocation tag.
@@ -104,6 +108,8 @@ type costAllocationTagState struct {
 }
 
 type CostAllocationTagState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status pulumi.StringPtrInput
 	// The key for the cost allocation tag.
@@ -117,6 +123,8 @@ func (CostAllocationTagState) ElementType() reflect.Type {
 }
 
 type costAllocationTagArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status string `pulumi:"status"`
 	// The key for the cost allocation tag.
@@ -125,6 +133,8 @@ type costAllocationTagArgs struct {
 
 // The set of arguments for constructing a CostAllocationTag resource.
 type CostAllocationTagArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status pulumi.StringInput
 	// The key for the cost allocation tag.
@@ -216,6 +226,11 @@ func (o CostAllocationTagOutput) ToCostAllocationTagOutput() CostAllocationTagOu
 
 func (o CostAllocationTagOutput) ToCostAllocationTagOutputWithContext(ctx context.Context) CostAllocationTagOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CostAllocationTagOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CostAllocationTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of a cost allocation tag. Valid values are `Active` and `Inactive`.

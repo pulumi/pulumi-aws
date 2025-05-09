@@ -97,6 +97,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.OutboundConnectionLocalDomainInfo> LocalDomainInfo { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the remote Opensearch domain.
         /// </summary>
         [Output("remoteDomainInfo")]
@@ -179,6 +185,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.OutboundConnectionLocalDomainInfoArgs> LocalDomainInfo { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for the remote Opensearch domain.
         /// </summary>
         [Input("remoteDomainInfo", required: true)]
@@ -227,6 +239,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("localDomainInfo")]
         public Input<Inputs.OutboundConnectionLocalDomainInfoGetArgs>? LocalDomainInfo { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for the remote Opensearch domain.

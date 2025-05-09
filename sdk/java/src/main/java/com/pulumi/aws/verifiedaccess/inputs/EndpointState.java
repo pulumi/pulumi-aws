@@ -210,6 +210,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
@@ -303,6 +318,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.networkInterfaceOptions = $.networkInterfaceOptions;
         this.policyDocument = $.policyDocument;
         this.rdsOptions = $.rdsOptions;
+        this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
@@ -588,6 +604,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
 
         public Builder rdsOptions(EndpointRdsOptionsArgs rdsOptions) {
             return rdsOptions(Output.of(rdsOptions));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

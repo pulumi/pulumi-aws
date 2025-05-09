@@ -61,6 +61,8 @@ type WorkspaceServiceAccountToken struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// A name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntOutput `pulumi:"secondsToLive"`
 	// The ID of the service account for which to create a token.
@@ -122,6 +124,8 @@ type workspaceServiceAccountTokenState struct {
 	Key *string `pulumi:"key"`
 	// A name for the token to create. The name must be unique within the workspace.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive *int `pulumi:"secondsToLive"`
 	// The ID of the service account for which to create a token.
@@ -141,6 +145,8 @@ type WorkspaceServiceAccountTokenState struct {
 	Key pulumi.StringPtrInput
 	// A name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntPtrInput
 	// The ID of the service account for which to create a token.
@@ -158,6 +164,8 @@ func (WorkspaceServiceAccountTokenState) ElementType() reflect.Type {
 type workspaceServiceAccountTokenArgs struct {
 	// A name for the token to create. The name must be unique within the workspace.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive int `pulumi:"secondsToLive"`
 	// The ID of the service account for which to create a token.
@@ -170,6 +178,8 @@ type workspaceServiceAccountTokenArgs struct {
 type WorkspaceServiceAccountTokenArgs struct {
 	// A name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntInput
 	// The ID of the service account for which to create a token.
@@ -283,6 +293,11 @@ func (o WorkspaceServiceAccountTokenOutput) Key() pulumi.StringOutput {
 // A name for the token to create. The name must be unique within the workspace.
 func (o WorkspaceServiceAccountTokenOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WorkspaceServiceAccountTokenOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.

@@ -66,6 +66,10 @@ export class StaticIpAttachment extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the allocated static IP
      */
     public readonly staticIpName!: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
             const state = argsOrState as StaticIpAttachmentState | undefined;
             resourceInputs["instanceName"] = state ? state.instanceName : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["staticIpName"] = state ? state.staticIpName : undefined;
         } else {
             const args = argsOrState as StaticIpAttachmentArgs | undefined;
@@ -95,6 +100,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'staticIpName'");
             }
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["staticIpName"] = args ? args.staticIpName : undefined;
             resourceInputs["ipAddress"] = undefined /*out*/;
         }
@@ -116,6 +122,10 @@ export interface StaticIpAttachmentState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the allocated static IP
      */
     staticIpName?: pulumi.Input<string>;
@@ -129,6 +139,10 @@ export interface StaticIpAttachmentArgs {
      * The name of the Lightsail instance to attach the IP to
      */
     instanceName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the allocated static IP
      */

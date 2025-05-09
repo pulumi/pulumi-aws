@@ -124,6 +124,8 @@ type VpcConnection struct {
 	DnsResolvers pulumi.StringArrayOutput `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A list of security group IDs for the VPC connection.
@@ -193,6 +195,8 @@ type vpcConnectionState struct {
 	DnsResolvers []string `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM role to associate with the VPC connection.
 	RoleArn *string `pulumi:"roleArn"`
 	// A list of security group IDs for the VPC connection.
@@ -221,6 +225,8 @@ type VpcConnectionState struct {
 	DnsResolvers pulumi.StringArrayInput
 	// The display name for the VPC connection.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringPtrInput
 	// A list of security group IDs for the VPC connection.
@@ -249,6 +255,8 @@ type vpcConnectionArgs struct {
 	DnsResolvers []string `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM role to associate with the VPC connection.
 	RoleArn string `pulumi:"roleArn"`
 	// A list of security group IDs for the VPC connection.
@@ -272,6 +280,8 @@ type VpcConnectionArgs struct {
 	DnsResolvers pulumi.StringArrayInput
 	// The display name for the VPC connection.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringInput
 	// A list of security group IDs for the VPC connection.
@@ -397,6 +407,11 @@ func (o VpcConnectionOutput) DnsResolvers() pulumi.StringArrayOutput {
 // The display name for the VPC connection.
 func (o VpcConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The IAM role to associate with the VPC connection.

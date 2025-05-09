@@ -254,6 +254,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly passthroughBehavior!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
@@ -311,6 +315,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
             resourceInputs["integrationHttpMethod"] = state ? state.integrationHttpMethod : undefined;
             resourceInputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
             resourceInputs["requestTemplates"] = state ? state.requestTemplates : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
@@ -342,6 +347,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
             resourceInputs["integrationHttpMethod"] = args ? args.integrationHttpMethod : undefined;
             resourceInputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
             resourceInputs["requestTemplates"] = args ? args.requestTemplates : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
@@ -401,6 +407,10 @@ export interface IntegrationState {
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
     passthroughBehavior?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
@@ -483,6 +493,10 @@ export interface IntegrationArgs {
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
     passthroughBehavior?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`

@@ -441,6 +441,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      * 
      */
@@ -606,6 +621,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.readerEndpoint = $.readerEndpoint;
+        this.region = $.region;
         this.replicationSourceIdentifier = $.replicationSourceIdentifier;
         this.serverlessV2ScalingConfiguration = $.serverlessV2ScalingConfiguration;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
@@ -1261,6 +1277,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder readerEndpoint(String readerEndpoint) {
             return readerEndpoint(Output.of(readerEndpoint));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

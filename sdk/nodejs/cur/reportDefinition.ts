@@ -94,6 +94,10 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly refreshClosedReports!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
     public readonly reportName!: pulumi.Output<string>;
@@ -145,6 +149,7 @@ export class ReportDefinition extends pulumi.CustomResource {
             resourceInputs["compression"] = state ? state.compression : undefined;
             resourceInputs["format"] = state ? state.format : undefined;
             resourceInputs["refreshClosedReports"] = state ? state.refreshClosedReports : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reportName"] = state ? state.reportName : undefined;
             resourceInputs["reportVersioning"] = state ? state.reportVersioning : undefined;
             resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
@@ -181,6 +186,7 @@ export class ReportDefinition extends pulumi.CustomResource {
             resourceInputs["compression"] = args ? args.compression : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["refreshClosedReports"] = args ? args.refreshClosedReports : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reportName"] = args ? args.reportName : undefined;
             resourceInputs["reportVersioning"] = args ? args.reportVersioning : undefined;
             resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
@@ -224,6 +230,10 @@ export interface ReportDefinitionState {
      * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
      */
     refreshClosedReports?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
@@ -282,6 +292,10 @@ export interface ReportDefinitionArgs {
      * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
      */
     refreshClosedReports?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */

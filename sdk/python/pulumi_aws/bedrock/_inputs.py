@@ -1430,7 +1430,7 @@ if not MYPY:
     class AgentDataSourceDataSourceConfigurationArgsDict(TypedDict):
         type: pulumi.Input[builtins.str]
         """
-        Type of storage for the data source. Valid values: `S3`.
+        Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
         """
         confluence_configuration: NotRequired[pulumi.Input['AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgsDict']]
         """
@@ -1465,7 +1465,7 @@ class AgentDataSourceDataSourceConfigurationArgs:
                  share_point_configuration: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs']] = None,
                  web_configuration: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationArgs']] = None):
         """
-        :param pulumi.Input[builtins.str] type: Type of storage for the data source. Valid values: `S3`.
+        :param pulumi.Input[builtins.str] type: Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs'] confluence_configuration: Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs'] s3_configuration: Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs'] salesforce_configuration: Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
@@ -1488,7 +1488,7 @@ class AgentDataSourceDataSourceConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[builtins.str]:
         """
-        Type of storage for the data source. Valid values: `S3`.
+        Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
         """
         return pulumi.get(self, "type")
 

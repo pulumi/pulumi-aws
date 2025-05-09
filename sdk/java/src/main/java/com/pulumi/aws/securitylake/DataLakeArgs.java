@@ -50,6 +50,21 @@ public final class DataLakeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Regions where Security Lake is automatically enabled.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Regions where Security Lake is automatically enabled.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -76,6 +91,7 @@ public final class DataLakeArgs extends com.pulumi.resources.ResourceArgs {
     private DataLakeArgs(DataLakeArgs $) {
         this.configuration = $.configuration;
         this.metaStoreManagerRoleArn = $.metaStoreManagerRoleArn;
+        this.region = $.region;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
     }
@@ -138,6 +154,27 @@ public final class DataLakeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder metaStoreManagerRoleArn(String metaStoreManagerRoleArn) {
             return metaStoreManagerRoleArn(Output.of(metaStoreManagerRoleArn));
+        }
+
+        /**
+         * @param region The AWS Regions where Security Lake is automatically enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Regions where Security Lake is automatically enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

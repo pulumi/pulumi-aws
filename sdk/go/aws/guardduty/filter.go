@@ -93,6 +93,8 @@ type Filter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank pulumi.IntOutput `pulumi:"rank"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -155,6 +157,8 @@ type filterState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank *int `pulumi:"rank"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -176,6 +180,8 @@ type FilterState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -199,6 +205,8 @@ type filterArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank int `pulumi:"rank"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -217,6 +225,8 @@ type FilterArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank pulumi.IntInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -341,6 +351,11 @@ func (o FilterOutput) Name() pulumi.StringOutput {
 // Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 func (o FilterOutput) Rank() pulumi.IntOutput {
 	return o.ApplyT(func(v *Filter) pulumi.IntOutput { return v.Rank }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FilterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

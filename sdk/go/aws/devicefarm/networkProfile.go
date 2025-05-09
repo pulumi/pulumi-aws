@@ -75,6 +75,8 @@ type NetworkProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -140,6 +142,8 @@ type networkProfileState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn *string `pulumi:"projectArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -173,6 +177,8 @@ type NetworkProfileState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -208,6 +214,8 @@ type networkProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn string `pulumi:"projectArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
@@ -238,6 +246,8 @@ type NetworkProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
@@ -377,6 +387,11 @@ func (o NetworkProfileOutput) Name() pulumi.StringOutput {
 // The ARN of the project for the network profile.
 func (o NetworkProfileOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NetworkProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -13,6 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetStandardsControlAssociationsResult {
     private String id;
+    private String region;
     /**
      * @return ID of the security control.
      * 
@@ -28,6 +29,9 @@ public final class GetStandardsControlAssociationsResult {
     private GetStandardsControlAssociationsResult() {}
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return ID of the security control.
@@ -55,12 +59,14 @@ public final class GetStandardsControlAssociationsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private String securityControlId;
         private List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations;
         public Builder() {}
         public Builder(GetStandardsControlAssociationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.securityControlId = defaults.securityControlId;
     	      this.standardsControlAssociations = defaults.standardsControlAssociations;
         }
@@ -71,6 +77,14 @@ public final class GetStandardsControlAssociationsResult {
               throw new MissingRequiredPropertyException("GetStandardsControlAssociationsResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetStandardsControlAssociationsResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -95,6 +109,7 @@ public final class GetStandardsControlAssociationsResult {
         public GetStandardsControlAssociationsResult build() {
             final var _resultValue = new GetStandardsControlAssociationsResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.securityControlId = securityControlId;
             _resultValue.standardsControlAssociations = standardsControlAssociations;
             return _resultValue;

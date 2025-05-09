@@ -27,6 +27,7 @@ export function getContactChannel(args: GetContactChannelArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmcontacts/getContactChannel:getContactChannel", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,7 @@ export interface GetContactChannelArgs {
      * Amazon Resource Name (ARN) of the contact channel.
      */
     arn: string;
+    region?: string;
 }
 
 /**
@@ -65,6 +67,7 @@ export interface GetContactChannelResult {
      * Name of the contact channel.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Type of the contact channel.
      */
@@ -90,6 +93,7 @@ export function getContactChannelOutput(args: GetContactChannelOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmcontacts/getContactChannel:getContactChannel", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -101,4 +105,5 @@ export interface GetContactChannelOutputArgs {
      * Amazon Resource Name (ARN) of the contact channel.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

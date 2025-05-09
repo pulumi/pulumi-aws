@@ -14,11 +14,13 @@ import javax.annotation.Nullable;
 public final class ListenerRuleAction {
     /**
      * @return Describes the rule action that returns a custom HTTP response.
+     * See `fixed_response` Block for details.
      * 
      */
     private @Nullable ListenerRuleActionFixedResponse fixedResponse;
     /**
      * @return The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+     * See `forward` Block for details.
      * 
      */
     private @Nullable ListenerRuleActionForward forward;
@@ -26,6 +28,7 @@ public final class ListenerRuleAction {
     private ListenerRuleAction() {}
     /**
      * @return Describes the rule action that returns a custom HTTP response.
+     * See `fixed_response` Block for details.
      * 
      */
     public Optional<ListenerRuleActionFixedResponse> fixedResponse() {
@@ -33,6 +36,7 @@ public final class ListenerRuleAction {
     }
     /**
      * @return The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+     * See `forward` Block for details.
      * 
      */
     public Optional<ListenerRuleActionForward> forward() {

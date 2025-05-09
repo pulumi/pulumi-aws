@@ -36,6 +36,7 @@ public final class GetExportResult {
      */
     private String id;
     private @Nullable Map<String,String> parameters;
+    private String region;
     private String restApiId;
     private String stageName;
 
@@ -77,6 +78,9 @@ public final class GetExportResult {
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
+    public String region() {
+        return this.region;
+    }
     public String restApiId() {
         return this.restApiId;
     }
@@ -100,6 +104,7 @@ public final class GetExportResult {
         private String exportType;
         private String id;
         private @Nullable Map<String,String> parameters;
+        private String region;
         private String restApiId;
         private String stageName;
         public Builder() {}
@@ -112,6 +117,7 @@ public final class GetExportResult {
     	      this.exportType = defaults.exportType;
     	      this.id = defaults.id;
     	      this.parameters = defaults.parameters;
+    	      this.region = defaults.region;
     	      this.restApiId = defaults.restApiId;
     	      this.stageName = defaults.stageName;
         }
@@ -169,6 +175,14 @@ public final class GetExportResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restApiId(String restApiId) {
             if (restApiId == null) {
               throw new MissingRequiredPropertyException("GetExportResult", "restApiId");
@@ -193,6 +207,7 @@ public final class GetExportResult {
             _resultValue.exportType = exportType;
             _resultValue.id = id;
             _resultValue.parameters = parameters;
+            _resultValue.region = region;
             _resultValue.restApiId = restApiId;
             _resultValue.stageName = stageName;
             return _resultValue;

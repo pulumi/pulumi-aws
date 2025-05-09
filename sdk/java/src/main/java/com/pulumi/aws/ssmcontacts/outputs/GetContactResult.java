@@ -27,6 +27,7 @@ public final class GetContactResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Map of tags to assign to the resource.
      * 
@@ -63,6 +64,9 @@ public final class GetContactResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags to assign to the resource.
      * 
@@ -91,6 +95,7 @@ public final class GetContactResult {
         private String arn;
         private String displayName;
         private String id;
+        private String region;
         private Map<String,String> tags;
         private String type;
         public Builder() {}
@@ -100,6 +105,7 @@ public final class GetContactResult {
     	      this.arn = defaults.arn;
     	      this.displayName = defaults.displayName;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
@@ -137,6 +143,14 @@ public final class GetContactResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContactResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetContactResult", "tags");
@@ -158,6 +172,7 @@ public final class GetContactResult {
             _resultValue.arn = arn;
             _resultValue.displayName = displayName;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.type = type;
             return _resultValue;

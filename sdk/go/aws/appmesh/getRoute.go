@@ -12,6 +12,34 @@ import (
 )
 
 // The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.LookupRoute(ctx, &appmesh.LookupRouteArgs{
+//				Name:              "test-route",
+//				MeshName:          "test-mesh",
+//				VirtualRouterName: "test-router",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResult
@@ -29,7 +57,8 @@ type LookupRouteArgs struct {
 	// AWS account ID of the service mesh's owner.
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name of the route.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the virtual router in which the route exists.
@@ -49,6 +78,7 @@ type LookupRouteResult struct {
 	MeshName        string `pulumi:"meshName"`
 	MeshOwner       string `pulumi:"meshOwner"`
 	Name            string `pulumi:"name"`
+	Region          string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Route specification. See the `appmesh.Route` resource for details.
@@ -74,7 +104,8 @@ type LookupRouteOutputArgs struct {
 	// AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
 	// Name of the route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Name of the virtual router in which the route exists.
@@ -130,6 +161,10 @@ func (o LookupRouteResultOutput) MeshOwner() pulumi.StringOutput {
 
 func (o LookupRouteResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupRouteResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

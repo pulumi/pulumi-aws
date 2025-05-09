@@ -26,6 +26,7 @@ class ContactsRotationArgs:
                  time_zone_id: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recurrence: Optional[pulumi.Input['ContactsRotationRecurrenceArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -36,6 +37,7 @@ class ContactsRotationArgs:
         :param pulumi.Input['ContactsRotationRecurrenceArgs'] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] start_time: The date and time, in RFC 3339 format, that the rotation goes into effect.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -45,6 +47,8 @@ class ContactsRotationArgs:
             pulumi.set(__self__, "name", name)
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
         if tags is not None:
@@ -101,6 +105,18 @@ class ContactsRotationArgs:
         pulumi.set(self, "recurrence", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -132,6 +148,7 @@ class _ContactsRotationState:
                  contact_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recurrence: Optional[pulumi.Input['ContactsRotationRecurrenceArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -144,6 +161,7 @@ class _ContactsRotationState:
         :param pulumi.Input['ContactsRotationRecurrenceArgs'] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] start_time: The date and time, in RFC 3339 format, that the rotation goes into effect.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -157,6 +175,8 @@ class _ContactsRotationState:
             pulumi.set(__self__, "name", name)
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
         if tags is not None:
@@ -215,6 +235,18 @@ class _ContactsRotationState:
     @recurrence.setter
     def recurrence(self, value: Optional[pulumi.Input['ContactsRotationRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="startTime")
@@ -276,6 +308,7 @@ class ContactsRotation(pulumi.CustomResource):
                  contact_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recurrence: Optional[pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_zone_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -403,6 +436,7 @@ class ContactsRotation(pulumi.CustomResource):
         :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] start_time: The date and time, in RFC 3339 format, that the rotation goes into effect.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] time_zone_id: The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
@@ -547,6 +581,7 @@ class ContactsRotation(pulumi.CustomResource):
                  contact_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recurrence: Optional[pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_zone_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -564,6 +599,7 @@ class ContactsRotation(pulumi.CustomResource):
             __props__.__dict__["contact_ids"] = contact_ids
             __props__.__dict__["name"] = name
             __props__.__dict__["recurrence"] = recurrence
+            __props__.__dict__["region"] = region
             __props__.__dict__["start_time"] = start_time
             __props__.__dict__["tags"] = tags
             if time_zone_id is None and not opts.urn:
@@ -585,6 +621,7 @@ class ContactsRotation(pulumi.CustomResource):
             contact_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             recurrence: Optional[pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             start_time: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -602,6 +639,7 @@ class ContactsRotation(pulumi.CustomResource):
         :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] start_time: The date and time, in RFC 3339 format, that the rotation goes into effect.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -615,6 +653,7 @@ class ContactsRotation(pulumi.CustomResource):
         __props__.__dict__["contact_ids"] = contact_ids
         __props__.__dict__["name"] = name
         __props__.__dict__["recurrence"] = recurrence
+        __props__.__dict__["region"] = region
         __props__.__dict__["start_time"] = start_time
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -654,6 +693,14 @@ class ContactsRotation(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "recurrence")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="startTime")

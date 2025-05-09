@@ -73,6 +73,7 @@ type GetSnapshotIdsArgs struct {
 	Filters []GetSnapshotIdsFilter `pulumi:"filters"`
 	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
 	Owners []string `pulumi:"owners"`
+	Region *string  `pulumi:"region"`
 	// One or more AWS accounts IDs that can create volumes from the snapshot.
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 }
@@ -85,6 +86,7 @@ type GetSnapshotIdsResult struct {
 	// Set of EBS snapshot IDs, sorted by creation time in descending order.
 	Ids                 []string `pulumi:"ids"`
 	Owners              []string `pulumi:"owners"`
+	Region              string   `pulumi:"region"`
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 }
 
@@ -105,6 +107,7 @@ type GetSnapshotIdsOutputArgs struct {
 	Filters GetSnapshotIdsFilterArrayInput `pulumi:"filters"`
 	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	Region pulumi.StringPtrInput   `pulumi:"region"`
 	// One or more AWS accounts IDs that can create volumes from the snapshot.
 	RestorableByUserIds pulumi.StringArrayInput `pulumi:"restorableByUserIds"`
 }
@@ -144,6 +147,10 @@ func (o GetSnapshotIdsResultOutput) Ids() pulumi.StringArrayOutput {
 
 func (o GetSnapshotIdsResultOutput) Owners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSnapshotIdsResult) []string { return v.Owners }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSnapshotIdsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotIdsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSnapshotIdsResultOutput) RestorableByUserIds() pulumi.StringArrayOutput {

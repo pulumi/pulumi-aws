@@ -56,6 +56,10 @@ export interface GetZoneArgs {
     privateZone?: boolean;
     /**
      * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
+     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
      */
     tags?: {[key: string]: string};
     /**
@@ -178,6 +182,10 @@ export interface GetZoneOutputArgs {
     privateZone?: pulumi.Input<boolean>;
     /**
      * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
+     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

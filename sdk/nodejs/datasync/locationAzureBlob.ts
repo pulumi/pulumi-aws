@@ -89,6 +89,10 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      */
     public readonly containerUrl!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */
     public readonly sasConfiguration!: pulumi.Output<outputs.datasync.LocationAzureBlobSasConfiguration | undefined>;
@@ -125,6 +129,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
             resourceInputs["blobType"] = state ? state.blobType : undefined;
             resourceInputs["containerUrl"] = state ? state.containerUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sasConfiguration"] = state ? state.sasConfiguration : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -146,6 +151,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["blobType"] = args ? args.blobType : undefined;
             resourceInputs["containerUrl"] = args ? args.containerUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sasConfiguration"] = args ? args.sasConfiguration : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -186,6 +192,10 @@ export interface LocationAzureBlobState {
      * The URL of the Azure Blob Storage container involved in your transfer.
      */
     containerUrl?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */
@@ -229,6 +239,10 @@ export interface LocationAzureBlobArgs {
      * The URL of the Azure Blob Storage container involved in your transfer.
      */
     containerUrl: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */

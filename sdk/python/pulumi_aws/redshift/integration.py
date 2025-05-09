@@ -28,6 +28,7 @@ class IntegrationArgs:
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
         """
@@ -44,6 +45,7 @@ class IntegrationArgs:
         :param pulumi.Input[builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
                If you don't specify an encryption key, Redshift uses a default AWS owned key.
                You can only include this parameter if `source_arn` references a DynamoDB table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "integration_name", integration_name)
@@ -55,6 +57,8 @@ class IntegrationArgs:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -140,6 +144,18 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -168,6 +184,7 @@ class _IntegrationState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  integration_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -184,6 +201,7 @@ class _IntegrationState:
         :param pulumi.Input[builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
                If you don't specify an encryption key, Redshift uses a default AWS owned key.
                You can only include this parameter if `source_arn` references a DynamoDB table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -201,6 +219,8 @@ class _IntegrationState:
             pulumi.set(__self__, "integration_name", integration_name)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_arn is not None:
             pulumi.set(__self__, "source_arn", source_arn)
         if tags is not None:
@@ -277,6 +297,18 @@ class _IntegrationState:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -348,6 +380,7 @@ class Integration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  integration_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -470,6 +503,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
                If you don't specify an encryption key, Redshift uses a default AWS owned key.
                You can only include this parameter if `source_arn` references a DynamoDB table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] target_arn: ARN of the Redshift data warehouse to use as the target for replication.
@@ -608,6 +642,7 @@ class Integration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  integration_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -627,6 +662,7 @@ class Integration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'integration_name'")
             __props__.__dict__["integration_name"] = integration_name
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["region"] = region
             if source_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_arn'")
             __props__.__dict__["source_arn"] = source_arn
@@ -652,6 +688,7 @@ class Integration(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             integration_name: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_arn: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -673,6 +710,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
                If you don't specify an encryption key, Redshift uses a default AWS owned key.
                You can only include this parameter if `source_arn` references a DynamoDB table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -689,6 +727,7 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["integration_name"] = integration_name
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_arn"] = source_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -739,6 +778,14 @@ class Integration(pulumi.CustomResource):
         You can only include this parameter if `source_arn` references a DynamoDB table.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sourceArn")

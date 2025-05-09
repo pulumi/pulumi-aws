@@ -105,6 +105,9 @@ namespace Pulumi.Aws.Connect
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
         /// </summary>
@@ -131,6 +134,9 @@ namespace Pulumi.Aws.Connect
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
         /// </summary>
@@ -153,6 +159,7 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string Id;
         public readonly string InstanceId;
+        public readonly string Region;
         public readonly string ResourceType;
         /// <summary>
         /// Specifies the storage configuration options for the Connect Instance. Documented below.
@@ -167,6 +174,8 @@ namespace Pulumi.Aws.Connect
 
             string instanceId,
 
+            string region,
+
             string resourceType,
 
             ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigResult> storageConfigs)
@@ -174,6 +183,7 @@ namespace Pulumi.Aws.Connect
             AssociationId = associationId;
             Id = id;
             InstanceId = instanceId;
+            Region = region;
             ResourceType = resourceType;
             StorageConfigs = storageConfigs;
         }

@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Amplify
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// URL of the webhook.
         /// </summary>
         [Output("url")]
@@ -148,6 +154,12 @@ namespace Pulumi.Aws.Amplify
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public WebhookArgs()
         {
         }
@@ -179,6 +191,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// URL of the webhook.

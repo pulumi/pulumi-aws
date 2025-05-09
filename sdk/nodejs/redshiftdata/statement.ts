@@ -89,6 +89,10 @@ export class Statement extends pulumi.CustomResource {
     public readonly dbUser!: pulumi.Output<string | undefined>;
     public readonly parameters!: pulumi.Output<outputs.redshiftdata.StatementParameter[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name or ARN of the secret that enables access to the database.
      */
     public readonly secretArn!: pulumi.Output<string | undefined>;
@@ -128,6 +132,7 @@ export class Statement extends pulumi.CustomResource {
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["dbUser"] = state ? state.dbUser : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretArn"] = state ? state.secretArn : undefined;
             resourceInputs["sql"] = state ? state.sql : undefined;
             resourceInputs["statementName"] = state ? state.statementName : undefined;
@@ -145,6 +150,7 @@ export class Statement extends pulumi.CustomResource {
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["dbUser"] = args ? args.dbUser : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretArn"] = args ? args.secretArn : undefined;
             resourceInputs["sql"] = args ? args.sql : undefined;
             resourceInputs["statementName"] = args ? args.statementName : undefined;
@@ -173,6 +179,10 @@ export interface StatementState {
      */
     dbUser?: pulumi.Input<string>;
     parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name or ARN of the secret that enables access to the database.
      */
@@ -214,6 +224,10 @@ export interface StatementArgs {
      */
     dbUser?: pulumi.Input<string>;
     parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name or ARN of the secret that enables access to the database.
      */

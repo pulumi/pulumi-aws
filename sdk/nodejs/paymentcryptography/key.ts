@@ -106,6 +106,10 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyState!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -137,6 +141,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyCheckValueAlgorithm"] = state ? state.keyCheckValueAlgorithm : undefined;
             resourceInputs["keyOrigin"] = state ? state.keyOrigin : undefined;
             resourceInputs["keyState"] = state ? state.keyState : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -150,6 +155,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["exportable"] = args ? args.exportable : undefined;
             resourceInputs["keyAttributes"] = args ? args.keyAttributes : undefined;
             resourceInputs["keyCheckValueAlgorithm"] = args ? args.keyCheckValueAlgorithm : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -203,6 +209,10 @@ export interface KeyState {
      */
     keyState?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -236,6 +246,10 @@ export interface KeyArgs {
      * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
      */
     keyCheckValueAlgorithm?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

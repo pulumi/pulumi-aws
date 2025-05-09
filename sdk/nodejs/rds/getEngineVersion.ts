@@ -58,6 +58,7 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
         "preferredMajorTargets": args.preferredMajorTargets,
         "preferredUpgradeTargets": args.preferredUpgradeTargets,
         "preferredVersions": args.preferredVersions,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -112,6 +113,7 @@ export interface GetEngineVersionArgs {
      * Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
      */
     preferredVersions?: string[];
+    region?: string;
     version?: string;
 }
 
@@ -146,6 +148,7 @@ export interface GetEngineVersionResult {
     readonly preferredMajorTargets?: string[];
     readonly preferredUpgradeTargets?: string[];
     readonly preferredVersions?: string[];
+    readonly region: string;
     /**
      * Status of the engine version, either `available` or `deprecated`.
      */
@@ -271,6 +274,7 @@ export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: 
         "preferredMajorTargets": args.preferredMajorTargets,
         "preferredUpgradeTargets": args.preferredUpgradeTargets,
         "preferredVersions": args.preferredVersions,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -325,5 +329,6 @@ export interface GetEngineVersionOutputArgs {
      * Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
      */
     preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
     version?: pulumi.Input<string>;
 }

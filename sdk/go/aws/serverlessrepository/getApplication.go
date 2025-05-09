@@ -60,7 +60,8 @@ func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulum
 // A collection of arguments for invoking getApplication.
 type GetApplicationArgs struct {
 	// ARN of the application.
-	ApplicationId string `pulumi:"applicationId"`
+	ApplicationId string  `pulumi:"applicationId"`
+	Region        *string `pulumi:"region"`
 	// Requested version of the application. By default, retrieves the latest version.
 	SemanticVersion *string `pulumi:"semanticVersion"`
 }
@@ -72,7 +73,8 @@ type GetApplicationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Name of the application.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// A list of capabilities describing the permissions needed to deploy the application.
 	RequiredCapabilities []string `pulumi:"requiredCapabilities"`
 	SemanticVersion      string   `pulumi:"semanticVersion"`
@@ -94,7 +96,8 @@ func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, op
 // A collection of arguments for invoking getApplication.
 type GetApplicationOutputArgs struct {
 	// ARN of the application.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	ApplicationId pulumi.StringInput    `pulumi:"applicationId"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 	// Requested version of the application. By default, retrieves the latest version.
 	SemanticVersion pulumi.StringPtrInput `pulumi:"semanticVersion"`
 }
@@ -131,6 +134,10 @@ func (o GetApplicationResultOutput) Id() pulumi.StringOutput {
 // Name of the application.
 func (o GetApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetApplicationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of capabilities describing the permissions needed to deploy the application.

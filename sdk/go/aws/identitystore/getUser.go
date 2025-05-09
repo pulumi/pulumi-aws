@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -68,6 +68,8 @@ type LookupUserArgs struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
+	// The region of the address.
+	Region *string `pulumi:"region"`
 	// The identifier for a user in the Identity Store.
 	//
 	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
@@ -100,6 +102,8 @@ type LookupUserResult struct {
 	PreferredLanguage string `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
 	ProfileUrl string `pulumi:"profileUrl"`
+	// The region of the address.
+	Region string `pulumi:"region"`
 	// The user's time zone.
 	Timezone string `pulumi:"timezone"`
 	// The user's title.
@@ -128,6 +132,8 @@ type LookupUserOutputArgs struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+	// The region of the address.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The identifier for a user in the Identity Store.
 	//
 	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
@@ -214,6 +220,11 @@ func (o LookupUserResultOutput) PreferredLanguage() pulumi.StringOutput {
 // An URL that may be associated with the user.
 func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
+}
+
+// The region of the address.
+func (o LookupUserResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The user's time zone.

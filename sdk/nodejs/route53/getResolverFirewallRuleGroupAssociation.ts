@@ -26,6 +26,7 @@ export function getResolverFirewallRuleGroupAssociation(args: GetResolverFirewal
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", {
         "firewallRuleGroupAssociationId": args.firewallRuleGroupAssociationId,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,32 +36,68 @@ export function getResolverFirewallRuleGroupAssociation(args: GetResolverFirewal
 export interface GetResolverFirewallRuleGroupAssociationArgs {
     /**
      * The identifier for the association.
-     *
-     * The following attribute is additionally exported:
      */
     firewallRuleGroupAssociationId: string;
+    region?: string;
 }
 
 /**
  * A collection of values returned by getResolverFirewallRuleGroupAssociation.
  */
 export interface GetResolverFirewallRuleGroupAssociationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the firewall rule group association.
+     */
     readonly arn: string;
+    /**
+     * The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
+     */
     readonly creationTime: string;
+    /**
+     * A unique string defined by you to identify the request.
+     */
     readonly creatorRequestId: string;
     readonly firewallRuleGroupAssociationId: string;
+    /**
+     * The unique identifier of the firewall rule group.
+     */
     readonly firewallRuleGroupId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The owner of the association, used only for associations that are not managed by you.
+     */
     readonly managedOwnerName: string;
+    /**
+     * The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     */
     readonly modificationTime: string;
+    /**
+     * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+     */
     readonly mutationProtection: string;
+    /**
+     * The name of the association.
+     */
     readonly name: string;
+    /**
+     * The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
+     */
     readonly priority: number;
+    readonly region: string;
+    /**
+     * The current status of the association.
+     */
     readonly status: string;
+    /**
+     * Additional information about the status of the response, if available.
+     */
     readonly statusMessage: string;
+    /**
+     * The unique identifier of the VPC that is associated with the rule group.
+     */
     readonly vpcId: string;
 }
 /**
@@ -85,6 +122,7 @@ export function getResolverFirewallRuleGroupAssociationOutput(args: GetResolverF
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", {
         "firewallRuleGroupAssociationId": args.firewallRuleGroupAssociationId,
+        "region": args.region,
     }, opts);
 }
 
@@ -94,8 +132,7 @@ export function getResolverFirewallRuleGroupAssociationOutput(args: GetResolverF
 export interface GetResolverFirewallRuleGroupAssociationOutputArgs {
     /**
      * The identifier for the association.
-     *
-     * The following attribute is additionally exported:
      */
     firewallRuleGroupAssociationId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

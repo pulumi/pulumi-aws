@@ -59,6 +59,8 @@ type Queue struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrOutput `pulumi:"pricingPlan"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsOutput `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -109,6 +111,8 @@ type queueState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan *string `pulumi:"pricingPlan"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -130,6 +134,8 @@ type QueueState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -153,6 +159,8 @@ type queueArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan *string `pulumi:"pricingPlan"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -171,6 +179,8 @@ type QueueArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -289,6 +299,11 @@ func (o QueueOutput) Name() pulumi.StringOutput {
 // Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 func (o QueueOutput) PricingPlan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.PricingPlan }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o QueueOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A detail pricing plan of the  reserved queue. See below.

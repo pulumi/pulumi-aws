@@ -146,6 +146,21 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Unique identifier associated with the slot.
      * 
      */
@@ -217,6 +232,7 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         this.multipleValuesSettings = $.multipleValuesSettings;
         this.name = $.name;
         this.obfuscationSettings = $.obfuscationSettings;
+        this.region = $.region;
         this.slotId = $.slotId;
         this.slotTypeId = $.slotTypeId;
         this.subSlotSettings = $.subSlotSettings;
@@ -434,6 +450,27 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder obfuscationSettings(V2modelsSlotObfuscationSettingArgs... obfuscationSettings) {
             return obfuscationSettings(List.of(obfuscationSettings));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

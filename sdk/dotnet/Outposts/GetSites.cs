@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Outposts
         /// });
         /// ```
         /// </summary>
-        public static Task<GetSitesResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetSitesResult> InvokeAsync(GetSitesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesResult>("aws:outposts/getSites:getSites", args ?? new GetSitesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Outposts Sites.
@@ -50,8 +50,8 @@ namespace Pulumi.Aws.Outposts
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSitesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSitesResult> Invoke(GetSitesInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:outposts/getSites:getSites", args ?? new GetSitesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Outposts Sites.
@@ -71,8 +71,31 @@ namespace Pulumi.Aws.Outposts
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSitesResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSitesResult> Invoke(GetSitesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:outposts/getSites:getSites", args ?? new GetSitesInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetSitesArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetSitesArgs()
+        {
+        }
+        public static new GetSitesArgs Empty => new GetSitesArgs();
+    }
+
+    public sealed class GetSitesInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetSitesInvokeArgs()
+        {
+        }
+        public static new GetSitesInvokeArgs Empty => new GetSitesInvokeArgs();
     }
 
 
@@ -87,15 +110,19 @@ namespace Pulumi.Aws.Outposts
         /// Set of Outposts Site identifiers.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSitesResult(
             string id,
 
-            ImmutableArray<string> ids)
+            ImmutableArray<string> ids,
+
+            string region)
         {
             Id = id;
             Ids = ids;
+            Region = region;
         }
     }
 }

@@ -53,7 +53,8 @@ func LookupAppregistryApplication(ctx *pulumi.Context, args *LookupAppregistryAp
 // A collection of arguments for invoking getAppregistryApplication.
 type LookupAppregistryApplicationArgs struct {
 	// Application identifier.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAppregistryApplication.
@@ -66,7 +67,8 @@ type LookupAppregistryApplicationResult struct {
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	// Name of the application.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -83,7 +85,8 @@ func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregis
 // A collection of arguments for invoking getAppregistryApplication.
 type LookupAppregistryApplicationOutputArgs struct {
 	// Application identifier.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupAppregistryApplicationOutputArgs) ElementType() reflect.Type {
@@ -127,6 +130,10 @@ func (o LookupAppregistryApplicationResultOutput) Id() pulumi.StringOutput {
 // Name of the application.
 func (o LookupAppregistryApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAppregistryApplicationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

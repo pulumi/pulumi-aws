@@ -58,6 +58,12 @@ namespace Pulumi.Aws.S3Tables
     public partial class TableBucketPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
         [Output("resourcePolicy")]
@@ -116,6 +122,12 @@ namespace Pulumi.Aws.S3Tables
     public sealed class TableBucketPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
         [Input("resourcePolicy", required: true)]
@@ -135,6 +147,12 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class TableBucketPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>

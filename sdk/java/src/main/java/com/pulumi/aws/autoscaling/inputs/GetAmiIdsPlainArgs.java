@@ -46,11 +46,19 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.names);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetAmiIdsPlainArgs() {}
 
     private GetAmiIdsPlainArgs(GetAmiIdsPlainArgs $) {
         this.filters = $.filters;
         this.names = $.names;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -111,6 +119,11 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder names(String... names) {
             return names(List.of(names));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetAmiIdsPlainArgs build() {

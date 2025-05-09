@@ -58,6 +58,12 @@ namespace Pulumi.Aws.AppRunner
         [Output("autoScalingConfigurationArn")]
         public Output<string> AutoScalingConfigurationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DefaultAutoScalingConfigurationVersion resource with the given unique name, arguments, and options.
@@ -110,6 +116,12 @@ namespace Pulumi.Aws.AppRunner
         [Input("autoScalingConfigurationArn", required: true)]
         public Input<string> AutoScalingConfigurationArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DefaultAutoScalingConfigurationVersionArgs()
         {
         }
@@ -123,6 +135,12 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         [Input("autoScalingConfigurationArn")]
         public Input<string>? AutoScalingConfigurationArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DefaultAutoScalingConfigurationVersionState()
         {

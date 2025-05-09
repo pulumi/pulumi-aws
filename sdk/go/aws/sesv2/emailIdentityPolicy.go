@@ -93,6 +93,8 @@ type EmailIdentityPolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEmailIdentityPolicy registers a new resource with the given unique name, arguments, and options.
@@ -140,6 +142,8 @@ type emailIdentityPolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName *string `pulumi:"policyName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EmailIdentityPolicyState struct {
@@ -149,6 +153,8 @@ type EmailIdentityPolicyState struct {
 	Policy pulumi.StringPtrInput
 	// The name of the policy.
 	PolicyName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EmailIdentityPolicyState) ElementType() reflect.Type {
@@ -162,6 +168,8 @@ type emailIdentityPolicyArgs struct {
 	Policy string `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName string `pulumi:"policyName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EmailIdentityPolicy resource.
@@ -172,6 +180,8 @@ type EmailIdentityPolicyArgs struct {
 	Policy pulumi.StringInput
 	// The name of the policy.
 	PolicyName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EmailIdentityPolicyArgs) ElementType() reflect.Type {
@@ -274,6 +284,11 @@ func (o EmailIdentityPolicyOutput) Policy() pulumi.StringOutput {
 // The name of the policy.
 func (o EmailIdentityPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EmailIdentityPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EmailIdentityPolicyArrayOutput struct{ *pulumi.OutputState }

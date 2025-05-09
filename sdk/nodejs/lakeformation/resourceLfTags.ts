@@ -133,6 +133,10 @@ export class ResourceLfTags extends pulumi.CustomResource {
      */
     public readonly lfTags!: pulumi.Output<outputs.lakeformation.ResourceLfTagsLfTag[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for a table resource. See below.
      */
     public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTable>;
@@ -159,6 +163,7 @@ export class ResourceLfTags extends pulumi.CustomResource {
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["lfTags"] = state ? state.lfTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["table"] = state ? state.table : undefined;
             resourceInputs["tableWithColumns"] = state ? state.tableWithColumns : undefined;
         } else {
@@ -169,6 +174,7 @@ export class ResourceLfTags extends pulumi.CustomResource {
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["lfTags"] = args ? args.lfTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["table"] = args ? args.table : undefined;
             resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
         }
@@ -195,6 +201,10 @@ export interface ResourceLfTagsState {
      * Exactly one of the following is required:
      */
     lfTags?: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for a table resource. See below.
      */
@@ -225,6 +235,10 @@ export interface ResourceLfTagsArgs {
      * Exactly one of the following is required:
      */
     lfTags: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for a table resource. See below.
      */

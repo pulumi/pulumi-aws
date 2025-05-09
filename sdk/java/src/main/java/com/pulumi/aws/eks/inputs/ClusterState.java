@@ -278,6 +278,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
@@ -451,6 +466,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.outpostConfig = $.outpostConfig;
         this.platformVersion = $.platformVersion;
+        this.region = $.region;
         this.remoteNetworkConfig = $.remoteNetworkConfig;
         this.roleArn = $.roleArn;
         this.status = $.status;
@@ -858,6 +874,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder platformVersion(String platformVersion) {
             return platformVersion(Output.of(platformVersion));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

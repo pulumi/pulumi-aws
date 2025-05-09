@@ -503,6 +503,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string> QualifiedInvokeArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
         /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
         /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
@@ -795,6 +801,12 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
         /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
         /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
@@ -1065,6 +1077,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("qualifiedInvokeArn")]
         public Input<string>? QualifiedInvokeArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether to replace the security groups on the function's VPC configuration prior to destruction.

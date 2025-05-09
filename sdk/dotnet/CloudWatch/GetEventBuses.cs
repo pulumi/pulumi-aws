@@ -99,6 +99,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("namePrefix")]
         public string? NamePrefix { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetEventBusesArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetEventBusesInvokeArgs()
         {
@@ -132,6 +138,7 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string Id;
         public readonly string? NamePrefix;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetEventBusesResult(
@@ -139,11 +146,14 @@ namespace Pulumi.Aws.CloudWatch
 
             string id,
 
-            string? namePrefix)
+            string? namePrefix,
+
+            string region)
         {
             EventBuses = eventBuses;
             Id = id;
             NamePrefix = namePrefix;
+            Region = region;
         }
     }
 }

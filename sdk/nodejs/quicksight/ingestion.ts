@@ -84,6 +84,10 @@ export class Ingestion extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly ingestionType!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Ingestion resource with the given unique name, arguments, and options.
@@ -104,6 +108,7 @@ export class Ingestion extends pulumi.CustomResource {
             resourceInputs["ingestionId"] = state ? state.ingestionId : undefined;
             resourceInputs["ingestionStatus"] = state ? state.ingestionStatus : undefined;
             resourceInputs["ingestionType"] = state ? state.ingestionType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as IngestionArgs | undefined;
             if ((!args || args.dataSetId === undefined) && !opts.urn) {
@@ -119,6 +124,7 @@ export class Ingestion extends pulumi.CustomResource {
             resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
             resourceInputs["ingestionId"] = args ? args.ingestionId : undefined;
             resourceInputs["ingestionType"] = args ? args.ingestionType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ingestionStatus"] = undefined /*out*/;
         }
@@ -157,6 +163,10 @@ export interface IngestionState {
      * The following arguments are optional:
      */
     ingestionType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -181,4 +191,8 @@ export interface IngestionArgs {
      * The following arguments are optional:
      */
     ingestionType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

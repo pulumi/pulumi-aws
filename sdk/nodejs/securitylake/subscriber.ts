@@ -81,6 +81,10 @@ export class Subscriber extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
     public /*out*/ readonly resourceShareArn!: pulumi.Output<string>;
@@ -145,6 +149,7 @@ export class Subscriber extends pulumi.CustomResource {
             const state = argsOrState as SubscriberState | undefined;
             resourceInputs["accessType"] = state ? state.accessType : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
             resourceInputs["resourceShareName"] = state ? state.resourceShareName : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
@@ -161,6 +166,7 @@ export class Subscriber extends pulumi.CustomResource {
         } else {
             const args = argsOrState as SubscriberArgs | undefined;
             resourceInputs["accessType"] = args ? args.accessType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["subscriberDescription"] = args ? args.subscriberDescription : undefined;
             resourceInputs["subscriberIdentity"] = args ? args.subscriberIdentity : undefined;
@@ -193,6 +199,10 @@ export interface SubscriberState {
      * ARN of the Data Lake.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
@@ -252,6 +262,10 @@ export interface SubscriberArgs {
      * The Amazon S3 or Lake Formation access type.
      */
     accessType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */

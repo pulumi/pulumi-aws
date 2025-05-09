@@ -78,6 +78,10 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly placementGroupId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Determines how placement groups spread instances. Can only be used
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
@@ -112,6 +116,7 @@ export class PlacementGroup extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["partitionCount"] = state ? state.partitionCount : undefined;
             resourceInputs["placementGroupId"] = state ? state.placementGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["spreadLevel"] = state ? state.spreadLevel : undefined;
             resourceInputs["strategy"] = state ? state.strategy : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -123,6 +128,7 @@ export class PlacementGroup extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["spreadLevel"] = args ? args.spreadLevel : undefined;
             resourceInputs["strategy"] = args ? args.strategy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -158,6 +164,10 @@ export interface PlacementGroupState {
      */
     placementGroupId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Determines how placement groups spread instances. Can only be used
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
@@ -190,6 +200,10 @@ export interface PlacementGroupArgs {
      * `partition`.  Valid values are 1 - 7 (default is `2`).
      */
     partitionCount?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Determines how placement groups spread instances. Can only be used
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.

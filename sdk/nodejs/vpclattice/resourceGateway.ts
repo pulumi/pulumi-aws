@@ -108,6 +108,10 @@ export class ResourceGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -151,6 +155,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -168,6 +173,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             }
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -198,6 +204,10 @@ export interface ResourceGatewayState {
      * Name of the resource gateway.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */
@@ -239,6 +249,10 @@ export interface ResourceGatewayArgs {
      * Name of the resource gateway.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */

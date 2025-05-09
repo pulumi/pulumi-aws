@@ -80,6 +80,10 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
      * The name of the load balancer to which you want to enable http to https redirection.
      */
     public readonly lbName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbHttpsRedirectionPolicy resource with the given unique name, arguments, and options.
@@ -96,6 +100,7 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
             const state = argsOrState as LbHttpsRedirectionPolicyState | undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbHttpsRedirectionPolicyArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -106,6 +111,7 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbHttpsRedirectionPolicy.__pulumiType, name, resourceInputs, opts);
@@ -124,6 +130,10 @@ export interface LbHttpsRedirectionPolicyState {
      * The name of the load balancer to which you want to enable http to https redirection.
      */
     lbName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -138,4 +148,8 @@ export interface LbHttpsRedirectionPolicyArgs {
      * The name of the load balancer to which you want to enable http to https redirection.
      */
     lbName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

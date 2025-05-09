@@ -127,6 +127,8 @@ type FargateProfile struct {
 	FargateProfileName pulumi.StringOutput `pulumi:"fargateProfileName"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringOutput `pulumi:"podExecutionRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors FargateProfileSelectorArrayOutput `pulumi:"selectors"`
 	// Status of the EKS Fargate Profile.
@@ -188,6 +190,8 @@ type fargateProfileState struct {
 	FargateProfileName *string `pulumi:"fargateProfileName"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn *string `pulumi:"podExecutionRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors []FargateProfileSelector `pulumi:"selectors"`
 	// Status of the EKS Fargate Profile.
@@ -211,6 +215,8 @@ type FargateProfileState struct {
 	FargateProfileName pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors FargateProfileSelectorArrayInput
 	// Status of the EKS Fargate Profile.
@@ -236,6 +242,8 @@ type fargateProfileArgs struct {
 	FargateProfileName *string `pulumi:"fargateProfileName"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn string `pulumi:"podExecutionRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors []FargateProfileSelector `pulumi:"selectors"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
@@ -254,6 +262,8 @@ type FargateProfileArgs struct {
 	FargateProfileName pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors FargateProfileSelectorArrayInput
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
@@ -369,6 +379,11 @@ func (o FargateProfileOutput) FargateProfileName() pulumi.StringOutput {
 // Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 func (o FargateProfileOutput) PodExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.PodExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FargateProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.

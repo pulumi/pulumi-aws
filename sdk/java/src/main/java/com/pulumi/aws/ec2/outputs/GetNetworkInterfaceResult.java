@@ -79,6 +79,7 @@ public final class GetNetworkInterfaceResult {
      * 
      */
     private List<String> privateIps;
+    private String region;
     /**
      * @return ID of the entity that launched the instance on your behalf.
      * 
@@ -199,6 +200,9 @@ public final class GetNetworkInterfaceResult {
     public List<String> privateIps() {
         return this.privateIps;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ID of the entity that launched the instance on your behalf.
      * 
@@ -259,6 +263,7 @@ public final class GetNetworkInterfaceResult {
         private String privateDnsName;
         private String privateIp;
         private List<String> privateIps;
+        private String region;
         private String requesterId;
         private List<String> securityGroups;
         private String subnetId;
@@ -282,6 +287,7 @@ public final class GetNetworkInterfaceResult {
     	      this.privateDnsName = defaults.privateDnsName;
     	      this.privateIp = defaults.privateIp;
     	      this.privateIps = defaults.privateIps;
+    	      this.region = defaults.region;
     	      this.requesterId = defaults.requesterId;
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnetId = defaults.subnetId;
@@ -423,6 +429,14 @@ public final class GetNetworkInterfaceResult {
             return privateIps(List.of(privateIps));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requesterId(String requesterId) {
             if (requesterId == null) {
               throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "requesterId");
@@ -482,6 +496,7 @@ public final class GetNetworkInterfaceResult {
             _resultValue.privateDnsName = privateDnsName;
             _resultValue.privateIp = privateIp;
             _resultValue.privateIps = privateIps;
+            _resultValue.region = region;
             _resultValue.requesterId = requesterId;
             _resultValue.securityGroups = securityGroups;
             _resultValue.subnetId = subnetId;

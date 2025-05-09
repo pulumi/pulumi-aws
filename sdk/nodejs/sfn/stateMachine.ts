@@ -223,6 +223,10 @@ export class StateMachine extends pulumi.CustomResource {
      * Set to true to publish a version of the state machine during creation. Default: false.
      */
     public readonly publish!: pulumi.Output<boolean | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly revisionId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -276,6 +280,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["publish"] = state ? state.publish : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revisionId"] = state ? state.revisionId : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stateMachineVersionArn"] = state ? state.stateMachineVersionArn : undefined;
@@ -299,6 +304,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["publish"] = args ? args.publish : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
@@ -354,6 +360,10 @@ export interface StateMachineState {
      * Set to true to publish a version of the state machine during creation. Default: false.
      */
     publish?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     revisionId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -414,6 +424,10 @@ export interface StateMachineArgs {
      * Set to true to publish a version of the state machine during creation. Default: false.
      */
     publish?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */

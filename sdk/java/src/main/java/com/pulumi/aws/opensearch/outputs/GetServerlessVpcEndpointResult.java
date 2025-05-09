@@ -26,6 +26,7 @@ public final class GetServerlessVpcEndpointResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      * 
@@ -65,6 +66,9 @@ public final class GetServerlessVpcEndpointResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      * 
@@ -102,6 +106,7 @@ public final class GetServerlessVpcEndpointResult {
         private String createdDate;
         private String id;
         private String name;
+        private String region;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private String vpcEndpointId;
@@ -112,6 +117,7 @@ public final class GetServerlessVpcEndpointResult {
     	      this.createdDate = defaults.createdDate;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
@@ -140,6 +146,14 @@ public final class GetServerlessVpcEndpointResult {
               throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -185,6 +199,7 @@ public final class GetServerlessVpcEndpointResult {
             _resultValue.createdDate = createdDate;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.subnetIds = subnetIds;
             _resultValue.vpcEndpointId = vpcEndpointId;

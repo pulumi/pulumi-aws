@@ -6,6 +6,7 @@ package com.pulumi.aws.securitylake.inputs;
 import com.pulumi.aws.securitylake.inputs.AwsLogSourceSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class AwsLogSourceState extends com.pulumi.resources.ResourceArgs {
 
     public static final AwsLogSourceState Empty = new AwsLogSourceState();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
@@ -33,6 +49,7 @@ public final class AwsLogSourceState extends com.pulumi.resources.ResourceArgs {
     private AwsLogSourceState() {}
 
     private AwsLogSourceState(AwsLogSourceState $) {
+        this.region = $.region;
         this.source = $.source;
     }
 
@@ -52,6 +69,27 @@ public final class AwsLogSourceState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(AwsLogSourceState defaults) {
             $ = new AwsLogSourceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

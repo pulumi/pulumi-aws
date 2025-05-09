@@ -63,6 +63,8 @@ type PrincipalPortfolioAssociation struct {
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrOutput `pulumi:"principalType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPrincipalPortfolioAssociation registers a new resource with the given unique name, arguments, and options.
@@ -111,6 +113,8 @@ type principalPortfolioAssociationState struct {
 	PrincipalArn *string `pulumi:"principalArn"`
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType *string `pulumi:"principalType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PrincipalPortfolioAssociationState struct {
@@ -124,6 +128,8 @@ type PrincipalPortfolioAssociationState struct {
 	PrincipalArn pulumi.StringPtrInput
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PrincipalPortfolioAssociationState) ElementType() reflect.Type {
@@ -141,6 +147,8 @@ type principalPortfolioAssociationArgs struct {
 	PrincipalArn string `pulumi:"principalArn"`
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType *string `pulumi:"principalType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PrincipalPortfolioAssociation resource.
@@ -155,6 +163,8 @@ type PrincipalPortfolioAssociationArgs struct {
 	PrincipalArn pulumi.StringInput
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PrincipalPortfolioAssociationArgs) ElementType() reflect.Type {
@@ -264,6 +274,11 @@ func (o PrincipalPortfolioAssociationOutput) PrincipalArn() pulumi.StringOutput 
 // Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 func (o PrincipalPortfolioAssociationOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringPtrOutput { return v.PrincipalType }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PrincipalPortfolioAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PrincipalPortfolioAssociationArrayOutput struct{ *pulumi.OutputState }

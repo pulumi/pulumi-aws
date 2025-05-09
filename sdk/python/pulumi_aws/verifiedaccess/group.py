@@ -25,6 +25,7 @@ class GroupArgs:
                  verifiedaccess_instance_id: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sse_configuration: Optional[pulumi.Input['GroupSseConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -35,6 +36,7 @@ class GroupArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the verified access group.
         :param pulumi.Input[builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['GroupSseConfigurationArgs'] sse_configuration: Configuration block to use KMS keys for server-side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,6 +45,8 @@ class GroupArgs:
             pulumi.set(__self__, "description", description)
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sse_configuration is not None:
             pulumi.set(__self__, "sse_configuration", sse_configuration)
         if tags is not None:
@@ -89,6 +93,18 @@ class GroupArgs:
         pulumi.set(self, "policy_document", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> Optional[pulumi.Input['GroupSseConfigurationArgs']]:
         """
@@ -131,6 +147,7 @@ class _GroupState:
                  last_updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sse_configuration: Optional[pulumi.Input['GroupSseConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -145,6 +162,7 @@ class _GroupState:
         :param pulumi.Input[builtins.str] last_updated_time: Timestamp when the access group was last updated.
         :param pulumi.Input[builtins.str] owner: AWS account number owning this resource.
         :param pulumi.Input[builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['GroupSseConfigurationArgs'] sse_configuration: Configuration block to use KMS keys for server-side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] verifiedaccess_group_arn: ARN of this verified acess group.
@@ -165,6 +183,8 @@ class _GroupState:
             pulumi.set(__self__, "owner", owner)
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sse_configuration is not None:
             pulumi.set(__self__, "sse_configuration", sse_configuration)
         if tags is not None:
@@ -251,6 +271,18 @@ class _GroupState:
         pulumi.set(self, "policy_document", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> Optional[pulumi.Input['GroupSseConfigurationArgs']]:
         """
@@ -332,6 +364,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sse_configuration: Optional[pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -369,6 +402,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the verified access group.
         :param pulumi.Input[builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']] sse_configuration: Configuration block to use KMS keys for server-side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
@@ -426,6 +460,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sse_configuration: Optional[pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -441,6 +476,7 @@ class Group(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["policy_document"] = policy_document
+            __props__.__dict__["region"] = region
             __props__.__dict__["sse_configuration"] = sse_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
@@ -469,6 +505,7 @@ class Group(pulumi.CustomResource):
             last_updated_time: Optional[pulumi.Input[builtins.str]] = None,
             owner: Optional[pulumi.Input[builtins.str]] = None,
             policy_document: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sse_configuration: Optional[pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -488,6 +525,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_updated_time: Timestamp when the access group was last updated.
         :param pulumi.Input[builtins.str] owner: AWS account number owning this resource.
         :param pulumi.Input[builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']] sse_configuration: Configuration block to use KMS keys for server-side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] verifiedaccess_group_arn: ARN of this verified acess group.
@@ -506,6 +544,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["last_updated_time"] = last_updated_time
         __props__.__dict__["owner"] = owner
         __props__.__dict__["policy_document"] = policy_document
+        __props__.__dict__["region"] = region
         __props__.__dict__["sse_configuration"] = sse_configuration
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -561,6 +600,14 @@ class Group(pulumi.CustomResource):
         The policy document that is associated with this resource.
         """
         return pulumi.get(self, "policy_document")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sseConfiguration")

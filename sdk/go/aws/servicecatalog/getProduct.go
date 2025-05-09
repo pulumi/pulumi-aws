@@ -59,7 +59,8 @@ type LookupProductArgs struct {
 	// ID of the product.
 	//
 	// The following arguments are optional:
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Tags applied to the product.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,7 +82,8 @@ type LookupProductResult struct {
 	// Name of the product.
 	Name string `pulumi:"name"`
 	// Owner of the product.
-	Owner string `pulumi:"owner"`
+	Owner  string `pulumi:"owner"`
+	Region string `pulumi:"region"`
 	// Status of the product.
 	Status string `pulumi:"status"`
 	// Field that provides support information about the product.
@@ -112,7 +114,8 @@ type LookupProductOutputArgs struct {
 	// ID of the product.
 	//
 	// The following arguments are optional:
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags applied to the product.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -177,6 +180,10 @@ func (o LookupProductResultOutput) Name() pulumi.StringOutput {
 // Owner of the product.
 func (o LookupProductResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o LookupProductResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the product.

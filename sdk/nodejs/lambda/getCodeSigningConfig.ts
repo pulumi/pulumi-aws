@@ -27,6 +27,7 @@ export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,7 @@ export interface GetCodeSigningConfigArgs {
      * ARN of the code signing configuration.
      */
     arn: string;
+    region?: string;
 }
 
 /**
@@ -69,6 +71,7 @@ export interface GetCodeSigningConfigResult {
      * List of code signing policies that control the validation failure action for signature mismatch or expiry.
      */
     readonly policies: outputs.lambda.GetCodeSigningConfigPolicy[];
+    readonly region: string;
 }
 /**
  * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
@@ -90,6 +93,7 @@ export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs,
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -101,4 +105,5 @@ export interface GetCodeSigningConfigOutputArgs {
      * ARN of the code signing configuration.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -62,6 +62,7 @@ public final class GetLayerVersionResult {
      * 
      */
     private String licenseInfo;
+    private String region;
     /**
      * @return ARN of a signing job.
      * 
@@ -165,6 +166,9 @@ public final class GetLayerVersionResult {
     public String licenseInfo() {
         return this.licenseInfo;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of a signing job.
      * 
@@ -226,6 +230,7 @@ public final class GetLayerVersionResult {
         private String layerArn;
         private String layerName;
         private String licenseInfo;
+        private String region;
         private String signingJobArn;
         private String signingProfileVersionArn;
         private String sourceCodeHash;
@@ -246,6 +251,7 @@ public final class GetLayerVersionResult {
     	      this.layerArn = defaults.layerArn;
     	      this.layerName = defaults.layerName;
     	      this.licenseInfo = defaults.licenseInfo;
+    	      this.region = defaults.region;
     	      this.signingJobArn = defaults.signingJobArn;
     	      this.signingProfileVersionArn = defaults.signingProfileVersionArn;
     	      this.sourceCodeHash = defaults.sourceCodeHash;
@@ -352,6 +358,14 @@ public final class GetLayerVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder signingJobArn(String signingJobArn) {
             if (signingJobArn == null) {
               throw new MissingRequiredPropertyException("GetLayerVersionResult", "signingJobArn");
@@ -405,6 +419,7 @@ public final class GetLayerVersionResult {
             _resultValue.layerArn = layerArn;
             _resultValue.layerName = layerName;
             _resultValue.licenseInfo = licenseInfo;
+            _resultValue.region = region;
             _resultValue.signingJobArn = signingJobArn;
             _resultValue.signingProfileVersionArn = signingProfileVersionArn;
             _resultValue.sourceCodeHash = sourceCodeHash;

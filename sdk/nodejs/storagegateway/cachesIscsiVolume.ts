@@ -128,6 +128,10 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkInterfacePort!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
@@ -185,6 +189,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             resourceInputs["lunNumber"] = state ? state.lunNumber : undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["sourceVolumeArn"] = state ? state.sourceVolumeArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -212,6 +217,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -267,6 +273,10 @@ export interface CachesIscsiVolumeState {
      * The port used to communicate with iSCSI targets.
      */
     networkInterfacePort?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */
@@ -325,6 +335,10 @@ export interface CachesIscsiVolumeArgs {
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */
     networkInterfaceId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */

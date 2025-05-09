@@ -66,12 +66,20 @@ public final class GetOutpostInstanceTypeArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.preferredInstanceTypes);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetOutpostInstanceTypeArgs() {}
 
     private GetOutpostInstanceTypeArgs(GetOutpostInstanceTypeArgs $) {
         this.arn = $.arn;
         this.instanceType = $.instanceType;
         this.preferredInstanceTypes = $.preferredInstanceTypes;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -167,6 +175,15 @@ public final class GetOutpostInstanceTypeArgs extends com.pulumi.resources.Invok
          */
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetOutpostInstanceTypeArgs build() {

@@ -29,6 +29,7 @@ public final class GetPolicyStoreResult {
      * 
      */
     private String lastUpdatedDate;
+    private String region;
     /**
      * @return Validation settings for the policy store.
      * 
@@ -63,6 +64,9 @@ public final class GetPolicyStoreResult {
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Validation settings for the policy store.
      * 
@@ -85,6 +89,7 @@ public final class GetPolicyStoreResult {
         private String description;
         private String id;
         private String lastUpdatedDate;
+        private String region;
         private List<GetPolicyStoreValidationSetting> validationSettings;
         public Builder() {}
         public Builder(GetPolicyStoreResult defaults) {
@@ -94,6 +99,7 @@ public final class GetPolicyStoreResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
+    	      this.region = defaults.region;
     	      this.validationSettings = defaults.validationSettings;
         }
 
@@ -138,6 +144,14 @@ public final class GetPolicyStoreResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPolicyStoreResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder validationSettings(List<GetPolicyStoreValidationSetting> validationSettings) {
             if (validationSettings == null) {
               throw new MissingRequiredPropertyException("GetPolicyStoreResult", "validationSettings");
@@ -155,6 +169,7 @@ public final class GetPolicyStoreResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.region = region;
             _resultValue.validationSettings = validationSettings;
             return _resultValue;
         }

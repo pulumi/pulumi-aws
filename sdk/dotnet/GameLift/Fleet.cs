@@ -137,6 +137,12 @@ namespace Pulumi.Aws.GameLift
         public Output<string> OperatingSystem { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         /// </summary>
         [Output("resourceCreationLimitPolicy")]
@@ -291,6 +297,12 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? NewGameSessionProtectionPolicy { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         /// </summary>
         [Input("resourceCreationLimitPolicy")]
@@ -425,6 +437,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.

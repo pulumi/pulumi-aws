@@ -50,6 +50,7 @@ func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getTracker.
 type LookupTrackerArgs struct {
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the tracker.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the tracker resource.
@@ -68,6 +69,7 @@ type LookupTrackerResult struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Position filtering method of the tracker resource.
 	PositionFiltering string `pulumi:"positionFiltering"`
+	Region            string `pulumi:"region"`
 	// Key-value map of resource tags for the tracker.
 	Tags map[string]string `pulumi:"tags"`
 	// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
@@ -88,6 +90,7 @@ func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts
 
 // A collection of arguments for invoking getTracker.
 type LookupTrackerOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the tracker.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Name of the tracker resource.
@@ -136,6 +139,10 @@ func (o LookupTrackerResultOutput) KmsKeyId() pulumi.StringOutput {
 // Position filtering method of the tracker resource.
 func (o LookupTrackerResultOutput) PositionFiltering() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.PositionFiltering }).(pulumi.StringOutput)
+}
+
+func (o LookupTrackerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrackerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the tracker.

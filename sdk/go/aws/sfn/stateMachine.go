@@ -279,8 +279,10 @@ type StateMachine struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
-	Publish    pulumi.BoolPtrOutput `pulumi:"publish"`
-	RevisionId pulumi.StringOutput  `pulumi:"revisionId"`
+	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region     pulumi.StringOutput `pulumi:"region"`
+	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The ARN of the state machine version.
@@ -350,7 +352,9 @@ type stateMachineState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
-	Publish    *bool   `pulumi:"publish"`
+	Publish *bool `pulumi:"publish"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region     *string `pulumi:"region"`
 	RevisionId *string `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn *string `pulumi:"roleArn"`
@@ -386,7 +390,9 @@ type StateMachineState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Set to true to publish a version of the state machine during creation. Default: false.
-	Publish    pulumi.BoolPtrInput
+	Publish pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region     pulumi.StringPtrInput
 	RevisionId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringPtrInput
@@ -422,6 +428,8 @@ type stateMachineArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish *bool `pulumi:"publish"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -446,6 +454,8 @@ type StateMachineArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -585,6 +595,11 @@ func (o StateMachineOutput) NamePrefix() pulumi.StringOutput {
 // Set to true to publish a version of the state machine during creation. Default: false.
 func (o StateMachineOutput) Publish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.BoolPtrOutput { return v.Publish }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StateMachineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o StateMachineOutput) RevisionId() pulumi.StringOutput {

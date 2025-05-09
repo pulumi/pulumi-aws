@@ -180,6 +180,8 @@ type Certificate struct {
 	PendingRenewal pulumi.BoolOutput `pulumi:"pendingRenewal"`
 	// Certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether the certificate is eligible for managed renewal.
 	RenewalEligibility pulumi.StringOutput `pulumi:"renewalEligibility"`
 	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
@@ -273,6 +275,8 @@ type certificateState struct {
 	PendingRenewal *bool `pulumi:"pendingRenewal"`
 	// Certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether the certificate is eligible for managed renewal.
 	RenewalEligibility *string `pulumi:"renewalEligibility"`
 	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
@@ -330,6 +334,8 @@ type CertificateState struct {
 	PendingRenewal pulumi.BoolPtrInput
 	// Certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether the certificate is eligible for managed renewal.
 	RenewalEligibility pulumi.StringPtrInput
 	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
@@ -379,6 +385,8 @@ type certificateArgs struct {
 	Options *CertificateOptions `pulumi:"options"`
 	// Certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -415,6 +423,8 @@ type CertificateArgs struct {
 	Options CertificateOptionsPtrInput
 	// Certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -585,6 +595,11 @@ func (o CertificateOutput) PendingRenewal() pulumi.BoolOutput {
 // Certificate's PEM-formatted private key
 func (o CertificateOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether the certificate is eligible for managed renewal.

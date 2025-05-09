@@ -162,6 +162,8 @@ type MethodSettings struct {
 
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringOutput `pulumi:"methodPath"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Settings block, see below.
@@ -214,6 +216,8 @@ func GetMethodSettings(ctx *pulumi.Context,
 type methodSettingsState struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath *string `pulumi:"methodPath"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Settings block, see below.
@@ -225,6 +229,8 @@ type methodSettingsState struct {
 type MethodSettingsState struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the REST API
 	RestApi pulumi.Input
 	// Settings block, see below.
@@ -240,6 +246,8 @@ func (MethodSettingsState) ElementType() reflect.Type {
 type methodSettingsArgs struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath string `pulumi:"methodPath"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Settings block, see below.
@@ -252,6 +260,8 @@ type methodSettingsArgs struct {
 type MethodSettingsArgs struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the REST API
 	RestApi pulumi.Input
 	// Settings block, see below.
@@ -350,6 +360,11 @@ func (o MethodSettingsOutput) ToMethodSettingsOutputWithContext(ctx context.Cont
 // Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 func (o MethodSettingsOutput) MethodPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.MethodPath }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MethodSettingsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the REST API

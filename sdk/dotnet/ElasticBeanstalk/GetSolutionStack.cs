@@ -109,6 +109,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Input("nameRegex", required: true)]
         public string NameRegex { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetSolutionStackArgs()
         {
         }
@@ -136,6 +139,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Input("nameRegex", required: true)]
         public Input<string> NameRegex { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetSolutionStackInvokeArgs()
         {
         }
@@ -156,6 +162,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         public readonly string Name;
         public readonly string NameRegex;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSolutionStackResult(
@@ -165,12 +172,15 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
             string name,
 
-            string nameRegex)
+            string nameRegex,
+
+            string region)
         {
             Id = id;
             MostRecent = mostRecent;
             Name = name;
             NameRegex = nameRegex;
+            Region = region;
         }
     }
 }

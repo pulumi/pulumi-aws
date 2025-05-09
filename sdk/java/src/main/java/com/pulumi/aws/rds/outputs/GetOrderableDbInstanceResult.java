@@ -75,6 +75,7 @@ public final class GetOrderableDbInstanceResult {
     private @Nullable List<String> preferredEngineVersions;
     private @Nullable List<String> preferredInstanceClasses;
     private Boolean readReplicaCapable;
+    private String region;
     private String storageType;
     private List<String> supportedEngineModes;
     private List<String> supportedNetworkTypes;
@@ -188,6 +189,9 @@ public final class GetOrderableDbInstanceResult {
     public Boolean readReplicaCapable() {
         return this.readReplicaCapable;
     }
+    public String region() {
+        return this.region;
+    }
     public String storageType() {
         return this.storageType;
     }
@@ -259,6 +263,7 @@ public final class GetOrderableDbInstanceResult {
         private @Nullable List<String> preferredEngineVersions;
         private @Nullable List<String> preferredInstanceClasses;
         private Boolean readReplicaCapable;
+        private String region;
         private String storageType;
         private List<String> supportedEngineModes;
         private List<String> supportedNetworkTypes;
@@ -295,6 +300,7 @@ public final class GetOrderableDbInstanceResult {
     	      this.preferredEngineVersions = defaults.preferredEngineVersions;
     	      this.preferredInstanceClasses = defaults.preferredInstanceClasses;
     	      this.readReplicaCapable = defaults.readReplicaCapable;
+    	      this.region = defaults.region;
     	      this.storageType = defaults.storageType;
     	      this.supportedEngineModes = defaults.supportedEngineModes;
     	      this.supportedNetworkTypes = defaults.supportedNetworkTypes;
@@ -467,6 +473,14 @@ public final class GetOrderableDbInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageType(String storageType) {
             if (storageType == null) {
               throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "storageType");
@@ -605,6 +619,7 @@ public final class GetOrderableDbInstanceResult {
             _resultValue.preferredEngineVersions = preferredEngineVersions;
             _resultValue.preferredInstanceClasses = preferredInstanceClasses;
             _resultValue.readReplicaCapable = readReplicaCapable;
+            _resultValue.region = region;
             _resultValue.storageType = storageType;
             _resultValue.supportedEngineModes = supportedEngineModes;
             _resultValue.supportedNetworkTypes = supportedNetworkTypes;

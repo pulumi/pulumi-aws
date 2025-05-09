@@ -79,6 +79,10 @@ export class SecretPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Secret ARN.
      *
      * The following arguments are optional:
@@ -100,6 +104,7 @@ export class SecretPolicy extends pulumi.CustomResource {
             const state = argsOrState as SecretPolicyState | undefined;
             resourceInputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
             const args = argsOrState as SecretPolicyArgs | undefined;
@@ -111,6 +116,7 @@ export class SecretPolicy extends pulumi.CustomResource {
             }
             resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretArn"] = args ? args.secretArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +137,10 @@ export interface SecretPolicyState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Secret ARN.
      *
      * The following arguments are optional:
@@ -150,6 +160,10 @@ export interface SecretPolicyArgs {
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Secret ARN.
      *

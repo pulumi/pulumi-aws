@@ -45,6 +45,13 @@ public final class GetAliasPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ARN of the State Machine.
      * 
@@ -65,6 +72,7 @@ public final class GetAliasPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetAliasPlainArgs(GetAliasPlainArgs $) {
         this.description = $.description;
         this.name = $.name;
+        this.region = $.region;
         this.statemachineArn = $.statemachineArn;
     }
 
@@ -105,6 +113,11 @@ public final class GetAliasPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing an AWS Service Quotas Templates.
+ * Data source for managing AWS Service Quotas Templates.
  *
  * ## Example Usage
  *
@@ -19,15 +19,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.servicequotas.getTemplates({
- *     region: "us-east-1",
+ *     awsRegion: "us-east-1",
  * });
  * ```
  */
-export function getTemplates(args: GetTemplatesArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplatesResult> {
+export function getTemplates(args?: GetTemplatesArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplatesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicequotas/getTemplates:getTemplates", {
+        "awsRegion": args.awsRegion,
         "region": args.region,
-        "templates": args.templates,
     }, opts);
 }
 
@@ -38,29 +39,34 @@ export interface GetTemplatesArgs {
     /**
      * AWS Region to which the quota increases apply.
      */
-    region: string;
+    awsRegion?: string;
     /**
-     * A list of quota increase templates for specified region. See `templates`.
+     * AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
+     *
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      */
-    templates?: inputs.servicequotas.GetTemplatesTemplate[];
+    region?: string;
 }
 
 /**
  * A collection of values returned by getTemplates.
  */
 export interface GetTemplatesResult {
+    readonly awsRegion?: string;
     readonly id: string;
     /**
      * AWS Region to which the template applies.
+     *
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      */
-    readonly region: string;
+    readonly region?: string;
     /**
      * A list of quota increase templates for specified region. See `templates`.
      */
-    readonly templates?: outputs.servicequotas.GetTemplatesTemplate[];
+    readonly templates: outputs.servicequotas.GetTemplatesTemplate[];
 }
 /**
- * Data source for managing an AWS Service Quotas Templates.
+ * Data source for managing AWS Service Quotas Templates.
  *
  * ## Example Usage
  *
@@ -71,15 +77,16 @@ export interface GetTemplatesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.servicequotas.getTemplates({
- *     region: "us-east-1",
+ *     awsRegion: "us-east-1",
  * });
  * ```
  */
-export function getTemplatesOutput(args: GetTemplatesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplatesResult> {
+export function getTemplatesOutput(args?: GetTemplatesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplatesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicequotas/getTemplates:getTemplates", {
+        "awsRegion": args.awsRegion,
         "region": args.region,
-        "templates": args.templates,
     }, opts);
 }
 
@@ -90,9 +97,11 @@ export interface GetTemplatesOutputArgs {
     /**
      * AWS Region to which the quota increases apply.
      */
-    region: pulumi.Input<string>;
+    awsRegion?: pulumi.Input<string>;
     /**
-     * A list of quota increase templates for specified region. See `templates`.
+     * AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
+     *
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      */
-    templates?: pulumi.Input<pulumi.Input<inputs.servicequotas.GetTemplatesTemplateArgs>[]>;
+    region?: pulumi.Input<string>;
 }

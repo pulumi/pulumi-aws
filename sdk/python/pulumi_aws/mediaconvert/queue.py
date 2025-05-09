@@ -26,6 +26,7 @@ class QueueArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pricing_plan: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_plan_settings: Optional[pulumi.Input['QueueReservationPlanSettingsArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -35,6 +36,7 @@ class QueueArgs:
         :param pulumi.Input[builtins.str] description: A description of the queue
         :param pulumi.Input[builtins.str] name: A unique identifier describing the queue
         :param pulumi.Input[builtins.str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
         :param pulumi.Input[builtins.str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -47,6 +49,8 @@ class QueueArgs:
             pulumi.set(__self__, "name", name)
         if pricing_plan is not None:
             pulumi.set(__self__, "pricing_plan", pricing_plan)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reservation_plan_settings is not None:
             pulumi.set(__self__, "reservation_plan_settings", reservation_plan_settings)
         if status is not None:
@@ -103,6 +107,18 @@ class QueueArgs:
         pulumi.set(self, "pricing_plan", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="reservationPlanSettings")
     def reservation_plan_settings(self) -> Optional[pulumi.Input['QueueReservationPlanSettingsArgs']]:
         """
@@ -147,6 +163,7 @@ class _QueueState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pricing_plan: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_plan_settings: Optional[pulumi.Input['QueueReservationPlanSettingsArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -158,6 +175,7 @@ class _QueueState:
         :param pulumi.Input[builtins.str] description: A description of the queue
         :param pulumi.Input[builtins.str] name: A unique identifier describing the queue
         :param pulumi.Input[builtins.str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
         :param pulumi.Input[builtins.str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -173,6 +191,8 @@ class _QueueState:
             pulumi.set(__self__, "name", name)
         if pricing_plan is not None:
             pulumi.set(__self__, "pricing_plan", pricing_plan)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reservation_plan_settings is not None:
             pulumi.set(__self__, "reservation_plan_settings", reservation_plan_settings)
         if status is not None:
@@ -243,6 +263,18 @@ class _QueueState:
         pulumi.set(self, "pricing_plan", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="reservationPlanSettings")
     def reservation_plan_settings(self) -> Optional[pulumi.Input['QueueReservationPlanSettingsArgs']]:
         """
@@ -303,6 +335,7 @@ class Queue(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pricing_plan: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_plan_settings: Optional[pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict']]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -333,6 +366,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the queue
         :param pulumi.Input[builtins.str] name: A unique identifier describing the queue
         :param pulumi.Input[builtins.str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict']] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
         :param pulumi.Input[builtins.str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -382,6 +416,7 @@ class Queue(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pricing_plan: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_plan_settings: Optional[pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict']]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -398,6 +433,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["pricing_plan"] = pricing_plan
+            __props__.__dict__["region"] = region
             __props__.__dict__["reservation_plan_settings"] = reservation_plan_settings
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
@@ -418,6 +454,7 @@ class Queue(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             pricing_plan: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             reservation_plan_settings: Optional[pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -434,6 +471,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the queue
         :param pulumi.Input[builtins.str] name: A unique identifier describing the queue
         :param pulumi.Input[builtins.str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict']] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
         :param pulumi.Input[builtins.str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -448,6 +486,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["pricing_plan"] = pricing_plan
+        __props__.__dict__["region"] = region
         __props__.__dict__["reservation_plan_settings"] = reservation_plan_settings
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -493,6 +532,14 @@ class Queue(pulumi.CustomResource):
         Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         """
         return pulumi.get(self, "pricing_plan")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="reservationPlanSettings")

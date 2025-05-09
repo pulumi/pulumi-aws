@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetProfilesProfiles(ctx, map[string]interface{}{}, nil)
+//			_, err := route53.GetProfilesProfiles(ctx, &route53.GetProfilesProfilesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,19 @@ import (
 //	}
 //
 // ```
-func GetProfilesProfiles(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetProfilesProfilesResult, error) {
+func GetProfilesProfiles(ctx *pulumi.Context, args *GetProfilesProfilesArgs, opts ...pulumi.InvokeOption) (*GetProfilesProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProfilesProfilesResult
-	err := ctx.Invoke("aws:route53/getProfilesProfiles:getProfilesProfiles", nil, &rv, opts...)
+	err := ctx.Invoke("aws:route53/getProfilesProfiles:getProfilesProfiles", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getProfilesProfiles.
+type GetProfilesProfilesArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getProfilesProfiles.
@@ -54,13 +59,25 @@ type GetProfilesProfilesResult struct {
 	Id string `pulumi:"id"`
 	// List of Profiles.
 	Profiles []GetProfilesProfilesProfile `pulumi:"profiles"`
+	Region   string                       `pulumi:"region"`
 }
 
-func GetProfilesProfilesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetProfilesProfilesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetProfilesProfilesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:route53/getProfilesProfiles:getProfilesProfiles", nil, GetProfilesProfilesResultOutput{}, options).(GetProfilesProfilesResultOutput), nil
-	}).(GetProfilesProfilesResultOutput)
+func GetProfilesProfilesOutput(ctx *pulumi.Context, args GetProfilesProfilesOutputArgs, opts ...pulumi.InvokeOption) GetProfilesProfilesResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetProfilesProfilesResultOutput, error) {
+			args := v.(GetProfilesProfilesArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:route53/getProfilesProfiles:getProfilesProfiles", args, GetProfilesProfilesResultOutput{}, options).(GetProfilesProfilesResultOutput), nil
+		}).(GetProfilesProfilesResultOutput)
+}
+
+// A collection of arguments for invoking getProfilesProfiles.
+type GetProfilesProfilesOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetProfilesProfilesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilesProfilesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getProfilesProfiles.
@@ -86,6 +103,10 @@ func (o GetProfilesProfilesResultOutput) Id() pulumi.StringOutput {
 // List of Profiles.
 func (o GetProfilesProfilesResultOutput) Profiles() GetProfilesProfilesProfileArrayOutput {
 	return o.ApplyT(func(v GetProfilesProfilesResult) []GetProfilesProfilesProfile { return v.Profiles }).(GetProfilesProfilesProfileArrayOutput)
+}
+
+func (o GetProfilesProfilesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilesProfilesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

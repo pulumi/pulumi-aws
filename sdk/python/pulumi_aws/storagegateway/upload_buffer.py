@@ -22,18 +22,22 @@ class UploadBufferArgs:
     def __init__(__self__, *,
                  gateway_arn: pulumi.Input[builtins.str],
                  disk_id: Optional[pulumi.Input[builtins.str]] = None,
-                 disk_path: Optional[pulumi.Input[builtins.str]] = None):
+                 disk_path: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a UploadBuffer resource.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "gateway_arn", gateway_arn)
         if disk_id is not None:
             pulumi.set(__self__, "disk_id", disk_id)
         if disk_path is not None:
             pulumi.set(__self__, "disk_path", disk_path)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="gatewayArn")
@@ -71,18 +75,32 @@ class UploadBufferArgs:
     def disk_path(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "disk_path", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _UploadBufferState:
     def __init__(__self__, *,
                  disk_id: Optional[pulumi.Input[builtins.str]] = None,
                  disk_path: Optional[pulumi.Input[builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering UploadBuffer resources.
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if disk_id is not None:
             pulumi.set(__self__, "disk_id", disk_id)
@@ -90,6 +108,8 @@ class _UploadBufferState:
             pulumi.set(__self__, "disk_path", disk_path)
         if gateway_arn is not None:
             pulumi.set(__self__, "gateway_arn", gateway_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="diskId")
@@ -127,6 +147,18 @@ class _UploadBufferState:
     def gateway_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "gateway_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class UploadBuffer(pulumi.CustomResource):
 
@@ -139,6 +171,7 @@ class UploadBuffer(pulumi.CustomResource):
                  disk_id: Optional[pulumi.Input[builtins.str]] = None,
                  disk_path: Optional[pulumi.Input[builtins.str]] = None,
                  gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Storage Gateway upload buffer.
@@ -186,6 +219,7 @@ class UploadBuffer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -252,6 +286,7 @@ class UploadBuffer(pulumi.CustomResource):
                  disk_id: Optional[pulumi.Input[builtins.str]] = None,
                  disk_path: Optional[pulumi.Input[builtins.str]] = None,
                  gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,6 +301,7 @@ class UploadBuffer(pulumi.CustomResource):
             if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__.__dict__["gateway_arn"] = gateway_arn
+            __props__.__dict__["region"] = region
         super(UploadBuffer, __self__).__init__(
             'aws:storagegateway/uploadBuffer:UploadBuffer',
             resource_name,
@@ -278,7 +314,8 @@ class UploadBuffer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             disk_id: Optional[pulumi.Input[builtins.str]] = None,
             disk_path: Optional[pulumi.Input[builtins.str]] = None,
-            gateway_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'UploadBuffer':
+            gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'UploadBuffer':
         """
         Get an existing UploadBuffer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -289,6 +326,7 @@ class UploadBuffer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -297,6 +335,7 @@ class UploadBuffer(pulumi.CustomResource):
         __props__.__dict__["disk_id"] = disk_id
         __props__.__dict__["disk_path"] = disk_path
         __props__.__dict__["gateway_arn"] = gateway_arn
+        __props__.__dict__["region"] = region
         return UploadBuffer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -322,4 +361,12 @@ class UploadBuffer(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

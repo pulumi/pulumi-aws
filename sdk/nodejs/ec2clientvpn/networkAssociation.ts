@@ -65,6 +65,10 @@ export class NetworkAssociation extends pulumi.CustomResource {
      */
     public readonly clientVpnEndpointId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
     public readonly subnetId!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
             const state = argsOrState as NetworkAssociationState | undefined;
             resourceInputs["associationId"] = state ? state.associationId : undefined;
             resourceInputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -99,6 +104,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
@@ -121,6 +127,10 @@ export interface NetworkAssociationState {
      */
     clientVpnEndpointId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
     subnetId?: pulumi.Input<string>;
@@ -138,6 +148,10 @@ export interface NetworkAssociationArgs {
      * The ID of the Client VPN endpoint.
      */
     clientVpnEndpointId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */

@@ -118,6 +118,8 @@ type Preset struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrOutput `pulumi:"thumbnails"`
 	Type       pulumi.StringOutput       `pulumi:"type"`
@@ -174,6 +176,8 @@ type presetState struct {
 	Description *string `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
 	Type       *string           `pulumi:"type"`
@@ -198,6 +202,8 @@ type PresetState struct {
 	Description pulumi.StringPtrInput
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrInput
 	Type       pulumi.StringPtrInput
@@ -224,6 +230,8 @@ type presetArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
 	Type       *string           `pulumi:"type"`
@@ -247,6 +255,8 @@ type PresetArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrInput
 	Type       pulumi.StringPtrInput
@@ -373,6 +383,11 @@ func (o PresetOutput) Description() pulumi.StringPtrOutput {
 // The name of the preset. (maximum 40 characters)
 func (o PresetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PresetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Thumbnail parameters object (documented below)

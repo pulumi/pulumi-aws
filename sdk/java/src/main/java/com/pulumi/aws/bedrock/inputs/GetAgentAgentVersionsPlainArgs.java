@@ -47,11 +47,19 @@ public final class GetAgentAgentVersionsPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.agentVersionSummaries);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetAgentAgentVersionsPlainArgs() {}
 
     private GetAgentAgentVersionsPlainArgs(GetAgentAgentVersionsPlainArgs $) {
         this.agentId = $.agentId;
         this.agentVersionSummaries = $.agentVersionSummaries;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -102,6 +110,11 @@ public final class GetAgentAgentVersionsPlainArgs extends com.pulumi.resources.I
          */
         public Builder agentVersionSummaries(GetAgentAgentVersionsAgentVersionSummary... agentVersionSummaries) {
             return agentVersionSummaries(List.of(agentVersionSummaries));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetAgentAgentVersionsPlainArgs build() {

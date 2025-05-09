@@ -159,6 +159,9 @@ namespace Pulumi.Aws.Kms
             set => _plaintext = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetCipherTextArgs()
         {
         }
@@ -201,6 +204,9 @@ namespace Pulumi.Aws.Kms
             }
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetCipherTextInvokeArgs()
         {
         }
@@ -222,6 +228,7 @@ namespace Pulumi.Aws.Kms
         public readonly string Id;
         public readonly string KeyId;
         public readonly string Plaintext;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetCipherTextResult(
@@ -233,13 +240,16 @@ namespace Pulumi.Aws.Kms
 
             string keyId,
 
-            string plaintext)
+            string plaintext,
+
+            string region)
         {
             CiphertextBlob = ciphertextBlob;
             Context = context;
             Id = id;
             KeyId = keyId;
             Plaintext = plaintext;
+            Region = region;
         }
     }
 }

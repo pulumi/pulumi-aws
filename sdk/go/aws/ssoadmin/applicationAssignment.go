@@ -88,6 +88,8 @@ type ApplicationAssignment struct {
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewApplicationAssignment registers a new resource with the given unique name, arguments, and options.
@@ -135,6 +137,8 @@ type applicationAssignmentState struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType *string `pulumi:"principalType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ApplicationAssignmentState struct {
@@ -144,6 +148,8 @@ type ApplicationAssignmentState struct {
 	PrincipalId pulumi.StringPtrInput
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentState) ElementType() reflect.Type {
@@ -157,6 +163,8 @@ type applicationAssignmentArgs struct {
 	PrincipalId string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType string `pulumi:"principalType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApplicationAssignment resource.
@@ -167,6 +175,8 @@ type ApplicationAssignmentArgs struct {
 	PrincipalId pulumi.StringInput
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentArgs) ElementType() reflect.Type {
@@ -269,6 +279,11 @@ func (o ApplicationAssignmentOutput) PrincipalId() pulumi.StringOutput {
 // Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 func (o ApplicationAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ApplicationAssignmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ApplicationAssignmentArrayOutput struct{ *pulumi.OutputState }

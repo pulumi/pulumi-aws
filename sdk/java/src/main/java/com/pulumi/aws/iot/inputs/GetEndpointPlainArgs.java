@@ -29,10 +29,18 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.endpointType);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetEndpointPlainArgs() {}
 
     private GetEndpointPlainArgs(GetEndpointPlainArgs $) {
         this.endpointType = $.endpointType;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -61,6 +69,11 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder endpointType(@Nullable String endpointType) {
             $.endpointType = endpointType;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

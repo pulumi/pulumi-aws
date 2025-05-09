@@ -136,7 +136,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := s3.GetCanonicalUserId(ctx, map[string]interface{}{}, nil)
+//			current, err := s3.GetCanonicalUserId(ctx, &s3.GetCanonicalUserIdArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -234,6 +234,8 @@ type BucketAcl struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBucketAcl registers a new resource with the given unique name, arguments, and options.
@@ -286,6 +288,8 @@ type bucketAclState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BucketAclState struct {
@@ -297,6 +301,8 @@ type BucketAclState struct {
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketAclState) ElementType() reflect.Type {
@@ -312,6 +318,8 @@ type bucketAclArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketAcl resource.
@@ -324,6 +332,8 @@ type BucketAclArgs struct {
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketAclArgs) ElementType() reflect.Type {
@@ -431,6 +441,11 @@ func (o BucketAclOutput) Bucket() pulumi.StringOutput {
 // Account ID of the expected bucket owner.
 func (o BucketAclOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAcl) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketAclOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketAcl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BucketAclArrayOutput struct{ *pulumi.OutputState }

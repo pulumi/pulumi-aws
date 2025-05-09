@@ -17,6 +17,7 @@ from .. import _utilities
 
 __all__ = [
     'ConnectionAliasTimeouts',
+    'DirectoryCertificateBasedAuthProperties',
     'DirectorySamlProperties',
     'DirectorySelfServicePermissions',
     'DirectoryWorkspaceAccessProperties',
@@ -26,6 +27,7 @@ __all__ = [
     'GetBundleComputeTypeResult',
     'GetBundleRootStorageResult',
     'GetBundleUserStorageResult',
+    'GetDirectoryCertificateBasedAuthPropertyResult',
     'GetDirectorySamlPropertyResult',
     'GetDirectorySelfServicePermissionResult',
     'GetDirectoryWorkspaceAccessPropertyResult',
@@ -62,6 +64,54 @@ class ConnectionAliasTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class DirectoryCertificateBasedAuthProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArn":
+            suggest = "certificate_authority_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryCertificateBasedAuthProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryCertificateBasedAuthProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryCertificateBasedAuthProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[builtins.str] = None,
+                 status: Optional[builtins.str] = None):
+        """
+        :param builtins.str certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        :param builtins.str status: Status of certificate-based authentication. Default `DISABLED`.
+        """
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        """
+        Status of certificate-based authentication. Default `DISABLED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -618,6 +668,25 @@ class GetBundleUserStorageResult(dict):
         Size of the user storage.
         """
         return pulumi.get(self, "capacity")
+
+
+@pulumi.output_type
+class GetDirectoryCertificateBasedAuthPropertyResult(dict):
+    def __init__(__self__, *,
+                 certificate_authority_arn: builtins.str,
+                 status: builtins.str):
+        pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> builtins.str:
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

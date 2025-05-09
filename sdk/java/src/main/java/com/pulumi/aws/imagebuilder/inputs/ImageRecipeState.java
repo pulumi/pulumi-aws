@@ -156,6 +156,21 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      * 
      */
@@ -261,6 +276,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         this.owner = $.owner;
         this.parentImage = $.parentImage;
         this.platform = $.platform;
+        this.region = $.region;
         this.systemsManagerAgent = $.systemsManagerAgent;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -494,6 +510,27 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder platform(String platform) {
             return platform(Output.of(platform));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

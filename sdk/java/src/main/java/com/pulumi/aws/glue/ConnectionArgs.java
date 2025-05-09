@@ -19,6 +19,21 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final ConnectionArgs Empty = new ConnectionArgs();
 
     /**
+     * Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     * 
+     */
+    @Import(name="athenaProperties")
+    private @Nullable Output<Map<String,String>> athenaProperties;
+
+    /**
+     * @return Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> athenaProperties() {
+        return Optional.ofNullable(this.athenaProperties);
+    }
+
+    /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
@@ -53,14 +68,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     @Import(name="connectionType")
     private @Nullable Output<String> connectionType;
 
     /**
-     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     public Optional<Output<String>> connectionType() {
@@ -132,6 +147,21 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -149,6 +179,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     private ConnectionArgs() {}
 
     private ConnectionArgs(ConnectionArgs $) {
+        this.athenaProperties = $.athenaProperties;
         this.catalogId = $.catalogId;
         this.connectionProperties = $.connectionProperties;
         this.connectionType = $.connectionType;
@@ -156,6 +187,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.matchCriterias = $.matchCriterias;
         this.name = $.name;
         this.physicalConnectionRequirements = $.physicalConnectionRequirements;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -175,6 +207,27 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ConnectionArgs defaults) {
             $ = new ConnectionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param athenaProperties Map of key-value pairs used as connection properties specific to the Athena compute environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder athenaProperties(@Nullable Output<Map<String,String>> athenaProperties) {
+            $.athenaProperties = athenaProperties;
+            return this;
+        }
+
+        /**
+         * @param athenaProperties Map of key-value pairs used as connection properties specific to the Athena compute environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder athenaProperties(Map<String,String> athenaProperties) {
+            return athenaProperties(Output.of(athenaProperties));
         }
 
         /**
@@ -224,7 +277,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
          * 
          * @return builder
          * 
@@ -235,7 +288,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
          * 
          * @return builder
          * 
@@ -340,6 +393,27 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs physicalConnectionRequirements) {
             return physicalConnectionRequirements(Output.of(physicalConnectionRequirements));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -77,6 +77,12 @@ namespace Pulumi.Aws.ServiceQuotas
         [Output("quotaName")]
         public Output<string> QuotaName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("requestId")]
         public Output<string> RequestId { get; private set; } = null!;
 
@@ -160,6 +166,12 @@ namespace Pulumi.Aws.ServiceQuotas
         public Input<string> QuotaCode { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
         [Input("serviceCode", required: true)]
@@ -208,6 +220,12 @@ namespace Pulumi.Aws.ServiceQuotas
         /// </summary>
         [Input("quotaName")]
         public Input<string>? QuotaName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("requestId")]
         public Input<string>? RequestId { get; set; }

@@ -78,6 +78,7 @@ public final class GetImageResult {
      */
     private String platform;
     private String publicBaseImageReleasedDate;
+    private String region;
     /**
      * @return Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
      * 
@@ -180,6 +181,9 @@ public final class GetImageResult {
     public String publicBaseImageReleasedDate() {
         return this.publicBaseImageReleasedDate;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
      * 
@@ -219,6 +223,7 @@ public final class GetImageResult {
         private @Nullable String nameRegex;
         private String platform;
         private String publicBaseImageReleasedDate;
+        private String region;
         private String state;
         private List<GetImageStateChangeReason> stateChangeReasons;
         private @Nullable String type;
@@ -241,6 +246,7 @@ public final class GetImageResult {
     	      this.nameRegex = defaults.nameRegex;
     	      this.platform = defaults.platform;
     	      this.publicBaseImageReleasedDate = defaults.publicBaseImageReleasedDate;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.stateChangeReasons = defaults.stateChangeReasons;
     	      this.type = defaults.type;
@@ -377,6 +383,14 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetImageResult", "state");
@@ -419,6 +433,7 @@ public final class GetImageResult {
             _resultValue.nameRegex = nameRegex;
             _resultValue.platform = platform;
             _resultValue.publicBaseImageReleasedDate = publicBaseImageReleasedDate;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.stateChangeReasons = stateChangeReasons;
             _resultValue.type = type;

@@ -61,12 +61,20 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.latestValidTill);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetCertificateArgs() {}
 
     private GetCertificateArgs(GetCertificateArgs $) {
         this.defaultForNewLaunches = $.defaultForNewLaunches;
         this.id = $.id;
         this.latestValidTill = $.latestValidTill;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -148,6 +156,15 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder latestValidTill(Boolean latestValidTill) {
             return latestValidTill(Output.of(latestValidTill));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetCertificateArgs build() {

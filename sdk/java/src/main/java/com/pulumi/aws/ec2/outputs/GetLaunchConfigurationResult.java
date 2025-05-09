@@ -86,6 +86,7 @@ public final class GetLaunchConfigurationResult {
      * 
      */
     private String placementTenancy;
+    private String region;
     /**
      * @return Root Block Device of the instance.
      * 
@@ -206,6 +207,9 @@ public final class GetLaunchConfigurationResult {
     public String placementTenancy() {
         return this.placementTenancy;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Root Block Device of the instance.
      * 
@@ -258,6 +262,7 @@ public final class GetLaunchConfigurationResult {
         private List<GetLaunchConfigurationMetadataOption> metadataOptions;
         private String name;
         private String placementTenancy;
+        private String region;
         private List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
         private List<String> securityGroups;
         private String spotPrice;
@@ -279,6 +284,7 @@ public final class GetLaunchConfigurationResult {
     	      this.metadataOptions = defaults.metadataOptions;
     	      this.name = defaults.name;
     	      this.placementTenancy = defaults.placementTenancy;
+    	      this.region = defaults.region;
     	      this.rootBlockDevices = defaults.rootBlockDevices;
     	      this.securityGroups = defaults.securityGroups;
     	      this.spotPrice = defaults.spotPrice;
@@ -407,6 +413,14 @@ public final class GetLaunchConfigurationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rootBlockDevices(List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices) {
             if (rootBlockDevices == null) {
               throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "rootBlockDevices");
@@ -460,6 +474,7 @@ public final class GetLaunchConfigurationResult {
             _resultValue.metadataOptions = metadataOptions;
             _resultValue.name = name;
             _resultValue.placementTenancy = placementTenancy;
+            _resultValue.region = region;
             _resultValue.rootBlockDevices = rootBlockDevices;
             _resultValue.securityGroups = securityGroups;
             _resultValue.spotPrice = spotPrice;

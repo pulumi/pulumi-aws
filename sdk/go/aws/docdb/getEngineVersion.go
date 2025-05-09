@@ -56,6 +56,7 @@ type GetEngineVersionArgs struct {
 	ParameterGroupFamily *string `pulumi:"parameterGroupFamily"`
 	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	PreferredVersions []string `pulumi:"preferredVersions"`
+	Region            *string  `pulumi:"region"`
 	// Version of the DB engine. For example, `3.6.0`. If `version` and `preferredVersions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	Version *string `pulumi:"version"`
 }
@@ -71,6 +72,7 @@ type GetEngineVersionResult struct {
 	Id                   string   `pulumi:"id"`
 	ParameterGroupFamily string   `pulumi:"parameterGroupFamily"`
 	PreferredVersions    []string `pulumi:"preferredVersions"`
+	Region               string   `pulumi:"region"`
 	// Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
 	SupportsLogExportsToCloudwatch bool `pulumi:"supportsLogExportsToCloudwatch"`
 	// A set of engine versions that this database engine version can be upgraded to.
@@ -97,6 +99,7 @@ type GetEngineVersionOutputArgs struct {
 	ParameterGroupFamily pulumi.StringPtrInput `pulumi:"parameterGroupFamily"`
 	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
+	Region            pulumi.StringPtrInput   `pulumi:"region"`
 	// Version of the DB engine. For example, `3.6.0`. If `version` and `preferredVersions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -145,6 +148,10 @@ func (o GetEngineVersionResultOutput) ParameterGroupFamily() pulumi.StringOutput
 
 func (o GetEngineVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.PreferredVersions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEngineVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.

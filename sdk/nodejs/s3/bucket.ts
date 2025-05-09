@@ -97,6 +97,10 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly bucketPrefix!: pulumi.Output<string>;
     /**
+     * AWS region this bucket resides in.
+     */
+    public /*out*/ readonly bucketRegion!: pulumi.Output<string>;
+    /**
      * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      */
     public /*out*/ readonly bucketRegionalDomainName!: pulumi.Output<string>;
@@ -155,9 +159,9 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
-     * AWS region this bucket resides in.
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      */
-    public /*out*/ readonly region!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketReplicationConfig` instead.
@@ -238,6 +242,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["bucketDomainName"] = state ? state.bucketDomainName : undefined;
             resourceInputs["bucketPrefix"] = state ? state.bucketPrefix : undefined;
+            resourceInputs["bucketRegion"] = state ? state.bucketRegion : undefined;
             resourceInputs["bucketRegionalDomainName"] = state ? state.bucketRegionalDomainName : undefined;
             resourceInputs["corsRules"] = state ? state.corsRules : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
@@ -272,6 +277,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
             resourceInputs["objectLockEnabled"] = args ? args.objectLockEnabled : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
             resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
@@ -280,9 +286,9 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["website"] = args ? args.website : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bucketDomainName"] = undefined /*out*/;
+            resourceInputs["bucketRegion"] = undefined /*out*/;
             resourceInputs["bucketRegionalDomainName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
-            resourceInputs["region"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["websiteDomain"] = undefined /*out*/;
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
@@ -327,6 +333,10 @@ export interface BucketState {
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     bucketPrefix?: pulumi.Input<string>;
+    /**
+     * AWS region this bucket resides in.
+     */
+    bucketRegion?: pulumi.Input<string>;
     /**
      * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      */
@@ -386,7 +396,7 @@ export interface BucketState {
      */
     policy?: pulumi.Input<string>;
     /**
-     * AWS region this bucket resides in.
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -526,6 +536,10 @@ export interface BucketArgs {
      * @deprecated policy is deprecated. Use the aws.s3.BucketPolicy resource instead.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketReplicationConfig` instead.

@@ -98,6 +98,8 @@ type ResourcePolicy struct {
 
 	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
@@ -140,6 +142,8 @@ func GetResourcePolicy(ctx *pulumi.Context,
 type resourcePolicyState struct {
 	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
@@ -147,6 +151,8 @@ type resourcePolicyState struct {
 type ResourcePolicyState struct {
 	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceArn pulumi.StringPtrInput
 }
@@ -158,6 +164,8 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 type resourcePolicyArgs struct {
 	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -166,6 +174,8 @@ type resourcePolicyArgs struct {
 type ResourcePolicyArgs struct {
 	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceArn pulumi.StringInput
 }
@@ -260,6 +270,11 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 // An IAM policy. The policy string in JSON must not contain newlines or blank lines.
 func (o ResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.

@@ -29,6 +29,7 @@ export function getImagePipelines(args?: GetImagePipelinesArgs, opts?: pulumi.In
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImagePipelines:getImagePipelines", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,6 +41,7 @@ export interface GetImagePipelinesArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.imagebuilder.GetImagePipelinesFilter[];
+    region?: string;
 }
 
 /**
@@ -59,6 +61,7 @@ export interface GetImagePipelinesResult {
      * Set of names of the matched Image Builder Image Pipelines.
      */
     readonly names: string[];
+    readonly region: string;
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
@@ -82,6 +85,7 @@ export function getImagePipelinesOutput(args?: GetImagePipelinesOutputArgs, opts
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getImagePipelines:getImagePipelines", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -93,4 +97,5 @@ export interface GetImagePipelinesOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetImagePipelinesFilterArgs>[]>;
+    region?: pulumi.Input<string>;
 }

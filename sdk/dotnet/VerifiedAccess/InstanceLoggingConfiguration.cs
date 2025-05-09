@@ -191,6 +191,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<Outputs.InstanceLoggingConfigurationAccessLogs> AccessLogs { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Verified Access instance.
         /// </summary>
         [Output("verifiedaccessInstanceId")]
@@ -249,6 +255,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<Inputs.InstanceLoggingConfigurationAccessLogsArgs> AccessLogs { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the Verified Access instance.
         /// </summary>
         [Input("verifiedaccessInstanceId", required: true)]
@@ -267,6 +279,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("accessLogs")]
         public Input<Inputs.InstanceLoggingConfigurationAccessLogsGetArgs>? AccessLogs { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the Verified Access instance.

@@ -16,6 +16,21 @@ public final class UserGroupAssociationState extends com.pulumi.resources.Resour
     public static final UserGroupAssociationState Empty = new UserGroupAssociationState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the user group.
      * 
      */
@@ -48,6 +63,7 @@ public final class UserGroupAssociationState extends com.pulumi.resources.Resour
     private UserGroupAssociationState() {}
 
     private UserGroupAssociationState(UserGroupAssociationState $) {
+        this.region = $.region;
         this.userGroupId = $.userGroupId;
         this.userId = $.userId;
     }
@@ -68,6 +84,27 @@ public final class UserGroupAssociationState extends com.pulumi.resources.Resour
 
         public Builder(UserGroupAssociationState defaults) {
             $ = new UserGroupAssociationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

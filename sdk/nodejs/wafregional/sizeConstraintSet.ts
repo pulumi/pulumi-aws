@@ -71,6 +71,10 @@ export class SizeConstraintSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
     public readonly sizeConstraints!: pulumi.Output<outputs.wafregional.SizeConstraintSetSizeConstraint[] | undefined>;
@@ -90,10 +94,12 @@ export class SizeConstraintSet extends pulumi.CustomResource {
             const state = argsOrState as SizeConstraintSetState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
         } else {
             const args = argsOrState as SizeConstraintSetArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -112,6 +118,10 @@ export interface SizeConstraintSetState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
     sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
@@ -125,6 +135,10 @@ export interface SizeConstraintSetArgs {
      * The name or description of the Size Constraint Set.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */

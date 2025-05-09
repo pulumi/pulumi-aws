@@ -52,6 +52,10 @@ export class OrganizationsAccess extends pulumi.CustomResource {
      * Whether to enable AWS Organizations access.
      */
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationsAccess resource with the given unique name, arguments, and options.
@@ -67,12 +71,14 @@ export class OrganizationsAccess extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OrganizationsAccessState | undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationsAccessArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationsAccess.__pulumiType, name, resourceInputs, opts);
@@ -87,6 +93,10 @@ export interface OrganizationsAccessState {
      * Whether to enable AWS Organizations access.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -97,4 +107,8 @@ export interface OrganizationsAccessArgs {
      * Whether to enable AWS Organizations access.
      */
     enabled: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -113,6 +113,10 @@ export class EmailChannel extends pulumi.CustomResource {
      */
     public readonly orchestrationSendingRoleArn!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -137,6 +141,7 @@ export class EmailChannel extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["messagesPerSecond"] = state ? state.messagesPerSecond : undefined;
             resourceInputs["orchestrationSendingRoleArn"] = state ? state.orchestrationSendingRoleArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as EmailChannelArgs | undefined;
@@ -155,6 +160,7 @@ export class EmailChannel extends pulumi.CustomResource {
             resourceInputs["fromAddress"] = args ? args.fromAddress : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["orchestrationSendingRoleArn"] = args ? args.orchestrationSendingRoleArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["messagesPerSecond"] = undefined /*out*/;
         }
@@ -196,6 +202,10 @@ export interface EmailChannelState {
      */
     orchestrationSendingRoleArn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
     roleArn?: pulumi.Input<string>;
@@ -229,6 +239,10 @@ export interface EmailChannelArgs {
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
      */
     orchestrationSendingRoleArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */

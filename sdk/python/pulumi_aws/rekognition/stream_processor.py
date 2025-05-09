@@ -29,6 +29,7 @@ class StreamProcessorArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_channel: Optional[pulumi.Input['StreamProcessorNotificationChannelArgs']] = None,
                  output: Optional[pulumi.Input['StreamProcessorOutputArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regions_of_interests: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]]] = None,
                  settings: Optional[pulumi.Input['StreamProcessorSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -42,6 +43,7 @@ class StreamProcessorArgs:
         :param pulumi.Input[builtins.str] name: The name of the Stream Processor.
         :param pulumi.Input['StreamProcessorNotificationChannelArgs'] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input['StreamProcessorOutputArgs'] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         :param pulumi.Input['StreamProcessorSettingsArgs'] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
@@ -61,6 +63,8 @@ class StreamProcessorArgs:
             pulumi.set(__self__, "notification_channel", notification_channel)
         if output is not None:
             pulumi.set(__self__, "output", output)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if regions_of_interests is not None:
             pulumi.set(__self__, "regions_of_interests", regions_of_interests)
         if settings is not None:
@@ -155,6 +159,18 @@ class StreamProcessorArgs:
         pulumi.set(self, "output", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="regionsOfInterests")
     def regions_of_interests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]]]:
         """
@@ -212,6 +228,7 @@ class _StreamProcessorState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_channel: Optional[pulumi.Input['StreamProcessorNotificationChannelArgs']] = None,
                  output: Optional[pulumi.Input['StreamProcessorOutputArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regions_of_interests: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input['StreamProcessorSettingsArgs']] = None,
@@ -228,6 +245,7 @@ class _StreamProcessorState:
         :param pulumi.Input[builtins.str] name: The name of the Stream Processor.
         :param pulumi.Input['StreamProcessorNotificationChannelArgs'] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input['StreamProcessorOutputArgs'] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         :param pulumi.Input['StreamProcessorSettingsArgs'] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
@@ -252,6 +270,8 @@ class _StreamProcessorState:
             pulumi.set(__self__, "notification_channel", notification_channel)
         if output is not None:
             pulumi.set(__self__, "output", output)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if regions_of_interests is not None:
             pulumi.set(__self__, "regions_of_interests", regions_of_interests)
         if role_arn is not None:
@@ -355,6 +375,18 @@ class _StreamProcessorState:
         pulumi.set(self, "output", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="regionsOfInterests")
     def regions_of_interests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]]]:
         """
@@ -454,6 +486,7 @@ class StreamProcessor(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_channel: Optional[pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
                  output: Optional[pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regions_of_interests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']]] = None,
@@ -654,6 +687,7 @@ class StreamProcessor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Stream Processor.
         :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
@@ -874,6 +908,7 @@ class StreamProcessor(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_channel: Optional[pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
                  output: Optional[pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regions_of_interests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']]] = None,
@@ -894,6 +929,7 @@ class StreamProcessor(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_channel"] = notification_channel
             __props__.__dict__["output"] = output
+            __props__.__dict__["region"] = region
             __props__.__dict__["regions_of_interests"] = regions_of_interests
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -921,6 +957,7 @@ class StreamProcessor(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             notification_channel: Optional[pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
             output: Optional[pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             regions_of_interests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             settings: Optional[pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']]] = None,
@@ -942,6 +979,7 @@ class StreamProcessor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Stream Processor.
         :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
@@ -963,6 +1001,7 @@ class StreamProcessor(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_channel"] = notification_channel
         __props__.__dict__["output"] = output
+        __props__.__dict__["region"] = region
         __props__.__dict__["regions_of_interests"] = regions_of_interests
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["settings"] = settings
@@ -1027,6 +1066,14 @@ class StreamProcessor(pulumi.CustomResource):
         Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         """
         return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="regionsOfInterests")

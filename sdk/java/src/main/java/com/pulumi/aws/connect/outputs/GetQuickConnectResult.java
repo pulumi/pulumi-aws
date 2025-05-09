@@ -40,6 +40,7 @@ public final class GetQuickConnectResult {
      * 
      */
     private String quickConnectId;
+    private String region;
     /**
      * @return Map of tags to assign to the Quick Connect.
      * 
@@ -88,6 +89,9 @@ public final class GetQuickConnectResult {
     public String quickConnectId() {
         return this.quickConnectId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags to assign to the Quick Connect.
      * 
@@ -112,6 +116,7 @@ public final class GetQuickConnectResult {
         private String name;
         private List<GetQuickConnectQuickConnectConfig> quickConnectConfigs;
         private String quickConnectId;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetQuickConnectResult defaults) {
@@ -123,6 +128,7 @@ public final class GetQuickConnectResult {
     	      this.name = defaults.name;
     	      this.quickConnectConfigs = defaults.quickConnectConfigs;
     	      this.quickConnectId = defaults.quickConnectId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -186,6 +192,14 @@ public final class GetQuickConnectResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetQuickConnectResult", "tags");
@@ -202,6 +216,7 @@ public final class GetQuickConnectResult {
             _resultValue.name = name;
             _resultValue.quickConnectConfigs = quickConnectConfigs;
             _resultValue.quickConnectId = quickConnectId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

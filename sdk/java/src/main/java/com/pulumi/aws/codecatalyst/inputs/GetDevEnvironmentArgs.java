@@ -79,6 +79,13 @@ public final class GetDevEnvironmentArgs extends com.pulumi.resources.InvokeArgs
         return this.projectName;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      * 
@@ -123,6 +130,7 @@ public final class GetDevEnvironmentArgs extends com.pulumi.resources.InvokeArgs
         this.creatorId = $.creatorId;
         this.envId = $.envId;
         this.projectName = $.projectName;
+        this.region = $.region;
         this.repositories = $.repositories;
         this.spaceName = $.spaceName;
         this.tags = $.tags;
@@ -228,6 +236,15 @@ public final class GetDevEnvironmentArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

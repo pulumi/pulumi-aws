@@ -65,6 +65,8 @@ type User struct {
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
 	// Last name, or surname, of the user.
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
 	// Email address of the user.
@@ -121,6 +123,8 @@ type userState struct {
 	FirstName *string `pulumi:"firstName"`
 	// Last name, or surname, of the user.
 	LastName *string `pulumi:"lastName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Send an email notification.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
 	// Email address of the user.
@@ -142,6 +146,8 @@ type UserState struct {
 	FirstName pulumi.StringPtrInput
 	// Last name, or surname, of the user.
 	LastName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrInput
 	// Email address of the user.
@@ -163,6 +169,8 @@ type userArgs struct {
 	FirstName *string `pulumi:"firstName"`
 	// Last name, or surname, of the user.
 	LastName *string `pulumi:"lastName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Send an email notification.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
 	// Email address of the user.
@@ -181,6 +189,8 @@ type UserArgs struct {
 	FirstName pulumi.StringPtrInput
 	// Last name, or surname, of the user.
 	LastName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrInput
 	// Email address of the user.
@@ -304,6 +314,11 @@ func (o UserOutput) FirstName() pulumi.StringPtrOutput {
 // Last name, or surname, of the user.
 func (o UserOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Send an email notification.

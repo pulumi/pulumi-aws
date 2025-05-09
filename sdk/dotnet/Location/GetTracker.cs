@@ -87,6 +87,9 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetTrackerArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -113,6 +116,9 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetTrackerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -161,6 +167,7 @@ namespace Pulumi.Aws.Location
         /// Position filtering method of the tracker resource.
         /// </summary>
         public readonly string PositionFiltering;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of resource tags for the tracker.
         /// </summary>
@@ -187,6 +194,8 @@ namespace Pulumi.Aws.Location
 
             string positionFiltering,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string trackerArn,
@@ -200,6 +209,7 @@ namespace Pulumi.Aws.Location
             Id = id;
             KmsKeyId = kmsKeyId;
             PositionFiltering = positionFiltering;
+            Region = region;
             Tags = tags;
             TrackerArn = trackerArn;
             TrackerName = trackerName;

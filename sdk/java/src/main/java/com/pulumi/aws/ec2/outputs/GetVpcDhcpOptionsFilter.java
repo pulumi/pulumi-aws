@@ -19,6 +19,8 @@ public final class GetVpcDhcpOptionsFilter {
     /**
      * @return Set of values for filtering.
      * 
+     * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
+     * 
      */
     private List<String> values;
 
@@ -32,6 +34,8 @@ public final class GetVpcDhcpOptionsFilter {
     }
     /**
      * @return Set of values for filtering.
+     * 
+     * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
      * 
      */
     public List<String> values() {

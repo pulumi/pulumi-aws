@@ -230,6 +230,8 @@ type AgentAgentActionGroup struct {
 	ParentActionGroupSignature pulumi.StringPtrOutput `pulumi:"parentActionGroupSignature"`
 	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the action group.
 	SkipResourceInUseCheck pulumi.BoolOutput                      `pulumi:"skipResourceInUseCheck"`
 	Timeouts               AgentAgentActionGroupTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -300,6 +302,8 @@ type agentAgentActionGroupState struct {
 	ParentActionGroupSignature *string `pulumi:"parentActionGroupSignature"`
 	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the action group.
 	SkipResourceInUseCheck *bool                          `pulumi:"skipResourceInUseCheck"`
 	Timeouts               *AgentAgentActionGroupTimeouts `pulumi:"timeouts"`
@@ -332,6 +336,8 @@ type AgentAgentActionGroupState struct {
 	ParentActionGroupSignature pulumi.StringPtrInput
 	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether the in-use check is skipped when deleting the action group.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
 	Timeouts               AgentAgentActionGroupTimeoutsPtrInput
@@ -366,6 +372,8 @@ type agentAgentActionGroupArgs struct {
 	ParentActionGroupSignature *string `pulumi:"parentActionGroupSignature"`
 	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the action group.
 	SkipResourceInUseCheck *bool                          `pulumi:"skipResourceInUseCheck"`
 	Timeouts               *AgentAgentActionGroupTimeouts `pulumi:"timeouts"`
@@ -397,6 +405,8 @@ type AgentAgentActionGroupArgs struct {
 	ParentActionGroupSignature pulumi.StringPtrInput
 	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether the in-use check is skipped when deleting the action group.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
 	Timeouts               AgentAgentActionGroupTimeoutsPtrInput
@@ -548,6 +558,11 @@ func (o AgentAgentActionGroupOutput) ParentActionGroupSignature() pulumi.StringP
 // Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 func (o AgentAgentActionGroupOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AgentAgentActionGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether the in-use check is skipped when deleting the action group.

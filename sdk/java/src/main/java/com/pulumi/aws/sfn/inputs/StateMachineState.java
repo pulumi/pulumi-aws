@@ -147,6 +147,21 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.publish);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="revisionId")
     private @Nullable Output<String> revisionId;
 
@@ -278,6 +293,7 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.publish = $.publish;
+        this.region = $.region;
         this.revisionId = $.revisionId;
         this.roleArn = $.roleArn;
         this.stateMachineVersionArn = $.stateMachineVersionArn;
@@ -482,6 +498,27 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publish(Boolean publish) {
             return publish(Output.of(publish));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder revisionId(@Nullable Output<String> revisionId) {

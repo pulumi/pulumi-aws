@@ -162,6 +162,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.S3Functions;
+ * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
@@ -185,7 +186,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
+ *             .build());
  * 
  *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("my-tf-example-bucket")
@@ -322,6 +324,20 @@ public class BucketAcl extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

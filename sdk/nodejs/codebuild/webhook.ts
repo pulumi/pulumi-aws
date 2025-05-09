@@ -103,6 +103,10 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly projectName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
      */
     public readonly scopeConfiguration!: pulumi.Output<outputs.codebuild.WebhookScopeConfiguration | undefined>;
@@ -134,6 +138,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["manualCreation"] = state ? state.manualCreation : undefined;
             resourceInputs["payloadUrl"] = state ? state.payloadUrl : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scopeConfiguration"] = state ? state.scopeConfiguration : undefined;
             resourceInputs["secret"] = state ? state.secret : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
@@ -147,6 +152,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["filterGroups"] = args ? args.filterGroups : undefined;
             resourceInputs["manualCreation"] = args ? args.manualCreation : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scopeConfiguration"] = args ? args.scopeConfiguration : undefined;
             resourceInputs["payloadUrl"] = undefined /*out*/;
             resourceInputs["secret"] = undefined /*out*/;
@@ -188,6 +194,10 @@ export interface WebhookState {
      */
     projectName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
      */
     scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration>;
@@ -225,6 +235,10 @@ export interface WebhookArgs {
      * The name of the build project.
      */
     projectName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
      */

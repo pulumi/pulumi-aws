@@ -139,6 +139,12 @@ namespace Pulumi.Aws.Iot
         public Output<string> GenerationId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
         [Output("registrationConfig")]
@@ -255,6 +261,12 @@ namespace Pulumi.Aws.Iot
         public Input<string>? CertificateMode { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
         [Input("registrationConfig")]
@@ -360,6 +372,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("generationId")]
         public Input<string>? GenerationId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Information about the registration configuration. See below.

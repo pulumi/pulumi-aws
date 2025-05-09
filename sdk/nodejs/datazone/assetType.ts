@@ -93,6 +93,10 @@ export class AssetType extends pulumi.CustomResource {
      */
     public readonly owningProjectIdentifier!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The revision of the asset type.
      */
     public /*out*/ readonly revision!: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class AssetType extends pulumi.CustomResource {
             resourceInputs["formsInputs"] = state ? state.formsInputs : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owningProjectIdentifier"] = state ? state.owningProjectIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revision"] = state ? state.revision : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
@@ -133,6 +138,7 @@ export class AssetType extends pulumi.CustomResource {
             resourceInputs["formsInputs"] = args ? args.formsInputs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["owningProjectIdentifier"] = args ? args.owningProjectIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface AssetTypeState {
      */
     owningProjectIdentifier?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The revision of the asset type.
      */
     revision?: pulumi.Input<string>;
@@ -210,5 +220,9 @@ export interface AssetTypeArgs {
      * The following arguments are optional:
      */
     owningProjectIdentifier: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.AssetTypeTimeouts>;
 }

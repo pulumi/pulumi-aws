@@ -24,6 +24,7 @@ public final class GetLicenseGrantsResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetLicenseGrantsResult() {}
     /**
@@ -43,6 +44,9 @@ public final class GetLicenseGrantsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +60,14 @@ public final class GetLicenseGrantsResult {
         private List<String> arns;
         private @Nullable List<GetLicenseGrantsFilter> filters;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetLicenseGrantsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -92,11 +98,20 @@ public final class GetLicenseGrantsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLicenseGrantsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetLicenseGrantsResult build() {
             final var _resultValue = new GetLicenseGrantsResult();
             _resultValue.arns = arns;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

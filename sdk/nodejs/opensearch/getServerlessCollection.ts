@@ -26,6 +26,7 @@ export function getServerlessCollection(args?: GetServerlessCollectionArgs, opts
     return pulumi.runtime.invoke("aws:opensearch/getServerlessCollection:getServerlessCollection", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,7 @@ export interface GetServerlessCollectionArgs {
      * Name of the collection.
      */
     name?: string;
+    region?: string;
 }
 
 /**
@@ -82,6 +84,7 @@ export interface GetServerlessCollectionResult {
      */
     readonly lastModifiedDate: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Indicates whether standby replicas should be used for a collection.
      */
@@ -117,6 +120,7 @@ export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutp
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessCollection:getServerlessCollection", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -132,4 +136,5 @@ export interface GetServerlessCollectionOutputArgs {
      * Name of the collection.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -26,6 +26,8 @@ type BucketResourceAccess struct {
 
 	// The name of the bucket to grant access to.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the resource to be granted bucket access.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 }
@@ -68,6 +70,8 @@ func GetBucketResourceAccess(ctx *pulumi.Context,
 type bucketResourceAccessState struct {
 	// The name of the bucket to grant access to.
 	BucketName *string `pulumi:"bucketName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the resource to be granted bucket access.
 	ResourceName *string `pulumi:"resourceName"`
 }
@@ -75,6 +79,8 @@ type bucketResourceAccessState struct {
 type BucketResourceAccessState struct {
 	// The name of the bucket to grant access to.
 	BucketName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the resource to be granted bucket access.
 	ResourceName pulumi.StringPtrInput
 }
@@ -86,6 +92,8 @@ func (BucketResourceAccessState) ElementType() reflect.Type {
 type bucketResourceAccessArgs struct {
 	// The name of the bucket to grant access to.
 	BucketName string `pulumi:"bucketName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the resource to be granted bucket access.
 	ResourceName string `pulumi:"resourceName"`
 }
@@ -94,6 +102,8 @@ type bucketResourceAccessArgs struct {
 type BucketResourceAccessArgs struct {
 	// The name of the bucket to grant access to.
 	BucketName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the resource to be granted bucket access.
 	ResourceName pulumi.StringInput
 }
@@ -188,6 +198,11 @@ func (o BucketResourceAccessOutput) ToBucketResourceAccessOutputWithContext(ctx 
 // The name of the bucket to grant access to.
 func (o BucketResourceAccessOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketResourceAccess) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketResourceAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketResourceAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the resource to be granted bucket access.

@@ -133,6 +133,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<bool> PreserveExistingData { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         /// </summary>
         [Output("snapshotId")]
@@ -275,6 +281,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool> PreserveExistingData { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         /// </summary>
         [Input("snapshotId")]
@@ -365,6 +377,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("preserveExistingData")]
         public Input<bool>? PreserveExistingData { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.

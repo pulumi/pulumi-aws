@@ -148,7 +148,8 @@ type LookupPermissionsArgs struct {
 	// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
 	//
 	// One of the following is required:
-	Principal string `pulumi:"principal"`
+	Principal string  `pulumi:"principal"`
+	Region    *string `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table *GetPermissionsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
@@ -173,6 +174,7 @@ type LookupPermissionsResult struct {
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions []string                       `pulumi:"permissionsWithGrantOptions"`
 	Principal                   string                         `pulumi:"principal"`
+	Region                      string                         `pulumi:"region"`
 	Table                       GetPermissionsTable            `pulumi:"table"`
 	TableWithColumns            GetPermissionsTableWithColumns `pulumi:"tableWithColumns"`
 }
@@ -205,7 +207,8 @@ type LookupPermissionsOutputArgs struct {
 	// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
 	//
 	// One of the following is required:
-	Principal pulumi.StringInput `pulumi:"principal"`
+	Principal pulumi.StringInput    `pulumi:"principal"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table GetPermissionsTablePtrInput `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
@@ -278,6 +281,10 @@ func (o LookupPermissionsResultOutput) PermissionsWithGrantOptions() pulumi.Stri
 
 func (o LookupPermissionsResultOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+func (o LookupPermissionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupPermissionsResultOutput) Table() GetPermissionsTableOutput {

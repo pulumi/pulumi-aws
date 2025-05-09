@@ -40,6 +40,7 @@ export function getModels(args?: GetModelsArgs, opts?: pulumi.InvokeOptions): Pr
         "byInferenceType": args.byInferenceType,
         "byOutputModality": args.byOutputModality,
         "byProvider": args.byProvider,
+        "region": args.region,
     }, opts);
 }
 
@@ -63,6 +64,7 @@ export interface GetModelsArgs {
      * Model provider to filter on.
      */
     byProvider?: string;
+    region?: string;
 }
 
 /**
@@ -81,6 +83,7 @@ export interface GetModelsResult {
      * List of model summary objects. See `modelSummaries`.
      */
     readonly modelSummaries: outputs.bedrockfoundation.GetModelsModelSummary[];
+    readonly region: string;
 }
 /**
  * Data source for managing AWS Bedrock Foundation Models.
@@ -115,6 +118,7 @@ export function getModelsOutput(args?: GetModelsOutputArgs, opts?: pulumi.Invoke
         "byInferenceType": args.byInferenceType,
         "byOutputModality": args.byOutputModality,
         "byProvider": args.byProvider,
+        "region": args.region,
     }, opts);
 }
 
@@ -138,4 +142,5 @@ export interface GetModelsOutputArgs {
      * Model provider to filter on.
      */
     byProvider?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

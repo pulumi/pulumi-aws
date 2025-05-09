@@ -289,6 +289,10 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly productionBranches!: pulumi.Output<outputs.amplify.AppProductionBranch[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Repository for an Amplify app.
      */
     public readonly repository!: pulumi.Output<string | undefined>;
@@ -336,6 +340,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["oauthToken"] = state ? state.oauthToken : undefined;
             resourceInputs["platform"] = state ? state.platform : undefined;
             resourceInputs["productionBranches"] = state ? state.productionBranches : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -360,6 +365,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauthToken"] = args?.oauthToken ? pulumi.secret(args.oauthToken) : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -467,6 +473,10 @@ export interface AppState {
      */
     productionBranches?: pulumi.Input<pulumi.Input<inputs.amplify.AppProductionBranch>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Repository for an Amplify app.
      */
     repository?: pulumi.Input<string>;
@@ -560,6 +570,10 @@ export interface AppArgs {
      * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
     platform?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Repository for an Amplify app.
      */

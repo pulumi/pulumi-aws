@@ -48,6 +48,21 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the target group with which to register targets.
      * 
      */
@@ -86,6 +101,7 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
     private TargetGroupAttachmentArgs(TargetGroupAttachmentArgs $) {
         this.availabilityZone = $.availabilityZone;
         this.port = $.port;
+        this.region = $.region;
         this.targetGroupArn = $.targetGroupArn;
         this.targetId = $.targetId;
     }
@@ -148,6 +164,27 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

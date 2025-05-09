@@ -32,6 +32,13 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
         return this.arn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority.
      * 
@@ -51,6 +58,7 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
 
     private GetCertificateAuthorityArgs(GetCertificateAuthorityArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

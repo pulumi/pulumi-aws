@@ -66,6 +66,12 @@ namespace Pulumi.Aws.Glue
         [Output("dataCatalogEncryptionSettings")]
         public Output<Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> DataCatalogEncryptionSettingsConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DataCatalogEncryptionSettings resource with the given unique name, arguments, and options.
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.Glue
         [Input("dataCatalogEncryptionSettings", required: true)]
         public Input<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> DataCatalogEncryptionSettingsConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DataCatalogEncryptionSettingsArgs()
         {
         }
@@ -143,6 +155,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("dataCatalogEncryptionSettings")]
         public Input<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsGetArgs>? DataCatalogEncryptionSettingsConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DataCatalogEncryptionSettingsState()
         {

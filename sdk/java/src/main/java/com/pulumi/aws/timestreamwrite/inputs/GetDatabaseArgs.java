@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDatabaseArgs extends com.pulumi.resources.InvokeArgs {
@@ -21,10 +23,18 @@ public final class GetDatabaseArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetDatabaseArgs() {}
 
     private GetDatabaseArgs(GetDatabaseArgs $) {
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -52,6 +62,15 @@ public final class GetDatabaseArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetDatabaseArgs build() {

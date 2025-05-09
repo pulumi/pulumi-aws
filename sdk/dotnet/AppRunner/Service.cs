@@ -209,6 +209,12 @@ namespace Pulumi.Aws.AppRunner
         public Output<Outputs.ServiceObservabilityConfiguration?> ObservabilityConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         /// </summary>
         [Output("serviceId")]
@@ -335,6 +341,12 @@ namespace Pulumi.Aws.AppRunner
         public Input<Inputs.ServiceObservabilityConfigurationArgs>? ObservabilityConfiguration { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the service.
         /// </summary>
         [Input("serviceName", required: true)]
@@ -409,6 +421,12 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         [Input("observabilityConfiguration")]
         public Input<Inputs.ServiceObservabilityConfigurationGetArgs>? ObservabilityConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.

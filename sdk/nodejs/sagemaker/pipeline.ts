@@ -100,6 +100,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly pipelineName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role the pipeline will execute as.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -132,6 +136,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineDescription"] = state ? state.pipelineDescription : undefined;
             resourceInputs["pipelineDisplayName"] = state ? state.pipelineDisplayName : undefined;
             resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -149,6 +154,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
             resourceInputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
             resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -192,6 +198,10 @@ export interface PipelineState {
      */
     pipelineName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the IAM role the pipeline will execute as.
      */
     roleArn?: pulumi.Input<string>;
@@ -233,6 +243,10 @@ export interface PipelineArgs {
      * The name of the pipeline.
      */
     pipelineName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role the pipeline will execute as.
      */

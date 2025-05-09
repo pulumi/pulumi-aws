@@ -29,6 +29,7 @@ export function getRouteTableRoutes(args: GetRouteTableRoutesArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", {
         "filters": args.filters,
+        "region": args.region,
         "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
     }, opts);
 }
@@ -41,6 +42,7 @@ export interface GetRouteTableRoutesArgs {
      * Custom filter block as described below.
      */
     filters: inputs.ec2transitgateway.GetRouteTableRoutesFilter[];
+    region?: string;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *
@@ -59,6 +61,7 @@ export interface GetRouteTableRoutesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * List of Transit Gateway Routes.
      */
@@ -87,6 +90,7 @@ export function getRouteTableRoutesOutput(args: GetRouteTableRoutesOutputArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", {
         "filters": args.filters,
+        "region": args.region,
         "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
     }, opts);
 }
@@ -99,6 +103,7 @@ export interface GetRouteTableRoutesOutputArgs {
      * Custom filter block as described below.
      */
     filters: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTableRoutesFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *

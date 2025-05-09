@@ -222,6 +222,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
      * For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
      * For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
@@ -337,6 +352,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.integrationUri = $.integrationUri;
         this.passthroughBehavior = $.passthroughBehavior;
         this.payloadFormatVersion = $.payloadFormatVersion;
+        this.region = $.region;
         this.requestParameters = $.requestParameters;
         this.requestTemplates = $.requestTemplates;
         this.responseParameters = $.responseParameters;
@@ -640,6 +656,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder payloadFormatVersion(String payloadFormatVersion) {
             return payloadFormatVersion(Output.of(payloadFormatVersion));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

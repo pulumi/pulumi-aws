@@ -70,6 +70,8 @@ type EnvironmentMembership struct {
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
 	Permissions pulumi.StringOutput `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn pulumi.StringOutput `pulumi:"userArn"`
 	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
@@ -119,6 +121,8 @@ type environmentMembershipState struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
 	Permissions *string `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn *string `pulumi:"userArn"`
 	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
@@ -130,6 +134,8 @@ type EnvironmentMembershipState struct {
 	EnvironmentId pulumi.StringPtrInput
 	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
 	Permissions pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn pulumi.StringPtrInput
 	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
@@ -145,6 +151,8 @@ type environmentMembershipArgs struct {
 	EnvironmentId string `pulumi:"environmentId"`
 	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
 	Permissions string `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn string `pulumi:"userArn"`
 }
@@ -155,6 +163,8 @@ type EnvironmentMembershipArgs struct {
 	EnvironmentId pulumi.StringInput
 	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
 	Permissions pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn pulumi.StringInput
 }
@@ -254,6 +264,11 @@ func (o EnvironmentMembershipOutput) EnvironmentId() pulumi.StringOutput {
 // The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
 func (o EnvironmentMembershipOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EnvironmentMembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the environment member you want to add.

@@ -31,6 +31,7 @@ public final class GetEventBusResult {
      */
     private String kmsKeyIdentifier;
     private String name;
+    private String region;
 
     private GetEventBusResult() {}
     /**
@@ -64,6 +65,9 @@ public final class GetEventBusResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -79,6 +83,7 @@ public final class GetEventBusResult {
         private String id;
         private String kmsKeyIdentifier;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetEventBusResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,6 +92,7 @@ public final class GetEventBusResult {
     	      this.id = defaults.id;
     	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -129,6 +135,14 @@ public final class GetEventBusResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEventBusResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetEventBusResult build() {
             final var _resultValue = new GetEventBusResult();
             _resultValue.arn = arn;
@@ -136,6 +150,7 @@ public final class GetEventBusResult {
             _resultValue.id = id;
             _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

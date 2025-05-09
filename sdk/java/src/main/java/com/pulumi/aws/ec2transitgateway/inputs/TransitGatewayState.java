@@ -188,6 +188,21 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
@@ -276,6 +291,7 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
         this.multicastSupport = $.multicastSupport;
         this.ownerId = $.ownerId;
         this.propagationDefaultRouteTableId = $.propagationDefaultRouteTableId;
+        this.region = $.region;
         this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -534,6 +550,27 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
          */
         public Builder propagationDefaultRouteTableId(String propagationDefaultRouteTableId) {
             return propagationDefaultRouteTableId(Output.of(propagationDefaultRouteTableId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

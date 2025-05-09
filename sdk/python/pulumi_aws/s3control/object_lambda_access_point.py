@@ -24,18 +24,22 @@ class ObjectLambdaAccessPointArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['ObjectLambdaAccessPointConfigurationArgs'],
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ObjectLambdaAccessPoint resource.
         :param pulumi.Input['ObjectLambdaAccessPointConfigurationArgs'] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[builtins.str] name: The name for this Object Lambda Access Point.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "configuration", configuration)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -73,6 +77,18 @@ class ObjectLambdaAccessPointArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ObjectLambdaAccessPointState:
@@ -81,7 +97,8 @@ class _ObjectLambdaAccessPointState:
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  configuration: Optional[pulumi.Input['ObjectLambdaAccessPointConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectLambdaAccessPoint resources.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -89,6 +106,7 @@ class _ObjectLambdaAccessPointState:
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the Object Lambda Access Point.
         :param pulumi.Input['ObjectLambdaAccessPointConfigurationArgs'] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         :param pulumi.Input[builtins.str] name: The name for this Object Lambda Access Point.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -100,6 +118,8 @@ class _ObjectLambdaAccessPointState:
             pulumi.set(__self__, "configuration", configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -161,6 +181,18 @@ class _ObjectLambdaAccessPointState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class ObjectLambdaAccessPoint(pulumi.CustomResource):
 
@@ -173,6 +205,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  configuration: Optional[pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage an S3 Object Lambda Access Point.
@@ -216,6 +249,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         :param pulumi.Input[builtins.str] name: The name for this Object Lambda Access Point.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -278,6 +312,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  configuration: Optional[pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -292,6 +327,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["alias"] = None
             __props__.__dict__["arn"] = None
         super(ObjectLambdaAccessPoint, __self__).__init__(
@@ -308,7 +344,8 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
             alias: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             configuration: Optional[pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'ObjectLambdaAccessPoint':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ObjectLambdaAccessPoint':
         """
         Get an existing ObjectLambdaAccessPoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -321,6 +358,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the Object Lambda Access Point.
         :param pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         :param pulumi.Input[builtins.str] name: The name for this Object Lambda Access Point.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -331,6 +369,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["configuration"] = configuration
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return ObjectLambdaAccessPoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -372,4 +411,12 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         The name for this Object Lambda Access Point.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

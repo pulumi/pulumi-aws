@@ -4,6 +4,8 @@
 package com.pulumi.aws.ses;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
+import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetPlainArgs;
 import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
 import com.pulumi.aws.ses.inputs.GetDomainIdentityPlainArgs;
 import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
@@ -16,7 +18,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class SesFunctions {
@@ -34,6 +35,7 @@ public final class SesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -47,7 +49,8 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -57,7 +60,7 @@ public final class SesFunctions {
      * 
      */
     public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet() {
-        return getActiveReceiptRuleSet(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve the active SES receipt rule set
@@ -73,6 +76,7 @@ public final class SesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -86,7 +90,8 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -96,7 +101,7 @@ public final class SesFunctions {
      * 
      */
     public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain() {
-        return getActiveReceiptRuleSetPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getActiveReceiptRuleSetPlain(GetActiveReceiptRuleSetPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve the active SES receipt rule set
@@ -112,6 +117,7 @@ public final class SesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -125,7 +131,8 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -134,7 +141,7 @@ public final class SesFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(InvokeArgs args) {
+    public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs args) {
         return getActiveReceiptRuleSet(args, InvokeOptions.Empty);
     }
     /**
@@ -151,6 +158,7 @@ public final class SesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -164,7 +172,8 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -173,7 +182,7 @@ public final class SesFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(InvokeArgs args) {
+    public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(GetActiveReceiptRuleSetPlainArgs args) {
         return getActiveReceiptRuleSetPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -190,6 +199,7 @@ public final class SesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -203,7 +213,8 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -212,7 +223,7 @@ public final class SesFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", TypeShape.of(GetActiveReceiptRuleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -229,6 +240,7 @@ public final class SesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -242,7 +254,8 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -251,7 +264,7 @@ public final class SesFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", TypeShape.of(GetActiveReceiptRuleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -268,6 +281,7 @@ public final class SesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -281,7 +295,8 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(GetActiveReceiptRuleSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -290,7 +305,7 @@ public final class SesFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(GetActiveReceiptRuleSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", TypeShape.of(GetActiveReceiptRuleSetResult.class), args, Utilities.withVersion(options));
     }
     /**

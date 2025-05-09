@@ -37,14 +37,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the listener (matches `id`).
+     * ARN of the listener.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the listener (matches `id`).
+     * @return ARN of the listener.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -143,6 +143,21 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
+    }
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -505,6 +520,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         this.mutualAuthentication = $.mutualAuthentication;
         this.port = $.port;
         this.protocol = $.protocol;
+        this.region = $.region;
         this.routingHttpRequestXAmznMtlsClientcertHeaderName = $.routingHttpRequestXAmznMtlsClientcertHeaderName;
         this.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName = $.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
         this.routingHttpRequestXAmznMtlsClientcertLeafHeaderName = $.routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
@@ -570,7 +586,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the listener (matches `id`).
+         * @param arn ARN of the listener.
          * 
          * @return builder
          * 
@@ -581,7 +597,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the listener (matches `id`).
+         * @param arn ARN of the listener.
          * 
          * @return builder
          * 
@@ -728,6 +744,27 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -153,6 +153,10 @@ export class Bot extends pulumi.CustomResource {
      */
     public readonly processBehavior!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * When you send a request to create or update a bot, Amazon Lex sets the status response
      * element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
      * build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
@@ -199,6 +203,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nluIntentConfidenceThreshold"] = state ? state.nluIntentConfidenceThreshold : undefined;
             resourceInputs["processBehavior"] = state ? state.processBehavior : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["voiceId"] = state ? state.voiceId : undefined;
@@ -226,6 +231,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nluIntentConfidenceThreshold"] = args ? args.nluIntentConfidenceThreshold : undefined;
             resourceInputs["processBehavior"] = args ? args.processBehavior : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["voiceId"] = args ? args.voiceId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["checksum"] = undefined /*out*/;
@@ -315,6 +321,10 @@ export interface BotState {
      */
     processBehavior?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * When you send a request to create or update a bot, Amazon Lex sets the status response
      * element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
      * build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
@@ -387,6 +397,10 @@ export interface BotArgs {
      * If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
      */
     processBehavior?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      */

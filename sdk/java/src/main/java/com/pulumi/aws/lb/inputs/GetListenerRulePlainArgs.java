@@ -103,6 +103,13 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.priority);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetListenerRulePlainArgs() {}
 
     private GetListenerRulePlainArgs(GetListenerRulePlainArgs $) {
@@ -111,6 +118,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
         this.conditions = $.conditions;
         this.listenerArn = $.listenerArn;
         this.priority = $.priority;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -210,6 +218,11 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder priority(@Nullable Integer priority) {
             $.priority = priority;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

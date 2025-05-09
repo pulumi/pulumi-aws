@@ -56,6 +56,12 @@ namespace Pulumi.Aws.StorageGateway
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a WorkingStorage resource with the given unique name, arguments, and options.
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.StorageGateway
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public WorkingStorageArgs()
         {
         }
@@ -133,6 +145,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public WorkingStorageState()
         {

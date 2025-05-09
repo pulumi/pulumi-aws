@@ -62,12 +62,20 @@ public final class GetIpamPreviewNextCidrPlainArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.netmaskLength);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetIpamPreviewNextCidrPlainArgs() {}
 
     private GetIpamPreviewNextCidrPlainArgs(GetIpamPreviewNextCidrPlainArgs $) {
         this.disallowedCidrs = $.disallowedCidrs;
         this.ipamPoolId = $.ipamPoolId;
         this.netmaskLength = $.netmaskLength;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -128,6 +136,11 @@ public final class GetIpamPreviewNextCidrPlainArgs extends com.pulumi.resources.
          */
         public Builder netmaskLength(@Nullable Integer netmaskLength) {
             $.netmaskLength = netmaskLength;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

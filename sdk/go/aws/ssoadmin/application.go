@@ -34,7 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -66,7 +66,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -119,6 +119,8 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrOutput `pulumi:"portalOptions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,6 +183,8 @@ type applicationState struct {
 	Name *string `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions *ApplicationPortalOptions `pulumi:"portalOptions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -208,6 +212,8 @@ type ApplicationState struct {
 	Name pulumi.StringPtrInput
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -235,6 +241,8 @@ type applicationArgs struct {
 	Name *string `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions *ApplicationPortalOptions `pulumi:"portalOptions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -257,6 +265,8 @@ type ApplicationArgs struct {
 	Name pulumi.StringPtrInput
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -390,6 +400,11 @@ func (o ApplicationOutput) Name() pulumi.StringOutput {
 // Options for the portal associated with an application. See `portalOptions` below.
 func (o ApplicationOutput) PortalOptions() ApplicationPortalOptionsPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationPortalOptionsPtrOutput { return v.PortalOptions }).(ApplicationPortalOptionsPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ApplicationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the application. Valid values are `ENABLED` and `DISABLED`.

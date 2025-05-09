@@ -27,13 +27,16 @@ class GetRepositoriesResult:
     """
     A collection of values returned by getRepositories.
     """
-    def __init__(__self__, id=None, names=None):
+    def __init__(__self__, id=None, names=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -51,6 +54,11 @@ class GetRepositoriesResult:
         """
         return pulumi.get(self, "names")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetRepositoriesResult(GetRepositoriesResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetRepositoriesResult(GetRepositoriesResult):
             yield self
         return GetRepositoriesResult(
             id=self.id,
-            names=self.names)
+            names=self.names,
+            region=self.region)
 
 
-def get_repositories(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoriesResult:
+def get_repositories(region: Optional[builtins.str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoriesResult:
     """
     Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
 
@@ -78,13 +88,16 @@ def get_repositories(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     ```
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecr/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult).value
 
     return AwaitableGetRepositoriesResult(
         id=pulumi.get(__ret__, 'id'),
-        names=pulumi.get(__ret__, 'names'))
-def get_repositories_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
+        names=pulumi.get(__ret__, 'names'),
+        region=pulumi.get(__ret__, 'region'))
+def get_repositories_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
     Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
 
@@ -100,8 +113,10 @@ def get_repositories_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.In
     ```
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult)
     return __ret__.apply(lambda __response__: GetRepositoriesResult(
         id=pulumi.get(__response__, 'id'),
-        names=pulumi.get(__response__, 'names')))
+        names=pulumi.get(__response__, 'names'),
+        region=pulumi.get(__response__, 'region')))

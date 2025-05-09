@@ -71,6 +71,8 @@ type VpcConnection struct {
 	Authentication pulumi.StringOutput `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayOutput `pulumi:"clientSubnets"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -134,6 +136,8 @@ type vpcConnectionState struct {
 	Authentication *string `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets []string `pulumi:"clientSubnets"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -153,6 +157,8 @@ type VpcConnectionState struct {
 	Authentication pulumi.StringPtrInput
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -174,6 +180,8 @@ type vpcConnectionArgs struct {
 	Authentication string `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets []string `pulumi:"clientSubnets"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -192,6 +200,8 @@ type VpcConnectionArgs struct {
 	Authentication pulumi.StringInput
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -304,6 +314,11 @@ func (o VpcConnectionOutput) Authentication() pulumi.StringOutput {
 // The list of subnets in the client VPC to connect to.
 func (o VpcConnectionOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.ClientSubnets }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The security groups to attach to the ENIs for the broker nodes.

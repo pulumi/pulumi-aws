@@ -38,10 +38,6 @@ __all__ = [
     'GetNotificationChannelFilterArgsDict',
     'GetNotificationChannelSnArgs',
     'GetNotificationChannelSnArgsDict',
-    'GetResourceCollectionCloudformationArgs',
-    'GetResourceCollectionCloudformationArgsDict',
-    'GetResourceCollectionTagArgs',
-    'GetResourceCollectionTagArgsDict',
 ]
 
 MYPY = False
@@ -488,86 +484,5 @@ class GetNotificationChannelSnArgs:
     @topic_arn.setter
     def topic_arn(self, value: builtins.str):
         pulumi.set(self, "topic_arn", value)
-
-
-if not MYPY:
-    class GetResourceCollectionCloudformationArgsDict(TypedDict):
-        stack_names: Sequence[builtins.str]
-        """
-        Array of the names of the AWS CloudFormation stacks.
-        """
-elif False:
-    GetResourceCollectionCloudformationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetResourceCollectionCloudformationArgs:
-    def __init__(__self__, *,
-                 stack_names: Sequence[builtins.str]):
-        """
-        :param Sequence[builtins.str] stack_names: Array of the names of the AWS CloudFormation stacks.
-        """
-        pulumi.set(__self__, "stack_names", stack_names)
-
-    @property
-    @pulumi.getter(name="stackNames")
-    def stack_names(self) -> Sequence[builtins.str]:
-        """
-        Array of the names of the AWS CloudFormation stacks.
-        """
-        return pulumi.get(self, "stack_names")
-
-    @stack_names.setter
-    def stack_names(self, value: Sequence[builtins.str]):
-        pulumi.set(self, "stack_names", value)
-
-
-if not MYPY:
-    class GetResourceCollectionTagArgsDict(TypedDict):
-        app_boundary_key: builtins.str
-        """
-        An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-        """
-        tag_values: Sequence[builtins.str]
-        """
-        Array of tag values.
-        """
-elif False:
-    GetResourceCollectionTagArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetResourceCollectionTagArgs:
-    def __init__(__self__, *,
-                 app_boundary_key: builtins.str,
-                 tag_values: Sequence[builtins.str]):
-        """
-        :param builtins.str app_boundary_key: An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-        :param Sequence[builtins.str] tag_values: Array of tag values.
-        """
-        pulumi.set(__self__, "app_boundary_key", app_boundary_key)
-        pulumi.set(__self__, "tag_values", tag_values)
-
-    @property
-    @pulumi.getter(name="appBoundaryKey")
-    def app_boundary_key(self) -> builtins.str:
-        """
-        An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-        """
-        return pulumi.get(self, "app_boundary_key")
-
-    @app_boundary_key.setter
-    def app_boundary_key(self, value: builtins.str):
-        pulumi.set(self, "app_boundary_key", value)
-
-    @property
-    @pulumi.getter(name="tagValues")
-    def tag_values(self) -> Sequence[builtins.str]:
-        """
-        Array of tag values.
-        """
-        return pulumi.get(self, "tag_values")
-
-    @tag_values.setter
-    def tag_values(self, value: Sequence[builtins.str]):
-        pulumi.set(self, "tag_values", value)
 
 

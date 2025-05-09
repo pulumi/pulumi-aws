@@ -87,6 +87,8 @@ type ApprovalRuleTemplate struct {
 	LastModifiedUser pulumi.StringOutput `pulumi:"lastModifiedUser"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The SHA-256 hash signature for the content of the approval rule template.
 	RuleContentSha256 pulumi.StringOutput `pulumi:"ruleContentSha256"`
 }
@@ -138,6 +140,8 @@ type approvalRuleTemplateState struct {
 	LastModifiedUser *string `pulumi:"lastModifiedUser"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The SHA-256 hash signature for the content of the approval rule template.
 	RuleContentSha256 *string `pulumi:"ruleContentSha256"`
 }
@@ -157,6 +161,8 @@ type ApprovalRuleTemplateState struct {
 	LastModifiedUser pulumi.StringPtrInput
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The SHA-256 hash signature for the content of the approval rule template.
 	RuleContentSha256 pulumi.StringPtrInput
 }
@@ -172,6 +178,8 @@ type approvalRuleTemplateArgs struct {
 	Description *string `pulumi:"description"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApprovalRuleTemplate resource.
@@ -182,6 +190,8 @@ type ApprovalRuleTemplateArgs struct {
 	Description pulumi.StringPtrInput
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApprovalRuleTemplateArgs) ElementType() reflect.Type {
@@ -304,6 +314,11 @@ func (o ApprovalRuleTemplateOutput) LastModifiedUser() pulumi.StringOutput {
 // The name for the approval rule template. Maximum of 100 characters.
 func (o ApprovalRuleTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ApprovalRuleTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The SHA-256 hash signature for the content of the approval rule template.

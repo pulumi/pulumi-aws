@@ -66,6 +66,8 @@ type Schema struct {
 	LatestSchemaVersion pulumi.IntOutput `pulumi:"latestSchemaVersion"`
 	// The next version of the schema associated with the returned schema definition.
 	NextSchemaVersion pulumi.IntOutput `pulumi:"nextSchemaVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn pulumi.StringOutput `pulumi:"registryArn"`
 	// The name of the Glue Registry.
@@ -136,6 +138,8 @@ type schemaState struct {
 	LatestSchemaVersion *int `pulumi:"latestSchemaVersion"`
 	// The next version of the schema associated with the returned schema definition.
 	NextSchemaVersion *int `pulumi:"nextSchemaVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn *string `pulumi:"registryArn"`
 	// The name of the Glue Registry.
@@ -165,6 +169,8 @@ type SchemaState struct {
 	LatestSchemaVersion pulumi.IntPtrInput
 	// The next version of the schema associated with the returned schema definition.
 	NextSchemaVersion pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn pulumi.StringPtrInput
 	// The name of the Glue Registry.
@@ -192,6 +198,8 @@ type schemaArgs struct {
 	DataFormat string `pulumi:"dataFormat"`
 	// A description of the schema.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn *string `pulumi:"registryArn"`
 	// The schema definition using the `dataFormat` setting for `schemaName`.
@@ -210,6 +218,8 @@ type SchemaArgs struct {
 	DataFormat pulumi.StringInput
 	// A description of the schema.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn pulumi.StringPtrInput
 	// The schema definition using the `dataFormat` setting for `schemaName`.
@@ -335,6 +345,11 @@ func (o SchemaOutput) LatestSchemaVersion() pulumi.IntOutput {
 // The next version of the schema associated with the returned schema definition.
 func (o SchemaOutput) NextSchemaVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.NextSchemaVersion }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SchemaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the Glue Registry to create the schema in.

@@ -49,6 +49,21 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The security groups to attach to the ENIs for the broker nodes.
      * 
      */
@@ -128,6 +143,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     private VpcConnectionArgs(VpcConnectionArgs $) {
         this.authentication = $.authentication;
         this.clientSubnets = $.clientSubnets;
+        this.region = $.region;
         this.securityGroups = $.securityGroups;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -203,6 +219,27 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clientSubnets(String... clientSubnets) {
             return clientSubnets(List.of(clientSubnets));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

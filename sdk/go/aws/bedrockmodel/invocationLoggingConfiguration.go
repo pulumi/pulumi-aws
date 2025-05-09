@@ -118,6 +118,8 @@ type InvocationLoggingConfiguration struct {
 
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrOutput `pulumi:"loggingConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInvocationLoggingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -152,11 +154,15 @@ func GetInvocationLoggingConfiguration(ctx *pulumi.Context,
 type invocationLoggingConfigurationState struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type InvocationLoggingConfigurationState struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InvocationLoggingConfigurationState) ElementType() reflect.Type {
@@ -166,12 +172,16 @@ func (InvocationLoggingConfigurationState) ElementType() reflect.Type {
 type invocationLoggingConfigurationArgs struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InvocationLoggingConfiguration resource.
 type InvocationLoggingConfigurationArgs struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InvocationLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -266,6 +276,11 @@ func (o InvocationLoggingConfigurationOutput) LoggingConfig() InvocationLoggingC
 	return o.ApplyT(func(v *InvocationLoggingConfiguration) InvocationLoggingConfigurationLoggingConfigPtrOutput {
 		return v.LoggingConfig
 	}).(InvocationLoggingConfigurationLoggingConfigPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InvocationLoggingConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InvocationLoggingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type InvocationLoggingConfigurationArrayOutput struct{ *pulumi.OutputState }

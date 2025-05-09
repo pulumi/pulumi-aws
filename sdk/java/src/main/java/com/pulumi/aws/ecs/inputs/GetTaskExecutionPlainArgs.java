@@ -249,6 +249,13 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.referenceId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * An optional tag specified when a task is started.
      * 
@@ -316,6 +323,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         this.platformVersion = $.platformVersion;
         this.propagateTags = $.propagateTags;
         this.referenceId = $.referenceId;
+        this.region = $.region;
         this.startedBy = $.startedBy;
         this.tags = $.tags;
         this.taskDefinition = $.taskDefinition;
@@ -531,6 +539,11 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder referenceId(@Nullable String referenceId) {
             $.referenceId = referenceId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

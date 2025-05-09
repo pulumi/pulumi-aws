@@ -224,6 +224,12 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.MLTransformParameters> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role associated with this ML Transform.
         /// </summary>
         [Output("roleArn")]
@@ -360,6 +366,12 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.MLTransformParametersArgs> Parameters { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role associated with this ML Transform.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -462,6 +474,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.MLTransformParametersGetArgs>? Parameters { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role associated with this ML Transform.

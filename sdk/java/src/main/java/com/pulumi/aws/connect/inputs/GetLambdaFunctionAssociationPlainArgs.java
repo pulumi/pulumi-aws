@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -43,11 +45,19 @@ public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.reso
         return this.instanceId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetLambdaFunctionAssociationPlainArgs() {}
 
     private GetLambdaFunctionAssociationPlainArgs(GetLambdaFunctionAssociationPlainArgs $) {
         this.functionArn = $.functionArn;
         this.instanceId = $.instanceId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -87,6 +97,11 @@ public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.reso
          */
         public Builder instanceId(String instanceId) {
             $.instanceId = instanceId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

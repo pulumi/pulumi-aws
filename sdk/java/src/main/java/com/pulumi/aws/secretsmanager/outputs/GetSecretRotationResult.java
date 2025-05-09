@@ -18,6 +18,7 @@ public final class GetSecretRotationResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return ARN of the secret.
      * 
@@ -42,6 +43,9 @@ public final class GetSecretRotationResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return ARN of the secret.
@@ -78,6 +82,7 @@ public final class GetSecretRotationResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private Boolean rotationEnabled;
         private String rotationLambdaArn;
         private List<GetSecretRotationRotationRule> rotationRules;
@@ -86,6 +91,7 @@ public final class GetSecretRotationResult {
         public Builder(GetSecretRotationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.rotationEnabled = defaults.rotationEnabled;
     	      this.rotationLambdaArn = defaults.rotationLambdaArn;
     	      this.rotationRules = defaults.rotationRules;
@@ -98,6 +104,14 @@ public final class GetSecretRotationResult {
               throw new MissingRequiredPropertyException("GetSecretRotationResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecretRotationResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -138,6 +152,7 @@ public final class GetSecretRotationResult {
         public GetSecretRotationResult build() {
             final var _resultValue = new GetSecretRotationResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.rotationEnabled = rotationEnabled;
             _resultValue.rotationLambdaArn = rotationLambdaArn;
             _resultValue.rotationRules = rotationRules;

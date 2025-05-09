@@ -63,6 +63,8 @@ type LogStream struct {
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogStream registers a new resource with the given unique name, arguments, and options.
@@ -104,6 +106,8 @@ type logStreamState struct {
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LogStreamState struct {
@@ -113,6 +117,8 @@ type LogStreamState struct {
 	LogGroupName pulumi.StringPtrInput
 	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogStreamState) ElementType() reflect.Type {
@@ -124,6 +130,8 @@ type logStreamArgs struct {
 	LogGroupName string `pulumi:"logGroupName"`
 	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogStream resource.
@@ -132,6 +140,8 @@ type LogStreamArgs struct {
 	LogGroupName pulumi.StringInput
 	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogStreamArgs) ElementType() reflect.Type {
@@ -234,6 +244,11 @@ func (o LogStreamOutput) LogGroupName() pulumi.StringOutput {
 // The name of the log stream. Must not be longer than 512 characters and must not contain `:`
 func (o LogStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogStreamOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LogStreamArrayOutput struct{ *pulumi.OutputState }

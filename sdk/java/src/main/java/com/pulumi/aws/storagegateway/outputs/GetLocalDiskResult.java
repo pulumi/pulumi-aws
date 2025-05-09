@@ -23,6 +23,7 @@ public final class GetLocalDiskResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetLocalDiskResult() {}
     /**
@@ -48,6 +49,9 @@ public final class GetLocalDiskResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -63,6 +67,7 @@ public final class GetLocalDiskResult {
         private String diskPath;
         private String gatewayArn;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetLocalDiskResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,6 +76,7 @@ public final class GetLocalDiskResult {
     	      this.diskPath = defaults.diskPath;
     	      this.gatewayArn = defaults.gatewayArn;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -113,6 +119,14 @@ public final class GetLocalDiskResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLocalDiskResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetLocalDiskResult build() {
             final var _resultValue = new GetLocalDiskResult();
             _resultValue.diskId = diskId;
@@ -120,6 +134,7 @@ public final class GetLocalDiskResult {
             _resultValue.diskPath = diskPath;
             _resultValue.gatewayArn = gatewayArn;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

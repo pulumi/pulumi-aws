@@ -113,6 +113,10 @@ export class Input extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the role this input assumes during and after creation.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -159,6 +163,7 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["inputSourceType"] = state ? state.inputSourceType : undefined;
             resourceInputs["mediaConnectFlows"] = state ? state.mediaConnectFlows : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["sources"] = state ? state.sources : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -175,6 +180,7 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["inputSecurityGroups"] = args ? args.inputSecurityGroups : undefined;
             resourceInputs["mediaConnectFlows"] = args ? args.mediaConnectFlows : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -237,6 +243,10 @@ export interface InputState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the role this input assumes during and after creation.
      */
     roleArn?: pulumi.Input<string>;
@@ -285,6 +295,10 @@ export interface InputArgs {
      * Name of the input.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the role this input assumes during and after creation.
      */

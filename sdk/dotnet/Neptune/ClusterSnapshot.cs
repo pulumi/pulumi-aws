@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Neptune
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("snapshotType")]
         public Output<string> SnapshotType { get; private set; } = null!;
 
@@ -184,6 +190,12 @@ namespace Pulumi.Aws.Neptune
         [Input("dbClusterSnapshotIdentifier", required: true)]
         public Input<string> DbClusterSnapshotIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ClusterSnapshotArgs()
         {
         }
@@ -257,6 +269,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }

@@ -42,6 +42,12 @@ namespace Pulumi.Aws.S3Tables
         public Output<string> Namespace { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
         [Output("resourcePolicy")]
@@ -116,6 +122,12 @@ namespace Pulumi.Aws.S3Tables
         public Input<string> Namespace { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
         [Input("resourcePolicy", required: true)]
@@ -150,6 +162,12 @@ namespace Pulumi.Aws.S3Tables
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.

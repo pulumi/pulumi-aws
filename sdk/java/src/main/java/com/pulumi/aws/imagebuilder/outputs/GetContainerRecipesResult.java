@@ -31,6 +31,7 @@ public final class GetContainerRecipesResult {
      */
     private List<String> names;
     private @Nullable String owner;
+    private String region;
 
     private GetContainerRecipesResult() {}
     /**
@@ -60,6 +61,9 @@ public final class GetContainerRecipesResult {
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -75,6 +79,7 @@ public final class GetContainerRecipesResult {
         private String id;
         private List<String> names;
         private @Nullable String owner;
+        private String region;
         public Builder() {}
         public Builder(GetContainerRecipesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,6 +88,7 @@ public final class GetContainerRecipesResult {
     	      this.id = defaults.id;
     	      this.names = defaults.names;
     	      this.owner = defaults.owner;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -130,6 +136,14 @@ public final class GetContainerRecipesResult {
             this.owner = owner;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetContainerRecipesResult build() {
             final var _resultValue = new GetContainerRecipesResult();
             _resultValue.arns = arns;
@@ -137,6 +151,7 @@ public final class GetContainerRecipesResult {
             _resultValue.id = id;
             _resultValue.names = names;
             _resultValue.owner = owner;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

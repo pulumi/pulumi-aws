@@ -72,15 +72,17 @@ type LookupTrustStoreArgs struct {
 	// Unique name of the trust store.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getTrustStore.
 type LookupTrustStoreResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
@@ -99,7 +101,8 @@ type LookupTrustStoreOutputArgs struct {
 	// Unique name of the trust store.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupTrustStoreOutputArgs) ElementType() reflect.Type {
@@ -132,6 +135,10 @@ func (o LookupTrustStoreResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupTrustStoreResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTrustStoreResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrustStoreResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -114,6 +114,9 @@ namespace Pulumi.Aws.SesV2
         [Input("emailIdentity", required: true)]
         public string EmailIdentity { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetEmailIdentityMailFromAttributesArgs()
         {
         }
@@ -127,6 +130,9 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetEmailIdentityMailFromAttributesInvokeArgs()
         {
@@ -151,6 +157,7 @@ namespace Pulumi.Aws.SesV2
         /// The custom MAIL FROM domain that you want the verified identity to use.
         /// </summary>
         public readonly string MailFromDomain;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetEmailIdentityMailFromAttributesResult(
@@ -160,12 +167,15 @@ namespace Pulumi.Aws.SesV2
 
             string id,
 
-            string mailFromDomain)
+            string mailFromDomain,
+
+            string region)
         {
             BehaviorOnMxFailure = behaviorOnMxFailure;
             EmailIdentity = emailIdentity;
             Id = id;
             MailFromDomain = mailFromDomain;
+            Region = region;
         }
     }
 }

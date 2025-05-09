@@ -133,6 +133,21 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      * 
      */
@@ -239,6 +254,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         this.kmsKeyId = $.kmsKeyId;
         this.majorEngineVersion = $.majorEngineVersion;
         this.name = $.name;
+        this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.snapshotArnsToRestores = $.snapshotArnsToRestores;
         this.snapshotRetentionLimit = $.snapshotRetentionLimit;
@@ -417,6 +433,27 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

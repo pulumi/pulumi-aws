@@ -25,18 +25,22 @@ class ResourceServerArgs:
                  identifier: pulumi.Input[builtins.str],
                  user_pool_id: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceServer resource.
         :param pulumi.Input[builtins.str] identifier: An identifier for the resource server.
         :param pulumi.Input[builtins.str] user_pool_id: User pool the client belongs to.
         :param pulumi.Input[builtins.str] name: A name for the resource server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]] scopes: A list of Authorization Scope.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
 
@@ -78,6 +82,18 @@ class ResourceServerArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]]]:
         """
         A list of Authorization Scope.
@@ -94,6 +110,7 @@ class _ResourceServerState:
     def __init__(__self__, *,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -101,6 +118,7 @@ class _ResourceServerState:
         Input properties used for looking up and filtering ResourceServer resources.
         :param pulumi.Input[builtins.str] identifier: An identifier for the resource server.
         :param pulumi.Input[builtins.str] name: A name for the resource server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]] scopes: A list of Authorization Scope.
         :param pulumi.Input[builtins.str] user_pool_id: User pool the client belongs to.
@@ -109,6 +127,8 @@ class _ResourceServerState:
             pulumi.set(__self__, "identifier", identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scope_identifiers is not None:
             pulumi.set(__self__, "scope_identifiers", scope_identifiers)
         if scopes is not None:
@@ -139,6 +159,18 @@ class _ResourceServerState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="scopeIdentifiers")
@@ -187,6 +219,7 @@ class ResourceServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -237,6 +270,7 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] identifier: An identifier for the resource server.
         :param pulumi.Input[builtins.str] name: A name for the resource server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]] scopes: A list of Authorization Scope.
         :param pulumi.Input[builtins.str] user_pool_id: User pool the client belongs to.
         """
@@ -306,6 +340,7 @@ class ResourceServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -321,6 +356,7 @@ class ResourceServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["scopes"] = scopes
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
@@ -338,6 +374,7 @@ class ResourceServer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             identifier: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scope_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]]] = None,
             user_pool_id: Optional[pulumi.Input[builtins.str]] = None) -> 'ResourceServer':
@@ -350,6 +387,7 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] identifier: An identifier for the resource server.
         :param pulumi.Input[builtins.str] name: A name for the resource server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]] scopes: A list of Authorization Scope.
         :param pulumi.Input[builtins.str] user_pool_id: User pool the client belongs to.
@@ -360,6 +398,7 @@ class ResourceServer(pulumi.CustomResource):
 
         __props__.__dict__["identifier"] = identifier
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["scope_identifiers"] = scope_identifiers
         __props__.__dict__["scopes"] = scopes
         __props__.__dict__["user_pool_id"] = user_pool_id
@@ -380,6 +419,14 @@ class ResourceServer(pulumi.CustomResource):
         A name for the resource server.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scopeIdentifiers")

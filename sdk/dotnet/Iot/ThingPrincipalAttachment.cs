@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Iot
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the thing.
         /// </summary>
         [Output("thing")]
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.Iot
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the thing.
         /// </summary>
         [Input("thing", required: true)]
@@ -132,6 +144,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the thing.

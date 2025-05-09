@@ -63,6 +63,21 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
@@ -83,6 +98,7 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
         this.catalogId = $.catalogId;
         this.databaseName = $.databaseName;
         this.partitionIndex = $.partitionIndex;
+        this.region = $.region;
         this.tableName = $.tableName;
     }
 
@@ -165,6 +181,27 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder partitionIndex(PartitionIndexPartitionIndexArgs partitionIndex) {
             return partitionIndex(Output.of(partitionIndex));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

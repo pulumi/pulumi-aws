@@ -35,6 +35,8 @@ public final class GetOntapStorageVirtualMachinePlainArgs extends com.pulumi.res
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
      * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+     * 
      */
     @Import(name="id")
     private @Nullable String id;
@@ -42,9 +44,18 @@ public final class GetOntapStorageVirtualMachinePlainArgs extends com.pulumi.res
     /**
      * @return Identifier of the storage virtual machine (e.g. `svm-12345678`).
      * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+     * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     @Import(name="tags")
@@ -59,6 +70,7 @@ public final class GetOntapStorageVirtualMachinePlainArgs extends com.pulumi.res
     private GetOntapStorageVirtualMachinePlainArgs(GetOntapStorageVirtualMachinePlainArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -104,11 +116,18 @@ public final class GetOntapStorageVirtualMachinePlainArgs extends com.pulumi.res
         /**
          * @param id Identifier of the storage virtual machine (e.g. `svm-12345678`).
          * 
+         * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
         public Builder id(@Nullable String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

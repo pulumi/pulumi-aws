@@ -29,6 +29,7 @@ class MultiRegionClusterArgs:
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  num_shards: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['MultiRegionClusterTimeoutsArgs']] = None,
                  tls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -44,6 +45,7 @@ class MultiRegionClusterArgs:
         :param pulumi.Input[builtins.str] engine_version: The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
         :param pulumi.Input[builtins.str] multi_region_parameter_group_name: The name of the multi-region parameter group to be associated with the cluster.
         :param pulumi.Input[builtins.int] num_shards: The number of shards for the multi-region cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster.
         """
@@ -59,6 +61,8 @@ class MultiRegionClusterArgs:
             pulumi.set(__self__, "multi_region_parameter_group_name", multi_region_parameter_group_name)
         if num_shards is not None:
             pulumi.set(__self__, "num_shards", num_shards)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -156,6 +160,18 @@ class MultiRegionClusterArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -209,6 +225,7 @@ class _MultiRegionClusterState:
                  multi_region_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  node_type: Optional[pulumi.Input[builtins.str]] = None,
                  num_shards: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -228,6 +245,7 @@ class _MultiRegionClusterState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] num_shards: The number of shards for the multi-region cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster.
@@ -250,6 +268,8 @@ class _MultiRegionClusterState:
             pulumi.set(__self__, "node_type", node_type)
         if num_shards is not None:
             pulumi.set(__self__, "num_shards", num_shards)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -375,6 +395,18 @@ class _MultiRegionClusterState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "status")
 
@@ -452,6 +484,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                  multi_region_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  node_type: Optional[pulumi.Input[builtins.str]] = None,
                  num_shards: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict']]] = None,
                  tls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -502,6 +535,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] num_shards: The number of shards for the multi-region cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster.
         """
@@ -567,6 +601,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                  multi_region_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  node_type: Optional[pulumi.Input[builtins.str]] = None,
                  num_shards: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict']]] = None,
                  tls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -591,6 +626,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'node_type'")
             __props__.__dict__["node_type"] = node_type
             __props__.__dict__["num_shards"] = num_shards
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["tls_enabled"] = tls_enabled
@@ -618,6 +654,7 @@ class MultiRegionCluster(pulumi.CustomResource):
             multi_region_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
             node_type: Optional[pulumi.Input[builtins.str]] = None,
             num_shards: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -642,6 +679,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] num_shards: The number of shards for the multi-region cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster.
@@ -659,6 +697,7 @@ class MultiRegionCluster(pulumi.CustomResource):
         __props__.__dict__["multi_region_parameter_group_name"] = multi_region_parameter_group_name
         __props__.__dict__["node_type"] = node_type
         __props__.__dict__["num_shards"] = num_shards
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -740,6 +779,14 @@ class MultiRegionCluster(pulumi.CustomResource):
         The number of shards for the multi-region cluster.
         """
         return pulumi.get(self, "num_shards")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

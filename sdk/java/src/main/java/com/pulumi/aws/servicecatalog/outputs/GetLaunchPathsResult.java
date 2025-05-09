@@ -21,6 +21,7 @@ public final class GetLaunchPathsResult {
      */
     private String id;
     private String productId;
+    private String region;
     /**
      * @return Block with information about the launch path. See details below.
      * 
@@ -40,6 +41,9 @@ public final class GetLaunchPathsResult {
     }
     public String productId() {
         return this.productId;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Block with information about the launch path. See details below.
@@ -61,6 +65,7 @@ public final class GetLaunchPathsResult {
         private @Nullable String acceptLanguage;
         private String id;
         private String productId;
+        private String region;
         private List<GetLaunchPathsSummary> summaries;
         public Builder() {}
         public Builder(GetLaunchPathsResult defaults) {
@@ -68,6 +73,7 @@ public final class GetLaunchPathsResult {
     	      this.acceptLanguage = defaults.acceptLanguage;
     	      this.id = defaults.id;
     	      this.productId = defaults.productId;
+    	      this.region = defaults.region;
     	      this.summaries = defaults.summaries;
         }
 
@@ -94,6 +100,14 @@ public final class GetLaunchPathsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLaunchPathsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder summaries(List<GetLaunchPathsSummary> summaries) {
             if (summaries == null) {
               throw new MissingRequiredPropertyException("GetLaunchPathsResult", "summaries");
@@ -109,6 +123,7 @@ public final class GetLaunchPathsResult {
             _resultValue.acceptLanguage = acceptLanguage;
             _resultValue.id = id;
             _resultValue.productId = productId;
+            _resultValue.region = region;
             _resultValue.summaries = summaries;
             return _resultValue;
         }

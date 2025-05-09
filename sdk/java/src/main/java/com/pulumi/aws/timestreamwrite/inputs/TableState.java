@@ -65,6 +65,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
      * 
      */
@@ -145,6 +160,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.databaseName = $.databaseName;
         this.magneticStoreWriteProperties = $.magneticStoreWriteProperties;
+        this.region = $.region;
         this.retentionProperties = $.retentionProperties;
         this.schema = $.schema;
         this.tableName = $.tableName;
@@ -231,6 +247,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder magneticStoreWriteProperties(TableMagneticStoreWritePropertiesArgs magneticStoreWriteProperties) {
             return magneticStoreWriteProperties(Output.of(magneticStoreWriteProperties));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

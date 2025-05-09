@@ -298,6 +298,21 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
      * 
      */
@@ -446,6 +461,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         this.logConfiguration = $.logConfiguration;
         this.metadataConfiguration = $.metadataConfiguration;
         this.perUnitStorageThroughput = $.perUnitStorageThroughput;
+        this.region = $.region;
         this.rootSquashConfiguration = $.rootSquashConfiguration;
         this.securityGroupIds = $.securityGroupIds;
         this.skipFinalBackup = $.skipFinalBackup;
@@ -854,6 +870,27 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder perUnitStorageThroughput(Integer perUnitStorageThroughput) {
             return perUnitStorageThroughput(Output.of(perUnitStorageThroughput));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

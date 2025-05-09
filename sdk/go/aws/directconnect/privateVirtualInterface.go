@@ -80,6 +80,8 @@ type PrivateVirtualInterface struct {
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled pulumi.BoolPtrOutput `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -160,6 +162,8 @@ type privateVirtualInterfaceState struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled *bool `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -199,6 +203,8 @@ type PrivateVirtualInterfaceState struct {
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -235,6 +241,8 @@ type privateVirtualInterfaceArgs struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled *bool `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -266,6 +274,8 @@ type PrivateVirtualInterfaceArgs struct {
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -426,6 +436,11 @@ func (o PrivateVirtualInterfaceOutput) Mtu() pulumi.IntPtrOutput {
 // The name for the virtual interface.
 func (o PrivateVirtualInterfaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PrivateVirtualInterfaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Indicates whether to enable or disable SiteLink.

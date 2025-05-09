@@ -64,6 +64,10 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
      * The proposed policy for the Multi-Region Access Point.
      */
     public /*out*/ readonly proposed!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a MultiRegionAccessPointPolicy resource with the given unique name, arguments, and options.
@@ -82,6 +86,7 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
             resourceInputs["details"] = state ? state.details : undefined;
             resourceInputs["established"] = state ? state.established : undefined;
             resourceInputs["proposed"] = state ? state.proposed : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as MultiRegionAccessPointPolicyArgs | undefined;
             if ((!args || args.details === undefined) && !opts.urn) {
@@ -89,6 +94,7 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["established"] = undefined /*out*/;
             resourceInputs["proposed"] = undefined /*out*/;
         }
@@ -117,6 +123,10 @@ export interface MultiRegionAccessPointPolicyState {
      * The proposed policy for the Multi-Region Access Point.
      */
     proposed?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -131,4 +141,8 @@ export interface MultiRegionAccessPointPolicyArgs {
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      */
     details: pulumi.Input<inputs.s3control.MultiRegionAccessPointPolicyDetails>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

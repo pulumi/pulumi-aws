@@ -69,6 +69,10 @@ export class SmsPreferences extends pulumi.CustomResource {
      */
     public readonly monthlySpendLimit!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      */
     public readonly usageReportS3Bucket!: pulumi.Output<string | undefined>;
@@ -91,6 +95,7 @@ export class SmsPreferences extends pulumi.CustomResource {
             resourceInputs["deliveryStatusIamRoleArn"] = state ? state.deliveryStatusIamRoleArn : undefined;
             resourceInputs["deliveryStatusSuccessSamplingRate"] = state ? state.deliveryStatusSuccessSamplingRate : undefined;
             resourceInputs["monthlySpendLimit"] = state ? state.monthlySpendLimit : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["usageReportS3Bucket"] = state ? state.usageReportS3Bucket : undefined;
         } else {
             const args = argsOrState as SmsPreferencesArgs | undefined;
@@ -99,6 +104,7 @@ export class SmsPreferences extends pulumi.CustomResource {
             resourceInputs["deliveryStatusIamRoleArn"] = args ? args.deliveryStatusIamRoleArn : undefined;
             resourceInputs["deliveryStatusSuccessSamplingRate"] = args ? args.deliveryStatusSuccessSamplingRate : undefined;
             resourceInputs["monthlySpendLimit"] = args ? args.monthlySpendLimit : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +137,10 @@ export interface SmsPreferencesState {
      */
     monthlySpendLimit?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      */
     usageReportS3Bucket?: pulumi.Input<string>;
@@ -160,6 +170,10 @@ export interface SmsPreferencesArgs {
      * The maximum amount in USD that you are willing to spend each month to send SMS messages.
      */
     monthlySpendLimit?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      */

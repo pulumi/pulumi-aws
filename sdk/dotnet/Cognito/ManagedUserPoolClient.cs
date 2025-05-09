@@ -173,6 +173,12 @@ namespace Pulumi.Aws.Cognito
         public Output<int> RefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         [Output("supportedIdentityProviders")]
@@ -392,6 +398,12 @@ namespace Pulumi.Aws.Cognito
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("supportedIdentityProviders")]
         private InputList<string>? _supportedIdentityProviders;
 
@@ -603,6 +615,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("supportedIdentityProviders")]
         private InputList<string>? _supportedIdentityProviders;

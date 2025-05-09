@@ -35,6 +35,21 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
      * 
      */
@@ -74,6 +89,7 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
 
     private ResourceSetState(ResourceSetState $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.resourceSets = $.resourceSets;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -117,6 +133,27 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

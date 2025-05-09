@@ -126,6 +126,9 @@ namespace Pulumi.Aws.Neptune
             set => _preferredVersions = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
@@ -164,6 +167,9 @@ namespace Pulumi.Aws.Neptune
             set => _preferredVersions = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
@@ -195,6 +201,7 @@ namespace Pulumi.Aws.Neptune
         public readonly string Id;
         public readonly string ParameterGroupFamily;
         public readonly ImmutableArray<string> PreferredVersions;
+        public readonly string Region;
         /// <summary>
         /// Set of the time zones supported by this engine.
         /// </summary>
@@ -231,6 +238,8 @@ namespace Pulumi.Aws.Neptune
 
             ImmutableArray<string> preferredVersions,
 
+            string region,
+
             ImmutableArray<string> supportedTimezones,
 
             bool supportsLogExportsToCloudwatch,
@@ -249,6 +258,7 @@ namespace Pulumi.Aws.Neptune
             Id = id;
             ParameterGroupFamily = parameterGroupFamily;
             PreferredVersions = preferredVersions;
+            Region = region;
             SupportedTimezones = supportedTimezones;
             SupportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             SupportsReadReplica = supportsReadReplica;

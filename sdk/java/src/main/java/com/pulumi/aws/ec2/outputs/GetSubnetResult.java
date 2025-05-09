@@ -98,6 +98,7 @@ public final class GetSubnetResult {
      * 
      */
     private String privateDnsHostnameTypeOnLaunch;
+    private String region;
     private String state;
     private Map<String,String> tags;
     private String vpcId;
@@ -229,6 +230,9 @@ public final class GetSubnetResult {
     public String privateDnsHostnameTypeOnLaunch() {
         return this.privateDnsHostnameTypeOnLaunch;
     }
+    public String region() {
+        return this.region;
+    }
     public String state() {
         return this.state;
     }
@@ -270,6 +274,7 @@ public final class GetSubnetResult {
         private String outpostArn;
         private String ownerId;
         private String privateDnsHostnameTypeOnLaunch;
+        private String region;
         private String state;
         private Map<String,String> tags;
         private String vpcId;
@@ -298,6 +303,7 @@ public final class GetSubnetResult {
     	      this.outpostArn = defaults.outpostArn;
     	      this.ownerId = defaults.ownerId;
     	      this.privateDnsHostnameTypeOnLaunch = defaults.privateDnsHostnameTypeOnLaunch;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.vpcId = defaults.vpcId;
@@ -481,6 +487,14 @@ public final class GetSubnetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetSubnetResult", "state");
@@ -528,6 +542,7 @@ public final class GetSubnetResult {
             _resultValue.outpostArn = outpostArn;
             _resultValue.ownerId = ownerId;
             _resultValue.privateDnsHostnameTypeOnLaunch = privateDnsHostnameTypeOnLaunch;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             _resultValue.vpcId = vpcId;

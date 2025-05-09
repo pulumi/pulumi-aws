@@ -158,12 +158,17 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
         /// </summary>
         public List<Inputs.GetVpcIpamPoolsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcIpamPoolsFilterArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetVpcIpamPoolsArgs()
         {
@@ -178,12 +183,17 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
         /// </summary>
         public InputList<Inputs.GetVpcIpamPoolsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcIpamPoolsFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetVpcIpamPoolsInvokeArgs()
         {
@@ -204,6 +214,7 @@ namespace Pulumi.Aws.Ec2
         /// List of IPAM pools and their attributes. See below for details
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamPoolsIpamPoolResult> IpamPools;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetVpcIpamPoolsResult(
@@ -211,11 +222,14 @@ namespace Pulumi.Aws.Ec2
 
             string id,
 
-            ImmutableArray<Outputs.GetVpcIpamPoolsIpamPoolResult> ipamPools)
+            ImmutableArray<Outputs.GetVpcIpamPoolsIpamPoolResult> ipamPools,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             IpamPools = ipamPools;
+            Region = region;
         }
     }
 }

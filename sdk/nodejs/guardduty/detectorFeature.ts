@@ -71,6 +71,10 @@ export class DetectorFeature extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class DetectorFeature extends pulumi.CustomResource {
             resourceInputs["additionalConfigurations"] = state ? state.additionalConfigurations : undefined;
             resourceInputs["detectorId"] = state ? state.detectorId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as DetectorFeatureArgs | undefined;
@@ -103,6 +108,7 @@ export class DetectorFeature extends pulumi.CustomResource {
             resourceInputs["additionalConfigurations"] = args ? args.additionalConfigurations : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -127,6 +133,10 @@ export interface DetectorFeatureState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     status?: pulumi.Input<string>;
@@ -148,6 +158,10 @@ export interface DetectorFeatureArgs {
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */

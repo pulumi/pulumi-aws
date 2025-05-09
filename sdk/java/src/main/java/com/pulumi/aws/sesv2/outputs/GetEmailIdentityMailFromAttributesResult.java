@@ -26,6 +26,7 @@ public final class GetEmailIdentityMailFromAttributesResult {
      * 
      */
     private String mailFromDomain;
+    private String region;
 
     private GetEmailIdentityMailFromAttributesResult() {}
     /**
@@ -52,6 +53,9 @@ public final class GetEmailIdentityMailFromAttributesResult {
     public String mailFromDomain() {
         return this.mailFromDomain;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -66,6 +70,7 @@ public final class GetEmailIdentityMailFromAttributesResult {
         private String emailIdentity;
         private String id;
         private String mailFromDomain;
+        private String region;
         public Builder() {}
         public Builder(GetEmailIdentityMailFromAttributesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,6 +78,7 @@ public final class GetEmailIdentityMailFromAttributesResult {
     	      this.emailIdentity = defaults.emailIdentity;
     	      this.id = defaults.id;
     	      this.mailFromDomain = defaults.mailFromDomain;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -107,12 +113,21 @@ public final class GetEmailIdentityMailFromAttributesResult {
             this.mailFromDomain = mailFromDomain;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityMailFromAttributesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetEmailIdentityMailFromAttributesResult build() {
             final var _resultValue = new GetEmailIdentityMailFromAttributesResult();
             _resultValue.behaviorOnMxFailure = behaviorOnMxFailure;
             _resultValue.emailIdentity = emailIdentity;
             _resultValue.id = id;
             _resultValue.mailFromDomain = mailFromDomain;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

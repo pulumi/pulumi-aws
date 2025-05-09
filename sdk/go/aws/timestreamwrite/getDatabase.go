@@ -52,7 +52,8 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseArgs struct {
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDatabase.
@@ -68,6 +69,7 @@ type LookupDatabaseResult struct {
 	// Last time database was updated.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	Name            string `pulumi:"name"`
+	Region          string `pulumi:"region"`
 	// Total number of tables in the Timestream database.
 	TableCount int `pulumi:"tableCount"`
 }
@@ -83,7 +85,8 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseOutputArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDatabaseOutputArgs) ElementType() reflect.Type {
@@ -132,6 +135,10 @@ func (o LookupDatabaseResultOutput) LastUpdatedTime() pulumi.StringOutput {
 
 func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupDatabaseResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Total number of tables in the Timestream database.

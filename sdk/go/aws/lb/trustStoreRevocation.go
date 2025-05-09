@@ -62,6 +62,8 @@ import (
 type TrustStoreRevocation struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// AWS assigned RevocationId, (number).
 	RevocationId pulumi.IntOutput `pulumi:"revocationId"`
 	// S3 Bucket name holding the client certificate CA bundle.
@@ -113,6 +115,8 @@ func GetTrustStoreRevocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustStoreRevocation resources.
 type trustStoreRevocationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AWS assigned RevocationId, (number).
 	RevocationId *int `pulumi:"revocationId"`
 	// S3 Bucket name holding the client certificate CA bundle.
@@ -126,6 +130,8 @@ type trustStoreRevocationState struct {
 }
 
 type TrustStoreRevocationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AWS assigned RevocationId, (number).
 	RevocationId pulumi.IntPtrInput
 	// S3 Bucket name holding the client certificate CA bundle.
@@ -143,6 +149,8 @@ func (TrustStoreRevocationState) ElementType() reflect.Type {
 }
 
 type trustStoreRevocationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// S3 Bucket name holding the client certificate CA bundle.
 	RevocationsS3Bucket string `pulumi:"revocationsS3Bucket"`
 	// S3 object key holding the client certificate CA bundle.
@@ -155,6 +163,8 @@ type trustStoreRevocationArgs struct {
 
 // The set of arguments for constructing a TrustStoreRevocation resource.
 type TrustStoreRevocationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// S3 Bucket name holding the client certificate CA bundle.
 	RevocationsS3Bucket pulumi.StringInput
 	// S3 object key holding the client certificate CA bundle.
@@ -250,6 +260,11 @@ func (o TrustStoreRevocationOutput) ToTrustStoreRevocationOutput() TrustStoreRev
 
 func (o TrustStoreRevocationOutput) ToTrustStoreRevocationOutputWithContext(ctx context.Context) TrustStoreRevocationOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TrustStoreRevocationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // AWS assigned RevocationId, (number).

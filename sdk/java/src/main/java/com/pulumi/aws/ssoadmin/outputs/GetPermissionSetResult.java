@@ -25,6 +25,7 @@ public final class GetPermissionSetResult {
     private String id;
     private String instanceArn;
     private String name;
+    private String region;
     /**
      * @return Relay state URL used to redirect users within the application during the federation authentication process.
      * 
@@ -68,6 +69,9 @@ public final class GetPermissionSetResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Relay state URL used to redirect users within the application during the federation authentication process.
      * 
@@ -105,6 +109,7 @@ public final class GetPermissionSetResult {
         private String id;
         private String instanceArn;
         private String name;
+        private String region;
         private String relayState;
         private String sessionDuration;
         private Map<String,String> tags;
@@ -117,6 +122,7 @@ public final class GetPermissionSetResult {
     	      this.id = defaults.id;
     	      this.instanceArn = defaults.instanceArn;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.relayState = defaults.relayState;
     	      this.sessionDuration = defaults.sessionDuration;
     	      this.tags = defaults.tags;
@@ -171,6 +177,14 @@ public final class GetPermissionSetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder relayState(String relayState) {
             if (relayState == null) {
               throw new MissingRequiredPropertyException("GetPermissionSetResult", "relayState");
@@ -202,6 +216,7 @@ public final class GetPermissionSetResult {
             _resultValue.id = id;
             _resultValue.instanceArn = instanceArn;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.relayState = relayState;
             _resultValue.sessionDuration = sessionDuration;
             _resultValue.tags = tags;

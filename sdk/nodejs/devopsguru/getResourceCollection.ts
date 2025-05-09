@@ -26,8 +26,7 @@ import * as utilities from "../utilities";
 export function getResourceCollection(args: GetResourceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:devopsguru/getResourceCollection:getResourceCollection", {
-        "cloudformations": args.cloudformations,
-        "tags": args.tags,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -36,14 +35,7 @@ export function getResourceCollection(args: GetResourceCollectionArgs, opts?: pu
  * A collection of arguments for invoking getResourceCollection.
  */
 export interface GetResourceCollectionArgs {
-    /**
-     * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     */
-    cloudformations?: inputs.devopsguru.GetResourceCollectionCloudformation[];
-    /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     */
-    tags?: inputs.devopsguru.GetResourceCollectionTag[];
+    region?: string;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
      */
@@ -57,15 +49,16 @@ export interface GetResourceCollectionResult {
     /**
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
-    readonly cloudformations?: outputs.devopsguru.GetResourceCollectionCloudformation[];
+    readonly cloudformations: outputs.devopsguru.GetResourceCollectionCloudformation[];
     /**
      * Type of AWS resource collection to create (same value as `type`).
      */
     readonly id: string;
+    readonly region: string;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
-    readonly tags?: outputs.devopsguru.GetResourceCollectionTag[];
+    readonly tags: outputs.devopsguru.GetResourceCollectionTag[];
     readonly type: string;
 }
 /**
@@ -87,8 +80,7 @@ export interface GetResourceCollectionResult {
 export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:devopsguru/getResourceCollection:getResourceCollection", {
-        "cloudformations": args.cloudformations,
-        "tags": args.tags,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -97,14 +89,7 @@ export function getResourceCollectionOutput(args: GetResourceCollectionOutputArg
  * A collection of arguments for invoking getResourceCollection.
  */
 export interface GetResourceCollectionOutputArgs {
-    /**
-     * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     */
-    cloudformations?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetResourceCollectionCloudformationArgs>[]>;
-    /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetResourceCollectionTagArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
      */

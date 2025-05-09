@@ -67,6 +67,13 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.owners);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      * 
@@ -118,6 +125,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         this.filters = $.filters;
         this.mostRecent = $.mostRecent;
         this.owners = $.owners;
+        this.region = $.region;
         this.restorableByUserIds = $.restorableByUserIds;
         this.snapshotIds = $.snapshotIds;
         this.tags = $.tags;
@@ -196,6 +204,11 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder owners(String... owners) {
             return owners(List.of(owners));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

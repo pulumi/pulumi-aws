@@ -59,6 +59,8 @@ type EventSourcesConfig struct {
 
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayOutput `pulumi:"eventSources"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEventSourcesConfig registers a new resource with the given unique name, arguments, and options.
@@ -93,11 +95,15 @@ func GetEventSourcesConfig(ctx *pulumi.Context,
 type eventSourcesConfigState struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources []EventSourcesConfigEventSource `pulumi:"eventSources"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EventSourcesConfigState struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventSourcesConfigState) ElementType() reflect.Type {
@@ -107,12 +113,16 @@ func (EventSourcesConfigState) ElementType() reflect.Type {
 type eventSourcesConfigArgs struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources []EventSourcesConfigEventSource `pulumi:"eventSources"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventSourcesConfig resource.
 type EventSourcesConfigArgs struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventSourcesConfigArgs) ElementType() reflect.Type {
@@ -205,6 +215,11 @@ func (o EventSourcesConfigOutput) ToEventSourcesConfigOutputWithContext(ctx cont
 // Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 func (o EventSourcesConfigOutput) EventSources() EventSourcesConfigEventSourceArrayOutput {
 	return o.ApplyT(func(v *EventSourcesConfig) EventSourcesConfigEventSourceArrayOutput { return v.EventSources }).(EventSourcesConfigEventSourceArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventSourcesConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSourcesConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EventSourcesConfigArrayOutput struct{ *pulumi.OutputState }

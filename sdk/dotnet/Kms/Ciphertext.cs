@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Kms
         [Output("plaintext")]
         public Output<string> Plaintext { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Ciphertext resource with the given unique name, arguments, and options.
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.Kms
             }
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public CiphertextArgs()
         {
         }
@@ -202,6 +214,12 @@ namespace Pulumi.Aws.Kms
                 _plaintext = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public CiphertextState()
         {

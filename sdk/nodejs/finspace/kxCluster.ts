@@ -115,6 +115,10 @@ export class KxCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Version of FinSpace Managed kdb to run.
      */
     public readonly releaseLabel!: pulumi.Output<string>;
@@ -185,6 +189,7 @@ export class KxCluster extends pulumi.CustomResource {
             resourceInputs["initializationScript"] = state ? state.initializationScript : undefined;
             resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
             resourceInputs["savedownStorageConfiguration"] = state ? state.savedownStorageConfiguration : undefined;
             resourceInputs["scalingGroupConfiguration"] = state ? state.scalingGroupConfiguration : undefined;
@@ -225,6 +230,7 @@ export class KxCluster extends pulumi.CustomResource {
             resourceInputs["executionRole"] = args ? args.executionRole : undefined;
             resourceInputs["initializationScript"] = args ? args.initializationScript : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["savedownStorageConfiguration"] = args ? args.savedownStorageConfiguration : undefined;
             resourceInputs["scalingGroupConfiguration"] = args ? args.scalingGroupConfiguration : undefined;
@@ -314,6 +320,10 @@ export interface KxClusterState {
      * Unique name for the cluster that you want to create.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Version of FinSpace Managed kdb to run.
      */
@@ -415,6 +425,10 @@ export interface KxClusterArgs {
      * Unique name for the cluster that you want to create.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Version of FinSpace Managed kdb to run.
      */

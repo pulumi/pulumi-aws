@@ -53,7 +53,8 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getTopic.
 type LookupTopicArgs struct {
 	// Friendly name of the topic to match.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -63,8 +64,9 @@ type LookupTopicResult struct {
 	// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,7 +83,8 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 // A collection of arguments for invoking getTopic.
 type LookupTopicOutputArgs struct {
 	// Friendly name of the topic to match.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -117,6 +120,10 @@ func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags for the resource.

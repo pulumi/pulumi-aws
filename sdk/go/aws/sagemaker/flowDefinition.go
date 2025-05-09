@@ -184,6 +184,8 @@ type FlowDefinition struct {
 	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrOutput `pulumi:"humanLoopRequestSource"`
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig FlowDefinitionOutputConfigOutput `pulumi:"outputConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -246,6 +248,8 @@ type flowDefinitionState struct {
 	HumanLoopRequestSource *FlowDefinitionHumanLoopRequestSource `pulumi:"humanLoopRequestSource"`
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig *FlowDefinitionOutputConfig `pulumi:"outputConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -267,6 +271,8 @@ type FlowDefinitionState struct {
 	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrInput
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig FlowDefinitionOutputConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -290,6 +296,8 @@ type flowDefinitionArgs struct {
 	HumanLoopRequestSource *FlowDefinitionHumanLoopRequestSource `pulumi:"humanLoopRequestSource"`
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig FlowDefinitionOutputConfig `pulumi:"outputConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -308,6 +316,8 @@ type FlowDefinitionArgs struct {
 	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrInput
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig FlowDefinitionOutputConfigInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -431,6 +441,11 @@ func (o FlowDefinitionOutput) HumanLoopRequestSource() FlowDefinitionHumanLoopRe
 // An object containing information about where the human review results will be uploaded. See Output Config details below.
 func (o FlowDefinitionOutput) OutputConfig() FlowDefinitionOutputConfigOutput {
 	return o.ApplyT(func(v *FlowDefinition) FlowDefinitionOutputConfigOutput { return v.OutputConfig }).(FlowDefinitionOutputConfigOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FlowDefinitionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.

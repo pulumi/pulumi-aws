@@ -23,6 +23,7 @@ export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getIntent:getIntent", {
         "name": args.name,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -35,6 +36,7 @@ export interface GetIntentArgs {
      * Name of the intent. The name is case sensitive.
      */
     name: string;
+    region?: string;
     /**
      * Version of the intent.
      */
@@ -81,6 +83,7 @@ export interface GetIntentResult {
      * in the Alexa Skills Kit.
      */
     readonly parentIntentSignature: string;
+    readonly region: string;
     /**
      * Version of the bot.
      */
@@ -105,6 +108,7 @@ export function getIntentOutput(args: GetIntentOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lex/getIntent:getIntent", {
         "name": args.name,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -117,6 +121,7 @@ export interface GetIntentOutputArgs {
      * Name of the intent. The name is case sensitive.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Version of the intent.
      */

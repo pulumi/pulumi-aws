@@ -307,6 +307,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<int> ReadCapacity { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         /// </summary>
         [Output("replicas")]
@@ -536,6 +542,12 @@ namespace Pulumi.Aws.DynamoDB
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("replicas")]
         private InputList<Inputs.TableReplicaArgs>? _replicas;
 
@@ -727,6 +739,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("replicas")]
         private InputList<Inputs.TableReplicaGetArgs>? _replicas;

@@ -31,6 +31,21 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
@@ -49,6 +64,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
 
     private AccountArgs(AccountArgs $) {
         this.findingPublishingFrequency = $.findingPublishingFrequency;
+        this.region = $.region;
         this.status = $.status;
     }
 
@@ -89,6 +105,27 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder findingPublishingFrequency(String findingPublishingFrequency) {
             return findingPublishingFrequency(Output.of(findingPublishingFrequency));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

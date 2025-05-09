@@ -131,6 +131,10 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     public readonly publicKeys!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role for this endpoint.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -202,6 +206,7 @@ export class DevEndpoint extends pulumi.CustomResource {
             resourceInputs["publicAddress"] = state ? state.publicAddress : undefined;
             resourceInputs["publicKey"] = state ? state.publicKey : undefined;
             resourceInputs["publicKeys"] = state ? state.publicKeys : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
@@ -227,6 +232,7 @@ export class DevEndpoint extends pulumi.CustomResource {
             resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
             resourceInputs["publicKey"] = args ? args.publicKey : undefined;
             resourceInputs["publicKeys"] = args ? args.publicKeys : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -309,6 +315,10 @@ export interface DevEndpointState {
      * A list of public keys to be used by this endpoint for authentication.
      */
     publicKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role for this endpoint.
      */
@@ -395,6 +405,10 @@ export interface DevEndpointArgs {
      * A list of public keys to be used by this endpoint for authentication.
      */
     publicKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role for this endpoint.
      */

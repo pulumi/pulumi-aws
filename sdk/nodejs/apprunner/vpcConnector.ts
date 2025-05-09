@@ -67,6 +67,10 @@ export class VpcConnector extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -109,6 +113,7 @@ export class VpcConnector extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcConnectorState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subnets"] = state ? state.subnets : undefined;
@@ -127,6 +132,7 @@ export class VpcConnector extends pulumi.CustomResource {
             if ((!args || args.vpcConnectorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConnectorName'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -149,6 +155,10 @@ export interface VpcConnectorState {
      * ARN of VPC connector.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      */
@@ -183,6 +193,10 @@ export interface VpcConnectorState {
  * The set of arguments for constructing a VpcConnector resource.
  */
 export interface VpcConnectorArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      */

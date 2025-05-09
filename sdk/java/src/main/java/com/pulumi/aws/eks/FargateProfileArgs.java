@@ -65,6 +65,21 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      * 
      */
@@ -119,6 +134,7 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
         this.clusterName = $.clusterName;
         this.fargateProfileName = $.fargateProfileName;
         this.podExecutionRoleArn = $.podExecutionRoleArn;
+        this.region = $.region;
         this.selectors = $.selectors;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -203,6 +219,27 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder podExecutionRoleArn(String podExecutionRoleArn) {
             return podExecutionRoleArn(Output.of(podExecutionRoleArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

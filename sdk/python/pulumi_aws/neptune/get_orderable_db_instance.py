@@ -27,7 +27,7 @@ class GetOrderableDbInstanceResult:
     """
     A collection of values returned by getOrderableDbInstance.
     """
-    def __init__(__self__, availability_zones=None, engine=None, engine_version=None, id=None, instance_class=None, license_model=None, max_iops_per_db_instance=None, max_iops_per_gib=None, max_storage_size=None, min_iops_per_db_instance=None, min_iops_per_gib=None, min_storage_size=None, multi_az_capable=None, preferred_instance_classes=None, read_replica_capable=None, storage_type=None, supports_enhanced_monitoring=None, supports_iam_database_authentication=None, supports_iops=None, supports_performance_insights=None, supports_storage_encryption=None, vpc=None):
+    def __init__(__self__, availability_zones=None, engine=None, engine_version=None, id=None, instance_class=None, license_model=None, max_iops_per_db_instance=None, max_iops_per_gib=None, max_storage_size=None, min_iops_per_db_instance=None, min_iops_per_gib=None, min_storage_size=None, multi_az_capable=None, preferred_instance_classes=None, read_replica_capable=None, region=None, storage_type=None, supports_enhanced_monitoring=None, supports_iam_database_authentication=None, supports_iops=None, supports_performance_insights=None, supports_storage_encryption=None, vpc=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -73,6 +73,9 @@ class GetOrderableDbInstanceResult:
         if read_replica_capable and not isinstance(read_replica_capable, bool):
             raise TypeError("Expected argument 'read_replica_capable' to be a bool")
         pulumi.set(__self__, "read_replica_capable", read_replica_capable)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -201,6 +204,11 @@ class GetOrderableDbInstanceResult:
         return pulumi.get(self, "read_replica_capable")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> builtins.str:
         """
@@ -275,6 +283,7 @@ class AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
             multi_az_capable=self.multi_az_capable,
             preferred_instance_classes=self.preferred_instance_classes,
             read_replica_capable=self.read_replica_capable,
+            region=self.region,
             storage_type=self.storage_type,
             supports_enhanced_monitoring=self.supports_enhanced_monitoring,
             supports_iam_database_authentication=self.supports_iam_database_authentication,
@@ -289,6 +298,7 @@ def get_orderable_db_instance(engine: Optional[builtins.str] = None,
                               instance_class: Optional[builtins.str] = None,
                               license_model: Optional[builtins.str] = None,
                               preferred_instance_classes: Optional[Sequence[builtins.str]] = None,
+                              region: Optional[builtins.str] = None,
                               vpc: Optional[builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableDbInstanceResult:
     """
@@ -322,6 +332,7 @@ def get_orderable_db_instance(engine: Optional[builtins.str] = None,
     __args__['instanceClass'] = instance_class
     __args__['licenseModel'] = license_model
     __args__['preferredInstanceClasses'] = preferred_instance_classes
+    __args__['region'] = region
     __args__['vpc'] = vpc
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:neptune/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult).value
@@ -342,6 +353,7 @@ def get_orderable_db_instance(engine: Optional[builtins.str] = None,
         multi_az_capable=pulumi.get(__ret__, 'multi_az_capable'),
         preferred_instance_classes=pulumi.get(__ret__, 'preferred_instance_classes'),
         read_replica_capable=pulumi.get(__ret__, 'read_replica_capable'),
+        region=pulumi.get(__ret__, 'region'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         supports_enhanced_monitoring=pulumi.get(__ret__, 'supports_enhanced_monitoring'),
         supports_iam_database_authentication=pulumi.get(__ret__, 'supports_iam_database_authentication'),
@@ -354,6 +366,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[buil
                                      instance_class: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      license_model: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      vpc: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
@@ -387,6 +400,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[buil
     __args__['instanceClass'] = instance_class
     __args__['licenseModel'] = license_model
     __args__['preferredInstanceClasses'] = preferred_instance_classes
+    __args__['region'] = region
     __args__['vpc'] = vpc
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:neptune/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult)
@@ -406,6 +420,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[buil
         multi_az_capable=pulumi.get(__response__, 'multi_az_capable'),
         preferred_instance_classes=pulumi.get(__response__, 'preferred_instance_classes'),
         read_replica_capable=pulumi.get(__response__, 'read_replica_capable'),
+        region=pulumi.get(__response__, 'region'),
         storage_type=pulumi.get(__response__, 'storage_type'),
         supports_enhanced_monitoring=pulumi.get(__response__, 'supports_enhanced_monitoring'),
         supports_iam_database_authentication=pulumi.get(__response__, 'supports_iam_database_authentication'),

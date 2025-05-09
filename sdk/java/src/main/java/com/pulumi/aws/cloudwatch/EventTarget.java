@@ -1058,6 +1058,20 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.redshiftTarget);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      * 
      */

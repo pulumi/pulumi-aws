@@ -10,17 +10,17 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFrameworkResult {
     private String arn;
     private String complianceType;
-    private @Nullable List<GetFrameworkControlSet> controlSets;
+    private List<GetFrameworkControlSet> controlSets;
     private String description;
     private String frameworkType;
     private String id;
     private String name;
+    private String region;
     private Map<String,String> tags;
 
     private GetFrameworkResult() {}
@@ -31,7 +31,7 @@ public final class GetFrameworkResult {
         return this.complianceType;
     }
     public List<GetFrameworkControlSet> controlSets() {
-        return this.controlSets == null ? List.of() : this.controlSets;
+        return this.controlSets;
     }
     public String description() {
         return this.description;
@@ -44,6 +44,9 @@ public final class GetFrameworkResult {
     }
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
     public Map<String,String> tags() {
         return this.tags;
@@ -60,11 +63,12 @@ public final class GetFrameworkResult {
     public static final class Builder {
         private String arn;
         private String complianceType;
-        private @Nullable List<GetFrameworkControlSet> controlSets;
+        private List<GetFrameworkControlSet> controlSets;
         private String description;
         private String frameworkType;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetFrameworkResult defaults) {
@@ -76,6 +80,7 @@ public final class GetFrameworkResult {
     	      this.frameworkType = defaults.frameworkType;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -96,8 +101,10 @@ public final class GetFrameworkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder controlSets(@Nullable List<GetFrameworkControlSet> controlSets) {
-
+        public Builder controlSets(List<GetFrameworkControlSet> controlSets) {
+            if (controlSets == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "controlSets");
+            }
             this.controlSets = controlSets;
             return this;
         }
@@ -137,6 +144,14 @@ public final class GetFrameworkResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetFrameworkResult", "tags");
@@ -153,6 +168,7 @@ public final class GetFrameworkResult {
             _resultValue.frameworkType = frameworkType;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

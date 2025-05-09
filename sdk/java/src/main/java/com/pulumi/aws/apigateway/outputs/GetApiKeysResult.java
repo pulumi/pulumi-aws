@@ -31,6 +31,7 @@ public final class GetApiKeysResult {
      * 
      */
     private List<GetApiKeysItem> items;
+    private String region;
 
     private GetApiKeysResult() {}
     /**
@@ -57,6 +58,9 @@ public final class GetApiKeysResult {
     public List<GetApiKeysItem> items() {
         return this.items;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -71,6 +75,7 @@ public final class GetApiKeysResult {
         private String id;
         private @Nullable Boolean includeValues;
         private List<GetApiKeysItem> items;
+        private String region;
         public Builder() {}
         public Builder(GetApiKeysResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -78,6 +83,7 @@ public final class GetApiKeysResult {
     	      this.id = defaults.id;
     	      this.includeValues = defaults.includeValues;
     	      this.items = defaults.items;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -111,12 +117,21 @@ public final class GetApiKeysResult {
         public Builder items(GetApiKeysItem... items) {
             return items(List.of(items));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetApiKeysResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetApiKeysResult build() {
             final var _resultValue = new GetApiKeysResult();
             _resultValue.customerId = customerId;
             _resultValue.id = id;
             _resultValue.includeValues = includeValues;
             _resultValue.items = items;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

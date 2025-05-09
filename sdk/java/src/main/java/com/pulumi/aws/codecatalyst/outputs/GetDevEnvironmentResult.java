@@ -60,6 +60,7 @@ public final class GetDevEnvironmentResult {
      */
     private List<GetDevEnvironmentPersistentStorage> persistentStorages;
     private String projectName;
+    private String region;
     /**
      * @return The source repository that contains the branch to clone into the Dev Environment.
      * 
@@ -141,6 +142,9 @@ public final class GetDevEnvironmentResult {
     public String projectName() {
         return this.projectName;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The source repository that contains the branch to clone into the Dev Environment.
      * 
@@ -188,6 +192,7 @@ public final class GetDevEnvironmentResult {
         private String lastUpdatedTime;
         private List<GetDevEnvironmentPersistentStorage> persistentStorages;
         private String projectName;
+        private String region;
         private @Nullable List<GetDevEnvironmentRepository> repositories;
         private String spaceName;
         private String status;
@@ -206,6 +211,7 @@ public final class GetDevEnvironmentResult {
     	      this.lastUpdatedTime = defaults.lastUpdatedTime;
     	      this.persistentStorages = defaults.persistentStorages;
     	      this.projectName = defaults.projectName;
+    	      this.region = defaults.region;
     	      this.repositories = defaults.repositories;
     	      this.spaceName = defaults.spaceName;
     	      this.status = defaults.status;
@@ -296,6 +302,14 @@ public final class GetDevEnvironmentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repositories(@Nullable List<GetDevEnvironmentRepository> repositories) {
 
             this.repositories = repositories;
@@ -348,6 +362,7 @@ public final class GetDevEnvironmentResult {
             _resultValue.lastUpdatedTime = lastUpdatedTime;
             _resultValue.persistentStorages = persistentStorages;
             _resultValue.projectName = projectName;
+            _resultValue.region = region;
             _resultValue.repositories = repositories;
             _resultValue.spaceName = spaceName;
             _resultValue.status = status;

@@ -30,6 +30,13 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
         return this.applicationId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Requested version of the application. By default, retrieves the latest version.
      * 
@@ -49,6 +56,7 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
 
     private GetApplicationPlainArgs(GetApplicationPlainArgs $) {
         this.applicationId = $.applicationId;
+        this.region = $.region;
         this.semanticVersion = $.semanticVersion;
     }
 
@@ -78,6 +86,11 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder applicationId(String applicationId) {
             $.applicationId = applicationId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

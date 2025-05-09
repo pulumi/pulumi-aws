@@ -27,6 +27,7 @@ class LifecycleHookArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_metadata: Optional[pulumi.Input[builtins.str]] = None,
                  notification_target_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LifecycleHook resource.
@@ -37,6 +38,7 @@ class LifecycleHookArgs:
         :param pulumi.Input[builtins.str] name: Name of the lifecycle hook.
         :param pulumi.Input[builtins.str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[builtins.str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
@@ -51,6 +53,8 @@ class LifecycleHookArgs:
             pulumi.set(__self__, "notification_metadata", notification_metadata)
         if notification_target_arn is not None:
             pulumi.set(__self__, "notification_target_arn", notification_target_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -139,6 +143,18 @@ class LifecycleHookArgs:
         pulumi.set(self, "notification_target_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -161,6 +177,7 @@ class _LifecycleHookState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_metadata: Optional[pulumi.Input[builtins.str]] = None,
                  notification_target_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LifecycleHook resources.
@@ -171,6 +188,7 @@ class _LifecycleHookState:
         :param pulumi.Input[builtins.str] name: Name of the lifecycle hook.
         :param pulumi.Input[builtins.str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[builtins.str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
         if autoscaling_group_name is not None:
@@ -187,6 +205,8 @@ class _LifecycleHookState:
             pulumi.set(__self__, "notification_metadata", notification_metadata)
         if notification_target_arn is not None:
             pulumi.set(__self__, "notification_target_arn", notification_target_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -275,6 +295,18 @@ class _LifecycleHookState:
         pulumi.set(self, "notification_target_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -302,6 +334,7 @@ class LifecycleHook(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_metadata: Optional[pulumi.Input[builtins.str]] = None,
                  notification_target_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -366,6 +399,7 @@ class LifecycleHook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the lifecycle hook.
         :param pulumi.Input[builtins.str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[builtins.str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
         ...
@@ -449,6 +483,7 @@ class LifecycleHook(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_metadata: Optional[pulumi.Input[builtins.str]] = None,
                  notification_target_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -470,6 +505,7 @@ class LifecycleHook(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_metadata"] = notification_metadata
             __props__.__dict__["notification_target_arn"] = notification_target_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
         super(LifecycleHook, __self__).__init__(
             'aws:autoscaling/lifecycleHook:LifecycleHook',
@@ -488,6 +524,7 @@ class LifecycleHook(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             notification_metadata: Optional[pulumi.Input[builtins.str]] = None,
             notification_target_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'LifecycleHook':
         """
         Get an existing LifecycleHook resource's state with the given name, id, and optional extra
@@ -503,6 +540,7 @@ class LifecycleHook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the lifecycle hook.
         :param pulumi.Input[builtins.str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[builtins.str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -516,6 +554,7 @@ class LifecycleHook(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_metadata"] = notification_metadata
         __props__.__dict__["notification_target_arn"] = notification_target_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         return LifecycleHook(resource_name, opts=opts, __props__=__props__)
 
@@ -574,6 +613,14 @@ class LifecycleHook(pulumi.CustomResource):
         ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         """
         return pulumi.get(self, "notification_target_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

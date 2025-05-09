@@ -38,6 +38,7 @@ export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, op
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -50,12 +51,12 @@ export interface GetVpcPeeringConnectionsArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetVpcPeeringConnectionsFilter[];
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connections.
      */
     tags?: {[key: string]: string};
 }
@@ -73,6 +74,7 @@ export interface GetVpcPeeringConnectionsResult {
      * IDs of the VPC Peering Connections.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -106,6 +108,7 @@ export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -118,12 +121,12 @@ export interface GetVpcPeeringConnectionsOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connections.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

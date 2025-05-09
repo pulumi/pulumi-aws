@@ -48,6 +48,8 @@ type OrganizationsAccess struct {
 
 	// Whether to enable AWS Organizations access.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewOrganizationsAccess registers a new resource with the given unique name, arguments, and options.
@@ -85,11 +87,15 @@ func GetOrganizationsAccess(ctx *pulumi.Context,
 type organizationsAccessState struct {
 	// Whether to enable AWS Organizations access.
 	Enabled *bool `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type OrganizationsAccessState struct {
 	// Whether to enable AWS Organizations access.
 	Enabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationsAccessState) ElementType() reflect.Type {
@@ -99,12 +105,16 @@ func (OrganizationsAccessState) ElementType() reflect.Type {
 type organizationsAccessArgs struct {
 	// Whether to enable AWS Organizations access.
 	Enabled bool `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a OrganizationsAccess resource.
 type OrganizationsAccessArgs struct {
 	// Whether to enable AWS Organizations access.
 	Enabled pulumi.BoolInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationsAccessArgs) ElementType() reflect.Type {
@@ -197,6 +207,11 @@ func (o OrganizationsAccessOutput) ToOrganizationsAccessOutputWithContext(ctx co
 // Whether to enable AWS Organizations access.
 func (o OrganizationsAccessOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrganizationsAccess) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OrganizationsAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationsAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type OrganizationsAccessArrayOutput struct{ *pulumi.OutputState }

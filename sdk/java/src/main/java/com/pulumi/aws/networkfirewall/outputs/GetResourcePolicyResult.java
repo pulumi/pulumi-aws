@@ -20,6 +20,7 @@ public final class GetResourcePolicyResult {
      * 
      */
     private String policy;
+    private String region;
     private String resourceArn;
 
     private GetResourcePolicyResult() {}
@@ -37,6 +38,9 @@ public final class GetResourcePolicyResult {
     public String policy() {
         return this.policy;
     }
+    public String region() {
+        return this.region;
+    }
     public String resourceArn() {
         return this.resourceArn;
     }
@@ -52,12 +56,14 @@ public final class GetResourcePolicyResult {
     public static final class Builder {
         private String id;
         private String policy;
+        private String region;
         private String resourceArn;
         public Builder() {}
         public Builder(GetResourcePolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.policy = defaults.policy;
+    	      this.region = defaults.region;
     	      this.resourceArn = defaults.resourceArn;
         }
 
@@ -78,6 +84,14 @@ public final class GetResourcePolicyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResourcePolicyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             if (resourceArn == null) {
               throw new MissingRequiredPropertyException("GetResourcePolicyResult", "resourceArn");
@@ -89,6 +103,7 @@ public final class GetResourcePolicyResult {
             final var _resultValue = new GetResourcePolicyResult();
             _resultValue.id = id;
             _resultValue.policy = policy;
+            _resultValue.region = region;
             _resultValue.resourceArn = resourceArn;
             return _resultValue;
         }

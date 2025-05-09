@@ -492,7 +492,7 @@ public final class ServicequotasFunctions {
         return Deployment.getInstance().invokeAsync("aws:servicequotas/getServiceQuota:getServiceQuota", TypeShape.of(GetServiceQuotaResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Service Quotas Templates.
+     * Data source for managing AWS Service Quotas Templates.
      * 
      * ## Example Usage
      * 
@@ -522,7 +522,95 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region("us-east-1")
+     *             .awsRegion("us-east-1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTemplatesResult> getTemplates() {
+        return getTemplates(GetTemplatesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Service Quotas Templates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
+     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .awsRegion("us-east-1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTemplatesResult> getTemplatesPlain() {
+        return getTemplatesPlain(GetTemplatesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Service Quotas Templates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
+     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .awsRegion("us-east-1")
      *             .build());
      * 
      *     }
@@ -536,7 +624,7 @@ public final class ServicequotasFunctions {
         return getTemplates(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS Service Quotas Templates.
+     * Data source for managing AWS Service Quotas Templates.
      * 
      * ## Example Usage
      * 
@@ -566,7 +654,7 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region("us-east-1")
+     *             .awsRegion("us-east-1")
      *             .build());
      * 
      *     }
@@ -580,7 +668,7 @@ public final class ServicequotasFunctions {
         return getTemplatesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS Service Quotas Templates.
+     * Data source for managing AWS Service Quotas Templates.
      * 
      * ## Example Usage
      * 
@@ -610,7 +698,7 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region("us-east-1")
+     *             .awsRegion("us-east-1")
      *             .build());
      * 
      *     }
@@ -624,7 +712,7 @@ public final class ServicequotasFunctions {
         return Deployment.getInstance().invoke("aws:servicequotas/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Service Quotas Templates.
+     * Data source for managing AWS Service Quotas Templates.
      * 
      * ## Example Usage
      * 
@@ -654,7 +742,7 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region("us-east-1")
+     *             .awsRegion("us-east-1")
      *             .build());
      * 
      *     }
@@ -668,7 +756,7 @@ public final class ServicequotasFunctions {
         return Deployment.getInstance().invoke("aws:servicequotas/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Service Quotas Templates.
+     * Data source for managing AWS Service Quotas Templates.
      * 
      * ## Example Usage
      * 
@@ -698,7 +786,7 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region("us-east-1")
+     *             .awsRegion("us-east-1")
      *             .build());
      * 
      *     }

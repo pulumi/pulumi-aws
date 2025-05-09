@@ -129,6 +129,9 @@ namespace Pulumi.Aws.Eks
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetClusterAuthArgs()
         {
         }
@@ -142,6 +145,9 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetClusterAuthInvokeArgs()
         {
@@ -158,6 +164,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Token to use to authenticate with the cluster.
         /// </summary>
@@ -169,10 +176,13 @@ namespace Pulumi.Aws.Eks
 
             string name,
 
+            string region,
+
             string token)
         {
             Id = id;
             Name = name;
+            Region = region;
             Token = token;
         }
     }

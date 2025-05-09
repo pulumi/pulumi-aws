@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.ListenerRule("test", {
+ * const example = new aws.vpclattice.ListenerRule("example", {
  *     name: "example",
  *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
  *     serviceIdentifier: exampleAwsVpclatticeService.id,
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         forward: {
  *             targetGroups: [
  *                 {
- *                     targetGroupIdentifier: example.id,
+ *                     targetGroupIdentifier: exampleAwsVpclatticeTargetGroup.id,
  *                     weight: 1,
  *                 },
  *                 {
@@ -61,9 +61,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.ListenerRule("test", {
+ * const example = new aws.vpclattice.ListenerRule("example", {
  *     name: "example",
- *     listenerIdentifier: example.listenerId,
+ *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
  *     serviceIdentifier: exampleAwsVpclatticeService.id,
  *     priority: 10,
  *     match: {
@@ -122,6 +122,7 @@ export class ListenerRule extends pulumi.CustomResource {
 
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      */
     public readonly action!: pulumi.Output<outputs.vpclattice.ListenerRuleAction>;
     /**
@@ -134,6 +135,7 @@ export class ListenerRule extends pulumi.CustomResource {
     public readonly listenerIdentifier!: pulumi.Output<string>;
     /**
      * The rule match.
+     * See `match` Block
      */
     public readonly match!: pulumi.Output<outputs.vpclattice.ListenerRuleMatch>;
     /**
@@ -146,6 +148,10 @@ export class ListenerRule extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly priority!: pulumi.Output<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * Unique identifier for the listener rule.
      */
@@ -182,6 +188,7 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["match"] = state ? state.match : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleId"] = state ? state.ruleId : undefined;
             resourceInputs["serviceIdentifier"] = state ? state.serviceIdentifier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -208,6 +215,7 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["match"] = args ? args.match : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -225,6 +233,7 @@ export class ListenerRule extends pulumi.CustomResource {
 export interface ListenerRuleState {
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      */
     action?: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
@@ -237,6 +246,7 @@ export interface ListenerRuleState {
     listenerIdentifier?: pulumi.Input<string>;
     /**
      * The rule match.
+     * See `match` Block
      */
     match?: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
     /**
@@ -249,6 +259,10 @@ export interface ListenerRuleState {
      * The following arguments are optional:
      */
     priority?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique identifier for the listener rule.
      */
@@ -273,6 +287,7 @@ export interface ListenerRuleState {
 export interface ListenerRuleArgs {
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      */
     action: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
@@ -281,6 +296,7 @@ export interface ListenerRuleArgs {
     listenerIdentifier: pulumi.Input<string>;
     /**
      * The rule match.
+     * See `match` Block
      */
     match: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
     /**
@@ -293,6 +309,10 @@ export interface ListenerRuleArgs {
      * The following arguments are optional:
      */
     priority: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */

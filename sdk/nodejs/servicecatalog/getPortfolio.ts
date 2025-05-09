@@ -23,6 +23,7 @@ export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions
     return pulumi.runtime.invoke("aws:servicecatalog/getPortfolio:getPortfolio", {
         "acceptLanguage": args.acceptLanguage,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -41,6 +42,7 @@ export interface GetPortfolioArgs {
      * The following arguments are optional:
      */
     id: string;
+    region?: string;
     /**
      * Tags applied to the portfolio.
      */
@@ -73,6 +75,7 @@ export interface GetPortfolioResult {
      * Name of the person or organization who owns the portfolio.
      */
     readonly providerName: string;
+    readonly region: string;
     /**
      * Tags applied to the portfolio.
      */
@@ -97,6 +100,7 @@ export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.I
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getPortfolio:getPortfolio", {
         "acceptLanguage": args.acceptLanguage,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -115,6 +119,7 @@ export interface GetPortfolioOutputArgs {
      * The following arguments are optional:
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Tags applied to the portfolio.
      */

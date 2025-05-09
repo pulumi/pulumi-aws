@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Kendra
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -181,6 +187,7 @@ namespace Pulumi.Aws.Kendra
         /// Name of the index field. Minimum length of 1. Maximum length of 30.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         /// </summary>
@@ -236,6 +243,8 @@ namespace Pulumi.Aws.Kendra
 
             string name,
 
+            string region,
+
             string roleArn,
 
             ImmutableArray<Outputs.GetIndexServerSideEncryptionConfigurationResult> serverSideEncryptionConfigurations,
@@ -262,6 +271,7 @@ namespace Pulumi.Aws.Kendra
             Id = id;
             IndexStatistics = indexStatistics;
             Name = name;
+            Region = region;
             RoleArn = roleArn;
             ServerSideEncryptionConfigurations = serverSideEncryptionConfigurations;
             Status = status;

@@ -19,6 +19,7 @@ public final class GetRouteTableRoutesResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return List of Transit Gateway Routes.
      * 
@@ -36,6 +37,9 @@ public final class GetRouteTableRoutesResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return List of Transit Gateway Routes.
@@ -59,6 +63,7 @@ public final class GetRouteTableRoutesResult {
     public static final class Builder {
         private List<GetRouteTableRoutesFilter> filters;
         private String id;
+        private String region;
         private List<GetRouteTableRoutesRoute> routes;
         private String transitGatewayRouteTableId;
         public Builder() {}
@@ -66,6 +71,7 @@ public final class GetRouteTableRoutesResult {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.routes = defaults.routes;
     	      this.transitGatewayRouteTableId = defaults.transitGatewayRouteTableId;
         }
@@ -87,6 +93,14 @@ public final class GetRouteTableRoutesResult {
               throw new MissingRequiredPropertyException("GetRouteTableRoutesResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -112,6 +126,7 @@ public final class GetRouteTableRoutesResult {
             final var _resultValue = new GetRouteTableRoutesResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.routes = routes;
             _resultValue.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return _resultValue;

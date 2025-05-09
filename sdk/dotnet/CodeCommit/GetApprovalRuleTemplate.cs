@@ -93,6 +93,9 @@ namespace Pulumi.Aws.CodeCommit
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetApprovalRuleTemplateArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetApprovalRuleTemplateInvokeArgs()
         {
@@ -146,6 +152,7 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         public readonly string LastModifiedUser;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// SHA-256 hash signature for the content of the approval rule template.
         /// </summary>
@@ -169,6 +176,8 @@ namespace Pulumi.Aws.CodeCommit
 
             string name,
 
+            string region,
+
             string ruleContentSha256)
         {
             ApprovalRuleTemplateId = approvalRuleTemplateId;
@@ -179,6 +188,7 @@ namespace Pulumi.Aws.CodeCommit
             LastModifiedDate = lastModifiedDate;
             LastModifiedUser = lastModifiedUser;
             Name = name;
+            Region = region;
             RuleContentSha256 = ruleContentSha256;
         }
     }

@@ -50,6 +50,7 @@ export function getVpcIpamPool(args?: GetVpcIpamPoolArgs, opts?: pulumi.InvokeOp
         "filters": args.filters,
         "id": args.id,
         "ipamPoolId": args.ipamPoolId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -74,6 +75,7 @@ export interface GetVpcIpamPoolArgs {
      * ID of the IPAM pool you would like information on.
      */
     ipamPoolId?: string;
+    region?: string;
     /**
      * Map of tags to assigned to the resource.
      */
@@ -140,6 +142,7 @@ export interface GetVpcIpamPoolResult {
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
      */
     readonly publiclyAdvertisable: boolean;
+    readonly region: string;
     /**
      * ID of the source IPAM pool.
      */
@@ -193,6 +196,7 @@ export function getVpcIpamPoolOutput(args?: GetVpcIpamPoolOutputArgs, opts?: pul
         "filters": args.filters,
         "id": args.id,
         "ipamPoolId": args.ipamPoolId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -217,6 +221,7 @@ export interface GetVpcIpamPoolOutputArgs {
      * ID of the IPAM pool you would like information on.
      */
     ipamPoolId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assigned to the resource.
      */

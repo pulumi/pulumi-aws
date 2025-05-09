@@ -63,7 +63,8 @@ type GetEnvironmentBlueprintArgs struct {
 	// Whether the blueprint is managed by Amazon DataZone.
 	Managed bool `pulumi:"managed"`
 	// Name of the blueprint.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEnvironmentBlueprint.
@@ -77,6 +78,7 @@ type GetEnvironmentBlueprintResult struct {
 	Id      string `pulumi:"id"`
 	Managed bool   `pulumi:"managed"`
 	Name    string `pulumi:"name"`
+	Region  string `pulumi:"region"`
 }
 
 func GetEnvironmentBlueprintOutput(ctx *pulumi.Context, args GetEnvironmentBlueprintOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentBlueprintResultOutput {
@@ -95,7 +97,8 @@ type GetEnvironmentBlueprintOutputArgs struct {
 	// Whether the blueprint is managed by Amazon DataZone.
 	Managed pulumi.BoolInput `pulumi:"managed"`
 	// Name of the blueprint.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEnvironmentBlueprintOutputArgs) ElementType() reflect.Type {
@@ -142,6 +145,10 @@ func (o GetEnvironmentBlueprintResultOutput) Managed() pulumi.BoolOutput {
 
 func (o GetEnvironmentBlueprintResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBlueprintResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetEnvironmentBlueprintResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentBlueprintResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

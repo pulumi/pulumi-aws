@@ -83,6 +83,8 @@ type PreparedStatement struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The query string for the prepared statement.
 	QueryStatement pulumi.StringOutput `pulumi:"queryStatement"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup pulumi.StringOutput `pulumi:"workgroup"`
 }
@@ -129,6 +131,8 @@ type preparedStatementState struct {
 	Name *string `pulumi:"name"`
 	// The query string for the prepared statement.
 	QueryStatement *string `pulumi:"queryStatement"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup *string `pulumi:"workgroup"`
 }
@@ -140,6 +144,8 @@ type PreparedStatementState struct {
 	Name pulumi.StringPtrInput
 	// The query string for the prepared statement.
 	QueryStatement pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup pulumi.StringPtrInput
 }
@@ -155,6 +161,8 @@ type preparedStatementArgs struct {
 	Name *string `pulumi:"name"`
 	// The query string for the prepared statement.
 	QueryStatement string `pulumi:"queryStatement"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup string `pulumi:"workgroup"`
 }
@@ -167,6 +175,8 @@ type PreparedStatementArgs struct {
 	Name pulumi.StringPtrInput
 	// The query string for the prepared statement.
 	QueryStatement pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup pulumi.StringInput
 }
@@ -271,6 +281,11 @@ func (o PreparedStatementOutput) Name() pulumi.StringOutput {
 // The query string for the prepared statement.
 func (o PreparedStatementOutput) QueryStatement() pulumi.StringOutput {
 	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.QueryStatement }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PreparedStatementOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the workgroup to which the prepared statement belongs.

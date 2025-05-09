@@ -65,6 +65,12 @@ namespace Pulumi.Aws.RedShift
         public Output<int> ManualSnapshotRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         /// </summary>
         [Output("retentionPeriod")]
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? ManualSnapshotRetentionPeriod { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         /// </summary>
         [Input("retentionPeriod")]
@@ -181,6 +193,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("manualSnapshotRetentionPeriod")]
         public Input<int>? ManualSnapshotRetentionPeriod { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.

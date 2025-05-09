@@ -349,6 +349,10 @@ export class Launch extends pulumi.CustomResource {
      */
     public readonly randomizationSalt!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
     public readonly scheduledSplitsConfig!: pulumi.Output<outputs.evidently.LaunchScheduledSplitsConfig | undefined>;
@@ -396,6 +400,7 @@ export class Launch extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["project"] = state ? state.project : undefined;
             resourceInputs["randomizationSalt"] = state ? state.randomizationSalt : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduledSplitsConfig"] = state ? state.scheduledSplitsConfig : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusReason"] = state ? state.statusReason : undefined;
@@ -416,6 +421,7 @@ export class Launch extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduledSplitsConfig"] = args ? args.scheduledSplitsConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -477,6 +483,10 @@ export interface LaunchState {
      */
     randomizationSalt?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
     scheduledSplitsConfig?: pulumi.Input<inputs.evidently.LaunchScheduledSplitsConfig>;
@@ -530,6 +540,10 @@ export interface LaunchArgs {
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
      */
     randomizationSalt?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */

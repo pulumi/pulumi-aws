@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()
  *             .accountId("123456789012")
- *             .region("us-east-1")
+ *             .stackSetInstanceRegion("us-east-1")
  *             .stackSetName(exampleAwsCloudformationStackSet.name())
  *             .build());
  * 
@@ -166,7 +166,7 @@ import javax.annotation.Nullable;
  *             .deploymentTargets(StackSetInstanceDeploymentTargetsArgs.builder()
  *                 .organizationalUnitIds(exampleAwsOrganizationsOrganization.roots()[0].id())
  *                 .build())
- *             .region("us-east-1")
+ *             .stackSetInstanceRegion("us-east-1")
  *             .stackSetName(exampleAwsCloudformationStackSet.name())
  *             .build());
  * 
@@ -286,14 +286,18 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameterOverrides);
     }
     /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use stack_set_instance_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
      * 
      */
     public Output<String> region() {
@@ -340,6 +344,20 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<List<StackSetInstanceStackInstanceSummary>> stackInstanceSummaries() {
         return this.stackInstanceSummaries;
+    }
+    /**
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * 
+     */
+    @Export(name="stackSetInstanceRegion", refs={String.class}, tree="[0]")
+    private Output<String> stackSetInstanceRegion;
+
+    /**
+     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * 
+     */
+    public Output<String> stackSetInstanceRegion() {
+        return this.stackSetInstanceRegion;
     }
     /**
      * Name of the StackSet.

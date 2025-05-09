@@ -121,6 +121,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly passwords!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -155,6 +159,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["noPasswordRequired"] = state ? state.noPasswordRequired : undefined;
             resourceInputs["passwords"] = state ? state.passwords : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["userId"] = state ? state.userId : undefined;
@@ -178,6 +183,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
             resourceInputs["passwords"] = args?.passwords ? pulumi.secret(args.passwords) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
@@ -220,6 +226,10 @@ export interface UserState {
      */
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -260,6 +270,10 @@ export interface UserArgs {
      * Passwords used for this user. You can create up to two passwords for each user.
      */
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */

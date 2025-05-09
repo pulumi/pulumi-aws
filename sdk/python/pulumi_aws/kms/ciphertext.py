@@ -22,17 +22,21 @@ class CiphertextArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[builtins.str],
                  plaintext: pulumi.Input[builtins.str],
-                 context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Ciphertext resource.
         :param pulumi.Input[builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] context: An optional mapping that makes up the encryption context.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "plaintext", plaintext)
         if context is not None:
             pulumi.set(__self__, "context", context)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="keyId")
@@ -70,6 +74,18 @@ class CiphertextArgs:
     def context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "context", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _CiphertextState:
@@ -77,13 +93,15 @@ class _CiphertextState:
                  ciphertext_blob: Optional[pulumi.Input[builtins.str]] = None,
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
-                 plaintext: Optional[pulumi.Input[builtins.str]] = None):
+                 plaintext: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ciphertext resources.
         :param pulumi.Input[builtins.str] ciphertext_blob: Base64 encoded ciphertext
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if ciphertext_blob is not None:
             pulumi.set(__self__, "ciphertext_blob", ciphertext_blob)
@@ -93,6 +111,8 @@ class _CiphertextState:
             pulumi.set(__self__, "key_id", key_id)
         if plaintext is not None:
             pulumi.set(__self__, "plaintext", plaintext)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="ciphertextBlob")
@@ -142,6 +162,18 @@ class _CiphertextState:
     def plaintext(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "plaintext", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class Ciphertext(pulumi.CustomResource):
 
@@ -154,6 +186,7 @@ class Ciphertext(pulumi.CustomResource):
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
                  plaintext: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
@@ -184,6 +217,7 @@ class Ciphertext(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -233,6 +267,7 @@ class Ciphertext(pulumi.CustomResource):
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
                  plaintext: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,6 +284,7 @@ class Ciphertext(pulumi.CustomResource):
             if plaintext is None and not opts.urn:
                 raise TypeError("Missing required property 'plaintext'")
             __props__.__dict__["plaintext"] = None if plaintext is None else pulumi.Output.secret(plaintext)
+            __props__.__dict__["region"] = region
             __props__.__dict__["ciphertext_blob"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["plaintext"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -265,7 +301,8 @@ class Ciphertext(pulumi.CustomResource):
             ciphertext_blob: Optional[pulumi.Input[builtins.str]] = None,
             context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             key_id: Optional[pulumi.Input[builtins.str]] = None,
-            plaintext: Optional[pulumi.Input[builtins.str]] = None) -> 'Ciphertext':
+            plaintext: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Ciphertext':
         """
         Get an existing Ciphertext resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -277,6 +314,7 @@ class Ciphertext(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -286,6 +324,7 @@ class Ciphertext(pulumi.CustomResource):
         __props__.__dict__["context"] = context
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["plaintext"] = plaintext
+        __props__.__dict__["region"] = region
         return Ciphertext(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -319,4 +358,12 @@ class Ciphertext(pulumi.CustomResource):
         Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         """
         return pulumi.get(self, "plaintext")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

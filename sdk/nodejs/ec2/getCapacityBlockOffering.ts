@@ -29,6 +29,7 @@ export function getCapacityBlockOffering(args: GetCapacityBlockOfferingArgs, opt
         "endDateRange": args.endDateRange,
         "instanceCount": args.instanceCount,
         "instanceType": args.instanceType,
+        "region": args.region,
         "startDateRange": args.startDateRange,
     }, opts);
 }
@@ -53,6 +54,7 @@ export interface GetCapacityBlockOfferingArgs {
      * The instance type for which to reserve capacity.
      */
     instanceType: string;
+    region?: string;
     /**
      * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
@@ -83,6 +85,7 @@ export interface GetCapacityBlockOfferingResult {
     readonly id: string;
     readonly instanceCount: number;
     readonly instanceType: string;
+    readonly region: string;
     readonly startDateRange: string;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -118,6 +121,7 @@ export function getCapacityBlockOfferingOutput(args: GetCapacityBlockOfferingOut
         "endDateRange": args.endDateRange,
         "instanceCount": args.instanceCount,
         "instanceType": args.instanceType,
+        "region": args.region,
         "startDateRange": args.startDateRange,
     }, opts);
 }
@@ -142,6 +146,7 @@ export interface GetCapacityBlockOfferingOutputArgs {
      * The instance type for which to reserve capacity.
      */
     instanceType: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */

@@ -228,6 +228,10 @@ export class ObjectCopy extends pulumi.CustomResource {
     public readonly objectLockRetainUntilDate!: pulumi.Output<string>;
     public readonly overrideProvider!: pulumi.Output<outputs.s3.ObjectCopyOverrideProvider | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * If present, indicates that the requester was successfully charged for the request.
      */
     public /*out*/ readonly requestCharged!: pulumi.Output<boolean>;
@@ -338,6 +342,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
             resourceInputs["overrideProvider"] = state ? state.overrideProvider : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestCharged"] = state ? state.requestCharged : undefined;
             resourceInputs["requestPayer"] = state ? state.requestPayer : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
@@ -393,6 +398,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
             resourceInputs["overrideProvider"] = args ? args.overrideProvider : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -579,6 +585,10 @@ export interface ObjectCopyState {
     objectLockRetainUntilDate?: pulumi.Input<string>;
     overrideProvider?: pulumi.Input<inputs.s3.ObjectCopyOverrideProvider>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * If present, indicates that the requester was successfully charged for the request.
      */
     requestCharged?: pulumi.Input<boolean>;
@@ -756,6 +766,10 @@ export interface ObjectCopyArgs {
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
     overrideProvider?: pulumi.Input<inputs.s3.ObjectCopyOverrideProvider>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      */

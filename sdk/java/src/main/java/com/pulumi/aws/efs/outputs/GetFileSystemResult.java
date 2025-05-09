@@ -80,6 +80,7 @@ public final class GetFileSystemResult {
      * 
      */
     private Double provisionedThroughputInMibps;
+    private String region;
     /**
      * @return Current byte count used by the file system.
      * 
@@ -190,6 +191,9 @@ public final class GetFileSystemResult {
     public Double provisionedThroughputInMibps() {
         return this.provisionedThroughputInMibps;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Current byte count used by the file system.
      * 
@@ -236,6 +240,7 @@ public final class GetFileSystemResult {
         private String performanceMode;
         private List<GetFileSystemProtection> protections;
         private Double provisionedThroughputInMibps;
+        private String region;
         private Integer sizeInBytes;
         private Map<String,String> tags;
         private String throughputMode;
@@ -257,6 +262,7 @@ public final class GetFileSystemResult {
     	      this.performanceMode = defaults.performanceMode;
     	      this.protections = defaults.protections;
     	      this.provisionedThroughputInMibps = defaults.provisionedThroughputInMibps;
+    	      this.region = defaults.region;
     	      this.sizeInBytes = defaults.sizeInBytes;
     	      this.tags = defaults.tags;
     	      this.throughputMode = defaults.throughputMode;
@@ -392,6 +398,14 @@ public final class GetFileSystemResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sizeInBytes(Integer sizeInBytes) {
             if (sizeInBytes == null) {
               throw new MissingRequiredPropertyException("GetFileSystemResult", "sizeInBytes");
@@ -432,6 +446,7 @@ public final class GetFileSystemResult {
             _resultValue.performanceMode = performanceMode;
             _resultValue.protections = protections;
             _resultValue.provisionedThroughputInMibps = provisionedThroughputInMibps;
+            _resultValue.region = region;
             _resultValue.sizeInBytes = sizeInBytes;
             _resultValue.tags = tags;
             _resultValue.throughputMode = throughputMode;

@@ -31,6 +31,13 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.directoryId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Tags for the WorkSpace.
      * 
@@ -80,6 +87,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetWorkspaceArgs(GetWorkspaceArgs $) {
         this.directoryId = $.directoryId;
+        this.region = $.region;
         this.tags = $.tags;
         this.userName = $.userName;
         this.workspaceId = $.workspaceId;
@@ -122,6 +130,15 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder directoryId(String directoryId) {
             return directoryId(Output.of(directoryId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

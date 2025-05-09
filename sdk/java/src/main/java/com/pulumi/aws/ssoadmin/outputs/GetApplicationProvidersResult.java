@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationProvidersResult {
@@ -17,12 +16,13 @@ public final class GetApplicationProvidersResult {
      * @return A list of application providers available in the current region. See `application_providers` below.
      * 
      */
-    private @Nullable List<GetApplicationProvidersApplicationProvider> applicationProviders;
+    private List<GetApplicationProvidersApplicationProvider> applicationProviders;
     /**
      * @return AWS region.
      * 
      */
     private String id;
+    private String region;
 
     private GetApplicationProvidersResult() {}
     /**
@@ -30,7 +30,7 @@ public final class GetApplicationProvidersResult {
      * 
      */
     public List<GetApplicationProvidersApplicationProvider> applicationProviders() {
-        return this.applicationProviders == null ? List.of() : this.applicationProviders;
+        return this.applicationProviders;
     }
     /**
      * @return AWS region.
@@ -38,6 +38,9 @@ public final class GetApplicationProvidersResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -49,18 +52,22 @@ public final class GetApplicationProvidersResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<GetApplicationProvidersApplicationProvider> applicationProviders;
+        private List<GetApplicationProvidersApplicationProvider> applicationProviders;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetApplicationProvidersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationProviders = defaults.applicationProviders;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
-        public Builder applicationProviders(@Nullable List<GetApplicationProvidersApplicationProvider> applicationProviders) {
-
+        public Builder applicationProviders(List<GetApplicationProvidersApplicationProvider> applicationProviders) {
+            if (applicationProviders == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersResult", "applicationProviders");
+            }
             this.applicationProviders = applicationProviders;
             return this;
         }
@@ -75,10 +82,19 @@ public final class GetApplicationProvidersResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetApplicationProvidersResult build() {
             final var _resultValue = new GetApplicationProvidersResult();
             _resultValue.applicationProviders = applicationProviders;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

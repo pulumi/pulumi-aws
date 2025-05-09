@@ -55,6 +55,7 @@ public final class GetBotAliasResult {
      * 
      */
     private String name;
+    private String region;
 
     private GetBotAliasResult() {}
     /**
@@ -120,6 +121,9 @@ public final class GetBotAliasResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -139,6 +143,7 @@ public final class GetBotAliasResult {
         private String id;
         private String lastUpdatedDate;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetBotAliasResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -151,6 +156,7 @@ public final class GetBotAliasResult {
     	      this.id = defaults.id;
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -225,6 +231,14 @@ public final class GetBotAliasResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBotAliasResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetBotAliasResult build() {
             final var _resultValue = new GetBotAliasResult();
             _resultValue.arn = arn;
@@ -236,6 +250,7 @@ public final class GetBotAliasResult {
             _resultValue.id = id;
             _resultValue.lastUpdatedDate = lastUpdatedDate;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

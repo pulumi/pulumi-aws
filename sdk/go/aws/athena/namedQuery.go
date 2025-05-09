@@ -101,6 +101,8 @@ type NamedQuery struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query pulumi.StringOutput `pulumi:"query"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup pulumi.StringPtrOutput `pulumi:"workgroup"`
 }
@@ -149,6 +151,8 @@ type namedQueryState struct {
 	Name *string `pulumi:"name"`
 	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query *string `pulumi:"query"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup *string `pulumi:"workgroup"`
 }
@@ -162,6 +166,8 @@ type NamedQueryState struct {
 	Name pulumi.StringPtrInput
 	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup pulumi.StringPtrInput
 }
@@ -179,6 +185,8 @@ type namedQueryArgs struct {
 	Name *string `pulumi:"name"`
 	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query string `pulumi:"query"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup *string `pulumi:"workgroup"`
 }
@@ -193,6 +201,8 @@ type NamedQueryArgs struct {
 	Name pulumi.StringPtrInput
 	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup pulumi.StringPtrInput
 }
@@ -302,6 +312,11 @@ func (o NamedQueryOutput) Name() pulumi.StringOutput {
 // Text of the query itself. In other words, all query statements. Maximum length of 262144.
 func (o NamedQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NamedQueryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Workgroup to which the query belongs. Defaults to `primary`

@@ -89,6 +89,7 @@ func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.In
 type GetInstancesArgs struct {
 	// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
 	Filters []GetInstancesFilter `pulumi:"filters"`
+	Region  *string              `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired instances.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -102,6 +103,7 @@ type GetInstancesResult struct {
 	InstanceArns []string `pulumi:"instanceArns"`
 	// Identifiers of the matched RDS instances.
 	InstanceIdentifiers []string          `pulumi:"instanceIdentifiers"`
+	Region              string            `pulumi:"region"`
 	Tags                map[string]string `pulumi:"tags"`
 }
 
@@ -118,6 +120,7 @@ func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts .
 type GetInstancesOutputArgs struct {
 	// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput        `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired instances.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -158,6 +161,10 @@ func (o GetInstancesResultOutput) InstanceArns() pulumi.StringArrayOutput {
 // Identifiers of the matched RDS instances.
 func (o GetInstancesResultOutput) InstanceIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.InstanceIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstancesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstancesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetInstancesResultOutput) Tags() pulumi.StringMapOutput {

@@ -114,6 +114,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -158,6 +161,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -196,6 +202,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Attachment.
         /// </summary>
@@ -212,6 +219,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string id,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string? transitGatewayId)
@@ -220,6 +229,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             DxGatewayId = dxGatewayId;
             Filters = filters;
             Id = id;
+            Region = region;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
         }

@@ -28,6 +28,7 @@ class TableExportArgs:
                  export_time: Optional[pulumi.Input[builtins.str]] = None,
                  export_type: Optional[pulumi.Input[builtins.str]] = None,
                  incremental_export_specification: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  s3_sse_algorithm: Optional[pulumi.Input[builtins.str]] = None,
@@ -42,6 +43,7 @@ class TableExportArgs:
         :param pulumi.Input[builtins.str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         :param pulumi.Input[builtins.str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
                `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[builtins.str] s3_sse_algorithm: Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
@@ -57,6 +59,8 @@ class TableExportArgs:
             pulumi.set(__self__, "export_type", export_type)
         if incremental_export_specification is not None:
             pulumi.set(__self__, "incremental_export_specification", incremental_export_specification)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_bucket_owner is not None:
             pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
         if s3_prefix is not None:
@@ -139,6 +143,18 @@ class TableExportArgs:
         pulumi.set(self, "incremental_export_specification", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3BucketOwner")
     def s3_bucket_owner(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -200,6 +216,7 @@ class _TableExportState:
                  incremental_export_specification: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']] = None,
                  item_count: Optional[pulumi.Input[builtins.int]] = None,
                  manifest_files_s3_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
@@ -219,6 +236,7 @@ class _TableExportState:
                `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         :param pulumi.Input[builtins.int] item_count: Number of items exported.
         :param pulumi.Input[builtins.str] manifest_files_s3_key: Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         :param pulumi.Input[builtins.str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -249,6 +267,8 @@ class _TableExportState:
             pulumi.set(__self__, "item_count", item_count)
         if manifest_files_s3_key is not None:
             pulumi.set(__self__, "manifest_files_s3_key", manifest_files_s3_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_bucket_owner is not None:
@@ -383,6 +403,18 @@ class _TableExportState:
         pulumi.set(self, "manifest_files_s3_key", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -481,6 +513,7 @@ class TableExport(pulumi.CustomResource):
                  export_time: Optional[pulumi.Input[builtins.str]] = None,
                  export_type: Optional[pulumi.Input[builtins.str]] = None,
                  incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
@@ -558,6 +591,7 @@ class TableExport(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         :param pulumi.Input[builtins.str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
                `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         :param pulumi.Input[builtins.str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -656,6 +690,7 @@ class TableExport(pulumi.CustomResource):
                  export_time: Optional[pulumi.Input[builtins.str]] = None,
                  export_type: Optional[pulumi.Input[builtins.str]] = None,
                  incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
@@ -675,6 +710,7 @@ class TableExport(pulumi.CustomResource):
             __props__.__dict__["export_time"] = export_time
             __props__.__dict__["export_type"] = export_type
             __props__.__dict__["incremental_export_specification"] = incremental_export_specification
+            __props__.__dict__["region"] = region
             if s3_bucket is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket'")
             __props__.__dict__["s3_bucket"] = s3_bucket
@@ -712,6 +748,7 @@ class TableExport(pulumi.CustomResource):
             incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
             item_count: Optional[pulumi.Input[builtins.int]] = None,
             manifest_files_s3_key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
             s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
@@ -736,6 +773,7 @@ class TableExport(pulumi.CustomResource):
                `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         :param pulumi.Input[builtins.int] item_count: Number of items exported.
         :param pulumi.Input[builtins.str] manifest_files_s3_key: Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         :param pulumi.Input[builtins.str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -760,6 +798,7 @@ class TableExport(pulumi.CustomResource):
         __props__.__dict__["incremental_export_specification"] = incremental_export_specification
         __props__.__dict__["item_count"] = item_count
         __props__.__dict__["manifest_files_s3_key"] = manifest_files_s3_key
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_bucket"] = s3_bucket
         __props__.__dict__["s3_bucket_owner"] = s3_bucket_owner
         __props__.__dict__["s3_prefix"] = s3_prefix
@@ -846,6 +885,14 @@ class TableExport(pulumi.CustomResource):
         Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
         """
         return pulumi.get(self, "manifest_files_s3_key")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="s3Bucket")

@@ -25,6 +25,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
         "imageDigest": args.imageDigest,
         "imageTag": args.imageTag,
         "mostRecent": args.mostRecent,
+        "region": args.region,
         "registryId": args.registryId,
         "repositoryName": args.repositoryName,
     }, opts);
@@ -46,6 +47,7 @@ export interface GetImageArgs {
      * Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
      */
     mostRecent?: boolean;
+    region?: string;
     /**
      * ID of the Registry where the repository resides.
      */
@@ -83,6 +85,7 @@ export interface GetImageResult {
      */
     readonly imageUri: string;
     readonly mostRecent?: boolean;
+    readonly region: string;
     readonly registryId: string;
     readonly repositoryName: string;
 }
@@ -107,6 +110,7 @@ export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOut
         "imageDigest": args.imageDigest,
         "imageTag": args.imageTag,
         "mostRecent": args.mostRecent,
+        "region": args.region,
         "registryId": args.registryId,
         "repositoryName": args.repositoryName,
     }, opts);
@@ -128,6 +132,7 @@ export interface GetImageOutputArgs {
      * Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
      */
     mostRecent?: pulumi.Input<boolean>;
+    region?: pulumi.Input<string>;
     /**
      * ID of the Registry where the repository resides.
      */

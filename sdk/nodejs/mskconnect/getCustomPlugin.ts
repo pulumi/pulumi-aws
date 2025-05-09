@@ -22,6 +22,7 @@ export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetCustomPluginArgs {
      * Name of the custom plugin.
      */
     name: string;
+    region?: string;
     /**
      * A map of tags assigned to the resource.
      */
@@ -61,6 +63,7 @@ export interface GetCustomPluginResult {
      */
     readonly latestRevision: number;
     readonly name: string;
+    readonly region: string;
     /**
      * the state of the custom plugin.
      */
@@ -88,6 +91,7 @@ export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -100,6 +104,7 @@ export interface GetCustomPluginOutputArgs {
      * Name of the custom plugin.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the resource.
      */

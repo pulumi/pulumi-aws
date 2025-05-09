@@ -45,6 +45,13 @@ public final class GetBrokerPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.brokerName);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -57,6 +64,7 @@ public final class GetBrokerPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetBrokerPlainArgs(GetBrokerPlainArgs $) {
         this.brokerId = $.brokerId;
         this.brokerName = $.brokerName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -97,6 +105,11 @@ public final class GetBrokerPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder brokerName(@Nullable String brokerName) {
             $.brokerName = brokerName;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -28,6 +28,7 @@ class UserDefinedFunctionArgs:
                  owner_type: pulumi.Input[builtins.str],
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         The set of arguments for constructing a UserDefinedFunction resource.
@@ -37,6 +38,7 @@ class UserDefinedFunctionArgs:
         :param pulumi.Input[builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[builtins.str] name: The name of the function.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         pulumi.set(__self__, "class_name", class_name)
@@ -47,6 +49,8 @@ class UserDefinedFunctionArgs:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_uris is not None:
             pulumi.set(__self__, "resource_uris", resource_uris)
 
@@ -123,6 +127,18 @@ class UserDefinedFunctionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceUris")
     def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
         """
@@ -146,6 +162,7 @@ class _UserDefinedFunctionState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         Input properties used for looking up and filtering UserDefinedFunction resources.
@@ -157,6 +174,7 @@ class _UserDefinedFunctionState:
         :param pulumi.Input[builtins.str] name: The name of the function.
         :param pulumi.Input[builtins.str] owner_name: The owner of the function.
         :param pulumi.Input[builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         if arn is not None:
@@ -175,6 +193,8 @@ class _UserDefinedFunctionState:
             pulumi.set(__self__, "owner_name", owner_name)
         if owner_type is not None:
             pulumi.set(__self__, "owner_type", owner_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_uris is not None:
             pulumi.set(__self__, "resource_uris", resource_uris)
 
@@ -275,6 +295,18 @@ class _UserDefinedFunctionState:
         pulumi.set(self, "owner_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceUris")
     def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
         """
@@ -301,6 +333,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -342,6 +375,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the function.
         :param pulumi.Input[builtins.str] owner_name: The owner of the function.
         :param pulumi.Input[builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         ...
@@ -402,6 +436,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -426,6 +461,7 @@ class UserDefinedFunction(pulumi.CustomResource):
             if owner_type is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_type'")
             __props__.__dict__["owner_type"] = owner_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_uris"] = resource_uris
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
@@ -447,6 +483,7 @@ class UserDefinedFunction(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner_name: Optional[pulumi.Input[builtins.str]] = None,
             owner_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None) -> 'UserDefinedFunction':
         """
         Get an existing UserDefinedFunction resource's state with the given name, id, and optional extra
@@ -463,6 +500,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the function.
         :param pulumi.Input[builtins.str] owner_name: The owner of the function.
         :param pulumi.Input[builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -477,6 +515,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_name"] = owner_name
         __props__.__dict__["owner_type"] = owner_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_uris"] = resource_uris
         return UserDefinedFunction(resource_name, opts=opts, __props__=__props__)
 
@@ -543,6 +582,14 @@ class UserDefinedFunction(pulumi.CustomResource):
         The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         """
         return pulumi.get(self, "owner_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceUris")

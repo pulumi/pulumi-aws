@@ -228,6 +228,8 @@ type MulticastDomain struct {
 	Igmpv2Support pulumi.StringPtrOutput `pulumi:"igmpv2Support"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport pulumi.StringPtrOutput `pulumi:"staticSourcesSupport"`
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -279,6 +281,8 @@ type multicastDomainState struct {
 	Igmpv2Support *string `pulumi:"igmpv2Support"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport *string `pulumi:"staticSourcesSupport"`
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -298,6 +302,8 @@ type MulticastDomainState struct {
 	Igmpv2Support pulumi.StringPtrInput
 	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -317,6 +323,8 @@ type multicastDomainArgs struct {
 	AutoAcceptSharedAssociations *string `pulumi:"autoAcceptSharedAssociations"`
 	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	Igmpv2Support *string `pulumi:"igmpv2Support"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport *string `pulumi:"staticSourcesSupport"`
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -331,6 +339,8 @@ type MulticastDomainArgs struct {
 	AutoAcceptSharedAssociations pulumi.StringPtrInput
 	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	Igmpv2Support pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -444,6 +454,11 @@ func (o MulticastDomainOutput) Igmpv2Support() pulumi.StringPtrOutput {
 // Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
 func (o MulticastDomainOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MulticastDomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.

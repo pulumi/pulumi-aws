@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResolverFirewallDomainListArgs extends com.pulumi.resources.InvokeArgs {
@@ -17,8 +19,6 @@ public final class GetResolverFirewallDomainListArgs extends com.pulumi.resource
     /**
      * The ID of the domain list.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     @Import(name="firewallDomainListId", required=true)
     private Output<String> firewallDomainListId;
@@ -26,17 +26,23 @@ public final class GetResolverFirewallDomainListArgs extends com.pulumi.resource
     /**
      * @return The ID of the domain list.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     public Output<String> firewallDomainListId() {
         return this.firewallDomainListId;
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetResolverFirewallDomainListArgs() {}
 
     private GetResolverFirewallDomainListArgs(GetResolverFirewallDomainListArgs $) {
         this.firewallDomainListId = $.firewallDomainListId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -60,8 +66,6 @@ public final class GetResolverFirewallDomainListArgs extends com.pulumi.resource
         /**
          * @param firewallDomainListId The ID of the domain list.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
@@ -73,13 +77,20 @@ public final class GetResolverFirewallDomainListArgs extends com.pulumi.resource
         /**
          * @param firewallDomainListId The ID of the domain list.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
         public Builder firewallDomainListId(String firewallDomainListId) {
             return firewallDomainListId(Output.of(firewallDomainListId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetResolverFirewallDomainListArgs build() {

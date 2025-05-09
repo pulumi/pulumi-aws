@@ -24,6 +24,7 @@ export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -32,9 +33,10 @@ export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, o
  */
 export interface GetFirehoseDeliveryStreamArgs {
     /**
-     * Name of the Kinesis Stream.
+     * Name of the Kinesis Firehose Delivery Stream.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -42,7 +44,7 @@ export interface GetFirehoseDeliveryStreamArgs {
  */
 export interface GetFirehoseDeliveryStreamResult {
     /**
-     * ARN of the Kinesis Stream (same as id).
+     * ARN of the Kinesis Firehose Delivery Stream (same as `id`).
      */
     readonly arn: string;
     /**
@@ -50,6 +52,7 @@ export interface GetFirehoseDeliveryStreamResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
@@ -71,6 +74,7 @@ export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -79,7 +83,8 @@ export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamO
  */
 export interface GetFirehoseDeliveryStreamOutputArgs {
     /**
-     * Name of the Kinesis Stream.
+     * Name of the Kinesis Firehose Delivery Stream.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

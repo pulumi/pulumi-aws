@@ -110,6 +110,8 @@ type Policy struct {
 
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the private CA to associate with the policy.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
@@ -152,6 +154,8 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the private CA to associate with the policy.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
@@ -159,6 +163,8 @@ type policyState struct {
 type PolicyState struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the private CA to associate with the policy.
 	ResourceArn pulumi.StringPtrInput
 }
@@ -170,6 +176,8 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the private CA to associate with the policy.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -178,6 +186,8 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the private CA to associate with the policy.
 	ResourceArn pulumi.StringInput
 }
@@ -272,6 +282,11 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 // JSON-formatted IAM policy to attach to the specified private CA resource.
 func (o PolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the private CA to associate with the policy.

@@ -62,6 +62,13 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags.
      * 
@@ -83,6 +90,7 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
         this.arn = $.arn;
         this.instanceArn = $.instanceArn;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -165,6 +173,15 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

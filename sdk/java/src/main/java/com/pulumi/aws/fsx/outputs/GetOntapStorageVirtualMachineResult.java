@@ -63,6 +63,7 @@ public final class GetOntapStorageVirtualMachineResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return The SVM&#39;s subtype.
      * 
@@ -142,6 +143,9 @@ public final class GetOntapStorageVirtualMachineResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The SVM&#39;s subtype.
      * 
@@ -179,6 +183,7 @@ public final class GetOntapStorageVirtualMachineResult {
         private String lifecycleStatus;
         private List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons;
         private String name;
+        private String region;
         private String subtype;
         private Map<String,String> tags;
         private String uuid;
@@ -195,6 +200,7 @@ public final class GetOntapStorageVirtualMachineResult {
     	      this.lifecycleStatus = defaults.lifecycleStatus;
     	      this.lifecycleTransitionReasons = defaults.lifecycleTransitionReasons;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.subtype = defaults.subtype;
     	      this.tags = defaults.tags;
     	      this.uuid = defaults.uuid;
@@ -291,6 +297,14 @@ public final class GetOntapStorageVirtualMachineResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subtype(String subtype) {
             if (subtype == null) {
               throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "subtype");
@@ -326,6 +340,7 @@ public final class GetOntapStorageVirtualMachineResult {
             _resultValue.lifecycleStatus = lifecycleStatus;
             _resultValue.lifecycleTransitionReasons = lifecycleTransitionReasons;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.subtype = subtype;
             _resultValue.tags = tags;
             _resultValue.uuid = uuid;

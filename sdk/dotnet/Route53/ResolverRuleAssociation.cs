@@ -49,6 +49,12 @@ namespace Pulumi.Aws.Route53
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the resolver rule that you want to associate with the VPC.
         /// </summary>
         [Output("resolverRuleId")]
@@ -113,6 +119,12 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the resolver rule that you want to associate with the VPC.
         /// </summary>
         [Input("resolverRuleId", required: true)]
@@ -137,6 +149,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the resolver rule that you want to associate with the VPC.

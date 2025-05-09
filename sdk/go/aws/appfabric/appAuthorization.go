@@ -74,7 +74,9 @@ type AppAuthorization struct {
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
 	Credential AppAuthorizationCredentialPtrOutput `pulumi:"credential"`
 	// The user persona of the app authorization.
-	Persona pulumi.StringOutput    `pulumi:"persona"`
+	Persona pulumi.StringOutput `pulumi:"persona"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringOutput    `pulumi:"region"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Contains information about an application tenant, such as the application display name and identifier.
@@ -137,7 +139,9 @@ type appAuthorizationState struct {
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
 	Credential *AppAuthorizationCredential `pulumi:"credential"`
 	// The user persona of the app authorization.
-	Persona *string           `pulumi:"persona"`
+	Persona *string `pulumi:"persona"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  *string           `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Contains information about an application tenant, such as the application display name and identifier.
@@ -163,6 +167,8 @@ type AppAuthorizationState struct {
 	Credential AppAuthorizationCredentialPtrInput
 	// The user persona of the app authorization.
 	Persona pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Contains information about an application tenant, such as the application display name and identifier.
@@ -185,7 +191,9 @@ type appAuthorizationArgs struct {
 	// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
 	Credential *AppAuthorizationCredential `pulumi:"credential"`
-	Tags       map[string]string           `pulumi:"tags"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  []AppAuthorizationTenant  `pulumi:"tenants"`
 	Timeouts *AppAuthorizationTimeouts `pulumi:"timeouts"`
@@ -202,7 +210,9 @@ type AppAuthorizationArgs struct {
 	// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
 	Credential AppAuthorizationCredentialPtrInput
-	Tags       pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  AppAuthorizationTenantArrayInput
 	Timeouts AppAuthorizationTimeoutsPtrInput
@@ -333,6 +343,11 @@ func (o AppAuthorizationOutput) Credential() AppAuthorizationCredentialPtrOutput
 // The user persona of the app authorization.
 func (o AppAuthorizationOutput) Persona() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorization) pulumi.StringOutput { return v.Persona }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AppAuthorizationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o AppAuthorizationOutput) Tags() pulumi.StringMapOutput {

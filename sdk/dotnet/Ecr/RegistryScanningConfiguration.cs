@@ -104,6 +104,12 @@ namespace Pulumi.Aws.Ecr
     public partial class RegistryScanningConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The registry ID the scanning configuration applies to.
         /// </summary>
         [Output("registryId")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class RegistryScanningConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules")]
         private InputList<Inputs.RegistryScanningConfigurationRuleArgs>? _rules;
 
@@ -193,6 +205,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class RegistryScanningConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The registry ID the scanning configuration applies to.
         /// </summary>

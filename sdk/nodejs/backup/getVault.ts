@@ -22,6 +22,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getVault:getVault", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetVaultArgs {
      * Name of the backup vault.
      */
     name: string;
+    region?: string;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
@@ -61,6 +63,7 @@ export interface GetVaultResult {
      * Number of recovery points that are stored in a backup vault.
      */
     readonly recoveryPoints: number;
+    readonly region: string;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
@@ -84,6 +87,7 @@ export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:backup/getVault:getVault", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -96,6 +100,7 @@ export interface GetVaultOutputArgs {
      * Name of the backup vault.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */

@@ -57,7 +57,8 @@ func GetModel(ctx *pulumi.Context, args *GetModelArgs, opts ...pulumi.InvokeOpti
 // A collection of arguments for invoking getModel.
 type GetModelArgs struct {
 	// Model identifier.
-	ModelId string `pulumi:"modelId"`
+	ModelId string  `pulumi:"modelId"`
+	Region  *string `pulumi:"region"`
 }
 
 // A collection of values returned by getModel.
@@ -78,6 +79,7 @@ type GetModelResult struct {
 	OutputModalities []string `pulumi:"outputModalities"`
 	// Model provider name.
 	ProviderName string `pulumi:"providerName"`
+	Region       string `pulumi:"region"`
 	// Indicates whether the model supports streaming.
 	ResponseStreamingSupported bool `pulumi:"responseStreamingSupported"`
 }
@@ -94,7 +96,8 @@ func GetModelOutput(ctx *pulumi.Context, args GetModelOutputArgs, opts ...pulumi
 // A collection of arguments for invoking getModel.
 type GetModelOutputArgs struct {
 	// Model identifier.
-	ModelId pulumi.StringInput `pulumi:"modelId"`
+	ModelId pulumi.StringInput    `pulumi:"modelId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetModelOutputArgs) ElementType() reflect.Type {
@@ -157,6 +160,10 @@ func (o GetModelResultOutput) OutputModalities() pulumi.StringArrayOutput {
 // Model provider name.
 func (o GetModelResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+func (o GetModelResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Indicates whether the model supports streaming.

@@ -21,14 +21,18 @@ __all__ = ['VpcEndpointServiceAllowedPrincipleArgs', 'VpcEndpointServiceAllowedP
 class VpcEndpointServiceAllowedPrincipleArgs:
     def __init__(__self__, *,
                  principal_arn: pulumi.Input[builtins.str],
-                 vpc_endpoint_service_id: pulumi.Input[builtins.str]):
+                 vpc_endpoint_service_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEndpointServiceAllowedPrinciple resource.
         :param pulumi.Input[builtins.str] principal_arn: The ARN of the principal to allow permissions.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "principal_arn", principal_arn)
         pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="principalArn")
@@ -54,19 +58,35 @@ class VpcEndpointServiceAllowedPrincipleArgs:
     def vpc_endpoint_service_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "vpc_endpoint_service_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _VpcEndpointServiceAllowedPrincipleState:
     def __init__(__self__, *,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointServiceAllowedPrinciple resources.
         :param pulumi.Input[builtins.str] principal_arn: The ARN of the principal to allow permissions.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
         if principal_arn is not None:
             pulumi.set(__self__, "principal_arn", principal_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if vpc_endpoint_service_id is not None:
             pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
 
@@ -81,6 +101,18 @@ class _VpcEndpointServiceAllowedPrincipleState:
     @principal_arn.setter
     def principal_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "principal_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
@@ -104,6 +136,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -132,6 +165,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] principal_arn: The ARN of the principal to allow permissions.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
         ...
@@ -179,6 +213,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -192,6 +227,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             if principal_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_arn'")
             __props__.__dict__["principal_arn"] = principal_arn
+            __props__.__dict__["region"] = region
             if vpc_endpoint_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_endpoint_service_id'")
             __props__.__dict__["vpc_endpoint_service_id"] = vpc_endpoint_service_id
@@ -206,6 +242,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None) -> 'VpcEndpointServiceAllowedPrinciple':
         """
         Get an existing VpcEndpointServiceAllowedPrinciple resource's state with the given name, id, and optional extra
@@ -215,6 +252,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] principal_arn: The ARN of the principal to allow permissions.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -222,6 +260,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         __props__ = _VpcEndpointServiceAllowedPrincipleState.__new__(_VpcEndpointServiceAllowedPrincipleState)
 
         __props__.__dict__["principal_arn"] = principal_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["vpc_endpoint_service_id"] = vpc_endpoint_service_id
         return VpcEndpointServiceAllowedPrinciple(resource_name, opts=opts, __props__=__props__)
 
@@ -232,6 +271,14 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         The ARN of the principal to allow permissions.
         """
         return pulumi.get(self, "principal_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="vpcEndpointServiceId")

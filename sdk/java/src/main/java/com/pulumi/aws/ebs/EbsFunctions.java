@@ -4,8 +4,12 @@
 package com.pulumi.aws.ebs;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
+import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyPlainArgs;
 import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
 import com.pulumi.aws.ebs.inputs.GetEbsVolumesPlainArgs;
+import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
+import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultPlainArgs;
 import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
 import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
 import com.pulumi.aws.ebs.inputs.GetSnapshotIdsPlainArgs;
@@ -23,7 +27,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class EbsFunctions {
@@ -41,6 +44,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
      * import java.util.List;
@@ -56,7 +60,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getDefaultKmsKey(GetDefaultKmsKeyArgs.builder()
+     *             .build());
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
@@ -72,7 +77,7 @@ public final class EbsFunctions {
      * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey() {
-        return getDefaultKmsKey(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getDefaultKmsKey(GetDefaultKmsKeyArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the default EBS encryption KMS key in the current region.
@@ -88,6 +93,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
      * import java.util.List;
@@ -103,7 +109,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getDefaultKmsKey(GetDefaultKmsKeyArgs.builder()
+     *             .build());
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
@@ -119,7 +126,7 @@ public final class EbsFunctions {
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain() {
-        return getDefaultKmsKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getDefaultKmsKeyPlain(GetDefaultKmsKeyPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the default EBS encryption KMS key in the current region.
@@ -135,6 +142,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
      * import java.util.List;
@@ -150,7 +158,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getDefaultKmsKey(GetDefaultKmsKeyArgs.builder()
+     *             .build());
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
@@ -165,7 +174,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args) {
+    public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(GetDefaultKmsKeyArgs args) {
         return getDefaultKmsKey(args, InvokeOptions.Empty);
     }
     /**
@@ -182,6 +191,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
      * import java.util.List;
@@ -197,7 +207,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getDefaultKmsKey(GetDefaultKmsKeyArgs.builder()
+     *             .build());
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
@@ -212,7 +223,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(InvokeArgs args) {
+    public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(GetDefaultKmsKeyPlainArgs args) {
         return getDefaultKmsKeyPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -229,6 +240,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
      * import java.util.List;
@@ -244,7 +256,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getDefaultKmsKey(GetDefaultKmsKeyArgs.builder()
+     *             .build());
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
@@ -259,7 +272,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(GetDefaultKmsKeyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", TypeShape.of(GetDefaultKmsKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -276,6 +289,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
      * import java.util.List;
@@ -291,7 +305,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getDefaultKmsKey(GetDefaultKmsKeyArgs.builder()
+     *             .build());
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
@@ -306,7 +321,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(GetDefaultKmsKeyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", TypeShape.of(GetDefaultKmsKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -323,6 +338,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
      * import java.util.List;
@@ -338,7 +354,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getDefaultKmsKey(GetDefaultKmsKeyArgs.builder()
+     *             .build());
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
@@ -353,7 +370,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(GetDefaultKmsKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", TypeShape.of(GetDefaultKmsKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -482,6 +499,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -495,7 +513,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getEncryptionByDefault(GetEncryptionByDefaultArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -505,7 +524,7 @@ public final class EbsFunctions {
      * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault() {
-        return getEncryptionByDefault(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getEncryptionByDefault(GetEncryptionByDefaultArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
@@ -521,6 +540,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -534,7 +554,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getEncryptionByDefault(GetEncryptionByDefaultArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -544,7 +565,7 @@ public final class EbsFunctions {
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain() {
-        return getEncryptionByDefaultPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getEncryptionByDefaultPlain(GetEncryptionByDefaultPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
@@ -560,6 +581,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -573,7 +595,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getEncryptionByDefault(GetEncryptionByDefaultArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -582,7 +605,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args) {
+    public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(GetEncryptionByDefaultArgs args) {
         return getEncryptionByDefault(args, InvokeOptions.Empty);
     }
     /**
@@ -599,6 +622,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -612,7 +636,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getEncryptionByDefault(GetEncryptionByDefaultArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -621,7 +646,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(InvokeArgs args) {
+    public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(GetEncryptionByDefaultPlainArgs args) {
         return getEncryptionByDefaultPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -638,6 +663,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -651,7 +677,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getEncryptionByDefault(GetEncryptionByDefaultArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -660,7 +687,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(GetEncryptionByDefaultArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", TypeShape.of(GetEncryptionByDefaultResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -677,6 +704,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -690,7 +718,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getEncryptionByDefault(GetEncryptionByDefaultArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -699,7 +728,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(GetEncryptionByDefaultArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", TypeShape.of(GetEncryptionByDefaultResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -716,6 +745,7 @@ public final class EbsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -729,7 +759,8 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = EbsFunctions.getEncryptionByDefault(GetEncryptionByDefaultArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -738,7 +769,7 @@ public final class EbsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(GetEncryptionByDefaultPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", TypeShape.of(GetEncryptionByDefaultResult.class), args, Utilities.withVersion(options));
     }
     /**

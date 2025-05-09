@@ -30,11 +30,11 @@ func GetVpcPeeringConnections(ctx *pulumi.Context, args *GetVpcPeeringConnection
 type GetVpcPeeringConnectionsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcPeeringConnectionsFilter `pulumi:"filters"`
+	Region  *string                          `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available VPC peering connections.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -44,8 +44,9 @@ type GetVpcPeeringConnectionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of the VPC Peering Connections.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetVpcPeeringConnectionsOutput(ctx *pulumi.Context, args GetVpcPeeringConnectionsOutputArgs, opts ...pulumi.InvokeOption) GetVpcPeeringConnectionsResultOutput {
@@ -61,11 +62,11 @@ func GetVpcPeeringConnectionsOutput(ctx *pulumi.Context, args GetVpcPeeringConne
 type GetVpcPeeringConnectionsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcPeeringConnectionsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                    `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available VPC peering connections.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -100,6 +101,10 @@ func (o GetVpcPeeringConnectionsResultOutput) Id() pulumi.StringOutput {
 // IDs of the VPC Peering Connections.
 func (o GetVpcPeeringConnectionsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetVpcPeeringConnectionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetVpcPeeringConnectionsResultOutput) Tags() pulumi.StringMapOutput {

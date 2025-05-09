@@ -31,6 +31,13 @@ public final class GetCustomPluginPlainArgs extends com.pulumi.resources.InvokeA
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags assigned to the resource.
      * 
@@ -50,6 +57,7 @@ public final class GetCustomPluginPlainArgs extends com.pulumi.resources.InvokeA
 
     private GetCustomPluginPlainArgs(GetCustomPluginPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetCustomPluginPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

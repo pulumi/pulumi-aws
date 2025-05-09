@@ -52,11 +52,8 @@ func GetContributorManagedInsightRules(ctx *pulumi.Context, args *GetContributor
 
 // A collection of arguments for invoking getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesArgs struct {
+	Region *string `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-	//
-	// The following arguments are optional:
-	//
-	// There are no optional arguments.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -66,6 +63,7 @@ type GetContributorManagedInsightRulesResult struct {
 	Id string `pulumi:"id"`
 	// Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
 	ManagedRules []GetContributorManagedInsightRulesManagedRule `pulumi:"managedRules"`
+	Region       string                                         `pulumi:"region"`
 	// If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -81,11 +79,8 @@ func GetContributorManagedInsightRulesOutput(ctx *pulumi.Context, args GetContri
 
 // A collection of arguments for invoking getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-	//
-	// The following arguments are optional:
-	//
-	// There are no optional arguments.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -118,6 +113,10 @@ func (o GetContributorManagedInsightRulesResultOutput) ManagedRules() GetContrib
 	return o.ApplyT(func(v GetContributorManagedInsightRulesResult) []GetContributorManagedInsightRulesManagedRule {
 		return v.ManagedRules
 	}).(GetContributorManagedInsightRulesManagedRuleArrayOutput)
+}
+
+func (o GetContributorManagedInsightRulesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContributorManagedInsightRulesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.

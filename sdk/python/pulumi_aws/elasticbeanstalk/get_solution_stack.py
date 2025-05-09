@@ -27,7 +27,7 @@ class GetSolutionStackResult:
     """
     A collection of values returned by getSolutionStack.
     """
-    def __init__(__self__, id=None, most_recent=None, name=None, name_regex=None):
+    def __init__(__self__, id=None, most_recent=None, name=None, name_regex=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,9 @@ class GetSolutionStackResult:
         if name_regex and not isinstance(name_regex, str):
             raise TypeError("Expected argument 'name_regex' to be a str")
         pulumi.set(__self__, "name_regex", name_regex)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -67,6 +70,11 @@ class GetSolutionStackResult:
     def name_regex(self) -> builtins.str:
         return pulumi.get(self, "name_regex")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetSolutionStackResult(GetSolutionStackResult):
     # pylint: disable=using-constant-test
@@ -77,11 +85,13 @@ class AwaitableGetSolutionStackResult(GetSolutionStackResult):
             id=self.id,
             most_recent=self.most_recent,
             name=self.name,
-            name_regex=self.name_regex)
+            name_regex=self.name_regex,
+            region=self.region)
 
 
 def get_solution_stack(most_recent: Optional[builtins.bool] = None,
                        name_regex: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionStackResult:
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
@@ -110,6 +120,7 @@ def get_solution_stack(most_recent: Optional[builtins.bool] = None,
     __args__ = dict()
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts, typ=GetSolutionStackResult).value
 
@@ -117,9 +128,11 @@ def get_solution_stack(most_recent: Optional[builtins.bool] = None,
         id=pulumi.get(__ret__, 'id'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         name=pulumi.get(__ret__, 'name'),
-        name_regex=pulumi.get(__ret__, 'name_regex'))
+        name_regex=pulumi.get(__ret__, 'name_regex'),
+        region=pulumi.get(__ret__, 'region'))
 def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                               name_regex: Optional[pulumi.Input[builtins.str]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionStackResult]:
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
@@ -148,10 +161,12 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[builti
     __args__ = dict()
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts, typ=GetSolutionStackResult)
     return __ret__.apply(lambda __response__: GetSolutionStackResult(
         id=pulumi.get(__response__, 'id'),
         most_recent=pulumi.get(__response__, 'most_recent'),
         name=pulumi.get(__response__, 'name'),
-        name_regex=pulumi.get(__response__, 'name_regex')))
+        name_regex=pulumi.get(__response__, 'name_regex'),
+        region=pulumi.get(__response__, 'region')))

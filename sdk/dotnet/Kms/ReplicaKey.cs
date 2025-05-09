@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// ### AWS Provider v6 (and below)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +26,34 @@ namespace Pulumi.Aws.Kms
     /// {
     ///     var primary = new Aws.Kms.Key("primary", new()
     ///     {
+    ///         Description = "Multi-Region primary key",
+    ///         DeletionWindowInDays = 30,
+    ///         MultiRegion = true,
+    ///     });
+    /// 
+    ///     var replica = new Aws.Kms.ReplicaKey("replica", new()
+    ///     {
+    ///         Description = "Multi-Region replica key",
+    ///         DeletionWindowInDays = 7,
+    ///         PrimaryKeyArn = primary.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### AWS Provider v7 (and above)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = new Aws.Kms.Key("primary", new()
+    ///     {
+    ///         Region = "us-east-1",
     ///         Description = "Multi-Region primary key",
     ///         DeletionWindowInDays = 30,
     ///         MultiRegion = true,
@@ -119,6 +149,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Output("primaryKeyArn")]
         public Output<string> PrimaryKeyArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -218,6 +254,12 @@ namespace Pulumi.Aws.Kms
         [Input("primaryKeyArn", required: true)]
         public Input<string> PrimaryKeyArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -307,6 +349,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("primaryKeyArn")]
         public Input<string>? PrimaryKeyArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

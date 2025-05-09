@@ -27,6 +27,7 @@ public final class GetVoicesResult {
      * 
      */
     private @Nullable String languageCode;
+    private String region;
     /**
      * @return List of voices with their properties. See `voices` Attribute Reference below.
      * 
@@ -54,6 +55,9 @@ public final class GetVoicesResult {
     public Optional<String> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return List of voices with their properties. See `voices` Attribute Reference below.
      * 
@@ -75,6 +79,7 @@ public final class GetVoicesResult {
         private String id;
         private @Nullable Boolean includeAdditionalLanguageCodes;
         private @Nullable String languageCode;
+        private String region;
         private @Nullable List<GetVoicesVoice> voices;
         public Builder() {}
         public Builder(GetVoicesResult defaults) {
@@ -83,6 +88,7 @@ public final class GetVoicesResult {
     	      this.id = defaults.id;
     	      this.includeAdditionalLanguageCodes = defaults.includeAdditionalLanguageCodes;
     	      this.languageCode = defaults.languageCode;
+    	      this.region = defaults.region;
     	      this.voices = defaults.voices;
         }
 
@@ -113,6 +119,14 @@ public final class GetVoicesResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVoicesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder voices(@Nullable List<GetVoicesVoice> voices) {
 
             this.voices = voices;
@@ -127,6 +141,7 @@ public final class GetVoicesResult {
             _resultValue.id = id;
             _resultValue.includeAdditionalLanguageCodes = includeAdditionalLanguageCodes;
             _resultValue.languageCode = languageCode;
+            _resultValue.region = region;
             _resultValue.voices = voices;
             return _resultValue;
         }

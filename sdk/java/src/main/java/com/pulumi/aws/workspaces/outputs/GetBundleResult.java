@@ -46,6 +46,7 @@ public final class GetBundleResult {
      * 
      */
     private @Nullable String owner;
+    private String region;
     /**
      * @return The root volume. See supported fields below.
      * 
@@ -100,6 +101,9 @@ public final class GetBundleResult {
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The root volume. See supported fields below.
      * 
@@ -130,6 +134,7 @@ public final class GetBundleResult {
         private String id;
         private @Nullable String name;
         private @Nullable String owner;
+        private String region;
         private List<GetBundleRootStorage> rootStorages;
         private List<GetBundleUserStorage> userStorages;
         public Builder() {}
@@ -141,6 +146,7 @@ public final class GetBundleResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
+    	      this.region = defaults.region;
     	      this.rootStorages = defaults.rootStorages;
     	      this.userStorages = defaults.userStorages;
         }
@@ -191,6 +197,14 @@ public final class GetBundleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBundleResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rootStorages(List<GetBundleRootStorage> rootStorages) {
             if (rootStorages == null) {
               throw new MissingRequiredPropertyException("GetBundleResult", "rootStorages");
@@ -220,6 +234,7 @@ public final class GetBundleResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.owner = owner;
+            _resultValue.region = region;
             _resultValue.rootStorages = rootStorages;
             _resultValue.userStorages = userStorages;
             return _resultValue;

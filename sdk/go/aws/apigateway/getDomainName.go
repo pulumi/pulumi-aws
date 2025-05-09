@@ -54,6 +54,7 @@ type LookupDomainNameArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId *string `pulumi:"domainNameId"`
+	Region       *string `pulumi:"region"`
 	// Key-value map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -80,6 +81,7 @@ type LookupDomainNameResult struct {
 	Id string `pulumi:"id"`
 	// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 	Policy string `pulumi:"policy"`
+	Region string `pulumi:"region"`
 	// ARN for an AWS-managed certificate that is used for validating the regional domain name.
 	RegionalCertificateArn string `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that is used by regional endpoint for this domain name.
@@ -109,6 +111,7 @@ type LookupDomainNameOutputArgs struct {
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrInput `pulumi:"domainNameId"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -183,6 +186,10 @@ func (o LookupDomainNameResultOutput) Id() pulumi.StringOutput {
 // A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 func (o LookupDomainNameResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o LookupDomainNameResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN for an AWS-managed certificate that is used for validating the regional domain name.

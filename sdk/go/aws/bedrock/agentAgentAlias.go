@@ -38,6 +38,8 @@ type AgentAgentAlias struct {
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
 	// Description of the alias.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayOutput `pulumi:"routingConfigurations"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -95,6 +97,8 @@ type agentAgentAliasState struct {
 	AgentId *string `pulumi:"agentId"`
 	// Description of the alias.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -117,6 +121,8 @@ type AgentAgentAliasState struct {
 	AgentId pulumi.StringPtrInput
 	// Description of the alias.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -139,6 +145,8 @@ type agentAgentAliasArgs struct {
 	AgentId string `pulumi:"agentId"`
 	// Description of the alias.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -156,6 +164,8 @@ type AgentAgentAliasArgs struct {
 	AgentId pulumi.StringInput
 	// Description of the alias.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -275,6 +285,11 @@ func (o AgentAgentAliasOutput) AgentId() pulumi.StringOutput {
 // Description of the alias.
 func (o AgentAgentAliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AgentAgentAliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Details about the routing configuration of the alias. See `routingConfiguration` Block for details.

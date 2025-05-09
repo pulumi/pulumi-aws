@@ -168,6 +168,10 @@ export class MulticastDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     public readonly staticSourcesSupport!: pulumi.Output<string | undefined>;
@@ -201,6 +205,7 @@ export class MulticastDomain extends pulumi.CustomResource {
             resourceInputs["autoAcceptSharedAssociations"] = state ? state.autoAcceptSharedAssociations : undefined;
             resourceInputs["igmpv2Support"] = state ? state.igmpv2Support : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["staticSourcesSupport"] = state ? state.staticSourcesSupport : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -212,6 +217,7 @@ export class MulticastDomain extends pulumi.CustomResource {
             }
             resourceInputs["autoAcceptSharedAssociations"] = args ? args.autoAcceptSharedAssociations : undefined;
             resourceInputs["igmpv2Support"] = args ? args.igmpv2Support : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["staticSourcesSupport"] = args ? args.staticSourcesSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
@@ -245,6 +251,10 @@ export interface MulticastDomainState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     staticSourcesSupport?: pulumi.Input<string>;
@@ -274,6 +284,10 @@ export interface MulticastDomainArgs {
      * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     igmpv2Support?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */

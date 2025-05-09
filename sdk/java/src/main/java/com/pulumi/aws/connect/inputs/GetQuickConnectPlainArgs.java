@@ -61,6 +61,13 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.quickConnectId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags to assign to the Quick Connect.
      * 
@@ -82,6 +89,7 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
         this.instanceId = $.instanceId;
         this.name = $.name;
         this.quickConnectId = $.quickConnectId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -133,6 +141,11 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder quickConnectId(@Nullable String quickConnectId) {
             $.quickConnectId = quickConnectId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

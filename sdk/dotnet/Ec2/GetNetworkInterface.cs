@@ -105,6 +105,9 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -142,6 +145,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -216,6 +222,7 @@ namespace Pulumi.Aws.Ec2
         /// Private IPv4 addresses associated with the network interface.
         /// </summary>
         public readonly ImmutableArray<string> PrivateIps;
+        public readonly string Region;
         /// <summary>
         /// ID of the entity that launched the instance on your behalf.
         /// </summary>
@@ -269,6 +276,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> privateIps,
 
+            string region,
+
             string requesterId,
 
             ImmutableArray<string> securityGroups,
@@ -294,6 +303,7 @@ namespace Pulumi.Aws.Ec2
             PrivateDnsName = privateDnsName;
             PrivateIp = privateIp;
             PrivateIps = privateIps;
+            Region = region;
             RequesterId = requesterId;
             SecurityGroups = securityGroups;
             SubnetId = subnetId;

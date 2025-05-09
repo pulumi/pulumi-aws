@@ -67,6 +67,12 @@ namespace Pulumi.Aws.WafRegional
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The parts of web requests that you want to inspect for cross-site scripting attacks.
         /// </summary>
         [Output("xssMatchTuples")]
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.WafRegional
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("xssMatchTuples")]
         private InputList<Inputs.XssMatchSetXssMatchTupleArgs>? _xssMatchTuples;
 
@@ -149,6 +161,12 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("xssMatchTuples")]
         private InputList<Inputs.XssMatchSetXssMatchTupleGetArgs>? _xssMatchTuples;

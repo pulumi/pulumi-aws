@@ -126,6 +126,10 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     public readonly ontapVolumeType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      */
     public readonly securityStyle!: pulumi.Output<string>;
@@ -207,6 +211,7 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["junctionPath"] = state ? state.junctionPath : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ontapVolumeType"] = state ? state.ontapVolumeType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityStyle"] = state ? state.securityStyle : undefined;
             resourceInputs["sizeInBytes"] = state ? state.sizeInBytes : undefined;
             resourceInputs["sizeInMegabytes"] = state ? state.sizeInMegabytes : undefined;
@@ -233,6 +238,7 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["junctionPath"] = args ? args.junctionPath : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ontapVolumeType"] = args ? args.ontapVolumeType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityStyle"] = args ? args.securityStyle : undefined;
             resourceInputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
             resourceInputs["sizeInMegabytes"] = args ? args.sizeInMegabytes : undefined;
@@ -300,6 +306,10 @@ export interface OntapVolumeState {
      * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      */
     ontapVolumeType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      */
@@ -392,6 +402,10 @@ export interface OntapVolumeArgs {
      * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      */
     ontapVolumeType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      */

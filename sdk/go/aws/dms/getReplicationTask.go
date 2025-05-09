@@ -52,6 +52,7 @@ func LookupReplicationTask(ctx *pulumi.Context, args *LookupReplicationTaskArgs,
 
 // A collection of arguments for invoking getReplicationTask.
 type LookupReplicationTaskArgs struct {
+	Region *string `pulumi:"region"`
 	// The replication task identifier.
 	//
 	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
@@ -72,6 +73,7 @@ type LookupReplicationTaskResult struct {
 	Id string `pulumi:"id"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType string `pulumi:"migrationType"`
+	Region        string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
 	// The Amazon Resource Name (ARN) for the replication task.
@@ -103,6 +105,7 @@ func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTask
 
 // A collection of arguments for invoking getReplicationTask.
 type LookupReplicationTaskOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The replication task identifier.
 	//
 	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
@@ -150,6 +153,10 @@ func (o LookupReplicationTaskResultOutput) Id() pulumi.StringOutput {
 // The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 func (o LookupReplicationTaskResultOutput) MigrationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationTaskResult) string { return v.MigrationType }).(pulumi.StringOutput)
+}
+
+func (o LookupReplicationTaskResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationTaskResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the replication instance.

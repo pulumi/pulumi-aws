@@ -31,6 +31,13 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
         return this.endpointId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -42,6 +49,7 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     private GetEndpointPlainArgs(GetEndpointPlainArgs $) {
         this.endpointId = $.endpointId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -71,6 +79,11 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder endpointId(String endpointId) {
             $.endpointId = endpointId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -363,6 +363,8 @@ type BucketObjectv2 struct {
 	ObjectLockRetainUntilDate pulumi.StringPtrOutput `pulumi:"objectLockRetainUntilDate"`
 	// Override provider-level configuration options. See Override Provider below for more details.
 	OverrideProvider BucketObjectv2OverrideProviderPtrOutput `pulumi:"overrideProvider"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -478,6 +480,8 @@ type bucketObjectv2State struct {
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
 	// Override provider-level configuration options. See Override Provider below for more details.
 	OverrideProvider *BucketObjectv2OverrideProvider `pulumi:"overrideProvider"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -555,6 +559,8 @@ type BucketObjectv2State struct {
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
 	// Override provider-level configuration options. See Override Provider below for more details.
 	OverrideProvider BucketObjectv2OverrideProviderPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -624,6 +630,8 @@ type bucketObjectv2Args struct {
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
 	// Override provider-level configuration options. See Override Provider below for more details.
 	OverrideProvider *BucketObjectv2OverrideProvider `pulumi:"overrideProvider"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -686,6 +694,8 @@ type BucketObjectv2Args struct {
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
 	// Override provider-level configuration options. See Override Provider below for more details.
 	OverrideProvider BucketObjectv2OverrideProviderPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -921,6 +931,11 @@ func (o BucketObjectv2Output) ObjectLockRetainUntilDate() pulumi.StringPtrOutput
 // Override provider-level configuration options. See Override Provider below for more details.
 func (o BucketObjectv2Output) OverrideProvider() BucketObjectv2OverrideProviderPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) BucketObjectv2OverrideProviderPtrOutput { return v.OverrideProvider }).(BucketObjectv2OverrideProviderPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketObjectv2Output) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".

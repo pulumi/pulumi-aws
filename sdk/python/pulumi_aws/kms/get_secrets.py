@@ -29,13 +29,16 @@ class GetSecretsResult:
     """
     A collection of values returned by getSecrets.
     """
-    def __init__(__self__, id=None, plaintext=None, secrets=None):
+    def __init__(__self__, id=None, plaintext=None, region=None, secrets=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if plaintext and not isinstance(plaintext, dict):
             raise TypeError("Expected argument 'plaintext' to be a dict")
         pulumi.set(__self__, "plaintext", plaintext)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if secrets and not isinstance(secrets, list):
             raise TypeError("Expected argument 'secrets' to be a list")
         pulumi.set(__self__, "secrets", secrets)
@@ -58,6 +61,11 @@ class GetSecretsResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def secrets(self) -> Sequence['outputs.GetSecretsSecretResult']:
         return pulumi.get(self, "secrets")
 
@@ -70,10 +78,12 @@ class AwaitableGetSecretsResult(GetSecretsResult):
         return GetSecretsResult(
             id=self.id,
             plaintext=self.plaintext,
+            region=self.region,
             secrets=self.secrets)
 
 
-def get_secrets(secrets: Optional[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]] = None,
+def get_secrets(region: Optional[builtins.str] = None,
+                secrets: Optional[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
@@ -91,6 +101,7 @@ def get_secrets(secrets: Optional[Sequence[Union['GetSecretsSecretArgs', 'GetSec
     :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['secrets'] = secrets
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult).value
@@ -98,8 +109,10 @@ def get_secrets(secrets: Optional[Sequence[Union['GetSecretsSecretArgs', 'GetSec
     return AwaitableGetSecretsResult(
         id=pulumi.get(__ret__, 'id'),
         plaintext=pulumi.get(__ret__, 'plaintext'),
+        region=pulumi.get(__ret__, 'region'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]]] = None,
+def get_secrets_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                       secrets: Optional[pulumi.Input[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
@@ -117,10 +130,12 @@ def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[Union['GetSecrets
     :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['secrets'] = secrets
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult)
     return __ret__.apply(lambda __response__: GetSecretsResult(
         id=pulumi.get(__response__, 'id'),
         plaintext=pulumi.get(__response__, 'plaintext'),
+        region=pulumi.get(__response__, 'region'),
         secrets=pulumi.get(__response__, 'secrets')))

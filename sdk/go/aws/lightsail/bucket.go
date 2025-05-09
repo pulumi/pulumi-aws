@@ -165,6 +165,8 @@ type bucketArgs struct {
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// The name for the bucket.
 	Name *string `pulumi:"name"`
+	// The Amazon Web Services Region name.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -177,6 +179,8 @@ type BucketArgs struct {
 	ForceDelete pulumi.BoolPtrInput
 	// The name for the bucket.
 	Name pulumi.StringPtrInput
+	// The Amazon Web Services Region name.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }

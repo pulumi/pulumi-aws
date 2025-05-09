@@ -57,6 +57,10 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the rule set.
      */
     public readonly ruleSetName!: pulumi.Output<string>;
@@ -75,12 +79,14 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ReceiptRuleSetState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleSetName"] = state ? state.ruleSetName : undefined;
         } else {
             const args = argsOrState as ReceiptRuleSetArgs | undefined;
             if ((!args || args.ruleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -98,6 +104,10 @@ export interface ReceiptRuleSetState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the rule set.
      */
     ruleSetName?: pulumi.Input<string>;
@@ -107,6 +117,10 @@ export interface ReceiptRuleSetState {
  * The set of arguments for constructing a ReceiptRuleSet resource.
  */
 export interface ReceiptRuleSetArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the rule set.
      */

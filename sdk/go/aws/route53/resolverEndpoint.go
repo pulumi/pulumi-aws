@@ -88,6 +88,8 @@ type ResolverEndpoint struct {
 	// Protocols you want to use for the Route 53 Resolver endpoint.
 	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringOutput `pulumi:"resolverEndpointType"`
@@ -154,6 +156,8 @@ type resolverEndpointState struct {
 	// Protocols you want to use for the Route 53 Resolver endpoint.
 	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols []string `pulumi:"protocols"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
@@ -182,6 +186,8 @@ type ResolverEndpointState struct {
 	// Protocols you want to use for the Route 53 Resolver endpoint.
 	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringPtrInput
@@ -210,6 +216,8 @@ type resolverEndpointArgs struct {
 	// Protocols you want to use for the Route 53 Resolver endpoint.
 	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols []string `pulumi:"protocols"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
@@ -233,6 +241,8 @@ type ResolverEndpointArgs struct {
 	// Protocols you want to use for the Route 53 Resolver endpoint.
 	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringPtrInput
@@ -361,6 +371,11 @@ func (o ResolverEndpointOutput) Name() pulumi.StringOutput {
 // Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 func (o ResolverEndpointOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResolverEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Endpoint IP type. This endpoint type is applied to all IP addresses.

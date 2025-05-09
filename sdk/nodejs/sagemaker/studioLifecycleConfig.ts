@@ -66,6 +66,10 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     public readonly studioLifecycleConfigAppType!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as StudioLifecycleConfigState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["studioLifecycleConfigAppType"] = state ? state.studioLifecycleConfigAppType : undefined;
             resourceInputs["studioLifecycleConfigContent"] = state ? state.studioLifecycleConfigContent : undefined;
             resourceInputs["studioLifecycleConfigName"] = state ? state.studioLifecycleConfigName : undefined;
@@ -116,6 +121,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
             if ((!args || args.studioLifecycleConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigName'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["studioLifecycleConfigAppType"] = args ? args.studioLifecycleConfigAppType : undefined;
             resourceInputs["studioLifecycleConfigContent"] = args ? args.studioLifecycleConfigContent : undefined;
             resourceInputs["studioLifecycleConfigName"] = args ? args.studioLifecycleConfigName : undefined;
@@ -136,6 +142,10 @@ export interface StudioLifecycleConfigState {
      * The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
@@ -162,6 +172,10 @@ export interface StudioLifecycleConfigState {
  * The set of arguments for constructing a StudioLifecycleConfig resource.
  */
 export interface StudioLifecycleConfigArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */

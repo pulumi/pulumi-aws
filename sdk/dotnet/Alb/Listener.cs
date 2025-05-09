@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Alb
         public Output<string?> AlpnPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the listener (matches `id`).
+        /// ARN of the listener.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -394,6 +394,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -636,6 +642,12 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
         [Input("routingHttpRequestXAmznMtlsClientcertHeaderName")]
@@ -790,7 +802,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? AlpnPolicy { get; set; }
 
         /// <summary>
-        /// ARN of the listener (matches `id`).
+        /// ARN of the listener.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -838,6 +850,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.

@@ -3,12 +3,9 @@
 
 package com.pulumi.aws.servicequotas.inputs;
 
-import com.pulumi.aws.servicequotas.inputs.GetTemplatesTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,37 +19,45 @@ public final class GetTemplatesArgs extends com.pulumi.resources.InvokeArgs {
      * AWS Region to which the quota increases apply.
      * 
      */
-    @Import(name="region", required=true)
-    private Output<String> region;
+    @Import(name="awsRegion")
+    private @Nullable Output<String> awsRegion;
 
     /**
      * @return AWS Region to which the quota increases apply.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Optional<Output<String>> awsRegion() {
+        return Optional.ofNullable(this.awsRegion);
     }
 
     /**
-     * A list of quota increase templates for specified region. See `templates`.
+     * AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Import(name="templates")
-    private @Nullable Output<List<GetTemplatesTemplateArgs>> templates;
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return A list of quota increase templates for specified region. See `templates`.
+     * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
-    public Optional<Output<List<GetTemplatesTemplateArgs>>> templates() {
-        return Optional.ofNullable(this.templates);
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetTemplatesArgs() {}
 
     private GetTemplatesArgs(GetTemplatesArgs $) {
+        this.awsRegion = $.awsRegion;
         this.region = $.region;
-        this.templates = $.templates;
     }
 
     public static Builder builder() {
@@ -74,61 +79,56 @@ public final class GetTemplatesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param region AWS Region to which the quota increases apply.
+         * @param awsRegion AWS Region to which the quota increases apply.
          * 
          * @return builder
          * 
          */
-        public Builder region(Output<String> region) {
+        public Builder awsRegion(@Nullable Output<String> awsRegion) {
+            $.awsRegion = awsRegion;
+            return this;
+        }
+
+        /**
+         * @param awsRegion AWS Region to which the quota increases apply.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRegion(String awsRegion) {
+            return awsRegion(Output.of(awsRegion));
+        }
+
+        /**
+         * @param region AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use aws.getRegion instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+        public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region AWS Region to which the quota increases apply.
+         * @param region AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use aws.getRegion instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param templates A list of quota increase templates for specified region. See `templates`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder templates(@Nullable Output<List<GetTemplatesTemplateArgs>> templates) {
-            $.templates = templates;
-            return this;
-        }
-
-        /**
-         * @param templates A list of quota increase templates for specified region. See `templates`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder templates(List<GetTemplatesTemplateArgs> templates) {
-            return templates(Output.of(templates));
-        }
-
-        /**
-         * @param templates A list of quota increase templates for specified region. See `templates`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder templates(GetTemplatesTemplateArgs... templates) {
-            return templates(List.of(templates));
-        }
-
         public GetTemplatesArgs build() {
-            if ($.region == null) {
-                throw new MissingRequiredPropertyException("GetTemplatesArgs", "region");
-            }
             return $;
         }
     }

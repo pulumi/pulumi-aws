@@ -52,7 +52,8 @@ func LookupIntent(ctx *pulumi.Context, args *LookupIntentArgs, opts ...pulumi.In
 // A collection of arguments for invoking getIntent.
 type LookupIntentArgs struct {
 	// Name of the intent. The name is case sensitive.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Version of the intent.
 	Version *string `pulumi:"version"`
 }
@@ -79,6 +80,7 @@ type LookupIntentResult struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature string `pulumi:"parentIntentSignature"`
+	Region                string `pulumi:"region"`
 	// Version of the bot.
 	Version *string `pulumi:"version"`
 }
@@ -95,7 +97,8 @@ func LookupIntentOutput(ctx *pulumi.Context, args LookupIntentOutputArgs, opts .
 // A collection of arguments for invoking getIntent.
 type LookupIntentOutputArgs struct {
 	// Name of the intent. The name is case sensitive.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the intent.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -161,6 +164,10 @@ func (o LookupIntentResultOutput) Name() pulumi.StringOutput {
 // in the Alexa Skills Kit.
 func (o LookupIntentResultOutput) ParentIntentSignature() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIntentResult) string { return v.ParentIntentSignature }).(pulumi.StringOutput)
+}
+
+func (o LookupIntentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Version of the bot.

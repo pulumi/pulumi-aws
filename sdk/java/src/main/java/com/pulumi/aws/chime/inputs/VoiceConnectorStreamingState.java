@@ -65,6 +65,21 @@ public final class VoiceConnectorStreamingState extends com.pulumi.resources.Res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      * 
      */
@@ -100,6 +115,7 @@ public final class VoiceConnectorStreamingState extends com.pulumi.resources.Res
         this.dataRetention = $.dataRetention;
         this.disabled = $.disabled;
         this.mediaInsightsConfiguration = $.mediaInsightsConfiguration;
+        this.region = $.region;
         this.streamingNotificationTargets = $.streamingNotificationTargets;
         this.voiceConnectorId = $.voiceConnectorId;
     }
@@ -183,6 +199,27 @@ public final class VoiceConnectorStreamingState extends com.pulumi.resources.Res
          */
         public Builder mediaInsightsConfiguration(VoiceConnectorStreamingMediaInsightsConfigurationArgs mediaInsightsConfiguration) {
             return mediaInsightsConfiguration(Output.of(mediaInsightsConfiguration));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

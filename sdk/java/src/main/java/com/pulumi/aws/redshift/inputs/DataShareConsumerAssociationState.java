@@ -125,6 +125,21 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
         return Optional.ofNullable(this.producerArn);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private DataShareConsumerAssociationState() {}
 
     private DataShareConsumerAssociationState(DataShareConsumerAssociationState $) {
@@ -135,6 +150,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
         this.dataShareArn = $.dataShareArn;
         this.managedBy = $.managedBy;
         this.producerArn = $.producerArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -304,6 +320,27 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
          */
         public Builder producerArn(String producerArn) {
             return producerArn(Output.of(producerArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public DataShareConsumerAssociationState build() {

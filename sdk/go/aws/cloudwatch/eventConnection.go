@@ -229,6 +229,8 @@ type EventConnection struct {
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrOutput `pulumi:"invocationConnectivityParameters"`
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
@@ -281,6 +283,8 @@ type eventConnectionState struct {
 	InvocationConnectivityParameters *EventConnectionInvocationConnectivityParameters `pulumi:"invocationConnectivityParameters"`
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
 	SecretArn *string `pulumi:"secretArn"`
 }
@@ -298,6 +302,8 @@ type EventConnectionState struct {
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrInput
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
 	SecretArn pulumi.StringPtrInput
 }
@@ -317,6 +323,8 @@ type eventConnectionArgs struct {
 	InvocationConnectivityParameters *EventConnectionInvocationConnectivityParameters `pulumi:"invocationConnectivityParameters"`
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventConnection resource.
@@ -331,6 +339,8 @@ type EventConnectionArgs struct {
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrInput
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventConnectionArgs) ElementType() reflect.Type {
@@ -450,6 +460,11 @@ func (o EventConnectionOutput) InvocationConnectivityParameters() EventConnectio
 // The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 func (o EventConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.

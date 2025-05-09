@@ -198,6 +198,21 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Lightsail resource type of the container service (i.e., ContainerService).
      * 
      */
@@ -313,6 +328,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         this.privateDomainName = $.privateDomainName;
         this.privateRegistryAccess = $.privateRegistryAccess;
         this.publicDomainNames = $.publicDomainNames;
+        this.region = $.region;
         this.resourceType = $.resourceType;
         this.scale = $.scale;
         this.state = $.state;
@@ -576,6 +592,27 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
          */
         public Builder publicDomainNames(ContainerServicePublicDomainNamesArgs publicDomainNames) {
             return publicDomainNames(Output.of(publicDomainNames));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

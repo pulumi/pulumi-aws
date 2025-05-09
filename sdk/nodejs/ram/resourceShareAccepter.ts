@@ -77,6 +77,10 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly receiverAccountId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of the resource ARNs shared via the resource share.
      */
     public /*out*/ readonly resources!: pulumi.Output<string[]>;
@@ -116,6 +120,7 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
             const state = argsOrState as ResourceShareAccepterState | undefined;
             resourceInputs["invitationArn"] = state ? state.invitationArn : undefined;
             resourceInputs["receiverAccountId"] = state ? state.receiverAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resources"] = state ? state.resources : undefined;
             resourceInputs["senderAccountId"] = state ? state.senderAccountId : undefined;
             resourceInputs["shareArn"] = state ? state.shareArn : undefined;
@@ -127,6 +132,7 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
             if ((!args || args.shareArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareArn'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["shareArn"] = args ? args.shareArn : undefined;
             resourceInputs["invitationArn"] = undefined /*out*/;
             resourceInputs["receiverAccountId"] = undefined /*out*/;
@@ -153,6 +159,10 @@ export interface ResourceShareAccepterState {
      * The account ID of the receiver account which accepts the invitation.
      */
     receiverAccountId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of the resource ARNs shared via the resource share.
      */
@@ -183,6 +193,10 @@ export interface ResourceShareAccepterState {
  * The set of arguments for constructing a ResourceShareAccepter resource.
  */
 export interface ResourceShareAccepterArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the resource share.
      */

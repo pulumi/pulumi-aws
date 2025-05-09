@@ -22,6 +22,7 @@ class RuntimeManagementConfigArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[builtins.str],
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
                  update_runtime_on: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -30,12 +31,15 @@ class RuntimeManagementConfigArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] qualifier: Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_version_arn: ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         :param pulumi.Input[builtins.str] update_runtime_on: Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
         pulumi.set(__self__, "function_name", function_name)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if runtime_version_arn is not None:
             pulumi.set(__self__, "runtime_version_arn", runtime_version_arn)
         if update_runtime_on is not None:
@@ -68,6 +72,18 @@ class RuntimeManagementConfigArgs:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="runtimeVersionArn")
     def runtime_version_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -98,6 +114,7 @@ class _RuntimeManagementConfigState:
                  function_arn: Optional[pulumi.Input[builtins.str]] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
                  update_runtime_on: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -107,6 +124,7 @@ class _RuntimeManagementConfigState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] qualifier: Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_version_arn: ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         :param pulumi.Input[builtins.str] update_runtime_on: Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
@@ -116,6 +134,8 @@ class _RuntimeManagementConfigState:
             pulumi.set(__self__, "function_name", function_name)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if runtime_version_arn is not None:
             pulumi.set(__self__, "runtime_version_arn", runtime_version_arn)
         if update_runtime_on is not None:
@@ -160,6 +180,18 @@ class _RuntimeManagementConfigState:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="runtimeVersionArn")
     def runtime_version_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -194,6 +226,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
                  update_runtime_on: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -246,6 +279,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] qualifier: Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_version_arn: ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         :param pulumi.Input[builtins.str] update_runtime_on: Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
@@ -315,6 +349,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
                  update_runtime_on: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -330,6 +365,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["runtime_version_arn"] = runtime_version_arn
             __props__.__dict__["update_runtime_on"] = update_runtime_on
             __props__.__dict__["function_arn"] = None
@@ -346,6 +382,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
             function_arn: Optional[pulumi.Input[builtins.str]] = None,
             function_name: Optional[pulumi.Input[builtins.str]] = None,
             qualifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
             update_runtime_on: Optional[pulumi.Input[builtins.str]] = None) -> 'RuntimeManagementConfig':
         """
@@ -360,6 +397,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] qualifier: Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_version_arn: ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         :param pulumi.Input[builtins.str] update_runtime_on: Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
@@ -370,6 +408,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
         __props__.__dict__["function_arn"] = function_arn
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["qualifier"] = qualifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["runtime_version_arn"] = runtime_version_arn
         __props__.__dict__["update_runtime_on"] = update_runtime_on
         return RuntimeManagementConfig(resource_name, opts=opts, __props__=__props__)
@@ -399,6 +438,14 @@ class RuntimeManagementConfig(pulumi.CustomResource):
         Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="runtimeVersionArn")

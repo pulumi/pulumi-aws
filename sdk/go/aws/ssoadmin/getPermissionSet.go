@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -61,7 +61,8 @@ type LookupPermissionSetArgs struct {
 	// ARN of the SSO Instance associated with the permission set.
 	InstanceArn string `pulumi:"instanceArn"`
 	// Name of the SSO Permission Set.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -76,6 +77,7 @@ type LookupPermissionSetResult struct {
 	Id          string `pulumi:"id"`
 	InstanceArn string `pulumi:"instanceArn"`
 	Name        string `pulumi:"name"`
+	Region      string `pulumi:"region"`
 	// Relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState string `pulumi:"relayState"`
 	// Length of time that the application user sessions are valid in the ISO-8601 standard.
@@ -100,7 +102,8 @@ type LookupPermissionSetOutputArgs struct {
 	// ARN of the SSO Instance associated with the permission set.
 	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
 	// Name of the SSO Permission Set.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -148,6 +151,10 @@ func (o LookupPermissionSetResultOutput) InstanceArn() pulumi.StringOutput {
 
 func (o LookupPermissionSetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupPermissionSetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Relay state URL used to redirect users within the application during the federation authentication process.

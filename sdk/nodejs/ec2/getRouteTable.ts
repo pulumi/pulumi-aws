@@ -38,6 +38,7 @@ export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOpti
     return pulumi.runtime.invoke("aws:ec2/getRouteTable:getRouteTable", {
         "filters": args.filters,
         "gatewayId": args.gatewayId,
+        "region": args.region,
         "routeTableId": args.routeTableId,
         "subnetId": args.subnetId,
         "tags": args.tags,
@@ -57,6 +58,7 @@ export interface GetRouteTableArgs {
      * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      */
     gatewayId?: string;
+    region?: string;
     /**
      * ID of the specific Route Table to retrieve.
      */
@@ -100,6 +102,7 @@ export interface GetRouteTableResult {
      * ID of the AWS account that owns the route table.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * Route Table ID.
      */
@@ -146,6 +149,7 @@ export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulum
     return pulumi.runtime.invokeOutput("aws:ec2/getRouteTable:getRouteTable", {
         "filters": args.filters,
         "gatewayId": args.gatewayId,
+        "region": args.region,
         "routeTableId": args.routeTableId,
         "subnetId": args.subnetId,
         "tags": args.tags,
@@ -165,6 +169,7 @@ export interface GetRouteTableOutputArgs {
      * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      */
     gatewayId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * ID of the specific Route Table to retrieve.
      */

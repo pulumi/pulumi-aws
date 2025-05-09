@@ -107,6 +107,7 @@ public final class GetClusterResult {
      * 
      */
     private Integer port;
+    private String region;
     /**
      * @return Set of VPC Security Group ID-s associated with this cluster.
      * 
@@ -278,6 +279,9 @@ public final class GetClusterResult {
     public Integer port() {
         return this.port;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Set of VPC Security Group ID-s associated with this cluster.
      * 
@@ -363,6 +367,7 @@ public final class GetClusterResult {
         private Integer numShards;
         private String parameterGroupName;
         private Integer port;
+        private String region;
         private List<String> securityGroupIds;
         private List<GetClusterShard> shards;
         private Integer snapshotRetentionLimit;
@@ -393,6 +398,7 @@ public final class GetClusterResult {
     	      this.numShards = defaults.numShards;
     	      this.parameterGroupName = defaults.parameterGroupName;
     	      this.port = defaults.port;
+    	      this.region = defaults.region;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.shards = defaults.shards;
     	      this.snapshotRetentionLimit = defaults.snapshotRetentionLimit;
@@ -559,6 +565,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             if (securityGroupIds == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "securityGroupIds");
@@ -649,6 +663,7 @@ public final class GetClusterResult {
             _resultValue.numShards = numShards;
             _resultValue.parameterGroupName = parameterGroupName;
             _resultValue.port = port;
+            _resultValue.region = region;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.shards = shards;
             _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;

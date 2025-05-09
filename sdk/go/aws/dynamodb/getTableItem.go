@@ -66,6 +66,7 @@ type LookupTableItemArgs struct {
 	// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
 	// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
 	ProjectionExpression *string `pulumi:"projectionExpression"`
+	Region               *string `pulumi:"region"`
 	// The name of the table containing the requested item.
 	TableName string `pulumi:"tableName"`
 }
@@ -79,6 +80,7 @@ type LookupTableItemResult struct {
 	Item                 string  `pulumi:"item"`
 	Key                  string  `pulumi:"key"`
 	ProjectionExpression *string `pulumi:"projectionExpression"`
+	Region               string  `pulumi:"region"`
 	TableName            string  `pulumi:"tableName"`
 }
 
@@ -102,6 +104,7 @@ type LookupTableItemOutputArgs struct {
 	// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
 	// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
 	ProjectionExpression pulumi.StringPtrInput `pulumi:"projectionExpression"`
+	Region               pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the table containing the requested item.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
@@ -145,6 +148,10 @@ func (o LookupTableItemResultOutput) Key() pulumi.StringOutput {
 
 func (o LookupTableItemResultOutput) ProjectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableItemResult) *string { return v.ProjectionExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTableItemResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableItemResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupTableItemResultOutput) TableName() pulumi.StringOutput {

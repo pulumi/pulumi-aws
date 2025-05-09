@@ -231,6 +231,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<Outputs.ServerlessCacheReaderEndpoint>> ReaderEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         /// </summary>
         [Output("securityGroupIds")]
@@ -368,6 +374,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -526,6 +538,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _readerEndpoints ?? (_readerEndpoints = new InputList<Inputs.ServerlessCacheReaderEndpointGetArgs>());
             set => _readerEndpoints = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

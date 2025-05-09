@@ -25,6 +25,7 @@ class EventSubscriptionArgs:
                  source_type: pulumi.Input[builtins.str],
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class EventSubscriptionArgs:
         :param pulumi.Input[builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
         :param pulumi.Input[builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[builtins.str] name: Name of event subscription.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -44,6 +46,8 @@ class EventSubscriptionArgs:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_ids is not None:
             pulumi.set(__self__, "source_ids", source_ids)
         if tags is not None:
@@ -110,6 +114,18 @@ class EventSubscriptionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceIds")
     def source_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -141,6 +157,7 @@ class _EventSubscriptionState:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -152,6 +169,7 @@ class _EventSubscriptionState:
         :param pulumi.Input[builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[builtins.str] name: Name of event subscription.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         :param pulumi.Input[builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
@@ -166,6 +184,8 @@ class _EventSubscriptionState:
             pulumi.set(__self__, "event_categories", event_categories)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sns_topic_arn is not None:
             pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
         if source_ids is not None:
@@ -224,6 +244,18 @@ class _EventSubscriptionState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="snsTopicArn")
@@ -297,6 +329,7 @@ class EventSubscription(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -339,6 +372,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[builtins.str] name: Name of event subscription.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         :param pulumi.Input[builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
@@ -400,6 +434,7 @@ class EventSubscription(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -418,6 +453,7 @@ class EventSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'event_categories'")
             __props__.__dict__["event_categories"] = event_categories
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if sns_topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'sns_topic_arn'")
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
@@ -442,6 +478,7 @@ class EventSubscription(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
             source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             source_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -458,6 +495,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[builtins.str] name: Name of event subscription.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         :param pulumi.Input[builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
@@ -472,6 +510,7 @@ class EventSubscription(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["event_categories"] = event_categories
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["sns_topic_arn"] = sns_topic_arn
         __props__.__dict__["source_ids"] = source_ids
         __props__.__dict__["source_type"] = source_type
@@ -510,6 +549,14 @@ class EventSubscription(pulumi.CustomResource):
         Name of event subscription.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snsTopicArn")

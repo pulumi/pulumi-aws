@@ -27,6 +27,7 @@ export function getPublicIpv4Pool(args: GetPublicIpv4PoolArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", {
         "poolId": args.poolId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,7 @@ export interface GetPublicIpv4PoolArgs {
      * AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
      */
     poolId: string;
+    region?: string;
     /**
      * Any tags for the address pool.
      */
@@ -64,6 +66,7 @@ export interface GetPublicIpv4PoolResult {
     readonly networkBorderGroup: string;
     readonly poolAddressRanges: outputs.ec2.GetPublicIpv4PoolPoolAddressRange[];
     readonly poolId: string;
+    readonly region: string;
     /**
      * Any tags for the address pool.
      */
@@ -97,6 +100,7 @@ export function getPublicIpv4PoolOutput(args: GetPublicIpv4PoolOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", {
         "poolId": args.poolId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -109,6 +113,7 @@ export interface GetPublicIpv4PoolOutputArgs {
      * AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
      */
     poolId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Any tags for the address pool.
      */

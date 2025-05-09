@@ -27,6 +27,7 @@ export function getReceivedLicense(args: GetReceivedLicenseArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:licensemanager/getReceivedLicense:getReceivedLicense", {
         "licenseArn": args.licenseArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,7 @@ export interface GetReceivedLicenseArgs {
      * The ARN of the received license you want data for.
      */
     licenseArn: string;
+    region?: string;
 }
 
 /**
@@ -94,6 +96,7 @@ export interface GetReceivedLicenseResult {
      * Granted license received metadata. Detailed below
      */
     readonly receivedMetadatas: outputs.licensemanager.GetReceivedLicenseReceivedMetadata[];
+    readonly region: string;
     /**
      * Granted license status.
      */
@@ -127,6 +130,7 @@ export function getReceivedLicenseOutput(args: GetReceivedLicenseOutputArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:licensemanager/getReceivedLicense:getReceivedLicense", {
         "licenseArn": args.licenseArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -138,4 +142,5 @@ export interface GetReceivedLicenseOutputArgs {
      * The ARN of the received license you want data for.
      */
     licenseArn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -33,6 +33,21 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
      * 
      */
@@ -66,6 +81,7 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
 
     private PeeringConnectionOptionsState(PeeringConnectionOptionsState $) {
         this.accepter = $.accepter;
+        this.region = $.region;
         this.requester = $.requester;
         this.vpcPeeringConnectionId = $.vpcPeeringConnectionId;
     }
@@ -107,6 +123,27 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
          */
         public Builder accepter(PeeringConnectionOptionsAccepterArgs accepter) {
             return accepter(Output.of(accepter));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

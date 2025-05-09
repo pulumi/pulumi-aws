@@ -14,20 +14,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetParameterResult {
+    /**
+     * @return ARN of the parameter.
+     * 
+     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Value of the parameter. **Use caution:** This value is never marked as sensitive.
+     * 
+     */
     private String insecureValue;
+    /**
+     * @return Name of the parameter.
+     * 
+     */
     private String name;
+    private String region;
+    /**
+     * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     */
     private String type;
+    /**
+     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+     * 
+     */
     private String value;
+    /**
+     * @return Version of the parameter.
+     * 
+     */
     private Integer version;
     private @Nullable Boolean withDecryption;
 
     private GetParameterResult() {}
+    /**
+     * @return ARN of the parameter.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
@@ -38,18 +67,41 @@ public final class GetParameterResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Value of the parameter. **Use caution:** This value is never marked as sensitive.
+     * 
+     */
     public String insecureValue() {
         return this.insecureValue;
     }
+    /**
+     * @return Name of the parameter.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
+    /**
+     * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+     * 
+     */
     public String value() {
         return this.value;
     }
+    /**
+     * @return Version of the parameter.
+     * 
+     */
     public Integer version() {
         return this.version;
     }
@@ -70,6 +122,7 @@ public final class GetParameterResult {
         private String id;
         private String insecureValue;
         private String name;
+        private String region;
         private String type;
         private String value;
         private Integer version;
@@ -81,6 +134,7 @@ public final class GetParameterResult {
     	      this.id = defaults.id;
     	      this.insecureValue = defaults.insecureValue;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.type = defaults.type;
     	      this.value = defaults.value;
     	      this.version = defaults.version;
@@ -120,6 +174,14 @@ public final class GetParameterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetParameterResult", "type");
@@ -155,6 +217,7 @@ public final class GetParameterResult {
             _resultValue.id = id;
             _resultValue.insecureValue = insecureValue;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.type = type;
             _resultValue.value = value;
             _resultValue.version = version;

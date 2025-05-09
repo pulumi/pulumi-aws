@@ -62,6 +62,21 @@ public final class ServerlessSecurityPolicyArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Type of security policy. One of `encryption` or `network`.
      * 
      * The following arguments are optional:
@@ -86,6 +101,7 @@ public final class ServerlessSecurityPolicyArgs extends com.pulumi.resources.Res
         this.description = $.description;
         this.name = $.name;
         this.policy = $.policy;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -168,6 +184,27 @@ public final class ServerlessSecurityPolicyArgs extends com.pulumi.resources.Res
          */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

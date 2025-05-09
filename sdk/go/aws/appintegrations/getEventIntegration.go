@@ -51,7 +51,8 @@ func GetEventIntegration(ctx *pulumi.Context, args *GetEventIntegrationArgs, opt
 // A collection of arguments for invoking getEventIntegration.
 type GetEventIntegrationArgs struct {
 	// The AppIntegrations Event Integration name.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,8 +68,9 @@ type GetEventIntegrationResult struct {
 	// The EventBridge bus.
 	EventbridgeBus string `pulumi:"eventbridgeBus"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -85,7 +87,8 @@ func GetEventIntegrationOutput(ctx *pulumi.Context, args GetEventIntegrationOutp
 // A collection of arguments for invoking getEventIntegration.
 type GetEventIntegrationOutputArgs struct {
 	// The AppIntegrations Event Integration name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -136,6 +139,10 @@ func (o GetEventIntegrationResultOutput) Id() pulumi.StringOutput {
 
 func (o GetEventIntegrationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetEventIntegrationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Metadata that you can assign to help organize the report plans you create.

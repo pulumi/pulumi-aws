@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ConfigurationSetEventDestinationArgs extends com.pulumi.resources.ResourceArgs {
@@ -60,12 +62,28 @@ public final class ConfigurationSetEventDestinationArgs extends com.pulumi.resou
         return this.eventDestinationName;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private ConfigurationSetEventDestinationArgs() {}
 
     private ConfigurationSetEventDestinationArgs(ConfigurationSetEventDestinationArgs $) {
         this.configurationSetName = $.configurationSetName;
         this.eventDestination = $.eventDestination;
         this.eventDestinationName = $.eventDestinationName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,6 +165,27 @@ public final class ConfigurationSetEventDestinationArgs extends com.pulumi.resou
          */
         public Builder eventDestinationName(String eventDestinationName) {
             return eventDestinationName(Output.of(eventDestinationName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public ConfigurationSetEventDestinationArgs build() {

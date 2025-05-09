@@ -69,6 +69,10 @@ export class ResolverFirewallConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPC that the configuration is for.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class ResolverFirewallConfig extends pulumi.CustomResource {
             const state = argsOrState as ResolverFirewallConfigState | undefined;
             resourceInputs["firewallFailOpen"] = state ? state.firewallFailOpen : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as ResolverFirewallConfigArgs | undefined;
@@ -95,6 +100,7 @@ export class ResolverFirewallConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceId'");
             }
             resourceInputs["firewallFailOpen"] = args ? args.firewallFailOpen : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["ownerId"] = undefined /*out*/;
         }
@@ -116,6 +122,10 @@ export interface ResolverFirewallConfigState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the VPC that the configuration is for.
      */
     resourceId?: pulumi.Input<string>;
@@ -129,6 +139,10 @@ export interface ResolverFirewallConfigArgs {
      * Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
      */
     firewallFailOpen?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC that the configuration is for.
      */

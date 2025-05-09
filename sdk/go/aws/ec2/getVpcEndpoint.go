@@ -63,7 +63,8 @@ type LookupVpcEndpointArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcEndpointFilter `pulumi:"filters"`
 	// ID of the specific VPC Endpoint to retrieve.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
 	// State of the specific VPC Endpoint to retrieve.
@@ -73,8 +74,8 @@ type LookupVpcEndpointArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the VPC in which the specific VPC Endpoint is used.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available VPC endpoints.
+	// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -100,7 +101,8 @@ type LookupVpcEndpointResult struct {
 	// Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId string `pulumi:"prefixListId"`
 	// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
-	PrivateDnsEnabled bool `pulumi:"privateDnsEnabled"`
+	PrivateDnsEnabled bool   `pulumi:"privateDnsEnabled"`
+	Region            string `pulumi:"region"`
 	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
 	RequesterManaged bool `pulumi:"requesterManaged"`
 	// One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
@@ -131,7 +133,8 @@ type LookupVpcEndpointOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcEndpointFilterArrayInput `pulumi:"filters"`
 	// ID of the specific VPC Endpoint to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 	// State of the specific VPC Endpoint to retrieve.
@@ -141,8 +144,8 @@ type LookupVpcEndpointOutputArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// ID of the VPC in which the specific VPC Endpoint is used.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available VPC endpoints.
+	// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -220,6 +223,10 @@ func (o LookupVpcEndpointResultOutput) PrefixListId() pulumi.StringOutput {
 // Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
 func (o LookupVpcEndpointResultOutput) PrivateDnsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) bool { return v.PrivateDnsEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.

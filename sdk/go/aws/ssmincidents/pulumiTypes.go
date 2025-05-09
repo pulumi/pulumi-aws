@@ -15,8 +15,6 @@ var _ = internal.GetEnvOrDefault
 
 type ReplicationSetRegion struct {
 	// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-	//
-	// The following arguments are optional:
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the Region, such as `ap-southeast-2`.
 	Name string `pulumi:"name"`
@@ -40,8 +38,6 @@ type ReplicationSetRegionInput interface {
 
 type ReplicationSetRegionArgs struct {
 	// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-	//
-	// The following arguments are optional:
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The name of the Region, such as `ap-southeast-2`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -104,8 +100,6 @@ func (o ReplicationSetRegionOutput) ToReplicationSetRegionOutputWithContext(ctx 
 }
 
 // The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-//
-// The following arguments are optional:
 func (o ReplicationSetRegionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationSetRegion) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }

@@ -47,6 +47,7 @@ public final class GetNatGatewayResult {
      * 
      */
     private String publicIp;
+    private String region;
     /**
      * @return Secondary allocation EIP IDs for the selected NAT Gateway.
      * 
@@ -116,6 +117,9 @@ public final class GetNatGatewayResult {
     public String publicIp() {
         return this.publicIp;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Secondary allocation EIP IDs for the selected NAT Gateway.
      * 
@@ -167,6 +171,7 @@ public final class GetNatGatewayResult {
         private String networkInterfaceId;
         private String privateIp;
         private String publicIp;
+        private String region;
         private List<String> secondaryAllocationIds;
         private Integer secondaryPrivateIpAddressCount;
         private List<String> secondaryPrivateIpAddresses;
@@ -185,6 +190,7 @@ public final class GetNatGatewayResult {
     	      this.networkInterfaceId = defaults.networkInterfaceId;
     	      this.privateIp = defaults.privateIp;
     	      this.publicIp = defaults.publicIp;
+    	      this.region = defaults.region;
     	      this.secondaryAllocationIds = defaults.secondaryAllocationIds;
     	      this.secondaryPrivateIpAddressCount = defaults.secondaryPrivateIpAddressCount;
     	      this.secondaryPrivateIpAddresses = defaults.secondaryPrivateIpAddresses;
@@ -260,6 +266,14 @@ public final class GetNatGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder secondaryAllocationIds(List<String> secondaryAllocationIds) {
             if (secondaryAllocationIds == null) {
               throw new MissingRequiredPropertyException("GetNatGatewayResult", "secondaryAllocationIds");
@@ -331,6 +345,7 @@ public final class GetNatGatewayResult {
             _resultValue.networkInterfaceId = networkInterfaceId;
             _resultValue.privateIp = privateIp;
             _resultValue.publicIp = publicIp;
+            _resultValue.region = region;
             _resultValue.secondaryAllocationIds = secondaryAllocationIds;
             _resultValue.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
             _resultValue.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;

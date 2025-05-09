@@ -27,6 +27,7 @@ public final class GetIpamPreviewNextCidrResult {
     private String id;
     private String ipamPoolId;
     private @Nullable Integer netmaskLength;
+    private String region;
 
     private GetIpamPreviewNextCidrResult() {}
     /**
@@ -52,6 +53,9 @@ public final class GetIpamPreviewNextCidrResult {
     public Optional<Integer> netmaskLength() {
         return Optional.ofNullable(this.netmaskLength);
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -67,6 +71,7 @@ public final class GetIpamPreviewNextCidrResult {
         private String id;
         private String ipamPoolId;
         private @Nullable Integer netmaskLength;
+        private String region;
         public Builder() {}
         public Builder(GetIpamPreviewNextCidrResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -75,6 +80,7 @@ public final class GetIpamPreviewNextCidrResult {
     	      this.id = defaults.id;
     	      this.ipamPoolId = defaults.ipamPoolId;
     	      this.netmaskLength = defaults.netmaskLength;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -116,6 +122,14 @@ public final class GetIpamPreviewNextCidrResult {
             this.netmaskLength = netmaskLength;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetIpamPreviewNextCidrResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetIpamPreviewNextCidrResult build() {
             final var _resultValue = new GetIpamPreviewNextCidrResult();
             _resultValue.cidr = cidr;
@@ -123,6 +137,7 @@ public final class GetIpamPreviewNextCidrResult {
             _resultValue.id = id;
             _resultValue.ipamPoolId = ipamPoolId;
             _resultValue.netmaskLength = netmaskLength;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

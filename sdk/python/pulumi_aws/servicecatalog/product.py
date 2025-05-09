@@ -29,6 +29,7 @@ class ProductArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  distributor: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  support_description: Optional[pulumi.Input[builtins.str]] = None,
                  support_email: Optional[pulumi.Input[builtins.str]] = None,
                  support_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -44,6 +45,7 @@ class ProductArgs:
         :param pulumi.Input[builtins.str] description: Description of the product.
         :param pulumi.Input[builtins.str] distributor: Distributor (i.e., vendor) of the product.
         :param pulumi.Input[builtins.str] name: Name of the product.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] support_description: Support information about the product.
         :param pulumi.Input[builtins.str] support_email: Contact email for product support.
         :param pulumi.Input[builtins.str] support_url: Contact URL for product support.
@@ -60,6 +62,8 @@ class ProductArgs:
             pulumi.set(__self__, "distributor", distributor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if support_description is not None:
             pulumi.set(__self__, "support_description", support_description)
         if support_email is not None:
@@ -156,6 +160,18 @@ class ProductArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="supportDescription")
     def support_description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -216,6 +232,7 @@ class _ProductState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  support_description: Optional[pulumi.Input[builtins.str]] = None,
                  support_email: Optional[pulumi.Input[builtins.str]] = None,
@@ -234,6 +251,7 @@ class _ProductState:
         :param pulumi.Input[builtins.str] name: Name of the product.
         :param pulumi.Input[builtins.str] owner: Owner of the product.
         :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of the product.
         :param pulumi.Input[builtins.str] support_description: Support information about the product.
         :param pulumi.Input[builtins.str] support_email: Contact email for product support.
@@ -262,6 +280,8 @@ class _ProductState:
             pulumi.set(__self__, "owner", owner)
         if provisioning_artifact_parameters is not None:
             pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if support_description is not None:
@@ -387,6 +407,18 @@ class _ProductState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Status of the product.
@@ -486,6 +518,7 @@ class Product(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  support_description: Optional[pulumi.Input[builtins.str]] = None,
                  support_email: Optional[pulumi.Input[builtins.str]] = None,
                  support_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -535,6 +568,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the product.
         :param pulumi.Input[builtins.str] owner: Owner of the product.
         :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] support_description: Support information about the product.
         :param pulumi.Input[builtins.str] support_email: Contact email for product support.
         :param pulumi.Input[builtins.str] support_url: Contact URL for product support.
@@ -605,6 +639,7 @@ class Product(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  support_description: Optional[pulumi.Input[builtins.str]] = None,
                  support_email: Optional[pulumi.Input[builtins.str]] = None,
                  support_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -629,6 +664,7 @@ class Product(pulumi.CustomResource):
             if provisioning_artifact_parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioning_artifact_parameters'")
             __props__.__dict__["provisioning_artifact_parameters"] = provisioning_artifact_parameters
+            __props__.__dict__["region"] = region
             __props__.__dict__["support_description"] = support_description
             __props__.__dict__["support_email"] = support_email
             __props__.__dict__["support_url"] = support_url
@@ -660,6 +696,7 @@ class Product(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner: Optional[pulumi.Input[builtins.str]] = None,
             provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             support_description: Optional[pulumi.Input[builtins.str]] = None,
             support_email: Optional[pulumi.Input[builtins.str]] = None,
@@ -683,6 +720,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the product.
         :param pulumi.Input[builtins.str] owner: Owner of the product.
         :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of the product.
         :param pulumi.Input[builtins.str] support_description: Support information about the product.
         :param pulumi.Input[builtins.str] support_email: Contact email for product support.
@@ -706,6 +744,7 @@ class Product(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
         __props__.__dict__["provisioning_artifact_parameters"] = provisioning_artifact_parameters
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["support_description"] = support_description
         __props__.__dict__["support_email"] = support_email
@@ -786,6 +825,14 @@ class Product(pulumi.CustomResource):
         Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         """
         return pulumi.get(self, "provisioning_artifact_parameters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

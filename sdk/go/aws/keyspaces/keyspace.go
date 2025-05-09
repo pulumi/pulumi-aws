@@ -57,6 +57,8 @@ type Keyspace struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationOutput `pulumi:"replicationSpecification"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -101,6 +103,8 @@ type keyspaceState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -116,6 +120,8 @@ type KeyspaceState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -133,6 +139,8 @@ type keyspaceArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -145,6 +153,8 @@ type KeyspaceArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -248,6 +258,11 @@ func (o KeyspaceOutput) Arn() pulumi.StringOutput {
 // The following arguments are optional:
 func (o KeyspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o KeyspaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The replication specification of the keyspace.

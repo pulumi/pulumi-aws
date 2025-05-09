@@ -262,6 +262,10 @@ export class DataSet extends pulumi.CustomResource {
      */
     public readonly refreshProperties!: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
     public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
@@ -305,6 +309,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["physicalTableMaps"] = state ? state.physicalTableMaps : undefined;
             resourceInputs["refreshProperties"] = state ? state.refreshProperties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rowLevelPermissionDataSet"] = state ? state.rowLevelPermissionDataSet : undefined;
             resourceInputs["rowLevelPermissionTagConfiguration"] = state ? state.rowLevelPermissionTagConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -329,6 +334,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["physicalTableMaps"] = args ? args.physicalTableMaps : undefined;
             resourceInputs["refreshProperties"] = args ? args.refreshProperties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
             resourceInputs["rowLevelPermissionTagConfiguration"] = args ? args.rowLevelPermissionTagConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -401,6 +407,10 @@ export interface DataSetState {
      */
     refreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshProperties>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
     rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSet>;
@@ -472,6 +482,10 @@ export interface DataSetArgs {
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */
     refreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshProperties>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */

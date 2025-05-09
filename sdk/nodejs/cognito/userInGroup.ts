@@ -79,6 +79,10 @@ export class UserInGroup extends pulumi.CustomResource {
      */
     public readonly groupName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The user pool ID of the user and group.
      */
     public readonly userPoolId!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class UserInGroup extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as UserInGroupState | undefined;
             resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
@@ -115,6 +120,7 @@ export class UserInGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'username'");
             }
             resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
@@ -131,6 +137,10 @@ export interface UserInGroupState {
      * The name of the group to which the user is to be added.
      */
     groupName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user pool ID of the user and group.
      */
@@ -149,6 +159,10 @@ export interface UserInGroupArgs {
      * The name of the group to which the user is to be added.
      */
     groupName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user pool ID of the user and group.
      */

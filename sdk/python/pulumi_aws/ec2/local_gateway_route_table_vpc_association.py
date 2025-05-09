@@ -22,6 +22,7 @@ class LocalGatewayRouteTableVpcAssociationArgs:
     def __init__(__self__, *,
                  local_gateway_route_table_id: pulumi.Input[builtins.str],
                  vpc_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocalGatewayRouteTableVpcAssociation resource.
@@ -29,10 +30,13 @@ class LocalGatewayRouteTableVpcAssociationArgs:
         :param pulumi.Input[builtins.str] vpc_id: Identifier of EC2 VPC.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -64,6 +68,18 @@ class LocalGatewayRouteTableVpcAssociationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -80,12 +96,14 @@ class _LocalGatewayRouteTableVpcAssociationState:
     def __init__(__self__, *,
                  local_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalGatewayRouteTableVpcAssociation resources.
         :param pulumi.Input[builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: Identifier of EC2 VPC.
@@ -96,6 +114,8 @@ class _LocalGatewayRouteTableVpcAssociationState:
             pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         if local_gateway_route_table_id is not None:
             pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -123,6 +143,18 @@ class _LocalGatewayRouteTableVpcAssociationState:
     @local_gateway_route_table_id.setter
     def local_gateway_route_table_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "local_gateway_route_table_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -172,6 +204,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -202,6 +235,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpc_id: Identifier of EC2 VPC.
                
@@ -253,6 +287,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -267,6 +302,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
             if local_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'local_gateway_route_table_id'")
             __props__.__dict__["local_gateway_route_table_id"] = local_gateway_route_table_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -285,6 +321,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             local_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
             local_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'LocalGatewayRouteTableVpcAssociation':
@@ -296,6 +333,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: Identifier of EC2 VPC.
@@ -308,6 +346,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
         __props__.__dict__["local_gateway_id"] = local_gateway_id
         __props__.__dict__["local_gateway_route_table_id"] = local_gateway_route_table_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc_id"] = vpc_id
@@ -325,6 +364,14 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         Identifier of EC2 Local Gateway Route Table.
         """
         return pulumi.get(self, "local_gateway_route_table_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

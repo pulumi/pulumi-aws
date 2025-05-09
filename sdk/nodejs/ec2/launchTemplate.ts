@@ -178,6 +178,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly ramDiskId!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.
      */
@@ -251,6 +255,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["placement"] = state ? state.placement : undefined;
             resourceInputs["privateDnsNameOptions"] = state ? state.privateDnsNameOptions : undefined;
             resourceInputs["ramDiskId"] = state ? state.ramDiskId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             resourceInputs["tagSpecifications"] = state ? state.tagSpecifications : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -289,6 +294,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["placement"] = args ? args.placement : undefined;
             resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
             resourceInputs["ramDiskId"] = args ? args.ramDiskId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -439,6 +445,10 @@ export interface LaunchTemplateState {
      * The ID of the RAM disk.
      */
     ramDiskId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.
@@ -597,6 +607,10 @@ export interface LaunchTemplateArgs {
      * The ID of the RAM disk.
      */
     ramDiskId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.

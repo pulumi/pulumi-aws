@@ -38,6 +38,7 @@ public final class GetUserResult {
      * 
      */
     private String minimumEngineVersion;
+    private String region;
     /**
      * @return Map of tags assigned to the user.
      * 
@@ -81,6 +82,9 @@ public final class GetUserResult {
     public String minimumEngineVersion() {
         return this.minimumEngineVersion;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags assigned to the user.
      * 
@@ -106,6 +110,7 @@ public final class GetUserResult {
         private List<GetUserAuthenticationMode> authenticationModes;
         private String id;
         private String minimumEngineVersion;
+        private String region;
         private Map<String,String> tags;
         private String userName;
         public Builder() {}
@@ -116,6 +121,7 @@ public final class GetUserResult {
     	      this.authenticationModes = defaults.authenticationModes;
     	      this.id = defaults.id;
     	      this.minimumEngineVersion = defaults.minimumEngineVersion;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.userName = defaults.userName;
         }
@@ -164,6 +170,14 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "tags");
@@ -186,6 +200,7 @@ public final class GetUserResult {
             _resultValue.authenticationModes = authenticationModes;
             _resultValue.id = id;
             _resultValue.minimumEngineVersion = minimumEngineVersion;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.userName = userName;
             return _resultValue;

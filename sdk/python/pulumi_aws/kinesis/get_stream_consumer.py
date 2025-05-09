@@ -27,7 +27,7 @@ class GetStreamConsumerResult:
     """
     A collection of values returned by getStreamConsumer.
     """
-    def __init__(__self__, arn=None, creation_timestamp=None, id=None, name=None, status=None, stream_arn=None):
+    def __init__(__self__, arn=None, creation_timestamp=None, id=None, name=None, region=None, status=None, stream_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetStreamConsumerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -75,6 +78,11 @@ class GetStreamConsumerResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Current status of the stream consumer.
@@ -97,12 +105,14 @@ class AwaitableGetStreamConsumerResult(GetStreamConsumerResult):
             creation_timestamp=self.creation_timestamp,
             id=self.id,
             name=self.name,
+            region=self.region,
             status=self.status,
             stream_arn=self.stream_arn)
 
 
 def get_stream_consumer(arn: Optional[builtins.str] = None,
                         name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         stream_arn: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamConsumerResult:
     """
@@ -128,6 +138,7 @@ def get_stream_consumer(arn: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['streamArn'] = stream_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult).value
@@ -137,10 +148,12 @@ def get_stream_consumer(arn: Optional[builtins.str] = None,
         creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         stream_arn=pulumi.get(__ret__, 'stream_arn'))
 def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                stream_arn: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamConsumerResult]:
     """
@@ -166,6 +179,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['streamArn'] = stream_arn
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult)
@@ -174,5 +188,6 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]
         creation_timestamp=pulumi.get(__response__, 'creation_timestamp'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         stream_arn=pulumi.get(__response__, 'stream_arn')))

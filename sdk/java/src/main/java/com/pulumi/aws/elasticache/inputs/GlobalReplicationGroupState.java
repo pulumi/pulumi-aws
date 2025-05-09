@@ -290,6 +290,21 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A flag that indicates whether the encryption in transit is enabled.
      * 
      */
@@ -323,6 +338,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         this.numNodeGroups = $.numNodeGroups;
         this.parameterGroupName = $.parameterGroupName;
         this.primaryReplicationGroupId = $.primaryReplicationGroupId;
+        this.region = $.region;
         this.transitEncryptionEnabled = $.transitEncryptionEnabled;
     }
 
@@ -719,6 +735,27 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
          */
         public Builder primaryReplicationGroupId(String primaryReplicationGroupId) {
             return primaryReplicationGroupId(Output.of(primaryReplicationGroupId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

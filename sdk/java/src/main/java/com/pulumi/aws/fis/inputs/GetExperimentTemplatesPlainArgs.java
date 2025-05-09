@@ -15,6 +15,13 @@ public final class GetExperimentTemplatesPlainArgs extends com.pulumi.resources.
 
     public static final GetExperimentTemplatesPlainArgs Empty = new GetExperimentTemplatesPlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired experiment templates.
@@ -35,6 +42,7 @@ public final class GetExperimentTemplatesPlainArgs extends com.pulumi.resources.
     private GetExperimentTemplatesPlainArgs() {}
 
     private GetExperimentTemplatesPlainArgs(GetExperimentTemplatesPlainArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -54,6 +62,11 @@ public final class GetExperimentTemplatesPlainArgs extends com.pulumi.resources.
 
         public Builder(GetExperimentTemplatesPlainArgs defaults) {
             $ = new GetExperimentTemplatesPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

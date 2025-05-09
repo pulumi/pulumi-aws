@@ -84,6 +84,7 @@ type GetModelsArgs struct {
 	ByOutputModality *string `pulumi:"byOutputModality"`
 	// Model provider to filter on.
 	ByProvider *string `pulumi:"byProvider"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getModels.
@@ -96,6 +97,7 @@ type GetModelsResult struct {
 	Id string `pulumi:"id"`
 	// List of model summary objects. See `modelSummaries`.
 	ModelSummaries []GetModelsModelSummary `pulumi:"modelSummaries"`
+	Region         string                  `pulumi:"region"`
 }
 
 func GetModelsOutput(ctx *pulumi.Context, args GetModelsOutputArgs, opts ...pulumi.InvokeOption) GetModelsResultOutput {
@@ -117,6 +119,7 @@ type GetModelsOutputArgs struct {
 	ByOutputModality pulumi.StringPtrInput `pulumi:"byOutputModality"`
 	// Model provider to filter on.
 	ByProvider pulumi.StringPtrInput `pulumi:"byProvider"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetModelsOutputArgs) ElementType() reflect.Type {
@@ -162,6 +165,10 @@ func (o GetModelsResultOutput) Id() pulumi.StringOutput {
 // List of model summary objects. See `modelSummaries`.
 func (o GetModelsResultOutput) ModelSummaries() GetModelsModelSummaryArrayOutput {
 	return o.ApplyT(func(v GetModelsResult) []GetModelsModelSummary { return v.ModelSummaries }).(GetModelsModelSummaryArrayOutput)
+}
+
+func (o GetModelsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -115,6 +115,9 @@ namespace Pulumi.Aws.ElastiCache
             set => _passwords = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Identifier for the user.
         /// </summary>
@@ -167,6 +170,9 @@ namespace Pulumi.Aws.ElastiCache
             }
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Identifier for the user.
         /// </summary>
@@ -201,6 +207,7 @@ namespace Pulumi.Aws.ElastiCache
         public readonly string Id;
         public readonly bool? NoPasswordRequired;
         public readonly ImmutableArray<string> Passwords;
+        public readonly string Region;
         /// <summary>
         /// Identifier for the user.
         /// </summary>
@@ -224,6 +231,8 @@ namespace Pulumi.Aws.ElastiCache
 
             ImmutableArray<string> passwords,
 
+            string region,
+
             string userId,
 
             string? userName)
@@ -234,6 +243,7 @@ namespace Pulumi.Aws.ElastiCache
             Id = id;
             NoPasswordRequired = noPasswordRequired;
             Passwords = passwords;
+            Region = region;
             UserId = userId;
             UserName = userName;
         }

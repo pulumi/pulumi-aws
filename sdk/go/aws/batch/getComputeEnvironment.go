@@ -52,7 +52,8 @@ func LookupComputeEnvironment(ctx *pulumi.Context, args *LookupComputeEnvironmen
 // A collection of arguments for invoking getComputeEnvironment.
 type LookupComputeEnvironmentArgs struct {
 	// Name of the Batch Compute Environment
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -64,8 +65,9 @@ type LookupComputeEnvironmentResult struct {
 	// ARN of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn string `pulumi:"ecsClusterArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole string `pulumi:"serviceRole"`
 	// State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
@@ -94,7 +96,8 @@ func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvir
 // A collection of arguments for invoking getComputeEnvironment.
 type LookupComputeEnvironmentOutputArgs struct {
 	// Name of the Batch Compute Environment
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -135,6 +138,10 @@ func (o LookupComputeEnvironmentResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupComputeEnvironmentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupComputeEnvironmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

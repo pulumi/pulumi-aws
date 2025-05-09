@@ -54,7 +54,8 @@ func LookupServerlessLifecyclePolicy(ctx *pulumi.Context, args *LookupServerless
 // A collection of arguments for invoking getServerlessLifecyclePolicy.
 type LookupServerlessLifecyclePolicyArgs struct {
 	// Name of the policy
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
 	Type string `pulumi:"type"`
 }
@@ -73,6 +74,7 @@ type LookupServerlessLifecyclePolicyResult struct {
 	Policy string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion string `pulumi:"policyVersion"`
+	Region        string `pulumi:"region"`
 	Type          string `pulumi:"type"`
 }
 
@@ -88,7 +90,8 @@ func LookupServerlessLifecyclePolicyOutput(ctx *pulumi.Context, args LookupServe
 // A collection of arguments for invoking getServerlessLifecyclePolicy.
 type LookupServerlessLifecyclePolicyOutputArgs struct {
 	// Name of the policy
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -143,6 +146,10 @@ func (o LookupServerlessLifecyclePolicyResultOutput) Policy() pulumi.StringOutpu
 // Version of the policy.
 func (o LookupServerlessLifecyclePolicyResultOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessLifecyclePolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupServerlessLifecyclePolicyResultOutput) Type() pulumi.StringOutput {

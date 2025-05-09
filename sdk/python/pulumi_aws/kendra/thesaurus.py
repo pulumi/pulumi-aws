@@ -27,6 +27,7 @@ class ThesaurusArgs:
                  source_s3_path: pulumi.Input['ThesaurusSourceS3PathArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Thesaurus resource.
@@ -34,6 +35,7 @@ class ThesaurusArgs:
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -42,6 +44,8 @@ class ThesaurusArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -104,6 +108,18 @@ class ThesaurusArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -119,6 +135,7 @@ class _ThesaurusState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input['ThesaurusSourceS3PathArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -130,6 +147,7 @@ class _ThesaurusState:
         :param pulumi.Input[builtins.str] arn: ARN of the thesaurus.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[builtins.str] status: The current status of the thesaurus.
@@ -143,6 +161,8 @@ class _ThesaurusState:
             pulumi.set(__self__, "index_id", index_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if source_s3_path is not None:
@@ -200,6 +220,18 @@ class _ThesaurusState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -279,6 +311,7 @@ class Thesaurus(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -317,6 +350,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         """
@@ -374,6 +408,7 @@ class Thesaurus(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -391,6 +426,7 @@ class Thesaurus(pulumi.CustomResource):
                 raise TypeError("Missing required property 'index_id'")
             __props__.__dict__["index_id"] = index_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -416,6 +452,7 @@ class Thesaurus(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             index_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             source_s3_path: Optional[pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -432,6 +469,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the thesaurus.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[builtins.str] status: The current status of the thesaurus.
@@ -445,6 +483,7 @@ class Thesaurus(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["index_id"] = index_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["source_s3_path"] = source_s3_path
         __props__.__dict__["status"] = status
@@ -481,6 +520,14 @@ class Thesaurus(pulumi.CustomResource):
         The name for the thesaurus.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

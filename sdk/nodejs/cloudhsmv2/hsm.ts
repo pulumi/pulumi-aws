@@ -85,6 +85,10 @@ export class Hsm extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */
     public readonly subnetId!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class Hsm extends pulumi.CustomResource {
             resourceInputs["hsmId"] = state ? state.hsmId : undefined;
             resourceInputs["hsmState"] = state ? state.hsmState : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as HsmArgs | undefined;
@@ -117,6 +122,7 @@ export class Hsm extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["clusterId"] = args ? args.clusterId : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["hsmEniId"] = undefined /*out*/;
             resourceInputs["hsmId"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface HsmState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */
     subnetId?: pulumi.Input<string>;
@@ -177,6 +187,10 @@ export interface HsmArgs {
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      */
     ipAddress?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */

@@ -90,6 +90,7 @@ func GetSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ..
 type GetSecurityGroupsArgs struct {
 	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
+	Region  *string                   `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match for desired security groups.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -102,8 +103,9 @@ type GetSecurityGroupsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of the matches security groups.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 	// VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
 	VpcIds []string `pulumi:"vpcIds"`
 }
@@ -121,6 +123,7 @@ func GetSecurityGroupsOutput(ctx *pulumi.Context, args GetSecurityGroupsOutputAr
 type GetSecurityGroupsOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
 	Filters GetSecurityGroupsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput             `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match for desired security groups.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -161,6 +164,10 @@ func (o GetSecurityGroupsResultOutput) Id() pulumi.StringOutput {
 // IDs of the matches security groups.
 func (o GetSecurityGroupsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityGroupsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSecurityGroupsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSecurityGroupsResultOutput) Tags() pulumi.StringMapOutput {

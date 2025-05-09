@@ -96,6 +96,9 @@ namespace Pulumi.Aws.WafV2
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
@@ -115,6 +118,9 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -153,6 +159,7 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         public readonly string IpAddressVersion;
         public readonly string Name;
+        public readonly string Region;
         public readonly string Scope;
 
         [OutputConstructor]
@@ -169,6 +176,8 @@ namespace Pulumi.Aws.WafV2
 
             string name,
 
+            string region,
+
             string scope)
         {
             Addresses = addresses;
@@ -177,6 +186,7 @@ namespace Pulumi.Aws.WafV2
             Id = id;
             IpAddressVersion = ipAddressVersion;
             Name = name;
+            Region = region;
             Scope = scope;
         }
     }

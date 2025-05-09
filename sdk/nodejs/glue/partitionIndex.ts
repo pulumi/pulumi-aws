@@ -143,6 +143,10 @@ export class PartitionIndex extends pulumi.CustomResource {
      */
     public readonly partitionIndex!: pulumi.Output<outputs.glue.PartitionIndexPartitionIndex>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
     public readonly tableName!: pulumi.Output<string>;
@@ -163,6 +167,7 @@ export class PartitionIndex extends pulumi.CustomResource {
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["partitionIndex"] = state ? state.partitionIndex : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as PartitionIndexArgs | undefined;
@@ -178,6 +183,7 @@ export class PartitionIndex extends pulumi.CustomResource {
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["partitionIndex"] = args ? args.partitionIndex : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -202,6 +208,10 @@ export interface PartitionIndexState {
      */
     partitionIndex?: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
     tableName?: pulumi.Input<string>;
@@ -223,6 +233,10 @@ export interface PartitionIndexArgs {
      * Configuration block for a partition index. See `partitionIndex` below.
      */
     partitionIndex: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */

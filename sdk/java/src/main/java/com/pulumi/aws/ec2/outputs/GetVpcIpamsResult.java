@@ -26,6 +26,7 @@ public final class GetVpcIpamsResult {
      * 
      */
     private List<GetVpcIpamsIpam> ipams;
+    private String region;
 
     private GetVpcIpamsResult() {}
     public List<GetVpcIpamsFilter> filters() {
@@ -48,6 +49,9 @@ public final class GetVpcIpamsResult {
     public List<GetVpcIpamsIpam> ipams() {
         return this.ipams;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,6 +66,7 @@ public final class GetVpcIpamsResult {
         private String id;
         private @Nullable List<String> ipamIds;
         private List<GetVpcIpamsIpam> ipams;
+        private String region;
         public Builder() {}
         public Builder(GetVpcIpamsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,6 +74,7 @@ public final class GetVpcIpamsResult {
     	      this.id = defaults.id;
     	      this.ipamIds = defaults.ipamIds;
     	      this.ipams = defaults.ipams;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -108,12 +114,21 @@ public final class GetVpcIpamsResult {
         public Builder ipams(GetVpcIpamsIpam... ipams) {
             return ipams(List.of(ipams));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetVpcIpamsResult build() {
             final var _resultValue = new GetVpcIpamsResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ipamIds = ipamIds;
             _resultValue.ipams = ipams;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

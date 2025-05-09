@@ -45,6 +45,7 @@ public final class GetRepositoryResult {
      */
     private List<String> mostRecentImageTags;
     private String name;
+    private String region;
     private String registryId;
     /**
      * @return URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
@@ -103,6 +104,9 @@ public final class GetRepositoryResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     public String registryId() {
         return this.registryId;
     }
@@ -137,6 +141,7 @@ public final class GetRepositoryResult {
         private String imageTagMutability;
         private List<String> mostRecentImageTags;
         private String name;
+        private String region;
         private String registryId;
         private String repositoryUrl;
         private Map<String,String> tags;
@@ -150,6 +155,7 @@ public final class GetRepositoryResult {
     	      this.imageTagMutability = defaults.imageTagMutability;
     	      this.mostRecentImageTags = defaults.mostRecentImageTags;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.registryId = defaults.registryId;
     	      this.repositoryUrl = defaults.repositoryUrl;
     	      this.tags = defaults.tags;
@@ -221,6 +227,14 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             if (registryId == null) {
               throw new MissingRequiredPropertyException("GetRepositoryResult", "registryId");
@@ -253,6 +267,7 @@ public final class GetRepositoryResult {
             _resultValue.imageTagMutability = imageTagMutability;
             _resultValue.mostRecentImageTags = mostRecentImageTags;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.registryId = registryId;
             _resultValue.repositoryUrl = repositoryUrl;
             _resultValue.tags = tags;

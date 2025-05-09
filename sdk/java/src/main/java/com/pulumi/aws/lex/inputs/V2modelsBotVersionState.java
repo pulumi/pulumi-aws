@@ -84,6 +84,21 @@ public final class V2modelsBotVersionState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.localeSpecification);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="timeouts")
     private @Nullable Output<V2modelsBotVersionTimeoutsArgs> timeouts;
 
@@ -98,6 +113,7 @@ public final class V2modelsBotVersionState extends com.pulumi.resources.Resource
         this.botVersion = $.botVersion;
         this.description = $.description;
         this.localeSpecification = $.localeSpecification;
+        this.region = $.region;
         this.timeouts = $.timeouts;
     }
 
@@ -207,6 +223,27 @@ public final class V2modelsBotVersionState extends com.pulumi.resources.Resource
          */
         public Builder localeSpecification(Map<String,V2modelsBotVersionLocaleSpecificationArgs> localeSpecification) {
             return localeSpecification(Output.of(localeSpecification));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder timeouts(@Nullable Output<V2modelsBotVersionTimeoutsArgs> timeouts) {

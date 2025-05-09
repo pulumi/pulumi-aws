@@ -77,6 +77,10 @@ export class DedicatedIpPool extends pulumi.CustomResource {
      */
     public readonly poolName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      */
     public readonly scalingMode!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
             const state = argsOrState as DedicatedIpPoolState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["poolName"] = state ? state.poolName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingMode"] = state ? state.scalingMode : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -110,6 +115,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'poolName'");
             }
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingMode"] = args ? args.scalingMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -135,6 +141,10 @@ export interface DedicatedIpPoolState {
      */
     poolName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      */
     scalingMode?: pulumi.Input<string>;
@@ -155,6 +165,10 @@ export interface DedicatedIpPoolArgs {
      * The following arguments are optional:
      */
     poolName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      */

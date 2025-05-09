@@ -73,6 +73,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An array of VPC subnet IDs to associate with the endpoint.
         /// </summary>
         [Output("subnetIds")]
@@ -154,6 +160,12 @@ namespace Pulumi.Aws.RedshiftServerless
         [Input("ownerAccount")]
         public Input<string>? OwnerAccount { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
@@ -221,6 +233,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

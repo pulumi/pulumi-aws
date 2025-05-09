@@ -34,6 +34,7 @@ class BucketArgs:
                  object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
                  object_lock_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_configuration: Optional[pulumi.Input['BucketReplicationConfigurationArgs']] = None,
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationArgs']] = None,
@@ -61,6 +62,7 @@ class BucketArgs:
         :param pulumi.Input[builtins.str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketPolicy` instead.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['BucketReplicationConfigurationArgs'] replication_configuration: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
         :param pulumi.Input[builtins.str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -126,6 +128,8 @@ class BucketArgs:
             pulumi.log.warn("""policy is deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.""")
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_configuration is not None:
             warnings.warn("""replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.""", DeprecationWarning)
             pulumi.log.warn("""replication_configuration is deprecated: replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.""")
@@ -314,6 +318,18 @@ class BucketArgs:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationConfiguration")
     @_utilities.deprecated("""replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.""")
     def replication_configuration(self) -> Optional[pulumi.Input['BucketReplicationConfigurationArgs']]:
@@ -410,6 +426,7 @@ class _BucketState:
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  bucket_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  bucket_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 bucket_region: Optional[pulumi.Input[builtins.str]] = None,
                  bucket_regional_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgs']]]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -439,6 +456,7 @@ class _BucketState:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
         :param pulumi.Input[builtins.str] bucket_domain_name: Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         :param pulumi.Input[builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+        :param pulumi.Input[builtins.str] bucket_region: AWS region this bucket resides in.
         :param pulumi.Input[builtins.str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         :param pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgs']]] cors_rules: Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
@@ -455,7 +473,7 @@ class _BucketState:
         :param pulumi.Input[builtins.str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketPolicy` instead.
-        :param pulumi.Input[builtins.str] region: AWS region this bucket resides in.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['BucketReplicationConfigurationArgs'] replication_configuration: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
         :param pulumi.Input[builtins.str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -494,6 +512,8 @@ class _BucketState:
             pulumi.set(__self__, "bucket_domain_name", bucket_domain_name)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
         if bucket_regional_domain_name is not None:
             pulumi.set(__self__, "bucket_regional_domain_name", bucket_regional_domain_name)
         if cors_rules is not None:
@@ -650,6 +670,18 @@ class _BucketState:
         pulumi.set(self, "bucket_prefix", value)
 
     @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        AWS region this bucket resides in.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @bucket_region.setter
+    def bucket_region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bucket_region", value)
+
+    @property
     @pulumi.getter(name="bucketRegionalDomainName")
     def bucket_regional_domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -785,7 +817,7 @@ class _BucketState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        AWS region this bucket resides in.
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -939,6 +971,7 @@ class Bucket(pulumi.CustomResource):
                  object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
                  object_lock_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_configuration: Optional[pulumi.Input[Union['BucketReplicationConfigurationArgs', 'BucketReplicationConfigurationArgsDict']]] = None,
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['BucketServerSideEncryptionConfigurationArgs', 'BucketServerSideEncryptionConfigurationArgsDict']]] = None,
@@ -998,6 +1031,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketPolicy` instead.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['BucketReplicationConfigurationArgs', 'BucketReplicationConfigurationArgsDict']] replication_configuration: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
         :param pulumi.Input[builtins.str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -1079,6 +1113,7 @@ class Bucket(pulumi.CustomResource):
                  object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
                  object_lock_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_configuration: Optional[pulumi.Input[Union['BucketReplicationConfigurationArgs', 'BucketReplicationConfigurationArgsDict']]] = None,
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['BucketServerSideEncryptionConfigurationArgs', 'BucketServerSideEncryptionConfigurationArgsDict']]] = None,
@@ -1106,6 +1141,7 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["object_lock_configuration"] = object_lock_configuration
             __props__.__dict__["object_lock_enabled"] = object_lock_enabled
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["request_payer"] = request_payer
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
@@ -1114,9 +1150,9 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["website"] = website
             __props__.__dict__["arn"] = None
             __props__.__dict__["bucket_domain_name"] = None
+            __props__.__dict__["bucket_region"] = None
             __props__.__dict__["bucket_regional_domain_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
-            __props__.__dict__["region"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["website_domain"] = None
             __props__.__dict__["website_endpoint"] = None
@@ -1138,6 +1174,7 @@ class Bucket(pulumi.CustomResource):
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             bucket_domain_name: Optional[pulumi.Input[builtins.str]] = None,
             bucket_prefix: Optional[pulumi.Input[builtins.str]] = None,
+            bucket_region: Optional[pulumi.Input[builtins.str]] = None,
             bucket_regional_domain_name: Optional[pulumi.Input[builtins.str]] = None,
             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsRuleArgs', 'BucketCorsRuleArgsDict']]]]] = None,
             force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1172,6 +1209,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
         :param pulumi.Input[builtins.str] bucket_domain_name: Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         :param pulumi.Input[builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+        :param pulumi.Input[builtins.str] bucket_region: AWS region this bucket resides in.
         :param pulumi.Input[builtins.str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsRuleArgs', 'BucketCorsRuleArgsDict']]]] cors_rules: Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
@@ -1188,7 +1226,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketPolicy` instead.
-        :param pulumi.Input[builtins.str] region: AWS region this bucket resides in.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['BucketReplicationConfigurationArgs', 'BucketReplicationConfigurationArgsDict']] replication_configuration: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
         :param pulumi.Input[builtins.str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -1219,6 +1257,7 @@ class Bucket(pulumi.CustomResource):
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["bucket_domain_name"] = bucket_domain_name
         __props__.__dict__["bucket_prefix"] = bucket_prefix
+        __props__.__dict__["bucket_region"] = bucket_region
         __props__.__dict__["bucket_regional_domain_name"] = bucket_regional_domain_name
         __props__.__dict__["cors_rules"] = cors_rules
         __props__.__dict__["force_destroy"] = force_destroy
@@ -1291,6 +1330,14 @@ class Bucket(pulumi.CustomResource):
         Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         """
         return pulumi.get(self, "bucket_prefix")
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> pulumi.Output[builtins.str]:
+        """
+        AWS region this bucket resides in.
+        """
+        return pulumi.get(self, "bucket_region")
 
     @property
     @pulumi.getter(name="bucketRegionalDomainName")
@@ -1388,7 +1435,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        AWS region this bucket resides in.
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

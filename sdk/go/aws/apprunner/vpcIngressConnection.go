@@ -66,6 +66,8 @@ type VpcIngressConnection struct {
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfigurationOutput `pulumi:"ingressVpcConfiguration"`
 	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The current status of the VPC Ingress Connection.
@@ -120,6 +122,8 @@ type vpcIngressConnectionState struct {
 	IngressVpcConfiguration *VpcIngressConnectionIngressVpcConfiguration `pulumi:"ingressVpcConfiguration"`
 	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// The current status of the VPC Ingress Connection.
@@ -139,6 +143,8 @@ type VpcIngressConnectionState struct {
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfigurationPtrInput
 	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringPtrInput
 	// The current status of the VPC Ingress Connection.
@@ -158,6 +164,8 @@ type vpcIngressConnectionArgs struct {
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfiguration `pulumi:"ingressVpcConfiguration"`
 	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn string `pulumi:"serviceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -170,6 +178,8 @@ type VpcIngressConnectionArgs struct {
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfigurationInput
 	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -283,6 +293,11 @@ func (o VpcIngressConnectionOutput) IngressVpcConfiguration() VpcIngressConnecti
 // A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 func (o VpcIngressConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcIngressConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.

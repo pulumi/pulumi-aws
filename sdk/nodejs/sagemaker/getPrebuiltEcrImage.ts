@@ -65,7 +65,7 @@ export interface GetPrebuiltEcrImageResult {
      */
     readonly id: string;
     readonly imageTag?: string;
-    readonly region?: string;
+    readonly region: string;
     /**
      * Account ID containing the image. For example, `469771592824`.
      */

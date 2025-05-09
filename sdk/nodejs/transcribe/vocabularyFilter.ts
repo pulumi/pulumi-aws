@@ -78,6 +78,10 @@ export class VocabularyFilter extends pulumi.CustomResource {
      */
     public readonly languageCode!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -113,6 +117,7 @@ export class VocabularyFilter extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["downloadUri"] = state ? state.downloadUri : undefined;
             resourceInputs["languageCode"] = state ? state.languageCode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vocabularyFilterFileUri"] = state ? state.vocabularyFilterFileUri : undefined;
@@ -127,6 +132,7 @@ export class VocabularyFilter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vocabularyFilterName'");
             }
             resourceInputs["languageCode"] = args ? args.languageCode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vocabularyFilterFileUri"] = args ? args.vocabularyFilterFileUri : undefined;
             resourceInputs["vocabularyFilterName"] = args ? args.vocabularyFilterName : undefined;
@@ -157,6 +163,10 @@ export interface VocabularyFilterState {
      */
     languageCode?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -185,6 +195,10 @@ export interface VocabularyFilterArgs {
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     languageCode: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

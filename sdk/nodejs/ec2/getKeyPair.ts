@@ -39,6 +39,7 @@ export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): 
         "includePublicKey": args.includePublicKey,
         "keyName": args.keyName,
         "keyPairId": args.keyPairId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -49,6 +50,10 @@ export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): 
 export interface GetKeyPairArgs {
     /**
      * Custom filter block as described below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Key Pairs. The given filters must match exactly one Key Pair
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetKeyPairFilter[];
     /**
@@ -63,6 +68,7 @@ export interface GetKeyPairArgs {
      * Key Pair ID.
      */
     keyPairId?: string;
+    region?: string;
     /**
      * Any tags assigned to the Key Pair.
      */
@@ -101,6 +107,7 @@ export interface GetKeyPairResult {
      * Public key material.
      */
     readonly publicKey: string;
+    readonly region: string;
     /**
      * Any tags assigned to the Key Pair.
      */
@@ -138,6 +145,7 @@ export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.Invo
         "includePublicKey": args.includePublicKey,
         "keyName": args.keyName,
         "keyPairId": args.keyPairId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -148,6 +156,10 @@ export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.Invo
 export interface GetKeyPairOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Key Pairs. The given filters must match exactly one Key Pair
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetKeyPairFilterArgs>[]>;
     /**
@@ -162,6 +174,7 @@ export interface GetKeyPairOutputArgs {
      * Key Pair ID.
      */
     keyPairId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Any tags assigned to the Key Pair.
      */

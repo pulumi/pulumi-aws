@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Mq
         [Input("engineType")]
         public string? EngineType { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetBrokerEngineTypesArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetBrokerEngineTypesInvokeArgs()
         {
@@ -135,6 +141,7 @@ namespace Pulumi.Aws.Mq
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetBrokerEngineTypesResult(
@@ -142,11 +149,14 @@ namespace Pulumi.Aws.Mq
 
             string? engineType,
 
-            string id)
+            string id,
+
+            string region)
         {
             BrokerEngineTypes = brokerEngineTypes;
             EngineType = engineType;
             Id = id;
+            Region = region;
         }
     }
 }

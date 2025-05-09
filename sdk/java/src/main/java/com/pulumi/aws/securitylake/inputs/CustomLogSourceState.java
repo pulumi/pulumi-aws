@@ -80,6 +80,21 @@ public final class CustomLogSourceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specify the name for a third-party custom source.
      * This must be a Regionally unique value.
      * Has a maximum length of 20.
@@ -120,6 +135,7 @@ public final class CustomLogSourceState extends com.pulumi.resources.ResourceArg
         this.configuration = $.configuration;
         this.eventClasses = $.eventClasses;
         this.providerDetails = $.providerDetails;
+        this.region = $.region;
         this.sourceName = $.sourceName;
         this.sourceVersion = $.sourceVersion;
     }
@@ -254,6 +270,27 @@ public final class CustomLogSourceState extends com.pulumi.resources.ResourceArg
          */
         public Builder providerDetails(CustomLogSourceProviderDetailArgs... providerDetails) {
             return providerDetails(List.of(providerDetails));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

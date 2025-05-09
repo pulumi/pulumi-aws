@@ -25,6 +25,7 @@ export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,7 @@ export interface GetLaunchConfigurationArgs {
      * Name of the launch configuration.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -98,6 +100,7 @@ export interface GetLaunchConfigurationResult {
      * Tenancy of the instance.
      */
     readonly placementTenancy: string;
+    readonly region: string;
     /**
      * Root Block Device of the instance.
      */
@@ -133,6 +136,7 @@ export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -144,4 +148,5 @@ export interface GetLaunchConfigurationOutputArgs {
      * Name of the launch configuration.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

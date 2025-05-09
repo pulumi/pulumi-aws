@@ -166,6 +166,21 @@ public final class GameServerGroupState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      * 
      */
@@ -232,6 +247,7 @@ public final class GameServerGroupState extends com.pulumi.resources.ResourceArg
         this.launchTemplate = $.launchTemplate;
         this.maxSize = $.maxSize;
         this.minSize = $.minSize;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -450,6 +466,27 @@ public final class GameServerGroupState extends com.pulumi.resources.ResourceArg
          */
         public Builder minSize(Integer minSize) {
             return minSize(Output.of(minSize));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

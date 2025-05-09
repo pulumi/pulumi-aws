@@ -45,6 +45,13 @@ public final class GetStreamConsumerPlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ARN of the data stream the consumer is registered with.
      * 
@@ -65,6 +72,7 @@ public final class GetStreamConsumerPlainArgs extends com.pulumi.resources.Invok
     private GetStreamConsumerPlainArgs(GetStreamConsumerPlainArgs $) {
         this.arn = $.arn;
         this.name = $.name;
+        this.region = $.region;
         this.streamArn = $.streamArn;
     }
 
@@ -105,6 +113,11 @@ public final class GetStreamConsumerPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

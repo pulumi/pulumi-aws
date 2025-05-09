@@ -269,6 +269,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// prefix lists. The given filters must match exactly one prefix list
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetPrefixListFilterArgs> Filters
         {
@@ -288,6 +292,9 @@ namespace Pulumi.Aws.Ec2
         [Input("prefixListId")]
         public string? PrefixListId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPrefixListArgs()
         {
         }
@@ -301,6 +308,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// prefix lists. The given filters must match exactly one prefix list
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetPrefixListFilterInputArgs> Filters
         {
@@ -319,6 +330,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPrefixListInvokeArgs()
         {
@@ -344,6 +358,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Name;
         public readonly string? PrefixListId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetPrefixListResult(
@@ -355,13 +370,16 @@ namespace Pulumi.Aws.Ec2
 
             string name,
 
-            string? prefixListId)
+            string? prefixListId,
+
+            string region)
         {
             CidrBlocks = cidrBlocks;
             Filters = filters;
             Id = id;
             Name = name;
             PrefixListId = prefixListId;
+            Region = region;
         }
     }
 }

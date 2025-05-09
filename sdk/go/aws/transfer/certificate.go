@@ -42,6 +42,8 @@ type Certificate struct {
 	InactiveDate pulumi.StringOutput `pulumi:"inactiveDate"`
 	// The private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -116,6 +118,8 @@ type certificateState struct {
 	InactiveDate *string `pulumi:"inactiveDate"`
 	// The private key associated with the certificate being imported.
 	PrivateKey *string `pulumi:"privateKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -140,6 +144,8 @@ type CertificateState struct {
 	InactiveDate pulumi.StringPtrInput
 	// The private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -160,6 +166,8 @@ type certificateArgs struct {
 	Description *string `pulumi:"description"`
 	// The private key associated with the certificate being imported.
 	PrivateKey *string `pulumi:"privateKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
@@ -176,6 +184,8 @@ type CertificateArgs struct {
 	Description pulumi.StringPtrInput
 	// The private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
@@ -307,6 +317,11 @@ func (o CertificateOutput) InactiveDate() pulumi.StringOutput {
 // The private key associated with the certificate being imported.
 func (o CertificateOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

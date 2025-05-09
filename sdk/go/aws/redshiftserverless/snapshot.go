@@ -67,6 +67,8 @@ type Snapshot struct {
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The owner Amazon Web Services; account of the snapshot.
 	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// How long to retain the created snapshot. Default value is `-1`.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// The name of the snapshot.
@@ -125,6 +127,8 @@ type snapshotState struct {
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The owner Amazon Web Services; account of the snapshot.
 	OwnerAccount *string `pulumi:"ownerAccount"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// How long to retain the created snapshot. Default value is `-1`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The name of the snapshot.
@@ -148,6 +152,8 @@ type SnapshotState struct {
 	NamespaceName pulumi.StringPtrInput
 	// The owner Amazon Web Services; account of the snapshot.
 	OwnerAccount pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// How long to retain the created snapshot. Default value is `-1`.
 	RetentionPeriod pulumi.IntPtrInput
 	// The name of the snapshot.
@@ -161,6 +167,8 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// The namespace to create a snapshot for.
 	NamespaceName string `pulumi:"namespaceName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// How long to retain the created snapshot. Default value is `-1`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The name of the snapshot.
@@ -171,6 +179,8 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// The namespace to create a snapshot for.
 	NamespaceName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// How long to retain the created snapshot. Default value is `-1`.
 	RetentionPeriod pulumi.IntPtrInput
 	// The name of the snapshot.
@@ -302,6 +312,11 @@ func (o SnapshotOutput) NamespaceName() pulumi.StringOutput {
 // The owner Amazon Web Services; account of the snapshot.
 func (o SnapshotOutput) OwnerAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OwnerAccount }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SnapshotOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // How long to retain the created snapshot. Default value is `-1`.

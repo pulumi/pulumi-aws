@@ -66,6 +66,10 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly profileType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -89,6 +93,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["certificateIds"] = state ? state.certificateIds : undefined;
             resourceInputs["profileId"] = state ? state.profileId : undefined;
             resourceInputs["profileType"] = state ? state.profileType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -102,6 +107,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["as2Id"] = args ? args.as2Id : undefined;
             resourceInputs["certificateIds"] = args ? args.certificateIds : undefined;
             resourceInputs["profileType"] = args ? args.profileType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export interface ProfileState {
      */
     profileType?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -159,6 +169,10 @@ export interface ProfileArgs {
      * The profile type should be LOCAL or PARTNER.
      */
     profileType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

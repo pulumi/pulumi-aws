@@ -191,9 +191,14 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Identifier of the storage virtual machine (e.g. `svm-12345678`).
+        /// 
+        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -225,9 +230,14 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Identifier of the storage virtual machine (e.g. `svm-12345678`).
+        /// 
+        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -284,6 +294,7 @@ namespace Pulumi.Aws.Fsx
         /// The name of the SVM, if provisioned.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The SVM's subtype.
         /// </summary>
@@ -316,6 +327,8 @@ namespace Pulumi.Aws.Fsx
 
             string name,
 
+            string region,
+
             string subtype,
 
             ImmutableDictionary<string, string> tags,
@@ -332,6 +345,7 @@ namespace Pulumi.Aws.Fsx
             LifecycleStatus = lifecycleStatus;
             LifecycleTransitionReasons = lifecycleTransitionReasons;
             Name = name;
+            Region = region;
             Subtype = subtype;
             Tags = tags;
             Uuid = uuid;

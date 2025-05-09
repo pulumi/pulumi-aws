@@ -56,6 +56,10 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */
     public readonly routeTableId!: pulumi.Output<string>;
@@ -77,6 +81,7 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointRouteTableAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
             resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
@@ -87,6 +92,7 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
@@ -99,6 +105,10 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.
  */
 export interface VpcEndpointRouteTableAssociationState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */
@@ -113,6 +123,10 @@ export interface VpcEndpointRouteTableAssociationState {
  * The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
  */
 export interface VpcEndpointRouteTableAssociationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */

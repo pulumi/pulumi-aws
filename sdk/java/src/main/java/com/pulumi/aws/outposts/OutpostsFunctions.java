@@ -18,6 +18,8 @@ import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
 import com.pulumi.aws.outposts.inputs.GetOutpostsPlainArgs;
 import com.pulumi.aws.outposts.inputs.GetSiteArgs;
 import com.pulumi.aws.outposts.inputs.GetSitePlainArgs;
+import com.pulumi.aws.outposts.inputs.GetSitesArgs;
+import com.pulumi.aws.outposts.inputs.GetSitesPlainArgs;
 import com.pulumi.aws.outposts.outputs.GetAssetResult;
 import com.pulumi.aws.outposts.outputs.GetAssetsResult;
 import com.pulumi.aws.outposts.outputs.GetOutpostInstanceTypeResult;
@@ -31,7 +33,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OutpostsFunctions {
@@ -2011,6 +2012,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2024,7 +2026,8 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = OutpostsFunctions.getSites(GetSitesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2034,7 +2037,7 @@ public final class OutpostsFunctions {
      * 
      */
     public static Output<GetSitesResult> getSites() {
-        return getSites(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSites(GetSitesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about multiple Outposts Sites.
@@ -2050,6 +2053,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2063,7 +2067,8 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = OutpostsFunctions.getSites(GetSitesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2073,7 +2078,7 @@ public final class OutpostsFunctions {
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain() {
-        return getSitesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSitesPlain(GetSitesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about multiple Outposts Sites.
@@ -2089,6 +2094,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2102,7 +2108,8 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = OutpostsFunctions.getSites(GetSitesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2111,7 +2118,7 @@ public final class OutpostsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSitesResult> getSites(InvokeArgs args) {
+    public static Output<GetSitesResult> getSites(GetSitesArgs args) {
         return getSites(args, InvokeOptions.Empty);
     }
     /**
@@ -2128,6 +2135,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2141,7 +2149,8 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = OutpostsFunctions.getSites(GetSitesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2150,7 +2159,7 @@ public final class OutpostsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSitesResult> getSitesPlain(InvokeArgs args) {
+    public static CompletableFuture<GetSitesResult> getSitesPlain(GetSitesPlainArgs args) {
         return getSitesPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -2167,6 +2176,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2180,7 +2190,8 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = OutpostsFunctions.getSites(GetSitesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2189,7 +2200,7 @@ public final class OutpostsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSitesResult> getSites(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetSitesResult> getSites(GetSitesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2206,6 +2217,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2219,7 +2231,8 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = OutpostsFunctions.getSites(GetSitesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2228,7 +2241,7 @@ public final class OutpostsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSitesResult> getSites(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetSitesResult> getSites(GetSitesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2245,6 +2258,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2258,7 +2272,8 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = OutpostsFunctions.getSites(GetSitesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2267,7 +2282,7 @@ public final class OutpostsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSitesResult> getSitesPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetSitesResult> getSitesPlain(GetSitesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }
 }

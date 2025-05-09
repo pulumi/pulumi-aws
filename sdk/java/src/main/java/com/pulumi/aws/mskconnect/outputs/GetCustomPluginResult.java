@@ -33,6 +33,7 @@ public final class GetCustomPluginResult {
      */
     private Integer latestRevision;
     private String name;
+    private String region;
     /**
      * @return the state of the custom plugin.
      * 
@@ -76,6 +77,9 @@ public final class GetCustomPluginResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return the state of the custom plugin.
      * 
@@ -105,6 +109,7 @@ public final class GetCustomPluginResult {
         private String id;
         private Integer latestRevision;
         private String name;
+        private String region;
         private String state;
         private Map<String,String> tags;
         public Builder() {}
@@ -115,6 +120,7 @@ public final class GetCustomPluginResult {
     	      this.id = defaults.id;
     	      this.latestRevision = defaults.latestRevision;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
         }
@@ -160,6 +166,14 @@ public final class GetCustomPluginResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCustomPluginResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetCustomPluginResult", "state");
@@ -182,6 +196,7 @@ public final class GetCustomPluginResult {
             _resultValue.id = id;
             _resultValue.latestRevision = latestRevision;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             return _resultValue;

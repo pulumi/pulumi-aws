@@ -23,17 +23,21 @@ class StudioLifecycleConfigArgs:
                  studio_lifecycle_config_app_type: pulumi.Input[builtins.str],
                  studio_lifecycle_config_content: pulumi.Input[builtins.str],
                  studio_lifecycle_config_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a StudioLifecycleConfig resource.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
         pulumi.set(__self__, "studio_lifecycle_config_content", studio_lifecycle_config_content)
         pulumi.set(__self__, "studio_lifecycle_config_name", studio_lifecycle_config_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -75,6 +79,18 @@ class StudioLifecycleConfigArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -90,6 +106,7 @@ class StudioLifecycleConfigArgs:
 class _StudioLifecycleConfigState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_app_type: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_content: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -98,6 +115,7 @@ class _StudioLifecycleConfigState:
         """
         Input properties used for looking up and filtering StudioLifecycleConfig resources.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
@@ -106,6 +124,8 @@ class _StudioLifecycleConfigState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if studio_lifecycle_config_app_type is not None:
             pulumi.set(__self__, "studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
         if studio_lifecycle_config_content is not None:
@@ -128,6 +148,18 @@ class _StudioLifecycleConfigState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="studioLifecycleConfigAppType")
@@ -198,6 +230,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_app_type: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_content: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -231,6 +264,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
@@ -283,6 +317,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_app_type: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_content: Optional[pulumi.Input[builtins.str]] = None,
                  studio_lifecycle_config_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -296,6 +331,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StudioLifecycleConfigArgs.__new__(StudioLifecycleConfigArgs)
 
+            __props__.__dict__["region"] = region
             if studio_lifecycle_config_app_type is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_lifecycle_config_app_type'")
             __props__.__dict__["studio_lifecycle_config_app_type"] = studio_lifecycle_config_app_type
@@ -319,6 +355,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             studio_lifecycle_config_app_type: Optional[pulumi.Input[builtins.str]] = None,
             studio_lifecycle_config_content: Optional[pulumi.Input[builtins.str]] = None,
             studio_lifecycle_config_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -332,6 +369,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
@@ -343,6 +381,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         __props__ = _StudioLifecycleConfigState.__new__(_StudioLifecycleConfigState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["studio_lifecycle_config_app_type"] = studio_lifecycle_config_app_type
         __props__.__dict__["studio_lifecycle_config_content"] = studio_lifecycle_config_content
         __props__.__dict__["studio_lifecycle_config_name"] = studio_lifecycle_config_name
@@ -357,6 +396,14 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="studioLifecycleConfigAppType")

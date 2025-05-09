@@ -113,6 +113,9 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -146,6 +149,9 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -199,6 +205,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Owner of the product.
         /// </summary>
         public readonly string Owner;
+        public readonly string Region;
         /// <summary>
         /// Status of the product.
         /// </summary>
@@ -244,6 +251,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string owner,
 
+            string region,
+
             string status,
 
             string supportDescription,
@@ -265,6 +274,7 @@ namespace Pulumi.Aws.ServiceCatalog
             Id = id;
             Name = name;
             Owner = owner;
+            Region = region;
             Status = status;
             SupportDescription = supportDescription;
             SupportEmail = supportEmail;

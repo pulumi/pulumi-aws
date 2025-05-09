@@ -68,6 +68,7 @@ export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOption
         "filters": args.filters,
         "id": args.id,
         "publicIp": args.publicIp,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -88,8 +89,13 @@ export interface GetElasticIpArgs {
      * Public IP of the specific EIP to retrieve.
      */
     publicIp?: string;
+    region?: string;
     /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Elastic IPs in the current region. The given filters must match exactly one
+     * Elastic IP whose data will be exported as attributes.
      */
     tags?: {[key: string]: string};
 }
@@ -164,6 +170,7 @@ export interface GetElasticIpResult {
      * ID of an address pool.
      */
     readonly publicIpv4Pool: string;
+    readonly region: string;
     /**
      * Key-value map of tags associated with Elastic IP.
      */
@@ -230,6 +237,7 @@ export function getElasticIpOutput(args?: GetElasticIpOutputArgs, opts?: pulumi.
         "filters": args.filters,
         "id": args.id,
         "publicIp": args.publicIp,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -250,8 +258,13 @@ export interface GetElasticIpOutputArgs {
      * Public IP of the specific EIP to retrieve.
      */
     publicIp?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Elastic IPs in the current region. The given filters must match exactly one
+     * Elastic IP whose data will be exported as attributes.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

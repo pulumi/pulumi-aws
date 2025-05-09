@@ -31,6 +31,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getCluster:getCluster", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,7 @@ export interface GetClusterArgs {
      * Name of the cluster.
      */
     name: string;
+    region?: string;
     /**
      * Key-value map of resource tags.
      */
@@ -106,6 +108,7 @@ export interface GetClusterResult {
      * Platform version for the cluster.
      */
     readonly platformVersion: string;
+    readonly region: string;
     /**
      * Contains remote network configuration for EKS Hybrid Nodes.
      */
@@ -167,6 +170,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getCluster:getCluster", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -179,6 +183,7 @@ export interface GetClusterOutputArgs {
      * Name of the cluster.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.
      */

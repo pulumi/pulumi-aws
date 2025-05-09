@@ -181,6 +181,12 @@ namespace Pulumi.Aws.Lex
         public Output<string?> ParentSlotTypeSignature { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier for the slot type.
         /// </summary>
         [Output("slotTypeId")]
@@ -317,6 +323,12 @@ namespace Pulumi.Aws.Lex
         [Input("parentSlotTypeSignature")]
         public Input<string>? ParentSlotTypeSignature { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("slotTypeValues")]
         private InputList<Inputs.V2modelsSlotTypeSlotTypeValueArgs>? _slotTypeValues;
 
@@ -415,6 +427,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("parentSlotTypeSignature")]
         public Input<string>? ParentSlotTypeSignature { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Unique identifier for the slot type.

@@ -169,6 +169,8 @@ type Plan struct {
 
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringOutput `pulumi:"contactId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayOutput `pulumi:"stages"`
 }
@@ -211,6 +213,8 @@ func GetPlan(ctx *pulumi.Context,
 type planState struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId *string `pulumi:"contactId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages []PlanStage `pulumi:"stages"`
 }
@@ -218,6 +222,8 @@ type planState struct {
 type PlanState struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayInput
 }
@@ -229,6 +235,8 @@ func (PlanState) ElementType() reflect.Type {
 type planArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId string `pulumi:"contactId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages []PlanStage `pulumi:"stages"`
 }
@@ -237,6 +245,8 @@ type planArgs struct {
 type PlanArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayInput
 }
@@ -331,6 +341,11 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 // The Amazon Resource Name (ARN) of the contact or escalation plan.
 func (o PlanOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.ContactId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.

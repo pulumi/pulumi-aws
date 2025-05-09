@@ -33,6 +33,7 @@ public final class GetSecurityGroupRulesFilter extends com.pulumi.resources.Invo
 
     /**
      * Set of values that are accepted for the given field.
+     * 
      * Security group rule IDs will be selected if any one of the given values match.
      * 
      */
@@ -41,6 +42,7 @@ public final class GetSecurityGroupRulesFilter extends com.pulumi.resources.Invo
 
     /**
      * @return Set of values that are accepted for the given field.
+     * 
      * Security group rule IDs will be selected if any one of the given values match.
      * 
      */
@@ -87,6 +89,7 @@ public final class GetSecurityGroupRulesFilter extends com.pulumi.resources.Invo
 
         /**
          * @param values Set of values that are accepted for the given field.
+         * 
          * Security group rule IDs will be selected if any one of the given values match.
          * 
          * @return builder
@@ -99,6 +102,7 @@ public final class GetSecurityGroupRulesFilter extends com.pulumi.resources.Invo
 
         /**
          * @param values Set of values that are accepted for the given field.
+         * 
          * Security group rule IDs will be selected if any one of the given values match.
          * 
          * @return builder

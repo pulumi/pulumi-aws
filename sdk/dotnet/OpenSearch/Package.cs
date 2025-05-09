@@ -99,6 +99,12 @@ namespace Pulumi.Aws.OpenSearch
         [Output("packageType")]
         public Output<string> PackageType { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Package resource with the given unique name, arguments, and options.
@@ -169,6 +175,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("packageType", required: true)]
         public Input<string> PackageType { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public PackageArgs()
         {
         }
@@ -209,6 +221,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public PackageState()
         {

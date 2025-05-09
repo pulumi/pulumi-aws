@@ -57,6 +57,8 @@ type LogDeliveryDestinationPolicy struct {
 	DeliveryDestinationName pulumi.StringOutput `pulumi:"deliveryDestinationName"`
 	// The contents of the policy.
 	DeliveryDestinationPolicy pulumi.StringOutput `pulumi:"deliveryDestinationPolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogDeliveryDestinationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,8 @@ type logDeliveryDestinationPolicyState struct {
 	DeliveryDestinationName *string `pulumi:"deliveryDestinationName"`
 	// The contents of the policy.
 	DeliveryDestinationPolicy *string `pulumi:"deliveryDestinationPolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LogDeliveryDestinationPolicyState struct {
@@ -106,6 +110,8 @@ type LogDeliveryDestinationPolicyState struct {
 	DeliveryDestinationName pulumi.StringPtrInput
 	// The contents of the policy.
 	DeliveryDestinationPolicy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogDeliveryDestinationPolicyState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type logDeliveryDestinationPolicyArgs struct {
 	DeliveryDestinationName string `pulumi:"deliveryDestinationName"`
 	// The contents of the policy.
 	DeliveryDestinationPolicy string `pulumi:"deliveryDestinationPolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogDeliveryDestinationPolicy resource.
@@ -125,6 +133,8 @@ type LogDeliveryDestinationPolicyArgs struct {
 	DeliveryDestinationName pulumi.StringInput
 	// The contents of the policy.
 	DeliveryDestinationPolicy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogDeliveryDestinationPolicyArgs) ElementType() reflect.Type {
@@ -222,6 +232,11 @@ func (o LogDeliveryDestinationPolicyOutput) DeliveryDestinationName() pulumi.Str
 // The contents of the policy.
 func (o LogDeliveryDestinationPolicyOutput) DeliveryDestinationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestinationPolicy) pulumi.StringOutput { return v.DeliveryDestinationPolicy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogDeliveryDestinationPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDeliveryDestinationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LogDeliveryDestinationPolicyArrayOutput struct{ *pulumi.OutputState }

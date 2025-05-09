@@ -93,6 +93,8 @@ type AutomationRule struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolOutput `pulumi:"isTerminal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the rule.
 	RuleName pulumi.StringOutput `pulumi:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -152,6 +154,8 @@ type automationRuleState struct {
 	Description *string `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal *bool `pulumi:"isTerminal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the rule.
 	RuleName *string `pulumi:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -173,6 +177,8 @@ type AutomationRuleState struct {
 	Description pulumi.StringPtrInput
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the rule.
 	RuleName pulumi.StringPtrInput
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -196,6 +202,8 @@ type automationRuleArgs struct {
 	Description string `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal *bool `pulumi:"isTerminal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the rule.
 	RuleName string `pulumi:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -215,6 +223,8 @@ type AutomationRuleArgs struct {
 	Description pulumi.StringInput
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the rule.
 	RuleName pulumi.StringInput
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -334,6 +344,11 @@ func (o AutomationRuleOutput) Description() pulumi.StringOutput {
 // Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 func (o AutomationRuleOutput) IsTerminal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.BoolOutput { return v.IsTerminal }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AutomationRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the rule.

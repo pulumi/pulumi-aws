@@ -86,6 +86,7 @@ func GetPublicIpv4Pools(ctx *pulumi.Context, args *GetPublicIpv4PoolsArgs, opts 
 type GetPublicIpv4PoolsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetPublicIpv4PoolsFilter `pulumi:"filters"`
+	Region  *string                    `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired pools.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -100,6 +101,7 @@ type GetPublicIpv4PoolsResult struct {
 	Id string `pulumi:"id"`
 	// List of all the pool IDs found.
 	PoolIds []string          `pulumi:"poolIds"`
+	Region  string            `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 }
 
@@ -116,6 +118,7 @@ func GetPublicIpv4PoolsOutput(ctx *pulumi.Context, args GetPublicIpv4PoolsOutput
 type GetPublicIpv4PoolsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetPublicIpv4PoolsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput              `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired pools.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -154,6 +157,10 @@ func (o GetPublicIpv4PoolsResultOutput) Id() pulumi.StringOutput {
 // List of all the pool IDs found.
 func (o GetPublicIpv4PoolsResultOutput) PoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPublicIpv4PoolsResult) []string { return v.PoolIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetPublicIpv4PoolsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetPublicIpv4PoolsResultOutput) Tags() pulumi.StringMapOutput {

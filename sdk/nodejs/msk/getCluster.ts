@@ -27,6 +27,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getCluster:getCluster", {
         "clusterName": args.clusterName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,7 @@ export interface GetClusterArgs {
      * Name of the cluster.
      */
     clusterName: string;
+    region?: string;
     /**
      * Map of key-value pairs assigned to the cluster.
      */
@@ -102,6 +104,7 @@ export interface GetClusterResult {
      * Number of broker nodes in the cluster.
      */
     readonly numberOfBrokerNodes: number;
+    readonly region: string;
     /**
      * Map of key-value pairs assigned to the cluster.
      */
@@ -135,6 +138,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getCluster:getCluster", {
         "clusterName": args.clusterName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -147,6 +151,7 @@ export interface GetClusterOutputArgs {
      * Name of the cluster.
      */
     clusterName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of key-value pairs assigned to the cluster.
      */

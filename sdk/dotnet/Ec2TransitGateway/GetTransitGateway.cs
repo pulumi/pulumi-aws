@@ -195,6 +195,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -232,6 +235,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -304,6 +310,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the default propagation route table
         /// </summary>
         public readonly string PropagationDefaultRouteTableId;
+        public readonly string Region;
         /// <summary>
         /// Whether Security Group Referencing Support is enabled
         /// </summary>
@@ -349,6 +356,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string propagationDefaultRouteTableId,
 
+            string region,
+
             string securityGroupReferencingSupport,
 
             ImmutableDictionary<string, string> tags,
@@ -370,6 +379,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             MulticastSupport = multicastSupport;
             OwnerId = ownerId;
             PropagationDefaultRouteTableId = propagationDefaultRouteTableId;
+            Region = region;
             SecurityGroupReferencingSupport = securityGroupReferencingSupport;
             Tags = tags;
             TransitGatewayCidrBlocks = transitGatewayCidrBlocks;

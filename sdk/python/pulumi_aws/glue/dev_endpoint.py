@@ -30,6 +30,7 @@ class DevEndpointArgs:
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
                  public_key: Optional[pulumi.Input[builtins.str]] = None,
                  public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -47,6 +48,7 @@ class DevEndpointArgs:
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         :param pulumi.Input[builtins.str] public_key: The public key to be used by this endpoint for authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The subnet ID for the new endpoint to use.
@@ -72,6 +74,8 @@ class DevEndpointArgs:
             pulumi.set(__self__, "public_key", public_key)
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_configuration is not None:
             pulumi.set(__self__, "security_configuration", security_configuration)
         if security_group_ids is not None:
@@ -204,6 +208,18 @@ class DevEndpointArgs:
         pulumi.set(self, "public_keys", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -281,6 +297,7 @@ class _DevEndpointState:
                  public_address: Optional[pulumi.Input[builtins.str]] = None,
                  public_key: Optional[pulumi.Input[builtins.str]] = None,
                  public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -308,6 +325,7 @@ class _DevEndpointState:
         :param pulumi.Input[builtins.str] public_address: The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         :param pulumi.Input[builtins.str] public_key: The public key to be used by this endpoint for authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role for this endpoint.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
@@ -348,6 +366,8 @@ class _DevEndpointState:
             pulumi.set(__self__, "public_key", public_key)
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if security_configuration is not None:
@@ -540,6 +560,18 @@ class _DevEndpointState:
         pulumi.set(self, "public_keys", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -689,6 +721,7 @@ class DevEndpoint(pulumi.CustomResource):
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
                  public_key: Optional[pulumi.Input[builtins.str]] = None,
                  public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -744,6 +777,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         :param pulumi.Input[builtins.str] public_key: The public key to be used by this endpoint for authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role for this endpoint.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
@@ -818,6 +852,7 @@ class DevEndpoint(pulumi.CustomResource):
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
                  public_key: Optional[pulumi.Input[builtins.str]] = None,
                  public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -842,6 +877,7 @@ class DevEndpoint(pulumi.CustomResource):
             __props__.__dict__["number_of_workers"] = number_of_workers
             __props__.__dict__["public_key"] = public_key
             __props__.__dict__["public_keys"] = public_keys
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -884,6 +920,7 @@ class DevEndpoint(pulumi.CustomResource):
             public_address: Optional[pulumi.Input[builtins.str]] = None,
             public_key: Optional[pulumi.Input[builtins.str]] = None,
             public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             security_configuration: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -916,6 +953,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] public_address: The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         :param pulumi.Input[builtins.str] public_key: The public key to be used by this endpoint for authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role for this endpoint.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
@@ -946,6 +984,7 @@ class DevEndpoint(pulumi.CustomResource):
         __props__.__dict__["public_address"] = public_address
         __props__.__dict__["public_key"] = public_key
         __props__.__dict__["public_keys"] = public_keys
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["security_configuration"] = security_configuration
         __props__.__dict__["security_group_ids"] = security_group_ids
@@ -1070,6 +1109,14 @@ class DevEndpoint(pulumi.CustomResource):
         A list of public keys to be used by this endpoint for authentication.
         """
         return pulumi.get(self, "public_keys")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

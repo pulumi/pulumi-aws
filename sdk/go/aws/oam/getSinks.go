@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.GetSinks(ctx, map[string]interface{}{}, nil)
+//			_, err := oam.GetSinks(ctx, &oam.GetSinksArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,19 @@ import (
 //	}
 //
 // ```
-func GetSinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSinksResult, error) {
+func GetSinks(ctx *pulumi.Context, args *GetSinksArgs, opts ...pulumi.InvokeOption) (*GetSinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSinksResult
-	err := ctx.Invoke("aws:oam/getSinks:getSinks", nil, &rv, opts...)
+	err := ctx.Invoke("aws:oam/getSinks:getSinks", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getSinks.
+type GetSinksArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSinks.
@@ -53,14 +58,26 @@ type GetSinksResult struct {
 	// Set of ARN of the Sinks.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func GetSinksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSinksResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetSinksResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:oam/getSinks:getSinks", nil, GetSinksResultOutput{}, options).(GetSinksResultOutput), nil
-	}).(GetSinksResultOutput)
+func GetSinksOutput(ctx *pulumi.Context, args GetSinksOutputArgs, opts ...pulumi.InvokeOption) GetSinksResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetSinksResultOutput, error) {
+			args := v.(GetSinksArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:oam/getSinks:getSinks", args, GetSinksResultOutput{}, options).(GetSinksResultOutput), nil
+		}).(GetSinksResultOutput)
+}
+
+// A collection of arguments for invoking getSinks.
+type GetSinksOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetSinksOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSinksArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getSinks.
@@ -86,6 +103,10 @@ func (o GetSinksResultOutput) Arns() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetSinksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSinksResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSinksResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSinksResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

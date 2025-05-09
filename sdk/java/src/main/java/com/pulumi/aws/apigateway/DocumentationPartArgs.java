@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DocumentationPartArgs extends com.pulumi.resources.ResourceArgs {
@@ -46,6 +48,21 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the associated Rest API
      * 
      */
@@ -65,6 +82,7 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
     private DocumentationPartArgs(DocumentationPartArgs $) {
         this.location = $.location;
         this.properties = $.properties;
+        this.region = $.region;
         this.restApiId = $.restApiId;
     }
 
@@ -126,6 +144,27 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder properties(String properties) {
             return properties(Output.of(properties));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

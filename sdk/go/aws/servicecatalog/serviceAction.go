@@ -66,6 +66,8 @@ type ServiceAction struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewServiceAction registers a new resource with the given unique name, arguments, and options.
@@ -111,6 +113,8 @@ type serviceActionState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ServiceActionState struct {
@@ -124,6 +128,8 @@ type ServiceActionState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ServiceActionState) ElementType() reflect.Type {
@@ -141,6 +147,8 @@ type serviceActionArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ServiceAction resource.
@@ -155,6 +163,8 @@ type ServiceActionArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ServiceActionArgs) ElementType() reflect.Type {
@@ -264,6 +274,11 @@ func (o ServiceActionOutput) Description() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ServiceActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceActionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ServiceActionArrayOutput struct{ *pulumi.OutputState }

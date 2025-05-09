@@ -61,6 +61,8 @@ type PolicyTemplate struct {
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
 	// The ID of the Policy Store.
 	PolicyTemplateId pulumi.StringOutput `pulumi:"policyTemplateId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Defines the content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
@@ -111,6 +113,8 @@ type policyTemplateState struct {
 	PolicyStoreId *string `pulumi:"policyStoreId"`
 	// The ID of the Policy Store.
 	PolicyTemplateId *string `pulumi:"policyTemplateId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Defines the content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
@@ -126,6 +130,8 @@ type PolicyTemplateState struct {
 	PolicyStoreId pulumi.StringPtrInput
 	// The ID of the Policy Store.
 	PolicyTemplateId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Defines the content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
@@ -141,6 +147,8 @@ type policyTemplateArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the Policy Store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Defines the content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
@@ -153,6 +161,8 @@ type PolicyTemplateArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Defines the content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
@@ -264,6 +274,11 @@ func (o PolicyTemplateOutput) PolicyStoreId() pulumi.StringOutput {
 // The ID of the Policy Store.
 func (o PolicyTemplateOutput) PolicyTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.PolicyTemplateId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PolicyTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Defines the content of the statement, written in Cedar policy language.

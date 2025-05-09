@@ -58,6 +58,7 @@ public final class GetInputResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return The ARN of the role this input assumes during and after creation.
      * 
@@ -152,6 +153,9 @@ public final class GetInputResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The ARN of the role this input assumes during and after creation.
      * 
@@ -214,6 +218,7 @@ public final class GetInputResult {
         private String inputSourceType;
         private List<GetInputMediaConnectFlow> mediaConnectFlows;
         private String name;
+        private String region;
         private String roleArn;
         private List<String> securityGroups;
         private List<GetInputSource> sources;
@@ -233,6 +238,7 @@ public final class GetInputResult {
     	      this.inputSourceType = defaults.inputSourceType;
     	      this.mediaConnectFlows = defaults.mediaConnectFlows;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.securityGroups = defaults.securityGroups;
     	      this.sources = defaults.sources;
@@ -337,6 +343,14 @@ public final class GetInputResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInputResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetInputResult", "roleArn");
@@ -402,6 +416,7 @@ public final class GetInputResult {
             _resultValue.inputSourceType = inputSourceType;
             _resultValue.mediaConnectFlows = mediaConnectFlows;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.securityGroups = securityGroups;
             _resultValue.sources = sources;

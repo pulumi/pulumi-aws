@@ -29,6 +29,7 @@ export function getResolverFirewallRules(args: GetResolverFirewallRulesArgs, opt
         "action": args.action,
         "firewallRuleGroupId": args.firewallRuleGroupId,
         "priority": args.priority,
+        "region": args.region,
     }, opts);
 }
 
@@ -48,6 +49,7 @@ export interface GetResolverFirewallRulesArgs {
      * The setting that determines the processing order of the rules in a rule group.
      */
     priority?: number;
+    region?: string;
 }
 
 /**
@@ -65,6 +67,7 @@ export interface GetResolverFirewallRulesResult {
      */
     readonly id: string;
     readonly priority?: number;
+    readonly region: string;
 }
 /**
  * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
@@ -88,6 +91,7 @@ export function getResolverFirewallRulesOutput(args: GetResolverFirewallRulesOut
         "action": args.action,
         "firewallRuleGroupId": args.firewallRuleGroupId,
         "priority": args.priority,
+        "region": args.region,
     }, opts);
 }
 
@@ -107,4 +111,5 @@ export interface GetResolverFirewallRulesOutputArgs {
      * The setting that determines the processing order of the rules in a rule group.
      */
     priority?: pulumi.Input<number>;
+    region?: pulumi.Input<string>;
 }

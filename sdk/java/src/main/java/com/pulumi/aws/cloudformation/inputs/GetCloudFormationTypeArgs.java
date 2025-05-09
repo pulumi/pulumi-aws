@@ -30,6 +30,13 @@ public final class GetCloudFormationTypeArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.arn);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * CloudFormation Registry Type. For example, `RESOURCE`.
      * 
@@ -79,6 +86,7 @@ public final class GetCloudFormationTypeArgs extends com.pulumi.resources.Invoke
 
     private GetCloudFormationTypeArgs(GetCloudFormationTypeArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.type = $.type;
         this.typeName = $.typeName;
         this.versionId = $.versionId;
@@ -121,6 +129,15 @@ public final class GetCloudFormationTypeArgs extends com.pulumi.resources.Invoke
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

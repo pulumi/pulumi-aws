@@ -136,6 +136,10 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Example": pulumi.String("true"),
 //				},
+//				CertificateBasedAuthProperties: &workspaces.DirectoryCertificateBasedAuthPropertiesArgs{
+//					CertificateAuthorityArn: pulumi.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"),
+//					Status:                  pulumi.String("ENABLED"),
+//				},
 //				SamlProperties: &workspaces.DirectorySamlPropertiesArgs{
 //					UserAccessUrl: pulumi.String("https://sso.example.com/"),
 //					Status:        pulumi.String("ENABLED"),
@@ -224,6 +228,8 @@ type Directory struct {
 
 	// The directory alias.
 	Alias pulumi.StringOutput `pulumi:"alias"`
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties DirectoryCertificateBasedAuthPropertiesOutput `pulumi:"certificateBasedAuthProperties"`
 	// The user name for the service account.
 	CustomerUserName pulumi.StringOutput `pulumi:"customerUserName"`
 	// The directory identifier for registration in WorkSpaces service.
@@ -238,6 +244,8 @@ type Directory struct {
 	IamRoleId pulumi.StringOutput `pulumi:"iamRoleId"`
 	// The identifiers of the IP access control groups associated with the directory.
 	IpGroupIds pulumi.StringArrayOutput `pulumi:"ipGroupIds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 	RegistrationCode pulumi.StringOutput `pulumi:"registrationCode"`
 	// Configuration of SAML authentication integration. Defined below.
@@ -293,6 +301,8 @@ func GetDirectory(ctx *pulumi.Context,
 type directoryState struct {
 	// The directory alias.
 	Alias *string `pulumi:"alias"`
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties *DirectoryCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
 	// The user name for the service account.
 	CustomerUserName *string `pulumi:"customerUserName"`
 	// The directory identifier for registration in WorkSpaces service.
@@ -307,6 +317,8 @@ type directoryState struct {
 	IamRoleId *string `pulumi:"iamRoleId"`
 	// The identifiers of the IP access control groups associated with the directory.
 	IpGroupIds []string `pulumi:"ipGroupIds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 	RegistrationCode *string `pulumi:"registrationCode"`
 	// Configuration of SAML authentication integration. Defined below.
@@ -330,6 +342,8 @@ type directoryState struct {
 type DirectoryState struct {
 	// The directory alias.
 	Alias pulumi.StringPtrInput
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties DirectoryCertificateBasedAuthPropertiesPtrInput
 	// The user name for the service account.
 	CustomerUserName pulumi.StringPtrInput
 	// The directory identifier for registration in WorkSpaces service.
@@ -344,6 +358,8 @@ type DirectoryState struct {
 	IamRoleId pulumi.StringPtrInput
 	// The identifiers of the IP access control groups associated with the directory.
 	IpGroupIds pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 	RegistrationCode pulumi.StringPtrInput
 	// Configuration of SAML authentication integration. Defined below.
@@ -369,10 +385,14 @@ func (DirectoryState) ElementType() reflect.Type {
 }
 
 type directoryArgs struct {
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties *DirectoryCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
 	// The directory identifier for registration in WorkSpaces service.
 	DirectoryId string `pulumi:"directoryId"`
 	// The identifiers of the IP access control groups associated with the directory.
 	IpGroupIds []string `pulumi:"ipGroupIds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration of SAML authentication integration. Defined below.
 	SamlProperties *DirectorySamlProperties `pulumi:"samlProperties"`
 	// Permissions to enable or disable self-service capabilities. Defined below.
@@ -389,10 +409,14 @@ type directoryArgs struct {
 
 // The set of arguments for constructing a Directory resource.
 type DirectoryArgs struct {
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties DirectoryCertificateBasedAuthPropertiesPtrInput
 	// The directory identifier for registration in WorkSpaces service.
 	DirectoryId pulumi.StringInput
 	// The identifiers of the IP access control groups associated with the directory.
 	IpGroupIds pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration of SAML authentication integration. Defined below.
 	SamlProperties DirectorySamlPropertiesPtrInput
 	// Permissions to enable or disable self-service capabilities. Defined below.
@@ -499,6 +523,13 @@ func (o DirectoryOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
+// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+func (o DirectoryOutput) CertificateBasedAuthProperties() DirectoryCertificateBasedAuthPropertiesOutput {
+	return o.ApplyT(func(v *Directory) DirectoryCertificateBasedAuthPropertiesOutput {
+		return v.CertificateBasedAuthProperties
+	}).(DirectoryCertificateBasedAuthPropertiesOutput)
+}
+
 // The user name for the service account.
 func (o DirectoryOutput) CustomerUserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.CustomerUserName }).(pulumi.StringOutput)
@@ -532,6 +563,11 @@ func (o DirectoryOutput) IamRoleId() pulumi.StringOutput {
 // The identifiers of the IP access control groups associated with the directory.
 func (o DirectoryOutput) IpGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringArrayOutput { return v.IpGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DirectoryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.

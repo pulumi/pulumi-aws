@@ -130,8 +130,9 @@ type LookupBucketObjectArgs struct {
 	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket string `pulumi:"bucket"`
 	// Full path to the object inside the bucket
-	Key   string  `pulumi:"key"`
-	Range *string `pulumi:"range"`
+	Key    string  `pulumi:"key"`
+	Range  *string `pulumi:"range"`
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags map[string]string `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
@@ -179,6 +180,7 @@ type LookupBucketObjectResult struct {
 	// The date and time when this object's object lock will expire.
 	ObjectLockRetainUntilDate string  `pulumi:"objectLockRetainUntilDate"`
 	Range                     *string `pulumi:"range"`
+	Region                    string  `pulumi:"region"`
 	// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
 	ServerSideEncryption string `pulumi:"serverSideEncryption"`
 	// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
@@ -209,8 +211,9 @@ type LookupBucketObjectOutputArgs struct {
 	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Full path to the object inside the bucket
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Range pulumi.StringPtrInput `pulumi:"range"`
+	Key    pulumi.StringInput    `pulumi:"key"`
+	Range  pulumi.StringPtrInput `pulumi:"range"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
@@ -336,6 +339,10 @@ func (o LookupBucketObjectResultOutput) ObjectLockRetainUntilDate() pulumi.Strin
 
 func (o LookupBucketObjectResultOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupBucketObjectResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.

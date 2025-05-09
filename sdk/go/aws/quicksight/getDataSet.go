@@ -55,9 +55,8 @@ type LookupDataSetArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the data set.
-	//
-	// The following arguments are optional:
 	DataSetId string            `pulumi:"dataSetId"`
+	Region    *string           `pulumi:"region"`
 	Tags      map[string]string `pulumi:"tags"`
 }
 
@@ -77,6 +76,7 @@ type LookupDataSetResult struct {
 	Name                                string                                         `pulumi:"name"`
 	Permissions                         []GetDataSetPermission                         `pulumi:"permissions"`
 	PhysicalTableMaps                   []GetDataSetPhysicalTableMap                   `pulumi:"physicalTableMaps"`
+	Region                              string                                         `pulumi:"region"`
 	RowLevelPermissionDataSets          []GetDataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSets"`
 	RowLevelPermissionTagConfigurations []GetDataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfigurations"`
 	Tags                                map[string]string                              `pulumi:"tags"`
@@ -96,9 +96,8 @@ type LookupDataSetOutputArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// Identifier for the data set.
-	//
-	// The following arguments are optional:
 	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -172,6 +171,10 @@ func (o LookupDataSetResultOutput) Permissions() GetDataSetPermissionArrayOutput
 
 func (o LookupDataSetResultOutput) PhysicalTableMaps() GetDataSetPhysicalTableMapArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetPhysicalTableMap { return v.PhysicalTableMaps }).(GetDataSetPhysicalTableMapArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupDataSetResultOutput) RowLevelPermissionDataSets() GetDataSetRowLevelPermissionDataSetArrayOutput {

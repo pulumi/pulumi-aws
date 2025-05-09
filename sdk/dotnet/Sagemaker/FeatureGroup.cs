@@ -107,6 +107,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> RecordIdentifierFeatureName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         /// </summary>
         [Output("roleArn")]
@@ -222,6 +228,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> RecordIdentifierFeatureName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -303,6 +315,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("recordIdentifierFeatureName")]
         public Input<string>? RecordIdentifierFeatureName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.

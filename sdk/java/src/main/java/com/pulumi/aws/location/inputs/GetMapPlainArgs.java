@@ -31,6 +31,13 @@ public final class GetMapPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.mapName;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags for the map.
      * 
@@ -50,6 +57,7 @@ public final class GetMapPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetMapPlainArgs(GetMapPlainArgs $) {
         this.mapName = $.mapName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetMapPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder mapName(String mapName) {
             $.mapName = mapName;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

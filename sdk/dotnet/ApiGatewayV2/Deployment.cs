@@ -48,6 +48,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         [Output("triggers")]
@@ -111,6 +117,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("triggers")]
         private InputMap<string>? _triggers;
 
@@ -148,6 +160,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;

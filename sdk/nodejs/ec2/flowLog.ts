@@ -169,6 +169,10 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly maxAggregationInterval!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Subnet ID to attach to.
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
@@ -219,6 +223,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["logDestinationType"] = state ? state.logDestinationType : undefined;
             resourceInputs["logFormat"] = state ? state.logFormat : undefined;
             resourceInputs["maxAggregationInterval"] = state ? state.maxAggregationInterval : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -236,6 +241,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["logDestinationType"] = args ? args.logDestinationType : undefined;
             resourceInputs["logFormat"] = args ? args.logFormat : undefined;
             resourceInputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficType"] = args ? args.trafficType : undefined;
@@ -292,6 +298,10 @@ export interface FlowLogState {
      * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
     maxAggregationInterval?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Subnet ID to attach to.
      */
@@ -360,6 +370,10 @@ export interface FlowLogArgs {
      * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
     maxAggregationInterval?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Subnet ID to attach to.
      */

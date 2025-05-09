@@ -29,6 +29,7 @@ public final class GetInfrastructureConfigurationsResult {
      * 
      */
     private List<String> names;
+    private String region;
 
     private GetInfrastructureConfigurationsResult() {}
     /**
@@ -55,6 +56,9 @@ public final class GetInfrastructureConfigurationsResult {
     public List<String> names() {
         return this.names;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -69,6 +73,7 @@ public final class GetInfrastructureConfigurationsResult {
         private @Nullable List<GetInfrastructureConfigurationsFilter> filters;
         private String id;
         private List<String> names;
+        private String region;
         public Builder() {}
         public Builder(GetInfrastructureConfigurationsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,6 +81,7 @@ public final class GetInfrastructureConfigurationsResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.names = defaults.names;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -117,12 +123,21 @@ public final class GetInfrastructureConfigurationsResult {
         public Builder names(String... names) {
             return names(List.of(names));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetInfrastructureConfigurationsResult build() {
             final var _resultValue = new GetInfrastructureConfigurationsResult();
             _resultValue.arns = arns;
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.names = names;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -208,6 +208,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
         /// </summary>
         [Output("sourceArn")]
@@ -317,6 +323,12 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
         /// </summary>
         [Input("sourceArn", required: true)]
@@ -392,6 +404,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.

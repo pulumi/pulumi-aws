@@ -49,6 +49,7 @@ public final class GetTableResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
      * 
@@ -115,6 +116,9 @@ public final class GetTableResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
      * 
@@ -153,6 +157,7 @@ public final class GetTableResult {
         private String lastUpdatedTime;
         private List<GetTableMagneticStoreWriteProperty> magneticStoreWriteProperties;
         private String name;
+        private String region;
         private List<GetTableRetentionProperty> retentionProperties;
         private List<GetTableSchema> schemas;
         private String tableStatus;
@@ -166,6 +171,7 @@ public final class GetTableResult {
     	      this.lastUpdatedTime = defaults.lastUpdatedTime;
     	      this.magneticStoreWriteProperties = defaults.magneticStoreWriteProperties;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.retentionProperties = defaults.retentionProperties;
     	      this.schemas = defaults.schemas;
     	      this.tableStatus = defaults.tableStatus;
@@ -231,6 +237,14 @@ public final class GetTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder retentionProperties(List<GetTableRetentionProperty> retentionProperties) {
             if (retentionProperties == null) {
               throw new MissingRequiredPropertyException("GetTableResult", "retentionProperties");
@@ -269,6 +283,7 @@ public final class GetTableResult {
             _resultValue.lastUpdatedTime = lastUpdatedTime;
             _resultValue.magneticStoreWriteProperties = magneticStoreWriteProperties;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.retentionProperties = retentionProperties;
             _resultValue.schemas = schemas;
             _resultValue.tableStatus = tableStatus;

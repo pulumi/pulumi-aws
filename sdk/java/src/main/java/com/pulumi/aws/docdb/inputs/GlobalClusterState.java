@@ -141,6 +141,21 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      * 
      */
@@ -188,6 +203,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         this.globalClusterIdentifier = $.globalClusterIdentifier;
         this.globalClusterMembers = $.globalClusterMembers;
         this.globalClusterResourceId = $.globalClusterResourceId;
+        this.region = $.region;
         this.sourceDbClusterIdentifier = $.sourceDbClusterIdentifier;
         this.status = $.status;
         this.storageEncrypted = $.storageEncrypted;
@@ -389,6 +405,27 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder globalClusterResourceId(String globalClusterResourceId) {
             return globalClusterResourceId(Output.of(globalClusterResourceId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

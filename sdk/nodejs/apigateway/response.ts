@@ -64,6 +64,10 @@ export class Response extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */
     public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -97,6 +101,7 @@ export class Response extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponseState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
             resourceInputs["responseTemplates"] = state ? state.responseTemplates : undefined;
             resourceInputs["responseType"] = state ? state.responseType : undefined;
@@ -110,6 +115,7 @@ export class Response extends pulumi.CustomResource {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
             resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
             resourceInputs["responseType"] = args ? args.responseType : undefined;
@@ -125,6 +131,10 @@ export class Response extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Response resources.
  */
 export interface ResponseState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */
@@ -151,6 +161,10 @@ export interface ResponseState {
  * The set of arguments for constructing a Response resource.
  */
 export interface ResponseArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */

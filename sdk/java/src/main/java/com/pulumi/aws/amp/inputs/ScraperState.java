@@ -66,6 +66,21 @@ public final class ScraperState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      * 
      */
@@ -156,6 +171,7 @@ public final class ScraperState extends com.pulumi.resources.ResourceArgs {
         this.alias = $.alias;
         this.arn = $.arn;
         this.destination = $.destination;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.roleConfiguration = $.roleConfiguration;
         this.scrapeConfiguration = $.scrapeConfiguration;
@@ -244,6 +260,27 @@ public final class ScraperState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destination(ScraperDestinationArgs destination) {
             return destination(Output.of(destination));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

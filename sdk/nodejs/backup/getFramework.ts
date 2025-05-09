@@ -25,6 +25,7 @@ export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getFramework:getFramework", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetFrameworkArgs {
      * Backup framework name.
      */
     name: string;
+    region?: string;
     /**
      * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      */
@@ -75,6 +77,7 @@ export interface GetFrameworkResult {
      * Name of a parameter, for example, BackupPlanFrequency.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      */
@@ -102,6 +105,7 @@ export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:backup/getFramework:getFramework", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -114,6 +118,7 @@ export interface GetFrameworkOutputArgs {
      * Backup framework name.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      */

@@ -41,6 +41,7 @@ export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.Invo
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -63,6 +64,7 @@ export interface GetSecurityGroupArgs {
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
      */
     name?: string;
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group.
@@ -92,6 +94,7 @@ export interface GetSecurityGroupResult {
     readonly filters?: outputs.ec2.GetSecurityGroupFilter[];
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
@@ -129,6 +132,7 @@ export function getSecurityGroupOutput(args?: GetSecurityGroupOutputArgs, opts?:
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -151,6 +155,7 @@ export interface GetSecurityGroupOutputArgs {
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group.

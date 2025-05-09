@@ -346,6 +346,8 @@ type StreamProcessor struct {
 	NotificationChannel StreamProcessorNotificationChannelPtrOutput `pulumi:"notificationChannel"`
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output StreamProcessorOutputTypePtrOutput `pulumi:"output"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests StreamProcessorRegionsOfInterestArrayOutput `pulumi:"regionsOfInterests"`
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -413,6 +415,8 @@ type streamProcessorState struct {
 	NotificationChannel *StreamProcessorNotificationChannel `pulumi:"notificationChannel"`
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output *StreamProcessorOutputType `pulumi:"output"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests []StreamProcessorRegionsOfInterest `pulumi:"regionsOfInterests"`
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -448,6 +452,8 @@ type StreamProcessorState struct {
 	NotificationChannel StreamProcessorNotificationChannelPtrInput
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output StreamProcessorOutputTypePtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests StreamProcessorRegionsOfInterestArrayInput
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -485,6 +491,8 @@ type streamProcessorArgs struct {
 	NotificationChannel *StreamProcessorNotificationChannel `pulumi:"notificationChannel"`
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output *StreamProcessorOutputType `pulumi:"output"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests []StreamProcessorRegionsOfInterest `pulumi:"regionsOfInterests"`
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -512,6 +520,8 @@ type StreamProcessorArgs struct {
 	NotificationChannel StreamProcessorNotificationChannelPtrInput
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output StreamProcessorOutputTypePtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests StreamProcessorRegionsOfInterestArrayInput
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -645,6 +655,11 @@ func (o StreamProcessorOutput) NotificationChannel() StreamProcessorNotification
 // Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 func (o StreamProcessorOutput) Output() StreamProcessorOutputTypePtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorOutputTypePtrOutput { return v.Output }).(StreamProcessorOutputTypePtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StreamProcessorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamProcessor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.

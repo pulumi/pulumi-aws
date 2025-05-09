@@ -78,7 +78,8 @@ type GetVpcIpamPoolCidrsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcIpamPoolCidrsFilter `pulumi:"filters"`
 	// ID of the IPAM pool you would like the list of provisioned CIDRs.
-	IpamPoolId string `pulumi:"ipamPoolId"`
+	IpamPoolId string  `pulumi:"ipamPoolId"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpamPoolCidrs.
@@ -89,6 +90,7 @@ type GetVpcIpamPoolCidrsResult struct {
 	// The CIDRs provisioned into the IPAM pool, described below.
 	IpamPoolCidrs []GetVpcIpamPoolCidrsIpamPoolCidr `pulumi:"ipamPoolCidrs"`
 	IpamPoolId    string                            `pulumi:"ipamPoolId"`
+	Region        string                            `pulumi:"region"`
 }
 
 func GetVpcIpamPoolCidrsOutput(ctx *pulumi.Context, args GetVpcIpamPoolCidrsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIpamPoolCidrsResultOutput {
@@ -105,7 +107,8 @@ type GetVpcIpamPoolCidrsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcIpamPoolCidrsFilterArrayInput `pulumi:"filters"`
 	// ID of the IPAM pool you would like the list of provisioned CIDRs.
-	IpamPoolId pulumi.StringInput `pulumi:"ipamPoolId"`
+	IpamPoolId pulumi.StringInput    `pulumi:"ipamPoolId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetVpcIpamPoolCidrsOutputArgs) ElementType() reflect.Type {
@@ -143,6 +146,10 @@ func (o GetVpcIpamPoolCidrsResultOutput) IpamPoolCidrs() GetVpcIpamPoolCidrsIpam
 
 func (o GetVpcIpamPoolCidrsResultOutput) IpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsResult) string { return v.IpamPoolId }).(pulumi.StringOutput)
+}
+
+func (o GetVpcIpamPoolCidrsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamPoolCidrsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

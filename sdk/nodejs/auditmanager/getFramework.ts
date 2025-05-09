@@ -27,9 +27,9 @@ import * as utilities from "../utilities";
 export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:auditmanager/getFramework:getFramework", {
-        "controlSets": args.controlSets,
         "frameworkType": args.frameworkType,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -37,12 +37,12 @@ export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getFramework.
  */
 export interface GetFrameworkArgs {
-    controlSets?: inputs.auditmanager.GetFrameworkControlSet[];
     frameworkType: string;
     /**
      * Name of the framework.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -51,11 +51,12 @@ export interface GetFrameworkArgs {
 export interface GetFrameworkResult {
     readonly arn: string;
     readonly complianceType: string;
-    readonly controlSets?: outputs.auditmanager.GetFrameworkControlSet[];
+    readonly controlSets: outputs.auditmanager.GetFrameworkControlSet[];
     readonly description: string;
     readonly frameworkType: string;
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -78,9 +79,9 @@ export interface GetFrameworkResult {
 export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrameworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:auditmanager/getFramework:getFramework", {
-        "controlSets": args.controlSets,
         "frameworkType": args.frameworkType,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -88,10 +89,10 @@ export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getFramework.
  */
 export interface GetFrameworkOutputArgs {
-    controlSets?: pulumi.Input<pulumi.Input<inputs.auditmanager.GetFrameworkControlSetArgs>[]>;
     frameworkType: pulumi.Input<string>;
     /**
      * Name of the framework.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

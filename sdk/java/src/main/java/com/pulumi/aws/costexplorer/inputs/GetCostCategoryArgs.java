@@ -32,6 +32,13 @@ public final class GetCostCategoryArgs extends com.pulumi.resources.InvokeArgs {
         return this.costCategoryArn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
@@ -51,6 +58,7 @@ public final class GetCostCategoryArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetCostCategoryArgs(GetCostCategoryArgs $) {
         this.costCategoryArn = $.costCategoryArn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetCostCategoryArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder costCategoryArn(String costCategoryArn) {
             return costCategoryArn(Output.of(costCategoryArn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

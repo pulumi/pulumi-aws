@@ -29,6 +29,7 @@ class GuardrailArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sensitive_information_policy_config: Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['GuardrailTimeoutsArgs']] = None,
@@ -45,6 +46,7 @@ class GuardrailArgs:
         :param pulumi.Input[builtins.str] name: Name of the guardrail.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs'] sensitive_information_policy_config: Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['GuardrailTopicPolicyConfigArgs'] topic_policy_config: Topic policy config for a guardrail. See Topic Policy Config for more information.
@@ -62,6 +64,8 @@ class GuardrailArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sensitive_information_policy_config is not None:
             pulumi.set(__self__, "sensitive_information_policy_config", sensitive_information_policy_config)
         if tags is not None:
@@ -160,6 +164,18 @@ class GuardrailArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']]:
         """
@@ -230,6 +246,7 @@ class _GuardrailState:
                  guardrail_id: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sensitive_information_policy_config: Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -252,6 +269,7 @@ class _GuardrailState:
         :param pulumi.Input[builtins.str] name: Name of the guardrail.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs'] sensitive_information_policy_config: Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         :param pulumi.Input[builtins.str] status: Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -279,6 +297,8 @@ class _GuardrailState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sensitive_information_policy_config is not None:
             pulumi.set(__self__, "sensitive_information_policy_config", sensitive_information_policy_config)
         if status is not None:
@@ -419,6 +439,18 @@ class _GuardrailState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']]:
         """
@@ -524,6 +556,7 @@ class Guardrail(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sensitive_information_policy_config: Optional[pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
@@ -602,6 +635,7 @@ class Guardrail(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the guardrail.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']] sensitive_information_policy_config: Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']] topic_policy_config: Topic policy config for a guardrail. See Topic Policy Config for more information.
@@ -696,6 +730,7 @@ class Guardrail(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sensitive_information_policy_config: Optional[pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
@@ -721,6 +756,7 @@ class Guardrail(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["sensitive_information_policy_config"] = sensitive_information_policy_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -752,6 +788,7 @@ class Guardrail(pulumi.CustomResource):
             guardrail_id: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sensitive_information_policy_config: Optional[pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -779,6 +816,7 @@ class Guardrail(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the guardrail.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']] sensitive_information_policy_config: Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         :param pulumi.Input[builtins.str] status: Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -800,6 +838,7 @@ class Guardrail(pulumi.CustomResource):
         __props__.__dict__["guardrail_id"] = guardrail_id
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["sensitive_information_policy_config"] = sensitive_information_policy_config
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -891,6 +930,14 @@ class Guardrail(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")

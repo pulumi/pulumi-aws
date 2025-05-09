@@ -64,6 +64,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes")
 public class AccountSuppressionAttributes extends com.pulumi.resources.CustomResource {
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      * 
      */

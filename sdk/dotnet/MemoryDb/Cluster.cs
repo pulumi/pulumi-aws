@@ -174,6 +174,12 @@ namespace Pulumi.Aws.MemoryDb
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set of VPC Security Group ID-s to associate with this cluster.
         /// </summary>
         [Output("securityGroupIds")]
@@ -389,6 +395,12 @@ namespace Pulumi.Aws.MemoryDb
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -592,6 +604,12 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

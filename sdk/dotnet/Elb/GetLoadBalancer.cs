@@ -117,6 +117,9 @@ namespace Pulumi.Aws.Elb
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -138,6 +141,9 @@ namespace Pulumi.Aws.Elb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -175,6 +181,7 @@ namespace Pulumi.Aws.Elb
         public readonly bool Internal;
         public readonly ImmutableArray<Outputs.GetLoadBalancerListenerResult> Listeners;
         public readonly string Name;
+        public readonly string Region;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly string SourceSecurityGroup;
         public readonly string SourceSecurityGroupId;
@@ -214,6 +221,8 @@ namespace Pulumi.Aws.Elb
 
             string name,
 
+            string region,
+
             ImmutableArray<string> securityGroups,
 
             string sourceSecurityGroup,
@@ -241,6 +250,7 @@ namespace Pulumi.Aws.Elb
             Internal = @internal;
             Listeners = listeners;
             Name = name;
+            Region = region;
             SecurityGroups = securityGroups;
             SourceSecurityGroup = sourceSecurityGroup;
             SourceSecurityGroupId = sourceSecurityGroupId;

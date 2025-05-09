@@ -252,6 +252,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> NodeRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
         [Output("releaseVersion")]
@@ -450,6 +456,12 @@ namespace Pulumi.Aws.Eks
         public Input<string> NodeRoleArn { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
         [Input("releaseVersion")]
@@ -614,6 +626,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("nodeRoleArn")]
         public Input<string>? NodeRoleArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.

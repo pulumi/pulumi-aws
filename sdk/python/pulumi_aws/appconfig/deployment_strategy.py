@@ -27,6 +27,7 @@ class DeploymentStrategyArgs:
                  final_bake_time_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  growth_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStrategy resource.
@@ -37,6 +38,7 @@ class DeploymentStrategyArgs:
         :param pulumi.Input[builtins.int] final_bake_time_in_minutes: Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "deployment_duration_in_minutes", deployment_duration_in_minutes)
@@ -50,6 +52,8 @@ class DeploymentStrategyArgs:
             pulumi.set(__self__, "growth_type", growth_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -139,6 +143,18 @@ class DeploymentStrategyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -160,6 +176,7 @@ class _DeploymentStrategyState:
                  growth_factor: Optional[pulumi.Input[builtins.float]] = None,
                  growth_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_to: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -172,6 +189,7 @@ class _DeploymentStrategyState:
         :param pulumi.Input[builtins.float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -190,6 +208,8 @@ class _DeploymentStrategyState:
             pulumi.set(__self__, "growth_type", growth_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replicate_to is not None:
             pulumi.set(__self__, "replicate_to", replicate_to)
         if tags is not None:
@@ -282,6 +302,18 @@ class _DeploymentStrategyState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicateTo")
     def replicate_to(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -332,6 +364,7 @@ class DeploymentStrategy(pulumi.CustomResource):
                  growth_factor: Optional[pulumi.Input[builtins.float]] = None,
                  growth_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_to: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -373,6 +406,7 @@ class DeploymentStrategy(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -433,6 +467,7 @@ class DeploymentStrategy(pulumi.CustomResource):
                  growth_factor: Optional[pulumi.Input[builtins.float]] = None,
                  growth_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_to: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -454,6 +489,7 @@ class DeploymentStrategy(pulumi.CustomResource):
             __props__.__dict__["growth_factor"] = growth_factor
             __props__.__dict__["growth_type"] = growth_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if replicate_to is None and not opts.urn:
                 raise TypeError("Missing required property 'replicate_to'")
             __props__.__dict__["replicate_to"] = replicate_to
@@ -477,6 +513,7 @@ class DeploymentStrategy(pulumi.CustomResource):
             growth_factor: Optional[pulumi.Input[builtins.float]] = None,
             growth_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replicate_to: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'DeploymentStrategy':
@@ -494,6 +531,7 @@ class DeploymentStrategy(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -509,6 +547,7 @@ class DeploymentStrategy(pulumi.CustomResource):
         __props__.__dict__["growth_factor"] = growth_factor
         __props__.__dict__["growth_type"] = growth_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["replicate_to"] = replicate_to
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -569,6 +608,14 @@ class DeploymentStrategy(pulumi.CustomResource):
         Name for the deployment strategy. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicateTo")

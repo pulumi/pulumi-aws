@@ -114,6 +114,12 @@ namespace Pulumi.Aws.Elb
         [Output("policyNames")]
         public Output<ImmutableArray<string>> PolicyNames { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LoadBalancerBackendServerPolicy resource with the given unique name, arguments, and options.
@@ -188,6 +194,12 @@ namespace Pulumi.Aws.Elb
             set => _policyNames = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public LoadBalancerBackendServerPolicyArgs()
         {
         }
@@ -219,6 +231,12 @@ namespace Pulumi.Aws.Elb
             get => _policyNames ?? (_policyNames = new InputList<string>());
             set => _policyNames = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LoadBalancerBackendServerPolicyState()
         {

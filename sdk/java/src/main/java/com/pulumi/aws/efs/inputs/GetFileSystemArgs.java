@@ -46,6 +46,13 @@ public final class GetFileSystemArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.fileSystemId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Restricts the list to the file system with these tags.
      * 
@@ -66,6 +73,7 @@ public final class GetFileSystemArgs extends com.pulumi.resources.InvokeArgs {
     private GetFileSystemArgs(GetFileSystemArgs $) {
         this.creationToken = $.creationToken;
         this.fileSystemId = $.fileSystemId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -127,6 +135,15 @@ public final class GetFileSystemArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

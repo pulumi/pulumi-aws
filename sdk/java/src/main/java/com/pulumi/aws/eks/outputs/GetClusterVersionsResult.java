@@ -29,6 +29,7 @@ public final class GetClusterVersionsResult {
      */
     private String id;
     private @Nullable Boolean includeAll;
+    private String region;
     /**
      * @return Status of the EKS cluster version.
      * 
@@ -62,6 +63,9 @@ public final class GetClusterVersionsResult {
     public Optional<Boolean> includeAll() {
         return Optional.ofNullable(this.includeAll);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Status of the EKS cluster version.
      * 
@@ -85,6 +89,7 @@ public final class GetClusterVersionsResult {
         private @Nullable Boolean defaultOnly;
         private String id;
         private @Nullable Boolean includeAll;
+        private String region;
         private @Nullable String versionStatus;
         public Builder() {}
         public Builder(GetClusterVersionsResult defaults) {
@@ -95,6 +100,7 @@ public final class GetClusterVersionsResult {
     	      this.defaultOnly = defaults.defaultOnly;
     	      this.id = defaults.id;
     	      this.includeAll = defaults.includeAll;
+    	      this.region = defaults.region;
     	      this.versionStatus = defaults.versionStatus;
         }
 
@@ -145,6 +151,14 @@ public final class GetClusterVersionsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterVersionsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder versionStatus(@Nullable String versionStatus) {
 
             this.versionStatus = versionStatus;
@@ -158,6 +172,7 @@ public final class GetClusterVersionsResult {
             _resultValue.defaultOnly = defaultOnly;
             _resultValue.id = id;
             _resultValue.includeAll = includeAll;
+            _resultValue.region = region;
             _resultValue.versionStatus = versionStatus;
             return _resultValue;
         }

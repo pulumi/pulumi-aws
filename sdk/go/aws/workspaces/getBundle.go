@@ -84,7 +84,8 @@ type GetBundleArgs struct {
 	// Name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name *string `pulumi:"name"`
 	// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
-	Owner *string `pulumi:"owner"`
+	Owner  *string `pulumi:"owner"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBundle.
@@ -100,7 +101,8 @@ type GetBundleResult struct {
 	// Name of the compute type.
 	Name *string `pulumi:"name"`
 	// The owner of the bundle.
-	Owner *string `pulumi:"owner"`
+	Owner  *string `pulumi:"owner"`
+	Region string  `pulumi:"region"`
 	// The root volume. See supported fields below.
 	RootStorages []GetBundleRootStorage `pulumi:"rootStorages"`
 	// The user storage. See supported fields below.
@@ -123,7 +125,8 @@ type GetBundleOutputArgs struct {
 	// Name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
-	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	Owner  pulumi.StringPtrInput `pulumi:"owner"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBundleOutputArgs) ElementType() reflect.Type {
@@ -173,6 +176,10 @@ func (o GetBundleResultOutput) Name() pulumi.StringPtrOutput {
 // The owner of the bundle.
 func (o GetBundleResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetBundleResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o GetBundleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBundleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The root volume. See supported fields below.

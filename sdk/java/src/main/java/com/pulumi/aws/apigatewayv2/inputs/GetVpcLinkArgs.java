@@ -17,6 +17,13 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcLinkArgs Empty = new GetVpcLinkArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * VPC Link Tags.
      * 
@@ -50,6 +57,7 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
     private GetVpcLinkArgs() {}
 
     private GetVpcLinkArgs(GetVpcLinkArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.vpcLinkId = $.vpcLinkId;
     }
@@ -70,6 +78,15 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetVpcLinkArgs defaults) {
             $ = new GetVpcLinkArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

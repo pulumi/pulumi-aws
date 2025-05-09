@@ -22,16 +22,20 @@ class Disk_attachmentArgs:
     def __init__(__self__, *,
                  disk_name: pulumi.Input[builtins.str],
                  disk_path: pulumi.Input[builtins.str],
-                 instance_name: pulumi.Input[builtins.str]):
+                 instance_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Disk_attachment resource.
         :param pulumi.Input[builtins.str] disk_name: The name of the Lightsail Disk.
         :param pulumi.Input[builtins.str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail Instance to attach to.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "disk_name", disk_name)
         pulumi.set(__self__, "disk_path", disk_path)
         pulumi.set(__self__, "instance_name", instance_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="diskName")
@@ -69,18 +73,32 @@ class Disk_attachmentArgs:
     def instance_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "instance_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _Disk_attachmentState:
     def __init__(__self__, *,
                  disk_name: Optional[pulumi.Input[builtins.str]] = None,
                  disk_path: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_name: Optional[pulumi.Input[builtins.str]] = None):
+                 instance_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Disk_attachment resources.
         :param pulumi.Input[builtins.str] disk_name: The name of the Lightsail Disk.
         :param pulumi.Input[builtins.str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail Instance to attach to.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if disk_name is not None:
             pulumi.set(__self__, "disk_name", disk_name)
@@ -88,6 +106,8 @@ class _Disk_attachmentState:
             pulumi.set(__self__, "disk_path", disk_path)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="diskName")
@@ -125,6 +145,18 @@ class _Disk_attachmentState:
     def instance_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "instance_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class Disk_attachment(pulumi.CustomResource):
 
@@ -137,6 +169,7 @@ class Disk_attachment(pulumi.CustomResource):
                  disk_name: Optional[pulumi.Input[builtins.str]] = None,
                  disk_path: Optional[pulumi.Input[builtins.str]] = None,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Attaches a Lightsail disk to a Lightsail Instance
@@ -180,6 +213,7 @@ class Disk_attachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] disk_name: The name of the Lightsail Disk.
         :param pulumi.Input[builtins.str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail Instance to attach to.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -242,6 +276,7 @@ class Disk_attachment(pulumi.CustomResource):
                  disk_name: Optional[pulumi.Input[builtins.str]] = None,
                  disk_path: Optional[pulumi.Input[builtins.str]] = None,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,6 +295,7 @@ class Disk_attachment(pulumi.CustomResource):
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
+            __props__.__dict__["region"] = region
         super(Disk_attachment, __self__).__init__(
             'aws:lightsail/disk_attachment:Disk_attachment',
             resource_name,
@@ -272,7 +308,8 @@ class Disk_attachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             disk_name: Optional[pulumi.Input[builtins.str]] = None,
             disk_path: Optional[pulumi.Input[builtins.str]] = None,
-            instance_name: Optional[pulumi.Input[builtins.str]] = None) -> 'Disk_attachment':
+            instance_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Disk_attachment':
         """
         Get an existing Disk_attachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -283,6 +320,7 @@ class Disk_attachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] disk_name: The name of the Lightsail Disk.
         :param pulumi.Input[builtins.str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail Instance to attach to.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,6 +329,7 @@ class Disk_attachment(pulumi.CustomResource):
         __props__.__dict__["disk_name"] = disk_name
         __props__.__dict__["disk_path"] = disk_path
         __props__.__dict__["instance_name"] = instance_name
+        __props__.__dict__["region"] = region
         return Disk_attachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -316,4 +355,12 @@ class Disk_attachment(pulumi.CustomResource):
         The name of the Lightsail Instance to attach to.
         """
         return pulumi.get(self, "instance_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

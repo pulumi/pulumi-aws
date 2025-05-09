@@ -52,6 +52,8 @@ func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributi
 type LookupDistributionConfigurationArgs struct {
 	// ARN of the distribution configuration.
 	Arn string `pulumi:"arn"`
+	// AWS Region of distribution.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -71,6 +73,8 @@ type LookupDistributionConfigurationResult struct {
 	Id string `pulumi:"id"`
 	// Name of the distribution configuration.
 	Name string `pulumi:"name"`
+	// AWS Region of distribution.
+	Region string `pulumi:"region"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -88,6 +92,8 @@ func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistr
 type LookupDistributionConfigurationOutputArgs struct {
 	// ARN of the distribution configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// AWS Region of distribution.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -145,6 +151,11 @@ func (o LookupDistributionConfigurationResultOutput) Id() pulumi.StringOutput {
 // Name of the distribution configuration.
 func (o LookupDistributionConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// AWS Region of distribution.
+func (o LookupDistributionConfigurationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the distribution configuration.

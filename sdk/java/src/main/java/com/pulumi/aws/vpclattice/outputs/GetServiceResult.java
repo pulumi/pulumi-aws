@@ -44,6 +44,7 @@ public final class GetServiceResult {
      */
     private String id;
     private String name;
+    private String region;
     private String serviceIdentifier;
     /**
      * @return Status of the service.
@@ -102,6 +103,9 @@ public final class GetServiceResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     public String serviceIdentifier() {
         return this.serviceIdentifier;
     }
@@ -136,6 +140,7 @@ public final class GetServiceResult {
         private List<GetServiceDnsEntry> dnsEntries;
         private String id;
         private String name;
+        private String region;
         private String serviceIdentifier;
         private String status;
         private Map<String,String> tags;
@@ -149,6 +154,7 @@ public final class GetServiceResult {
     	      this.dnsEntries = defaults.dnsEntries;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.serviceIdentifier = defaults.serviceIdentifier;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
@@ -214,6 +220,14 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceIdentifier(String serviceIdentifier) {
             if (serviceIdentifier == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "serviceIdentifier");
@@ -246,6 +260,7 @@ public final class GetServiceResult {
             _resultValue.dnsEntries = dnsEntries;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.serviceIdentifier = serviceIdentifier;
             _resultValue.status = status;
             _resultValue.tags = tags;

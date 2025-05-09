@@ -28,6 +28,7 @@ public final class GetCustomKeyStoreResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return The trust anchor certificate of the associated CloudHSM cluster.
      * 
@@ -65,6 +66,9 @@ public final class GetCustomKeyStoreResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The trust anchor certificate of the associated CloudHSM cluster.
      * 
@@ -88,6 +92,7 @@ public final class GetCustomKeyStoreResult {
         private String customKeyStoreId;
         private String customKeyStoreName;
         private String id;
+        private String region;
         private String trustAnchorCertificate;
         public Builder() {}
         public Builder(GetCustomKeyStoreResult defaults) {
@@ -98,6 +103,7 @@ public final class GetCustomKeyStoreResult {
     	      this.customKeyStoreId = defaults.customKeyStoreId;
     	      this.customKeyStoreName = defaults.customKeyStoreName;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.trustAnchorCertificate = defaults.trustAnchorCertificate;
         }
 
@@ -150,6 +156,14 @@ public final class GetCustomKeyStoreResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder trustAnchorCertificate(String trustAnchorCertificate) {
             if (trustAnchorCertificate == null) {
               throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "trustAnchorCertificate");
@@ -165,6 +179,7 @@ public final class GetCustomKeyStoreResult {
             _resultValue.customKeyStoreId = customKeyStoreId;
             _resultValue.customKeyStoreName = customKeyStoreName;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.trustAnchorCertificate = trustAnchorCertificate;
             return _resultValue;
         }

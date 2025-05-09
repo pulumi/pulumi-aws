@@ -108,6 +108,9 @@ namespace Pulumi.Aws.TimestreamWrite
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetTableArgs()
         {
         }
@@ -127,6 +130,9 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetTableInvokeArgs()
         {
@@ -166,6 +172,7 @@ namespace Pulumi.Aws.TimestreamWrite
         /// Name of the table.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
         /// </summary>
@@ -195,6 +202,8 @@ namespace Pulumi.Aws.TimestreamWrite
 
             string name,
 
+            string region,
+
             ImmutableArray<Outputs.GetTableRetentionPropertyResult> retentionProperties,
 
             ImmutableArray<Outputs.GetTableSchemaResult> schemas,
@@ -208,6 +217,7 @@ namespace Pulumi.Aws.TimestreamWrite
             LastUpdatedTime = lastUpdatedTime;
             MagneticStoreWriteProperties = magneticStoreWriteProperties;
             Name = name;
+            Region = region;
             RetentionProperties = retentionProperties;
             Schemas = schemas;
             TableStatus = tableStatus;

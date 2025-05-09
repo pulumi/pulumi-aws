@@ -112,6 +112,10 @@ export class V2modelsIntent extends pulumi.CustomResource {
      */
     public readonly parentIntentSignature!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
      */
     public readonly sampleUtterances!: pulumi.Output<outputs.lex.V2modelsIntentSampleUtterance[] | undefined>;
@@ -151,6 +155,7 @@ export class V2modelsIntent extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputContexts"] = state ? state.outputContexts : undefined;
             resourceInputs["parentIntentSignature"] = state ? state.parentIntentSignature : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sampleUtterances"] = state ? state.sampleUtterances : undefined;
             resourceInputs["slotPriorities"] = state ? state.slotPriorities : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -179,6 +184,7 @@ export class V2modelsIntent extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputContexts"] = args ? args.outputContexts : undefined;
             resourceInputs["parentIntentSignature"] = args ? args.parentIntentSignature : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sampleUtterances"] = args ? args.sampleUtterances : undefined;
             resourceInputs["slotPriorities"] = args ? args.slotPriorities : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -263,6 +269,10 @@ export interface V2modelsIntentState {
      */
     parentIntentSignature?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
      */
     sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsIntentSampleUtterance>[]>;
@@ -332,6 +342,10 @@ export interface V2modelsIntentArgs {
      * Identifier for the built-in intent to base this intent on.
      */
     parentIntentSignature?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
      */

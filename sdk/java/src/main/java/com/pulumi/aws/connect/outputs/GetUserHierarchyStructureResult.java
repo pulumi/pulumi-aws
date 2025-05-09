@@ -23,6 +23,7 @@ public final class GetUserHierarchyStructureResult {
      */
     private String id;
     private String instanceId;
+    private String region;
 
     private GetUserHierarchyStructureResult() {}
     /**
@@ -42,6 +43,9 @@ public final class GetUserHierarchyStructureResult {
     public String instanceId() {
         return this.instanceId;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -55,12 +59,14 @@ public final class GetUserHierarchyStructureResult {
         private List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
         private String id;
         private String instanceId;
+        private String region;
         public Builder() {}
         public Builder(GetUserHierarchyStructureResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hierarchyStructures = defaults.hierarchyStructures;
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -90,11 +96,20 @@ public final class GetUserHierarchyStructureResult {
             this.instanceId = instanceId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetUserHierarchyStructureResult build() {
             final var _resultValue = new GetUserHierarchyStructureResult();
             _resultValue.hierarchyStructures = hierarchyStructures;
             _resultValue.id = id;
             _resultValue.instanceId = instanceId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

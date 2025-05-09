@@ -77,8 +77,10 @@ type NetworkInterfacePermission struct {
 	// ENI permission ID.
 	NetworkInterfacePermissionId pulumi.StringOutput `pulumi:"networkInterfacePermissionId"`
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-	Permission pulumi.StringOutput                         `pulumi:"permission"`
-	Timeouts   NetworkInterfacePermissionTimeoutsPtrOutput `pulumi:"timeouts"`
+	Permission pulumi.StringOutput `pulumi:"permission"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput                         `pulumi:"region"`
+	Timeouts NetworkInterfacePermissionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewNetworkInterfacePermission registers a new resource with the given unique name, arguments, and options.
@@ -127,8 +129,10 @@ type networkInterfacePermissionState struct {
 	// ENI permission ID.
 	NetworkInterfacePermissionId *string `pulumi:"networkInterfacePermissionId"`
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-	Permission *string                             `pulumi:"permission"`
-	Timeouts   *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
+	Permission *string `pulumi:"permission"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
+	Timeouts *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
 }
 
 type NetworkInterfacePermissionState struct {
@@ -140,7 +144,9 @@ type NetworkInterfacePermissionState struct {
 	NetworkInterfacePermissionId pulumi.StringPtrInput
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 	Permission pulumi.StringPtrInput
-	Timeouts   NetworkInterfacePermissionTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts NetworkInterfacePermissionTimeoutsPtrInput
 }
 
 func (NetworkInterfacePermissionState) ElementType() reflect.Type {
@@ -153,8 +159,10 @@ type networkInterfacePermissionArgs struct {
 	// The ID of the network interface.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-	Permission string                              `pulumi:"permission"`
-	Timeouts   *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
+	Permission string `pulumi:"permission"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
+	Timeouts *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a NetworkInterfacePermission resource.
@@ -165,7 +173,9 @@ type NetworkInterfacePermissionArgs struct {
 	NetworkInterfaceId pulumi.StringInput
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 	Permission pulumi.StringInput
-	Timeouts   NetworkInterfacePermissionTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts NetworkInterfacePermissionTimeoutsPtrInput
 }
 
 func (NetworkInterfacePermissionArgs) ElementType() reflect.Type {
@@ -273,6 +283,11 @@ func (o NetworkInterfacePermissionOutput) NetworkInterfacePermissionId() pulumi.
 // The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 func (o NetworkInterfacePermissionOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.Permission }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NetworkInterfacePermissionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o NetworkInterfacePermissionOutput) Timeouts() NetworkInterfacePermissionTimeoutsPtrOutput {

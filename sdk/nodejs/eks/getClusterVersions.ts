@@ -51,6 +51,7 @@ export function getClusterVersions(args?: GetClusterVersionsArgs, opts?: pulumi.
         "clusterVersionsOnlies": args.clusterVersionsOnlies,
         "defaultOnly": args.defaultOnly,
         "includeAll": args.includeAll,
+        "region": args.region,
         "versionStatus": args.versionStatus,
     }, opts);
 }
@@ -73,6 +74,7 @@ export interface GetClusterVersionsArgs {
      * Whether to include all kubernetes versions in the response.
      */
     includeAll?: boolean;
+    region?: string;
     /**
      * Status of the EKS cluster versions to list.
      * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
@@ -96,6 +98,7 @@ export interface GetClusterVersionsResult {
      */
     readonly id: string;
     readonly includeAll?: boolean;
+    readonly region: string;
     /**
      * Status of the EKS cluster version.
      */
@@ -145,6 +148,7 @@ export function getClusterVersionsOutput(args?: GetClusterVersionsOutputArgs, op
         "clusterVersionsOnlies": args.clusterVersionsOnlies,
         "defaultOnly": args.defaultOnly,
         "includeAll": args.includeAll,
+        "region": args.region,
         "versionStatus": args.versionStatus,
     }, opts);
 }
@@ -167,6 +171,7 @@ export interface GetClusterVersionsOutputArgs {
      * Whether to include all kubernetes versions in the response.
      */
     includeAll?: pulumi.Input<boolean>;
+    region?: pulumi.Input<string>;
     /**
      * Status of the EKS cluster versions to list.
      * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.

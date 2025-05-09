@@ -20,12 +20,16 @@ __all__ = ['InvitationAccepterArgs', 'InvitationAccepter']
 @pulumi.input_type
 class InvitationAccepterArgs:
     def __init__(__self__, *,
-                 administrator_account_id: pulumi.Input[builtins.str]):
+                 administrator_account_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InvitationAccepter resource.
         :param pulumi.Input[builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "administrator_account_id", administrator_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="administratorAccountId")
@@ -39,21 +43,37 @@ class InvitationAccepterArgs:
     def administrator_account_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "administrator_account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InvitationAccepterState:
     def __init__(__self__, *,
                  administrator_account_id: Optional[pulumi.Input[builtins.str]] = None,
-                 invitation_id: Optional[pulumi.Input[builtins.str]] = None):
+                 invitation_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
         :param pulumi.Input[builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
         :param pulumi.Input[builtins.str] invitation_id: The unique identifier for the invitation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if administrator_account_id is not None:
             pulumi.set(__self__, "administrator_account_id", administrator_account_id)
         if invitation_id is not None:
             pulumi.set(__self__, "invitation_id", invitation_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="administratorAccountId")
@@ -79,6 +99,18 @@ class _InvitationAccepterState:
     def invitation_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "invitation_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class InvitationAccepter(pulumi.CustomResource):
 
@@ -89,6 +121,7 @@ class InvitationAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
@@ -122,6 +155,7 @@ class InvitationAccepter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -174,6 +208,7 @@ class InvitationAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -186,6 +221,7 @@ class InvitationAccepter(pulumi.CustomResource):
             if administrator_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_account_id'")
             __props__.__dict__["administrator_account_id"] = administrator_account_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["invitation_id"] = None
         super(InvitationAccepter, __self__).__init__(
             'aws:macie2/invitationAccepter:InvitationAccepter',
@@ -198,7 +234,8 @@ class InvitationAccepter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_account_id: Optional[pulumi.Input[builtins.str]] = None,
-            invitation_id: Optional[pulumi.Input[builtins.str]] = None) -> 'InvitationAccepter':
+            invitation_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'InvitationAccepter':
         """
         Get an existing InvitationAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -208,6 +245,7 @@ class InvitationAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
         :param pulumi.Input[builtins.str] invitation_id: The unique identifier for the invitation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -215,6 +253,7 @@ class InvitationAccepter(pulumi.CustomResource):
 
         __props__.__dict__["administrator_account_id"] = administrator_account_id
         __props__.__dict__["invitation_id"] = invitation_id
+        __props__.__dict__["region"] = region
         return InvitationAccepter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -232,4 +271,12 @@ class InvitationAccepter(pulumi.CustomResource):
         The unique identifier for the invitation.
         """
         return pulumi.get(self, "invitation_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

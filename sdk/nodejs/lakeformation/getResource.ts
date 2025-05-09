@@ -22,6 +22,7 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lakeformation/getResource:getResource", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetResourceArgs {
      * ARN of the resource, an S3 path.
      */
     arn: string;
+    region?: string;
 }
 
 /**
@@ -48,6 +50,7 @@ export interface GetResourceResult {
      * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     readonly lastModified: string;
+    readonly region: string;
     /**
      * Role that the resource was registered with.
      */
@@ -71,6 +74,7 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lakeformation/getResource:getResource", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -82,4 +86,5 @@ export interface GetResourceOutputArgs {
      * ARN of the resource, an S3 path.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

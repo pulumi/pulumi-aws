@@ -26,6 +26,7 @@ class BucketLoggingInitArgs:
                  target_bucket: pulumi.Input[builtins.str],
                  target_prefix: pulumi.Input[builtins.str],
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]]] = None,
                  target_object_key_format: Optional[pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs']] = None):
         """
@@ -34,6 +35,7 @@ class BucketLoggingInitArgs:
         :param pulumi.Input[builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[builtins.str] target_prefix: Prefix for all log object keys.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs'] target_object_key_format: Amazon S3 key format for log objects. See below.
         """
@@ -42,6 +44,8 @@ class BucketLoggingInitArgs:
         pulumi.set(__self__, "target_prefix", target_prefix)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_grants is not None:
             pulumi.set(__self__, "target_grants", target_grants)
         if target_object_key_format is not None:
@@ -96,6 +100,18 @@ class BucketLoggingInitArgs:
         pulumi.set(self, "expected_bucket_owner", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="targetGrants")
     def target_grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]]]:
         """
@@ -125,6 +141,7 @@ class _BucketLoggingState:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]]] = None,
                  target_object_key_format: Optional[pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs']] = None,
@@ -133,6 +150,7 @@ class _BucketLoggingState:
         Input properties used for looking up and filtering BucketLogging resources.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs'] target_object_key_format: Amazon S3 key format for log objects. See below.
@@ -142,6 +160,8 @@ class _BucketLoggingState:
             pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_bucket is not None:
             pulumi.set(__self__, "target_bucket", target_bucket)
         if target_grants is not None:
@@ -174,6 +194,18 @@ class _BucketLoggingState:
     @expected_bucket_owner.setter
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="targetBucket")
@@ -234,6 +266,7 @@ class BucketLogging(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]]] = None,
                  target_object_key_format: Optional[pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']]] = None,
@@ -289,6 +322,7 @@ class BucketLogging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
@@ -363,6 +397,7 @@ class BucketLogging(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]]] = None,
                  target_object_key_format: Optional[pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']]] = None,
@@ -380,6 +415,7 @@ class BucketLogging(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+            __props__.__dict__["region"] = region
             if target_bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'target_bucket'")
             __props__.__dict__["target_bucket"] = target_bucket
@@ -402,6 +438,7 @@ class BucketLogging(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target_bucket: Optional[pulumi.Input[builtins.str]] = None,
             target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]]] = None,
             target_object_key_format: Optional[pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']]] = None,
@@ -415,6 +452,7 @@ class BucketLogging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
@@ -426,6 +464,7 @@ class BucketLogging(pulumi.CustomResource):
 
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+        __props__.__dict__["region"] = region
         __props__.__dict__["target_bucket"] = target_bucket
         __props__.__dict__["target_grants"] = target_grants
         __props__.__dict__["target_object_key_format"] = target_object_key_format
@@ -447,6 +486,14 @@ class BucketLogging(pulumi.CustomResource):
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="targetBucket")

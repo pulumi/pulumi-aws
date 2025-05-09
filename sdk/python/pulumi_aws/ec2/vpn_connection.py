@@ -28,6 +28,7 @@ class VpnConnectionArgs:
                  local_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -84,6 +85,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[builtins.str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
@@ -143,6 +145,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "local_ipv6_network_cidr", local_ipv6_network_cidr)
         if outside_ip_address_type is not None:
             pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_ipv4_network_cidr is not None:
             pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
@@ -311,6 +315,18 @@ class VpnConnectionArgs:
     @outside_ip_address_type.setter
     def outside_ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "outside_ip_address_type", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
@@ -901,6 +917,7 @@ class _VpnConnectionState:
                  local_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]]] = None,
@@ -975,6 +992,7 @@ class _VpnConnectionState:
         :param pulumi.Input[builtins.str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]] routes: The static routes associated with the VPN connection. Detailed below.
@@ -1057,6 +1075,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "local_ipv6_network_cidr", local_ipv6_network_cidr)
         if outside_ip_address_type is not None:
             pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_ipv4_network_cidr is not None:
             pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
@@ -1291,6 +1311,18 @@ class _VpnConnectionState:
     @outside_ip_address_type.setter
     def outside_ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "outside_ip_address_type", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
@@ -2062,6 +2094,7 @@ class VpnConnection(pulumi.CustomResource):
                  local_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2209,6 +2242,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
@@ -2375,6 +2409,7 @@ class VpnConnection(pulumi.CustomResource):
                  local_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2440,6 +2475,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["local_ipv4_network_cidr"] = local_ipv4_network_cidr
             __props__.__dict__["local_ipv6_network_cidr"] = local_ipv6_network_cidr
             __props__.__dict__["outside_ip_address_type"] = outside_ip_address_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["remote_ipv4_network_cidr"] = remote_ipv4_network_cidr
             __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
             __props__.__dict__["static_routes_only"] = static_routes_only
@@ -2530,6 +2566,7 @@ class VpnConnection(pulumi.CustomResource):
             local_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
             local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
             outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
             remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionRouteArgs', 'VpnConnectionRouteArgsDict']]]]] = None,
@@ -2609,6 +2646,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionRouteArgs', 'VpnConnectionRouteArgsDict']]]] routes: The static routes associated with the VPN connection. Detailed below.
@@ -2686,6 +2724,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["local_ipv4_network_cidr"] = local_ipv4_network_cidr
         __props__.__dict__["local_ipv6_network_cidr"] = local_ipv6_network_cidr
         __props__.__dict__["outside_ip_address_type"] = outside_ip_address_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["remote_ipv4_network_cidr"] = remote_ipv4_network_cidr
         __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
         __props__.__dict__["routes"] = routes
@@ -2822,6 +2861,14 @@ class VpnConnection(pulumi.CustomResource):
         Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         """
         return pulumi.get(self, "outside_ip_address_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")

@@ -155,6 +155,21 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      * 
      */
@@ -211,6 +226,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         this.outboundCallerConfig = $.outboundCallerConfig;
         this.queueId = $.queueId;
         this.quickConnectIds = $.quickConnectIds;
+        this.region = $.region;
         this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -431,6 +447,27 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder quickConnectIds(String... quickConnectIds) {
             return quickConnectIds(List.of(quickConnectIds));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

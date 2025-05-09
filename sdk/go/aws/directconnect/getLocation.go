@@ -54,7 +54,8 @@ func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getLocation.
 type GetLocationArgs struct {
 	// Code for the location to retrieve.
-	LocationCode string `pulumi:"locationCode"`
+	LocationCode string  `pulumi:"locationCode"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLocation.
@@ -70,6 +71,7 @@ type GetLocationResult struct {
 	LocationCode string `pulumi:"locationCode"`
 	// Name of the location. This includes the name of the colocation partner and the physical site of the building.
 	LocationName string `pulumi:"locationName"`
+	Region       string `pulumi:"region"`
 }
 
 func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
@@ -84,7 +86,8 @@ func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...
 // A collection of arguments for invoking getLocation.
 type GetLocationOutputArgs struct {
 	// Code for the location to retrieve.
-	LocationCode pulumi.StringInput `pulumi:"locationCode"`
+	LocationCode pulumi.StringInput    `pulumi:"locationCode"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLocationOutputArgs) ElementType() reflect.Type {
@@ -133,6 +136,10 @@ func (o GetLocationResultOutput) LocationCode() pulumi.StringOutput {
 // Name of the location. This includes the name of the colocation partner and the physical site of the building.
 func (o GetLocationResultOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+func (o GetLocationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

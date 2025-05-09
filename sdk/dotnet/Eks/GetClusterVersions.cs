@@ -219,6 +219,9 @@ namespace Pulumi.Aws.Eks
         [Input("includeAll")]
         public bool? IncludeAll { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Status of the EKS cluster versions to list.
         /// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
@@ -261,6 +264,9 @@ namespace Pulumi.Aws.Eks
         [Input("includeAll")]
         public Input<bool>? IncludeAll { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Status of the EKS cluster versions to list.
         /// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
@@ -290,6 +296,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string Id;
         public readonly bool? IncludeAll;
+        public readonly string Region;
         /// <summary>
         /// Status of the EKS cluster version.
         /// </summary>
@@ -309,6 +316,8 @@ namespace Pulumi.Aws.Eks
 
             bool? includeAll,
 
+            string region,
+
             string? versionStatus)
         {
             ClusterType = clusterType;
@@ -317,6 +326,7 @@ namespace Pulumi.Aws.Eks
             DefaultOnly = defaultOnly;
             Id = id;
             IncludeAll = includeAll;
+            Region = region;
             VersionStatus = versionStatus;
         }
     }

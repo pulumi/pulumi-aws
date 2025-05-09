@@ -8,16 +8,23 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResolverFirewallConfigArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetResolverFirewallConfigArgs Empty = new GetResolverFirewallConfigArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
-     * 
-     * The following attribute is additionally exported:
      * 
      */
     @Import(name="resourceId", required=true)
@@ -25,8 +32,6 @@ public final class GetResolverFirewallConfigArgs extends com.pulumi.resources.In
 
     /**
      * @return The ID of the VPC from Amazon VPC that the configuration is for.
-     * 
-     * The following attribute is additionally exported:
      * 
      */
     public Output<String> resourceId() {
@@ -36,6 +41,7 @@ public final class GetResolverFirewallConfigArgs extends com.pulumi.resources.In
     private GetResolverFirewallConfigArgs() {}
 
     private GetResolverFirewallConfigArgs(GetResolverFirewallConfigArgs $) {
+        this.region = $.region;
         this.resourceId = $.resourceId;
     }
 
@@ -57,10 +63,17 @@ public final class GetResolverFirewallConfigArgs extends com.pulumi.resources.In
             $ = new GetResolverFirewallConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param resourceId The ID of the VPC from Amazon VPC that the configuration is for.
-         * 
-         * The following attribute is additionally exported:
          * 
          * @return builder
          * 
@@ -72,8 +85,6 @@ public final class GetResolverFirewallConfigArgs extends com.pulumi.resources.In
 
         /**
          * @param resourceId The ID of the VPC from Amazon VPC that the configuration is for.
-         * 
-         * The following attribute is additionally exported:
          * 
          * @return builder
          * 

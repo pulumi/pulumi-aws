@@ -54,6 +54,10 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A friendly name for identifying the grant.
      */
     public readonly snapshotCopyGrantName!: pulumi.Output<string>;
@@ -81,6 +85,7 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
             const state = argsOrState as SnapshotCopyGrantState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -90,6 +95,7 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
                 throw new Error("Missing required property 'snapshotCopyGrantName'");
             }
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -113,6 +119,10 @@ export interface SnapshotCopyGrantState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A friendly name for identifying the grant.
      */
     snapshotCopyGrantName?: pulumi.Input<string>;
@@ -134,6 +144,10 @@ export interface SnapshotCopyGrantArgs {
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A friendly name for identifying the grant.
      */

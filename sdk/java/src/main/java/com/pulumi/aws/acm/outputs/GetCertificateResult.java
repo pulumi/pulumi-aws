@@ -38,6 +38,7 @@ public final class GetCertificateResult {
     private String id;
     private @Nullable List<String> keyTypes;
     private @Nullable Boolean mostRecent;
+    private String region;
     /**
      * @return Status of the found certificate.
      * 
@@ -89,6 +90,9 @@ public final class GetCertificateResult {
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Status of the found certificate.
      * 
@@ -126,6 +130,7 @@ public final class GetCertificateResult {
         private String id;
         private @Nullable List<String> keyTypes;
         private @Nullable Boolean mostRecent;
+        private String region;
         private String status;
         private @Nullable List<String> statuses;
         private Map<String,String> tags;
@@ -140,6 +145,7 @@ public final class GetCertificateResult {
     	      this.id = defaults.id;
     	      this.keyTypes = defaults.keyTypes;
     	      this.mostRecent = defaults.mostRecent;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.statuses = defaults.statuses;
     	      this.tags = defaults.tags;
@@ -202,6 +208,14 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetCertificateResult", "status");
@@ -244,6 +258,7 @@ public final class GetCertificateResult {
             _resultValue.id = id;
             _resultValue.keyTypes = keyTypes;
             _resultValue.mostRecent = mostRecent;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.statuses = statuses;
             _resultValue.tags = tags;

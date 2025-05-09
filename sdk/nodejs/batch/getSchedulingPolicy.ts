@@ -25,6 +25,7 @@ export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getSchedulingPolicy:getSchedulingPolicy", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetSchedulingPolicyArgs {
      * ARN of the scheduling policy.
      */
     arn: string;
+    region?: string;
     /**
      * Key-value map of resource tags
      */
@@ -57,6 +59,7 @@ export interface GetSchedulingPolicyResult {
      * Name of the scheduling policy.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags
      */
@@ -80,6 +83,7 @@ export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getSchedulingPolicy:getSchedulingPolicy", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -92,6 +96,7 @@ export interface GetSchedulingPolicyOutputArgs {
      * ARN of the scheduling policy.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */

@@ -80,6 +80,10 @@ export class AuthPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
     public readonly resourceIdentifier!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class AuthPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AuthPolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceIdentifier"] = state ? state.resourceIdentifier : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
         } else {
@@ -113,6 +118,7 @@ export class AuthPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceIdentifier'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
         }
@@ -129,6 +135,10 @@ export interface AuthPolicyState {
      * The auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
@@ -147,6 +157,10 @@ export interface AuthPolicyArgs {
      * The auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */

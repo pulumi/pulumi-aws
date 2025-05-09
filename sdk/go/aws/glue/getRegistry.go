@@ -53,7 +53,8 @@ func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulum
 // A collection of arguments for invoking getRegistry.
 type LookupRegistryArgs struct {
 	// Name of the Glue Registry.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRegistry.
@@ -63,8 +64,9 @@ type LookupRegistryResult struct {
 	// A description of the registry.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
@@ -79,7 +81,8 @@ func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, op
 // A collection of arguments for invoking getRegistry.
 type LookupRegistryOutputArgs struct {
 	// Name of the Glue Registry.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupRegistryOutputArgs) ElementType() reflect.Type {
@@ -118,6 +121,10 @@ func (o LookupRegistryResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupRegistryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupRegistryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

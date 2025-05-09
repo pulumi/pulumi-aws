@@ -68,6 +68,8 @@ type LayerVersionPermission struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A unique identifier for the current revision of the policy.
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
@@ -133,6 +135,8 @@ type layerVersionPermissionState struct {
 	Policy *string `pulumi:"policy"`
 	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 	Principal *string `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A unique identifier for the current revision of the policy.
 	RevisionId *string `pulumi:"revisionId"`
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
@@ -154,6 +158,8 @@ type LayerVersionPermissionState struct {
 	Policy pulumi.StringPtrInput
 	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 	Principal pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A unique identifier for the current revision of the policy.
 	RevisionId pulumi.StringPtrInput
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
@@ -177,6 +183,8 @@ type layerVersionPermissionArgs struct {
 	OrganizationId *string `pulumi:"organizationId"`
 	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 	Principal string `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
@@ -195,6 +203,8 @@ type LayerVersionPermissionArgs struct {
 	OrganizationId pulumi.StringPtrInput
 	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 	Principal pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
 	SkipDestroy pulumi.BoolPtrInput
 	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
@@ -313,6 +323,11 @@ func (o LayerVersionPermissionOutput) Policy() pulumi.StringOutput {
 // AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 func (o LayerVersionPermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LayerVersionPermissionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A unique identifier for the current revision of the policy.

@@ -48,6 +48,21 @@ public final class LoggingOptionsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      * 
      */
@@ -67,6 +82,7 @@ public final class LoggingOptionsArgs extends com.pulumi.resources.ResourceArgs 
     private LoggingOptionsArgs(LoggingOptionsArgs $) {
         this.defaultLogLevel = $.defaultLogLevel;
         this.disableAllLogs = $.disableAllLogs;
+        this.region = $.region;
         this.roleArn = $.roleArn;
     }
 
@@ -128,6 +144,27 @@ public final class LoggingOptionsArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder disableAllLogs(Boolean disableAllLogs) {
             return disableAllLogs(Output.of(disableAllLogs));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

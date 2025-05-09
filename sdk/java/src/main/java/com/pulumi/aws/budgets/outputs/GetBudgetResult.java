@@ -76,6 +76,7 @@ public final class GetBudgetResult {
      * 
      */
     private List<GetBudgetPlannedLimit> plannedLimits;
+    private String region;
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -180,6 +181,9 @@ public final class GetBudgetResult {
     public List<GetBudgetPlannedLimit> plannedLimits() {
         return this.plannedLimits;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -232,6 +236,7 @@ public final class GetBudgetResult {
         private @Nullable String namePrefix;
         private List<GetBudgetNotification> notifications;
         private List<GetBudgetPlannedLimit> plannedLimits;
+        private String region;
         private Map<String,String> tags;
         private String timePeriodEnd;
         private String timePeriodStart;
@@ -253,6 +258,7 @@ public final class GetBudgetResult {
     	      this.namePrefix = defaults.namePrefix;
     	      this.notifications = defaults.notifications;
     	      this.plannedLimits = defaults.plannedLimits;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.timePeriodEnd = defaults.timePeriodEnd;
     	      this.timePeriodStart = defaults.timePeriodStart;
@@ -391,6 +397,14 @@ public final class GetBudgetResult {
             return plannedLimits(List.of(plannedLimits));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetBudgetResult", "tags");
@@ -438,6 +452,7 @@ public final class GetBudgetResult {
             _resultValue.namePrefix = namePrefix;
             _resultValue.notifications = notifications;
             _resultValue.plannedLimits = plannedLimits;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.timePeriodEnd = timePeriodEnd;
             _resultValue.timePeriodStart = timePeriodStart;

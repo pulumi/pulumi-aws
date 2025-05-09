@@ -20,12 +20,16 @@ __all__ = ['ResolverDnsSecConfigArgs', 'ResolverDnsSecConfig']
 @pulumi.input_type
 class ResolverDnsSecConfigArgs:
     def __init__(__self__, *,
-                 resource_id: pulumi.Input[builtins.str]):
+                 resource_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverDnsSecConfig resource.
         :param pulumi.Input[builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_id", resource_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -39,18 +43,32 @@ class ResolverDnsSecConfigArgs:
     def resource_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ResolverDnsSecConfigState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  validation_status: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverDnsSecConfig resources.
         :param pulumi.Input[builtins.str] arn: The ARN for a configuration for DNSSEC validation.
         :param pulumi.Input[builtins.str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         :param pulumi.Input[builtins.str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """
@@ -58,6 +76,8 @@ class _ResolverDnsSecConfigState:
             pulumi.set(__self__, "arn", arn)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if validation_status is not None:
@@ -86,6 +106,18 @@ class _ResolverDnsSecConfigState:
     @owner_id.setter
     def owner_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -120,6 +152,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -148,6 +181,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         """
         ...
@@ -195,6 +229,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -205,6 +240,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResolverDnsSecConfigArgs.__new__(ResolverDnsSecConfigArgs)
 
+            __props__.__dict__["region"] = region
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
@@ -223,6 +259,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
             validation_status: Optional[pulumi.Input[builtins.str]] = None) -> 'ResolverDnsSecConfig':
         """
@@ -234,6 +271,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The ARN for a configuration for DNSSEC validation.
         :param pulumi.Input[builtins.str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         :param pulumi.Input[builtins.str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """
@@ -243,6 +281,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["validation_status"] = validation_status
         return ResolverDnsSecConfig(resource_name, opts=opts, __props__=__props__)
@@ -262,6 +301,14 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         """
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")
