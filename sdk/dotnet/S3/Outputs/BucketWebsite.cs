@@ -31,7 +31,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// 
         /// The `CORS` object supports the following:
         /// </summary>
-        public readonly Union<string, ImmutableArray<Outputs.RoutingRule>>? RoutingRules;
+        public readonly Union<string, ImmutableArray<Outputs.BucketWebsiteConfigurationV2RoutingRule>>? RoutingRules;
 
         [OutputConstructor]
         private BucketWebsite(
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.S3.Outputs
 
             string? redirectAllRequestsTo,
 
-            Union<string, ImmutableArray<Outputs.RoutingRule>>? routingRules)
+            Union<string, ImmutableArray<Outputs.BucketWebsiteConfigurationV2RoutingRule>>? routingRules)
         {
             ErrorDocument = errorDocument;
             IndexDocument = indexDocument;

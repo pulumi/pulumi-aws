@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.s3.inputs;
 
-import com.pulumi.aws.s3.inputs.RoutingRuleArgs;
+import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -71,7 +71,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="routingRules")
-    private @Nullable Output<Either<String,List<RoutingRuleArgs>>> routingRules;
+    private @Nullable Output<Either<String,List<BucketWebsiteConfigurationV2RoutingRuleArgs>>> routingRules;
 
     /**
      * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
@@ -80,7 +80,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
      * The `CORS` object supports the following:
      * 
      */
-    public Optional<Output<Either<String,List<RoutingRuleArgs>>>> routingRules() {
+    public Optional<Output<Either<String,List<BucketWebsiteConfigurationV2RoutingRuleArgs>>>> routingRules() {
         return Optional.ofNullable(this.routingRules);
     }
 
@@ -183,7 +183,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder routingRules(@Nullable Output<Either<String,List<RoutingRuleArgs>>> routingRules) {
+        public Builder routingRules(@Nullable Output<Either<String,List<BucketWebsiteConfigurationV2RoutingRuleArgs>>> routingRules) {
             $.routingRules = routingRules;
             return this;
         }
@@ -197,7 +197,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder routingRules(Either<String,List<RoutingRuleArgs>> routingRules) {
+        public Builder routingRules(Either<String,List<BucketWebsiteConfigurationV2RoutingRuleArgs>> routingRules) {
             return routingRules(Output.of(routingRules));
         }
 
@@ -223,7 +223,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder routingRules(List<RoutingRuleArgs> routingRules) {
+        public Builder routingRules(List<BucketWebsiteConfigurationV2RoutingRuleArgs> routingRules) {
             return routingRules(Either.ofRight(routingRules));
         }
 

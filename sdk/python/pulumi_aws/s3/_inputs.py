@@ -265,12 +265,6 @@ __all__ = [
     'ObjectCopyOverrideProviderArgsDict',
     'ObjectCopyOverrideProviderDefaultTagsArgs',
     'ObjectCopyOverrideProviderDefaultTagsArgsDict',
-    'ConditionArgs',
-    'ConditionArgsDict',
-    'RedirectArgs',
-    'RedirectArgsDict',
-    'RoutingRuleArgs',
-    'RoutingRuleArgsDict',
 ]
 
 MYPY = False
@@ -7344,7 +7338,7 @@ if not MYPY:
         """
         A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         """
-        routing_rules: NotRequired[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['RoutingRuleArgsDict']]]]]
+        routing_rules: NotRequired[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgsDict']]]]]
         """
         A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
@@ -7360,12 +7354,12 @@ class BucketWebsiteArgs:
                  error_document: Optional[pulumi.Input[builtins.str]] = None,
                  index_document: Optional[pulumi.Input[builtins.str]] = None,
                  redirect_all_requests_to: Optional[pulumi.Input[builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['RoutingRuleArgs']]]]] = None):
+                 routing_rules: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]] = None):
         """
         :param pulumi.Input[builtins.str] error_document: An absolute path to the document to return in case of a 4XX error.
         :param pulumi.Input[builtins.str] index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
         :param pulumi.Input[builtins.str] redirect_all_requests_to: A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-        :param pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['RoutingRuleArgs']]]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied.
                
                The `CORS` object supports the following:
@@ -7417,7 +7411,7 @@ class BucketWebsiteArgs:
 
     @property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['RoutingRuleArgs']]]]]:
+    def routing_rules(self) -> Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]]:
         """
         A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
@@ -7427,7 +7421,7 @@ class BucketWebsiteArgs:
         return pulumi.get(self, "routing_rules")
 
     @routing_rules.setter
-    def routing_rules(self, value: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['RoutingRuleArgs']]]]]):
+    def routing_rules(self, value: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]]):
         pulumi.set(self, "routing_rules", value)
 
 
@@ -8293,232 +8287,5 @@ class ObjectCopyOverrideProviderDefaultTagsArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-
-if not MYPY:
-    class ConditionArgsDict(TypedDict):
-        """
-        A condition that must be met for the specified redirect to be applied.
-        """
-        http_error_code_returned_equals: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both are specified, both must be true for the condition to be met.
-        """
-        key_prefix_equals: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both are specified, both must be true for the condition to be met.
-        """
-elif False:
-    ConditionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ConditionArgs:
-    def __init__(__self__, *,
-                 http_error_code_returned_equals: Optional[pulumi.Input[builtins.str]] = None,
-                 key_prefix_equals: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        A condition that must be met for the specified redirect to be applied.
-        :param pulumi.Input[builtins.str] http_error_code_returned_equals: The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both are specified, both must be true for the condition to be met.
-        :param pulumi.Input[builtins.str] key_prefix_equals: The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both are specified, both must be true for the condition to be met.
-        """
-        if http_error_code_returned_equals is not None:
-            pulumi.set(__self__, "http_error_code_returned_equals", http_error_code_returned_equals)
-        if key_prefix_equals is not None:
-            pulumi.set(__self__, "key_prefix_equals", key_prefix_equals)
-
-    @property
-    @pulumi.getter(name="HttpErrorCodeReturnedEquals")
-    def http_error_code_returned_equals(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both are specified, both must be true for the condition to be met.
-        """
-        return pulumi.get(self, "http_error_code_returned_equals")
-
-    @http_error_code_returned_equals.setter
-    def http_error_code_returned_equals(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "http_error_code_returned_equals", value)
-
-    @property
-    @pulumi.getter(name="KeyPrefixEquals")
-    def key_prefix_equals(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both are specified, both must be true for the condition to be met.
-        """
-        return pulumi.get(self, "key_prefix_equals")
-
-    @key_prefix_equals.setter
-    def key_prefix_equals(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "key_prefix_equals", value)
-
-
-if not MYPY:
-    class RedirectArgsDict(TypedDict):
-        """
-        Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use. At least one property must be set.
-        """
-        host_name: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The hostname to be used in the Location header that is returned in the response. If another property is set, `HostName` is not required.
-        """
-        http_redirect_code: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The HTTP redirect code to be used in the Location header that is returned in the response. If another property is set, `HttpRedirectCode` is not required.
-        """
-        protocol: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The protocol, http or https, to be used in the Location header that is returned in the response. If another property is set, `Protocol` is not required.
-        """
-        replace_key_prefix_with: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The prefix of the object key name that replaces the value of `KeyPrefixEquals` in the redirect request. If another property is set, `ReplaceKeyPrefixWith` is not required. It can be set only if `ReplaceKeyWith` is not set.
-        """
-        replace_key_with: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The object key to be used in the Location header that is returned in the response. If another property is set, `ReplaceKeyWith` is not required. It can be set only if `ReplaceKeyPrefixWith` is not set.
-        """
-elif False:
-    RedirectArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class RedirectArgs:
-    def __init__(__self__, *,
-                 host_name: Optional[pulumi.Input[builtins.str]] = None,
-                 http_redirect_code: Optional[pulumi.Input[builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[builtins.str]] = None,
-                 replace_key_prefix_with: Optional[pulumi.Input[builtins.str]] = None,
-                 replace_key_with: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use. At least one property must be set.
-        :param pulumi.Input[builtins.str] host_name: The hostname to be used in the Location header that is returned in the response. If another property is set, `HostName` is not required.
-        :param pulumi.Input[builtins.str] http_redirect_code: The HTTP redirect code to be used in the Location header that is returned in the response. If another property is set, `HttpRedirectCode` is not required.
-        :param pulumi.Input[builtins.str] protocol: The protocol, http or https, to be used in the Location header that is returned in the response. If another property is set, `Protocol` is not required.
-        :param pulumi.Input[builtins.str] replace_key_prefix_with: The prefix of the object key name that replaces the value of `KeyPrefixEquals` in the redirect request. If another property is set, `ReplaceKeyPrefixWith` is not required. It can be set only if `ReplaceKeyWith` is not set.
-        :param pulumi.Input[builtins.str] replace_key_with: The object key to be used in the Location header that is returned in the response. If another property is set, `ReplaceKeyWith` is not required. It can be set only if `ReplaceKeyPrefixWith` is not set.
-        """
-        if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
-        if http_redirect_code is not None:
-            pulumi.set(__self__, "http_redirect_code", http_redirect_code)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
-        if replace_key_prefix_with is not None:
-            pulumi.set(__self__, "replace_key_prefix_with", replace_key_prefix_with)
-        if replace_key_with is not None:
-            pulumi.set(__self__, "replace_key_with", replace_key_with)
-
-    @property
-    @pulumi.getter(name="HostName")
-    def host_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The hostname to be used in the Location header that is returned in the response. If another property is set, `HostName` is not required.
-        """
-        return pulumi.get(self, "host_name")
-
-    @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "host_name", value)
-
-    @property
-    @pulumi.getter(name="HttpRedirectCode")
-    def http_redirect_code(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The HTTP redirect code to be used in the Location header that is returned in the response. If another property is set, `HttpRedirectCode` is not required.
-        """
-        return pulumi.get(self, "http_redirect_code")
-
-    @http_redirect_code.setter
-    def http_redirect_code(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "http_redirect_code", value)
-
-    @property
-    @pulumi.getter(name="Protocol")
-    def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The protocol, http or https, to be used in the Location header that is returned in the response. If another property is set, `Protocol` is not required.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="ReplaceKeyPrefixWith")
-    def replace_key_prefix_with(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The prefix of the object key name that replaces the value of `KeyPrefixEquals` in the redirect request. If another property is set, `ReplaceKeyPrefixWith` is not required. It can be set only if `ReplaceKeyWith` is not set.
-        """
-        return pulumi.get(self, "replace_key_prefix_with")
-
-    @replace_key_prefix_with.setter
-    def replace_key_prefix_with(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "replace_key_prefix_with", value)
-
-    @property
-    @pulumi.getter(name="ReplaceKeyWith")
-    def replace_key_with(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The object key to be used in the Location header that is returned in the response. If another property is set, `ReplaceKeyWith` is not required. It can be set only if `ReplaceKeyPrefixWith` is not set.
-        """
-        return pulumi.get(self, "replace_key_with")
-
-    @replace_key_with.setter
-    def replace_key_with(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "replace_key_with", value)
-
-
-if not MYPY:
-    class RoutingRuleArgsDict(TypedDict):
-        """
-        A rule that identifies a condition and the redirect that is applied when the condition is met. If a condition is not included, the rule is applied to all requests.
-        """
-        redirect: pulumi.Input['RedirectArgsDict']
-        """
-        Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use.
-        """
-        condition: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        A condition that must be met for the specified redirect to be applied. If not included, the rule is applied to all requests.
-        """
-elif False:
-    RoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class RoutingRuleArgs:
-    def __init__(__self__, *,
-                 redirect: pulumi.Input['RedirectArgs'],
-                 condition: Optional[pulumi.Input['ConditionArgs']] = None):
-        """
-        A rule that identifies a condition and the redirect that is applied when the condition is met. If a condition is not included, the rule is applied to all requests.
-        :param pulumi.Input['RedirectArgs'] redirect: Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use.
-        :param pulumi.Input['ConditionArgs'] condition: A condition that must be met for the specified redirect to be applied. If not included, the rule is applied to all requests.
-        """
-        pulumi.set(__self__, "redirect", redirect)
-        if condition is not None:
-            pulumi.set(__self__, "condition", condition)
-
-    @property
-    @pulumi.getter(name="Redirect")
-    def redirect(self) -> pulumi.Input['RedirectArgs']:
-        """
-        Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use.
-        """
-        return pulumi.get(self, "redirect")
-
-    @redirect.setter
-    def redirect(self, value: pulumi.Input['RedirectArgs']):
-        pulumi.set(self, "redirect", value)
-
-    @property
-    @pulumi.getter(name="Condition")
-    def condition(self) -> Optional[pulumi.Input['ConditionArgs']]:
-        """
-        A condition that must be met for the specified redirect to be applied. If not included, the rule is applied to all requests.
-        """
-        return pulumi.get(self, "condition")
-
-    @condition.setter
-    def condition(self, value: Optional[pulumi.Input['ConditionArgs']]):
-        pulumi.set(self, "condition", value)
 
 

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.s3.outputs;
 
-import com.pulumi.aws.s3.outputs.RoutingRule;
+import com.pulumi.aws.s3.outputs.BucketWebsiteConfigurationV2RoutingRule;
 import com.pulumi.core.Either;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -36,7 +36,7 @@ public final class BucketWebsite {
      * The `CORS` object supports the following:
      * 
      */
-    private @Nullable Either<String,List<RoutingRule>> routingRules;
+    private @Nullable Either<String,List<BucketWebsiteConfigurationV2RoutingRule>> routingRules;
 
     private BucketWebsite() {}
     /**
@@ -67,7 +67,7 @@ public final class BucketWebsite {
      * The `CORS` object supports the following:
      * 
      */
-    public Optional<Either<String,List<RoutingRule>>> routingRules() {
+    public Optional<Either<String,List<BucketWebsiteConfigurationV2RoutingRule>>> routingRules() {
         return Optional.ofNullable(this.routingRules);
     }
 
@@ -83,7 +83,7 @@ public final class BucketWebsite {
         private @Nullable String errorDocument;
         private @Nullable String indexDocument;
         private @Nullable String redirectAllRequestsTo;
-        private @Nullable Either<String,List<RoutingRule>> routingRules;
+        private @Nullable Either<String,List<BucketWebsiteConfigurationV2RoutingRule>> routingRules;
         public Builder() {}
         public Builder(BucketWebsite defaults) {
     	      Objects.requireNonNull(defaults);
@@ -112,7 +112,7 @@ public final class BucketWebsite {
             return this;
         }
         @CustomType.Setter
-        public Builder routingRules(@Nullable Either<String,List<RoutingRule>> routingRules) {
+        public Builder routingRules(@Nullable Either<String,List<BucketWebsiteConfigurationV2RoutingRule>> routingRules) {
 
             this.routingRules = routingRules;
             return this;
