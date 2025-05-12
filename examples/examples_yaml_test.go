@@ -1726,6 +1726,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
               "stateTransitionReason": "USER_INITIATED",
               "topics": [],
               "tumblingWindowInSeconds": 0,
+							"tagsAll": {},
               "uuid": "f8af893f-869e-4861-a403-1a4fe3509754"
           },
           "news": {
@@ -1734,6 +1735,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
               ],
               "enabled": true,
               "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+							"tagsAll": {},
               "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
           },
           "oldInputs": {
@@ -1794,6 +1796,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
             "runtime": "nodejs18.x",
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"
@@ -1826,6 +1829,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
             "runtime": "nodejs18.x",
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"
@@ -1877,6 +1881,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "skipDestroy": false,
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
             "timeout": 3,
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"
