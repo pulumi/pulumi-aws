@@ -201,7 +201,7 @@ func NewBucketVersioning(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("aws:s3/bucketVersioning:BucketVersioning"),
+			Type: pulumi.String("aws:s3/bucketVersioningV2:BucketVersioningV2"),
 		},
 		{
 			Type: pulumi.String("aws:s3/bucketVersioningV2:BucketVersioningV2"),

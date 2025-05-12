@@ -216,7 +216,7 @@ public class BucketObjectLockConfiguration extends com.pulumi.resources.CustomRe
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration").build()),
+                Output.of(Alias.builder().type("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2").build())
             ))
             .additionalSecretOutputs(List.of(

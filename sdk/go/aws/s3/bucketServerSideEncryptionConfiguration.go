@@ -106,7 +106,7 @@ func NewBucketServerSideEncryptionConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration"),
+			Type: pulumi.String("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2"),
 		},
 		{
 			Type: pulumi.String("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2"),

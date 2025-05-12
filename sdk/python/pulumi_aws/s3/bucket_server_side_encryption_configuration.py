@@ -271,7 +271,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration"), pulumi.Alias(type_="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2"), pulumi.Alias(type_="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketServerSideEncryptionConfiguration, __self__).__init__(
             'aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration',

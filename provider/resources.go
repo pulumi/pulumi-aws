@@ -3616,7 +3616,7 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_s3_bucket_object_lock_configuration": {
 				Tok: awsResource(s3Mod, "BucketObjectLockConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration")},
+					{Type: ref("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")},
 				},
 			},
 			"aws_s3_bucket_request_payment_configuration": {
@@ -3628,19 +3628,19 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_s3_bucket_server_side_encryption_configuration": {
 				Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration")},
+					{Type: ref("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")},
 				},
 			},
 			"aws_s3_bucket_versioning": {
 				Tok: awsResource(s3Mod, "BucketVersioning"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketVersioning:BucketVersioning")},
+					{Type: ref("aws:s3/bucketVersioningV2:BucketVersioningV2")},
 				},
 			},
 			"aws_s3_bucket_website_configuration": {
 				Tok: awsResource(s3Mod, "BucketWebsiteConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration")},
+					{Type: ref("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")},
 				},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"routing_rules": {

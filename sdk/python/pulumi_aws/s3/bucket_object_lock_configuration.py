@@ -355,7 +355,7 @@ class BucketObjectLockConfiguration(pulumi.CustomResource):
             __props__.__dict__["object_lock_enabled"] = object_lock_enabled
             __props__.__dict__["rule"] = rule
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration"), pulumi.Alias(type_="aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"), pulumi.Alias(type_="aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)

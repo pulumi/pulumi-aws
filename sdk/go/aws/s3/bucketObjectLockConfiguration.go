@@ -109,7 +109,7 @@ func NewBucketObjectLockConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration"),
+			Type: pulumi.String("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"),
 		},
 		{
 			Type: pulumi.String("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"),

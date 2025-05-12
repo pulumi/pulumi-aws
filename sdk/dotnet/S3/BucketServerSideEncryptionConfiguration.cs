@@ -117,7 +117,7 @@ namespace Pulumi.Aws.S3
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration" },
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" },
                     new global::Pulumi.Alias { Type = "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" },
                 },
             };

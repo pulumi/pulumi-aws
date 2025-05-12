@@ -323,7 +323,7 @@ public class BucketWebsiteConfiguration extends com.pulumi.resources.CustomResou
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration").build()),
+                Output.of(Alias.builder().type("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2").build())
             ))
             .build();

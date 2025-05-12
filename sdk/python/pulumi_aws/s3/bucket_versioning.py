@@ -399,7 +399,7 @@ class BucketVersioning(pulumi.CustomResource):
             if versioning_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'versioning_configuration'")
             __props__.__dict__["versioning_configuration"] = versioning_configuration
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketVersioning:BucketVersioning"), pulumi.Alias(type_="aws:s3/bucketVersioningV2:BucketVersioningV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketVersioningV2:BucketVersioningV2"), pulumi.Alias(type_="aws:s3/bucketVersioningV2:BucketVersioningV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketVersioning, __self__).__init__(
             'aws:s3/bucketVersioning:BucketVersioning',

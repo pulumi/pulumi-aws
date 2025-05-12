@@ -191,7 +191,7 @@ namespace Pulumi.Aws.S3
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration" },
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2" },
                     new global::Pulumi.Alias { Type = "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2" },
                 },
             };
