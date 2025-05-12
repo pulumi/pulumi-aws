@@ -7338,7 +7338,7 @@ if not MYPY:
         """
         A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         """
-        routing_rules: NotRequired[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]]
+        routing_rules: NotRequired[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgsDict']]]]]
         """
         A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
@@ -7354,12 +7354,12 @@ class BucketWebsiteArgs:
                  error_document: Optional[pulumi.Input[builtins.str]] = None,
                  index_document: Optional[pulumi.Input[builtins.str]] = None,
                  redirect_all_requests_to: Optional[pulumi.Input[builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]] = None):
+                 routing_rules: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]] = None):
         """
         :param pulumi.Input[builtins.str] error_document: An absolute path to the document to return in case of a 4XX error.
         :param pulumi.Input[builtins.str] index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
         :param pulumi.Input[builtins.str] redirect_all_requests_to: A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-        :param pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied.
                
                The `CORS` object supports the following:
@@ -7411,7 +7411,7 @@ class BucketWebsiteArgs:
 
     @property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]]:
+    def routing_rules(self) -> Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]]:
         """
         A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
@@ -7421,7 +7421,7 @@ class BucketWebsiteArgs:
         return pulumi.get(self, "routing_rules")
 
     @routing_rules.setter
-    def routing_rules(self, value: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]]):
+    def routing_rules(self, value: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]]):
         pulumi.set(self, "routing_rules", value)
 
 

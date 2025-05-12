@@ -5604,7 +5604,7 @@ class BucketWebsite(dict):
         :param builtins.str error_document: An absolute path to the document to return in case of a 4XX error.
         :param builtins.str index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
         :param builtins.str redirect_all_requests_to: A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-        :param Union[builtins.str, Sequence[builtins.str]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param Union[builtins.str, Sequence['BucketWebsiteConfigurationV2RoutingRuleArgs']] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied.
                
                The `CORS` object supports the following:
