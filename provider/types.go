@@ -426,67 +426,6 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Value: "SecureString"},
 		},
 	},
-	"aws:s3/routingRules:RoutingRule": {
-		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Description: "A rule that identifies a condition and the redirect that is applied when the condition is met. If a condition is not included, the rule is applied to all requests.",
-			Properties: map[string]schema.PropertySpec{
-				"Condition": {
-					TypeSpec:    schema.TypeSpec{Ref: "#/types/aws:s3/routingRules:Condition"},
-					Description: "A condition that must be met for the specified redirect to be applied. If not included, the rule is applied to all requests.",
-				},
-				"Redirect": {
-					TypeSpec:    schema.TypeSpec{Ref: "#/types/aws:s3/routingRules:Redirect"},
-					Description: "Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use.",
-				},
-			},
-			Required: []string{"Redirect"},
-			Type:     "object",
-		},
-	},
-	"aws:s3/routingRules:Condition": {
-		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Description: "A condition that must be met for the specified redirect to be applied.",
-			Properties: map[string]schema.PropertySpec{
-				"HttpErrorCodeReturnedEquals": {
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both are specified, both must be true for the condition to be met.",
-				},
-				"KeyPrefixEquals": {
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both are specified, both must be true for the condition to be met.",
-				},
-			},
-			Type: "object",
-		},
-	},
-	"aws:s3/routingRules:Redirect": {
-		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Description: "Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use. At least one property must be set.",
-			Properties: map[string]schema.PropertySpec{
-				"HostName": {
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The hostname to be used in the Location header that is returned in the response. If another property is set, `HostName` is not required.",
-				},
-				"HttpRedirectCode": {
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The HTTP redirect code to be used in the Location header that is returned in the response. If another property is set, `HttpRedirectCode` is not required.",
-				},
-				"Protocol": {
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The protocol, http or https, to be used in the Location header that is returned in the response. If another property is set, `Protocol` is not required.",
-				},
-				"ReplaceKeyPrefixWith": {
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The prefix of the object key name that replaces the value of `KeyPrefixEquals` in the redirect request. If another property is set, `ReplaceKeyPrefixWith` is not required. It can be set only if `ReplaceKeyWith` is not set.",
-				},
-				"ReplaceKeyWith": {
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The object key to be used in the Location header that is returned in the response. If another property is set, `ReplaceKeyWith` is not required. It can be set only if `ReplaceKeyPrefixWith` is not set.",
-				},
-			},
-			Type: "object",
-		},
-	},
 }
 
 func init() {

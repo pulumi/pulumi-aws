@@ -3808,9 +3808,10 @@ compatibility shim in favor of the new "name" field.`)
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"routing_rules": {
-									Name:      "routingRules",
-									Type:      "string",
-									AltTypes:  []tokens.Type{awsType(s3Mod, "routingRules", "RoutingRule[]")},
+									Name: "routingRules",
+									Type: "string",
+									// aws:s3/BucketWebsiteConfigurationV2RoutingRule:BucketWebsiteConfigurationV2RoutingRule
+									AltTypes:  []tokens.Type{awsType(s3Mod, "BucketWebsiteConfigurationV2RoutingRule", "BucketWebsiteConfigurationV2RoutingRule[]")},
 									Transform: tfbridge.TransformJSONDocument,
 								},
 							},
