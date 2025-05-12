@@ -1,0 +1,661 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-12T09:44:52.22953-04:00",
+      "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+      "version": "v3.169.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:rr83dyQyYA8=:v1:ArHV8aIB1pOMazBx:JMXImWn/XjLDe+5lFJH4m0XJkBs2cA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-05-12T13:43:51.768592Z",
+        "modified": "2025-05-12T13:43:51.768592Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-east-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-east-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2025-05-12T13:43:54.418376Z",
+        "modified": "2025-05-12T13:43:54.418376Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket",
+        "custom": true,
+        "id": "migrationbucket-2635e61",
+        "type": "aws:s3/bucketV2:BucketV2",
+        "inputs": {
+          "__defaults": [
+            "bucket"
+          ],
+          "bucket": "migrationbucket-2635e61",
+          "forceDestroy": true
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1200000000000,\"delete\":3600000000000,\"read\":1200000000000,\"update\":1200000000000}}",
+          "accelerationStatus": "",
+          "acl": null,
+          "arn": "arn:aws:s3:::migrationbucket-2635e61",
+          "bucket": "migrationbucket-2635e61",
+          "bucketDomainName": "migrationbucket-2635e61.s3.amazonaws.com",
+          "bucketPrefix": "",
+          "bucketRegionalDomainName": "migrationbucket-2635e61.s3.us-east-2.amazonaws.com",
+          "corsRules": [],
+          "forceDestroy": true,
+          "grants": [
+            {
+              "id": "e07865a5679c7977370948f1f1e51c21b12d8cfdd396a7e3172275d9164e01b8",
+              "permissions": [
+                "FULL_CONTROL"
+              ],
+              "type": "CanonicalUser",
+              "uri": ""
+            }
+          ],
+          "hostedZoneId": "Z2O1EMRO9K5GLX",
+          "id": "migrationbucket-2635e61",
+          "lifecycleRules": [],
+          "loggings": [],
+          "objectLockConfiguration": null,
+          "objectLockEnabled": false,
+          "policy": "",
+          "region": "us-east-2",
+          "replicationConfigurations": [],
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfigurations": [
+            {
+              "rules": [
+                {
+                  "applyServerSideEncryptionByDefaults": [
+                    {
+                      "kmsMasterKeyId": "",
+                      "sseAlgorithm": "AES256"
+                    }
+                  ],
+                  "bucketKeyEnabled": false
+                }
+              ]
+            }
+          ],
+          "versionings": [
+            {
+              "enabled": false,
+              "mfaDelete": false
+            }
+          ],
+          "websiteDomain": null,
+          "websiteEndpoint": null,
+          "websites": []
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "forceDestroy": []
+        },
+        "created": "2025-05-12T13:43:55.99102Z",
+        "modified": "2025-05-12T13:43:55.99102Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::loggingBucket",
+        "custom": true,
+        "id": "loggingbucket-0b0b7b1",
+        "type": "aws:s3/bucketV2:BucketV2",
+        "inputs": {
+          "__defaults": [
+            "bucket"
+          ],
+          "bucket": "loggingbucket-0b0b7b1",
+          "forceDestroy": true
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1200000000000,\"delete\":3600000000000,\"read\":1200000000000,\"update\":1200000000000}}",
+          "accelerationStatus": "",
+          "acl": null,
+          "arn": "arn:aws:s3:::loggingbucket-0b0b7b1",
+          "bucket": "loggingbucket-0b0b7b1",
+          "bucketDomainName": "loggingbucket-0b0b7b1.s3.amazonaws.com",
+          "bucketPrefix": "",
+          "bucketRegionalDomainName": "loggingbucket-0b0b7b1.s3.us-east-2.amazonaws.com",
+          "corsRules": [],
+          "forceDestroy": true,
+          "grants": [
+            {
+              "id": "e07865a5679c7977370948f1f1e51c21b12d8cfdd396a7e3172275d9164e01b8",
+              "permissions": [
+                "FULL_CONTROL"
+              ],
+              "type": "CanonicalUser",
+              "uri": ""
+            }
+          ],
+          "hostedZoneId": "Z2O1EMRO9K5GLX",
+          "id": "loggingbucket-0b0b7b1",
+          "lifecycleRules": [],
+          "loggings": [],
+          "objectLockConfiguration": null,
+          "objectLockEnabled": false,
+          "policy": "",
+          "region": "us-east-2",
+          "replicationConfigurations": [],
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfigurations": [
+            {
+              "rules": [
+                {
+                  "applyServerSideEncryptionByDefaults": [
+                    {
+                      "kmsMasterKeyId": "",
+                      "sseAlgorithm": "AES256"
+                    }
+                  ],
+                  "bucketKeyEnabled": false
+                }
+              ]
+            }
+          ],
+          "versionings": [
+            {
+              "enabled": false,
+              "mfaDelete": false
+            }
+          ],
+          "websiteDomain": null,
+          "websiteEndpoint": null,
+          "websites": []
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "forceDestroy": []
+        },
+        "created": "2025-05-12T13:43:56.015248Z",
+        "modified": "2025-05-12T13:43:56.015248Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2::bucketWebsiteConfig",
+        "custom": true,
+        "id": "migrationbucket-2635e61",
+        "type": "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2",
+        "inputs": {
+          "__defaults": [],
+          "bucket": "migrationbucket-2635e61",
+          "errorDocument": {
+            "__defaults": [],
+            "key": "error.html"
+          },
+          "indexDocument": {
+            "__defaults": [],
+            "suffix": "index.html"
+          },
+          "routingRules": [
+            {
+              "__defaults": [],
+              "condition": {
+                "__defaults": [],
+                "keyPrefixEquals": "docs/"
+              },
+              "redirect": {
+                "__defaults": [],
+                "replaceKeyPrefixWith": "documents/"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "bucket": "migrationbucket-2635e61",
+          "errorDocument": {
+            "key": "error.html"
+          },
+          "expectedBucketOwner": "",
+          "id": "migrationbucket-2635e61",
+          "indexDocument": {
+            "suffix": "index.html"
+          },
+          "redirectAllRequestsTo": null,
+          "routingRuleDetails": "[{\"Condition\":{\"KeyPrefixEquals\":\"docs/\"},\"Redirect\":{\"ReplaceKeyPrefixWith\":\"documents/\"}}]",
+          "routingRules": [
+            {
+              "condition": {
+                "httpErrorCodeReturnedEquals": "",
+                "keyPrefixEquals": "docs/"
+              },
+              "redirect": {
+                "hostName": "",
+                "httpRedirectCode": "",
+                "protocol": "",
+                "replaceKeyPrefixWith": "documents/",
+                "replaceKeyWith": ""
+              }
+            }
+          ],
+          "websiteDomain": "s3-website.us-east-2.amazonaws.com",
+          "websiteEndpoint": "migrationbucket-2635e61.s3-website.us-east-2.amazonaws.com"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+          ],
+          "errorDocument": [],
+          "indexDocument": [],
+          "routingRules": []
+        },
+        "created": "2025-05-12T13:43:56.317654Z",
+        "modified": "2025-05-12T13:43:56.317654Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2::bucketCorsConfig",
+        "custom": true,
+        "id": "migrationbucket-2635e61",
+        "type": "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2",
+        "inputs": {
+          "__defaults": [],
+          "bucket": "migrationbucket-2635e61",
+          "corsRules": [
+            {
+              "__defaults": [],
+              "allowedHeaders": [
+                "*"
+              ],
+              "allowedMethods": [
+                "PUT",
+                "POST"
+              ],
+              "allowedOrigins": [
+                "https://s3-website-test.mydomain.com"
+              ],
+              "exposeHeaders": [
+                "ETag"
+              ],
+              "maxAgeSeconds": 3000
+            }
+          ]
+        },
+        "outputs": {
+          "bucket": "migrationbucket-2635e61",
+          "corsRules": [
+            {
+              "allowedHeaders": [
+                "*"
+              ],
+              "allowedMethods": [
+                "POST",
+                "PUT"
+              ],
+              "allowedOrigins": [
+                "https://s3-website-test.mydomain.com"
+              ],
+              "exposeHeaders": [
+                "ETag"
+              ],
+              "id": "",
+              "maxAgeSeconds": 3000
+            }
+          ],
+          "expectedBucketOwner": "",
+          "id": "migrationbucket-2635e61"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+          ],
+          "corsRules": []
+        },
+        "created": "2025-05-12T13:43:56.353034Z",
+        "modified": "2025-05-12T13:43:56.353034Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketLoggingV2:BucketLoggingV2::bucketLogging",
+        "custom": true,
+        "id": "migrationbucket-2635e61",
+        "type": "aws:s3/bucketLoggingV2:BucketLoggingV2",
+        "inputs": {
+          "__defaults": [],
+          "bucket": "migrationbucket-2635e61",
+          "targetBucket": "loggingbucket-0b0b7b1",
+          "targetPrefix": "/log"
+        },
+        "outputs": {
+          "bucket": "migrationbucket-2635e61",
+          "expectedBucketOwner": "",
+          "id": "migrationbucket-2635e61",
+          "targetBucket": "loggingbucket-0b0b7b1",
+          "targetGrants": [],
+          "targetObjectKeyFormat": null,
+          "targetPrefix": "/log"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket",
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::loggingBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+          ],
+          "targetBucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::loggingBucket"
+          ],
+          "targetPrefix": []
+        },
+        "created": "2025-05-12T13:43:56.399902Z",
+        "modified": "2025-05-12T13:43:56.399902Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketOwnershipControls:BucketOwnershipControls::exampleBucketOwnershipControls",
+        "custom": true,
+        "id": "loggingbucket-0b0b7b1",
+        "type": "aws:s3/bucketOwnershipControls:BucketOwnershipControls",
+        "inputs": {
+          "__defaults": [],
+          "bucket": "loggingbucket-0b0b7b1",
+          "rule": {
+            "__defaults": [],
+            "objectOwnership": "BucketOwnerPreferred"
+          }
+        },
+        "outputs": {
+          "bucket": "loggingbucket-0b0b7b1",
+          "id": "loggingbucket-0b0b7b1",
+          "rule": {
+            "objectOwnership": "BucketOwnerPreferred"
+          }
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::loggingBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::loggingBucket"
+          ],
+          "rule": []
+        },
+        "created": "2025-05-12T13:43:56.471082Z",
+        "modified": "2025-05-12T13:43:56.471082Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketAclV2:BucketAclV2::bucketAcl",
+        "custom": true,
+        "id": "loggingbucket-0b0b7b1,log-delivery-write",
+        "type": "aws:s3/bucketAclV2:BucketAclV2",
+        "inputs": {
+          "__defaults": [],
+          "acl": "log-delivery-write",
+          "bucket": "loggingbucket-0b0b7b1"
+        },
+        "outputs": {
+          "accessControlPolicy": {
+            "grants": [
+              {
+                "grantee": {
+                  "displayName": "",
+                  "emailAddress": "",
+                  "id": "",
+                  "type": "Group",
+                  "uri": "http://acs.amazonaws.com/groups/s3/LogDelivery"
+                },
+                "permission": "READ_ACP"
+              },
+              {
+                "grantee": {
+                  "displayName": "",
+                  "emailAddress": "",
+                  "id": "",
+                  "type": "Group",
+                  "uri": "http://acs.amazonaws.com/groups/s3/LogDelivery"
+                },
+                "permission": "WRITE"
+              },
+              {
+                "grantee": {
+                  "displayName": "",
+                  "emailAddress": "",
+                  "id": "e07865a5679c7977370948f1f1e51c21b12d8cfdd396a7e3172275d9164e01b8",
+                  "type": "CanonicalUser",
+                  "uri": ""
+                },
+                "permission": "FULL_CONTROL"
+              }
+            ],
+            "owner": {
+              "displayName": "",
+              "id": "e07865a5679c7977370948f1f1e51c21b12d8cfdd396a7e3172275d9164e01b8"
+            }
+          },
+          "acl": "log-delivery-write",
+          "bucket": "loggingbucket-0b0b7b1",
+          "expectedBucketOwner": "",
+          "id": "loggingbucket-0b0b7b1,log-delivery-write"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketOwnershipControls:BucketOwnershipControls::exampleBucketOwnershipControls",
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::loggingBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "acl": [],
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::loggingBucket"
+          ]
+        },
+        "created": "2025-05-12T13:43:56.741986Z",
+        "modified": "2025-05-12T13:43:56.741986Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2::bucketSse",
+        "custom": true,
+        "id": "migrationbucket-2635e61",
+        "type": "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2",
+        "inputs": {
+          "__defaults": [],
+          "bucket": "migrationbucket-2635e61",
+          "rules": [
+            {
+              "__defaults": [],
+              "applyServerSideEncryptionByDefault": {
+                "__defaults": [],
+                "sseAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "bucket": "migrationbucket-2635e61",
+          "expectedBucketOwner": "",
+          "id": "migrationbucket-2635e61",
+          "rules": [
+            {
+              "applyServerSideEncryptionByDefault": {
+                "kmsMasterKeyId": "",
+                "sseAlgorithm": "AES256"
+              },
+              "bucketKeyEnabled": null
+            }
+          ]
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+          ],
+          "rules": []
+        },
+        "created": "2025-05-12T13:43:56.922113Z",
+        "modified": "2025-05-12T13:43:56.922113Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketVersioningV2:BucketVersioningV2::bucketVersioning",
+        "custom": true,
+        "id": "migrationbucket-2635e61",
+        "type": "aws:s3/bucketVersioningV2:BucketVersioningV2",
+        "inputs": {
+          "__defaults": [],
+          "bucket": "migrationbucket-2635e61",
+          "versioningConfiguration": {
+            "__defaults": [],
+            "status": "Enabled"
+          }
+        },
+        "outputs": {
+          "bucket": "migrationbucket-2635e61",
+          "expectedBucketOwner": "",
+          "id": "migrationbucket-2635e61",
+          "mfa": null,
+          "versioningConfiguration": {
+            "mfaDelete": "",
+            "status": "Enabled"
+          }
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+          ],
+          "versioningConfiguration": []
+        },
+        "created": "2025-05-12T13:43:57.861624Z",
+        "modified": "2025-05-12T13:43:57.861624Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2::bucketLifecycleConfig",
+        "custom": true,
+        "id": "migrationbucket-2635e61",
+        "type": "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2",
+        "inputs": {
+          "bucket": "migrationbucket-2635e61",
+          "rules": [
+            {
+              "expiration": {
+                "days": 30
+              },
+              "id": "noncurrent",
+              "noncurrentVersionExpiration": {
+                "noncurrentDays": 30
+              },
+              "status": "Enabled"
+            },
+            {
+              "filter": {
+                "and": {
+                  "prefix": "log/",
+                  "tags": {
+                    "autoclean": "true",
+                    "rule": "log"
+                  }
+                }
+              },
+              "id": "log",
+              "status": "Enabled",
+              "transitions": [
+                {
+                  "days": 30,
+                  "storageClass": "STANDARD_IA"
+                }
+              ]
+            }
+          ]
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"1\"}",
+          "bucket": "migrationbucket-2635e61",
+          "expectedBucketOwner": "",
+          "id": "migrationbucket-2635e61",
+          "rules": [
+            {
+              "expiration": {
+                "days": 30,
+                "expiredObjectDeleteMarker": false
+              },
+              "id": "noncurrent",
+              "noncurrentVersionExpiration": {
+                "noncurrentDays": 30
+              },
+              "noncurrentVersionTransitions": [],
+              "prefix": "",
+              "status": "Enabled",
+              "transitions": []
+            },
+            {
+              "filter": {
+                "and": {
+                  "objectSizeGreaterThan": 0,
+                  "objectSizeLessThan": 0,
+                  "prefix": "log/",
+                  "tags": {
+                    "autoclean": "true",
+                    "rule": "log"
+                  }
+                }
+              },
+              "id": "log",
+              "noncurrentVersionTransitions": [],
+              "prefix": "",
+              "status": "Enabled",
+              "transitions": [
+                {
+                  "days": 30,
+                  "storageClass": "STANDARD_IA"
+                }
+              ]
+            }
+          ],
+          "transitionDefaultMinimumObjectSize": "all_storage_classes_128K"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::default::c20757e5-0d56-4fd4-8e9d-4c11979b41be",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketV2:BucketV2::migrationBucket"
+          ],
+          "rules": []
+        },
+        "created": "2025-05-12T13:44:52.20574Z",
+        "modified": "2025-05-12T13:44:52.20574Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

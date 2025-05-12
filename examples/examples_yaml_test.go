@@ -188,21 +188,35 @@ func TestElasticacheReplicationGroupUpgrade(t *testing.T) {
 }
 
 func TestS3BucketToBucketUpgrade(t *testing.T) {
-	testProviderUpgrade(t, "bucket-to-bucket",
+	/*previewRes := */ testProviderUpgrade(t, "bucket-to-bucket",
 		&testProviderUpgradeOptions{
 			baselineVersion: "6.78.0",
 		},
 		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "step1")),
 	)
+	// TODO: [pulumi-aws#5514] fix bucket v7 upgrade
+	// assertpreview.HasNoChanges(t, previewRes)
 }
 
-func TestS3BucketV2ToBucketV2Upgrade(t *testing.T) {
-	testProviderUpgrade(t, "bucketv2-to-bucket",
+func TestS3BucketV2ToBucketUpgrade(t *testing.T) {
+	/*previewRes := */ testProviderUpgrade(t, "bucketv2-to-bucket",
 		&testProviderUpgradeOptions{
 			baselineVersion: "6.78.0",
 		},
 		optproviderupgrade.NewSourcePath(filepath.Join("bucketv2-to-bucket", "step1")),
 	)
+	// TODO: [pulumi-aws#1111] fix bucket v7 upgrade
+	// assertpreview.HasNoChanges(t, previewRes)
+}
+
+func TestS3BucketV2ToBucketSidecarUpgrade(t *testing.T) {
+	previewRes := testProviderUpgrade(t, "bucket-sidecar-renames",
+		&testProviderUpgradeOptions{
+			baselineVersion: "6.78.0",
+		},
+		optproviderupgrade.NewSourcePath(filepath.Join("bucket-sidecar-renames", "step1")),
+	)
+	assertpreview.HasNoChanges(t, previewRes)
 }
 
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {

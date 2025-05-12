@@ -1,14 +1,8 @@
 name: test-aws-bucket-migration
 runtime: yaml
 resources:
-  provider:
-    type: pulumi:providers:aws
-    options:
-      version: 6.78.0
   replication:
     type: aws:iam:Role
-    options:
-      provider: ${provider}
     properties:
       name: tf-iam-role-replication-12345
       assumeRolePolicy: |
@@ -27,8 +21,6 @@ resources:
         }
   replicationPolicy:
     type: aws:iam:Policy
-    options:
-      provider: ${provider}
     name: replication
     properties:
       name: tf-iam-role-policy-replication-12345
@@ -71,40 +63,31 @@ resources:
   replicationRolePolicyAttachment:
     type: aws:iam:RolePolicyAttachment
     name: replication
-    options:
-      provider: ${provider}
     properties:
       role: ${replication.name}
       policyArn: ${replicationPolicy.arn}
   destinationBucket:
-    type: aws:s3:Bucket
-    options:
-      provider: ${provider}
+    type: aws:s3:BucketV2
     properties:
       forceDestroy: true
-      versioning:
-        enabled: true
+      versionings:
+        - enabled: true
   loggingBucket:
-    type: aws:s3:Bucket
-    options:
-      provider: ${provider}
+    type: aws:s3:BucketV2
     properties:
       forceDestroy: true
   exampleBucketOwnershipControls:
     type: aws:s3:BucketOwnershipControls
-    options:
-      provider: ${provider}
     properties:
       bucket: ${loggingBucket.id}
       rule:
         objectOwnership: BucketOwnerPreferred
-  exampleBucketAclV2:
+  exampleBucketAcl:
     type: aws:s3:BucketAclV2
     properties:
       bucket: ${loggingBucket.id}
       acl: log-delivery-write
     options:
-      provider: ${provider}
       dependsOn:
         - ${exampleBucketOwnershipControls}
   migrationBucket:

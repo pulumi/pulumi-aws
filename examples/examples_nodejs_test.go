@@ -378,6 +378,7 @@ func TestAccLambdaLayer(t *testing.T) {
 }
 
 func TestAccLambdaContainerImages(t *testing.T) {
+	// TODO[pulumi/pulumi-awsx#1612]
 	t.Skipf("Skipping test until awsx is update to use getAuthorizationToken %s", t.Name())
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -819,6 +820,7 @@ func TestRoute53Upgrade(t *testing.T) {
 }
 
 func TestJobQueueUpgrade(t *testing.T) {
+	// TODO[pulumi/pulumi-aws#5515]
 	t.Skipf("Skipping test for now. State upgrade isn't working correctly")
 	opts := nodeProviderUpgradeOpts()
 	opts.setEnvRegion = false

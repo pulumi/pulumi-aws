@@ -82,7 +82,7 @@ resources:
       bucket: ${loggingBucket.id}
       rule:
         objectOwnership: BucketOwnerPreferred
-  exampleBucketAclV2:
+  exampleBucketAcl:
     type: aws:s3:BucketAcl
     properties:
       bucket: ${loggingBucket.id}

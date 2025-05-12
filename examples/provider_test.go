@@ -20,6 +20,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
@@ -62,7 +63,7 @@ type testProviderUpgradeOptions struct {
 	extraOpts       []opttest.Option
 }
 
-func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions, upgradeOpts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
+func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions, upgradeOpts ...optproviderupgrade.PreviewProviderUpgradeOpt) auto.PreviewResult {
 	skipIfShort(t)
 	t.Parallel()
 	t.Helper()
@@ -104,6 +105,7 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	}
 	result := providertest.PreviewProviderUpgrade(t, test, providerName, baselineVersion, upOpts...)
 	assertpreview.HasNoReplacements(t, result)
+	return result
 }
 
 type testProviderCodeChangesOptions struct {
