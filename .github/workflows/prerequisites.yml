@@ -92,7 +92,7 @@ jobs:
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
         {
           echo "SCHEMA_CHANGES<<$EOF";
-          schema-tools compare -r github://api.github.com/pulumi -p aws -o "${{ inputs.default_branch }}" -n --local-path=provider/cmd/pulumi-resource-aws/schema.json;
+          schema-tools compare -r github://api.github.com/pulumi -p aws -o 7.0.0-alpha -n --local-path=provider/cmd/pulumi-resource-aws/schema.json;
           echo "$EOF";
         } >> "$GITHUB_ENV"
     - if: inputs.is_pr && inputs.is_automated == false && github.actor != 'dependabot[bot]'
