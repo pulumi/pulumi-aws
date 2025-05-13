@@ -2716,8 +2716,6 @@ github.com/pulumi/providertest v0.3.0 h1:Dv10aoFaNQBDRtK8cRbd2uk9vEhpC/NryN+0y7N
 github.com/pulumi/providertest v0.3.0/go.mod h1:aTxVfdxP/Pe0iPbokjBp99x0XaY4fkZB2CjIS5wysMs=
 github.com/pulumi/pulumi-java/pkg v1.8.0 h1:xCTQqTGxDj1f+VmCR//V0x355rAkc2b2VCIig1Ln/n8=
 github.com/pulumi/pulumi-java/pkg v1.8.0/go.mod h1:VH4YGMcPEYuMyOJjohMTepAqPSFPgmz4I3U4q5sJ89o=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.107.0 h1:Q3f7dOCUlmEu6Xvlt7ZOFKMusKx0wQmNyrwJrtNW0cY=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.107.0/go.mod h1:lEAsf7+525OpQXYl1BAJGTJCnn3izvpRJZGP/K1wsUQ=
 github.com/pulumi/pulumi-yaml v1.15.1 h1:4T36uwbJlQMbcK/X3U9BuqMZFEN4lnAIysPtqDvm0Tg=
 github.com/pulumi/pulumi-yaml v1.15.1/go.mod h1:J3HzbFVhR7sOsZQT7nztBgetcCbxFkOeOMvZDkQs0IU=
 github.com/pulumi/pulumi/pkg/v3 v3.163.0 h1:b9cwzffrRTWgawIkUdKfRqIyajAm4gdwHbYTJrpisms=
@@ -2752,6 +2750,8 @@ github.com/ruudk/golang-pdf417 v0.0.0-20181029194003-1af4ab5afa58/go.mod h1:6lfF
 github.com/ruudk/golang-pdf417 v0.0.0-20201230142125-a7e3863a1245/go.mod h1:pQAZKsJ8yyVxGRWYNEm9oFB8ieLgKFnamEyDmSA0BRk=
 github.com/ryanuber/go-glob v1.0.0 h1:iQh3xXAumdQ+4Ufa5b25cRpC5TYKlno6hsv6Cb3pkBk=
 github.com/ryanuber/go-glob v1.0.0/go.mod h1:807d1WSdnB0XRJzKNil9Om6lcp/3a0v4qIHxIXzX/Yc=
+github.com/ryboe/q v1.0.24 h1:GgnsKqyULXRp6fw9gZOO3ZEsBHmsFVampM1TLWw9uvU=
+github.com/ryboe/q v1.0.24/go.mod h1:IBqYgn2yjk55XqLJC0Ig2PW+I1qBqo2N4S4A+QuTAUc=
 github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 h1:OkMGxebDjyw0ULyrTYWeN0UNCCkmCWfjPnIA2W6oviI=
 github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06/go.mod h1:+ePHsJ1keEjQtpvf9HHw0f4ZeJ0TLRsxhunSI2hYJSs=
 github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 h1:TToq11gyfNlrMFZiYujSekIsPd9AmsA2Bj/iv+s4JHE=
