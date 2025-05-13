@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 import {Bucket} from "../s3";
+import {Application} from "./index";
 
 /**
  * Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
@@ -174,7 +175,7 @@ export interface ApplicationVersionState {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | Application>;
     /**
      * ARN assigned by AWS for this Elastic Beanstalk Application.
      */
@@ -224,7 +225,7 @@ export interface ApplicationVersionArgs {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    application: pulumi.Input<string>;
+    application: pulumi.Input<string | Application>;
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
