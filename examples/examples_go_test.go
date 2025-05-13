@@ -99,11 +99,7 @@ func TestTagsCombinationsGo(t *testing.T) {
 		// 	tagsState{DefaultTags: map[string]string{"x": "s", "y": ""}, ResourceTags: map[string]string{"x": "s"}},
 		// 	false,
 		// },
-		// TODO: bug in Pulumi, default tags are not removed for sdkv2 resources
-		// In order for this scenario to work, TF runs refresh with the new provider config
-		// and then computes the diff
-		// For Pulumi to do this you have to run refresh with --run-program, otherwise refresh will
-		// use the old provider config
+		// This scenario is handled via the PreCheckCallback function we added.
 		{
 			"only default tags, remove default tags",
 			tagsState{DefaultTags: map[string]string{"x": "s", "y": "s"}, ResourceTags: map[string]string{}},

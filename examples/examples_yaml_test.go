@@ -1179,7 +1179,7 @@ func TestAccDefaultTags(t *testing.T) {
 			},
 			expected: sameAsDefault,
 		},
-		// TODO: This is not working as expected, requires refresh and run program
+		// This case is handled by the special PreCheckCallback function we added
 		{
 			purpose:     "Don't specify any default tags (should be empty)",
 			defaultTags: map[string]interface{}{},
