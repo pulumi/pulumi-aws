@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	minimalSchemaFile = "../../cmd/pulumi-resource-aws/schema.json"
+	minimalSchemaFile = "../../cmd/pulumi-resource-aws/schema-minimal.json"
 )
 
 func TestNoDanglingReferencesInLightSchema(t *testing.T) {
