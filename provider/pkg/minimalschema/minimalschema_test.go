@@ -43,9 +43,18 @@ func TestNoDanglingReferencesInLightSchema(t *testing.T) {
 			clean := strings.TrimPrefix(r, "#/types/")
 			if _, ok := types[clean]; !ok {
 				if _, s := seen[clean]; !s {
-					_, isRes := resources[clean]
 					danglingRefCount++
-					t.Logf("Dangling reference: %v (isRes=%v)", clean, isRes)
+					t.Logf("Dangling type reference: %v", clean)
+				}
+				seen[clean] = struct{}{}
+			}
+		case strings.HasPrefix(r, "#/resources/"):
+			totalCount++
+			clean := strings.TrimPrefix(r, "#/resources/")
+			if _, ok := resources[clean]; !ok {
+				if _, s := seen[clean]; !s {
+					danglingRefCount++
+					t.Logf("Dangling resource reference: %v", clean)
 				}
 				seen[clean] = struct{}{}
 			}
