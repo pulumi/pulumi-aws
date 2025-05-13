@@ -20,7 +20,8 @@ that fall into two categories.
    only accepted a single configuration item. This is now
    `serverSideEncryptionConfiguration`.
  
-- [ ] TODO: See the upgrade guide for more detailed information.
+TODO[pulumi/pulumi-aws#5524]
+See the upgrade guide for more detailed information.
 
 #### MaxItemsOne Changes
 
@@ -216,7 +217,8 @@ Users can replicate the behavior of `defaultAddonsToRemoves` by setting
 `bootstrapSelfManagedAddons` to `false` and then adding platform addons that
 they actually want as `aws.eks.Addon` resources.
 
-- [ ] TODO: create upgrade guide
+TODO[pulumi/pulumi-aws#5525]
+See the upgrade guide for more details.
 
 - "aws:eks/cluster:Cluster":
     - `🟡` inputs: "defaultAddonsToRemoves" missing
@@ -231,7 +233,8 @@ The `ecr.getCredentials` function was added to address a functionality that did
 not exist in the upstream provider. The upstream Terraform provider now has a
 `aws.ecr.getAuthorizationToken` function that should be used instead.
 
-- [ ] TODO: create upgrade guide
+TODO[pulumi/pulumi-aws#5526
+See the upgrade guide for more information.
 
 - `🔴` "aws:ecr/getCredentials:getCredentials" missing
 
@@ -242,7 +245,8 @@ The following properties were deprecated in v6 and are removed in v7
 #### ApiGateway
 
 `aws_apigateway_deployment` - Remove stage_name, stage_description, canary_settings attributes [#39958](https://github.com/hashicorp/terraform-provider-aws/issues/39958)
-- [ ] TODO: migration instructions
+TODO[pulumi/pulumi-aws#5516]
+See the migration guide for more information.
 
 - "aws:apigateway/deployment:Deployment":
     - inputs:
@@ -258,8 +262,6 @@ The following properties were deprecated in v6 and are removed in v7
 
 #### aws batch [#40751](https://github.com/hashicorp/terraform-provider-aws/pull/40751)/[#37943](https://github.com/hashicorp/terraform-provider-aws/issues/37943)
 
-- [ ] TODO: Create upgrade test for ComputeEnvironment & JobQueue. Upstream has state
-migrators that don't seem to be working
 
 - "aws:batch/computeEnvironment:ComputeEnvironment":
     - inputs:
