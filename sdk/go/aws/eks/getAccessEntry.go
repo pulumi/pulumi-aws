@@ -57,6 +57,8 @@ type LookupAccessEntryArgs struct {
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn string            `pulumi:"principalArn"`
 	Tags         map[string]string `pulumi:"tags"`
+	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // A collection of values returned by getAccessEntry.
@@ -98,6 +100,8 @@ type LookupAccessEntryOutputArgs struct {
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringInput    `pulumi:"principalArn"`
 	Tags         pulumi.StringMapInput `pulumi:"tags"`
+	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }
 
 func (LookupAccessEntryOutputArgs) ElementType() reflect.Type {

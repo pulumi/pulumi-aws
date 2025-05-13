@@ -150,8 +150,7 @@ type LanguageModel struct {
 	// The model name.
 	ModelName pulumi.StringOutput    `pulumi:"modelName"`
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewLanguageModel registers a new resource with the given unique name, arguments, and options.
@@ -207,8 +206,7 @@ type languageModelState struct {
 	// The model name.
 	ModelName *string           `pulumi:"modelName"`
 	Tags      map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 type LanguageModelState struct {
@@ -223,8 +221,7 @@ type LanguageModelState struct {
 	// The model name.
 	ModelName pulumi.StringPtrInput
 	Tags      pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (LanguageModelState) ElementType() reflect.Type {
@@ -372,7 +369,6 @@ func (o LanguageModelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o LanguageModelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

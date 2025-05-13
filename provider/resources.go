@@ -5507,6 +5507,61 @@ compatibility shim in favor of the new "name" field.`)
 		},
 	}
 
+	// This adds special handling for the `tagsAll` properties.
+	// We rely on the upstream Terraform provider to correctly handle `tags` and `tagsAll` and it
+	// works fine for pf based resources. For SDKv2 resources, terraform relies on two things for tags handling to work:
+	// (note: this is only true for a specific scenario where `defaultTags` was non-empty and is then completely removed)
+	//   1. Terraform is run with `--refresh` (default for Terraform)
+	//   2. When refresh is run, the latest provider config is used.
+	// When you run Pulumi, by default neither of these two things are true which means that to get the same behavior for
+	// SKDv2 resources, you would have to:
+	//   1. Run `pulumi refresh --run-program` (run-program is required to get the latest provider config)
+	//   2. Run `pulumi up` to apply the tags changes.
+	// In order to handle this scenario we add a callback function that is run prior to `Check` which sets the value of `tagsAll`.
+	// This is a workaround that allows the program to have the latest `tagsAll` values without having to run `refresh` or `run-program`.
+	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
+		// only process sdkv2 resources
+		if _, ok := up.ResourcesMap[key]; !ok {
+			return true
+		}
+		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
+			return true
+		}
+
+		if _, ok := prov.Resources[key]; ok {
+			if callback := prov.Resources[key].PreCheckCallback; callback != nil {
+				prov.Resources[key].PreCheckCallback = func(
+					ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					config, err := callback(ctx, config, meta)
+					if err != nil {
+						return nil, err
+					}
+					return applyTags(ctx, config, meta)
+				}
+			} else {
+				prov.Resources[key].PreCheckCallback = applyTags
+			}
+			if prov.Resources[key].GetFields() == nil {
+				prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
+			}
+			fields := prov.Resources[key].GetFields()
+
+			if _, ok := fields["tags_all"]; !ok {
+				fields["tags_all"] = &tfbridge.SchemaInfo{}
+			}
+
+			// `tags_all` is an optional/computed property in TF, but should never
+			// be set by the user (TF internals will set it). We can mark it as only an
+			// output property on our side so that users don't have the option to set it themselves,
+			// but we still can in the callback function
+			fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
+			fields["tags_all"].MarkAsOptional = tfbridge.False()
+		}
+
+		return true
+	})
+
 	for k, v := range pluginFrameworkResoures {
 		if _, conflict := prov.Resources[k]; conflict {
 			panic(fmt.Sprintf("Resoruce already defined: %s", k))
@@ -5518,61 +5573,6 @@ compatibility shim in favor of the new "name" field.`)
 		func(mod, name string) (string, error) {
 			return awsResource(mod, name).String(), nil
 		}))
-
-	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
-		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
-			return true
-		}
-
-		// We have ensured that this resource is using upstream's generic tagging
-		// mechanism, so override check so it works.
-		if callback := prov.Resources[key].PreCheckCallback; callback != nil {
-			prov.Resources[key].PreCheckCallback = func(
-				ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
-			) (resource.PropertyMap, error) {
-				config, err := callback(ctx, config, meta)
-				if err != nil {
-					return nil, err
-				}
-				return applyTags(ctx, config, meta)
-			}
-		} else {
-			prov.Resources[key].PreCheckCallback = applyTags
-		}
-
-		// also override read so that it works during import
-		// as a side effect this will also run during create and update, but since
-		// `tags` and `defaultTags` should always be equal then it doesn't really matter.
-		// One extra place that we make sure `tags=defaultTags` is fine.
-		if transform := prov.Resources[key].TransformOutputs; transform != nil {
-			prov.Resources[key].TransformOutputs = func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-				config, err := transform(ctx, pm)
-				if err != nil {
-					return nil, err
-				}
-				return applyTagsOutputs(ctx, config)
-			}
-		} else {
-			prov.Resources[key].TransformOutputs = applyTagsOutputs
-		}
-
-		if prov.Resources[key].GetFields() == nil {
-			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
-		}
-		fields := prov.Resources[key].GetFields()
-
-		if _, ok := fields["tags_all"]; !ok {
-			fields["tags_all"] = &tfbridge.SchemaInfo{}
-		}
-
-		// Upstream provider is edited to unmark tags_all as computed internally so that
-		// Pulumi provider internals can set it, but the user should not be able to set it.
-		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
-		fields["tags_all"].MarkAsOptional = tfbridge.False()
-
-		return true
-	})
 
 	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
 		// These examples hang on Go generation. Issue tracking to unblock:
@@ -5709,7 +5709,7 @@ func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool
 		return false
 	}
 	// tags must be non-computed.
-	if tagsF.Computed() {
+	if tagsF.Computed() && !tagsF.Optional() {
 		return false
 	}
 	return true

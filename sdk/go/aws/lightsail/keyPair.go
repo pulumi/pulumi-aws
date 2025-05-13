@@ -133,8 +133,7 @@ type KeyPair struct {
 	// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -188,8 +187,7 @@ type keyPairState struct {
 	// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -214,8 +212,7 @@ type KeyPairState struct {
 	// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -390,7 +387,6 @@ func (o KeyPairOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o KeyPairOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -32,7 +32,8 @@ class KxDataviewArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  read_write: Optional[pulumi.Input[builtins.bool]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a KxDataview resource.
         :param pulumi.Input[builtins.bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
@@ -53,6 +54,7 @@ class KxDataviewArgs:
                * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "auto_update", auto_update)
         pulumi.set(__self__, "az_mode", az_mode)
@@ -72,6 +74,8 @@ class KxDataviewArgs:
             pulumi.set(__self__, "segment_configurations", segment_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="autoUpdate")
@@ -212,6 +216,18 @@ class KxDataviewArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _KxDataviewState:
@@ -287,9 +303,6 @@ class _KxDataviewState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -479,7 +492,6 @@ class _KxDataviewState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -510,6 +522,7 @@ class KxDataview(pulumi.CustomResource):
                  read_write: Optional[pulumi.Input[builtins.bool]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS FinSpace Kx Dataview.
@@ -564,6 +577,7 @@ class KxDataview(pulumi.CustomResource):
                * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -630,6 +644,7 @@ class KxDataview(pulumi.CustomResource):
                  read_write: Optional[pulumi.Input[builtins.bool]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -658,11 +673,11 @@ class KxDataview(pulumi.CustomResource):
             __props__.__dict__["read_write"] = read_write
             __props__.__dict__["segment_configurations"] = segment_configurations
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["last_modified_timestamp"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(KxDataview, __self__).__init__(
             'aws:finspace/kxDataview:KxDataview',
             resource_name,
@@ -867,7 +882,6 @@ class KxDataview(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

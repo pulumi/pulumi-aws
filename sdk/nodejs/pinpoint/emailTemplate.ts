@@ -74,9 +74,6 @@ export class EmailTemplate extends pulumi.CustomResource {
      */
     public readonly emailTemplates!: pulumi.Output<outputs.pinpoint.EmailTemplateEmailTemplate[] | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
@@ -130,9 +127,6 @@ export interface EmailTemplateState {
      */
     emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.

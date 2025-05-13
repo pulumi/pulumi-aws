@@ -337,9 +337,6 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
      * Key-value map of tags for the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -411,9 +408,6 @@ export interface MediaInsightsPipelineConfigurationState {
      * Key-value map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

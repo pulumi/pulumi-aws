@@ -35,6 +35,7 @@ class BudgetArgs:
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
                  planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_period_end: Optional[pulumi.Input[builtins.str]] = None,
                  time_period_start: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -54,6 +55,7 @@ class BudgetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         """
@@ -81,6 +83,8 @@ class BudgetArgs:
             pulumi.set(__self__, "planned_limits", planned_limits)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if time_period_end is not None:
             pulumi.set(__self__, "time_period_end", time_period_end)
         if time_period_start is not None:
@@ -245,6 +249,18 @@ class BudgetArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="timePeriodEnd")
     def time_period_end(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -337,9 +353,6 @@ class _BudgetState:
             pulumi.set(__self__, "planned_limits", planned_limits)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if time_period_end is not None:
@@ -507,7 +520,6 @@ class _BudgetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -577,6 +589,7 @@ class Budget(pulumi.CustomResource):
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
                  planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_period_end: Optional[pulumi.Input[builtins.str]] = None,
                  time_period_start: Optional[pulumi.Input[builtins.str]] = None,
                  time_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -760,6 +773,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
@@ -964,6 +978,7 @@ class Budget(pulumi.CustomResource):
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
                  planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_period_end: Optional[pulumi.Input[builtins.str]] = None,
                  time_period_start: Optional[pulumi.Input[builtins.str]] = None,
                  time_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -990,13 +1005,13 @@ class Budget(pulumi.CustomResource):
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["planned_limits"] = planned_limits
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["time_period_end"] = time_period_end
             __props__.__dict__["time_period_start"] = time_period_start
             if time_unit is None and not opts.urn:
                 raise TypeError("Missing required property 'time_unit'")
             __props__.__dict__["time_unit"] = time_unit
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(Budget, __self__).__init__(
             'aws:budgets/budget:Budget',
             resource_name,
@@ -1180,7 +1195,6 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

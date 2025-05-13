@@ -27,6 +27,7 @@ class KxEnvironmentArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_configuration: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs']] = None):
         """
         The set of arguments for constructing a KxEnvironment resource.
@@ -37,6 +38,7 @@ class KxEnvironmentArgs:
         :param pulumi.Input[builtins.str] description: Description for the KX environment.
         :param pulumi.Input[builtins.str] name: Name of the KX environment that you want to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs'] transit_gateway_configuration: Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -48,6 +50,8 @@ class KxEnvironmentArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_configuration is not None:
             pulumi.set(__self__, "transit_gateway_configuration", transit_gateway_configuration)
 
@@ -112,6 +116,18 @@ class KxEnvironmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="transitGatewayConfiguration")
@@ -182,9 +198,6 @@ class _KxEnvironmentState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_configuration is not None:
@@ -326,7 +339,6 @@ class _KxEnvironmentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -363,6 +375,7 @@ class KxEnvironment(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_configuration: Optional[pulumi.Input[Union['KxEnvironmentTransitGatewayConfigurationArgs', 'KxEnvironmentTransitGatewayConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -463,6 +476,7 @@ class KxEnvironment(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Name of the KX environment that you want to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['KxEnvironmentTransitGatewayConfigurationArgs', 'KxEnvironmentTransitGatewayConfigurationArgsDict']] transit_gateway_configuration: Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
         """
         ...
@@ -580,6 +594,7 @@ class KxEnvironment(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_configuration: Optional[pulumi.Input[Union['KxEnvironmentTransitGatewayConfigurationArgs', 'KxEnvironmentTransitGatewayConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -597,6 +612,7 @@ class KxEnvironment(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transit_gateway_configuration"] = transit_gateway_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zones"] = None
@@ -604,7 +620,6 @@ class KxEnvironment(pulumi.CustomResource):
             __props__.__dict__["infrastructure_account_id"] = None
             __props__.__dict__["last_modified_timestamp"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(KxEnvironment, __self__).__init__(
             'aws:finspace/kxEnvironment:KxEnvironment',
             resource_name,
@@ -762,7 +777,6 @@ class KxEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

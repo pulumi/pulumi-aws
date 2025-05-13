@@ -633,7 +633,7 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 	}
 
 	steps := []tagsTestStep{
-		// Both aws:cognito:UserPool and aws:s3:BucketV2 are full SDKv2 resources managed
+		// Both aws:cognito:UserPool and aws:s3:Bucket are full SDKv2 resources managed
 		// by Terraform, but they have different requirements for successful tag
 		// interactions. That is why we have tests for both resources.
 		{
@@ -818,7 +818,7 @@ func testTagsPulumiLifecycle(t *testing.T, step tagsTestStep) {
 		step.preImportHook(t, outputs)
 	}
 	generateTagsTest(t, step, fpath, id)
-	upRes, err = stack.Up(ctx, optup.Diff())
+	upRes, err = stack.Up(ctx, optup.Diff(), optup.ProgressStreams(os.Stdout), optup.ErrorProgressStreams(os.Stderr))
 	assert.NoError(t, err)
 	changes := *upRes.Summary.ResourceChanges
 	assert.Equal(t, 1, changes["import"])
@@ -860,7 +860,7 @@ resources:
   res:
     type: %s%s%s
 outputs:
-  actual: ${res.tags}
+  actual: ${res.tagsAll}
   urn: ${res.urn}
   id: ${res.id}
   resArn: ${res.arn}
@@ -1193,6 +1193,7 @@ func TestAccDefaultTags(t *testing.T) {
 			},
 			expected: sameAsDefault,
 		},
+		// This case is handled by the special PreCheckCallback function we added
 		{
 			purpose:     "Don't specify any default tags (should be empty)",
 			defaultTags: map[string]interface{}{},
@@ -1257,7 +1258,7 @@ func testTags(t *testing.T, dir string, steps []tagsStep) {
 						return
 					}
 					assert.Equal(t, step.expected, stackOutputBucketTags,
-						"Unexpected stack output for step %d: %s", step, step.purpose)
+						"Unexpected stack output for step %d: %s", i, step.purpose)
 				},
 			})
 	}
@@ -1287,7 +1288,7 @@ resources:
     options:
       provider: ${aws-provider}
 outputs:
-  actual: ${res.tags}`
+  actual: ${res.tagsAll}`
 
 	var expandMap func(level int, v interface{}) string
 	expandMap = func(level int, v interface{}) string {
@@ -1683,6 +1684,7 @@ func TestRegressUnknownTags(t *testing.T) {
 	    },
 	    "response": {
 	      "inputs": {
+					"tagsAll": {},
 		"__defaults": [
 		  "name"
 		],
@@ -1738,6 +1740,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
               "stateTransitionReason": "USER_INITIATED",
               "topics": [],
               "tumblingWindowInSeconds": 0,
+							"tagsAll": {},
               "uuid": "f8af893f-869e-4861-a403-1a4fe3509754"
           },
           "news": {
@@ -1746,6 +1749,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
               ],
               "enabled": true,
               "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+							"tagsAll": {},
               "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
           },
           "oldInputs": {
@@ -1806,6 +1810,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
             "runtime": "nodejs18.x",
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"
@@ -1838,6 +1843,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
             "runtime": "nodejs18.x",
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"
@@ -1889,6 +1895,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "skipDestroy": false,
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
             "timeout": 3,
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"

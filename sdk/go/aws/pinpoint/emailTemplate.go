@@ -67,8 +67,7 @@ type EmailTemplate struct {
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 	EmailTemplates EmailTemplateEmailTemplateArrayOutput `pulumi:"emailTemplates"`
 	Tags           pulumi.StringMapOutput                `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll        pulumi.StringMapOutput                `pulumi:"tagsAll"`
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	TemplateName pulumi.StringOutput `pulumi:"templateName"`
 }
@@ -111,8 +110,7 @@ type emailTemplateState struct {
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 	EmailTemplates []EmailTemplateEmailTemplate `pulumi:"emailTemplates"`
 	Tags           map[string]string            `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll        map[string]string            `pulumi:"tagsAll"`
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	TemplateName *string `pulumi:"templateName"`
 }
@@ -123,8 +121,7 @@ type EmailTemplateState struct {
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
 	EmailTemplates EmailTemplateEmailTemplateArrayInput
 	Tags           pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	TemplateName pulumi.StringPtrInput
 }
@@ -251,7 +248,6 @@ func (o EmailTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o EmailTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -76,8 +76,6 @@ type RestoreTestingPlan struct {
 	StartWindowHours pulumi.IntOutput       `pulumi:"startWindowHours"`
 	Tags             pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -128,8 +126,6 @@ type restoreTestingPlanState struct {
 	StartWindowHours *int              `pulumi:"startWindowHours"`
 	Tags             map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -148,8 +144,6 @@ type RestoreTestingPlanState struct {
 	StartWindowHours pulumi.IntPtrInput
 	Tags             pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -310,8 +304,6 @@ func (o RestoreTestingPlanOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o RestoreTestingPlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

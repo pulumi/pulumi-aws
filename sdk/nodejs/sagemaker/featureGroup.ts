@@ -111,8 +111,6 @@ export class FeatureGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly throughputConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupThroughputConfig>;
@@ -223,8 +221,6 @@ export interface FeatureGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     throughputConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupThroughputConfig>;

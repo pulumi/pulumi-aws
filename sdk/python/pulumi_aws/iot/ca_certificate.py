@@ -28,6 +28,7 @@ class CaCertificateArgs:
                  certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
                  registration_config: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CaCertificate resource.
@@ -37,6 +38,7 @@ class CaCertificateArgs:
         :param pulumi.Input[builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         :param pulumi.Input['CaCertificateRegistrationConfigArgs'] registration_config: Information about the registration configuration. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
                [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
         """
@@ -49,6 +51,8 @@ class CaCertificateArgs:
             pulumi.set(__self__, "registration_config", registration_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if verification_certificate_pem is not None:
             pulumi.set(__self__, "verification_certificate_pem", verification_certificate_pem)
 
@@ -125,6 +129,18 @@ class CaCertificateArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="verificationCertificatePem")
     def verification_certificate_pem(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -187,9 +203,6 @@ class _CaCertificateState:
             pulumi.set(__self__, "registration_config", registration_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if validities is not None:
@@ -307,7 +320,6 @@ class _CaCertificateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -358,6 +370,7 @@ class CaCertificate(pulumi.CustomResource):
                  certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
                  registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -416,6 +429,7 @@ class CaCertificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']] registration_config: Information about the registration configuration. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
                [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
         """
@@ -494,6 +508,7 @@ class CaCertificate(pulumi.CustomResource):
                  certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
                  registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -516,11 +531,11 @@ class CaCertificate(pulumi.CustomResource):
             __props__.__dict__["certificate_mode"] = certificate_mode
             __props__.__dict__["registration_config"] = registration_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["verification_certificate_pem"] = None if verification_certificate_pem is None else pulumi.Output.secret(verification_certificate_pem)
             __props__.__dict__["arn"] = None
             __props__.__dict__["customer_version"] = None
             __props__.__dict__["generation_id"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["validities"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["caCertificatePem", "verificationCertificatePem"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -659,7 +674,6 @@ class CaCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -93,9 +93,8 @@ type Graph struct {
 	// The number of replicas in other AZs. Value must be between 0 and 2.
 	ReplicaCount pulumi.IntOutput       `pulumi:"replicaCount"`
 	Tags         pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Timeouts GraphTimeoutsPtrOutput `pulumi:"timeouts"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Timeouts     GraphTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Vector search configuration for the Neptune Graph
 	VectorSearchConfiguration GraphVectorSearchConfigurationPtrOutput `pulumi:"vectorSearchConfiguration"`
 }
@@ -159,9 +158,8 @@ type graphState struct {
 	// The number of replicas in other AZs. Value must be between 0 and 2.
 	ReplicaCount *int              `pulumi:"replicaCount"`
 	Tags         map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  map[string]string `pulumi:"tagsAll"`
-	Timeouts *GraphTimeouts    `pulumi:"timeouts"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
+	Timeouts     *GraphTimeouts    `pulumi:"timeouts"`
 	// Vector search configuration for the Neptune Graph
 	VectorSearchConfiguration *GraphVectorSearchConfiguration `pulumi:"vectorSearchConfiguration"`
 }
@@ -193,9 +191,8 @@ type GraphState struct {
 	// The number of replicas in other AZs. Value must be between 0 and 2.
 	ReplicaCount pulumi.IntPtrInput
 	Tags         pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapInput
-	Timeouts GraphTimeoutsPtrInput
+	TagsAll      pulumi.StringMapInput
+	Timeouts     GraphTimeoutsPtrInput
 	// Vector search configuration for the Neptune Graph
 	VectorSearchConfiguration GraphVectorSearchConfigurationPtrInput
 }
@@ -404,7 +401,6 @@ func (o GraphOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o GraphOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

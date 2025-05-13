@@ -23,7 +23,8 @@ class ProfileArgs:
                  as2_id: pulumi.Input[builtins.str],
                  profile_type: pulumi.Input[builtins.str],
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
         :param pulumi.Input[builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
@@ -37,6 +38,8 @@ class ProfileArgs:
             pulumi.set(__self__, "certificate_ids", certificate_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="as2Id")
@@ -86,6 +89,15 @@ class ProfileArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ProfileState:
@@ -118,9 +130,6 @@ class _ProfileState:
             pulumi.set(__self__, "profile_type", profile_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -198,7 +207,6 @@ class _ProfileState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -219,6 +227,7 @@ class Profile(pulumi.CustomResource):
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  profile_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a AWS Transfer AS2 Profile resource.
@@ -278,6 +287,7 @@ class Profile(pulumi.CustomResource):
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  profile_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -295,9 +305,9 @@ class Profile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'profile_type'")
             __props__.__dict__["profile_type"] = profile_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["profile_id"] = None
-            __props__.__dict__["tags_all"] = None
         super(Profile, __self__).__init__(
             'aws:transfer/profile:Profile',
             resource_name,
@@ -392,7 +402,6 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

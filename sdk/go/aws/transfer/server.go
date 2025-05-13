@@ -362,8 +362,6 @@ type Server struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -486,8 +484,6 @@ type serverState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
@@ -566,8 +562,6 @@ type ServerState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
@@ -946,8 +940,6 @@ func (o ServerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ServerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -29,7 +29,8 @@ class LocationAzureBlobArgs:
                  blob_type: Optional[pulumi.Input[builtins.str]] = None,
                  sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationAzureBlob resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
@@ -40,6 +41,7 @@ class LocationAzureBlobArgs:
         :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -54,6 +56,8 @@ class LocationAzureBlobArgs:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -151,6 +155,18 @@ class LocationAzureBlobArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _LocationAzureBlobState:
@@ -197,9 +213,6 @@ class _LocationAzureBlobState:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
@@ -315,7 +328,6 @@ class _LocationAzureBlobState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -352,6 +364,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  sas_configuration: Optional[pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Microsoft Azure Blob Storage Location within AWS DataSync.
@@ -391,6 +404,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -449,6 +463,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  sas_configuration: Optional[pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -472,8 +487,8 @@ class LocationAzureBlob(pulumi.CustomResource):
             __props__.__dict__["sas_configuration"] = sas_configuration
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
         super(LocationAzureBlob, __self__).__init__(
             'aws:datasync/locationAzureBlob:LocationAzureBlob',
@@ -605,7 +620,6 @@ class LocationAzureBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

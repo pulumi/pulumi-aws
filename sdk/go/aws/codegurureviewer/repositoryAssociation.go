@@ -86,8 +86,7 @@ type RepositoryAssociation struct {
 	// A description of why the repository association is in the current state.
 	StateReason pulumi.StringOutput    `pulumi:"stateReason"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRepositoryAssociation registers a new resource with the given unique name, arguments, and options.
@@ -147,8 +146,7 @@ type repositoryAssociationState struct {
 	// A description of why the repository association is in the current state.
 	StateReason *string           `pulumi:"stateReason"`
 	Tags        map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type RepositoryAssociationState struct {
@@ -176,8 +174,7 @@ type RepositoryAssociationState struct {
 	// A description of why the repository association is in the current state.
 	StateReason pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (RepositoryAssociationState) ElementType() reflect.Type {
@@ -354,7 +351,6 @@ func (o RepositoryAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o RepositoryAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

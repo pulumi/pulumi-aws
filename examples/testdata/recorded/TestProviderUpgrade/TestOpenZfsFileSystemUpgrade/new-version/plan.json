@@ -1,8 +1,8 @@
 {
     "manifest": {
-        "time": "2024-08-28T10:55:18.06234+01:00",
-        "magic": "59ab42470ec682a2eb8566128a64ecaee8e5d25c6d5902576977eb325cf4d7b3",
-        "version": "v3.130.0"
+        "time": "2025-05-09T15:11:48.322673-04:00",
+        "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+        "version": "v3.169.0"
     },
     "config": {
         "aws:region": "us-east-2"
@@ -30,6 +30,7 @@
                         "enableResourceNameDnsAaaaRecordOnLaunch": false,
                         "ipv6Native": false,
                         "mapPublicIpOnLaunch": false,
+                        "tagsAll": {},
                         "vpcId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
                     }
                 },
@@ -72,9 +73,11 @@
                 "outpostArn": null,
                 "ownerId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "privateDnsHostnameTypeOnLaunch": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "tags": null,
+                "tagsAll": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "vpcId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
             },
-            "seed": "jVbviX6tLd0yo1zAT6cHjeYo9zoCVQLaL0klusIpqDM="
+            "seed": "gD4/9NG7yIH/4iau13WOkg3LYW6Z1arnXiL0J6SDPP8="
         },
         "urn:pulumi:test::openzfs::aws:ec2/vpc:Vpc::MyVPC": {
             "goal": {
@@ -87,7 +90,8 @@
                             "enableDnsSupport"
                         ],
                         "cidrBlock": "10.0.0.0/16",
-                        "enableDnsSupport": true
+                        "enableDnsSupport": true,
+                        "tagsAll": {}
                     }
                 },
                 "outputDiff": {},
@@ -123,9 +127,11 @@
                 "ipv6IpamPoolId": null,
                 "ipv6NetmaskLength": null,
                 "mainRouteTableId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
-                "ownerId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
+                "ownerId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "tags": null,
+                "tagsAll": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
             },
-            "seed": "2y7HlC8cCdGzxTqSoVpRwDpKtdWckb53R4zcyAz/odk="
+            "seed": "PBObHbluBP798MXSC7CVkqDLMXKewAP+kQhmngVJow0="
         },
         "urn:pulumi:test::openzfs::aws:fsx/openZfsFileSystem:OpenZfsFileSystem::MyFileSystem": {
             "goal": {
@@ -151,6 +157,7 @@
                         "subnetIds": [
                             "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
                         ],
+                        "tagsAll": {},
                         "throughputCapacity": 64
                     }
                 },
@@ -202,11 +209,13 @@
                 "storageCapacity": 64,
                 "storageType": "SSD",
                 "subnetIds": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "tags": null,
+                "tagsAll": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "throughputCapacity": 64,
                 "vpcId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "weeklyMaintenanceStartTime": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
             },
-            "seed": "0s+0wM6MlNBQWWeGJq+RPJG59yJWeBUn5Y3iChwx7ds="
+            "seed": "S7YS6OD5eXHhv+4uvej7Vr2+BOLtf4BPSjm0R5V7mfE="
         },
         "urn:pulumi:test::openzfs::pulumi:providers:aws::default": {
             "goal": {
@@ -232,7 +241,7 @@
                 "skipCredentialsValidation": "false",
                 "skipRegionValidation": "true"
             },
-            "seed": "P7e3NwkTiq1KjpRIeyhpwdalaUH5DxN2cphLiJo5IjY="
+            "seed": "h37nMkSM2qMgtR8mzH2HND6fIQdPF0Hzp2Ozl/4oQ34="
         },
         "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test": {
             "goal": {
@@ -248,7 +257,7 @@
                 "create"
             ],
             "state": {},
-            "seed": "XgKFfV/aFt4GXqWlV8zHoLDOGPU6vgN517bCZ1RpuRI="
+            "seed": "dIT8BO4Pd+DEUSJk4Bt4HOjNyCM9+qmVns+RrNB0cPA="
         }
     }
 }

@@ -272,8 +272,7 @@ type ExperimentTemplate struct {
 	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayOutput `pulumi:"targets"`
@@ -338,8 +337,7 @@ type experimentTemplateState struct {
 	// The following arguments are optional:
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target of an action. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
@@ -363,8 +361,7 @@ type ExperimentTemplateState struct {
 	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayInput
@@ -552,7 +549,6 @@ func (o ExperimentTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ExperimentTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

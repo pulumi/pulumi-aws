@@ -75,8 +75,7 @@ type Agreement struct {
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	Status   pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -143,8 +142,7 @@ type agreementState struct {
 	ServerId *string `pulumi:"serverId"`
 	Status   *string `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -167,8 +165,7 @@ type AgreementState struct {
 	ServerId pulumi.StringPtrInput
 	Status   pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -190,7 +187,8 @@ type agreementArgs struct {
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId string `pulumi:"serverId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Agreement resource.
@@ -208,7 +206,8 @@ type AgreementArgs struct {
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (AgreementArgs) ElementType() reflect.Type {
@@ -347,7 +346,6 @@ func (o AgreementOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AgreementOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

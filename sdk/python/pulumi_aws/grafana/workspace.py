@@ -368,9 +368,6 @@ class _WorkspaceState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_configuration is not None:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
@@ -592,7 +589,6 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1096,7 +1092,6 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

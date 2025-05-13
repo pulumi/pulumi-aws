@@ -93,9 +93,6 @@ export class Vocabulary extends pulumi.CustomResource {
      * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
@@ -175,9 +172,6 @@ export interface VocabularyState {
      * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.

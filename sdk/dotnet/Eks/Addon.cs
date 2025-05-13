@@ -461,7 +461,6 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

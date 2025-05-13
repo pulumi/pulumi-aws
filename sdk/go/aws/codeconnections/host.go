@@ -65,9 +65,8 @@ type Host struct {
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringOutput    `pulumi:"providerType"`
 	Tags         pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Timeouts HostTimeoutsPtrOutput  `pulumi:"timeouts"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Timeouts     HostTimeoutsPtrOutput  `pulumi:"timeouts"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration HostVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
@@ -117,9 +116,8 @@ type hostState struct {
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType *string           `pulumi:"providerType"`
 	Tags         map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  map[string]string `pulumi:"tagsAll"`
-	Timeouts *HostTimeouts     `pulumi:"timeouts"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
+	Timeouts     *HostTimeouts     `pulumi:"timeouts"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration *HostVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -134,9 +132,8 @@ type HostState struct {
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringPtrInput
 	Tags         pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapInput
-	Timeouts HostTimeoutsPtrInput
+	TagsAll      pulumi.StringMapInput
+	Timeouts     HostTimeoutsPtrInput
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration HostVpcConfigurationPtrInput
 }
@@ -283,7 +280,6 @@ func (o HostOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o HostOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

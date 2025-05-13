@@ -188,8 +188,6 @@ type FirewallPolicy struct {
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A string token used when updating a firewall policy.
 	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
@@ -241,8 +239,6 @@ type firewallPolicyState struct {
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A string token used when updating a firewall policy.
 	UpdateToken *string `pulumi:"updateToken"`
@@ -262,8 +258,6 @@ type FirewallPolicyState struct {
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A string token used when updating a firewall policy.
 	UpdateToken pulumi.StringPtrInput
@@ -420,8 +414,6 @@ func (o FirewallPolicyOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o FirewallPolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

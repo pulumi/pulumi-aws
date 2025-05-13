@@ -28,7 +28,8 @@ class ConnectorArgs:
                  logging_role: Optional[pulumi.Input[builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input['ConnectorSftpConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
@@ -51,6 +52,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "sftp_config", sftp_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accessRole")
@@ -136,6 +139,15 @@ class ConnectorArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ConnectorState:
@@ -178,9 +190,6 @@ class _ConnectorState:
             pulumi.set(__self__, "sftp_config", sftp_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
@@ -284,7 +293,6 @@ class _ConnectorState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -319,6 +327,7 @@ class Connector(pulumi.CustomResource):
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -456,6 +465,7 @@ class Connector(pulumi.CustomResource):
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -474,12 +484,12 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["sftp_config"] = sftp_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
             __props__.__dict__["connector_id"] = None
-            __props__.__dict__["tags_all"] = None
         super(Connector, __self__).__init__(
             'aws:transfer/connector:Connector',
             resource_name,
@@ -599,7 +609,6 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

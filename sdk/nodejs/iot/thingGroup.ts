@@ -92,9 +92,6 @@ export class ThingGroup extends pulumi.CustomResource {
      * Key-value mapping of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current version of the Thing Group record in the registry.
@@ -163,9 +160,6 @@ export interface ThingGroupState {
      * Key-value mapping of resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The current version of the Thing Group record in the registry.
