@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Iam
         /// The user the policy should be applied to
         /// </summary>
         [Input("user", required: true)]
-        public Input<string> User { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Iam.User> User { get; set; } = null!;
 
         public UserPolicyAttachmentArgs()
         {
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Iam
         /// The user the policy should be applied to
         /// </summary>
         [Input("user")]
-        public Input<string>? User { get; set; }
+        public InputUnion<string, Pulumi.Aws.Iam.User>? User { get; set; }
 
         public UserPolicyAttachmentState()
         {

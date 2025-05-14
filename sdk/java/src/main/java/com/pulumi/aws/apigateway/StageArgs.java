@@ -3,8 +3,11 @@
 
 package com.pulumi.aws.apigateway;
 
+import com.pulumi.aws.apigateway.Deployment;
+import com.pulumi.aws.apigateway.RestApi;
 import com.pulumi.aws.apigateway.inputs.StageAccessLogSettingsArgs;
 import com.pulumi.aws.apigateway.inputs.StageCanarySettingsArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -100,13 +103,13 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="deployment", required=true)
-    private Output<String> deployment;
+    private Output<Either<String,Deployment>> deployment;
 
     /**
      * @return ID of the deployment that the stage points to
      * 
      */
-    public Output<String> deployment() {
+    public Output<Either<String,Deployment>> deployment() {
         return this.deployment;
     }
 
@@ -145,13 +148,13 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="restApi", required=true)
-    private Output<String> restApi;
+    private Output<Either<String,RestApi>> restApi;
 
     /**
      * @return ID of the associated REST API
      * 
      */
-    public Output<String> restApi() {
+    public Output<Either<String,RestApi>> restApi() {
         return this.restApi;
     }
 
@@ -362,7 +365,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder deployment(Output<String> deployment) {
+        public Builder deployment(Output<Either<String,Deployment>> deployment) {
             $.deployment = deployment;
             return this;
         }
@@ -373,8 +376,28 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder deployment(String deployment) {
+        public Builder deployment(Either<String,Deployment> deployment) {
             return deployment(Output.of(deployment));
+        }
+
+        /**
+         * @param deployment ID of the deployment that the stage points to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deployment(String deployment) {
+            return deployment(Either.ofLeft(deployment));
+        }
+
+        /**
+         * @param deployment ID of the deployment that the stage points to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deployment(Deployment deployment) {
+            return deployment(Either.ofRight(deployment));
         }
 
         /**
@@ -425,7 +448,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder restApi(Output<String> restApi) {
+        public Builder restApi(Output<Either<String,RestApi>> restApi) {
             $.restApi = restApi;
             return this;
         }
@@ -436,8 +459,28 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder restApi(String restApi) {
+        public Builder restApi(Either<String,RestApi> restApi) {
             return restApi(Output.of(restApi));
+        }
+
+        /**
+         * @param restApi ID of the associated REST API
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restApi(String restApi) {
+            return restApi(Either.ofLeft(restApi));
+        }
+
+        /**
+         * @param restApi ID of the associated REST API
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restApi(RestApi restApi) {
+            return restApi(Either.ofRight(restApi));
         }
 
         /**

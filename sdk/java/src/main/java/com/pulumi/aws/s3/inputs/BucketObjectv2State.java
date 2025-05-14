@@ -4,7 +4,9 @@
 package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.asset.AssetOrArchive;
+import com.pulumi.aws.s3.Bucket;
 import com.pulumi.aws.s3.inputs.BucketObjectv2OverrideProviderArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -54,13 +56,13 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="bucket")
-    private @Nullable Output<String> bucket;
+    private @Nullable Output<Either<String,Bucket>> bucket;
 
     /**
      * @return Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      * 
      */
-    public Optional<Output<String>> bucket() {
+    public Optional<Output<Either<String,Bucket>>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
@@ -654,7 +656,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder bucket(@Nullable Output<String> bucket) {
+        public Builder bucket(@Nullable Output<Either<String,Bucket>> bucket) {
             $.bucket = bucket;
             return this;
         }
@@ -665,8 +667,28 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder bucket(String bucket) {
+        public Builder bucket(Either<String,Bucket> bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param bucket Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucket(String bucket) {
+            return bucket(Either.ofLeft(bucket));
+        }
+
+        /**
+         * @param bucket Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucket(Bucket bucket) {
+            return bucket(Either.ofRight(bucket));
         }
 
         /**

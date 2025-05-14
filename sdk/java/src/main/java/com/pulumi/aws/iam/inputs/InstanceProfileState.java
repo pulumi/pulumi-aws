@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iam.inputs;
 
+import com.pulumi.aws.iam.Role;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -96,13 +98,13 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="role")
-    private @Nullable Output<String> role;
+    private @Nullable Output<Either<String,Role>> role;
 
     /**
      * @return Name of the role to add to the profile.
      * 
      */
-    public Optional<Output<String>> role() {
+    public Optional<Output<Either<String,Role>>> role() {
         return Optional.ofNullable(this.role);
     }
 
@@ -302,7 +304,7 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder role(@Nullable Output<String> role) {
+        public Builder role(@Nullable Output<Either<String,Role>> role) {
             $.role = role;
             return this;
         }
@@ -313,8 +315,28 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder role(String role) {
+        public Builder role(Either<String,Role> role) {
             return role(Output.of(role));
+        }
+
+        /**
+         * @param role Name of the role to add to the profile.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder role(String role) {
+            return role(Either.ofLeft(role));
+        }
+
+        /**
+         * @param role Name of the role to add to the profile.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder role(Role role) {
+            return role(Either.ofRight(role));
         }
 
         /**

@@ -255,7 +255,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// to use in deployment.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<Pulumi.Aws.ElasticBeanstalk.ApplicationVersion> Version { get; private set; } = null!;
 
         /// <summary>
         /// The maximum
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// to be deployed
         /// </summary>
         [Input("application", required: true)]
-        public Input<string> Application { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.ElasticBeanstalk.Application> Application { get; set; } = null!;
 
         /// <summary>
         /// Prefix to use for the fully qualified DNS name of
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// to use in deployment.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public Input<Pulumi.Aws.ElasticBeanstalk.ApplicationVersion>? Version { get; set; }
 
         /// <summary>
         /// The maximum
@@ -445,7 +445,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// to be deployed
         /// </summary>
         [Input("application")]
-        public Input<string>? Application { get; set; }
+        public InputUnion<string, Pulumi.Aws.ElasticBeanstalk.Application>? Application { get; set; }
 
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -635,7 +635,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// to use in deployment.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public Input<Pulumi.Aws.ElasticBeanstalk.ApplicationVersion>? Version { get; set; }
 
         /// <summary>
         /// The maximum

@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .rest_api import RestApi
 
 __all__ = ['ResourceArgs', 'Resource']
 
@@ -22,12 +23,12 @@ class ResourceArgs:
     def __init__(__self__, *,
                  parent_id: pulumi.Input[builtins.str],
                  path_part: pulumi.Input[builtins.str],
-                 rest_api: pulumi.Input[builtins.str]):
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']]):
         """
         The set of arguments for constructing a Resource resource.
         :param pulumi.Input[builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[builtins.str] path_part: Last path segment of this API resource.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         """
         pulumi.set(__self__, "parent_id", parent_id)
         pulumi.set(__self__, "path_part", path_part)
@@ -59,14 +60,14 @@ class ResourceArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
 
@@ -76,13 +77,13 @@ class _ResourceState:
                  parent_id: Optional[pulumi.Input[builtins.str]] = None,
                  path: Optional[pulumi.Input[builtins.str]] = None,
                  path_part: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None):
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
         :param pulumi.Input[builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[builtins.str] path: Complete path for this API resource, including all parent paths.
         :param pulumi.Input[builtins.str] path_part: Last path segment of this API resource.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         """
         if parent_id is not None:
             pulumi.set(__self__, "parent_id", parent_id)
@@ -131,14 +132,14 @@ class _ResourceState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
 
@@ -152,7 +153,7 @@ class Resource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parent_id: Optional[pulumi.Input[builtins.str]] = None,
                  path_part: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  __props__=None):
         """
         Provides an API Gateway Resource.
@@ -184,7 +185,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[builtins.str] path_part: Last path segment of this API resource.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         """
         ...
     @overload
@@ -235,7 +236,7 @@ class Resource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parent_id: Optional[pulumi.Input[builtins.str]] = None,
                  path_part: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -268,7 +269,7 @@ class Resource(pulumi.CustomResource):
             parent_id: Optional[pulumi.Input[builtins.str]] = None,
             path: Optional[pulumi.Input[builtins.str]] = None,
             path_part: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None) -> 'Resource':
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None) -> 'Resource':
         """
         Get an existing Resource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -279,7 +280,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[builtins.str] path: Complete path for this API resource, including all parent paths.
         :param pulumi.Input[builtins.str] path_part: Last path segment of this API resource.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

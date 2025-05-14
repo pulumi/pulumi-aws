@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .rest_api import RestApi
 
 __all__ = ['MethodResponseArgs', 'MethodResponse']
 
@@ -22,7 +23,7 @@ class MethodResponseArgs:
     def __init__(__self__, *,
                  http_method: pulumi.Input[builtins.str],
                  resource_id: pulumi.Input[builtins.str],
-                 rest_api: pulumi.Input[builtins.str],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  status_code: pulumi.Input[builtins.str],
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None):
@@ -30,7 +31,7 @@ class MethodResponseArgs:
         The set of arguments for constructing a MethodResponse resource.
         :param pulumi.Input[builtins.str] http_method: The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         :param pulumi.Input[builtins.str] resource_id: The Resource identifier for the method resource.
-        :param pulumi.Input[builtins.str] rest_api: The string identifier of the associated REST API.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: The string identifier of the associated REST API.
         :param pulumi.Input[builtins.str] status_code: The method response's status code.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
@@ -72,14 +73,14 @@ class MethodResponseArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         The string identifier of the associated REST API.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -128,7 +129,7 @@ class _MethodResponseState:
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  status_code: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering MethodResponse resources.
@@ -138,7 +139,7 @@ class _MethodResponseState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
                
                The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
-        :param pulumi.Input[builtins.str] rest_api: The string identifier of the associated REST API.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: The string identifier of the associated REST API.
         :param pulumi.Input[builtins.str] status_code: The method response's status code.
         """
         if http_method is not None:
@@ -206,14 +207,14 @@ class _MethodResponseState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         The string identifier of the associated REST API.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -241,7 +242,7 @@ class MethodResponse(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  status_code: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -348,7 +349,7 @@ class MethodResponse(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
                
                The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
-        :param pulumi.Input[builtins.str] rest_api: The string identifier of the associated REST API.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: The string identifier of the associated REST API.
         :param pulumi.Input[builtins.str] status_code: The method response's status code.
         """
         ...
@@ -472,7 +473,7 @@ class MethodResponse(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  status_code: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -511,7 +512,7 @@ class MethodResponse(pulumi.CustomResource):
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
             response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None,
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
             status_code: Optional[pulumi.Input[builtins.str]] = None) -> 'MethodResponse':
         """
         Get an existing MethodResponse resource's state with the given name, id, and optional extra
@@ -526,7 +527,7 @@ class MethodResponse(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
                
                The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
-        :param pulumi.Input[builtins.str] rest_api: The string identifier of the associated REST API.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: The string identifier of the associated REST API.
         :param pulumi.Input[builtins.str] status_code: The method response's status code.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

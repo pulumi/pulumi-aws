@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 from . import outputs
 from ._inputs import *
+from .rest_api import RestApi
 
 __all__ = ['MethodSettingsArgs', 'MethodSettings']
 
@@ -23,13 +24,13 @@ __all__ = ['MethodSettingsArgs', 'MethodSettings']
 class MethodSettingsArgs:
     def __init__(__self__, *,
                  method_path: pulumi.Input[builtins.str],
-                 rest_api: pulumi.Input[builtins.str],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  settings: pulumi.Input['MethodSettingsSettingsArgs'],
                  stage_name: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a MethodSettings resource.
         :param pulumi.Input[builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        :param pulumi.Input[builtins.str] rest_api: ID of the REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the REST API
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         """
@@ -52,14 +53,14 @@ class MethodSettingsArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         ID of the REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -91,13 +92,13 @@ class MethodSettingsArgs:
 class _MethodSettingsState:
     def __init__(__self__, *,
                  method_path: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  settings: Optional[pulumi.Input['MethodSettingsSettingsArgs']] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering MethodSettings resources.
         :param pulumi.Input[builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        :param pulumi.Input[builtins.str] rest_api: ID of the REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the REST API
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         """
@@ -124,14 +125,14 @@ class _MethodSettingsState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         ID of the REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -168,7 +169,7 @@ class MethodSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  method_path: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -258,7 +259,7 @@ class MethodSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        :param pulumi.Input[builtins.str] rest_api: ID of the REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the REST API
         :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']] settings: Settings block, see below.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         """
@@ -367,7 +368,7 @@ class MethodSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  method_path: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -402,7 +403,7 @@ class MethodSettings(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             method_path: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None,
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
             settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
             stage_name: Optional[pulumi.Input[builtins.str]] = None) -> 'MethodSettings':
         """
@@ -413,7 +414,7 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        :param pulumi.Input[builtins.str] rest_api: ID of the REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the REST API
         :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']] settings: Settings block, see below.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         """

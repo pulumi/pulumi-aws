@@ -7,6 +7,8 @@ import com.pulumi.aws.ec2.inputs.LaunchConfigurationEbsBlockDeviceArgs;
 import com.pulumi.aws.ec2.inputs.LaunchConfigurationEphemeralBlockDeviceArgs;
 import com.pulumi.aws.ec2.inputs.LaunchConfigurationMetadataOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchConfigurationRootBlockDeviceArgs;
+import com.pulumi.aws.iam.InstanceProfile;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -102,13 +104,13 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
      * 
      */
     @Import(name="iamInstanceProfile")
-    private @Nullable Output<String> iamInstanceProfile;
+    private @Nullable Output<Either<String,InstanceProfile>> iamInstanceProfile;
 
     /**
      * @return The name attribute of the IAM instance profile to associate with launched instances.
      * 
      */
-    public Optional<Output<String>> iamInstanceProfile() {
+    public Optional<Output<Either<String,InstanceProfile>>> iamInstanceProfile() {
         return Optional.ofNullable(this.iamInstanceProfile);
     }
 
@@ -468,7 +470,7 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder iamInstanceProfile(@Nullable Output<String> iamInstanceProfile) {
+        public Builder iamInstanceProfile(@Nullable Output<Either<String,InstanceProfile>> iamInstanceProfile) {
             $.iamInstanceProfile = iamInstanceProfile;
             return this;
         }
@@ -479,8 +481,28 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder iamInstanceProfile(String iamInstanceProfile) {
+        public Builder iamInstanceProfile(Either<String,InstanceProfile> iamInstanceProfile) {
             return iamInstanceProfile(Output.of(iamInstanceProfile));
+        }
+
+        /**
+         * @param iamInstanceProfile The name attribute of the IAM instance profile to associate with launched instances.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamInstanceProfile(String iamInstanceProfile) {
+            return iamInstanceProfile(Either.ofLeft(iamInstanceProfile));
+        }
+
+        /**
+         * @param iamInstanceProfile The name attribute of the IAM instance profile to associate with launched instances.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamInstanceProfile(InstanceProfile iamInstanceProfile) {
+            return iamInstanceProfile(Either.ofRight(iamInstanceProfile));
         }
 
         /**

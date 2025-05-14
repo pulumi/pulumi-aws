@@ -14,14 +14,16 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import s3 as _s3
+from .application import Application
 
 __all__ = ['ApplicationVersionArgs', 'ApplicationVersion']
 
 @pulumi.input_type
 class ApplicationVersionArgs:
     def __init__(__self__, *,
-                 application: pulumi.Input[builtins.str],
-                 bucket: pulumi.Input[builtins.str],
+                 application: pulumi.Input[Union[builtins.str, 'Application']],
+                 bucket: pulumi.Input[Union[builtins.str, '_s3.Bucket']],
                  key: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
@@ -30,8 +32,8 @@ class ApplicationVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApplicationVersion resource.
-        :param pulumi.Input[builtins.str] application: Name of the Beanstalk Application the version is associated with.
-        :param pulumi.Input[builtins.str] bucket: S3 bucket that contains the Application Version source bundle.
+        :param pulumi.Input[Union[builtins.str, 'Application']] application: Name of the Beanstalk Application the version is associated with.
+        :param pulumi.Input[Union[builtins.str, '_s3.Bucket']] bucket: S3 bucket that contains the Application Version source bundle.
         :param pulumi.Input[builtins.str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[builtins.str] description: Short description of the Application Version.
         :param pulumi.Input[builtins.bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
@@ -57,26 +59,26 @@ class ApplicationVersionArgs:
 
     @property
     @pulumi.getter
-    def application(self) -> pulumi.Input[builtins.str]:
+    def application(self) -> pulumi.Input[Union[builtins.str, 'Application']]:
         """
         Name of the Beanstalk Application the version is associated with.
         """
         return pulumi.get(self, "application")
 
     @application.setter
-    def application(self, value: pulumi.Input[builtins.str]):
+    def application(self, value: pulumi.Input[Union[builtins.str, 'Application']]):
         pulumi.set(self, "application", value)
 
     @property
     @pulumi.getter
-    def bucket(self) -> pulumi.Input[builtins.str]:
+    def bucket(self) -> pulumi.Input[Union[builtins.str, '_s3.Bucket']]:
         """
         S3 bucket that contains the Application Version source bundle.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: pulumi.Input[builtins.str]):
+    def bucket(self, value: pulumi.Input[Union[builtins.str, '_s3.Bucket']]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -157,9 +159,9 @@ class ApplicationVersionArgs:
 @pulumi.input_type
 class _ApplicationVersionState:
     def __init__(__self__, *,
-                 application: Optional[pulumi.Input[builtins.str]] = None,
+                 application: Optional[pulumi.Input[Union[builtins.str, 'Application']]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 bucket: Optional[pulumi.Input[Union[builtins.str, '_s3.Bucket']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  key: Optional[pulumi.Input[builtins.str]] = None,
@@ -169,9 +171,9 @@ class _ApplicationVersionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApplicationVersion resources.
-        :param pulumi.Input[builtins.str] application: Name of the Beanstalk Application the version is associated with.
+        :param pulumi.Input[Union[builtins.str, 'Application']] application: Name of the Beanstalk Application the version is associated with.
         :param pulumi.Input[builtins.str] arn: ARN assigned by AWS for this Elastic Beanstalk Application.
-        :param pulumi.Input[builtins.str] bucket: S3 bucket that contains the Application Version source bundle.
+        :param pulumi.Input[Union[builtins.str, '_s3.Bucket']] bucket: S3 bucket that contains the Application Version source bundle.
         :param pulumi.Input[builtins.str] description: Short description of the Application Version.
         :param pulumi.Input[builtins.bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[builtins.str] key: S3 object that is the Application Version source bundle.
@@ -208,14 +210,14 @@ class _ApplicationVersionState:
 
     @property
     @pulumi.getter
-    def application(self) -> Optional[pulumi.Input[builtins.str]]:
+    def application(self) -> Optional[pulumi.Input[Union[builtins.str, 'Application']]]:
         """
         Name of the Beanstalk Application the version is associated with.
         """
         return pulumi.get(self, "application")
 
     @application.setter
-    def application(self, value: Optional[pulumi.Input[builtins.str]]):
+    def application(self, value: Optional[pulumi.Input[Union[builtins.str, 'Application']]]):
         pulumi.set(self, "application", value)
 
     @property
@@ -232,14 +234,14 @@ class _ApplicationVersionState:
 
     @property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[builtins.str]]:
+    def bucket(self) -> Optional[pulumi.Input[Union[builtins.str, '_s3.Bucket']]]:
         """
         S3 bucket that contains the Application Version source bundle.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[builtins.str]]):
+    def bucket(self, value: Optional[pulumi.Input[Union[builtins.str, '_s3.Bucket']]]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -338,8 +340,8 @@ class ApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 application: Optional[pulumi.Input[Union[builtins.str, 'Application']]] = None,
+                 bucket: Optional[pulumi.Input[Union[builtins.str, '_s3.Bucket']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  key: Optional[pulumi.Input[builtins.str]] = None,
@@ -384,8 +386,8 @@ class ApplicationVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] application: Name of the Beanstalk Application the version is associated with.
-        :param pulumi.Input[builtins.str] bucket: S3 bucket that contains the Application Version source bundle.
+        :param pulumi.Input[Union[builtins.str, 'Application']] application: Name of the Beanstalk Application the version is associated with.
+        :param pulumi.Input[Union[builtins.str, '_s3.Bucket']] bucket: S3 bucket that contains the Application Version source bundle.
         :param pulumi.Input[builtins.str] description: Short description of the Application Version.
         :param pulumi.Input[builtins.bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[builtins.str] key: S3 object that is the Application Version source bundle.
@@ -451,8 +453,8 @@ class ApplicationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 application: Optional[pulumi.Input[Union[builtins.str, 'Application']]] = None,
+                 bucket: Optional[pulumi.Input[Union[builtins.str, '_s3.Bucket']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  key: Optional[pulumi.Input[builtins.str]] = None,
@@ -494,9 +496,9 @@ class ApplicationVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application: Optional[pulumi.Input[builtins.str]] = None,
+            application: Optional[pulumi.Input[Union[builtins.str, 'Application']]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
-            bucket: Optional[pulumi.Input[builtins.str]] = None,
+            bucket: Optional[pulumi.Input[Union[builtins.str, '_s3.Bucket']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             force_delete: Optional[pulumi.Input[builtins.bool]] = None,
             key: Optional[pulumi.Input[builtins.str]] = None,
@@ -511,9 +513,9 @@ class ApplicationVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] application: Name of the Beanstalk Application the version is associated with.
+        :param pulumi.Input[Union[builtins.str, 'Application']] application: Name of the Beanstalk Application the version is associated with.
         :param pulumi.Input[builtins.str] arn: ARN assigned by AWS for this Elastic Beanstalk Application.
-        :param pulumi.Input[builtins.str] bucket: S3 bucket that contains the Application Version source bundle.
+        :param pulumi.Input[Union[builtins.str, '_s3.Bucket']] bucket: S3 bucket that contains the Application Version source bundle.
         :param pulumi.Input[builtins.str] description: Short description of the Application Version.
         :param pulumi.Input[builtins.bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[builtins.str] key: S3 object that is the Application Version source bundle.

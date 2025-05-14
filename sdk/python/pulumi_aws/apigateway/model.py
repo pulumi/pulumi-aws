@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .rest_api import RestApi
 
 __all__ = ['ModelArgs', 'Model']
 
@@ -21,14 +22,14 @@ __all__ = ['ModelArgs', 'Model']
 class ModelArgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[builtins.str],
-                 rest_api: pulumi.Input[builtins.str],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Model resource.
         :param pulumi.Input[builtins.str] content_type: Content type of the model
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] description: Description of the model
         :param pulumi.Input[builtins.str] name: Name of the model
         :param pulumi.Input[builtins.str] schema: Schema of the model in a JSON form
@@ -56,14 +57,14 @@ class ModelArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -109,14 +110,14 @@ class _ModelState:
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Model resources.
         :param pulumi.Input[builtins.str] content_type: Content type of the model
         :param pulumi.Input[builtins.str] description: Description of the model
         :param pulumi.Input[builtins.str] name: Name of the model
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] schema: Schema of the model in a JSON form
         """
         if content_type is not None:
@@ -168,14 +169,14 @@ class _ModelState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -202,7 +203,7 @@ class Model(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -241,7 +242,7 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content_type: Content type of the model
         :param pulumi.Input[builtins.str] description: Description of the model
         :param pulumi.Input[builtins.str] name: Name of the model
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] schema: Schema of the model in a JSON form
         """
         ...
@@ -299,7 +300,7 @@ class Model(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -332,7 +333,7 @@ class Model(pulumi.CustomResource):
             content_type: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None,
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
             schema: Optional[pulumi.Input[builtins.str]] = None) -> 'Model':
         """
         Get an existing Model resource's state with the given name, id, and optional extra
@@ -344,7 +345,7 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content_type: Content type of the model
         :param pulumi.Input[builtins.str] description: Description of the model
         :param pulumi.Input[builtins.str] name: Name of the model
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] schema: Schema of the model in a JSON form
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

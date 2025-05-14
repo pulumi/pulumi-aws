@@ -124,7 +124,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ID of the associated Rest API
         /// </summary>
         [Input("restApi", required: true)]
-        public Input<string> RestApi { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi> RestApi { get; set; } = null!;
 
         /// <summary>
         /// Boolean whether to validate request body. Defaults to `false`.
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ID of the associated Rest API
         /// </summary>
         [Input("restApi")]
-        public Input<string>? RestApi { get; set; }
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi>? RestApi { get; set; }
 
         /// <summary>
         /// Boolean whether to validate request body. Defaults to `false`.

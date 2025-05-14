@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticbeanstalk;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.elasticbeanstalk.ApplicationVersion;
 import com.pulumi.aws.elasticbeanstalk.EnvironmentArgs;
 import com.pulumi.aws.elasticbeanstalk.inputs.EnvironmentState;
 import com.pulumi.aws.elasticbeanstalk.outputs.EnvironmentAllSetting;
@@ -486,15 +487,15 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * to use in deployment.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    @Export(name="version", refs={ApplicationVersion.class}, tree="[0]")
+    private Output<ApplicationVersion> version;
 
     /**
      * @return The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      * 
      */
-    public Output<String> version() {
+    public Output<ApplicationVersion> version() {
         return this.version;
     }
     /**

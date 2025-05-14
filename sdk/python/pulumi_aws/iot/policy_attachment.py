@@ -14,17 +14,18 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .policy import Policy
 
 __all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
 
 @pulumi.input_type
 class PolicyAttachmentArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input[builtins.str],
+                 policy: pulumi.Input[Union[builtins.str, 'Policy']],
                  target: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a PolicyAttachment resource.
-        :param pulumi.Input[builtins.str] policy: The name of the policy to attach.
+        :param pulumi.Input[Union[builtins.str, 'Policy']] policy: The name of the policy to attach.
         :param pulumi.Input[builtins.str] target: The identity to which the policy is attached.
         """
         pulumi.set(__self__, "policy", policy)
@@ -32,14 +33,14 @@ class PolicyAttachmentArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[builtins.str]:
+    def policy(self) -> pulumi.Input[Union[builtins.str, 'Policy']]:
         """
         The name of the policy to attach.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[builtins.str]):
+    def policy(self, value: pulumi.Input[Union[builtins.str, 'Policy']]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -58,11 +59,11 @@ class PolicyAttachmentArgs:
 @pulumi.input_type
 class _PolicyAttachmentState:
     def __init__(__self__, *,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, 'Policy']]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyAttachment resources.
-        :param pulumi.Input[builtins.str] policy: The name of the policy to attach.
+        :param pulumi.Input[Union[builtins.str, 'Policy']] policy: The name of the policy to attach.
         :param pulumi.Input[builtins.str] target: The identity to which the policy is attached.
         """
         if policy is not None:
@@ -72,14 +73,14 @@ class _PolicyAttachmentState:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+    def policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'Policy']]]:
         """
         The name of the policy to attach.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+    def policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'Policy']]]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -103,7 +104,7 @@ class PolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, 'Policy']]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -134,7 +135,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] policy: The name of the policy to attach.
+        :param pulumi.Input[Union[builtins.str, 'Policy']] policy: The name of the policy to attach.
         :param pulumi.Input[builtins.str] target: The identity to which the policy is attached.
         """
         ...
@@ -184,7 +185,7 @@ class PolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, 'Policy']]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -211,7 +212,7 @@ class PolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None,
+            policy: Optional[pulumi.Input[Union[builtins.str, 'Policy']]] = None,
             target: Optional[pulumi.Input[builtins.str]] = None) -> 'PolicyAttachment':
         """
         Get an existing PolicyAttachment resource's state with the given name, id, and optional extra
@@ -220,7 +221,7 @@ class PolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] policy: The name of the policy to attach.
+        :param pulumi.Input[Union[builtins.str, 'Policy']] policy: The name of the policy to attach.
         :param pulumi.Input[builtins.str] target: The identity to which the policy is attached.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

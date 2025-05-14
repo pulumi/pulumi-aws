@@ -14,13 +14,14 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .bucket import Bucket
 
 __all__ = ['BucketObjectArgs', 'BucketObject']
 
 @pulumi.input_type
 class BucketObjectArgs:
     def __init__(__self__, *,
-                 bucket: pulumi.Input[builtins.str],
+                 bucket: pulumi.Input[Union[builtins.str, 'Bucket']],
                  acl: Optional[pulumi.Input[builtins.str]] = None,
                  bucket_key_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cache_control: Optional[pulumi.Input[builtins.str]] = None,
@@ -46,7 +47,7 @@ class BucketObjectArgs:
                  website_redirect: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BucketObject resource.
-        :param pulumi.Input[builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[Union[builtins.str, 'Bucket']] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         :param pulumi.Input[builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -125,14 +126,14 @@ class BucketObjectArgs:
 
     @property
     @pulumi.getter
-    def bucket(self) -> pulumi.Input[builtins.str]:
+    def bucket(self) -> pulumi.Input[Union[builtins.str, 'Bucket']]:
         """
         Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: pulumi.Input[builtins.str]):
+    def bucket(self, value: pulumi.Input[Union[builtins.str, 'Bucket']]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -421,7 +422,7 @@ class _BucketObjectState:
     def __init__(__self__, *,
                  acl: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 bucket: Optional[pulumi.Input[Union[builtins.str, 'Bucket']]] = None,
                  bucket_key_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cache_control: Optional[pulumi.Input[builtins.str]] = None,
                  content: Optional[pulumi.Input[builtins.str]] = None,
@@ -450,7 +451,7 @@ class _BucketObjectState:
         Input properties used for looking up and filtering BucketObject resources.
         :param pulumi.Input[builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         :param pulumi.Input[builtins.str] arn: ARN of the object.
-        :param pulumi.Input[builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[Union[builtins.str, 'Bucket']] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
@@ -564,14 +565,14 @@ class _BucketObjectState:
 
     @property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[builtins.str]]:
+    def bucket(self) -> Optional[pulumi.Input[Union[builtins.str, 'Bucket']]]:
         """
         Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[builtins.str]]):
+    def bucket(self, value: Optional[pulumi.Input[Union[builtins.str, 'Bucket']]]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -877,7 +878,7 @@ class BucketObject(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl: Optional[pulumi.Input[builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 bucket: Optional[pulumi.Input[Union[builtins.str, 'Bucket']]] = None,
                  bucket_key_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cache_control: Optional[pulumi.Input[builtins.str]] = None,
                  content: Optional[pulumi.Input[builtins.str]] = None,
@@ -1022,7 +1023,7 @@ class BucketObject(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
-        :param pulumi.Input[builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[Union[builtins.str, 'Bucket']] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
@@ -1190,7 +1191,7 @@ class BucketObject(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl: Optional[pulumi.Input[builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 bucket: Optional[pulumi.Input[Union[builtins.str, 'Bucket']]] = None,
                  bucket_key_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cache_control: Optional[pulumi.Input[builtins.str]] = None,
                  content: Optional[pulumi.Input[builtins.str]] = None,
@@ -1263,7 +1264,7 @@ class BucketObject(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             acl: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
-            bucket: Optional[pulumi.Input[builtins.str]] = None,
+            bucket: Optional[pulumi.Input[Union[builtins.str, 'Bucket']]] = None,
             bucket_key_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             cache_control: Optional[pulumi.Input[builtins.str]] = None,
             content: Optional[pulumi.Input[builtins.str]] = None,
@@ -1297,7 +1298,7 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         :param pulumi.Input[builtins.str] arn: ARN of the object.
-        :param pulumi.Input[builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[Union[builtins.str, 'Bucket']] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.

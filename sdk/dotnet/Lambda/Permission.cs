@@ -430,7 +430,7 @@ namespace Pulumi.Aws.Lambda
         /// Name of the Lambda function whose resource policy you are updating
         /// </summary>
         [Input("function", required: true)]
-        public Input<string> Function { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Lambda.Function> Function { get; set; } = null!;
 
         /// <summary>
         /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
@@ -512,7 +512,7 @@ namespace Pulumi.Aws.Lambda
         /// Name of the Lambda function whose resource policy you are updating
         /// </summary>
         [Input("function")]
-        public Input<string>? Function { get; set; }
+        public InputUnion<string, Pulumi.Aws.Lambda.Function>? Function { get; set; }
 
         /// <summary>
         /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.

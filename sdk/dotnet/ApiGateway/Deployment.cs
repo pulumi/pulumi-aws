@@ -167,7 +167,7 @@ namespace Pulumi.Aws.ApiGateway
         /// REST API identifier.
         /// </summary>
         [Input("restApi", required: true)]
-        public Input<string> RestApi { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi> RestApi { get; set; } = null!;
 
         /// <summary>
         /// Description to set on the stage managed by the `stage_name` argument.
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.ApiGateway
         /// REST API identifier.
         /// </summary>
         [Input("restApi")]
-        public Input<string>? RestApi { get; set; }
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi>? RestApi { get; set; }
 
         /// <summary>
         /// Description to set on the stage managed by the `stage_name` argument.

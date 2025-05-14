@@ -4,6 +4,8 @@
 package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
+import com.pulumi.aws.sns.Topic;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -42,13 +44,13 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="alarmActions")
-    private @Nullable Output<List<String>> alarmActions;
+    private @Nullable Output<List<Either<String,Topic>>> alarmActions;
 
     /**
      * @return The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    public Optional<Output<List<String>>> alarmActions() {
+    public Optional<Output<List<Either<String,Topic>>>> alarmActions() {
         return Optional.ofNullable(this.alarmActions);
     }
 
@@ -168,13 +170,13 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="insufficientDataActions")
-    private @Nullable Output<List<String>> insufficientDataActions;
+    private @Nullable Output<List<Either<String,Topic>>> insufficientDataActions;
 
     /**
      * @return The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    public Optional<Output<List<String>>> insufficientDataActions() {
+    public Optional<Output<List<Either<String,Topic>>>> insufficientDataActions() {
         return Optional.ofNullable(this.insufficientDataActions);
     }
 
@@ -247,13 +249,13 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="okActions")
-    private @Nullable Output<List<String>> okActions;
+    private @Nullable Output<List<Either<String,Topic>>> okActions;
 
     /**
      * @return The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    public Optional<Output<List<String>>> okActions() {
+    public Optional<Output<List<Either<String,Topic>>>> okActions() {
         return Optional.ofNullable(this.okActions);
     }
 
@@ -442,7 +444,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder alarmActions(@Nullable Output<List<String>> alarmActions) {
+        public Builder alarmActions(@Nullable Output<List<Either<String,Topic>>> alarmActions) {
             $.alarmActions = alarmActions;
             return this;
         }
@@ -453,7 +455,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder alarmActions(List<String> alarmActions) {
+        public Builder alarmActions(List<Either<String,Topic>> alarmActions) {
             return alarmActions(Output.of(alarmActions));
         }
 
@@ -463,7 +465,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder alarmActions(String... alarmActions) {
+        public Builder alarmActions(Either<String,Topic>... alarmActions) {
             return alarmActions(List.of(alarmActions));
         }
 
@@ -626,7 +628,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder insufficientDataActions(@Nullable Output<List<String>> insufficientDataActions) {
+        public Builder insufficientDataActions(@Nullable Output<List<Either<String,Topic>>> insufficientDataActions) {
             $.insufficientDataActions = insufficientDataActions;
             return this;
         }
@@ -637,7 +639,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder insufficientDataActions(List<String> insufficientDataActions) {
+        public Builder insufficientDataActions(List<Either<String,Topic>> insufficientDataActions) {
             return insufficientDataActions(Output.of(insufficientDataActions));
         }
 
@@ -647,7 +649,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder insufficientDataActions(String... insufficientDataActions) {
+        public Builder insufficientDataActions(Either<String,Topic>... insufficientDataActions) {
             return insufficientDataActions(List.of(insufficientDataActions));
         }
 
@@ -755,7 +757,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder okActions(@Nullable Output<List<String>> okActions) {
+        public Builder okActions(@Nullable Output<List<Either<String,Topic>>> okActions) {
             $.okActions = okActions;
             return this;
         }
@@ -766,7 +768,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder okActions(List<String> okActions) {
+        public Builder okActions(List<Either<String,Topic>> okActions) {
             return okActions(Output.of(okActions));
         }
 
@@ -776,7 +778,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder okActions(String... okActions) {
+        public Builder okActions(Either<String,Topic>... okActions) {
             return okActions(List.of(okActions));
         }
 

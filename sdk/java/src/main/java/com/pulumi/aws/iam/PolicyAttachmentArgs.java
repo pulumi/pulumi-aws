@@ -3,6 +3,10 @@
 
 package com.pulumi.aws.iam;
 
+import com.pulumi.aws.iam.Group;
+import com.pulumi.aws.iam.Role;
+import com.pulumi.aws.iam.User;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -22,13 +26,13 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="groups")
-    private @Nullable Output<List<String>> groups;
+    private @Nullable Output<List<Either<String,Group>>> groups;
 
     /**
      * @return Group(s) the policy should be applied to.
      * 
      */
-    public Optional<Output<List<String>>> groups() {
+    public Optional<Output<List<Either<String,Group>>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
@@ -67,13 +71,13 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="roles")
-    private @Nullable Output<List<String>> roles;
+    private @Nullable Output<List<Either<String,Role>>> roles;
 
     /**
      * @return Role(s) the policy should be applied to.
      * 
      */
-    public Optional<Output<List<String>>> roles() {
+    public Optional<Output<List<Either<String,Role>>>> roles() {
         return Optional.ofNullable(this.roles);
     }
 
@@ -82,13 +86,13 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="users")
-    private @Nullable Output<List<String>> users;
+    private @Nullable Output<List<Either<String,User>>> users;
 
     /**
      * @return User(s) the policy should be applied to.
      * 
      */
-    public Optional<Output<List<String>>> users() {
+    public Optional<Output<List<Either<String,User>>>> users() {
         return Optional.ofNullable(this.users);
     }
 
@@ -126,7 +130,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder groups(@Nullable Output<List<String>> groups) {
+        public Builder groups(@Nullable Output<List<Either<String,Group>>> groups) {
             $.groups = groups;
             return this;
         }
@@ -137,7 +141,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder groups(List<String> groups) {
+        public Builder groups(List<Either<String,Group>> groups) {
             return groups(Output.of(groups));
         }
 
@@ -147,7 +151,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder groups(String... groups) {
+        public Builder groups(Either<String,Group>... groups) {
             return groups(List.of(groups));
         }
 
@@ -199,7 +203,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder roles(@Nullable Output<List<String>> roles) {
+        public Builder roles(@Nullable Output<List<Either<String,Role>>> roles) {
             $.roles = roles;
             return this;
         }
@@ -210,7 +214,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder roles(List<String> roles) {
+        public Builder roles(List<Either<String,Role>> roles) {
             return roles(Output.of(roles));
         }
 
@@ -220,7 +224,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder roles(String... roles) {
+        public Builder roles(Either<String,Role>... roles) {
             return roles(List.of(roles));
         }
 
@@ -230,7 +234,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder users(@Nullable Output<List<String>> users) {
+        public Builder users(@Nullable Output<List<Either<String,User>>> users) {
             $.users = users;
             return this;
         }
@@ -241,7 +245,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder users(List<String> users) {
+        public Builder users(List<Either<String,User>> users) {
             return users(Output.of(users));
         }
 
@@ -251,7 +255,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder users(String... users) {
+        public Builder users(Either<String,User>... users) {
             return users(List.of(users));
         }
 

@@ -550,7 +550,7 @@ namespace Pulumi.Aws.Sns
         /// The following arguments are optional:
         /// </summary>
         [Input("topic", required: true)]
-        public Input<string> Topic { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Sns.Topic> Topic { get; set; } = null!;
 
         public TopicSubscriptionArgs()
         {
@@ -656,7 +656,7 @@ namespace Pulumi.Aws.Sns
         /// The following arguments are optional:
         /// </summary>
         [Input("topic")]
-        public Input<string>? Topic { get; set; }
+        public InputUnion<string, Pulumi.Aws.Sns.Topic>? Topic { get; set; }
 
         public TopicSubscriptionState()
         {

@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import iam as _iam
 from ._enums import *
 from ._inputs import *
 
@@ -42,7 +43,7 @@ class InstanceArgs:
                  hibernation: Optional[pulumi.Input[builtins.bool]] = None,
                  host_id: Optional[pulumi.Input[builtins.str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  instance_market_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']] = None,
                  instance_type: Optional[pulumi.Input[Union[builtins.str, 'InstanceType']]] = None,
@@ -93,7 +94,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         :param pulumi.Input[builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        :param pulumi.Input[builtins.str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        :param pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input['InstanceInstanceMarketOptionsArgs'] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[Union[builtins.str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -464,14 +465,14 @@ class InstanceArgs:
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[pulumi.Input[builtins.str]]:
+    def iam_instance_profile(self) -> Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]]:
         """
         IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
-    def iam_instance_profile(self, value: Optional[pulumi.Input[builtins.str]]):
+    def iam_instance_profile(self, value: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]]):
         pulumi.set(self, "iam_instance_profile", value)
 
     @property
@@ -827,7 +828,7 @@ class _InstanceState:
                  hibernation: Optional[pulumi.Input[builtins.bool]] = None,
                  host_id: Optional[pulumi.Input[builtins.str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  instance_lifecycle: Optional[pulumi.Input[builtins.str]] = None,
                  instance_market_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']] = None,
@@ -889,7 +890,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         :param pulumi.Input[builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        :param pulumi.Input[builtins.str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        :param pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[builtins.str] instance_lifecycle: Indicates whether this is a Spot Instance or a Scheduled Instance.
         :param pulumi.Input['InstanceInstanceMarketOptionsArgs'] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
@@ -1307,14 +1308,14 @@ class _InstanceState:
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[pulumi.Input[builtins.str]]:
+    def iam_instance_profile(self) -> Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]]:
         """
         IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
-    def iam_instance_profile(self, value: Optional[pulumi.Input[builtins.str]]):
+    def iam_instance_profile(self, value: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]]):
         pulumi.set(self, "iam_instance_profile", value)
 
     @property
@@ -1795,7 +1796,7 @@ class Instance(pulumi.CustomResource):
                  hibernation: Optional[pulumi.Input[builtins.bool]] = None,
                  host_id: Optional[pulumi.Input[builtins.str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  instance_market_options: Optional[pulumi.Input[Union['InstanceInstanceMarketOptionsArgs', 'InstanceInstanceMarketOptionsArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[Union[builtins.str, 'InstanceType']]] = None,
@@ -2036,7 +2037,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         :param pulumi.Input[builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        :param pulumi.Input[builtins.str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        :param pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[Union['InstanceInstanceMarketOptionsArgs', 'InstanceInstanceMarketOptionsArgsDict']] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[Union[builtins.str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -2298,7 +2299,7 @@ class Instance(pulumi.CustomResource):
                  hibernation: Optional[pulumi.Input[builtins.bool]] = None,
                  host_id: Optional[pulumi.Input[builtins.str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  instance_market_options: Optional[pulumi.Input[Union['InstanceInstanceMarketOptionsArgs', 'InstanceInstanceMarketOptionsArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[Union[builtins.str, 'InstanceType']]] = None,
@@ -2423,7 +2424,7 @@ class Instance(pulumi.CustomResource):
             hibernation: Optional[pulumi.Input[builtins.bool]] = None,
             host_id: Optional[pulumi.Input[builtins.str]] = None,
             host_resource_group_arn: Optional[pulumi.Input[builtins.str]] = None,
-            iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+            iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
             instance_initiated_shutdown_behavior: Optional[pulumi.Input[builtins.str]] = None,
             instance_lifecycle: Optional[pulumi.Input[builtins.str]] = None,
             instance_market_options: Optional[pulumi.Input[Union['InstanceInstanceMarketOptionsArgs', 'InstanceInstanceMarketOptionsArgsDict']]] = None,
@@ -2490,7 +2491,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         :param pulumi.Input[builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        :param pulumi.Input[builtins.str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        :param pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[builtins.str] instance_lifecycle: Indicates whether this is a Spot Instance or a Scheduled Instance.
         :param pulumi.Input[Union['InstanceInstanceMarketOptionsArgs', 'InstanceInstanceMarketOptionsArgsDict']] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.

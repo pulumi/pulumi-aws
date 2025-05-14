@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.sns.inputs;
 
+import com.pulumi.aws.sns.Topic;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -249,7 +251,7 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="topic")
-    private @Nullable Output<String> topic;
+    private @Nullable Output<Either<String,Topic>> topic;
 
     /**
      * @return ARN of the SNS topic to subscribe to.
@@ -257,7 +259,7 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<String>> topic() {
+    public Optional<Output<Either<String,Topic>>> topic() {
         return Optional.ofNullable(this.topic);
     }
 
@@ -623,7 +625,7 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder topic(@Nullable Output<String> topic) {
+        public Builder topic(@Nullable Output<Either<String,Topic>> topic) {
             $.topic = topic;
             return this;
         }
@@ -636,8 +638,32 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder topic(String topic) {
+        public Builder topic(Either<String,Topic> topic) {
             return topic(Output.of(topic));
+        }
+
+        /**
+         * @param topic ARN of the SNS topic to subscribe to.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder topic(String topic) {
+            return topic(Either.ofLeft(topic));
+        }
+
+        /**
+         * @param topic ARN of the SNS topic to subscribe to.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder topic(Topic topic) {
+            return topic(Either.ofRight(topic));
         }
 
         public TopicSubscriptionState build() {

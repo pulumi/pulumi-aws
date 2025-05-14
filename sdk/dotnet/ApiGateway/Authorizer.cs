@@ -313,7 +313,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ID of the associated REST API
         /// </summary>
         [Input("restApi", required: true)]
-        public Input<string> RestApi { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi> RestApi { get; set; } = null!;
 
         /// <summary>
         /// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
-        public Input<string>? RestApi { get; set; }
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi>? RestApi { get; set; }
 
         /// <summary>
         /// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.

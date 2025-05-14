@@ -177,13 +177,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// Name of the Beanstalk Application the version is associated with.
         /// </summary>
         [Input("application", required: true)]
-        public Input<string> Application { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.ElasticBeanstalk.Application> Application { get; set; } = null!;
 
         /// <summary>
         /// S3 bucket that contains the Application Version source bundle.
         /// </summary>
         [Input("bucket", required: true)]
-        public Input<string> Bucket { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.S3.Bucket> Bucket { get; set; } = null!;
 
         /// <summary>
         /// Short description of the Application Version.
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// Name of the Beanstalk Application the version is associated with.
         /// </summary>
         [Input("application")]
-        public Input<string>? Application { get; set; }
+        public InputUnion<string, Pulumi.Aws.ElasticBeanstalk.Application>? Application { get; set; }
 
         /// <summary>
         /// ARN assigned by AWS for this Elastic Beanstalk Application.
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// S3 bucket that contains the Application Version source bundle.
         /// </summary>
         [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
+        public InputUnion<string, Pulumi.Aws.S3.Bucket>? Bucket { get; set; }
 
         /// <summary>
         /// Short description of the Application Version.

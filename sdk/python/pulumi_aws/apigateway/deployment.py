@@ -16,13 +16,14 @@ else:
 from .. import _utilities
 from . import outputs
 from ._inputs import *
+from .rest_api import RestApi
 
 __all__ = ['DeploymentArgs', 'Deployment']
 
 @pulumi.input_type
 class DeploymentArgs:
     def __init__(__self__, *,
-                 rest_api: pulumi.Input[builtins.str],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  canary_settings: Optional[pulumi.Input['DeploymentCanarySettingsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  stage_description: Optional[pulumi.Input[builtins.str]] = None,
@@ -31,7 +32,7 @@ class DeploymentArgs:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[builtins.str] rest_api: REST API identifier.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: REST API identifier.
         :param pulumi.Input['DeploymentCanarySettingsArgs'] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment.
                See `canary_settings below.
                Has no effect when `stage_name` is not set.
@@ -69,14 +70,14 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         REST API identifier.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -168,7 +169,7 @@ class _DeploymentState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  execution_arn: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_url: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  stage_description: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -185,7 +186,7 @@ class _DeploymentState:
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[builtins.str] invoke_url: **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        :param pulumi.Input[builtins.str] rest_api: REST API identifier.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: REST API identifier.
         :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
                Has no effect when `stage_name` is not set.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage to create with this deployment.
@@ -300,14 +301,14 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         REST API identifier.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -374,7 +375,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  stage_description: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -409,7 +410,7 @@ class Deployment(pulumi.CustomResource):
                See `canary_settings below.
                Has no effect when `stage_name` is not set.
         :param pulumi.Input[builtins.str] description: Description of the deployment
-        :param pulumi.Input[builtins.str] rest_api: REST API identifier.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: REST API identifier.
         :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
                Has no effect when `stage_name` is not set.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage to create with this deployment.
@@ -464,7 +465,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  stage_description: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -505,7 +506,7 @@ class Deployment(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             execution_arn: Optional[pulumi.Input[builtins.str]] = None,
             invoke_url: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None,
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
             stage_description: Optional[pulumi.Input[builtins.str]] = None,
             stage_name: Optional[pulumi.Input[builtins.str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -527,7 +528,7 @@ class Deployment(pulumi.CustomResource):
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[builtins.str] invoke_url: **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        :param pulumi.Input[builtins.str] rest_api: REST API identifier.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: REST API identifier.
         :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
                Has no effect when `stage_name` is not set.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage to create with this deployment.

@@ -135,7 +135,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ID of the associated REST API
         /// </summary>
         [Input("restApi", required: true)]
-        public Input<string> RestApi { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi> RestApi { get; set; } = null!;
 
         public ResourceArgs()
         {
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
-        public Input<string>? RestApi { get; set; }
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi>? RestApi { get; set; }
 
         public ResourceState()
         {

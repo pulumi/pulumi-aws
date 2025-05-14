@@ -3,8 +3,11 @@
 
 package com.pulumi.aws.apigateway.inputs;
 
+import com.pulumi.aws.apigateway.Deployment;
+import com.pulumi.aws.apigateway.RestApi;
 import com.pulumi.aws.apigateway.inputs.StageAccessLogSettingsArgs;
 import com.pulumi.aws.apigateway.inputs.StageCanarySettingsArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -114,13 +117,13 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="deployment")
-    private @Nullable Output<String> deployment;
+    private @Nullable Output<Either<String,Deployment>> deployment;
 
     /**
      * @return ID of the deployment that the stage points to
      * 
      */
-    public Optional<Output<String>> deployment() {
+    public Optional<Output<Either<String,Deployment>>> deployment() {
         return Optional.ofNullable(this.deployment);
     }
 
@@ -195,13 +198,13 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="restApi")
-    private @Nullable Output<String> restApi;
+    private @Nullable Output<Either<String,RestApi>> restApi;
 
     /**
      * @return ID of the associated REST API
      * 
      */
-    public Optional<Output<String>> restApi() {
+    public Optional<Output<Either<String,RestApi>>> restApi() {
         return Optional.ofNullable(this.restApi);
     }
 
@@ -476,7 +479,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder deployment(@Nullable Output<String> deployment) {
+        public Builder deployment(@Nullable Output<Either<String,Deployment>> deployment) {
             $.deployment = deployment;
             return this;
         }
@@ -487,8 +490,28 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder deployment(String deployment) {
+        public Builder deployment(Either<String,Deployment> deployment) {
             return deployment(Output.of(deployment));
+        }
+
+        /**
+         * @param deployment ID of the deployment that the stage points to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deployment(String deployment) {
+            return deployment(Either.ofLeft(deployment));
+        }
+
+        /**
+         * @param deployment ID of the deployment that the stage points to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deployment(Deployment deployment) {
+            return deployment(Either.ofRight(deployment));
         }
 
         /**
@@ -587,7 +610,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder restApi(@Nullable Output<String> restApi) {
+        public Builder restApi(@Nullable Output<Either<String,RestApi>> restApi) {
             $.restApi = restApi;
             return this;
         }
@@ -598,8 +621,28 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder restApi(String restApi) {
+        public Builder restApi(Either<String,RestApi> restApi) {
             return restApi(Output.of(restApi));
+        }
+
+        /**
+         * @param restApi ID of the associated REST API
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restApi(String restApi) {
+            return restApi(Either.ofLeft(restApi));
+        }
+
+        /**
+         * @param restApi ID of the associated REST API
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restApi(RestApi restApi) {
+            return restApi(Either.ofRight(restApi));
         }
 
         /**

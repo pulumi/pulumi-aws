@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.sns;
 
+import com.pulumi.aws.sns.Topic;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -190,7 +192,7 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="topic", required=true)
-    private Output<String> topic;
+    private Output<Either<String,Topic>> topic;
 
     /**
      * @return ARN of the SNS topic to subscribe to.
@@ -198,7 +200,7 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
      * The following arguments are optional:
      * 
      */
-    public Output<String> topic() {
+    public Output<Either<String,Topic>> topic() {
         return this.topic;
     }
 
@@ -476,7 +478,7 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder topic(Output<String> topic) {
+        public Builder topic(Output<Either<String,Topic>> topic) {
             $.topic = topic;
             return this;
         }
@@ -489,8 +491,32 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder topic(String topic) {
+        public Builder topic(Either<String,Topic> topic) {
             return topic(Output.of(topic));
+        }
+
+        /**
+         * @param topic ARN of the SNS topic to subscribe to.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder topic(String topic) {
+            return topic(Either.ofLeft(topic));
+        }
+
+        /**
+         * @param topic ARN of the SNS topic to subscribe to.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder topic(Topic topic) {
+            return topic(Either.ofRight(topic));
         }
 
         public TopicSubscriptionArgs build() {

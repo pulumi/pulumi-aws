@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .role import Role
 
 __all__ = ['RolePolicyArgs', 'RolePolicy']
 
@@ -21,13 +22,13 @@ __all__ = ['RolePolicyArgs', 'RolePolicy']
 class RolePolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[builtins.str],
-                 role: pulumi.Input[builtins.str],
+                 role: pulumi.Input[Union[builtins.str, 'Role']],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a RolePolicy resource.
         :param pulumi.Input[builtins.str] policy: The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-        :param pulumi.Input[builtins.str] role: The name of the IAM role to attach to the policy.
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: The name of the IAM role to attach to the policy.
         :param pulumi.Input[builtins.str] name: The name of the role policy. If omitted, this provider will
                assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
@@ -54,14 +55,14 @@ class RolePolicyArgs:
 
     @property
     @pulumi.getter
-    def role(self) -> pulumi.Input[builtins.str]:
+    def role(self) -> pulumi.Input[Union[builtins.str, 'Role']]:
         """
         The name of the IAM role to attach to the policy.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: pulumi.Input[builtins.str]):
+    def role(self, value: pulumi.Input[Union[builtins.str, 'Role']]):
         pulumi.set(self, "role", value)
 
     @property
@@ -97,7 +98,7 @@ class _RolePolicyState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None):
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None):
         """
         Input properties used for looking up and filtering RolePolicy resources.
         :param pulumi.Input[builtins.str] name: The name of the role policy. If omitted, this provider will
@@ -105,7 +106,7 @@ class _RolePolicyState:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] policy: The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-        :param pulumi.Input[builtins.str] role: The name of the IAM role to attach to the policy.
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: The name of the IAM role to attach to the policy.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -156,14 +157,14 @@ class _RolePolicyState:
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[builtins.str]]:
+    def role(self) -> Optional[pulumi.Input[Union[builtins.str, 'Role']]]:
         """
         The name of the IAM role to attach to the policy.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[builtins.str]]):
+    def role(self, value: Optional[pulumi.Input[Union[builtins.str, 'Role']]]):
         pulumi.set(self, "role", value)
 
 
@@ -178,7 +179,7 @@ class RolePolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
                  __props__=None):
         """
         Provides an IAM role inline policy.
@@ -235,7 +236,7 @@ class RolePolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] policy: The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-        :param pulumi.Input[builtins.str] role: The name of the IAM role to attach to the policy.
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: The name of the IAM role to attach to the policy.
         """
         ...
     @overload
@@ -309,7 +310,7 @@ class RolePolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -340,7 +341,7 @@ class RolePolicy(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
-            role: Optional[pulumi.Input[builtins.str]] = None) -> 'RolePolicy':
+            role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None) -> 'RolePolicy':
         """
         Get an existing RolePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -353,7 +354,7 @@ class RolePolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] policy: The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-        :param pulumi.Input[builtins.str] role: The name of the IAM role to attach to the policy.
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: The name of the IAM role to attach to the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .function import Function
 
 __all__ = ['PermissionArgs', 'Permission']
 
@@ -21,7 +22,7 @@ __all__ = ['PermissionArgs', 'Permission']
 class PermissionArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[builtins.str],
-                 function: pulumi.Input[builtins.str],
+                 function: pulumi.Input[Union[builtins.str, 'Function']],
                  principal: pulumi.Input[builtins.str],
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -34,7 +35,7 @@ class PermissionArgs:
         """
         The set of arguments for constructing a Permission resource.
         :param pulumi.Input[builtins.str] action: The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function whose resource policy you are updating
+        :param pulumi.Input[Union[builtins.str, 'Function']] function: Name of the Lambda function whose resource policy you are updating
         :param pulumi.Input[builtins.str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[builtins.str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
@@ -87,14 +88,14 @@ class PermissionArgs:
 
     @property
     @pulumi.getter
-    def function(self) -> pulumi.Input[builtins.str]:
+    def function(self) -> pulumi.Input[Union[builtins.str, 'Function']]:
         """
         Name of the Lambda function whose resource policy you are updating
         """
         return pulumi.get(self, "function")
 
     @function.setter
-    def function(self, value: pulumi.Input[builtins.str]):
+    def function(self, value: pulumi.Input[Union[builtins.str, 'Function']]):
         pulumi.set(self, "function", value)
 
     @property
@@ -219,7 +220,7 @@ class _PermissionState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
-                 function: Optional[pulumi.Input[builtins.str]] = None,
+                 function: Optional[pulumi.Input[Union[builtins.str, 'Function']]] = None,
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -232,7 +233,7 @@ class _PermissionState:
         Input properties used for looking up and filtering Permission resources.
         :param pulumi.Input[builtins.str] action: The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function whose resource policy you are updating
+        :param pulumi.Input[Union[builtins.str, 'Function']] function: Name of the Lambda function whose resource policy you are updating
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         :param pulumi.Input[builtins.str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[builtins.str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
@@ -299,14 +300,14 @@ class _PermissionState:
 
     @property
     @pulumi.getter
-    def function(self) -> Optional[pulumi.Input[builtins.str]]:
+    def function(self) -> Optional[pulumi.Input[Union[builtins.str, 'Function']]]:
         """
         Name of the Lambda function whose resource policy you are updating
         """
         return pulumi.get(self, "function")
 
     @function.setter
-    def function(self, value: Optional[pulumi.Input[builtins.str]]):
+    def function(self, value: Optional[pulumi.Input[Union[builtins.str, 'Function']]]):
         pulumi.set(self, "function", value)
 
     @property
@@ -424,7 +425,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
-                 function: Optional[pulumi.Input[builtins.str]] = None,
+                 function: Optional[pulumi.Input[Union[builtins.str, 'Function']]] = None,
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -604,7 +605,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] action: The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function whose resource policy you are updating
+        :param pulumi.Input[Union[builtins.str, 'Function']] function: Name of the Lambda function whose resource policy you are updating
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         :param pulumi.Input[builtins.str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[builtins.str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
@@ -811,7 +812,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
-                 function: Optional[pulumi.Input[builtins.str]] = None,
+                 function: Optional[pulumi.Input[Union[builtins.str, 'Function']]] = None,
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -858,7 +859,7 @@ class Permission(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             action: Optional[pulumi.Input[builtins.str]] = None,
             event_source_token: Optional[pulumi.Input[builtins.str]] = None,
-            function: Optional[pulumi.Input[builtins.str]] = None,
+            function: Optional[pulumi.Input[Union[builtins.str, 'Function']]] = None,
             function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
             principal: Optional[pulumi.Input[builtins.str]] = None,
             principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -876,7 +877,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] action: The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function whose resource policy you are updating
+        :param pulumi.Input[Union[builtins.str, 'Function']] function: Name of the Lambda function whose resource policy you are updating
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         :param pulumi.Input[builtins.str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[builtins.str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.

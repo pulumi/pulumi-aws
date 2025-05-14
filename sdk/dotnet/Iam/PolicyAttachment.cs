@@ -199,14 +199,14 @@ namespace Pulumi.Aws.Iam
     public sealed class PolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
-        private InputList<string>? _groups;
+        private InputList<Union<string, Pulumi.Aws.Iam.Group>>? _groups;
 
         /// <summary>
         /// Group(s) the policy should be applied to.
         /// </summary>
-        public InputList<string> Groups
+        public InputList<Union<string, Pulumi.Aws.Iam.Group>> Groups
         {
-            get => _groups ?? (_groups = new InputList<string>());
+            get => _groups ?? (_groups = new InputList<Union<string, Pulumi.Aws.Iam.Group>>());
             set => _groups = value;
         }
 
@@ -223,26 +223,26 @@ namespace Pulumi.Aws.Iam
         public Input<string> PolicyArn { get; set; } = null!;
 
         [Input("roles")]
-        private InputList<string>? _roles;
+        private InputList<Union<string, Pulumi.Aws.Iam.Role>>? _roles;
 
         /// <summary>
         /// Role(s) the policy should be applied to.
         /// </summary>
-        public InputList<string> Roles
+        public InputList<Union<string, Pulumi.Aws.Iam.Role>> Roles
         {
-            get => _roles ?? (_roles = new InputList<string>());
+            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.Aws.Iam.Role>>());
             set => _roles = value;
         }
 
         [Input("users")]
-        private InputList<string>? _users;
+        private InputList<Union<string, Pulumi.Aws.Iam.User>>? _users;
 
         /// <summary>
         /// User(s) the policy should be applied to.
         /// </summary>
-        public InputList<string> Users
+        public InputList<Union<string, Pulumi.Aws.Iam.User>> Users
         {
-            get => _users ?? (_users = new InputList<string>());
+            get => _users ?? (_users = new InputList<Union<string, Pulumi.Aws.Iam.User>>());
             set => _users = value;
         }
 
@@ -255,14 +255,14 @@ namespace Pulumi.Aws.Iam
     public sealed class PolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
-        private InputList<string>? _groups;
+        private InputList<Union<string, Pulumi.Aws.Iam.Group>>? _groups;
 
         /// <summary>
         /// Group(s) the policy should be applied to.
         /// </summary>
-        public InputList<string> Groups
+        public InputList<Union<string, Pulumi.Aws.Iam.Group>> Groups
         {
-            get => _groups ?? (_groups = new InputList<string>());
+            get => _groups ?? (_groups = new InputList<Union<string, Pulumi.Aws.Iam.Group>>());
             set => _groups = value;
         }
 
@@ -279,26 +279,26 @@ namespace Pulumi.Aws.Iam
         public Input<string>? PolicyArn { get; set; }
 
         [Input("roles")]
-        private InputList<string>? _roles;
+        private InputList<Union<string, Pulumi.Aws.Iam.Role>>? _roles;
 
         /// <summary>
         /// Role(s) the policy should be applied to.
         /// </summary>
-        public InputList<string> Roles
+        public InputList<Union<string, Pulumi.Aws.Iam.Role>> Roles
         {
-            get => _roles ?? (_roles = new InputList<string>());
+            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.Aws.Iam.Role>>());
             set => _roles = value;
         }
 
         [Input("users")]
-        private InputList<string>? _users;
+        private InputList<Union<string, Pulumi.Aws.Iam.User>>? _users;
 
         /// <summary>
         /// User(s) the policy should be applied to.
         /// </summary>
-        public InputList<string> Users
+        public InputList<Union<string, Pulumi.Aws.Iam.User>> Users
         {
-            get => _users ?? (_users = new InputList<string>());
+            get => _users ?? (_users = new InputList<Union<string, Pulumi.Aws.Iam.User>>());
             set => _users = value;
         }
 

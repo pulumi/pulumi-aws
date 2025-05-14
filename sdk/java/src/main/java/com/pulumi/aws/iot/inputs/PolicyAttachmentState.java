@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iot.inputs;
 
+import com.pulumi.aws.iot.Policy;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -20,13 +22,13 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="policy")
-    private @Nullable Output<String> policy;
+    private @Nullable Output<Either<String,Policy>> policy;
 
     /**
      * @return The name of the policy to attach.
      * 
      */
-    public Optional<Output<String>> policy() {
+    public Optional<Output<Either<String,Policy>>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
@@ -76,7 +78,7 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder policy(@Nullable Output<String> policy) {
+        public Builder policy(@Nullable Output<Either<String,Policy>> policy) {
             $.policy = policy;
             return this;
         }
@@ -87,8 +89,28 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,Policy> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy The name of the policy to attach.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy The name of the policy to attach.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(Policy policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**
