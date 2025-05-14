@@ -210,13 +210,24 @@ func TestS3BucketV2ToBucketUpgrade(t *testing.T) {
 }
 
 func TestS3BucketV2ToBucketSidecarUpgrade(t *testing.T) {
-	previewRes := testProviderUpgrade(t, "bucket-sidecar-renames",
+	test, _ := testProviderUpgrade(t, "bucket-sidecar-renames",
 		&testProviderUpgradeOptions{
 			baselineVersion: "6.78.0",
 		},
 		optproviderupgrade.NewSourcePath(filepath.Join("bucket-sidecar-renames", "step1")),
 	)
-	assertpreview.HasNoChanges(t, previewRes)
+	diff := runPreviewWithPlanDiff(t, test)
+	// tagsAll is added in v7 due to moving to upstream tagging
+	assert.Equal(t, map[string]interface{}{
+		"loggingBucket": map[string]interface{}{
+			"diff":  apitype.PlanDiffV1{Adds: map[string]interface{}{"tagsAll": map[string]interface{}{}}},
+			"steps": []apitype.OpType{apitype.OpType("update")},
+		},
+		"migrationBucket": map[string]interface{}{
+			"diff":  apitype.PlanDiffV1{Adds: map[string]interface{}{"tagsAll": map[string]interface{}{}}},
+			"steps": []apitype.OpType{apitype.OpType("update")},
+		},
+	}, diff)
 }
 
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {
