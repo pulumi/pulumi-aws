@@ -231,8 +231,8 @@ type environmentState struct {
 	AllSettings []EnvironmentAllSetting `pulumi:"allSettings"`
 	// Name of the application that contains the version
 	// to be deployed
-	Application interface{} `pulumi:"application"`
-	Arn         *string     `pulumi:"arn"`
+	Application *string `pulumi:"application"`
+	Arn         *string `pulumi:"arn"`
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
@@ -301,7 +301,7 @@ type EnvironmentState struct {
 	AllSettings EnvironmentAllSettingArrayInput
 	// Name of the application that contains the version
 	// to be deployed
-	Application pulumi.Input
+	Application pulumi.StringPtrInput
 	Arn         pulumi.StringPtrInput
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups pulumi.StringArrayInput
@@ -371,7 +371,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application interface{} `pulumi:"application"`
+	Application string `pulumi:"application"`
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix *string `pulumi:"cnamePrefix"`
@@ -417,7 +417,7 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application pulumi.Input
+	Application pulumi.StringInput
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix pulumi.StringPtrInput

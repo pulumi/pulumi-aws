@@ -1826,8 +1826,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 40, "-"),
 					"application": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
+						Type: "string",
 					},
 					"version_label": {
 						Name: "version",
