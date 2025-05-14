@@ -31,6 +31,7 @@ class TrustProviderArgs:
                  oidc_options: Optional[pulumi.Input['TrustProviderOidcOptionsArgs']] = None,
                  sse_specification: Optional[pulumi.Input['TrustProviderSseSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TrustProvider resource.
@@ -62,6 +63,8 @@ class TrustProviderArgs:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_trust_provider_type is not None:
             pulumi.set(__self__, "user_trust_provider_type", user_trust_provider_type)
 
@@ -173,6 +176,15 @@ class TrustProviderArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="userTrustProviderType")
     def user_trust_provider_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -229,9 +241,6 @@ class _TrustProviderState:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if trust_provider_type is not None:
@@ -334,7 +343,6 @@ class _TrustProviderState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -385,6 +393,7 @@ class TrustProvider(pulumi.CustomResource):
                  policy_reference_name: Optional[pulumi.Input[builtins.str]] = None,
                  sse_specification: Optional[pulumi.Input[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trust_provider_type: Optional[pulumi.Input[builtins.str]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -477,6 +486,7 @@ class TrustProvider(pulumi.CustomResource):
                  policy_reference_name: Optional[pulumi.Input[builtins.str]] = None,
                  sse_specification: Optional[pulumi.Input[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trust_provider_type: Optional[pulumi.Input[builtins.str]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -498,11 +508,11 @@ class TrustProvider(pulumi.CustomResource):
             __props__.__dict__["policy_reference_name"] = policy_reference_name
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if trust_provider_type is None and not opts.urn:
                 raise TypeError("Missing required property 'trust_provider_type'")
             __props__.__dict__["trust_provider_type"] = trust_provider_type
             __props__.__dict__["user_trust_provider_type"] = user_trust_provider_type
-            __props__.__dict__["tags_all"] = None
         super(TrustProvider, __self__).__init__(
             'aws:verifiedaccess/trustProvider:TrustProvider',
             resource_name,
@@ -623,7 +633,6 @@ class TrustProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

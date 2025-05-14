@@ -11,10 +11,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -152,28 +150,6 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> features() {
         return this.features;
-    }
-    /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     * 
-     * @deprecated
-     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
-     * 
-     */
-    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
-    @Export(name="resetOnDelete", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> resetOnDelete;
-
-    /**
-     * @return If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     * 
-     */
-    public Output<Optional<Boolean>> resetOnDelete() {
-        return Codegen.optional(this.resetOnDelete);
     }
     /**
      * Account-Level throttle settings. See exported fields below.

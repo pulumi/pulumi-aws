@@ -49,9 +49,9 @@ namespace Pulumi.Aws.ServiceCatalog
     ///         Name = "example-app",
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///         Tags = example.ApplicationTag,
     ///     });
     /// 
@@ -237,7 +237,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

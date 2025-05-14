@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,9 +63,8 @@ type ResourceSet struct {
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets ResourceSetResourceSetArrayOutput `pulumi:"resourceSets"`
 	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
-	Timeouts ResourceSetTimeoutsPtrOutput `pulumi:"timeouts"`
+	TagsAll      pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	Timeouts     ResourceSetTimeoutsPtrOutput      `pulumi:"timeouts"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -103,9 +102,8 @@ type resourceSetState struct {
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets []ResourceSetResourceSet `pulumi:"resourceSets"`
 	Tags         map[string]string        `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  map[string]string    `pulumi:"tagsAll"`
-	Timeouts *ResourceSetTimeouts `pulumi:"timeouts"`
+	TagsAll      map[string]string        `pulumi:"tagsAll"`
+	Timeouts     *ResourceSetTimeouts     `pulumi:"timeouts"`
 }
 
 type ResourceSetState struct {
@@ -114,9 +112,8 @@ type ResourceSetState struct {
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets ResourceSetResourceSetArrayInput
 	Tags         pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ResourceSetTimeoutsPtrInput
+	TagsAll      pulumi.StringMapInput
+	Timeouts     ResourceSetTimeoutsPtrInput
 }
 
 func (ResourceSetState) ElementType() reflect.Type {
@@ -239,7 +236,6 @@ func (o ResourceSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ResourceSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

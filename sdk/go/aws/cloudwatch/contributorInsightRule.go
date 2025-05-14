@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,8 +65,7 @@ type ContributorInsightRule struct {
 	// State of the rule. Valid values are `ENABLED` and `DISABLED`.
 	RuleState pulumi.StringPtrOutput `pulumi:"ruleState"`
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewContributorInsightRule registers a new resource with the given unique name, arguments, and options.
@@ -116,8 +115,7 @@ type contributorInsightRuleState struct {
 	// State of the rule. Valid values are `ENABLED` and `DISABLED`.
 	RuleState *string           `pulumi:"ruleState"`
 	Tags      map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 type ContributorInsightRuleState struct {
@@ -132,8 +130,7 @@ type ContributorInsightRuleState struct {
 	// State of the rule. Valid values are `ENABLED` and `DISABLED`.
 	RuleState pulumi.StringPtrInput
 	Tags      pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (ContributorInsightRuleState) ElementType() reflect.Type {
@@ -278,7 +275,6 @@ func (o ContributorInsightRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ContributorInsightRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

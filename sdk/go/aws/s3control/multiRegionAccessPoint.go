@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,21 +25,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooBucket, err := s3.NewBucketV2(ctx, "foo_bucket", &s3.BucketV2Args{
+//			fooBucket, err := s3.NewBucket(ctx, "foo_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-bucket-foo"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			barBucket, err := s3.NewBucketV2(ctx, "bar_bucket", &s3.BucketV2Args{
+//			barBucket, err := s3.NewBucket(ctx, "bar_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-bucket-bar"),
 //			})
 //			if err != nil {

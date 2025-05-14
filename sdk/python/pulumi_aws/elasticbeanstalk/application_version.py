@@ -201,9 +201,6 @@ class _ApplicationVersionState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -318,7 +315,6 @@ class _ApplicationVersionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -366,7 +362,7 @@ class ApplicationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.s3.BucketV2("default", bucket="tftest.applicationversion.bucket")
+        default = aws.s3.Bucket("default", bucket="tftest.applicationversion.bucket")
         default_bucket_objectv2 = aws.s3.BucketObjectv2("default",
             bucket=default.id,
             key="beanstalk/go-v1.zip",
@@ -420,7 +416,7 @@ class ApplicationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.s3.BucketV2("default", bucket="tftest.applicationversion.bucket")
+        default = aws.s3.Bucket("default", bucket="tftest.applicationversion.bucket")
         default_bucket_objectv2 = aws.s3.BucketObjectv2("default",
             bucket=default.id,
             key="beanstalk/go-v1.zip",
@@ -616,7 +612,6 @@ class ApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

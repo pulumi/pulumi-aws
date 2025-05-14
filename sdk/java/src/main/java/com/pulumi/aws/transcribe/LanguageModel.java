@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.transcribe.LanguageModel;
@@ -93,13 +93,13 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example-transcribe")
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var object = new BucketObjectv2("object", BucketObjectv2Args.builder()
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(exampleBucket.id())
  *             .key("transcribe/test1.txt")
  *             .source(new FileAsset("test1.txt"))
  *             .build());
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .baseModelName("NarrowBand")
  *             .inputDataConfig(LanguageModelInputDataConfigArgs.builder()
  *                 .dataAccessRoleArn(exampleRole.arn())
- *                 .s3Uri(exampleBucketV2.id().applyValue(_id -> String.format("s3://%s/transcribe/", _id)))
+ *                 .s3Uri(exampleBucket.id().applyValue(_id -> String.format("s3://%s/transcribe/", _id)))
  *                 .build())
  *             .languageCode("en-US")
  *             .tags(Map.of("ENVIRONMENT", "development"))
@@ -208,12 +208,6 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

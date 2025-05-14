@@ -86,38 +86,16 @@ namespace Pulumi.Aws.Ec2
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-        /// The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        /// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-        /// </summary>
-        [Output("blockDurationMinutes")]
-        public Output<int?> BlockDurationMinutes { get; private set; } = null!;
-
-        /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        /// 
-        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("capacityReservationSpecification")]
         public Output<Outputs.SpotInstanceRequestCapacityReservationSpecification> CapacityReservationSpecification { get; private set; } = null!;
-
-        /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        /// </summary>
-        [Output("cpuCoreCount")]
-        public Output<int> CpuCoreCount { get; private set; } = null!;
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
         [Output("cpuOptions")]
         public Output<Outputs.SpotInstanceRequestCpuOptions> CpuOptions { get; private set; } = null!;
-
-        /// <summary>
-        /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        /// </summary>
-        [Output("cpuThreadsPerCore")]
-        public Output<int> CpuThreadsPerCore { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -417,7 +395,7 @@ namespace Pulumi.Aws.Ec2
         /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Output("userData")]
-        public Output<string> UserData { get; private set; } = null!;
+        public Output<string?> UserData { get; private set; } = null!;
 
         /// <summary>
         /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
@@ -530,38 +508,16 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-        /// The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        /// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-        /// </summary>
-        [Input("blockDurationMinutes")]
-        public Input<int>? BlockDurationMinutes { get; set; }
-
-        /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        /// 
-        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.SpotInstanceRequestCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
-
-        /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        /// </summary>
-        [Input("cpuCoreCount")]
-        public Input<int>? CpuCoreCount { get; set; }
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
         [Input("cpuOptions")]
         public Input<Inputs.SpotInstanceRequestCpuOptionsArgs>? CpuOptions { get; set; }
-
-        /// <summary>
-        /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        /// </summary>
-        [Input("cpuThreadsPerCore")]
-        public Input<int>? CpuThreadsPerCore { get; set; }
 
         /// <summary>
         /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -931,38 +887,16 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-        /// The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        /// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-        /// </summary>
-        [Input("blockDurationMinutes")]
-        public Input<int>? BlockDurationMinutes { get; set; }
-
-        /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        /// 
-        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.SpotInstanceRequestCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
-
-        /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        /// </summary>
-        [Input("cpuCoreCount")]
-        public Input<int>? CpuCoreCount { get; set; }
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
         [Input("cpuOptions")]
         public Input<Inputs.SpotInstanceRequestCpuOptionsGetArgs>? CpuOptions { get; set; }
-
-        /// <summary>
-        /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        /// </summary>
-        [Input("cpuThreadsPerCore")]
-        public Input<int>? CpuThreadsPerCore { get; set; }
 
         /// <summary>
         /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -1294,7 +1228,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

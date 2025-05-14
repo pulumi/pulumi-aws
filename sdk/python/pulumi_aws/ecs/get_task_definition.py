@@ -28,7 +28,7 @@ class GetTaskDefinitionResult:
     """
     A collection of values returned by getTaskDefinition.
     """
-    def __init__(__self__, arn=None, arn_without_revision=None, container_definitions=None, cpu=None, enable_fault_injection=None, ephemeral_storages=None, execution_role_arn=None, family=None, id=None, inference_accelerators=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configurations=None, requires_compatibilities=None, revision=None, runtime_platforms=None, status=None, task_definition=None, task_role_arn=None, volumes=None):
+    def __init__(__self__, arn=None, arn_without_revision=None, container_definitions=None, cpu=None, enable_fault_injection=None, ephemeral_storages=None, execution_role_arn=None, family=None, id=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configurations=None, requires_compatibilities=None, revision=None, runtime_platforms=None, status=None, task_definition=None, task_role_arn=None, volumes=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,9 +56,6 @@ class GetTaskDefinitionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if inference_accelerators and not isinstance(inference_accelerators, list):
-            raise TypeError("Expected argument 'inference_accelerators' to be a list")
-        pulumi.set(__self__, "inference_accelerators", inference_accelerators)
         if ipc_mode and not isinstance(ipc_mode, str):
             raise TypeError("Expected argument 'ipc_mode' to be a str")
         pulumi.set(__self__, "ipc_mode", ipc_mode)
@@ -171,14 +168,6 @@ class GetTaskDefinitionResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> Sequence['outputs.GetTaskDefinitionInferenceAcceleratorResult']:
-        """
-        Configuration block(s) with Inference Accelerators settings. Detailed below.
-        """
-        return pulumi.get(self, "inference_accelerators")
 
     @property
     @pulumi.getter(name="ipcMode")
@@ -297,7 +286,6 @@ class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
             execution_role_arn=self.execution_role_arn,
             family=self.family,
             id=self.id,
-            inference_accelerators=self.inference_accelerators,
             ipc_mode=self.ipc_mode,
             memory=self.memory,
             network_mode=self.network_mode,
@@ -370,7 +358,6 @@ def get_task_definition(task_definition: Optional[builtins.str] = None,
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         family=pulumi.get(__ret__, 'family'),
         id=pulumi.get(__ret__, 'id'),
-        inference_accelerators=pulumi.get(__ret__, 'inference_accelerators'),
         ipc_mode=pulumi.get(__ret__, 'ipc_mode'),
         memory=pulumi.get(__ret__, 'memory'),
         network_mode=pulumi.get(__ret__, 'network_mode'),
@@ -440,7 +427,6 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[builtins.s
         execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
         family=pulumi.get(__response__, 'family'),
         id=pulumi.get(__response__, 'id'),
-        inference_accelerators=pulumi.get(__response__, 'inference_accelerators'),
         ipc_mode=pulumi.get(__response__, 'ipc_mode'),
         memory=pulumi.get(__response__, 'memory'),
         network_mode=pulumi.get(__response__, 'network_mode'),

@@ -29,8 +29,7 @@ class EipArgs:
                  network_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface: Optional[pulumi.Input[builtins.str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 vpc: Optional[pulumi.Input[builtins.bool]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Eip resource.
         :param pulumi.Input[builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -44,13 +43,6 @@ class EipArgs:
         :param pulumi.Input[builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[builtins.bool] vpc: Boolean if the EIP is in a VPC or not. Use `domain` instead.
-               Defaults to `true` unless the region supports EC2-Classic.
-               
-               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-               
-               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-               case both options are defined as the api only requires one or the other.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -72,11 +64,6 @@ class EipArgs:
             pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vpc is not None:
-            warnings.warn("""vpc is deprecated. Use domain instead.""", DeprecationWarning)
-            pulumi.log.warn("""vpc is deprecated: vpc is deprecated. Use domain instead.""")
-        if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter
@@ -199,25 +186,6 @@ class EipArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""vpc is deprecated. Use domain instead.""")
-    def vpc(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Boolean if the EIP is in a VPC or not. Use `domain` instead.
-        Defaults to `true` unless the region supports EC2-Classic.
-
-        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-
-        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-        case both options are defined as the api only requires one or the other.
-        """
-        return pulumi.get(self, "vpc")
-
-    @vpc.setter
-    def vpc(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "vpc", value)
-
 
 @pulumi.input_type
 class _EipState:
@@ -242,8 +210,7 @@ class _EipState:
                  public_ip: Optional[pulumi.Input[builtins.str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 vpc: Optional[pulumi.Input[builtins.bool]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Eip resources.
         :param pulumi.Input[builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -267,13 +234,6 @@ class _EipState:
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[builtins.bool] vpc: Boolean if the EIP is in a VPC or not. Use `domain` instead.
-               Defaults to `true` unless the region supports EC2-Classic.
-               
-               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-               
-               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-               case both options are defined as the api only requires one or the other.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -316,15 +276,7 @@ class _EipState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
-        if vpc is not None:
-            warnings.warn("""vpc is deprecated. Use domain instead.""", DeprecationWarning)
-            pulumi.log.warn("""vpc is deprecated: vpc is deprecated. Use domain instead.""")
-        if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter
@@ -566,7 +518,6 @@ class _EipState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -576,25 +527,6 @@ class _EipState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""vpc is deprecated. Use domain instead.""")
-    def vpc(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Boolean if the EIP is in a VPC or not. Use `domain` instead.
-        Defaults to `true` unless the region supports EC2-Classic.
-
-        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-
-        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-        case both options are defined as the api only requires one or the other.
-        """
-        return pulumi.get(self, "vpc")
-
-    @vpc.setter
-    def vpc(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "vpc", value)
 
 
 class Eip(pulumi.CustomResource):
@@ -615,7 +547,6 @@ class Eip(pulumi.CustomResource):
                  network_interface: Optional[pulumi.Input[builtins.str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 vpc: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Elastic IP resource.
@@ -729,13 +660,6 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[builtins.bool] vpc: Boolean if the EIP is in a VPC or not. Use `domain` instead.
-               Defaults to `true` unless the region supports EC2-Classic.
-               
-               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-               
-               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-               case both options are defined as the api only requires one or the other.
         """
         ...
     @overload
@@ -867,7 +791,6 @@ class Eip(pulumi.CustomResource):
                  network_interface: Optional[pulumi.Input[builtins.str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 vpc: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -887,7 +810,6 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["network_interface"] = network_interface
             __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["vpc"] = vpc
             __props__.__dict__["allocation_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_id"] = None
@@ -929,8 +851,7 @@ class Eip(pulumi.CustomResource):
             public_ip: Optional[pulumi.Input[builtins.str]] = None,
             public_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-            vpc: Optional[pulumi.Input[builtins.bool]] = None) -> 'Eip':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Eip':
         """
         Get an existing Eip resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -959,13 +880,6 @@ class Eip(pulumi.CustomResource):
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[builtins.bool] vpc: Boolean if the EIP is in a VPC or not. Use `domain` instead.
-               Defaults to `true` unless the region supports EC2-Classic.
-               
-               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-               
-               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-               case both options are defined as the api only requires one or the other.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -992,7 +906,6 @@ class Eip(pulumi.CustomResource):
         __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
-        __props__.__dict__["vpc"] = vpc
         return Eip(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1155,25 +1068,9 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""vpc is deprecated. Use domain instead.""")
-    def vpc(self) -> pulumi.Output[builtins.bool]:
-        """
-        Boolean if the EIP is in a VPC or not. Use `domain` instead.
-        Defaults to `true` unless the region supports EC2-Classic.
-
-        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-
-        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-        case both options are defined as the api only requires one or the other.
-        """
-        return pulumi.get(self, "vpc")
 

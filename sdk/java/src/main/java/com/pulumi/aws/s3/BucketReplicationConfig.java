@@ -39,17 +39,17 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.s3.BucketVersioningV2;
- * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketVersioning;
+ * import com.pulumi.aws.s3.BucketVersioningArgs;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningVersioningConfigurationArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketReplicationConfig;
  * import com.pulumi.aws.s3.BucketReplicationConfigArgs;
  * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleArgs;
@@ -85,11 +85,11 @@ import javax.annotation.Nullable;
  *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
- *         var destination = new BucketV2("destination", BucketV2Args.builder()
+ *         var destination = new Bucket("destination", BucketArgs.builder()
  *             .bucket("tf-test-bucket-destination-12345")
  *             .build());
  * 
- *         var source = new BucketV2("source", BucketV2Args.builder()
+ *         var source = new Bucket("source", BucketArgs.builder()
  *             .bucket("tf-test-bucket-source-12345")
  *             .build());
  * 
@@ -130,21 +130,21 @@ import javax.annotation.Nullable;
  *             .policyArn(replicationPolicy.arn())
  *             .build());
  * 
- *         var destinationBucketVersioningV2 = new BucketVersioningV2("destinationBucketVersioningV2", BucketVersioningV2Args.builder()
+ *         var destinationBucketVersioning = new BucketVersioning("destinationBucketVersioning", BucketVersioningArgs.builder()
  *             .bucket(destination.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var sourceBucketAcl = new BucketAclV2("sourceBucketAcl", BucketAclV2Args.builder()
+ *         var sourceBucketAcl = new BucketAcl("sourceBucketAcl", BucketAclArgs.builder()
  *             .bucket(source.id())
  *             .acl("private")
  *             .build());
  * 
- *         var sourceBucketVersioningV2 = new BucketVersioningV2("sourceBucketVersioningV2", BucketVersioningV2Args.builder()
+ *         var sourceBucketVersioning = new BucketVersioning("sourceBucketVersioning", BucketVersioningArgs.builder()
  *             .bucket(source.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(sourceBucketVersioningV2)
+ *                 .dependsOn(sourceBucketVersioning)
  *                 .build());
  * 
  *     }
@@ -183,11 +183,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketVersioningV2;
- * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketVersioning;
+ * import com.pulumi.aws.s3.BucketVersioningArgs;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningVersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketReplicationConfig;
  * import com.pulumi.aws.s3.BucketReplicationConfigArgs;
  * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleArgs;
@@ -208,24 +208,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ... other configuration ...
- *         var east = new BucketV2("east", BucketV2Args.builder()
+ *         var east = new Bucket("east", BucketArgs.builder()
  *             .bucket("tf-test-bucket-east-12345")
  *             .build());
  * 
- *         var eastBucketVersioningV2 = new BucketVersioningV2("eastBucketVersioningV2", BucketVersioningV2Args.builder()
+ *         var eastBucketVersioning = new BucketVersioning("eastBucketVersioning", BucketVersioningArgs.builder()
  *             .bucket(east.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var west = new BucketV2("west", BucketV2Args.builder()
+ *         var west = new Bucket("west", BucketArgs.builder()
  *             .bucket("tf-test-bucket-west-12345")
  *             .build());
  * 
- *         var westBucketVersioningV2 = new BucketVersioningV2("westBucketVersioningV2", BucketVersioningV2Args.builder()
+ *         var westBucketVersioning = new BucketVersioning("westBucketVersioning", BucketVersioningArgs.builder()
  *             .bucket(west.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
@@ -245,7 +245,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(eastBucketVersioningV2)
+ *                 .dependsOn(eastBucketVersioning)
  *                 .build());
  * 
  *         var westToEast = new BucketReplicationConfig("westToEast", BucketReplicationConfigArgs.builder()
@@ -263,7 +263,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(westBucketVersioningV2)
+ *                 .dependsOn(westBucketVersioning)
  *                 .build());
  * 
  *     }

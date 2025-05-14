@@ -62,9 +62,9 @@ namespace Pulumi.Aws.CodeBuild
     ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-test",
+    ///         BucketName = "my-test",
     ///     });
     /// 
     ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("example", new()
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CodeBuild
     ///             Type = "S3",
     ///             S3Destination = new Aws.CodeBuild.Inputs.ReportGroupExportConfigS3DestinationArgs
     ///             {
-    ///                 Bucket = exampleBucketV2.Id,
+    ///                 Bucket = exampleBucket.Id,
     ///                 EncryptionDisabled = false,
     ///                 EncryptionKey = exampleKey.Arn,
     ///                 Packaging = "NONE",
@@ -285,7 +285,6 @@ namespace Pulumi.Aws.CodeBuild
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

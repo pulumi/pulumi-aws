@@ -564,24 +564,6 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.basePolicyDocument);
     }
     /**
-     * The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-     * 
-     * @deprecated
-     * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
-     * 
-     */
-    @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
-    @Export(name="basePolicyRegion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> basePolicyRegion;
-
-    /**
-     * @return The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-     * 
-     */
-    public Output<Optional<String>> basePolicyRegion() {
-        return Codegen.optional(this.basePolicyRegion);
-    }
-    /**
      * A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      */
@@ -710,11 +692,7 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

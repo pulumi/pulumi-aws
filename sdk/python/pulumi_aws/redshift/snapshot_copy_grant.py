@@ -97,9 +97,6 @@ class _SnapshotCopyGrantState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -152,7 +149,6 @@ class _SnapshotCopyGrantState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -181,19 +177,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         Note that the grant must exist in the destination region, and not in the region of the cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("test", snapshot_copy={
-            "destination_region": "us-east-2",
-            "grant_name": test.snapshot_copy_grant_name,
-        })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
@@ -218,19 +201,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
 
         Note that the grant must exist in the destination region, and not in the region of the cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("test", snapshot_copy={
-            "destination_region": "us-east-2",
-            "grant_name": test.snapshot_copy_grant_name,
-        })
-        ```
 
         ## Import
 
@@ -347,7 +317,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

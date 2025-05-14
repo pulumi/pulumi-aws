@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,9 +38,8 @@ type Scraper struct {
 	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
 	//
 	// The following arguments are optional:
-	Source ScraperSourcePtrOutput `pulumi:"source"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Source   ScraperSourcePtrOutput   `pulumi:"source"`
+	Tags     pulumi.StringMapOutput   `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput   `pulumi:"tagsAll"`
 	Timeouts ScraperTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -93,9 +92,8 @@ type scraperState struct {
 	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
 	//
 	// The following arguments are optional:
-	Source *ScraperSource    `pulumi:"source"`
-	Tags   map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Source   *ScraperSource    `pulumi:"source"`
+	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *ScraperTimeouts  `pulumi:"timeouts"`
 }
@@ -116,9 +114,8 @@ type ScraperState struct {
 	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
 	//
 	// The following arguments are optional:
-	Source ScraperSourcePtrInput
-	Tags   pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Source   ScraperSourcePtrInput
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ScraperTimeoutsPtrInput
 }
@@ -290,7 +287,6 @@ func (o ScraperOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ScraperOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

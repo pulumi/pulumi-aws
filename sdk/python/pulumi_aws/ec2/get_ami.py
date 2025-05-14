@@ -29,7 +29,10 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, last_launched_time=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, uefi_data=None, usage_operation=None, virtualization_type=None):
+    def __init__(__self__, allow_unsafe_filter=None, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, last_launched_time=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, uefi_data=None, usage_operation=None, virtualization_type=None):
+        if allow_unsafe_filter and not isinstance(allow_unsafe_filter, bool):
+            raise TypeError("Expected argument 'allow_unsafe_filter' to be a bool")
+        pulumi.set(__self__, "allow_unsafe_filter", allow_unsafe_filter)
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -153,6 +156,11 @@ class GetAmiResult:
         if virtualization_type and not isinstance(virtualization_type, str):
             raise TypeError("Expected argument 'virtualization_type' to be a str")
         pulumi.set(__self__, "virtualization_type", virtualization_type)
+
+    @property
+    @pulumi.getter(name="allowUnsafeFilter")
+    def allow_unsafe_filter(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "allow_unsafe_filter")
 
     @property
     @pulumi.getter
@@ -482,6 +490,7 @@ class AwaitableGetAmiResult(GetAmiResult):
         if False:
             yield self
         return GetAmiResult(
+            allow_unsafe_filter=self.allow_unsafe_filter,
             architecture=self.architecture,
             arn=self.arn,
             block_device_mappings=self.block_device_mappings,
@@ -525,7 +534,8 @@ class AwaitableGetAmiResult(GetAmiResult):
             virtualization_type=self.virtualization_type)
 
 
-def get_ami(executable_users: Optional[Sequence[builtins.str]] = None,
+def get_ami(allow_unsafe_filter: Optional[builtins.bool] = None,
+            executable_users: Optional[Sequence[builtins.str]] = None,
             filters: Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']]] = None,
             include_deprecated: Optional[builtins.bool] = None,
             most_recent: Optional[builtins.bool] = None,
@@ -565,6 +575,10 @@ def get_ami(executable_users: Optional[Sequence[builtins.str]] = None,
     ```
 
 
+    :param builtins.bool allow_unsafe_filter: If true, allow unsafe filter values. With unsafe
+           filters and `most_recent` set to `true`, a third party may introduce a new image which
+           will be returned by this data source. Consider filtering by owner or image ID rather
+           than setting this argument.
     :param Sequence[builtins.str] executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
     :param Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
@@ -590,6 +604,7 @@ def get_ami(executable_users: Optional[Sequence[builtins.str]] = None,
     :param builtins.str uefi_data: (Optional) Base64 representation of the non-volatile UEFI variable store.
     """
     __args__ = dict()
+    __args__['allowUnsafeFilter'] = allow_unsafe_filter
     __args__['executableUsers'] = executable_users
     __args__['filters'] = filters
     __args__['includeDeprecated'] = include_deprecated
@@ -602,6 +617,7 @@ def get_ami(executable_users: Optional[Sequence[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getAmi:getAmi', __args__, opts=opts, typ=GetAmiResult).value
 
     return AwaitableGetAmiResult(
+        allow_unsafe_filter=pulumi.get(__ret__, 'allow_unsafe_filter'),
         architecture=pulumi.get(__ret__, 'architecture'),
         arn=pulumi.get(__ret__, 'arn'),
         block_device_mappings=pulumi.get(__ret__, 'block_device_mappings'),
@@ -643,7 +659,8 @@ def get_ami(executable_users: Optional[Sequence[builtins.str]] = None,
         uefi_data=pulumi.get(__ret__, 'uefi_data'),
         usage_operation=pulumi.get(__ret__, 'usage_operation'),
         virtualization_type=pulumi.get(__ret__, 'virtualization_type'))
-def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+def get_ami_output(allow_unsafe_filter: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                   executable_users: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                    filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']]]]] = None,
                    include_deprecated: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                    most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
@@ -683,6 +700,10 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[bui
     ```
 
 
+    :param builtins.bool allow_unsafe_filter: If true, allow unsafe filter values. With unsafe
+           filters and `most_recent` set to `true`, a third party may introduce a new image which
+           will be returned by this data source. Consider filtering by owner or image ID rather
+           than setting this argument.
     :param Sequence[builtins.str] executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
     :param Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
@@ -708,6 +729,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[bui
     :param builtins.str uefi_data: (Optional) Base64 representation of the non-volatile UEFI variable store.
     """
     __args__ = dict()
+    __args__['allowUnsafeFilter'] = allow_unsafe_filter
     __args__['executableUsers'] = executable_users
     __args__['filters'] = filters
     __args__['includeDeprecated'] = include_deprecated
@@ -719,6 +741,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[bui
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getAmi:getAmi', __args__, opts=opts, typ=GetAmiResult)
     return __ret__.apply(lambda __response__: GetAmiResult(
+        allow_unsafe_filter=pulumi.get(__response__, 'allow_unsafe_filter'),
         architecture=pulumi.get(__response__, 'architecture'),
         arn=pulumi.get(__response__, 'arn'),
         block_device_mappings=pulumi.get(__response__, 'block_device_mappings'),

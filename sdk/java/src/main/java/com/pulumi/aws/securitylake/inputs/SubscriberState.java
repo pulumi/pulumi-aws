@@ -9,6 +9,7 @@ import com.pulumi.aws.securitylake.inputs.SubscriberTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,15 +114,15 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    @Import(name="source")
-    private @Nullable Output<SubscriberSourceArgs> source;
+    @Import(name="sources")
+    private @Nullable Output<List<SubscriberSourceArgs>> sources;
 
     /**
      * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    public Optional<Output<SubscriberSourceArgs>> source() {
-        return Optional.ofNullable(this.source);
+    public Optional<Output<List<SubscriberSourceArgs>>> sources() {
+        return Optional.ofNullable(this.sources);
     }
 
     /**
@@ -217,22 +218,14 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -253,7 +246,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         this.resourceShareName = $.resourceShareName;
         this.roleArn = $.roleArn;
         this.s3BucketArn = $.s3BucketArn;
-        this.source = $.source;
+        this.sources = $.sources;
         this.subscriberDescription = $.subscriberDescription;
         this.subscriberEndpoint = $.subscriberEndpoint;
         this.subscriberIdentity = $.subscriberIdentity;
@@ -409,24 +402,34 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+         * @param sources The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
          * 
          * @return builder
          * 
          */
-        public Builder source(@Nullable Output<SubscriberSourceArgs> source) {
-            $.source = source;
+        public Builder sources(@Nullable Output<List<SubscriberSourceArgs>> sources) {
+            $.sources = sources;
             return this;
         }
 
         /**
-         * @param source The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+         * @param sources The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
          * 
          * @return builder
          * 
          */
-        public Builder source(SubscriberSourceArgs source) {
-            return source(Output.of(source));
+        public Builder sources(List<SubscriberSourceArgs> sources) {
+            return sources(Output.of(sources));
+        }
+
+        /**
+         * @param sources The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sources(SubscriberSourceArgs... sources) {
+            return sources(List.of(sources));
         }
 
         /**
@@ -560,11 +563,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -575,11 +574,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

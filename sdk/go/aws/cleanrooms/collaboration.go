@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cleanrooms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cleanrooms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,8 +108,7 @@ type Collaboration struct {
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringOutput `pulumi:"queryLogStatus"`
 	// Key value pairs which tag the collaboration.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
 	UpdateTime pulumi.StringOutput    `pulumi:"updateTime"`
 }
@@ -188,8 +187,7 @@ type collaborationState struct {
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus *string `pulumi:"queryLogStatus"`
 	// Key value pairs which tag the collaboration.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags       map[string]string `pulumi:"tags"`
 	TagsAll    map[string]string `pulumi:"tagsAll"`
 	UpdateTime *string           `pulumi:"updateTime"`
 }
@@ -227,8 +225,7 @@ type CollaborationState struct {
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringPtrInput
 	// Key value pairs which tag the collaboration.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags       pulumi.StringMapInput
 	TagsAll    pulumi.StringMapInput
 	UpdateTime pulumi.StringPtrInput
 }
@@ -265,7 +262,8 @@ type collaborationArgs struct {
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus string `pulumi:"queryLogStatus"`
 	// Key value pairs which tag the collaboration.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Collaboration resource.
@@ -297,7 +295,8 @@ type CollaborationArgs struct {
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringInput
 	// Key value pairs which tag the collaboration.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (CollaborationArgs) ElementType() reflect.Type {
@@ -450,7 +449,6 @@ func (o CollaborationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o CollaborationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

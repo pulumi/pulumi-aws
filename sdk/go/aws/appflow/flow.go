@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,16 +21,16 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appflow"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appflow"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "example_source", &s3.BucketV2Args{
+//			exampleSourceBucket, err := s3.NewBucket(ctx, "example_source", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-source"),
 //			})
 //			if err != nil {
@@ -64,21 +64,21 @@ import (
 //				return err
 //			}
 //			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_source", &s3.BucketPolicyArgs{
-//				Bucket: exampleSourceBucketV2.ID(),
+//				Bucket: exampleSourceBucket.ID(),
 //				Policy: pulumi.String(exampleSource.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: exampleSourceBucketV2.ID(),
+//				Bucket: exampleSourceBucket.ID(),
 //				Key:    pulumi.String("example_source.csv"),
 //				Source: pulumi.NewFileAsset("example_source.csv"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "example_destination", &s3.BucketV2Args{
+//			exampleDestinationBucket, err := s3.NewBucket(ctx, "example_destination", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-destination"),
 //			})
 //			if err != nil {
@@ -116,7 +116,7 @@ import (
 //				return err
 //			}
 //			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_destination", &s3.BucketPolicyArgs{
-//				Bucket: exampleDestinationBucketV2.ID(),
+//				Bucket: exampleDestinationBucket.ID(),
 //				Policy: pulumi.String(exampleDestination.Json),
 //			})
 //			if err != nil {
@@ -204,8 +204,6 @@ type Flow struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks FlowTaskArrayOutput `pulumi:"tasks"`
@@ -274,8 +272,6 @@ type flowState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks []FlowTask `pulumi:"tasks"`
@@ -303,8 +299,6 @@ type FlowState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks FlowTaskArrayInput
@@ -492,8 +486,6 @@ func (o FlowOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o FlowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

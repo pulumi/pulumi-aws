@@ -166,7 +166,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_access_point = aws.s3.AccessPoint("example",
             bucket=example.id,
             name="example")
@@ -228,7 +228,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_access_point = aws.s3.AccessPoint("example",
             bucket=example.id,
             name="example")

@@ -69,8 +69,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.servicecatalog.AppregistryApplication;
  * import com.pulumi.aws.servicecatalog.AppregistryApplicationArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *             .name("example-app")
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()
  *             .bucket("example-bucket")
  *             .tags(example.applicationTag())
  *             .build());
@@ -187,11 +187,7 @@ public class AppregistryApplication extends com.pulumi.resources.CustomResource 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

@@ -1,0 +1,171 @@
+name: test-aws-bucket-migration
+runtime: yaml
+resources:
+  replication:
+    type: aws:iam:Role
+    properties:
+      name: tf-iam-role-replication-12345
+      assumeRolePolicy: |
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "s3.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+  replicationPolicy:
+    type: aws:iam:Policy
+    name: replication
+    properties:
+      name: tf-iam-role-policy-replication-12345
+      policy: |
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetReplicationConfiguration",
+                "s3:ListBucket"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "${migrationBucket.arn}"
+              ]
+            },
+            {
+              "Action": [
+                "s3:GetObjectVersionForReplication",
+                "s3:GetObjectVersionAcl",
+                 "s3:GetObjectVersionTagging"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "${migrationBucket.arn}/*"
+              ]
+            },
+            {
+              "Action": [
+                "s3:ReplicateObject",
+                "s3:ReplicateDelete",
+                "s3:ReplicateTags"
+              ],
+              "Effect": "Allow",
+              "Resource": "${destinationBucket.arn}/*"
+            }
+          ]
+        }
+  replicationRolePolicyAttachment:
+    type: aws:iam:RolePolicyAttachment
+    name: replication
+    properties:
+      role: ${replication.name}
+      policyArn: ${replicationPolicy.arn}
+  destinationBucket:
+    type: aws:s3:Bucket
+    properties:
+      forceDestroy: true
+      versioning:
+        enabled: true
+  loggingBucket:
+    type: aws:s3:Bucket
+    properties:
+      forceDestroy: true
+  exampleBucketOwnershipControls:
+    type: aws:s3:BucketOwnershipControls
+    properties:
+      bucket: ${loggingBucket.id}
+      rule:
+        objectOwnership: BucketOwnerPreferred
+  exampleBucketAclV2:
+    type: aws:s3:BucketAclV2
+    properties:
+      bucket: ${loggingBucket.id}
+      acl: log-delivery-write
+    options:
+      dependsOn:
+        - ${exampleBucketOwnershipControls}
+  migrationBucket:
+    type: aws:s3:Bucket
+    properties:
+      forceDestroy: true
+      serverSideEncryptionConfiguration:
+        rule:
+          applyServerSideEncryptionByDefault:
+            sseAlgorithm: "AES256"
+      # same between v1 & v2
+      lifecycleRules:
+        - id: noncurrent
+          enabled: true
+          # different between v1 & v2
+          expiration:
+            days: 30
+          noncurrentVersionExpiration:
+            days: 30
+        - id: log
+          enabled: true
+          prefix: log/
+          tags:
+            rule: log
+            autoclean: 'true'
+          transitions:
+            - days: 30
+              storageClass: STANDARD_IA
+      # same between v1 & v2
+      loggings:
+        - targetBucket: ${loggingBucket.bucket}
+          targetPrefix: /log
+      corsRules:
+        - allowedHeaders:
+            - '*'
+          allowedMethods:
+            - PUT
+            - POST
+          allowedOrigins:
+            - https://s3-website-test.mydomain.com
+          exposeHeaders:
+            - ETag
+          maxAgeSeconds: 3000
+      website:
+        indexDocument: index.html
+        errorDocument: error.html
+        routingRules: |
+          [{
+            "Condition": {
+              "KeyPrefixEquals": "docs"
+            },
+            "Redirect": {
+              "ReplaceKeyPrefixWith": "documents/"
+            }
+          }]
+      versioning:
+        enabled: true
+      # not testing because we don't want to enable object lock
+      # objectLockConfiguration:
+      replicationConfiguration:
+        role: ${replication.arn}
+        rules:
+          - id: foobar
+            status: Disabled
+            filter:
+              tags: {}
+            # don't want to setup a key
+            # sourceSelectionCriteria:
+            #   sseKmsEncryptedObjects:
+            #     enabled: false
+            destination:
+              bucket: ${destinationBucket.arn}
+              replicationTime:
+                status: Disabled
+                minutes: 15
+              # not testing because we don't want to change the owner
+              # accessControlTranslation:
+              metrics:
+                status: Disabled
+                minutes: 15
+

@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const b = new aws.s3.BucketV2("b", {
+ * const b = new aws.s3.Bucket("b", {
  *     bucket: "mybucket",
  *     tags: {
  *         Name: "My bucket",
  *     },
  * });
- * const bAcl = new aws.s3.BucketAclV2("b_acl", {
+ * const bAcl = new aws.s3.BucketAcl("b_acl", {
  *     bucket: b.id,
  *     acl: "private",
  * });
@@ -250,6 +250,40 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With V2 logging to S3
+ *
+ * The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.Distribution("example", {});
+ * const exampleLogDeliverySource = new aws.cloudwatch.LogDeliverySource("example", {
+ *     name: "example",
+ *     logType: "ACCESS_LOGS",
+ *     resourceArn: example.arn,
+ * });
+ * const exampleBucket = new aws.s3.Bucket("example", {
+ *     bucket: "testbucket",
+ *     forceDestroy: true,
+ * });
+ * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
+ *     name: "s3-destination",
+ *     outputFormat: "parquet",
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: pulumi.interpolate`${exampleBucket.arn}/prefix`,
+ *     },
+ * });
+ * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
+ *     deliverySourceName: exampleLogDeliverySource.name,
+ *     deliveryDestinationArn: exampleLogDeliveryDestination.arn,
+ *     s3DeliveryConfigurations: [{
+ *         suffixPath: "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -341,10 +375,8 @@ export class Distribution extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      */
@@ -437,6 +469,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
             resourceInputs["staging"] = args ? args.staging : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
             resourceInputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
             resourceInputs["webAclId"] = args ? args.webAclId : undefined;
@@ -448,7 +481,6 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["inProgressValidationBatches"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["trustedKeyGroups"] = undefined /*out*/;
             resourceInputs["trustedSigners"] = undefined /*out*/;
         }
@@ -516,8 +548,6 @@ export interface DistributionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -558,6 +588,10 @@ export interface DistributionArgs {
     retainOnDelete?: pulumi.Input<boolean>;
     staging?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     viewerCertificate: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
     waitForDeployment?: pulumi.Input<boolean>;
     webAclId?: pulumi.Input<string>;

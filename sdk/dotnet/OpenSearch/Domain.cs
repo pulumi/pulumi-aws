@@ -575,12 +575,6 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        /// </summary>
-        [Output("kibanaEndpoint")]
-        public Output<string> KibanaEndpoint { get; private set; } = null!;
-
-        /// <summary>
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         /// </summary>
         [Output("logPublishingOptions")]
@@ -942,12 +936,6 @@ namespace Pulumi.Aws.OpenSearch
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
-        /// <summary>
-        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        /// </summary>
-        [Input("kibanaEndpoint")]
-        public Input<string>? KibanaEndpoint { get; set; }
-
         [Input("logPublishingOptions")]
         private InputList<Inputs.DomainLogPublishingOptionGetArgs>? _logPublishingOptions;
 
@@ -1002,7 +990,6 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

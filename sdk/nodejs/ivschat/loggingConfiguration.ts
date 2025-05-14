@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucketPrefix: "tf-ivschat-logging-bucket"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucketPrefix: "tf-ivschat-logging-bucket"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -52,14 +52,14 @@ import * as utilities from "../utilities";
  *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         roleArn: exampleRole.arn,
- *         bucketArn: exampleBucketV2.arn,
+ *         bucketArn: exampleBucket.arn,
  *     },
  *     tags: {
  *         LogDeliveryEnabled: "true",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
+ *     bucket: exampleBucket.id,
  *     acl: "private",
  * });
  * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("example", {destinationConfiguration: {
@@ -127,8 +127,6 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -191,8 +189,6 @@ export interface LoggingConfigurationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

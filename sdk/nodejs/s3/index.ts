@@ -25,35 +25,35 @@ export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
 utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
-export { BucketAccelerateConfigurationV2Args, BucketAccelerateConfigurationV2State } from "./bucketAccelerateConfigurationV2";
-export type BucketAccelerateConfigurationV2 = import("./bucketAccelerateConfigurationV2").BucketAccelerateConfigurationV2;
-export const BucketAccelerateConfigurationV2: typeof import("./bucketAccelerateConfigurationV2").BucketAccelerateConfigurationV2 = null as any;
-utilities.lazyLoad(exports, ["BucketAccelerateConfigurationV2"], () => require("./bucketAccelerateConfigurationV2"));
+export { BucketAccelerateConfigurationArgs, BucketAccelerateConfigurationState } from "./bucketAccelerateConfiguration";
+export type BucketAccelerateConfiguration = import("./bucketAccelerateConfiguration").BucketAccelerateConfiguration;
+export const BucketAccelerateConfiguration: typeof import("./bucketAccelerateConfiguration").BucketAccelerateConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketAccelerateConfiguration"], () => require("./bucketAccelerateConfiguration"));
 
-export { BucketAclV2Args, BucketAclV2State } from "./bucketAclV2";
-export type BucketAclV2 = import("./bucketAclV2").BucketAclV2;
-export const BucketAclV2: typeof import("./bucketAclV2").BucketAclV2 = null as any;
-utilities.lazyLoad(exports, ["BucketAclV2"], () => require("./bucketAclV2"));
+export { BucketAclArgs, BucketAclState } from "./bucketAcl";
+export type BucketAcl = import("./bucketAcl").BucketAcl;
+export const BucketAcl: typeof import("./bucketAcl").BucketAcl = null as any;
+utilities.lazyLoad(exports, ["BucketAcl"], () => require("./bucketAcl"));
 
-export { BucketCorsConfigurationV2Args, BucketCorsConfigurationV2State } from "./bucketCorsConfigurationV2";
-export type BucketCorsConfigurationV2 = import("./bucketCorsConfigurationV2").BucketCorsConfigurationV2;
-export const BucketCorsConfigurationV2: typeof import("./bucketCorsConfigurationV2").BucketCorsConfigurationV2 = null as any;
-utilities.lazyLoad(exports, ["BucketCorsConfigurationV2"], () => require("./bucketCorsConfigurationV2"));
+export { BucketCorsConfigurationArgs, BucketCorsConfigurationState } from "./bucketCorsConfiguration";
+export type BucketCorsConfiguration = import("./bucketCorsConfiguration").BucketCorsConfiguration;
+export const BucketCorsConfiguration: typeof import("./bucketCorsConfiguration").BucketCorsConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketCorsConfiguration"], () => require("./bucketCorsConfiguration"));
 
 export { BucketIntelligentTieringConfigurationArgs, BucketIntelligentTieringConfigurationState } from "./bucketIntelligentTieringConfiguration";
 export type BucketIntelligentTieringConfiguration = import("./bucketIntelligentTieringConfiguration").BucketIntelligentTieringConfiguration;
 export const BucketIntelligentTieringConfiguration: typeof import("./bucketIntelligentTieringConfiguration").BucketIntelligentTieringConfiguration = null as any;
 utilities.lazyLoad(exports, ["BucketIntelligentTieringConfiguration"], () => require("./bucketIntelligentTieringConfiguration"));
 
-export { BucketLifecycleConfigurationV2Args, BucketLifecycleConfigurationV2State } from "./bucketLifecycleConfigurationV2";
-export type BucketLifecycleConfigurationV2 = import("./bucketLifecycleConfigurationV2").BucketLifecycleConfigurationV2;
-export const BucketLifecycleConfigurationV2: typeof import("./bucketLifecycleConfigurationV2").BucketLifecycleConfigurationV2 = null as any;
-utilities.lazyLoad(exports, ["BucketLifecycleConfigurationV2"], () => require("./bucketLifecycleConfigurationV2"));
+export { BucketLifecycleConfigurationArgs, BucketLifecycleConfigurationState } from "./bucketLifecycleConfiguration";
+export type BucketLifecycleConfiguration = import("./bucketLifecycleConfiguration").BucketLifecycleConfiguration;
+export const BucketLifecycleConfiguration: typeof import("./bucketLifecycleConfiguration").BucketLifecycleConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketLifecycleConfiguration"], () => require("./bucketLifecycleConfiguration"));
 
-export { BucketLoggingV2Args, BucketLoggingV2State } from "./bucketLoggingV2";
-export type BucketLoggingV2 = import("./bucketLoggingV2").BucketLoggingV2;
-export const BucketLoggingV2: typeof import("./bucketLoggingV2").BucketLoggingV2 = null as any;
-utilities.lazyLoad(exports, ["BucketLoggingV2"], () => require("./bucketLoggingV2"));
+export { BucketLoggingArgs, BucketLoggingState } from "./bucketLogging";
+export type BucketLogging = import("./bucketLogging").BucketLogging;
+export const BucketLogging: typeof import("./bucketLogging").BucketLogging = null as any;
+utilities.lazyLoad(exports, ["BucketLogging"], () => require("./bucketLogging"));
 
 export { BucketMetricArgs, BucketMetricState } from "./bucketMetric";
 export type BucketMetric = import("./bucketMetric").BucketMetric;
@@ -70,10 +70,10 @@ export type BucketObject = import("./bucketObject").BucketObject;
 export const BucketObject: typeof import("./bucketObject").BucketObject = null as any;
 utilities.lazyLoad(exports, ["BucketObject"], () => require("./bucketObject"));
 
-export { BucketObjectLockConfigurationV2Args, BucketObjectLockConfigurationV2State } from "./bucketObjectLockConfigurationV2";
-export type BucketObjectLockConfigurationV2 = import("./bucketObjectLockConfigurationV2").BucketObjectLockConfigurationV2;
-export const BucketObjectLockConfigurationV2: typeof import("./bucketObjectLockConfigurationV2").BucketObjectLockConfigurationV2 = null as any;
-utilities.lazyLoad(exports, ["BucketObjectLockConfigurationV2"], () => require("./bucketObjectLockConfigurationV2"));
+export { BucketObjectLockConfigurationArgs, BucketObjectLockConfigurationState } from "./bucketObjectLockConfiguration";
+export type BucketObjectLockConfiguration = import("./bucketObjectLockConfiguration").BucketObjectLockConfiguration;
+export const BucketObjectLockConfiguration: typeof import("./bucketObjectLockConfiguration").BucketObjectLockConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketObjectLockConfiguration"], () => require("./bucketObjectLockConfiguration"));
 
 export { BucketObjectv2Args, BucketObjectv2State } from "./bucketObjectv2";
 export type BucketObjectv2 = import("./bucketObjectv2").BucketObjectv2;
@@ -100,30 +100,25 @@ export type BucketReplicationConfig = import("./bucketReplicationConfig").Bucket
 export const BucketReplicationConfig: typeof import("./bucketReplicationConfig").BucketReplicationConfig = null as any;
 utilities.lazyLoad(exports, ["BucketReplicationConfig"], () => require("./bucketReplicationConfig"));
 
-export { BucketRequestPaymentConfigurationV2Args, BucketRequestPaymentConfigurationV2State } from "./bucketRequestPaymentConfigurationV2";
-export type BucketRequestPaymentConfigurationV2 = import("./bucketRequestPaymentConfigurationV2").BucketRequestPaymentConfigurationV2;
-export const BucketRequestPaymentConfigurationV2: typeof import("./bucketRequestPaymentConfigurationV2").BucketRequestPaymentConfigurationV2 = null as any;
-utilities.lazyLoad(exports, ["BucketRequestPaymentConfigurationV2"], () => require("./bucketRequestPaymentConfigurationV2"));
+export { BucketRequestPaymentConfigurationArgs, BucketRequestPaymentConfigurationState } from "./bucketRequestPaymentConfiguration";
+export type BucketRequestPaymentConfiguration = import("./bucketRequestPaymentConfiguration").BucketRequestPaymentConfiguration;
+export const BucketRequestPaymentConfiguration: typeof import("./bucketRequestPaymentConfiguration").BucketRequestPaymentConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketRequestPaymentConfiguration"], () => require("./bucketRequestPaymentConfiguration"));
 
-export { BucketServerSideEncryptionConfigurationV2Args, BucketServerSideEncryptionConfigurationV2State } from "./bucketServerSideEncryptionConfigurationV2";
-export type BucketServerSideEncryptionConfigurationV2 = import("./bucketServerSideEncryptionConfigurationV2").BucketServerSideEncryptionConfigurationV2;
-export const BucketServerSideEncryptionConfigurationV2: typeof import("./bucketServerSideEncryptionConfigurationV2").BucketServerSideEncryptionConfigurationV2 = null as any;
-utilities.lazyLoad(exports, ["BucketServerSideEncryptionConfigurationV2"], () => require("./bucketServerSideEncryptionConfigurationV2"));
+export { BucketServerSideEncryptionConfigurationArgs, BucketServerSideEncryptionConfigurationState } from "./bucketServerSideEncryptionConfiguration";
+export type BucketServerSideEncryptionConfiguration = import("./bucketServerSideEncryptionConfiguration").BucketServerSideEncryptionConfiguration;
+export const BucketServerSideEncryptionConfiguration: typeof import("./bucketServerSideEncryptionConfiguration").BucketServerSideEncryptionConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketServerSideEncryptionConfiguration"], () => require("./bucketServerSideEncryptionConfiguration"));
 
-export { BucketV2Args, BucketV2State } from "./bucketV2";
-export type BucketV2 = import("./bucketV2").BucketV2;
-export const BucketV2: typeof import("./bucketV2").BucketV2 = null as any;
-utilities.lazyLoad(exports, ["BucketV2"], () => require("./bucketV2"));
+export { BucketVersioningArgs, BucketVersioningState } from "./bucketVersioning";
+export type BucketVersioning = import("./bucketVersioning").BucketVersioning;
+export const BucketVersioning: typeof import("./bucketVersioning").BucketVersioning = null as any;
+utilities.lazyLoad(exports, ["BucketVersioning"], () => require("./bucketVersioning"));
 
-export { BucketVersioningV2Args, BucketVersioningV2State } from "./bucketVersioningV2";
-export type BucketVersioningV2 = import("./bucketVersioningV2").BucketVersioningV2;
-export const BucketVersioningV2: typeof import("./bucketVersioningV2").BucketVersioningV2 = null as any;
-utilities.lazyLoad(exports, ["BucketVersioningV2"], () => require("./bucketVersioningV2"));
-
-export { BucketWebsiteConfigurationV2Args, BucketWebsiteConfigurationV2State } from "./bucketWebsiteConfigurationV2";
-export type BucketWebsiteConfigurationV2 = import("./bucketWebsiteConfigurationV2").BucketWebsiteConfigurationV2;
-export const BucketWebsiteConfigurationV2: typeof import("./bucketWebsiteConfigurationV2").BucketWebsiteConfigurationV2 = null as any;
-utilities.lazyLoad(exports, ["BucketWebsiteConfigurationV2"], () => require("./bucketWebsiteConfigurationV2"));
+export { BucketWebsiteConfigurationArgs, BucketWebsiteConfigurationState } from "./bucketWebsiteConfiguration";
+export type BucketWebsiteConfiguration = import("./bucketWebsiteConfiguration").BucketWebsiteConfiguration;
+export const BucketWebsiteConfiguration: typeof import("./bucketWebsiteConfiguration").BucketWebsiteConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketWebsiteConfiguration"], () => require("./bucketWebsiteConfiguration"));
 
 export * from "./cannedAcl";
 export { DirectoryBucketArgs, DirectoryBucketState } from "./directoryBucket";
@@ -204,26 +199,26 @@ const _module = {
                 return new AnalyticsConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
-            case "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2":
-                return new BucketAccelerateConfigurationV2(name, <any>undefined, { urn })
-            case "aws:s3/bucketAclV2:BucketAclV2":
-                return new BucketAclV2(name, <any>undefined, { urn })
-            case "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2":
-                return new BucketCorsConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration":
+                return new BucketAccelerateConfiguration(name, <any>undefined, { urn })
+            case "aws:s3/bucketAcl:BucketAcl":
+                return new BucketAcl(name, <any>undefined, { urn })
+            case "aws:s3/bucketCorsConfiguration:BucketCorsConfiguration":
+                return new BucketCorsConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration":
                 return new BucketIntelligentTieringConfiguration(name, <any>undefined, { urn })
-            case "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2":
-                return new BucketLifecycleConfigurationV2(name, <any>undefined, { urn })
-            case "aws:s3/bucketLoggingV2:BucketLoggingV2":
-                return new BucketLoggingV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketLifecycleConfiguration:BucketLifecycleConfiguration":
+                return new BucketLifecycleConfiguration(name, <any>undefined, { urn })
+            case "aws:s3/bucketLogging:BucketLogging":
+                return new BucketLogging(name, <any>undefined, { urn })
             case "aws:s3/bucketMetric:BucketMetric":
                 return new BucketMetric(name, <any>undefined, { urn })
             case "aws:s3/bucketNotification:BucketNotification":
                 return new BucketNotification(name, <any>undefined, { urn })
             case "aws:s3/bucketObject:BucketObject":
                 return new BucketObject(name, <any>undefined, { urn })
-            case "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2":
-                return new BucketObjectLockConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration":
+                return new BucketObjectLockConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucketObjectv2:BucketObjectv2":
                 return new BucketObjectv2(name, <any>undefined, { urn })
             case "aws:s3/bucketOwnershipControls:BucketOwnershipControls":
@@ -234,16 +229,14 @@ const _module = {
                 return new BucketPublicAccessBlock(name, <any>undefined, { urn })
             case "aws:s3/bucketReplicationConfig:BucketReplicationConfig":
                 return new BucketReplicationConfig(name, <any>undefined, { urn })
-            case "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2":
-                return new BucketRequestPaymentConfigurationV2(name, <any>undefined, { urn })
-            case "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2":
-                return new BucketServerSideEncryptionConfigurationV2(name, <any>undefined, { urn })
-            case "aws:s3/bucketV2:BucketV2":
-                return new BucketV2(name, <any>undefined, { urn })
-            case "aws:s3/bucketVersioningV2:BucketVersioningV2":
-                return new BucketVersioningV2(name, <any>undefined, { urn })
-            case "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2":
-                return new BucketWebsiteConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration":
+                return new BucketRequestPaymentConfiguration(name, <any>undefined, { urn })
+            case "aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration":
+                return new BucketServerSideEncryptionConfiguration(name, <any>undefined, { urn })
+            case "aws:s3/bucketVersioning:BucketVersioning":
+                return new BucketVersioning(name, <any>undefined, { urn })
+            case "aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration":
+                return new BucketWebsiteConfiguration(name, <any>undefined, { urn })
             case "aws:s3/directoryBucket:DirectoryBucket":
                 return new DirectoryBucket(name, <any>undefined, { urn })
             case "aws:s3/inventory:Inventory":
@@ -259,26 +252,25 @@ pulumi.runtime.registerResourceModule("aws", "s3/accessPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/accountPublicAccessBlock", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/analyticsConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucket", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketAccelerateConfigurationV2", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketAclV2", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketCorsConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketAccelerateConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketAcl", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketCorsConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketIntelligentTieringConfiguration", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketLifecycleConfigurationV2", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketLoggingV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketLifecycleConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketLogging", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketMetric", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketNotification", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketObject", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketObjectLockConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketObjectLockConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketObjectv2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketOwnershipControls", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketPublicAccessBlock", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketReplicationConfig", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketRequestPaymentConfigurationV2", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketServerSideEncryptionConfigurationV2", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketV2", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketVersioningV2", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketRequestPaymentConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketServerSideEncryptionConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketVersioning", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/directoryBucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/inventory", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/objectCopy", _module)

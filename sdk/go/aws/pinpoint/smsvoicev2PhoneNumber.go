@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pinpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,8 +79,6 @@ type Smsvoicev2PhoneNumber struct {
 	SelfManagedOptOutsEnabled pulumi.BoolOutput      `pulumi:"selfManagedOptOutsEnabled"`
 	Tags                      pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 	Timeouts Smsvoicev2PhoneNumberTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The Amazon Resource Name (ARN) of the two way channel.
@@ -155,8 +153,6 @@ type smsvoicev2PhoneNumberState struct {
 	SelfManagedOptOutsEnabled *bool             `pulumi:"selfManagedOptOutsEnabled"`
 	Tags                      map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string              `pulumi:"tagsAll"`
 	Timeouts *Smsvoicev2PhoneNumberTimeouts `pulumi:"timeouts"`
 	// The Amazon Resource Name (ARN) of the two way channel.
@@ -190,8 +186,6 @@ type Smsvoicev2PhoneNumberState struct {
 	SelfManagedOptOutsEnabled pulumi.BoolPtrInput
 	Tags                      pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts Smsvoicev2PhoneNumberTimeoutsPtrInput
 	// The Amazon Resource Name (ARN) of the two way channel.
@@ -402,8 +396,6 @@ func (o Smsvoicev2PhoneNumberOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o Smsvoicev2PhoneNumberOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

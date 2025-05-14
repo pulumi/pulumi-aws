@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-medical-vocab-123",
+    ///         BucketName = "example-medical-vocab-123",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -233,7 +233,6 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

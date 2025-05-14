@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1305,7 +1305,7 @@ func (o StreamProcessorOutputS3DestinationPtrOutput) KeyPrefix() pulumi.StringPt
 
 type StreamProcessorRegionsOfInterest struct {
 	// Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
-	BoundingBox *StreamProcessorRegionsOfInterestBoundingBox `pulumi:"boundingBox"`
+	BoundingBox StreamProcessorRegionsOfInterestBoundingBox `pulumi:"boundingBox"`
 	// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
 	Polygons []StreamProcessorRegionsOfInterestPolygon `pulumi:"polygons"`
 }
@@ -1323,7 +1323,7 @@ type StreamProcessorRegionsOfInterestInput interface {
 
 type StreamProcessorRegionsOfInterestArgs struct {
 	// Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
-	BoundingBox StreamProcessorRegionsOfInterestBoundingBoxPtrInput `pulumi:"boundingBox"`
+	BoundingBox StreamProcessorRegionsOfInterestBoundingBoxInput `pulumi:"boundingBox"`
 	// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
 	Polygons StreamProcessorRegionsOfInterestPolygonArrayInput `pulumi:"polygons"`
 }
@@ -1380,10 +1380,10 @@ func (o StreamProcessorRegionsOfInterestOutput) ToStreamProcessorRegionsOfIntere
 }
 
 // Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
-func (o StreamProcessorRegionsOfInterestOutput) BoundingBox() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return o.ApplyT(func(v StreamProcessorRegionsOfInterest) *StreamProcessorRegionsOfInterestBoundingBox {
+func (o StreamProcessorRegionsOfInterestOutput) BoundingBox() StreamProcessorRegionsOfInterestBoundingBoxOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterest) StreamProcessorRegionsOfInterestBoundingBox {
 		return v.BoundingBox
-	}).(StreamProcessorRegionsOfInterestBoundingBoxPtrOutput)
+	}).(StreamProcessorRegionsOfInterestBoundingBoxOutput)
 }
 
 // Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
@@ -1456,47 +1456,6 @@ func (i StreamProcessorRegionsOfInterestBoundingBoxArgs) ToStreamProcessorRegion
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestBoundingBoxOutput)
 }
 
-func (i StreamProcessorRegionsOfInterestBoundingBoxArgs) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return i.ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(context.Background())
-}
-
-func (i StreamProcessorRegionsOfInterestBoundingBoxArgs) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestBoundingBoxOutput).ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx)
-}
-
-// StreamProcessorRegionsOfInterestBoundingBoxPtrInput is an input type that accepts StreamProcessorRegionsOfInterestBoundingBoxArgs, StreamProcessorRegionsOfInterestBoundingBoxPtr and StreamProcessorRegionsOfInterestBoundingBoxPtrOutput values.
-// You can construct a concrete instance of `StreamProcessorRegionsOfInterestBoundingBoxPtrInput` via:
-//
-//	        StreamProcessorRegionsOfInterestBoundingBoxArgs{...}
-//
-//	or:
-//
-//	        nil
-type StreamProcessorRegionsOfInterestBoundingBoxPtrInput interface {
-	pulumi.Input
-
-	ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput
-	ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput
-}
-
-type streamProcessorRegionsOfInterestBoundingBoxPtrType StreamProcessorRegionsOfInterestBoundingBoxArgs
-
-func StreamProcessorRegionsOfInterestBoundingBoxPtr(v *StreamProcessorRegionsOfInterestBoundingBoxArgs) StreamProcessorRegionsOfInterestBoundingBoxPtrInput {
-	return (*streamProcessorRegionsOfInterestBoundingBoxPtrType)(v)
-}
-
-func (*streamProcessorRegionsOfInterestBoundingBoxPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamProcessorRegionsOfInterestBoundingBox)(nil)).Elem()
-}
-
-func (i *streamProcessorRegionsOfInterestBoundingBoxPtrType) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return i.ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(context.Background())
-}
-
-func (i *streamProcessorRegionsOfInterestBoundingBoxPtrType) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestBoundingBoxPtrOutput)
-}
-
 type StreamProcessorRegionsOfInterestBoundingBoxOutput struct{ *pulumi.OutputState }
 
 func (StreamProcessorRegionsOfInterestBoundingBoxOutput) ElementType() reflect.Type {
@@ -1509,16 +1468,6 @@ func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) ToStreamProcessorRegi
 
 func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) ToStreamProcessorRegionsOfInterestBoundingBoxOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxOutput {
 	return o
-}
-
-func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return o.ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(context.Background())
-}
-
-func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorRegionsOfInterestBoundingBox) *StreamProcessorRegionsOfInterestBoundingBox {
-		return &v
-	}).(StreamProcessorRegionsOfInterestBoundingBoxPtrOutput)
 }
 
 // Height of the bounding box as a ratio of the overall image height.
@@ -1539,70 +1488,6 @@ func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) Top() pulumi.Float64P
 // Width of the bounding box as a ratio of the overall image width.
 func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) Width() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StreamProcessorRegionsOfInterestBoundingBox) *float64 { return v.Width }).(pulumi.Float64PtrOutput)
-}
-
-type StreamProcessorRegionsOfInterestBoundingBoxPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamProcessorRegionsOfInterestBoundingBox)(nil)).Elem()
-}
-
-func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return o
-}
-
-func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
-	return o
-}
-
-func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Elem() StreamProcessorRegionsOfInterestBoundingBoxOutput {
-	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) StreamProcessorRegionsOfInterestBoundingBox {
-		if v != nil {
-			return *v
-		}
-		var ret StreamProcessorRegionsOfInterestBoundingBox
-		return ret
-	}).(StreamProcessorRegionsOfInterestBoundingBoxOutput)
-}
-
-// Height of the bounding box as a ratio of the overall image height.
-func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Height() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Height
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Left coordinate of the bounding box as a ratio of overall image width.
-func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Left() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Left
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Top coordinate of the bounding box as a ratio of overall image height.
-func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Top() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Top
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Width of the bounding box as a ratio of the overall image width.
-func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Width() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Width
-	}).(pulumi.Float64PtrOutput)
 }
 
 type StreamProcessorRegionsOfInterestPolygon struct {
@@ -2376,7 +2261,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestInput)(nil)).Elem(), StreamProcessorRegionsOfInterestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestArrayInput)(nil)).Elem(), StreamProcessorRegionsOfInterestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestBoundingBoxInput)(nil)).Elem(), StreamProcessorRegionsOfInterestBoundingBoxArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestBoundingBoxPtrInput)(nil)).Elem(), StreamProcessorRegionsOfInterestBoundingBoxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestPolygonInput)(nil)).Elem(), StreamProcessorRegionsOfInterestPolygonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestPolygonArrayInput)(nil)).Elem(), StreamProcessorRegionsOfInterestPolygonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorSettingsInput)(nil)).Elem(), StreamProcessorSettingsArgs{})
@@ -2408,7 +2292,6 @@ func init() {
 	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestOutput{})
 	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestArrayOutput{})
 	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestBoundingBoxOutput{})
-	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestBoundingBoxPtrOutput{})
 	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestPolygonOutput{})
 	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestPolygonArrayOutput{})
 	pulumi.RegisterOutputType(StreamProcessorSettingsOutput{})

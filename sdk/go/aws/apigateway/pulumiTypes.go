@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -117,181 +117,6 @@ func (o AccountThrottleSettingArrayOutput) Index(i pulumi.IntInput) AccountThrot
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountThrottleSetting {
 		return vs[0].([]AccountThrottleSetting)[vs[1].(int)]
 	}).(AccountThrottleSettingOutput)
-}
-
-type DeploymentCanarySettings struct {
-	// Percentage (0.0-100.0) of traffic routed to the canary deployment.
-	PercentTraffic *float64 `pulumi:"percentTraffic"`
-	// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
-	// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-	UseStageCache *bool `pulumi:"useStageCache"`
-}
-
-// DeploymentCanarySettingsInput is an input type that accepts DeploymentCanarySettingsArgs and DeploymentCanarySettingsOutput values.
-// You can construct a concrete instance of `DeploymentCanarySettingsInput` via:
-//
-//	DeploymentCanarySettingsArgs{...}
-type DeploymentCanarySettingsInput interface {
-	pulumi.Input
-
-	ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput
-	ToDeploymentCanarySettingsOutputWithContext(context.Context) DeploymentCanarySettingsOutput
-}
-
-type DeploymentCanarySettingsArgs struct {
-	// Percentage (0.0-100.0) of traffic routed to the canary deployment.
-	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
-	// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
-	// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
-}
-
-func (DeploymentCanarySettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentCanarySettings)(nil)).Elem()
-}
-
-func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput {
-	return i.ToDeploymentCanarySettingsOutputWithContext(context.Background())
-}
-
-func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentCanarySettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsOutput)
-}
-
-func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
-	return i.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsOutput).ToDeploymentCanarySettingsPtrOutputWithContext(ctx)
-}
-
-// DeploymentCanarySettingsPtrInput is an input type that accepts DeploymentCanarySettingsArgs, DeploymentCanarySettingsPtr and DeploymentCanarySettingsPtrOutput values.
-// You can construct a concrete instance of `DeploymentCanarySettingsPtrInput` via:
-//
-//	        DeploymentCanarySettingsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DeploymentCanarySettingsPtrInput interface {
-	pulumi.Input
-
-	ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput
-	ToDeploymentCanarySettingsPtrOutputWithContext(context.Context) DeploymentCanarySettingsPtrOutput
-}
-
-type deploymentCanarySettingsPtrType DeploymentCanarySettingsArgs
-
-func DeploymentCanarySettingsPtr(v *DeploymentCanarySettingsArgs) DeploymentCanarySettingsPtrInput {
-	return (*deploymentCanarySettingsPtrType)(v)
-}
-
-func (*deploymentCanarySettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentCanarySettings)(nil)).Elem()
-}
-
-func (i *deploymentCanarySettingsPtrType) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
-	return i.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *deploymentCanarySettingsPtrType) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsPtrOutput)
-}
-
-type DeploymentCanarySettingsOutput struct{ *pulumi.OutputState }
-
-func (DeploymentCanarySettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentCanarySettings)(nil)).Elem()
-}
-
-func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput {
-	return o
-}
-
-func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentCanarySettingsOutput {
-	return o
-}
-
-func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
-	return o.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentCanarySettings) *DeploymentCanarySettings {
-		return &v
-	}).(DeploymentCanarySettingsPtrOutput)
-}
-
-// Percentage (0.0-100.0) of traffic routed to the canary deployment.
-func (o DeploymentCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DeploymentCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
-}
-
-// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o DeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentCanarySettings) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
-}
-
-// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-func (o DeploymentCanarySettingsOutput) UseStageCache() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeploymentCanarySettings) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
-}
-
-type DeploymentCanarySettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DeploymentCanarySettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentCanarySettings)(nil)).Elem()
-}
-
-func (o DeploymentCanarySettingsPtrOutput) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
-	return o
-}
-
-func (o DeploymentCanarySettingsPtrOutput) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
-	return o
-}
-
-func (o DeploymentCanarySettingsPtrOutput) Elem() DeploymentCanarySettingsOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) DeploymentCanarySettings {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentCanarySettings
-		return ret
-	}).(DeploymentCanarySettingsOutput)
-}
-
-// Percentage (0.0-100.0) of traffic routed to the canary deployment.
-func (o DeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.PercentTraffic
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o DeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.StageVariableOverrides
-	}).(pulumi.StringMapOutput)
-}
-
-// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-func (o DeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UseStageCache
-	}).(pulumi.BoolPtrOutput)
 }
 
 type DocumentationPartLocation struct {
@@ -508,6 +333,7 @@ func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DomainNameEndpointConfiguration struct {
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 	Types string `pulumi:"types"`
 }
@@ -524,6 +350,7 @@ type DomainNameEndpointConfigurationInput interface {
 }
 
 type DomainNameEndpointConfigurationArgs struct {
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 	Types pulumi.StringInput `pulumi:"types"`
 }
@@ -605,6 +432,10 @@ func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfiguration
 	}).(DomainNameEndpointConfigurationPtrOutput)
 }
 
+func (o DomainNameEndpointConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameEndpointConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 // A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 func (o DomainNameEndpointConfigurationOutput) Types() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
@@ -632,6 +463,15 @@ func (o DomainNameEndpointConfigurationPtrOutput) Elem() DomainNameEndpointConfi
 		var ret DomainNameEndpointConfiguration
 		return ret
 	}).(DomainNameEndpointConfigurationOutput)
+}
+
+func (o DomainNameEndpointConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
@@ -1246,6 +1086,8 @@ func (o MethodSettingsSettingsPtrOutput) UnauthorizedCacheControlHeaderStrategy(
 }
 
 type RestApiEndpointConfiguration struct {
+	// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types string `pulumi:"types"`
 	// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
@@ -1264,6 +1106,8 @@ type RestApiEndpointConfigurationInput interface {
 }
 
 type RestApiEndpointConfigurationArgs struct {
+	// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types pulumi.StringInput `pulumi:"types"`
 	// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
@@ -1347,6 +1191,11 @@ func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOut
 	}).(RestApiEndpointConfigurationPtrOutput)
 }
 
+// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+func (o RestApiEndpointConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiEndpointConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 // List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o RestApiEndpointConfigurationOutput) Types() pulumi.StringOutput {
 	return o.ApplyT(func(v RestApiEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
@@ -1379,6 +1228,16 @@ func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurati
 		var ret RestApiEndpointConfiguration
 		return ret
 	}).(RestApiEndpointConfigurationOutput)
+}
+
+// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+func (o RestApiEndpointConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
 }
 
 // List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
@@ -2621,6 +2480,8 @@ func (o GetApiKeysItemArrayOutput) Index(i pulumi.IntInput) GetApiKeysItemOutput
 }
 
 type GetDomainNameEndpointConfiguration struct {
+	// The IP address types that can invoke an API (RestApi).
+	IpAddressType string `pulumi:"ipAddressType"`
 	// List of endpoint types.
 	Types []string `pulumi:"types"`
 }
@@ -2637,6 +2498,8 @@ type GetDomainNameEndpointConfigurationInput interface {
 }
 
 type GetDomainNameEndpointConfigurationArgs struct {
+	// The IP address types that can invoke an API (RestApi).
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// List of endpoint types.
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
@@ -2692,6 +2555,11 @@ func (o GetDomainNameEndpointConfigurationOutput) ToGetDomainNameEndpointConfigu
 	return o
 }
 
+// The IP address types that can invoke an API (RestApi).
+func (o GetDomainNameEndpointConfigurationOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainNameEndpointConfiguration) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
 // List of endpoint types.
 func (o GetDomainNameEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDomainNameEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
@@ -2718,7 +2586,11 @@ func (o GetDomainNameEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetRestApiEndpointConfiguration struct {
-	Types          []string `pulumi:"types"`
+	// The IP address types that can invoke an API (RestApi).
+	IpAddressType string `pulumi:"ipAddressType"`
+	// List of endpoint types.
+	Types []string `pulumi:"types"`
+	// Set of VPC Endpoint identifiers.
 	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
 }
 
@@ -2734,7 +2606,11 @@ type GetRestApiEndpointConfigurationInput interface {
 }
 
 type GetRestApiEndpointConfigurationArgs struct {
-	Types          pulumi.StringArrayInput `pulumi:"types"`
+	// The IP address types that can invoke an API (RestApi).
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
+	// List of endpoint types.
+	Types pulumi.StringArrayInput `pulumi:"types"`
+	// Set of VPC Endpoint identifiers.
 	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
 }
 
@@ -2789,10 +2665,17 @@ func (o GetRestApiEndpointConfigurationOutput) ToGetRestApiEndpointConfiguration
 	return o
 }
 
+// The IP address types that can invoke an API (RestApi).
+func (o GetRestApiEndpointConfigurationOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestApiEndpointConfiguration) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
+// List of endpoint types.
 func (o GetRestApiEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRestApiEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
 
+// Set of VPC Endpoint identifiers.
 func (o GetRestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
 }
@@ -2820,8 +2703,6 @@ func (o GetRestApiEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingInput)(nil)).Elem(), AccountThrottleSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingArrayInput)(nil)).Elem(), AccountThrottleSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingsInput)(nil)).Elem(), DeploymentCanarySettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingsPtrInput)(nil)).Elem(), DeploymentCanarySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationInput)(nil)).Elem(), DocumentationPartLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationPtrInput)(nil)).Elem(), DocumentationPartLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
@@ -2856,8 +2737,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRestApiEndpointConfigurationArrayInput)(nil)).Elem(), GetRestApiEndpointConfigurationArray{})
 	pulumi.RegisterOutputType(AccountThrottleSettingOutput{})
 	pulumi.RegisterOutputType(AccountThrottleSettingArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentCanarySettingsOutput{})
-	pulumi.RegisterOutputType(DeploymentCanarySettingsPtrOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})

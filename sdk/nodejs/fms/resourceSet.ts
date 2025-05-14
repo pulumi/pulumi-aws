@@ -69,9 +69,6 @@ export class ResourceSet extends pulumi.CustomResource {
      */
     public readonly resourceSets!: pulumi.Output<outputs.fms.ResourceSetResourceSet[] | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.fms.ResourceSetTimeouts | undefined>;
 
@@ -119,9 +116,6 @@ export interface ResourceSetState {
      */
     resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts>;
 }

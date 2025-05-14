@@ -28,12 +28,15 @@ namespace Pulumi.Aws.SecurityLake
     ///     {
     ///         SubscriberName = "example-name",
     ///         AccessType = "S3",
-    ///         Source = new Aws.SecurityLake.Inputs.SubscriberSourceArgs
+    ///         Sources = new[]
     ///         {
-    ///             AwsLogSourceResource = new Aws.SecurityLake.Inputs.SubscriberSourceAwsLogSourceResourceArgs
+    ///             new Aws.SecurityLake.Inputs.SubscriberSourceArgs
     ///             {
-    ///                 SourceName = "ROUTE53",
-    ///                 SourceVersion = "1.0",
+    ///                 AwsLogSourceResource = new Aws.SecurityLake.Inputs.SubscriberSourceAwsLogSourceResourceArgs
+    ///                 {
+    ///                     SourceName = "ROUTE53",
+    ///                     SourceVersion = "1.0",
+    ///                 },
     ///             },
     ///         },
     ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
@@ -102,8 +105,8 @@ namespace Pulumi.Aws.SecurityLake
         /// <summary>
         /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
-        [Output("source")]
-        public Output<Outputs.SubscriberSource?> Source { get; private set; } = null!;
+        [Output("sources")]
+        public Output<ImmutableArray<Outputs.SubscriberSource>> Sources { get; private set; } = null!;
 
         /// <summary>
         /// The description for your subscriber account in Security Lake.
@@ -202,11 +205,17 @@ namespace Pulumi.Aws.SecurityLake
         [Input("accessType")]
         public Input<string>? AccessType { get; set; }
 
+        [Input("sources")]
+        private InputList<Inputs.SubscriberSourceArgs>? _sources;
+
         /// <summary>
         /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
-        [Input("source")]
-        public Input<Inputs.SubscriberSourceArgs>? Source { get; set; }
+        public InputList<Inputs.SubscriberSourceArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.SubscriberSourceArgs>());
+            set => _sources = value;
+        }
 
         /// <summary>
         /// The description for your subscriber account in Security Lake.
@@ -285,11 +294,17 @@ namespace Pulumi.Aws.SecurityLake
         [Input("s3BucketArn")]
         public Input<string>? S3BucketArn { get; set; }
 
+        [Input("sources")]
+        private InputList<Inputs.SubscriberSourceGetArgs>? _sources;
+
         /// <summary>
         /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
-        [Input("source")]
-        public Input<Inputs.SubscriberSourceGetArgs>? Source { get; set; }
+        public InputList<Inputs.SubscriberSourceGetArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.SubscriberSourceGetArgs>());
+            set => _sources = value;
+        }
 
         /// <summary>
         /// The description for your subscriber account in Security Lake.
@@ -339,7 +354,6 @@ namespace Pulumi.Aws.SecurityLake
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

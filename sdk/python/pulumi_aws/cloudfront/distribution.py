@@ -41,11 +41,13 @@ class DistributionArgs:
                  retain_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  staging: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  wait_for_deployment: Optional[pulumi.Input[builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Distribution resource.
         :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         pulumi.set(__self__, "enabled", enabled)
@@ -80,6 +82,8 @@ class DistributionArgs:
             pulumi.set(__self__, "staging", staging)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if wait_for_deployment is not None:
             pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
@@ -260,6 +264,18 @@ class DistributionArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "wait_for_deployment")
@@ -380,9 +396,6 @@ class _DistributionState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if trusted_key_groups is not None:
@@ -659,7 +672,6 @@ class _DistributionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -748,6 +760,7 @@ class Distribution(pulumi.CustomResource):
                  retain_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  staging: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -769,12 +782,12 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b",
+        b = aws.s3.Bucket("b",
             bucket="mybucket",
             tags={
                 "Name": "My bucket",
             })
-        b_acl = aws.s3.BucketAclV2("b_acl",
+        b_acl = aws.s3.BucketAcl("b_acl",
             bucket=b.id,
             acl="private")
         s3_origin_id = "myS3Origin"
@@ -990,6 +1003,36 @@ class Distribution(pulumi.CustomResource):
             })
         ```
 
+        ### With V2 logging to S3
+
+        The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.Distribution("example")
+        example_log_delivery_source = aws.cloudwatch.LogDeliverySource("example",
+            name="example",
+            log_type="ACCESS_LOGS",
+            resource_arn=example.arn)
+        example_bucket = aws.s3.Bucket("example",
+            bucket="testbucket",
+            force_destroy=True)
+        example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            name="s3-destination",
+            output_format="parquet",
+            delivery_destination_configuration={
+                "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
+            })
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            delivery_source_name=example_log_delivery_source.name,
+            delivery_destination_arn=example_log_delivery_destination.arn,
+            s3_delivery_configurations=[{
+                "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -1001,6 +1044,7 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -1025,12 +1069,12 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b",
+        b = aws.s3.Bucket("b",
             bucket="mybucket",
             tags={
                 "Name": "My bucket",
             })
-        b_acl = aws.s3.BucketAclV2("b_acl",
+        b_acl = aws.s3.BucketAcl("b_acl",
             bucket=b.id,
             acl="private")
         s3_origin_id = "myS3Origin"
@@ -1244,6 +1288,36 @@ class Distribution(pulumi.CustomResource):
             viewer_certificate={
                 "cloudfront_default_certificate": True,
             })
+        ```
+
+        ### With V2 logging to S3
+
+        The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.Distribution("example")
+        example_log_delivery_source = aws.cloudwatch.LogDeliverySource("example",
+            name="example",
+            log_type="ACCESS_LOGS",
+            resource_arn=example.arn)
+        example_bucket = aws.s3.Bucket("example",
+            bucket="testbucket",
+            force_destroy=True)
+        example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            name="s3-destination",
+            output_format="parquet",
+            delivery_destination_configuration={
+                "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
+            })
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            delivery_source_name=example_log_delivery_source.name,
+            delivery_destination_arn=example_log_delivery_destination.arn,
+            s3_delivery_configurations=[{
+                "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+            }])
         ```
 
         ## Import
@@ -1287,6 +1361,7 @@ class Distribution(pulumi.CustomResource):
                  retain_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  staging: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1325,6 +1400,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["retain_on_delete"] = retain_on_delete
             __props__.__dict__["staging"] = staging
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
             __props__.__dict__["viewer_certificate"] = viewer_certificate
@@ -1338,7 +1414,6 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["in_progress_validation_batches"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["trusted_key_groups"] = None
             __props__.__dict__["trusted_signers"] = None
         super(Distribution, __self__).__init__(
@@ -1600,7 +1675,6 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

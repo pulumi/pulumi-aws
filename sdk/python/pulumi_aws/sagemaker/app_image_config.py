@@ -139,9 +139,6 @@ class _AppImageConfigState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -218,7 +215,6 @@ class _AppImageConfigState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -249,6 +245,37 @@ class AppImageConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+            })
+        ```
+
+        ### Default File System Config
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+                "file_system_config": {},
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
@@ -275,6 +302,37 @@ class AppImageConfig(pulumi.CustomResource):
         Provides a SageMaker AI App Image Config resource.
 
         ## Example Usage
+
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+            })
+        ```
+
+        ### Default File System Config
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+                "file_system_config": {},
+            })
+        ```
 
         ## Import
 
@@ -417,7 +475,6 @@ class AppImageConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

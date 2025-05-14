@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.LogGroup("example", {name: "example"});
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
  *     logGroupName: example.name,
  *     policyDocument: pulumi.jsonStringify({
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *                     Audit: {
  *                         FindingsDestination: {
  *                             S3: {
- *                                 Bucket: exampleBucketV2.bucket,
+ *                                 Bucket: exampleBucket.bucket,
  *                             },
  *                         },
  *                     },

@@ -15,23 +15,31 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordina
     public static final RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs Empty = new RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs();
 
     /**
-     * A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+     * A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
      * 
      */
     @Import(name="latitude", required=true)
     private Output<String> latitude;
 
     /**
-     * @return A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+     * @return A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
      * 
      */
     public Output<String> latitude() {
         return this.latitude;
     }
 
+    /**
+     * A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+     * 
+     */
     @Import(name="longitude", required=true)
     private Output<String> longitude;
 
+    /**
+     * @return A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+     * 
+     */
     public Output<String> longitude() {
         return this.longitude;
     }
@@ -62,7 +70,7 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordina
         }
 
         /**
-         * @param latitude A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+         * @param latitude A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
          * 
          * @return builder
          * 
@@ -73,7 +81,7 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordina
         }
 
         /**
-         * @param latitude A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+         * @param latitude A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
          * 
          * @return builder
          * 
@@ -82,11 +90,23 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordina
             return latitude(Output.of(latitude));
         }
 
+        /**
+         * @param longitude A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder longitude(Output<String> longitude) {
             $.longitude = longitude;
             return this;
         }
 
+        /**
+         * @param longitude A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder longitude(String longitude) {
             return longitude(Output.of(longitude));
         }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +85,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -105,10 +105,12 @@ import (
 //						},
 //					},
 //				},
-//				SlotTypeValues: &lex.V2modelsSlotTypeSlotTypeValuesArgs{
-//					SampleValues: lex.V2modelsSlotTypeSlotTypeValuesSampleValueArray{
-//						&lex.V2modelsSlotTypeSlotTypeValuesSampleValueArgs{
-//							Value: pulumi.String("exampleValue"),
+//				SlotTypeValues: lex.V2modelsSlotTypeSlotTypeValueArray{
+//					&lex.V2modelsSlotTypeSlotTypeValueArgs{
+//						SampleValues: lex.V2modelsSlotTypeSlotTypeValueSampleValueArray{
+//							&lex.V2modelsSlotTypeSlotTypeValueSampleValueArgs{
+//								Value: pulumi.String("exampleValue"),
+//							},
 //						},
 //					},
 //				},
@@ -138,12 +140,12 @@ type V2modelsSlotType struct {
 	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
 	// Specifications for a composite slot type.
 	// See `compositeSlotTypeSetting` argument reference below.
-	CompositeSlotTypeSetting V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput `pulumi:"compositeSlotTypeSetting"`
+	CompositeSlotTypeSettings V2modelsSlotTypeCompositeSlotTypeSettingArrayOutput `pulumi:"compositeSlotTypeSettings"`
 	// Description of the slot type.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Type of external information used to create the slot type.
 	// See `externalSourceSetting` argument reference below.
-	ExternalSourceSetting V2modelsSlotTypeExternalSourceSettingPtrOutput `pulumi:"externalSourceSetting"`
+	ExternalSourceSettings V2modelsSlotTypeExternalSourceSettingArrayOutput `pulumi:"externalSourceSettings"`
 	// Identifier of the language and locale where this slot type is used.
 	// All of the bots, slot types, and slots used by the intent must have the same locale.
 	LocaleId pulumi.StringOutput `pulumi:"localeId"`
@@ -160,8 +162,8 @@ type V2modelsSlotType struct {
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
 	// See `slotTypeValues` argument reference below.
-	SlotTypeValues V2modelsSlotTypeSlotTypeValuesPtrOutput `pulumi:"slotTypeValues"`
-	Timeouts       V2modelsSlotTypeTimeoutsPtrOutput       `pulumi:"timeouts"`
+	SlotTypeValues V2modelsSlotTypeSlotTypeValueArrayOutput `pulumi:"slotTypeValues"`
+	Timeouts       V2modelsSlotTypeTimeoutsPtrOutput        `pulumi:"timeouts"`
 	// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
 	// See `valueSelectionSetting` argument reference below.
 	ValueSelectionSetting V2modelsSlotTypeValueSelectionSettingPtrOutput `pulumi:"valueSelectionSetting"`
@@ -212,12 +214,12 @@ type v2modelsSlotTypeState struct {
 	BotVersion *string `pulumi:"botVersion"`
 	// Specifications for a composite slot type.
 	// See `compositeSlotTypeSetting` argument reference below.
-	CompositeSlotTypeSetting *V2modelsSlotTypeCompositeSlotTypeSetting `pulumi:"compositeSlotTypeSetting"`
+	CompositeSlotTypeSettings []V2modelsSlotTypeCompositeSlotTypeSetting `pulumi:"compositeSlotTypeSettings"`
 	// Description of the slot type.
 	Description *string `pulumi:"description"`
 	// Type of external information used to create the slot type.
 	// See `externalSourceSetting` argument reference below.
-	ExternalSourceSetting *V2modelsSlotTypeExternalSourceSetting `pulumi:"externalSourceSetting"`
+	ExternalSourceSettings []V2modelsSlotTypeExternalSourceSetting `pulumi:"externalSourceSettings"`
 	// Identifier of the language and locale where this slot type is used.
 	// All of the bots, slot types, and slots used by the intent must have the same locale.
 	LocaleId *string `pulumi:"localeId"`
@@ -234,7 +236,7 @@ type v2modelsSlotTypeState struct {
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
 	// See `slotTypeValues` argument reference below.
-	SlotTypeValues *V2modelsSlotTypeSlotTypeValues `pulumi:"slotTypeValues"`
+	SlotTypeValues []V2modelsSlotTypeSlotTypeValue `pulumi:"slotTypeValues"`
 	Timeouts       *V2modelsSlotTypeTimeouts       `pulumi:"timeouts"`
 	// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
 	// See `valueSelectionSetting` argument reference below.
@@ -248,12 +250,12 @@ type V2modelsSlotTypeState struct {
 	BotVersion pulumi.StringPtrInput
 	// Specifications for a composite slot type.
 	// See `compositeSlotTypeSetting` argument reference below.
-	CompositeSlotTypeSetting V2modelsSlotTypeCompositeSlotTypeSettingPtrInput
+	CompositeSlotTypeSettings V2modelsSlotTypeCompositeSlotTypeSettingArrayInput
 	// Description of the slot type.
 	Description pulumi.StringPtrInput
 	// Type of external information used to create the slot type.
 	// See `externalSourceSetting` argument reference below.
-	ExternalSourceSetting V2modelsSlotTypeExternalSourceSettingPtrInput
+	ExternalSourceSettings V2modelsSlotTypeExternalSourceSettingArrayInput
 	// Identifier of the language and locale where this slot type is used.
 	// All of the bots, slot types, and slots used by the intent must have the same locale.
 	LocaleId pulumi.StringPtrInput
@@ -270,7 +272,7 @@ type V2modelsSlotTypeState struct {
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
 	// See `slotTypeValues` argument reference below.
-	SlotTypeValues V2modelsSlotTypeSlotTypeValuesPtrInput
+	SlotTypeValues V2modelsSlotTypeSlotTypeValueArrayInput
 	Timeouts       V2modelsSlotTypeTimeoutsPtrInput
 	// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
 	// See `valueSelectionSetting` argument reference below.
@@ -288,12 +290,12 @@ type v2modelsSlotTypeArgs struct {
 	BotVersion string `pulumi:"botVersion"`
 	// Specifications for a composite slot type.
 	// See `compositeSlotTypeSetting` argument reference below.
-	CompositeSlotTypeSetting *V2modelsSlotTypeCompositeSlotTypeSetting `pulumi:"compositeSlotTypeSetting"`
+	CompositeSlotTypeSettings []V2modelsSlotTypeCompositeSlotTypeSetting `pulumi:"compositeSlotTypeSettings"`
 	// Description of the slot type.
 	Description *string `pulumi:"description"`
 	// Type of external information used to create the slot type.
 	// See `externalSourceSetting` argument reference below.
-	ExternalSourceSetting *V2modelsSlotTypeExternalSourceSetting `pulumi:"externalSourceSetting"`
+	ExternalSourceSettings []V2modelsSlotTypeExternalSourceSetting `pulumi:"externalSourceSettings"`
 	// Identifier of the language and locale where this slot type is used.
 	// All of the bots, slot types, and slots used by the intent must have the same locale.
 	LocaleId string `pulumi:"localeId"`
@@ -308,7 +310,7 @@ type v2modelsSlotTypeArgs struct {
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
 	// See `slotTypeValues` argument reference below.
-	SlotTypeValues *V2modelsSlotTypeSlotTypeValues `pulumi:"slotTypeValues"`
+	SlotTypeValues []V2modelsSlotTypeSlotTypeValue `pulumi:"slotTypeValues"`
 	Timeouts       *V2modelsSlotTypeTimeouts       `pulumi:"timeouts"`
 	// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
 	// See `valueSelectionSetting` argument reference below.
@@ -323,12 +325,12 @@ type V2modelsSlotTypeArgs struct {
 	BotVersion pulumi.StringInput
 	// Specifications for a composite slot type.
 	// See `compositeSlotTypeSetting` argument reference below.
-	CompositeSlotTypeSetting V2modelsSlotTypeCompositeSlotTypeSettingPtrInput
+	CompositeSlotTypeSettings V2modelsSlotTypeCompositeSlotTypeSettingArrayInput
 	// Description of the slot type.
 	Description pulumi.StringPtrInput
 	// Type of external information used to create the slot type.
 	// See `externalSourceSetting` argument reference below.
-	ExternalSourceSetting V2modelsSlotTypeExternalSourceSettingPtrInput
+	ExternalSourceSettings V2modelsSlotTypeExternalSourceSettingArrayInput
 	// Identifier of the language and locale where this slot type is used.
 	// All of the bots, slot types, and slots used by the intent must have the same locale.
 	LocaleId pulumi.StringInput
@@ -343,7 +345,7 @@ type V2modelsSlotTypeArgs struct {
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
 	// See `slotTypeValues` argument reference below.
-	SlotTypeValues V2modelsSlotTypeSlotTypeValuesPtrInput
+	SlotTypeValues V2modelsSlotTypeSlotTypeValueArrayInput
 	Timeouts       V2modelsSlotTypeTimeoutsPtrInput
 	// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
 	// See `valueSelectionSetting` argument reference below.
@@ -449,10 +451,10 @@ func (o V2modelsSlotTypeOutput) BotVersion() pulumi.StringOutput {
 
 // Specifications for a composite slot type.
 // See `compositeSlotTypeSetting` argument reference below.
-func (o V2modelsSlotTypeOutput) CompositeSlotTypeSetting() V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput {
-	return o.ApplyT(func(v *V2modelsSlotType) V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput {
-		return v.CompositeSlotTypeSetting
-	}).(V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput)
+func (o V2modelsSlotTypeOutput) CompositeSlotTypeSettings() V2modelsSlotTypeCompositeSlotTypeSettingArrayOutput {
+	return o.ApplyT(func(v *V2modelsSlotType) V2modelsSlotTypeCompositeSlotTypeSettingArrayOutput {
+		return v.CompositeSlotTypeSettings
+	}).(V2modelsSlotTypeCompositeSlotTypeSettingArrayOutput)
 }
 
 // Description of the slot type.
@@ -462,10 +464,10 @@ func (o V2modelsSlotTypeOutput) Description() pulumi.StringPtrOutput {
 
 // Type of external information used to create the slot type.
 // See `externalSourceSetting` argument reference below.
-func (o V2modelsSlotTypeOutput) ExternalSourceSetting() V2modelsSlotTypeExternalSourceSettingPtrOutput {
-	return o.ApplyT(func(v *V2modelsSlotType) V2modelsSlotTypeExternalSourceSettingPtrOutput {
-		return v.ExternalSourceSetting
-	}).(V2modelsSlotTypeExternalSourceSettingPtrOutput)
+func (o V2modelsSlotTypeOutput) ExternalSourceSettings() V2modelsSlotTypeExternalSourceSettingArrayOutput {
+	return o.ApplyT(func(v *V2modelsSlotType) V2modelsSlotTypeExternalSourceSettingArrayOutput {
+		return v.ExternalSourceSettings
+	}).(V2modelsSlotTypeExternalSourceSettingArrayOutput)
 }
 
 // Identifier of the language and locale where this slot type is used.
@@ -496,8 +498,8 @@ func (o V2modelsSlotTypeOutput) SlotTypeId() pulumi.StringOutput {
 // List of SlotTypeValue objects that defines the values that the slot type can take.
 // Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
 // See `slotTypeValues` argument reference below.
-func (o V2modelsSlotTypeOutput) SlotTypeValues() V2modelsSlotTypeSlotTypeValuesPtrOutput {
-	return o.ApplyT(func(v *V2modelsSlotType) V2modelsSlotTypeSlotTypeValuesPtrOutput { return v.SlotTypeValues }).(V2modelsSlotTypeSlotTypeValuesPtrOutput)
+func (o V2modelsSlotTypeOutput) SlotTypeValues() V2modelsSlotTypeSlotTypeValueArrayOutput {
+	return o.ApplyT(func(v *V2modelsSlotType) V2modelsSlotTypeSlotTypeValueArrayOutput { return v.SlotTypeValues }).(V2modelsSlotTypeSlotTypeValueArrayOutput)
 }
 
 func (o V2modelsSlotTypeOutput) Timeouts() V2modelsSlotTypeTimeoutsPtrOutput {

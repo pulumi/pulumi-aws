@@ -12,6 +12,39 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.sagemaker.AppImageConfig("test", {
+ *     appImageConfigName: "example",
+ *     kernelGatewayImageConfig: {
+ *         kernelSpecs: [{
+ *             name: "example",
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * ### Default File System Config
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.sagemaker.AppImageConfig("test", {
+ *     appImageConfigName: "example",
+ *     kernelGatewayImageConfig: {
+ *         kernelSpecs: [{
+ *             name: "example",
+ *         }],
+ *         fileSystemConfig: {},
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
@@ -74,8 +107,6 @@ export class AppImageConfig extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -147,8 +178,6 @@ export interface AppImageConfigState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -10,8 +10,6 @@ import com.pulumi.aws.ec2.outputs.LaunchTemplateBlockDeviceMapping;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateCapacityReservationSpecification;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateCpuOptions;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateCreditSpecification;
-import com.pulumi.aws.ec2.outputs.LaunchTemplateElasticGpuSpecification;
-import com.pulumi.aws.ec2.outputs.LaunchTemplateElasticInferenceAccelerator;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateEnclaveOptions;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateHibernationOptions;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateIamInstanceProfile;
@@ -196,44 +194,6 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> ebsOptimized() {
         return Codegen.optional(this.ebsOptimized);
-    }
-    /**
-     * **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-     * below for more details.
-     * 
-     * @deprecated
-     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-     * 
-     */
-    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-    @Export(name="elasticGpuSpecifications", refs={List.class,LaunchTemplateElasticGpuSpecification.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<LaunchTemplateElasticGpuSpecification>> elasticGpuSpecifications;
-
-    /**
-     * @return **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-     * below for more details.
-     * 
-     */
-    public Output<Optional<List<LaunchTemplateElasticGpuSpecification>>> elasticGpuSpecifications() {
-        return Codegen.optional(this.elasticGpuSpecifications);
-    }
-    /**
-     * **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-     * 
-     * @deprecated
-     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-    @Export(name="elasticInferenceAccelerator", refs={LaunchTemplateElasticInferenceAccelerator.class}, tree="[0]")
-    private Output</* @Nullable */ LaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerator;
-
-    /**
-     * @return **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-     * 
-     */
-    public Output<Optional<LaunchTemplateElasticInferenceAccelerator>> elasticInferenceAccelerator() {
-        return Codegen.optional(this.elasticInferenceAccelerator);
     }
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
@@ -584,11 +544,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

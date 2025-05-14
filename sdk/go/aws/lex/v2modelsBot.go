@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -110,8 +110,7 @@ type V2modelsBot struct {
 	// The following arguments are optional:
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags pulumi.StringMapOutput       `pulumi:"testBotAliasTags"`
@@ -172,8 +171,7 @@ type v2modelsBotState struct {
 	// The following arguments are optional:
 	RoleArn *string `pulumi:"roleArn"`
 	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags map[string]string    `pulumi:"testBotAliasTags"`
@@ -199,8 +197,7 @@ type V2modelsBotState struct {
 	// The following arguments are optional:
 	RoleArn pulumi.StringPtrInput
 	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags pulumi.StringMapInput
@@ -390,7 +387,6 @@ func (o V2modelsBotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o V2modelsBotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

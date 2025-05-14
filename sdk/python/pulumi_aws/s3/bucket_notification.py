@@ -231,7 +231,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         topic = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -264,7 +264,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         queue = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -314,7 +314,7 @@ class BucketNotification(pulumi.CustomResource):
             role=iam_for_lambda.arn,
             handler="exports.example",
             runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         allow_bucket = aws.lambda_.Permission("allow_bucket",
             statement_id="AllowExecutionFromS3Bucket",
             action="lambda:InvokeFunction",
@@ -355,7 +355,7 @@ class BucketNotification(pulumi.CustomResource):
             role=iam_for_lambda.arn,
             handler="exports.example",
             runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         allow_bucket1 = aws.lambda_.Permission("allow_bucket1",
             statement_id="AllowExecutionFromS3Bucket1",
             action="lambda:InvokeFunction",
@@ -401,7 +401,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         queue = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -445,7 +445,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         bucket_notification = aws.s3.BucketNotification("bucket_notification",
             bucket=bucket.id,
             eventbridge=True)
@@ -490,7 +490,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         topic = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -523,7 +523,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         queue = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -573,7 +573,7 @@ class BucketNotification(pulumi.CustomResource):
             role=iam_for_lambda.arn,
             handler="exports.example",
             runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         allow_bucket = aws.lambda_.Permission("allow_bucket",
             statement_id="AllowExecutionFromS3Bucket",
             action="lambda:InvokeFunction",
@@ -614,7 +614,7 @@ class BucketNotification(pulumi.CustomResource):
             role=iam_for_lambda.arn,
             handler="exports.example",
             runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         allow_bucket1 = aws.lambda_.Permission("allow_bucket1",
             statement_id="AllowExecutionFromS3Bucket1",
             action="lambda:InvokeFunction",
@@ -660,7 +660,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         queue = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -704,7 +704,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
         bucket_notification = aws.s3.BucketNotification("bucket_notification",
             bucket=bucket.id,
             eventbridge=True)

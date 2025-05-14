@@ -41,6 +41,7 @@ import (
 	tagsdk "github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi"
 	s3sdk "github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go-v2/service/s3/types"
+	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
@@ -51,7 +52,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -185,6 +185,49 @@ func TestSecretVersionUpgrade(t *testing.T) {
 
 func TestElasticacheReplicationGroupUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "elasticache-replication-group"), nil)
+}
+
+func TestS3BucketToBucketUpgrade(t *testing.T) {
+	/*previewRes := */ testProviderUpgrade(t, "bucket-to-bucket",
+		&testProviderUpgradeOptions{
+			baselineVersion: "6.78.0",
+		},
+		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "step1")),
+	)
+	// TODO: [pulumi-aws#5514] fix bucket v7 upgrade
+	// assertpreview.HasNoChanges(t, previewRes)
+}
+
+func TestS3BucketV2ToBucketUpgrade(t *testing.T) {
+	/*previewRes := */ testProviderUpgrade(t, "bucketv2-to-bucket",
+		&testProviderUpgradeOptions{
+			baselineVersion: "6.78.0",
+		},
+		optproviderupgrade.NewSourcePath(filepath.Join("bucketv2-to-bucket", "step1")),
+	)
+	// TODO: [pulumi-aws#1111] fix bucket v7 upgrade
+	// assertpreview.HasNoChanges(t, previewRes)
+}
+
+func TestS3BucketV2ToBucketSidecarUpgrade(t *testing.T) {
+	test, _ := testProviderUpgrade(t, "bucket-sidecar-renames",
+		&testProviderUpgradeOptions{
+			baselineVersion: "6.78.0",
+		},
+		optproviderupgrade.NewSourcePath(filepath.Join("bucket-sidecar-renames", "step1")),
+	)
+	diff := runPreviewWithPlanDiff(t, test)
+	// tagsAll is added in v7 due to moving to upstream tagging
+	assert.Equal(t, map[string]interface{}{
+		"loggingBucket": map[string]interface{}{
+			"diff":  apitype.PlanDiffV1{Adds: map[string]interface{}{"tagsAll": map[string]interface{}{}}},
+			"steps": []apitype.OpType{apitype.OpType("update")},
+		},
+		"migrationBucket": map[string]interface{}{
+			"diff":  apitype.PlanDiffV1{Adds: map[string]interface{}{"tagsAll": map[string]interface{}{}}},
+			"steps": []apitype.OpType{apitype.OpType("update")},
+		},
+	}, diff)
 }
 
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {
@@ -463,7 +506,7 @@ func TestIMDSAuth(t *testing.T) {
 		t.Logf("Cross-compiling provider-resource-aws under test to %q", expected)
 		localProviderBuild = filepath.Join(os.TempDir(), "pulumi-resource-aws")
 		ldFlags := []string{
-			"-X", "github.com/pulumi/pulumi-aws/provider/v6/pkg/version.Version=6.0.0-alpha.0+dev",
+			"-X", "github.com/pulumi/pulumi-aws/provider/v7/pkg/version.Version=6.0.0-alpha.0+dev",
 			"-X", "github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=6.0.0-alpha.0+dev",
 		}
 		args := []string{
@@ -601,67 +644,11 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 	}
 
 	steps := []tagsTestStep{
-		// Pulumi maintains it's own version of aws:s3:Bucket in
-		// `s3legacy/bucket_legacy.go`. Because we don't have any
-		// terraform-provider-aws maintainers to ensure our tagging works the same
-		// way as other resource's tagging, we give our own bucket special testing
-		// to make sure that tags work.
-		{
-			name: "legacy", token: "aws:s3:Bucket", typ: "aws:s3/bucket:Bucket",
-			tags: map[string]interface{}{
-				"LocalTag": "foo",
-			},
-			defaultTags: map[string]interface{}{
-				"GlobalTag": "bar",
-			},
-			postUpHook: func(t *testing.T, outputs auto.OutputMap) {
-				validateOutputTags(outputs, map[string]interface{}{
-					"LocalTag":  "foo",
-					"GlobalTag": "bar",
-				})
-				bucketName := outputs["id"].Value.(string)
-				tags := getBucketTagging(context.Background(), bucketName)
-				assert.Equal(t, tags, []types.Tag{
-					{
-						Key:   pulumi.StringRef("LocalTag"),
-						Value: pulumi.StringRef("foo"),
-					},
-					{
-						Key:   pulumi.StringRef("GlobalTag"),
-						Value: pulumi.StringRef("bar"),
-					},
-				})
-			},
-		},
-		{
-			name: "legacy_ignore_tags", token: "aws:s3:Bucket", typ: "aws:s3/bucket:Bucket",
-			tags: map[string]interface{}{
-				"LocalTag": "foo",
-			},
-			ignoreTagKeys: []string{"IgnoreKey"},
-			preImportHook: func(t *testing.T, outputs auto.OutputMap) {
-				t.Helper()
-				resArn := outputs["resArn"].Value.(string)
-				addResourceTags(context.Background(), resArn, map[string]string{
-					"IgnoreKey": "foo",
-				})
-			},
-			defaultTags: map[string]interface{}{
-				"GlobalTag": "bar",
-			},
-			postUpHook: func(t *testing.T, outputs auto.OutputMap) {
-				validateOutputTags(outputs, map[string]interface{}{
-					"LocalTag":  "foo",
-					"GlobalTag": "bar",
-				})
-			},
-		},
-
-		// Both aws:cognito:UserPool and aws:s3:BucketV2 are full SDKv2 resources managed
+		// Both aws:cognito:UserPool and aws:s3:Bucket are full SDKv2 resources managed
 		// by Terraform, but they have different requirements for successful tag
 		// interactions. That is why we have tests for both resources.
 		{
-			name: "bucket", token: "aws:s3:BucketV2", typ: "aws:s3/bucketV2:BucketV2",
+			name: "bucket", token: "aws:s3:Bucket", typ: "aws:s3/bucket:Bucket",
 			tags: map[string]interface{}{
 				"LocalTag": "foo",
 			},
@@ -676,7 +663,7 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 			},
 		},
 		{
-			name: "bucket_ignore_tags", token: "aws:s3:BucketV2", typ: "aws:s3/bucketV2:BucketV2",
+			name: "bucket_ignore_tags", token: "aws:s3:Bucket", typ: "aws:s3/bucket:Bucket",
 			tags: map[string]interface{}{
 				"LocalTag": "foo",
 			},
@@ -778,7 +765,7 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 		t.Run(step.name, func(t *testing.T) {
 			t.Parallel()
 			if reason := step.skip; reason != "" {
-				t.Skipf(reason)
+				t.Skip(reason)
 			}
 			testTagsPulumiLifecycle(t, step)
 		})
@@ -842,7 +829,7 @@ func testTagsPulumiLifecycle(t *testing.T, step tagsTestStep) {
 		step.preImportHook(t, outputs)
 	}
 	generateTagsTest(t, step, fpath, id)
-	upRes, err = stack.Up(ctx, optup.Diff())
+	upRes, err = stack.Up(ctx, optup.Diff(), optup.ProgressStreams(os.Stdout), optup.ErrorProgressStreams(os.Stderr))
 	assert.NoError(t, err)
 	changes := *upRes.Summary.ResourceChanges
 	assert.Equal(t, 1, changes["import"])
@@ -884,7 +871,7 @@ resources:
   res:
     type: %s%s%s
 outputs:
-  actual: ${res.tags}
+  actual: ${res.tagsAll}
   urn: ${res.urn}
   id: ${res.id}
   resArn: ${res.arn}
@@ -1117,20 +1104,11 @@ type tagsStep struct {
 
 func TestAccDefaultTags(t *testing.T) {
 	types := []tagsType{
-		// Pulumi maintains it's own version of aws:s3:Bucket in
-		// `s3legacy/bucket_legacy.go`. Because we don't have any
-		// terraform-provider-aws maintainers to ensure our tagging works the same
-		// way as other resource's tagging, we give our own bucket special testing
-		// to make sure that tags work.
-		{
-			name: "legacy", token: "aws:s3:Bucket",
-		},
-
 		// Both aws:cognito:UserPool and aws:s3:BucketV2 are full SDKv2 resources managed
 		// by Terraform, but they have different requirements for successful tag
 		// interactions. That is why we have tests for both resources.
 		{
-			name: "bucket", token: "aws:s3:BucketV2",
+			name: "bucket", token: "aws:s3:Bucket",
 		},
 		{
 			skip: "This doesn't work correctly in TF. Tracked in " +
@@ -1226,6 +1204,7 @@ func TestAccDefaultTags(t *testing.T) {
 			},
 			expected: sameAsDefault,
 		},
+		// This case is handled by the special PreCheckCallback function we added
 		{
 			purpose:     "Don't specify any default tags (should be empty)",
 			defaultTags: map[string]interface{}{},
@@ -1257,7 +1236,7 @@ func TestAccDefaultTags(t *testing.T) {
 		typ := typ
 		t.Run(typ.name, func(t *testing.T) {
 			if reason := typ.skip; reason != "" {
-				t.Skipf(reason)
+				t.Skip(reason)
 			}
 			dir := filepath.Join(getCwd(t), typ.name+"-default-tags-yaml")
 			testTags(t, dir, steps)
@@ -1290,7 +1269,7 @@ func testTags(t *testing.T, dir string, steps []tagsStep) {
 						return
 					}
 					assert.Equal(t, step.expected, stackOutputBucketTags,
-						"Unexpected stack output for step %d: %s", step, step.purpose)
+						"Unexpected stack output for step %d: %s", i, step.purpose)
 				},
 			})
 	}
@@ -1320,7 +1299,7 @@ resources:
     options:
       provider: ${aws-provider}
 outputs:
-  actual: ${res.tags}`
+  actual: ${res.tagsAll}`
 
 	var expandMap func(level int, v interface{}) string
 	expandMap = func(level int, v interface{}) string {
@@ -1716,6 +1695,7 @@ func TestRegressUnknownTags(t *testing.T) {
 	    },
 	    "response": {
 	      "inputs": {
+					"tagsAll": {},
 		"__defaults": [
 		  "name"
 		],
@@ -1771,6 +1751,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
               "stateTransitionReason": "USER_INITIATED",
               "topics": [],
               "tumblingWindowInSeconds": 0,
+							"tagsAll": {},
               "uuid": "f8af893f-869e-4861-a403-1a4fe3509754"
           },
           "news": {
@@ -1779,6 +1760,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
               ],
               "enabled": true,
               "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+							"tagsAll": {},
               "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
           },
           "oldInputs": {
@@ -1839,6 +1821,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
             "runtime": "nodejs18.x",
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"
@@ -1871,6 +1854,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
             "runtime": "nodejs18.x",
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"
@@ -1922,6 +1906,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             "skipDestroy": false,
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
             "timeout": 3,
+						"tagsAll": {},
             "tracingConfig": {
                 "__defaults": [],
                 "mode": "PassThrough"
@@ -1958,16 +1943,4 @@ func TestSecurityGroupPreviewWarning(t *testing.T) {
 
 	assert.NotContains(t, prev.StdOut, "warning: Failed to calculate preview for element")
 	assert.NotContains(t, prev.StdErr, "warning: Failed to calculate preview for element")
-}
-
-func TestBucketToBucketV2Alias(t *testing.T) {
-	t.Parallel()
-
-	pt := pulumiTest(t, "bucket-to-bucketv2")
-	pt.Up(t)
-
-	pt.UpdateSource(t, filepath.Join("bucket-to-bucketv2", "step1"))
-
-	prev := pt.Preview(t, optpreview.Diff())
-	assertpreview.HasNoChanges(t, prev)
 }

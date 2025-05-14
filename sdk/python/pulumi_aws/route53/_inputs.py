@@ -1334,9 +1334,12 @@ if not MYPY:
     class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgsDict(TypedDict):
         latitude: pulumi.Input[builtins.str]
         """
-        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
         """
         longitude: pulumi.Input[builtins.str]
+        """
+        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        """
 elif False:
     RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1346,7 +1349,8 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs:
                  latitude: pulumi.Input[builtins.str],
                  longitude: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] latitude: A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        :param pulumi.Input[builtins.str] latitude: A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
+        :param pulumi.Input[builtins.str] longitude: A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
         """
         pulumi.set(__self__, "latitude", latitude)
         pulumi.set(__self__, "longitude", longitude)
@@ -1355,7 +1359,7 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs:
     @pulumi.getter
     def latitude(self) -> pulumi.Input[builtins.str]:
         """
-        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
         """
         return pulumi.get(self, "latitude")
 
@@ -1366,6 +1370,9 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs:
     @property
     @pulumi.getter
     def longitude(self) -> pulumi.Input[builtins.str]:
+        """
+        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        """
         return pulumi.get(self, "longitude")
 
     @longitude.setter

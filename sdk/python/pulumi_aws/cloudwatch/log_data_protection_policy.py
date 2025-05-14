@@ -119,7 +119,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogGroup("example", name="example")
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
             log_group_name=example.name,
             policy_document=pulumi.Output.json_dumps({
@@ -133,7 +133,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                             "Audit": {
                                 "FindingsDestination": {
                                     "S3": {
-                                        "Bucket": example_bucket_v2.bucket,
+                                        "Bucket": example_bucket.bucket,
                                     },
                                 },
                             },
@@ -184,7 +184,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogGroup("example", name="example")
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
             log_group_name=example.name,
             policy_document=pulumi.Output.json_dumps({
@@ -198,7 +198,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                             "Audit": {
                                 "FindingsDestination": {
                                     "S3": {
-                                        "Bucket": example_bucket_v2.bucket,
+                                        "Bucket": example_bucket.bucket,
                                     },
                                 },
                             },

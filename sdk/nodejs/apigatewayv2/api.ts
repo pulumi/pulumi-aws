@@ -122,6 +122,10 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
     /**
+     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     */
+    public readonly ipAddressType!: pulumi.Output<string>;
+    /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
@@ -144,8 +148,6 @@ export class Api extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -182,6 +184,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
             resourceInputs["executionArn"] = state ? state.executionArn : undefined;
             resourceInputs["failOnWarnings"] = state ? state.failOnWarnings : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protocolType"] = state ? state.protocolType : undefined;
             resourceInputs["routeKey"] = state ? state.routeKey : undefined;
@@ -202,6 +205,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
             resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
             resourceInputs["routeKey"] = args ? args.routeKey : undefined;
@@ -270,6 +274,10 @@ export interface ApiState {
      */
     failOnWarnings?: pulumi.Input<boolean>;
     /**
+     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     */
+    ipAddressType?: pulumi.Input<string>;
+    /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      */
     name?: pulumi.Input<string>;
@@ -292,8 +300,6 @@ export interface ApiState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -344,6 +350,10 @@ export interface ApiArgs {
      * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
      */
     failOnWarnings?: pulumi.Input<boolean>;
+    /**
+     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      */

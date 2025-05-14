@@ -3,13 +3,14 @@
 
 package com.pulumi.aws.paymentcryptography.inputs;
 
-import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributesArgs;
+import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributeArgs;
 import com.pulumi.aws.paymentcryptography.inputs.KeyTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -79,7 +80,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="keyAttributes")
-    private @Nullable Output<KeyKeyAttributesArgs> keyAttributes;
+    private @Nullable Output<List<KeyKeyAttributeArgs>> keyAttributes;
 
     /**
      * @return Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -87,7 +88,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<KeyKeyAttributesArgs>> keyAttributes() {
+    public Optional<Output<List<KeyKeyAttributeArgs>>> keyAttributes() {
         return Optional.ofNullable(this.keyAttributes);
     }
 
@@ -169,22 +170,14 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -311,7 +304,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder keyAttributes(@Nullable Output<KeyKeyAttributesArgs> keyAttributes) {
+        public Builder keyAttributes(@Nullable Output<List<KeyKeyAttributeArgs>> keyAttributes) {
             $.keyAttributes = keyAttributes;
             return this;
         }
@@ -324,8 +317,20 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder keyAttributes(KeyKeyAttributesArgs keyAttributes) {
+        public Builder keyAttributes(List<KeyKeyAttributeArgs> keyAttributes) {
             return keyAttributes(Output.of(keyAttributes));
+        }
+
+        /**
+         * @param keyAttributes Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyAttributes(KeyKeyAttributeArgs... keyAttributes) {
+            return keyAttributes(List.of(keyAttributes));
         }
 
         /**
@@ -438,11 +443,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -453,11 +454,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

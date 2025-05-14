@@ -14,6 +14,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -55,7 +56,7 @@ import javax.annotation.Nullable;
  *         var example = new Subscriber("example", SubscriberArgs.builder()
  *             .subscriberName("example-name")
  *             .accessType("S3")
- *             .source(SubscriberSourceArgs.builder()
+ *             .sources(SubscriberSourceArgs.builder()
  *                 .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
  *                     .sourceName("ROUTE53")
  *                     .sourceVersion("1.0")
@@ -174,15 +175,15 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    @Export(name="source", refs={SubscriberSource.class}, tree="[0]")
-    private Output</* @Nullable */ SubscriberSource> source;
+    @Export(name="sources", refs={List.class,SubscriberSource.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SubscriberSource>> sources;
 
     /**
      * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    public Output<Optional<SubscriberSource>> source() {
-        return Codegen.optional(this.source);
+    public Output<Optional<List<SubscriberSource>>> sources() {
+        return Codegen.optional(this.sources);
     }
     /**
      * The description for your subscriber account in Security Lake.
@@ -271,11 +272,7 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

@@ -82,7 +82,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export interface DirectoryBucketState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface DirectoryBucketState {
  */
 export interface DirectoryBucketArgs {
     /**
-     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      */
     bucket: pulumi.Input<string>;
     /**

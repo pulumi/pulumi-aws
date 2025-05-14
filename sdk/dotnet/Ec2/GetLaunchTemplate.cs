@@ -271,8 +271,6 @@ namespace Pulumi.Aws.Ec2
         public readonly bool DisableApiStop;
         public readonly bool DisableApiTermination;
         public readonly string EbsOptimized;
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> ElasticGpuSpecifications;
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticInferenceAcceleratorResult> ElasticInferenceAccelerators;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> EnclaveOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateFilterResult> Filters;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionResult> HibernationOptions;
@@ -325,10 +323,6 @@ namespace Pulumi.Aws.Ec2
             bool disableApiTermination,
 
             string ebsOptimized,
-
-            ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> elasticGpuSpecifications,
-
-            ImmutableArray<Outputs.GetLaunchTemplateElasticInferenceAcceleratorResult> elasticInferenceAccelerators,
 
             ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> enclaveOptions,
 
@@ -394,8 +388,6 @@ namespace Pulumi.Aws.Ec2
             DisableApiStop = disableApiStop;
             DisableApiTermination = disableApiTermination;
             EbsOptimized = ebsOptimized;
-            ElasticGpuSpecifications = elasticGpuSpecifications;
-            ElasticInferenceAccelerators = elasticInferenceAccelerators;
             EnclaveOptions = enclaveOptions;
             Filters = filters;
             HibernationOptions = hibernationOptions;

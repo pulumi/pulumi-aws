@@ -266,9 +266,6 @@ class _StreamProcessorState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
@@ -423,7 +420,6 @@ class _StreamProcessorState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -480,7 +476,7 @@ class StreamProcessor(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
+        example = aws.s3.Bucket("example", bucket="example-bucket")
         example_topic = aws.sns.Topic("example", name="example-topic")
         example_video_stream = aws.kinesis.VideoStream("example",
             name="example-kinesis-input",
@@ -687,7 +683,7 @@ class StreamProcessor(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
+        example = aws.s3.Bucket("example", bucket="example-bucket")
         example_topic = aws.sns.Topic("example", name="example-topic")
         example_video_stream = aws.kinesis.VideoStream("example",
             name="example-kinesis-input",
@@ -1078,7 +1074,6 @@ class StreamProcessor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

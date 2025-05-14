@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example-flink-application"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example-flink-application"});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
  *     bucket: example.id,
  *     key: "example-flink-application",
@@ -191,7 +191,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example-flink-application"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example-flink-application"});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
  *     bucket: example.id,
  *     key: "example-flink-application",
@@ -316,8 +316,6 @@ export class Application extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -446,8 +444,6 @@ export interface ApplicationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

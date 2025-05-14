@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,8 +76,7 @@ type SdkvoiceVoiceProfileDomain struct {
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              pulumi.StringMapOutput                                            `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll                           pulumi.StringMapOutput                                            `pulumi:"tagsAll"`
 }
 
 // NewSdkvoiceVoiceProfileDomain registers a new resource with the given unique name, arguments, and options.
@@ -122,8 +121,7 @@ type sdkvoiceVoiceProfileDomainState struct {
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                            `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll                           map[string]string                                            `pulumi:"tagsAll"`
 }
 
 type SdkvoiceVoiceProfileDomainState struct {
@@ -136,8 +134,7 @@ type SdkvoiceVoiceProfileDomainState struct {
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput
 	Tags                              pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll                           pulumi.StringMapInput
 }
 
 func (SdkvoiceVoiceProfileDomainState) ElementType() reflect.Type {
@@ -152,6 +149,7 @@ type sdkvoiceVoiceProfileDomainArgs struct {
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                           `pulumi:"tags"`
+	TagsAll                           map[string]string                                           `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a SdkvoiceVoiceProfileDomain resource.
@@ -163,6 +161,7 @@ type SdkvoiceVoiceProfileDomainArgs struct {
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput
 	Tags                              pulumi.StringMapInput
+	TagsAll                           pulumi.StringMapInput
 }
 
 func (SdkvoiceVoiceProfileDomainArgs) ElementType() reflect.Type {
@@ -278,7 +277,6 @@ func (o SdkvoiceVoiceProfileDomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o SdkvoiceVoiceProfileDomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

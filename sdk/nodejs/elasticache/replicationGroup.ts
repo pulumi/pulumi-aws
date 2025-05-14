@@ -250,7 +250,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly authToken!: pulumi.Output<string | undefined>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      */
     public readonly authTokenUpdateStrategy!: pulumi.Output<string | undefined>;
     /**
@@ -433,8 +433,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -598,7 +596,7 @@ export interface ReplicationGroupState {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      */
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
@@ -781,8 +779,6 @@ export interface ReplicationGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -823,7 +819,7 @@ export interface ReplicationGroupArgs {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      */
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**

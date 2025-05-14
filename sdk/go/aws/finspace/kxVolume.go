@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/finspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,8 +98,7 @@ type KxVolume struct {
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -183,8 +182,7 @@ type kxVolumeState struct {
 	// The error message when a failed state occurs.
 	StatusReason *string `pulumi:"statusReason"`
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
 	Type *string `pulumi:"type"`
@@ -227,8 +225,7 @@ type KxVolumeState struct {
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringPtrInput
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
 	Type pulumi.StringPtrInput
@@ -255,7 +252,8 @@ type kxVolumeArgs struct {
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations []KxVolumeNas1Configuration `pulumi:"nas1Configurations"`
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
 	Type string `pulumi:"type"`
 }
@@ -278,7 +276,8 @@ type KxVolumeArgs struct {
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayInput
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
 	Type pulumi.StringInput
 }
@@ -446,7 +445,6 @@ func (o KxVolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxVolume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o KxVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

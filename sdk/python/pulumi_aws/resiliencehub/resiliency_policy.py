@@ -192,9 +192,6 @@ class _ResiliencyPolicyState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
@@ -292,7 +289,6 @@ class _ResiliencyPolicyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -345,6 +341,37 @@ class ResiliencyPolicy(pulumi.CustomResource):
         """
         Resource for managing an AWS Resilience Hub Resiliency Policy.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.ResiliencyPolicy("example",
+            name="testexample",
+            description="testexample",
+            tier="NonCritical",
+            data_location_constraint="AnyLocation",
+            policy={
+                "region": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "az": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "hardware": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "software": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
@@ -376,6 +403,37 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Resilience Hub Resiliency Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.ResiliencyPolicy("example",
+            name="testexample",
+            description="testexample",
+            tier="NonCritical",
+            data_location_constraint="AnyLocation",
+            policy={
+                "region": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "az": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "hardware": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "software": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+            })
+        ```
 
         ## Import
 
@@ -550,7 +608,6 @@ class ResiliencyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

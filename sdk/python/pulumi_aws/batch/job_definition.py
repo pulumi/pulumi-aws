@@ -329,9 +329,6 @@ class _JobDefinitionState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
@@ -520,7 +517,6 @@ class _JobDefinitionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -675,6 +671,40 @@ class JobDefinition(pulumi.CustomResource):
                 ],
                 "numNodes": 2,
             }))
+        ```
+
+        ### Job Definition of type EKS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            name=" tf_test_batch_job_definition_eks",
+            type="container",
+            eks_properties={
+                "pod_properties": {
+                    "host_network": True,
+                    "containers": [{
+                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                        "commands": [
+                            "sleep",
+                            "60",
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "1",
+                                "memory": "1024Mi",
+                            },
+                        },
+                    }],
+                    "metadata": {
+                        "labels": {
+                            "environment": "test",
+                        },
+                    },
+                },
+            })
         ```
 
         ### Fargate Platform Capability
@@ -932,6 +962,40 @@ class JobDefinition(pulumi.CustomResource):
                 ],
                 "numNodes": 2,
             }))
+        ```
+
+        ### Job Definition of type EKS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            name=" tf_test_batch_job_definition_eks",
+            type="container",
+            eks_properties={
+                "pod_properties": {
+                    "host_network": True,
+                    "containers": [{
+                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                        "commands": [
+                            "sleep",
+                            "60",
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "1",
+                                "memory": "1024Mi",
+                            },
+                        },
+                    }],
+                    "metadata": {
+                        "labels": {
+                            "environment": "test",
+                        },
+                    },
+                },
+            })
         ```
 
         ### Fargate Platform Capability
@@ -1330,7 +1394,6 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

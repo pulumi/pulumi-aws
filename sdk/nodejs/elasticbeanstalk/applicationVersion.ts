@@ -26,7 +26,7 @@ import {Application} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.s3.BucketV2("default", {bucket: "tftest.applicationversion.bucket"});
+ * const _default = new aws.s3.Bucket("default", {bucket: "tftest.applicationversion.bucket"});
  * const defaultBucketObjectv2 = new aws.s3.BucketObjectv2("default", {
  *     bucket: _default.id,
  *     key: "beanstalk/go-v1.zip",
@@ -113,8 +113,6 @@ export class ApplicationVersion extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -212,8 +210,6 @@ export interface ApplicationVersionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

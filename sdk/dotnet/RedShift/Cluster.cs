@@ -230,12 +230,6 @@ namespace Pulumi.Aws.RedShift
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Logging, documented below.
-        /// </summary>
-        [Output("logging")]
-        public Output<Outputs.ClusterLogging> Logging { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         /// </summary>
         [Output("maintenanceTrackName")]
@@ -324,7 +318,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `true`.
+        /// If true, the cluster can be accessed from a public network. Default is `false`.
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
@@ -346,12 +340,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Output("snapshotClusterIdentifier")]
         public Output<string?> SnapshotClusterIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration of automatic copy of snapshots from one region to another. Documented below.
-        /// </summary>
-        [Output("snapshotCopy")]
-        public Output<Outputs.ClusterSnapshotCopy> SnapshotCopy { get; private set; } = null!;
 
         /// <summary>
         /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
@@ -478,18 +466,6 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterParameterGroupName { get; set; }
 
         /// <summary>
-        /// The public key for the cluster
-        /// </summary>
-        [Input("clusterPublicKey")]
-        public Input<string>? ClusterPublicKey { get; set; }
-
-        /// <summary>
-        /// The specific revision number of the database in the cluster
-        /// </summary>
-        [Input("clusterRevisionNumber")]
-        public Input<string>? ClusterRevisionNumber { get; set; }
-
-        /// <summary>
         /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         /// </summary>
         [Input("clusterSubnetGroupName")]
@@ -534,12 +510,6 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The connection endpoint
-        /// </summary>
-        [Input("endpoint")]
-        public Input<string>? Endpoint { get; set; }
-
-        /// <summary>
         /// If true , enhanced VPC routing is enabled.
         /// </summary>
         [Input("enhancedVpcRouting")]
@@ -568,12 +538,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// Logging, documented below.
-        /// </summary>
-        [Input("logging")]
-        public Input<Inputs.ClusterLoggingArgs>? Logging { get; set; }
 
         /// <summary>
         /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -668,7 +632,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `true`.
+        /// If true, the cluster can be accessed from a public network. Default is `false`.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -690,12 +654,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("snapshotClusterIdentifier")]
         public Input<string>? SnapshotClusterIdentifier { get; set; }
-
-        /// <summary>
-        /// Configuration of automatic copy of snapshots from one region to another. Documented below.
-        /// </summary>
-        [Input("snapshotCopy")]
-        public Input<Inputs.ClusterSnapshotCopyArgs>? SnapshotCopy { get; set; }
 
         /// <summary>
         /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
@@ -908,12 +866,6 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Logging, documented below.
-        /// </summary>
-        [Input("logging")]
-        public Input<Inputs.ClusterLoggingGetArgs>? Logging { get; set; }
-
-        /// <summary>
         /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         /// </summary>
         [Input("maintenanceTrackName")]
@@ -1012,7 +964,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `true`.
+        /// If true, the cluster can be accessed from a public network. Default is `false`.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -1034,12 +986,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("snapshotClusterIdentifier")]
         public Input<string>? SnapshotClusterIdentifier { get; set; }
-
-        /// <summary>
-        /// Configuration of automatic copy of snapshots from one region to another. Documented below.
-        /// </summary>
-        [Input("snapshotCopy")]
-        public Input<Inputs.ClusterSnapshotCopyGetArgs>? SnapshotCopy { get; set; }
 
         /// <summary>
         /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
@@ -1065,7 +1011,6 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

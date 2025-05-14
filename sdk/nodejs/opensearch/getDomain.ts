@@ -134,12 +134,6 @@ export interface GetDomainResult {
      */
     readonly ipAddressType: string;
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-     *
-     * @deprecated kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-     */
-    readonly kibanaEndpoint: string;
-    /**
      * Domain log publishing related options.
      */
     readonly logPublishingOptions: outputs.opensearch.GetDomainLogPublishingOption[];

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a CloudWatch Evidently Launch resource.
  * 
+ * &gt; **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
+ * 
  * ## Example Usage
  * 
  * ### Basic
@@ -661,11 +663,7 @@ public class Launch extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var b = new Aws.S3.BucketV2("b", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Bucket = "awsconfig-example",
+    ///         BucketName = "awsconfig-example",
     ///     });
     /// 
     ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("foo", new()
     ///     {
     ///         Name = "example",
-    ///         S3BucketName = b.Bucket,
+    ///         S3BucketName = b.BucketName,
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()

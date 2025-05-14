@@ -681,10 +681,10 @@ public final class ElbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -709,11 +709,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
+     *         var elbLogs = new Bucket("elbLogs", BucketArgs.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
+     *         var elbLogsAcl = new BucketAcl("elbLogsAcl", BucketAclArgs.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -778,10 +778,10 @@ public final class ElbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -806,11 +806,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
+     *         var elbLogs = new Bucket("elbLogs", BucketArgs.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
+     *         var elbLogsAcl = new BucketAcl("elbLogsAcl", BucketAclArgs.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -875,10 +875,10 @@ public final class ElbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -903,11 +903,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
+     *         var elbLogs = new Bucket("elbLogs", BucketArgs.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
+     *         var elbLogsAcl = new BucketAcl("elbLogsAcl", BucketAclArgs.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -972,10 +972,10 @@ public final class ElbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -1000,11 +1000,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
+     *         var elbLogs = new Bucket("elbLogs", BucketArgs.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
+     *         var elbLogsAcl = new BucketAcl("elbLogsAcl", BucketAclArgs.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -1069,10 +1069,10 @@ public final class ElbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -1097,11 +1097,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
+     *         var elbLogs = new Bucket("elbLogs", BucketArgs.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
+     *         var elbLogsAcl = new BucketAcl("elbLogsAcl", BucketAclArgs.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -1166,10 +1166,10 @@ public final class ElbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -1194,11 +1194,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
+     *         var elbLogs = new Bucket("elbLogs", BucketArgs.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
+     *         var elbLogsAcl = new BucketAcl("elbLogsAcl", BucketAclArgs.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -1263,10 +1263,10 @@ public final class ElbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -1291,11 +1291,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
+     *         var elbLogs = new Bucket("elbLogs", BucketArgs.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
+     *         var elbLogsAcl = new BucketAcl("elbLogsAcl", BucketAclArgs.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());

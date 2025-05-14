@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ConditionalForwaderArgs, ConditionalForwaderState } from "./conditionalForwader";
-export type ConditionalForwader = import("./conditionalForwader").ConditionalForwader;
-export const ConditionalForwader: typeof import("./conditionalForwader").ConditionalForwader = null as any;
-utilities.lazyLoad(exports, ["ConditionalForwader"], () => require("./conditionalForwader"));
-
 export { ConditionalForwarderArgs, ConditionalForwarderState } from "./conditionalForwarder";
 export type ConditionalForwarder = import("./conditionalForwarder").ConditionalForwarder;
 export const ConditionalForwarder: typeof import("./conditionalForwarder").ConditionalForwarder = null as any;
@@ -24,11 +19,6 @@ export { GetDirectoryArgs, GetDirectoryResult, GetDirectoryOutputArgs } from "./
 export const getDirectory: typeof import("./getDirectory").getDirectory = null as any;
 export const getDirectoryOutput: typeof import("./getDirectory").getDirectoryOutput = null as any;
 utilities.lazyLoad(exports, ["getDirectory","getDirectoryOutput"], () => require("./getDirectory"));
-
-export { LogServiceArgs, LogServiceState } from "./logService";
-export type LogService = import("./logService").LogService;
-export const LogService: typeof import("./logService").LogService = null as any;
-utilities.lazyLoad(exports, ["LogService"], () => require("./logService"));
 
 export { LogSubscriptionArgs, LogSubscriptionState } from "./logSubscription";
 export type LogSubscription = import("./logSubscription").LogSubscription;
@@ -65,14 +55,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws:directoryservice/conditionalForwader:ConditionalForwader":
-                return new ConditionalForwader(name, <any>undefined, { urn })
             case "aws:directoryservice/conditionalForwarder:ConditionalForwarder":
                 return new ConditionalForwarder(name, <any>undefined, { urn })
             case "aws:directoryservice/directory:Directory":
                 return new Directory(name, <any>undefined, { urn })
-            case "aws:directoryservice/logService:LogService":
-                return new LogService(name, <any>undefined, { urn })
             case "aws:directoryservice/logSubscription:LogSubscription":
                 return new LogSubscription(name, <any>undefined, { urn })
             case "aws:directoryservice/radiusSettings:RadiusSettings":
@@ -90,10 +76,8 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws", "directoryservice/conditionalForwader", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/conditionalForwarder", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/directory", _module)
-pulumi.runtime.registerResourceModule("aws", "directoryservice/logService", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/logSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/radiusSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/serviceRegion", _module)

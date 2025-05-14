@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Evidently
     /// <summary>
     /// Provides a CloudWatch Evidently Project resource.
     /// 
+    /// &gt; **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic
@@ -367,7 +369,6 @@ namespace Pulumi.Aws.Evidently
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

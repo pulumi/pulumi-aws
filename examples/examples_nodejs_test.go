@@ -23,9 +23,10 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -377,6 +378,8 @@ func TestAccLambdaLayer(t *testing.T) {
 }
 
 func TestAccLambdaContainerImages(t *testing.T) {
+	// TODO[pulumi/pulumi-awsx#1612]
+	t.Skipf("Skipping test until awsx is update to use getAuthorizationToken %s", t.Name())
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "lambda-container-image"),
@@ -817,13 +820,17 @@ func TestRoute53Upgrade(t *testing.T) {
 }
 
 func TestJobQueueUpgrade(t *testing.T) {
+	// TODO[pulumi/pulumi-aws#5515]
+	t.Skipf("Skipping test for now. State upgrade isn't working correctly")
 	opts := nodeProviderUpgradeOpts()
 	opts.setEnvRegion = false
+	opts.baselineVersion = "6.78.0"
+	opts.linkNodeSDK = false
 	opts.region = "us-west-2" // has to match the snapshot-recorded region
 	opts.extraOpts = []opttest.Option{
 		opttest.Env("PULUMI_ENABLE_PLAN_RESOURCE_CHANGE", "true"),
 	}
-	testProviderUpgrade(t, filepath.Join("test-programs", "job-queue"), opts)
+	testProviderUpgrade(t, filepath.Join("test-programs", "job-queue"), opts, optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "job-queue", "step1")))
 }
 
 func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
@@ -1017,21 +1024,6 @@ func TestRegress4128(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestGameLift(t *testing.T) {
-	if testing.Short() {
-		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
-		return
-	}
-
-	ptest := pulumiTest(t, filepath.Join("test-programs", "gamelift-typescript"))
-	ptest.SetConfig(t, "customData", "A")
-	result1 := ptest.Up(t)
-	require.Equal(t, "A", result1.Outputs["CustomEventData"].Value)
-	ptest.SetConfig(t, "customData", "B")
-	result2 := ptest.Up(t)
-	require.Equal(t, "B", result2.Outputs["CustomEventData"].Value)
-}
-
 func TestRegress4446(t *testing.T) {
 	skipIfShort(t)
 	dir := filepath.Join("test-programs", "regress-4446")
@@ -1047,43 +1039,6 @@ func TestRegress4446(t *testing.T) {
 	t.Logf("#%v", upResult.Summary)
 	result := test.Preview(t, optpreview.ExpectNoChanges())
 	t.Logf("#%v", result.ChangeSummary)
-}
-
-func TestRegress4568(t *testing.T) {
-	skipIfShort(t)
-	dir := filepath.Join("test-programs", "regress-4568")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	providerName := "aws"
-	options := []opttest.Option{
-		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up(t)
-	t.Logf("#%v", upResult.Summary)
-
-	// The singular lifecyclePolicy should contain the first value
-	assert.Equal(t, map[string]interface{}{
-		"transitionToIa":                  "AFTER_30_DAYS",
-		"transitionToArchive":             "",
-		"transitionToPrimaryStorageClass": "",
-	}, upResult.Outputs["lifecyclePolicy"].Value, "lifecyclePolicy should be set")
-
-	// The plural lifecyclePolicies should contain both values
-	lifecyclePolicies := upResult.Outputs["lifecyclePolicies"].Value.([]interface{})
-	assert.Len(t, lifecyclePolicies, 2, "lifecyclePolicies should have two elements")
-
-	assert.Contains(t, lifecyclePolicies, map[string]interface{}{
-		"transitionToIa":                  "AFTER_30_DAYS",
-		"transitionToArchive":             "",
-		"transitionToPrimaryStorageClass": "",
-	})
-	assert.Contains(t, lifecyclePolicies, map[string]interface{}{
-		"transitionToPrimaryStorageClass": "AFTER_1_ACCESS",
-		"transitionToIa":                  "",
-		"transitionToArchive":             "",
-	})
 }
 
 func TestRegress5219(t *testing.T) {

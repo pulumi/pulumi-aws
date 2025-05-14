@@ -16,16 +16,24 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
     public static final ServiceHealthCheckCustomConfigArgs Empty = new ServiceHealthCheckCustomConfigArgs();
 
     /**
-     * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+     * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
+     * 
+     * @deprecated
+     * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
      */
+    @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
     @Import(name="failureThreshold")
     private @Nullable Output<Integer> failureThreshold;
 
     /**
-     * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+     * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
+     * 
+     * @deprecated
+     * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
      */
+    @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
     public Optional<Output<Integer>> failureThreshold() {
         return Optional.ofNullable(this.failureThreshold);
     }
@@ -55,22 +63,30 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param failureThreshold The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+         * @param failureThreshold The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
          * 
          * @return builder
          * 
+         * @deprecated
+         * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
+         * 
          */
+        @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
         public Builder failureThreshold(@Nullable Output<Integer> failureThreshold) {
             $.failureThreshold = failureThreshold;
             return this;
         }
 
         /**
-         * @param failureThreshold The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+         * @param failureThreshold The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
          * 
          * @return builder
          * 
+         * @deprecated
+         * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
+         * 
          */
+        @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
         public Builder failureThreshold(Integer failureThreshold) {
             return failureThreshold(Output.of(failureThreshold));
         }

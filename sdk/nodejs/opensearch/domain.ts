@@ -386,12 +386,6 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly ipAddressType!: pulumi.Output<string>;
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-     *
-     * @deprecated kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-     */
-    public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
     public readonly logPublishingOptions!: pulumi.Output<outputs.opensearch.DomainLogPublishingOption[] | undefined>;
@@ -417,8 +411,6 @@ export class Domain extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -458,7 +450,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["endpointV2"] = state ? state.endpointV2 : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            resourceInputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
             resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
             resourceInputs["offPeakWindowOptions"] = state ? state.offPeakWindowOptions : undefined;
@@ -495,7 +486,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["endpointV2"] = undefined /*out*/;
-            resourceInputs["kibanaEndpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -588,12 +578,6 @@ export interface DomainState {
      */
     ipAddressType?: pulumi.Input<string>;
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-     *
-     * @deprecated kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-     */
-    kibanaEndpoint?: pulumi.Input<string>;
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
     logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.DomainLogPublishingOption>[]>;
@@ -619,8 +603,6 @@ export interface DomainState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

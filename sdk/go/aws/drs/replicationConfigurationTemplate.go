@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/drs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/drs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -127,8 +127,6 @@ type ReplicationConfigurationTemplate struct {
 	// Set of tags to be associated with the Replication Configuration Template resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                            `pulumi:"tagsAll"`
 	Timeouts ReplicationConfigurationTemplateTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Whether to use a dedicated Replication Server in the replication staging area.
@@ -231,8 +229,6 @@ type replicationConfigurationTemplateState struct {
 	// Set of tags to be associated with the Replication Configuration Template resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string                         `pulumi:"tagsAll"`
 	Timeouts *ReplicationConfigurationTemplateTimeouts `pulumi:"timeouts"`
 	// Whether to use a dedicated Replication Server in the replication staging area.
@@ -273,8 +269,6 @@ type ReplicationConfigurationTemplateState struct {
 	// Set of tags to be associated with the Replication Configuration Template resource.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ReplicationConfigurationTemplateTimeoutsPtrInput
 	// Whether to use a dedicated Replication Server in the replication staging area.
@@ -527,8 +521,6 @@ func (o ReplicationConfigurationTemplateOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReplicationConfigurationTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

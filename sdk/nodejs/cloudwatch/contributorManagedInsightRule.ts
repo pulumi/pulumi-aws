@@ -56,9 +56,6 @@ export class ContributorManagedInsightRule extends pulumi.CustomResource {
     public /*out*/ readonly ruleName!: pulumi.Output<string>;
     public readonly state!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
@@ -123,9 +120,6 @@ export interface ContributorManagedInsightRuleState {
     ruleName?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.

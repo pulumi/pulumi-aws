@@ -32,9 +32,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.S3.BucketV2("default", new()
+    ///     var @default = new Aws.S3.Bucket("default", new()
     ///     {
-    ///         Bucket = "tftest.applicationversion.bucket",
+    ///         BucketName = "tftest.applicationversion.bucket",
     ///     });
     /// 
     ///     var defaultBucketObjectv2 = new Aws.S3.BucketObjectv2("default", new()
@@ -305,7 +305,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

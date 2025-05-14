@@ -191,12 +191,6 @@ namespace Pulumi.Aws.Ssm
         public Output<string> DocumentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        /// </summary>
-        [Output("instanceId")]
-        public Output<string?> InstanceId { get; private set; } = null!;
-
-        /// <summary>
         /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         /// </summary>
         [Output("maxConcurrency")]
@@ -341,12 +335,6 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
-        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
-
-        /// <summary>
         /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         /// </summary>
         [Input("maxConcurrency")]
@@ -477,12 +465,6 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
-        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
-
-        /// <summary>
         /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         /// </summary>
         [Input("maxConcurrency")]
@@ -548,7 +530,6 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

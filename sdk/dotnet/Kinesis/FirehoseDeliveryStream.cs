@@ -26,9 +26,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "tf-test-bucket",
+    ///         BucketName = "tf-test-bucket",
     ///     });
     /// 
     ///     var firehoseAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Kinesis
     ///         },
     ///     });
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",
@@ -766,9 +766,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "test-bucket",
+    ///         BucketName = "test-bucket",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -1389,7 +1389,6 @@ namespace Pulumi.Aws.Kinesis
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

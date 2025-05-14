@@ -55,12 +55,12 @@ namespace Pulumi.Aws.S3
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -87,12 +87,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -119,12 +119,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -151,22 +151,22 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///         ObjectLockEnabled = true,
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
+    ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketVersioningV2,
+    ///             exampleBucketVersioning,
     ///         },
     ///     });
     /// 
@@ -756,7 +756,6 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

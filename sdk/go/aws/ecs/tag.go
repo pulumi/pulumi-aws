@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,9 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := batch.NewComputeEnvironment(ctx, "example", &batch.ComputeEnvironmentArgs{
-//				ComputeEnvironmentName: pulumi.String("example"),
-//				ServiceRole:            pulumi.Any(exampleAwsIamRole.Arn),
-//				Type:                   pulumi.String("UNMANAGED"),
+//				Name:        pulumi.String("example"),
+//				ServiceRole: pulumi.Any(exampleAwsIamRole.Arn),
+//				Type:        pulumi.String("UNMANAGED"),
 //			})
 //			if err != nil {
 //				return err

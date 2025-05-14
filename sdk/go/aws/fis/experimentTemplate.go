@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,6 +73,178 @@ import (
 //
 // ```
 //
+// ### With Report Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": []string{
+//								fmt.Sprintf("fis.%v", current.DnsSuffix),
+//							},
+//						},
+//					},
+//				},
+//				"Version": "2012-10-17",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			reportAccess, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Version: pulumi.StringRef("2012-10-17"),
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("logsDelivery"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"logs:CreateLogDelivery",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Sid:    pulumi.StringRef("ReportsBucket"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"s3:PutObject",
+//							"s3:GetObject",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Sid:    pulumi.StringRef("GetDashboard"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"cloudwatch:GetDashboard",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Sid:    pulumi.StringRef("GetDashboardData"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"cloudwatch:getMetricWidgetImage",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			reportAccessPolicy, err := iam.NewPolicy(ctx, "report_access", &iam.PolicyArgs{
+//				Name:   pulumi.String("report_access"),
+//				Policy: pulumi.String(reportAccess.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "report_access", &iam.RolePolicyAttachmentArgs{
+//				Role:      pulumi.Any(test.Name),
+//				PolicyArn: reportAccessPolicy.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
+//				Description: pulumi.String("example"),
+//				RoleArn:     example.Arn,
+//				StopConditions: fis.ExperimentTemplateStopConditionArray{
+//					&fis.ExperimentTemplateStopConditionArgs{
+//						Source: pulumi.String("none"),
+//					},
+//				},
+//				Actions: fis.ExperimentTemplateActionArray{
+//					&fis.ExperimentTemplateActionArgs{
+//						Name:     pulumi.String("example-action"),
+//						ActionId: pulumi.String("aws:ec2:terminate-instances"),
+//						Target: &fis.ExperimentTemplateActionTargetArgs{
+//							Key:   pulumi.String("Instances"),
+//							Value: pulumi.String("example-target"),
+//						},
+//					},
+//				},
+//				Targets: fis.ExperimentTemplateTargetArray{
+//					&fis.ExperimentTemplateTargetArgs{
+//						Name:          pulumi.String("example-target"),
+//						ResourceType:  pulumi.String("aws:ec2:instance"),
+//						SelectionMode: pulumi.String("COUNT(1)"),
+//						ResourceTags: fis.ExperimentTemplateTargetResourceTagArray{
+//							&fis.ExperimentTemplateTargetResourceTagArgs{
+//								Key:   pulumi.String("env"),
+//								Value: pulumi.String("example"),
+//							},
+//						},
+//					},
+//				},
+//				ExperimentReportConfiguration: &fis.ExperimentTemplateExperimentReportConfigurationArgs{
+//					DataSources: &fis.ExperimentTemplateExperimentReportConfigurationDataSourcesArgs{
+//						CloudwatchDashboards: fis.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArray{
+//							&fis.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs{
+//								DashboardArn: pulumi.Any(exampleAwsCloudwatchDashboard.DashboardArn),
+//							},
+//						},
+//					},
+//					Outputs: &fis.ExperimentTemplateExperimentReportConfigurationOutputsArgs{
+//						S3Configuration: &fis.ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs{
+//							BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
+//							Prefix:     pulumi.String("fis-example-reports"),
+//						},
+//					},
+//					PostExperimentDuration: pulumi.String("PT10M"),
+//					PreExperimentDuration:  pulumi.String("PT10M"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
@@ -89,6 +261,8 @@ type ExperimentTemplate struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions ExperimentTemplateExperimentOptionsOutput `pulumi:"experimentOptions"`
+	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrOutput `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -98,8 +272,7 @@ type ExperimentTemplate struct {
 	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayOutput `pulumi:"targets"`
@@ -153,6 +326,8 @@ type experimentTemplateState struct {
 	Description *string `pulumi:"description"`
 	// The experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
+	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging. See below.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -162,8 +337,7 @@ type experimentTemplateState struct {
 	// The following arguments are optional:
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target of an action. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
@@ -176,6 +350,8 @@ type ExperimentTemplateState struct {
 	Description pulumi.StringPtrInput
 	// The experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
+	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrInput
 	// The configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -185,8 +361,7 @@ type ExperimentTemplateState struct {
 	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayInput
@@ -203,6 +378,8 @@ type experimentTemplateArgs struct {
 	Description string `pulumi:"description"`
 	// The experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
+	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging. See below.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -225,6 +402,8 @@ type ExperimentTemplateArgs struct {
 	Description pulumi.StringInput
 	// The experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
+	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrInput
 	// The configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -341,6 +520,13 @@ func (o ExperimentTemplateOutput) ExperimentOptions() ExperimentTemplateExperime
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentOptionsOutput { return v.ExperimentOptions }).(ExperimentTemplateExperimentOptionsOutput)
 }
 
+// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+func (o ExperimentTemplateOutput) ExperimentReportConfiguration() ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentReportConfigurationPtrOutput {
+		return v.ExperimentReportConfiguration
+	}).(ExperimentTemplateExperimentReportConfigurationPtrOutput)
+}
+
 // The configuration for experiment logging. See below.
 func (o ExperimentTemplateOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateLogConfigurationPtrOutput { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
@@ -363,7 +549,6 @@ func (o ExperimentTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ExperimentTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -129,11 +129,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The public key for the cluster
      */
-    public readonly clusterPublicKey!: pulumi.Output<string>;
+    public /*out*/ readonly clusterPublicKey!: pulumi.Output<string>;
     /**
      * The specific revision number of the database in the cluster
      */
-    public readonly clusterRevisionNumber!: pulumi.Output<string>;
+    public /*out*/ readonly clusterRevisionNumber!: pulumi.Output<string>;
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      */
@@ -171,7 +171,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The connection endpoint
      */
-    public readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * If true , enhanced VPC routing is enabled.
      */
@@ -188,12 +188,6 @@ export class Cluster extends pulumi.CustomResource {
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
-    /**
-     * Logging, documented below.
-     *
-     * @deprecated logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-     */
-    public readonly logging!: pulumi.Output<outputs.redshift.ClusterLogging>;
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
@@ -257,7 +251,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
-     * If true, the cluster can be accessed from a public network. Default is `true`.
+     * If true, the cluster can be accessed from a public network. Default is `false`.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
@@ -273,12 +267,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly snapshotClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * Configuration of automatic copy of snapshots from one region to another. Documented below.
-     *
-     * @deprecated snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-     */
-    public readonly snapshotCopy!: pulumi.Output<outputs.redshift.ClusterSnapshotCopy>;
-    /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
@@ -288,8 +276,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -336,7 +322,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["logging"] = state ? state.logging : undefined;
             resourceInputs["maintenanceTrackName"] = state ? state.maintenanceTrackName : undefined;
             resourceInputs["manageMasterPassword"] = state ? state.manageMasterPassword : undefined;
             resourceInputs["manualSnapshotRetentionPeriod"] = state ? state.manualSnapshotRetentionPeriod : undefined;
@@ -354,7 +339,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["snapshotArn"] = state ? state.snapshotArn : undefined;
             resourceInputs["snapshotClusterIdentifier"] = state ? state.snapshotClusterIdentifier : undefined;
-            resourceInputs["snapshotCopy"] = state ? state.snapshotCopy : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -375,8 +359,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["availabilityZoneRelocationEnabled"] = args ? args.availabilityZoneRelocationEnabled : undefined;
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["clusterParameterGroupName"] = args ? args.clusterParameterGroupName : undefined;
-            resourceInputs["clusterPublicKey"] = args ? args.clusterPublicKey : undefined;
-            resourceInputs["clusterRevisionNumber"] = args ? args.clusterRevisionNumber : undefined;
             resourceInputs["clusterSubnetGroupName"] = args ? args.clusterSubnetGroupName : undefined;
             resourceInputs["clusterType"] = args ? args.clusterType : undefined;
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
@@ -384,12 +366,10 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["defaultIamRoleArn"] = args ? args.defaultIamRoleArn : undefined;
             resourceInputs["elasticIp"] = args ? args.elasticIp : undefined;
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["maintenanceTrackName"] = args ? args.maintenanceTrackName : undefined;
             resourceInputs["manageMasterPassword"] = args ? args.manageMasterPassword : undefined;
             resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
@@ -406,14 +386,16 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotArn"] = args ? args.snapshotArn : undefined;
             resourceInputs["snapshotClusterIdentifier"] = args ? args.snapshotClusterIdentifier : undefined;
-            resourceInputs["snapshotCopy"] = args ? args.snapshotCopy : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterNamespaceArn"] = undefined /*out*/;
             resourceInputs["clusterNodes"] = undefined /*out*/;
+            resourceInputs["clusterPublicKey"] = undefined /*out*/;
+            resourceInputs["clusterRevisionNumber"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["masterPasswordSecretArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -539,12 +521,6 @@ export interface ClusterState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Logging, documented below.
-     *
-     * @deprecated logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-     */
-    logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
-    /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
     maintenanceTrackName?: pulumi.Input<string>;
@@ -607,7 +583,7 @@ export interface ClusterState {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * If true, the cluster can be accessed from a public network. Default is `true`.
+     * If true, the cluster can be accessed from a public network. Default is `false`.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
@@ -623,12 +599,6 @@ export interface ClusterState {
      */
     snapshotClusterIdentifier?: pulumi.Input<string>;
     /**
-     * Configuration of automatic copy of snapshots from one region to another. Documented below.
-     *
-     * @deprecated snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-     */
-    snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
-    /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
     snapshotIdentifier?: pulumi.Input<string>;
@@ -638,8 +608,6 @@ export interface ClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -689,14 +657,6 @@ export interface ClusterArgs {
      */
     clusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * The public key for the cluster
-     */
-    clusterPublicKey?: pulumi.Input<string>;
-    /**
-     * The specific revision number of the database in the cluster
-     */
-    clusterRevisionNumber?: pulumi.Input<string>;
-    /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      */
     clusterSubnetGroupName?: pulumi.Input<string>;
@@ -727,10 +687,6 @@ export interface ClusterArgs {
      */
     encrypted?: pulumi.Input<boolean>;
     /**
-     * The connection endpoint
-     */
-    endpoint?: pulumi.Input<string>;
-    /**
      * If true , enhanced VPC routing is enabled.
      */
     enhancedVpcRouting?: pulumi.Input<boolean>;
@@ -746,12 +702,6 @@ export interface ClusterArgs {
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Logging, documented below.
-     *
-     * @deprecated logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-     */
-    logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
@@ -811,7 +761,7 @@ export interface ClusterArgs {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * If true, the cluster can be accessed from a public network. Default is `true`.
+     * If true, the cluster can be accessed from a public network. Default is `false`.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
@@ -826,12 +776,6 @@ export interface ClusterArgs {
      * The name of the cluster the source snapshot was created from.
      */
     snapshotClusterIdentifier?: pulumi.Input<string>;
-    /**
-     * Configuration of automatic copy of snapshots from one region to another. Documented below.
-     *
-     * @deprecated snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-     */
-    snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */

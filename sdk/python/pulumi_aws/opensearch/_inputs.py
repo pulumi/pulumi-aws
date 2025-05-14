@@ -90,8 +90,8 @@ __all__ = [
     'GetDomainOffPeakWindowOptionsOffPeakWindowArgsDict',
     'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs',
     'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgsDict',
-    'GetServerlessSecurityConfigSamlOptionsArgs',
-    'GetServerlessSecurityConfigSamlOptionsArgsDict',
+    'GetServerlessSecurityConfigSamlOptionArgs',
+    'GetServerlessSecurityConfigSamlOptionArgsDict',
 ]
 
 MYPY = False
@@ -2624,7 +2624,7 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs:
 
 
 if not MYPY:
-    class GetServerlessSecurityConfigSamlOptionsArgsDict(TypedDict):
+    class GetServerlessSecurityConfigSamlOptionArgsDict(TypedDict):
         group_attribute: builtins.str
         """
         Group attribute for this SAML integration.
@@ -2642,10 +2642,10 @@ if not MYPY:
         User attribute for this SAML integration.
         """
 elif False:
-    GetServerlessSecurityConfigSamlOptionsArgsDict: TypeAlias = Mapping[str, Any]
+    GetServerlessSecurityConfigSamlOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class GetServerlessSecurityConfigSamlOptionsArgs:
+class GetServerlessSecurityConfigSamlOptionArgs:
     def __init__(__self__, *,
                  group_attribute: builtins.str,
                  metadata: builtins.str,

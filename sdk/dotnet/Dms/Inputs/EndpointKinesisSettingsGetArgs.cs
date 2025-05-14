@@ -66,6 +66,12 @@ namespace Pulumi.Aws.Dms.Inputs
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
 
+        /// <summary>
+        /// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+        /// </summary>
+        [Input("useLargeIntegerValue")]
+        public Input<bool>? UseLargeIntegerValue { get; set; }
+
         public EndpointKinesisSettingsGetArgs()
         {
         }

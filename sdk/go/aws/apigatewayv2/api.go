@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,6 +109,8 @@ type Api struct {
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
 	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
 	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
+	// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// Name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -121,8 +123,6 @@ type Api struct {
 	// Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -191,6 +191,8 @@ type apiState struct {
 	ExecutionArn *string `pulumi:"executionArn"`
 	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
+	// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// Name of the API. Must be less than or equal to 128 characters in length.
 	Name *string `pulumi:"name"`
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -203,8 +205,6 @@ type apiState struct {
 	// Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -241,6 +241,8 @@ type ApiState struct {
 	ExecutionArn pulumi.StringPtrInput
 	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
 	FailOnWarnings pulumi.BoolPtrInput
+	// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+	IpAddressType pulumi.StringPtrInput
 	// Name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringPtrInput
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -253,8 +255,6 @@ type ApiState struct {
 	// Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -287,6 +287,8 @@ type apiArgs struct {
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
+	// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// Name of the API. Must be less than or equal to 128 characters in length.
 	Name *string `pulumi:"name"`
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -326,6 +328,8 @@ type ApiArgs struct {
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
 	FailOnWarnings pulumi.BoolPtrInput
+	// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+	IpAddressType pulumi.StringPtrInput
 	// Name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringPtrInput
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -488,6 +492,11 @@ func (o ApiOutput) FailOnWarnings() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
 }
 
+// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+func (o ApiOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
 // Name of the API. Must be less than or equal to 128 characters in length.
 func (o ApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -515,8 +524,6 @@ func (o ApiOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ApiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

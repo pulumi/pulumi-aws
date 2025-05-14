@@ -302,24 +302,6 @@ public class Association extends com.pulumi.resources.CustomResource {
         return this.documentVersion;
     }
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     * 
-     * @deprecated
-     * instance_id is deprecated. Use targets instead.
-     * 
-     */
-    @Deprecated /* instance_id is deprecated. Use targets instead. */
-    @Export(name="instanceId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> instanceId;
-
-    /**
-     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     * 
-     */
-    public Output<Optional<String>> instanceId() {
-        return Codegen.optional(this.instanceId);
-    }
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      * 
      */
@@ -434,11 +416,7 @@ public class Association extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSourceBucketV2 = new aws.s3.BucketV2("example_source", {bucket: "example-source"});
+ * const exampleSourceBucket = new aws.s3.Bucket("example_source", {bucket: "example-source"});
  * const exampleSource = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowAppFlowSourceActions",
@@ -36,15 +36,15 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleSourceBucketPolicy = new aws.s3.BucketPolicy("example_source", {
- *     bucket: exampleSourceBucketV2.id,
+ *     bucket: exampleSourceBucket.id,
  *     policy: exampleSource.then(exampleSource => exampleSource.json),
  * });
  * const example = new aws.s3.BucketObjectv2("example", {
- *     bucket: exampleSourceBucketV2.id,
+ *     bucket: exampleSourceBucket.id,
  *     key: "example_source.csv",
  *     source: new pulumi.asset.FileAsset("example_source.csv"),
  * });
- * const exampleDestinationBucketV2 = new aws.s3.BucketV2("example_destination", {bucket: "example-destination"});
+ * const exampleDestinationBucket = new aws.s3.Bucket("example_destination", {bucket: "example-destination"});
  * const exampleDestination = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowAppFlowDestinationActions",
@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleDestinationBucketPolicy = new aws.s3.BucketPolicy("example_destination", {
- *     bucket: exampleDestinationBucketV2.id,
+ *     bucket: exampleDestinationBucket.id,
  *     policy: exampleDestination.then(exampleDestination => exampleDestination.json),
  * });
  * const exampleFlow = new aws.appflow.Flow("example", {
@@ -183,8 +183,6 @@ export class Flow extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -295,8 +293,6 @@ export interface FlowState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

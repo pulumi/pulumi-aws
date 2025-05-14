@@ -20,7 +20,6 @@ from .get_cluster_credentials import *
 from .get_data_shares import *
 from .get_orderable_cluster import *
 from .get_producer_data_shares import *
-from .get_service_account import *
 from .get_subnet_group import *
 from .hsm_client_certificate import *
 from .hsm_configuration import *

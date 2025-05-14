@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,8 +33,7 @@ type ContributorManagedInsightRule struct {
 	RuleName    pulumi.StringOutput    `pulumi:"ruleName"`
 	State       pulumi.StringOutput    `pulumi:"state"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
 	//
 	// The following arguments are optional:
@@ -84,8 +83,7 @@ type contributorManagedInsightRuleState struct {
 	RuleName    *string           `pulumi:"ruleName"`
 	State       *string           `pulumi:"state"`
 	Tags        map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
 	//
 	// The following arguments are optional:
@@ -100,8 +98,7 @@ type ContributorManagedInsightRuleState struct {
 	RuleName    pulumi.StringPtrInput
 	State       pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
 	//
 	// The following arguments are optional:
@@ -244,7 +241,6 @@ func (o ContributorManagedInsightRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ContributorManagedInsightRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

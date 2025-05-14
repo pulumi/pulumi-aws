@@ -101,7 +101,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Version of the associated API documentation
+     * Version of the associated API documentation.
      */
     public readonly documentationVersion!: pulumi.Output<string | undefined>;
     /**
@@ -129,12 +129,10 @@ export class Stage extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Map that defines the stage variables
+     * Map that defines the stage variables.
      */
     public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -249,7 +247,7 @@ export interface StageState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Version of the associated API documentation
+     * Version of the associated API documentation.
      */
     documentationVersion?: pulumi.Input<string>;
     /**
@@ -277,12 +275,10 @@ export interface StageState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Map that defines the stage variables
+     * Map that defines the stage variables.
      */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -328,7 +324,7 @@ export interface StageArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Version of the associated API documentation
+     * Version of the associated API documentation.
      */
     documentationVersion?: pulumi.Input<string>;
     /**
@@ -344,7 +340,7 @@ export interface StageArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Map that defines the stage variables
+     * Map that defines the stage variables.
      */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

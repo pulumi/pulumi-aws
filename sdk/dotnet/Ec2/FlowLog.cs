@@ -113,14 +113,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///     });
     /// 
     ///     var example = new Aws.Ec2.FlowLog("example", new()
     ///     {
-    ///         LogDestination = exampleBucketV2.Arn,
+    ///         LogDestination = exampleBucket.Arn,
     ///         LogDestinationType = "s3",
     ///         TrafficType = "ALL",
     ///         VpcId = exampleAwsVpc.Id,
@@ -139,14 +139,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///     });
     /// 
     ///     var example = new Aws.Ec2.FlowLog("example", new()
     ///     {
-    ///         LogDestination = exampleBucketV2.Arn,
+    ///         LogDestination = exampleBucket.Arn,
     ///         LogDestinationType = "s3",
     ///         TrafficType = "ALL",
     ///         VpcId = exampleAwsVpc.Id,
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Ec2
     public partial class FlowLog : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Flow Log.
+        /// ARN of the Flow Log.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -190,25 +190,25 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.FlowLogDestinationOptions?> DestinationOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Elastic Network Interface ID to attach to
+        /// Elastic Network Interface ID to attach to.
         /// </summary>
         [Output("eniId")]
         public Output<string?> EniId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+        /// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
         /// </summary>
         [Output("iamRoleArn")]
         public Output<string?> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+        /// ARN of the logging destination.
         /// </summary>
         [Output("logDestination")]
         public Output<string> LogDestination { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+        /// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
         [Output("logDestinationType")]
         public Output<string?> LogDestinationType { get; private set; } = null!;
@@ -220,22 +220,15 @@ namespace Pulumi.Aws.Ec2
         public Output<string> LogFormat { get; private set; } = null!;
 
         /// <summary>
-        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-        /// </summary>
-        [Output("logGroupName")]
-        public Output<string> LogGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// The maximum interval of time
-        /// during which a flow of packets is captured and aggregated into a flow
-        /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+        /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+        /// When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Output("maxAggregationInterval")]
         public Output<int?> MaxAggregationInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Subnet ID to attach to
+        /// Subnet ID to attach to.
         /// </summary>
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
@@ -259,19 +252,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> TrafficType { get; private set; } = null!;
 
         /// <summary>
-        /// Transit Gateway Attachment ID to attach to
+        /// Transit Gateway Attachment ID to attach to.
         /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string?> TransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Transit Gateway ID to attach to
+        /// Transit Gateway ID to attach to.
         /// </summary>
         [Output("transitGatewayId")]
         public Output<string?> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// VPC ID to attach to
+        /// VPC ID to attach to.
         /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
@@ -335,25 +328,25 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.FlowLogDestinationOptionsArgs>? DestinationOptions { get; set; }
 
         /// <summary>
-        /// Elastic Network Interface ID to attach to
+        /// Elastic Network Interface ID to attach to.
         /// </summary>
         [Input("eniId")]
         public Input<string>? EniId { get; set; }
 
         /// <summary>
-        /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+        /// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
         /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+        /// ARN of the logging destination.
         /// </summary>
         [Input("logDestination")]
         public Input<string>? LogDestination { get; set; }
 
         /// <summary>
-        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+        /// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
         [Input("logDestinationType")]
         public Input<string>? LogDestinationType { get; set; }
@@ -365,22 +358,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The maximum interval of time
-        /// during which a flow of packets is captured and aggregated into a flow
-        /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+        /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+        /// When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
 
         /// <summary>
-        /// Subnet ID to attach to
+        /// Subnet ID to attach to.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -404,19 +390,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? TrafficType { get; set; }
 
         /// <summary>
-        /// Transit Gateway Attachment ID to attach to
+        /// Transit Gateway Attachment ID to attach to.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
         /// <summary>
-        /// Transit Gateway ID to attach to
+        /// Transit Gateway ID to attach to.
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
-        /// VPC ID to attach to
+        /// VPC ID to attach to.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -430,7 +416,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class FlowLogState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Flow Log.
+        /// ARN of the Flow Log.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -448,25 +434,25 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.FlowLogDestinationOptionsGetArgs>? DestinationOptions { get; set; }
 
         /// <summary>
-        /// Elastic Network Interface ID to attach to
+        /// Elastic Network Interface ID to attach to.
         /// </summary>
         [Input("eniId")]
         public Input<string>? EniId { get; set; }
 
         /// <summary>
-        /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+        /// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
         /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+        /// ARN of the logging destination.
         /// </summary>
         [Input("logDestination")]
         public Input<string>? LogDestination { get; set; }
 
         /// <summary>
-        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+        /// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
         [Input("logDestinationType")]
         public Input<string>? LogDestinationType { get; set; }
@@ -478,22 +464,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The maximum interval of time
-        /// during which a flow of packets is captured and aggregated into a flow
-        /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+        /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+        /// When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
 
         /// <summary>
-        /// Subnet ID to attach to
+        /// Subnet ID to attach to.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -516,7 +495,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -530,19 +508,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? TrafficType { get; set; }
 
         /// <summary>
-        /// Transit Gateway Attachment ID to attach to
+        /// Transit Gateway Attachment ID to attach to.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
         /// <summary>
-        /// Transit Gateway ID to attach to
+        /// Transit Gateway ID to attach to.
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
-        /// VPC ID to attach to
+        /// VPC ID to attach to.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

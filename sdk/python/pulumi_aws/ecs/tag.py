@@ -152,7 +152,7 @@ class Tag(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.batch.ComputeEnvironment("example",
-            compute_environment_name="example",
+            name="example",
             service_role=example_aws_iam_role["arn"],
             type="UNMANAGED")
         example_tag = aws.ecs.Tag("example",
@@ -195,7 +195,7 @@ class Tag(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.batch.ComputeEnvironment("example",
-            compute_environment_name="example",
+            name="example",
             service_role=example_aws_iam_role["arn"],
             type="UNMANAGED")
         example_tag = aws.ecs.Tag("example",

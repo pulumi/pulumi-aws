@@ -58,32 +58,12 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private GetDataSetArgs() {}
 
     private GetDataSetArgs(GetDataSetArgs $) {
         this.awsAccountId = $.awsAccountId;
         this.dataSetId = $.dataSetId;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -157,31 +137,6 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * tags_all is deprecated. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * tags_all is deprecated. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public GetDataSetArgs build() {

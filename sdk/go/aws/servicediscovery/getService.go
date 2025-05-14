@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,10 +57,6 @@ type LookupServiceArgs struct {
 	NamespaceId string `pulumi:"namespaceId"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // A collection of values returned by getService.
@@ -82,10 +78,6 @@ type LookupServiceResult struct {
 	NamespaceId string `pulumi:"namespaceId"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -105,10 +97,6 @@ type LookupServiceOutputArgs struct {
 	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {
@@ -172,13 +160,6 @@ func (o LookupServiceResultOutput) NamespaceId() pulumi.StringOutput {
 // Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-func (o LookupServiceResultOutput) TagsAll() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 func init() {

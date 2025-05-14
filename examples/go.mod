@@ -1,6 +1,6 @@
-module github.com/pulumi/pulumi-aws/examples/v6
+module github.com/pulumi/pulumi-aws/examples/v7
 
-go 1.23.8
+go 1.24.2
 
 require (
 	github.com/aws/aws-sdk-go v1.55.6
@@ -12,7 +12,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.26.3
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.79.2
 	github.com/pulumi/providertest v0.3.0
-	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
+	github.com/pulumi/pulumi-aws/provider/v7 v7.0.0-00010101000000-000000000000
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.107.0
 	github.com/pulumi/pulumi/pkg/v3 v3.163.0
 	github.com/pulumi/pulumi/sdk/v3 v3.163.0
@@ -26,7 +26,7 @@ replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250221232320-8d4cfd37a3cd
 
 	github.com/hashicorp/terraform-provider-aws => ../upstream
-	github.com/pulumi/pulumi-aws/provider/v6 => ../provider
+	github.com/pulumi/pulumi-aws/provider/v7 => ../provider
 )
 
 // This replace is copied from upstream/go.mod, and should be maintained only as long as upstream maintains the same replace.
@@ -240,7 +240,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/oam v1.17.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/opensearch v1.46.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.19.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/opsworks v1.27.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/organizations v1.38.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/osis v1.15.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/outposts v1.50.1 // indirect
@@ -318,7 +317,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/wafregional v1.26.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/wafv2 v1.60.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/wellarchitected v1.35.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/worklink v1.23.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/workspaces v1.55.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/workspacesweb v1.27.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/xray v1.31.3 // indirect
@@ -371,7 +369,6 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.23.0 // indirect
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.64 // indirect
-	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.65 // indirect
 	github.com/hashicorp/awspolicyequivalence v1.7.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect

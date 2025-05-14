@@ -133,6 +133,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool?> FailOnWarnings { get; private set; } = null!;
 
         /// <summary>
+        /// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Output("name")]
@@ -276,6 +282,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
+        /// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
         /// Name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("name")]
@@ -401,6 +413,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
+        /// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
         /// Name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("name")]
@@ -443,7 +461,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

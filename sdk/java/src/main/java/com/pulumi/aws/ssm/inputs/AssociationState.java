@@ -127,29 +127,6 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     * 
-     * @deprecated
-     * instance_id is deprecated. Use targets instead.
-     * 
-     */
-    @Deprecated /* instance_id is deprecated. Use targets instead. */
-    @Import(name="instanceId")
-    private @Nullable Output<String> instanceId;
-
-    /**
-     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     * 
-     * @deprecated
-     * instance_id is deprecated. Use targets instead.
-     * 
-     */
-    @Deprecated /* instance_id is deprecated. Use targets instead. */
-    public Optional<Output<String>> instanceId() {
-        return Optional.ofNullable(this.instanceId);
-    }
-
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      * 
      */
@@ -272,22 +249,14 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -336,7 +305,6 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
         this.automationTargetParameterName = $.automationTargetParameterName;
         this.complianceSeverity = $.complianceSeverity;
         this.documentVersion = $.documentVersion;
-        this.instanceId = $.instanceId;
         this.maxConcurrency = $.maxConcurrency;
         this.maxErrors = $.maxErrors;
         this.name = $.name;
@@ -516,35 +484,6 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * instance_id is deprecated. Use targets instead.
-         * 
-         */
-        @Deprecated /* instance_id is deprecated. Use targets instead. */
-        public Builder instanceId(@Nullable Output<String> instanceId) {
-            $.instanceId = instanceId;
-            return this;
-        }
-
-        /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * instance_id is deprecated. Use targets instead.
-         * 
-         */
-        @Deprecated /* instance_id is deprecated. Use targets instead. */
-        public Builder instanceId(String instanceId) {
-            return instanceId(Output.of(instanceId));
-        }
-
-        /**
          * @param maxConcurrency The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
          * 
          * @return builder
@@ -717,11 +656,7 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -732,11 +667,7 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

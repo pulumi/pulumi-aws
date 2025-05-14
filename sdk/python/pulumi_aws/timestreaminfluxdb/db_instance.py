@@ -401,9 +401,6 @@ class _DbInstanceState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
@@ -644,7 +641,6 @@ class _DbInstanceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -789,7 +785,7 @@ class DbInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
@@ -798,10 +794,10 @@ class DbInstance(pulumi.CustomResource):
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
-            "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=example.json)
         example_db_instance = aws.timestreaminfluxdb.DbInstance("example",
             allocated_storage=20,
@@ -815,7 +811,7 @@ class DbInstance(pulumi.CustomResource):
             name="example-db-instance",
             log_delivery_configuration={
                 "s3_configuration": {
-                    "bucket_name": example_bucket_v2.bucket,
+                    "bucket_name": example_bucket.bucket,
                     "enabled": True,
                 },
             })
@@ -948,7 +944,7 @@ class DbInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
@@ -957,10 +953,10 @@ class DbInstance(pulumi.CustomResource):
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
-            "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=example.json)
         example_db_instance = aws.timestreaminfluxdb.DbInstance("example",
             allocated_storage=20,
@@ -974,7 +970,7 @@ class DbInstance(pulumi.CustomResource):
             name="example-db-instance",
             log_delivery_configuration={
                 "s3_configuration": {
-                    "bucket_name": example_bucket_v2.bucket,
+                    "bucket_name": example_bucket.bucket,
                     "enabled": True,
                 },
             })
@@ -1355,7 +1351,6 @@ class DbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

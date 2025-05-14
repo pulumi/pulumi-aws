@@ -1792,8 +1792,6 @@ github.com/aws/aws-sdk-go-v2/service/opensearch v1.46.3 h1:vWClqL1dTCuPtWkaGDW7Y
 github.com/aws/aws-sdk-go-v2/service/opensearch v1.46.3/go.mod h1:51rUy2+lDiOQVlekScV044he709HMMhCdUDHqSBojgg=
 github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.19.2 h1:LYgVfVOvvVGlR0DTJwy62eoKfPk7A8Oxe+xSE0YO86s=
 github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.19.2/go.mod h1:kqyhSCBxqq89JbwKoaz/aeVnmqLnHurwJkAnFTadirA=
-github.com/aws/aws-sdk-go-v2/service/opsworks v1.27.3 h1:2kKQIQPELcTJ1S6W4O775KgVbFTrdEFHiWaFd8Hwtfo=
-github.com/aws/aws-sdk-go-v2/service/opsworks v1.27.3/go.mod h1:vAqzQK9O4ZCTlwCRgt7mwZq8dNoimpGdUROdyVNlv8o=
 github.com/aws/aws-sdk-go-v2/service/organizations v1.38.3 h1:rAUHsUFmux71j/4wQ5nUHsXyJxSMRgMlDnmFfahDhSk=
 github.com/aws/aws-sdk-go-v2/service/organizations v1.38.3/go.mod h1:iYC/SPpI4WveHr4ZzPFWTmXRODyJub5Aif75W7Ll+yM=
 github.com/aws/aws-sdk-go-v2/service/osis v1.15.3 h1:nGoRkY30EBRTQbMK6vy08+uh3AqPtWpIGmx2OGsc1es=
@@ -1952,8 +1950,6 @@ github.com/aws/aws-sdk-go-v2/service/wafv2 v1.60.1 h1:LMNN0VN6bw+SLySSa8ICYpZ+/a
 github.com/aws/aws-sdk-go-v2/service/wafv2 v1.60.1/go.mod h1:Zai6/lANvFn0uX9OKqPGy4C9a7TIcbnlzzM1EHTd3kE=
 github.com/aws/aws-sdk-go-v2/service/wellarchitected v1.35.2 h1:/ZuNZtFt3ppbQGdemOxyZUp0zQfiJLjIAmqG+eFYrLw=
 github.com/aws/aws-sdk-go-v2/service/wellarchitected v1.35.2/go.mod h1:lMYHuv2uomrtX9xyyhMzb5149Cz4MHrBFzRSezLgs1U=
-github.com/aws/aws-sdk-go-v2/service/worklink v1.23.2 h1:VN3Qydtdl3UlJRHVxQxSP1d8I5gtvT5zdaCCAfZST7Y=
-github.com/aws/aws-sdk-go-v2/service/worklink v1.23.2/go.mod h1:Z3RLpIq4q49syd921XdsKeD584kPu89iKTEjluh7908=
 github.com/aws/aws-sdk-go-v2/service/workspaces v1.55.2 h1:9l2DhgQTyTu1TYsiewHusRT4px54QENvraspV/2eDs8=
 github.com/aws/aws-sdk-go-v2/service/workspaces v1.55.2/go.mod h1:/YN7Ft92lmFXqFWyEpl1kLnbhDZjDL82S4ibIxPK7ow=
 github.com/aws/aws-sdk-go-v2/service/workspacesweb v1.27.2 h1:EbMcFJm+qQMnZ7Siyp9sPMzaulTGsiXfy2uTvKmzLZY=
@@ -2347,8 +2343,6 @@ github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.23.0 h1:l16/Vr
 github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.23.0/go.mod h1:HAmscHyzSOfB1Dr16KLc177KNbn83wscnZC+N7WyaM8=
 github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.64 h1:MEpc+QK0eolUWqoS5mANvbA79tMglAcORAkvF3Kmf0c=
 github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.64/go.mod h1:2XxR/4D7AnO43HRZIgMqDO6Yl/R1HYzstEMMAa4j9m0=
-github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.65 h1:1T3uN8A+IhRk2zMxe6Cp7T00S1dmXpXhLbHcXcdVJNo=
-github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.65/go.mod h1:4b9KahN7E0G9WiwxpsL+C1paw1Xwh7d02jepVGxEQZg=
 github.com/hashicorp/awspolicyequivalence v1.7.0 h1:HxwPEw2/31BqQa73PinGciTfG2uJ/ATelvDG8X1gScU=
 github.com/hashicorp/awspolicyequivalence v1.7.0/go.mod h1:+oCTxQEYt+GcRalqrqTCBcJf100SQYiWQ4aENNYxYe0=
 github.com/hashicorp/cli v1.1.6/go.mod h1:MPon5QYlgjjo0BSoAiN0ESeT5fRzDjVRp+uioJ0piz4=

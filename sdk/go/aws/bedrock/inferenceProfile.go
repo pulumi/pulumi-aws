@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,8 +80,7 @@ type InferenceProfile struct {
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value mapping of resource tags for the inference profile.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput            `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput            `pulumi:"tagsAll"`
 	Timeouts InferenceProfileTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -137,8 +136,7 @@ type inferenceProfileState struct {
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags for the inference profile.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string         `pulumi:"tags"`
 	TagsAll  map[string]string         `pulumi:"tagsAll"`
 	Timeouts *InferenceProfileTimeouts `pulumi:"timeouts"`
 	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -165,8 +163,7 @@ type InferenceProfileState struct {
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags for the inference profile.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts InferenceProfileTimeoutsPtrInput
 	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -337,7 +334,6 @@ func (o InferenceProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o InferenceProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

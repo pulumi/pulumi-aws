@@ -24,11 +24,11 @@ __all__ = [
     'ComputeEnvironmentUpdatePolicy',
     'JobDefinitionEksProperties',
     'JobDefinitionEksPropertiesPodProperties',
-    'JobDefinitionEksPropertiesPodPropertiesContainers',
-    'JobDefinitionEksPropertiesPodPropertiesContainersEnv',
-    'JobDefinitionEksPropertiesPodPropertiesContainersResources',
-    'JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext',
-    'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount',
+    'JobDefinitionEksPropertiesPodPropertiesContainer',
+    'JobDefinitionEksPropertiesPodPropertiesContainerEnv',
+    'JobDefinitionEksPropertiesPodPropertiesContainerResources',
+    'JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext',
+    'JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount',
     'JobDefinitionEksPropertiesPodPropertiesImagePullSecret',
     'JobDefinitionEksPropertiesPodPropertiesInitContainer',
     'JobDefinitionEksPropertiesPodPropertiesInitContainerEnv',
@@ -621,7 +621,7 @@ class JobDefinitionEksPropertiesPodProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 containers: 'outputs.JobDefinitionEksPropertiesPodPropertiesContainers',
+                 containers: Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainer'],
                  dns_policy: Optional[builtins.str] = None,
                  host_network: Optional[builtins.bool] = None,
                  image_pull_secrets: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecret']] = None,
@@ -631,7 +631,7 @@ class JobDefinitionEksPropertiesPodProperties(dict):
                  share_process_namespace: Optional[builtins.bool] = None,
                  volumes: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesVolume']] = None):
         """
-        :param 'JobDefinitionEksPropertiesPodPropertiesContainersArgs' containers: Properties of the container that's used on the Amazon EKS pod. See containers below.
+        :param Sequence['JobDefinitionEksPropertiesPodPropertiesContainerArgs'] containers: Properties of the container that's used on the Amazon EKS pod. See containers below.
         :param builtins.str dns_policy: DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
         :param builtins.bool host_network: Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
         :param Sequence['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs'] image_pull_secrets: List of Kubernetes secret resources. See `image_pull_secret` below.
@@ -661,7 +661,7 @@ class JobDefinitionEksPropertiesPodProperties(dict):
 
     @property
     @pulumi.getter
-    def containers(self) -> 'outputs.JobDefinitionEksPropertiesPodPropertiesContainers':
+    def containers(self) -> Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainer']:
         """
         Properties of the container that's used on the Amazon EKS pod. See containers below.
         """
@@ -733,7 +733,7 @@ class JobDefinitionEksPropertiesPodProperties(dict):
 
 
 @pulumi.output_type
-class JobDefinitionEksPropertiesPodPropertiesContainers(dict):
+class JobDefinitionEksPropertiesPodPropertiesContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -745,36 +745,36 @@ class JobDefinitionEksPropertiesPodPropertiesContainers(dict):
             suggest = "volume_mounts"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainers. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainer. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        JobDefinitionEksPropertiesPodPropertiesContainers.__key_warning(key)
+        JobDefinitionEksPropertiesPodPropertiesContainer.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        JobDefinitionEksPropertiesPodPropertiesContainers.__key_warning(key)
+        JobDefinitionEksPropertiesPodPropertiesContainer.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  image: builtins.str,
                  args: Optional[Sequence[builtins.str]] = None,
                  commands: Optional[Sequence[builtins.str]] = None,
-                 envs: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainersEnv']] = None,
+                 envs: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainerEnv']] = None,
                  image_pull_policy: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
-                 resources: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainersResources'] = None,
-                 security_context: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext'] = None,
-                 volume_mounts: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount']] = None):
+                 resources: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainerResources'] = None,
+                 security_context: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext'] = None,
+                 volume_mounts: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount']] = None):
         """
         :param builtins.str image: Docker image used to start the container.
         :param Sequence[builtins.str] args: Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
         :param Sequence[builtins.str] commands: Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
-        :param Sequence['JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs'] envs: Environment variables to pass to a container. See EKS Environment below.
+        :param Sequence['JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs'] envs: Environment variables to pass to a container. See EKS Environment below.
         :param builtins.str image_pull_policy: Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         :param builtins.str name: Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
-        :param 'JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs' resources: Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-        :param 'JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs' security_context: Security context for a job.
-        :param Sequence['JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs'] volume_mounts: Volume mounts for the container.
+        :param 'JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs' resources: Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        :param 'JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs' security_context: Security context for a job.
+        :param Sequence['JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs'] volume_mounts: Volume mounts for the container.
         """
         pulumi.set(__self__, "image", image)
         if args is not None:
@@ -820,7 +820,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainers(dict):
 
     @property
     @pulumi.getter
-    def envs(self) -> Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainersEnv']]:
+    def envs(self) -> Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainerEnv']]:
         """
         Environment variables to pass to a container. See EKS Environment below.
         """
@@ -844,7 +844,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainers(dict):
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainersResources']:
+    def resources(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainerResources']:
         """
         Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
         """
@@ -852,7 +852,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainers(dict):
 
     @property
     @pulumi.getter(name="securityContext")
-    def security_context(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext']:
+    def security_context(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext']:
         """
         Security context for a job.
         """
@@ -860,7 +860,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainers(dict):
 
     @property
     @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount']]:
+    def volume_mounts(self) -> Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount']]:
         """
         Volume mounts for the container.
         """
@@ -868,7 +868,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainers(dict):
 
 
 @pulumi.output_type
-class JobDefinitionEksPropertiesPodPropertiesContainersEnv(dict):
+class JobDefinitionEksPropertiesPodPropertiesContainerEnv(dict):
     def __init__(__self__, *,
                  name: builtins.str,
                  value: builtins.str):
@@ -897,7 +897,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersEnv(dict):
 
 
 @pulumi.output_type
-class JobDefinitionEksPropertiesPodPropertiesContainersResources(dict):
+class JobDefinitionEksPropertiesPodPropertiesContainerResources(dict):
     def __init__(__self__, *,
                  limits: Optional[Mapping[str, builtins.str]] = None,
                  requests: Optional[Mapping[str, builtins.str]] = None):
@@ -918,7 +918,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersResources(dict):
 
 
 @pulumi.output_type
-class JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext(dict):
+class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -932,14 +932,14 @@ class JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext(dict):
             suggest = "run_as_user"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext.__key_warning(key)
+        JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext.__key_warning(key)
+        JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -986,7 +986,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext(dict):
 
 
 @pulumi.output_type
-class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount(dict):
+class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -996,14 +996,14 @@ class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount(dict):
             suggest = "read_only"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount.__key_warning(key)
+        JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount.__key_warning(key)
+        JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

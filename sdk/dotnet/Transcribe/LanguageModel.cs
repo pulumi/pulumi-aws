@@ -84,15 +84,15 @@ namespace Pulumi.Aws.Transcribe
     ///         }),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-transcribe",
+    ///         BucketName = "example-transcribe",
     ///         ForceDestroy = true,
     ///     });
     /// 
     ///     var @object = new Aws.S3.BucketObjectv2("object", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Key = "transcribe/test1.txt",
     ///         Source = new FileAsset("test1.txt"),
     ///     });
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Transcribe
     ///         InputDataConfig = new Aws.Transcribe.Inputs.LanguageModelInputDataConfigArgs
     ///         {
     ///             DataAccessRoleArn = exampleRole.Arn,
-    ///             S3Uri = exampleBucketV2.Id.Apply(id =&gt; $"s3://{id}/transcribe/"),
+    ///             S3Uri = exampleBucket.Id.Apply(id =&gt; $"s3://{id}/transcribe/"),
     ///         },
     ///         LanguageCode = "en-US",
     ///         Tags = 
@@ -289,7 +289,6 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

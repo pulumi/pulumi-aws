@@ -140,14 +140,14 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version of the associated API documentation
+     * Version of the associated API documentation.
      * 
      */
     @Import(name="documentationVersion")
     private @Nullable Output<String> documentationVersion;
 
     /**
-     * @return Version of the associated API documentation
+     * @return Version of the associated API documentation.
      * 
      */
     public Optional<Output<String>> documentationVersion() {
@@ -238,35 +238,27 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
     /**
-     * Map that defines the stage variables
+     * Map that defines the stage variables.
      * 
      */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
     /**
-     * @return Map that defines the stage variables
+     * @return Map that defines the stage variables.
      * 
      */
     public Optional<Output<Map<String,String>>> variables() {
@@ -513,7 +505,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentationVersion Version of the associated API documentation
+         * @param documentationVersion Version of the associated API documentation.
          * 
          * @return builder
          * 
@@ -524,7 +516,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentationVersion Version of the associated API documentation
+         * @param documentationVersion Version of the associated API documentation.
          * 
          * @return builder
          * 
@@ -649,11 +641,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -664,17 +652,13 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
         /**
-         * @param variables Map that defines the stage variables
+         * @param variables Map that defines the stage variables.
          * 
          * @return builder
          * 
@@ -685,7 +669,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Map that defines the stage variables
+         * @param variables Map that defines the stage variables.
          * 
          * @return builder
          * 

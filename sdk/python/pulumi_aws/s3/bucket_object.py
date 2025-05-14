@@ -529,9 +529,6 @@ class _BucketObjectState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version_id is not None:
             pulumi.set(__self__, "version_id", version_id)
@@ -830,7 +827,6 @@ class _BucketObjectState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -929,8 +925,8 @@ class BucketObject(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_object = aws.s3.BucketObject("example",
@@ -946,8 +942,8 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_object = aws.s3.BucketObject("example",
@@ -963,8 +959,8 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_object = aws.s3.BucketObject("example",
@@ -980,13 +976,13 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket",
+        examplebucket = aws.s3.Bucket("examplebucket",
             bucket="examplebuckettftest",
             object_lock_enabled=True)
-        example = aws.s3.BucketAclV2("example",
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
+        example_bucket_versioning = aws.s3.BucketVersioning("example",
             bucket=examplebucket.id,
             versioning_configuration={
                 "status": "Enabled",
@@ -999,7 +995,7 @@ class BucketObject(pulumi.CustomResource):
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
             force_destroy=True,
-            opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning]))
         ```
 
         ## Import
@@ -1084,8 +1080,8 @@ class BucketObject(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_object = aws.s3.BucketObject("example",
@@ -1101,8 +1097,8 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_object = aws.s3.BucketObject("example",
@@ -1118,8 +1114,8 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_object = aws.s3.BucketObject("example",
@@ -1135,13 +1131,13 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket",
+        examplebucket = aws.s3.Bucket("examplebucket",
             bucket="examplebuckettftest",
             object_lock_enabled=True)
-        example = aws.s3.BucketAclV2("example",
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
+        example_bucket_versioning = aws.s3.BucketVersioning("example",
             bucket=examplebucket.id,
             versioning_configuration={
                 "status": "Enabled",
@@ -1154,7 +1150,7 @@ class BucketObject(pulumi.CustomResource):
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
             force_destroy=True,
-            opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning]))
         ```
 
         ## Import
@@ -1556,7 +1552,6 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -27,6 +27,7 @@ class ExperimentTemplateArgs:
                  role_arn: pulumi.Input[builtins.str],
                  stop_conditions: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]],
                  experiment_options: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']] = None,
+                 experiment_report_configuration: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']] = None,
                  log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]]] = None):
@@ -39,6 +40,7 @@ class ExperimentTemplateArgs:
                
                The following arguments are optional:
         :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
@@ -49,6 +51,8 @@ class ExperimentTemplateArgs:
         pulumi.set(__self__, "stop_conditions", stop_conditions)
         if experiment_options is not None:
             pulumi.set(__self__, "experiment_options", experiment_options)
+        if experiment_report_configuration is not None:
+            pulumi.set(__self__, "experiment_report_configuration", experiment_report_configuration)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
         if tags is not None:
@@ -119,6 +123,18 @@ class ExperimentTemplateArgs:
         pulumi.set(self, "experiment_options", value)
 
     @property
+    @pulumi.getter(name="experimentReportConfiguration")
+    def experiment_report_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']]:
+        """
+        The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        """
+        return pulumi.get(self, "experiment_report_configuration")
+
+    @experiment_report_configuration.setter
+    def experiment_report_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']]):
+        pulumi.set(self, "experiment_report_configuration", value)
+
+    @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]:
         """
@@ -161,6 +177,7 @@ class _ExperimentTemplateState:
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  experiment_options: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']] = None,
+                 experiment_report_configuration: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']] = None,
                  log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]] = None,
@@ -172,6 +189,7 @@ class _ExperimentTemplateState:
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[builtins.str] description: Description for the experiment template.
         :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
@@ -186,6 +204,8 @@ class _ExperimentTemplateState:
             pulumi.set(__self__, "description", description)
         if experiment_options is not None:
             pulumi.set(__self__, "experiment_options", experiment_options)
+        if experiment_report_configuration is not None:
+            pulumi.set(__self__, "experiment_report_configuration", experiment_report_configuration)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
         if role_arn is not None:
@@ -194,9 +214,6 @@ class _ExperimentTemplateState:
             pulumi.set(__self__, "stop_conditions", stop_conditions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if targets is not None:
@@ -237,6 +254,18 @@ class _ExperimentTemplateState:
     @experiment_options.setter
     def experiment_options(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']]):
         pulumi.set(self, "experiment_options", value)
+
+    @property
+    @pulumi.getter(name="experimentReportConfiguration")
+    def experiment_report_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']]:
+        """
+        The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        """
+        return pulumi.get(self, "experiment_report_configuration")
+
+    @experiment_report_configuration.setter
+    def experiment_report_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']]):
+        pulumi.set(self, "experiment_report_configuration", value)
 
     @property
     @pulumi.getter(name="logConfiguration")
@@ -290,7 +319,6 @@ class _ExperimentTemplateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -322,6 +350,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
+                 experiment_report_configuration: Optional[pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
                  log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
@@ -366,6 +395,105 @@ class ExperimentTemplate(pulumi.CustomResource):
             }])
         ```
 
+        ### With Report Configuration
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_partition()
+        example = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=json.dumps({
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": [f"fis.{current.dns_suffix}"],
+                    },
+                }],
+                "Version": "2012-10-17",
+            }))
+        report_access = aws.iam.get_policy_document(version="2012-10-17",
+            statements=[
+                {
+                    "sid": "logsDelivery",
+                    "effect": "Allow",
+                    "actions": ["logs:CreateLogDelivery"],
+                    "resources": ["*"],
+                },
+                {
+                    "sid": "ReportsBucket",
+                    "effect": "Allow",
+                    "actions": [
+                        "s3:PutObject",
+                        "s3:GetObject",
+                    ],
+                    "resources": ["*"],
+                },
+                {
+                    "sid": "GetDashboard",
+                    "effect": "Allow",
+                    "actions": ["cloudwatch:GetDashboard"],
+                    "resources": ["*"],
+                },
+                {
+                    "sid": "GetDashboardData",
+                    "effect": "Allow",
+                    "actions": ["cloudwatch:getMetricWidgetImage"],
+                    "resources": ["*"],
+                },
+            ])
+        report_access_policy = aws.iam.Policy("report_access",
+            name="report_access",
+            policy=report_access.json)
+        report_access_role_policy_attachment = aws.iam.RolePolicyAttachment("report_access",
+            role=test["name"],
+            policy_arn=report_access_policy.arn)
+        example_experiment_template = aws.fis.ExperimentTemplate("example",
+            description="example",
+            role_arn=example.arn,
+            stop_conditions=[{
+                "source": "none",
+            }],
+            actions=[{
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
+                "target": {
+                    "key": "Instances",
+                    "value": "example-target",
+                },
+            }],
+            targets=[{
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+                "resource_tags": [{
+                    "key": "env",
+                    "value": "example",
+                }],
+            }],
+            experiment_report_configuration={
+                "data_sources": {
+                    "cloudwatch_dashboards": [{
+                        "dashboard_arn": example_aws_cloudwatch_dashboard["dashboardArn"],
+                    }],
+                },
+                "outputs": {
+                    "s3_configuration": {
+                        "bucket_name": example_aws_s3_bucket["bucket"],
+                        "prefix": "fis-example-reports",
+                    },
+                },
+                "post_experiment_duration": "PT10M",
+                "pre_experiment_duration": "PT10M",
+            },
+            tags={
+                "Name": "example",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
@@ -379,6 +507,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[builtins.str] description: Description for the experiment template.
         :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging. See below.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
@@ -431,6 +560,105 @@ class ExperimentTemplate(pulumi.CustomResource):
             }])
         ```
 
+        ### With Report Configuration
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_partition()
+        example = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=json.dumps({
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": [f"fis.{current.dns_suffix}"],
+                    },
+                }],
+                "Version": "2012-10-17",
+            }))
+        report_access = aws.iam.get_policy_document(version="2012-10-17",
+            statements=[
+                {
+                    "sid": "logsDelivery",
+                    "effect": "Allow",
+                    "actions": ["logs:CreateLogDelivery"],
+                    "resources": ["*"],
+                },
+                {
+                    "sid": "ReportsBucket",
+                    "effect": "Allow",
+                    "actions": [
+                        "s3:PutObject",
+                        "s3:GetObject",
+                    ],
+                    "resources": ["*"],
+                },
+                {
+                    "sid": "GetDashboard",
+                    "effect": "Allow",
+                    "actions": ["cloudwatch:GetDashboard"],
+                    "resources": ["*"],
+                },
+                {
+                    "sid": "GetDashboardData",
+                    "effect": "Allow",
+                    "actions": ["cloudwatch:getMetricWidgetImage"],
+                    "resources": ["*"],
+                },
+            ])
+        report_access_policy = aws.iam.Policy("report_access",
+            name="report_access",
+            policy=report_access.json)
+        report_access_role_policy_attachment = aws.iam.RolePolicyAttachment("report_access",
+            role=test["name"],
+            policy_arn=report_access_policy.arn)
+        example_experiment_template = aws.fis.ExperimentTemplate("example",
+            description="example",
+            role_arn=example.arn,
+            stop_conditions=[{
+                "source": "none",
+            }],
+            actions=[{
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
+                "target": {
+                    "key": "Instances",
+                    "value": "example-target",
+                },
+            }],
+            targets=[{
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+                "resource_tags": [{
+                    "key": "env",
+                    "value": "example",
+                }],
+            }],
+            experiment_report_configuration={
+                "data_sources": {
+                    "cloudwatch_dashboards": [{
+                        "dashboard_arn": example_aws_cloudwatch_dashboard["dashboardArn"],
+                    }],
+                },
+                "outputs": {
+                    "s3_configuration": {
+                        "bucket_name": example_aws_s3_bucket["bucket"],
+                        "prefix": "fis-example-reports",
+                    },
+                },
+                "post_experiment_duration": "PT10M",
+                "pre_experiment_duration": "PT10M",
+            },
+            tags={
+                "Name": "example",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
@@ -457,6 +685,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
+                 experiment_report_configuration: Optional[pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
                  log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
@@ -478,6 +707,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["experiment_options"] = experiment_options
+            __props__.__dict__["experiment_report_configuration"] = experiment_report_configuration
             __props__.__dict__["log_configuration"] = log_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -501,6 +731,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
+            experiment_report_configuration: Optional[pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
             log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
@@ -517,6 +748,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[builtins.str] description: Description for the experiment template.
         :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging. See below.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
@@ -532,6 +764,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         __props__.__dict__["actions"] = actions
         __props__.__dict__["description"] = description
         __props__.__dict__["experiment_options"] = experiment_options
+        __props__.__dict__["experiment_report_configuration"] = experiment_report_configuration
         __props__.__dict__["log_configuration"] = log_configuration
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["stop_conditions"] = stop_conditions
@@ -563,6 +796,14 @@ class ExperimentTemplate(pulumi.CustomResource):
         The experiment options for the experiment template. See experiment_options below for more details!
         """
         return pulumi.get(self, "experiment_options")
+
+    @property
+    @pulumi.getter(name="experimentReportConfiguration")
+    def experiment_report_configuration(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateExperimentReportConfiguration']]:
+        """
+        The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        """
+        return pulumi.get(self, "experiment_report_configuration")
 
     @property
     @pulumi.getter(name="logConfiguration")
@@ -600,7 +841,6 @@ class ExperimentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

@@ -213,7 +213,7 @@ class Package(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        my_opensearch_packages = aws.s3.BucketV2("my_opensearch_packages", bucket="my-opensearch-packages")
+        my_opensearch_packages = aws.s3.Bucket("my_opensearch_packages", bucket="my-opensearch-packages")
         example = aws.s3.BucketObjectv2("example",
             bucket=my_opensearch_packages.bucket,
             key="example.txt",
@@ -261,7 +261,7 @@ class Package(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        my_opensearch_packages = aws.s3.BucketV2("my_opensearch_packages", bucket="my-opensearch-packages")
+        my_opensearch_packages = aws.s3.Bucket("my_opensearch_packages", bucket="my-opensearch-packages")
         example = aws.s3.BucketObjectv2("example",
             bucket=my_opensearch_packages.bucket,
             key="example.txt",

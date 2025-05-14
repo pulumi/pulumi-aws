@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,13 +65,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			destination, err := s3.NewBucketV2(ctx, "destination", &s3.BucketV2Args{
+//			destination, err := s3.NewBucket(ctx, "destination", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test-bucket-destination-12345"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			source, err := s3.NewBucketV2(ctx, "source", &s3.BucketV2Args{
+//			source, err := s3.NewBucket(ctx, "source", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test-bucket-source-12345"),
 //			})
 //			if err != nil {
@@ -133,25 +133,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "destination", &s3.BucketVersioningV2Args{
+//			_, err = s3.NewBucketVersioning(ctx, "destination", &s3.BucketVersioningArgs{
 //				Bucket: destination.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "source_bucket_acl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "source_bucket_acl", &s3.BucketAclArgs{
 //				Bucket: source.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			sourceBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "source", &s3.BucketVersioningV2Args{
+//			sourceBucketVersioning, err := s3.NewBucketVersioning(ctx, "source", &s3.BucketVersioningArgs{
 //				Bucket: source.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
@@ -175,7 +175,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				sourceBucketVersioningV2,
+//				sourceBucketVersioning,
 //			}))
 //			if err != nil {
 //				return err
@@ -193,7 +193,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,30 +201,30 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// ... other configuration ...
-//			east, err := s3.NewBucketV2(ctx, "east", &s3.BucketV2Args{
+//			east, err := s3.NewBucket(ctx, "east", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test-bucket-east-12345"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			eastBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "east", &s3.BucketVersioningV2Args{
+//			eastBucketVersioning, err := s3.NewBucketVersioning(ctx, "east", &s3.BucketVersioningArgs{
 //				Bucket: east.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			west, err := s3.NewBucketV2(ctx, "west", &s3.BucketV2Args{
+//			west, err := s3.NewBucket(ctx, "west", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test-bucket-west-12345"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			westBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "west", &s3.BucketVersioningV2Args{
+//			westBucketVersioning, err := s3.NewBucketVersioning(ctx, "west", &s3.BucketVersioningArgs{
 //				Bucket: west.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
@@ -248,7 +248,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				eastBucketVersioningV2,
+//				eastBucketVersioning,
 //			}))
 //			if err != nil {
 //				return err
@@ -270,7 +270,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				westBucketVersioningV2,
+//				westBucketVersioning,
 //			}))
 //			if err != nil {
 //				return err

@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example-s3-bucket",
  *     forceDestroy: true,
  * });
@@ -81,11 +81,11 @@ import * as utilities from "../utilities";
  *             type: "Service",
  *             identifiers: ["timestream-influxdb.amazonaws.com"],
  *         }],
- *         resources: [pulumi.interpolate`${exampleBucketV2.arn}/*`],
+ *         resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *     }],
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     policy: example.apply(example => example.json),
  * });
  * const exampleDbInstance = new aws.timestreaminfluxdb.DbInstance("example", {
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *     name: "example-db-instance",
  *     logDeliveryConfiguration: {
  *         s3Configuration: {
- *             bucketName: exampleBucketV2.bucket,
+ *             bucketName: exampleBucket.bucket,
  *             enabled: true,
  *         },
  *     },
@@ -256,8 +256,6 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceTimeouts | undefined>;
@@ -453,8 +451,6 @@ export interface DbInstanceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceTimeouts>;

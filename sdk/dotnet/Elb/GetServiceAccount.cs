@@ -29,12 +29,12 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAcl("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
@@ -124,12 +124,12 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAcl("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
@@ -219,12 +219,12 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAcl("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",

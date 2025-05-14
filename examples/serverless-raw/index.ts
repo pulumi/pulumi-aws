@@ -140,5 +140,10 @@ let integration = new aws.apigateway.Integration("myrestapi-integration", {
 let deployment = new aws.apigateway.Deployment("myrestapi-deployment-prod", {
     restApi: restApi,
     description: "my deployment",
-    stageName: "prod",
 }, { dependsOn: [integration], provider: providerOpts.provider });
+
+let stage = new aws.apigateway.Stage("myrestapi-stage", {
+    restApi: restApi,
+    deployment: deployment,
+    stageName: "prod",
+}, { provider: providerOpts.provider });

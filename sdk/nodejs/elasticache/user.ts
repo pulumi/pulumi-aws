@@ -124,9 +124,6 @@ export class User extends pulumi.CustomResource {
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the user.
@@ -226,9 +223,6 @@ export interface UserState {
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the user.

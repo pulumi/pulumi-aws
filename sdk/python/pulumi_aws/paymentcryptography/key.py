@@ -25,7 +25,7 @@ class KeyArgs:
                  exportable: pulumi.Input[builtins.bool],
                  deletion_window_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input['KeyKeyAttributesArgs']] = None,
+                 key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
@@ -33,7 +33,7 @@ class KeyArgs:
         The set of arguments for constructing a Key resource.
         :param pulumi.Input[builtins.bool] exportable: Whether the key is exportable from the service.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable the key.
-        :param pulumi.Input['KeyKeyAttributesArgs'] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
@@ -88,7 +88,7 @@ class KeyArgs:
 
     @property
     @pulumi.getter(name="keyAttributes")
-    def key_attributes(self) -> Optional[pulumi.Input['KeyKeyAttributesArgs']]:
+    def key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]:
         """
         Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
 
@@ -97,7 +97,7 @@ class KeyArgs:
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
-    def key_attributes(self, value: Optional[pulumi.Input['KeyKeyAttributesArgs']]):
+    def key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]):
         pulumi.set(self, "key_attributes", value)
 
     @property
@@ -141,7 +141,7 @@ class _KeyState:
                  deletion_window_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  exportable: Optional[pulumi.Input[builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input['KeyKeyAttributesArgs']] = None,
+                 key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]] = None,
                  key_check_value: Optional[pulumi.Input[builtins.str]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
                  key_origin: Optional[pulumi.Input[builtins.str]] = None,
@@ -154,7 +154,7 @@ class _KeyState:
         :param pulumi.Input[builtins.str] arn: ARN of the key.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[builtins.bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input['KeyKeyAttributesArgs'] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_check_value: Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
@@ -184,9 +184,6 @@ class _KeyState:
             pulumi.set(__self__, "key_state", key_state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -239,7 +236,7 @@ class _KeyState:
 
     @property
     @pulumi.getter(name="keyAttributes")
-    def key_attributes(self) -> Optional[pulumi.Input['KeyKeyAttributesArgs']]:
+    def key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]:
         """
         Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
 
@@ -248,7 +245,7 @@ class _KeyState:
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
-    def key_attributes(self, value: Optional[pulumi.Input['KeyKeyAttributesArgs']]):
+    def key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]):
         pulumi.set(self, "key_attributes", value)
 
     @property
@@ -313,7 +310,6 @@ class _KeyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -345,7 +341,7 @@ class Key(pulumi.CustomResource):
                  deletion_window_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  exportable: Optional[pulumi.Input[builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']]] = None,
+                 key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
@@ -354,6 +350,27 @@ class Key(pulumi.CustomResource):
         Resource for managing an AWS Payment Cryptography Control Plane Key.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.paymentcryptography.Key("test",
+            exportable=True,
+            key_attributes=[{
+                "key_algorithm": "TDES_3KEY",
+                "key_class": "SYMMETRIC_KEY",
+                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
+                "key_modes_of_uses": [{
+                    "decrypt": True,
+                    "encrypt": True,
+                    "wrap": True,
+                    "unwrap": True,
+                }],
+            }])
+        ```
 
         ## Import
 
@@ -367,7 +384,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[builtins.bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
@@ -383,6 +400,27 @@ class Key(pulumi.CustomResource):
         Resource for managing an AWS Payment Cryptography Control Plane Key.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.paymentcryptography.Key("test",
+            exportable=True,
+            key_attributes=[{
+                "key_algorithm": "TDES_3KEY",
+                "key_class": "SYMMETRIC_KEY",
+                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
+                "key_modes_of_uses": [{
+                    "decrypt": True,
+                    "encrypt": True,
+                    "wrap": True,
+                    "unwrap": True,
+                }],
+            }])
+        ```
 
         ## Import
 
@@ -410,7 +448,7 @@ class Key(pulumi.CustomResource):
                  deletion_window_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  exportable: Optional[pulumi.Input[builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']]] = None,
+                 key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
@@ -451,7 +489,7 @@ class Key(pulumi.CustomResource):
             deletion_window_in_days: Optional[pulumi.Input[builtins.int]] = None,
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             exportable: Optional[pulumi.Input[builtins.bool]] = None,
-            key_attributes: Optional[pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']]] = None,
+            key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
             key_check_value: Optional[pulumi.Input[builtins.str]] = None,
             key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
             key_origin: Optional[pulumi.Input[builtins.str]] = None,
@@ -469,7 +507,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the key.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[builtins.bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_check_value: Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
@@ -528,7 +566,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyAttributes")
-    def key_attributes(self) -> pulumi.Output[Optional['outputs.KeyKeyAttributes']]:
+    def key_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.KeyKeyAttribute']]]:
         """
         Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
 
@@ -578,7 +616,6 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

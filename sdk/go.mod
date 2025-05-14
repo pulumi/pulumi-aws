@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-aws/sdk/v6
+module github.com/pulumi/pulumi-aws/sdk/v7
 
 go 1.22
 
@@ -7,12 +7,6 @@ toolchain go1.23.4
 require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/pulumi/pulumi/sdk/v3 v3.163.0
-)
-
-retract (
-	v6.62.0 // Retracted due to https://github.com/pulumi/pulumi-aws/issues/4863
-	v6.0.1 // Contains retractions only.
-	v6.0.0 // Retracted due to https://github.com/pulumi/pulumi-aws/issues/2682
 )
 
 require (

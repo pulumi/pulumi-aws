@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codestarconnections.Connection;
  * import com.pulumi.aws.codestarconnections.ConnectionArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .providerType("GitHub")
  *             .build());
  * 
- *         var codepipelineBucket = new BucketV2("codepipelineBucket", BucketV2Args.builder()
+ *         var codepipelineBucket = new Bucket("codepipelineBucket", BucketArgs.builder()
  *             .bucket("test-bucket")
  *             .build());
  * 
@@ -334,11 +334,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

@@ -389,9 +389,6 @@ class _FirehoseDeliveryStreamState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version_id is not None:
             pulumi.set(__self__, "version_id", version_id)
@@ -601,7 +598,6 @@ class _FirehoseDeliveryStreamState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -662,7 +658,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="tf-test-bucket")
+        bucket = aws.s3.Bucket("bucket", bucket="tf-test-bucket")
         firehose_assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -708,7 +704,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     }],
                 },
             })
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```
@@ -1123,7 +1119,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        bucket = aws.s3.BucketV2("bucket",
+        bucket = aws.s3.Bucket("bucket",
             bucket="test-bucket",
             force_destroy=True)
         test = aws.glue.CatalogDatabase("test", name="test")
@@ -1319,7 +1315,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="tf-test-bucket")
+        bucket = aws.s3.Bucket("bucket", bucket="tf-test-bucket")
         firehose_assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -1365,7 +1361,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     }],
                 },
             })
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```
@@ -1780,7 +1776,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        bucket = aws.s3.BucketV2("bucket",
+        bucket = aws.s3.Bucket("bucket",
             bucket="test-bucket",
             force_destroy=True)
         test = aws.glue.CatalogDatabase("test", name="test")
@@ -2217,7 +2213,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

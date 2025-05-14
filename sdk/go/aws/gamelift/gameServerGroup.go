@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +63,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,8 +125,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -218,8 +218,7 @@ type GameServerGroup struct {
 	// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Key-value map of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of VPC subnets to use with instances in the game server group.
 	// By default, all GameLift FleetIQ-supported Availability Zones are used.
@@ -303,8 +302,7 @@ type gameServerGroupState struct {
 	// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn *string `pulumi:"roleArn"`
 	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of VPC subnets to use with instances in the game server group.
 	// By default, all GameLift FleetIQ-supported Availability Zones are used.
@@ -341,8 +339,7 @@ type GameServerGroupState struct {
 	// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// A list of VPC subnets to use with instances in the game server group.
 	// By default, all GameLift FleetIQ-supported Availability Zones are used.
@@ -571,7 +568,6 @@ func (o GameServerGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GameServerGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o GameServerGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GameServerGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

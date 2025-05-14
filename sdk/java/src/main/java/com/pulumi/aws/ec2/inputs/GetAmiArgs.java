@@ -20,6 +20,27 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAmiArgs Empty = new GetAmiArgs();
 
     /**
+     * If true, allow unsafe filter values. With unsafe
+     * filters and `most_recent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     * 
+     */
+    @Import(name="allowUnsafeFilter")
+    private @Nullable Output<Boolean> allowUnsafeFilter;
+
+    /**
+     * @return If true, allow unsafe filter values. With unsafe
+     * filters and `most_recent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     * 
+     */
+    public Optional<Output<Boolean>> allowUnsafeFilter() {
+        return Optional.ofNullable(this.allowUnsafeFilter);
+    }
+
+    /**
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
      * 
@@ -172,6 +193,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     private GetAmiArgs() {}
 
     private GetAmiArgs(GetAmiArgs $) {
+        this.allowUnsafeFilter = $.allowUnsafeFilter;
         this.executableUsers = $.executableUsers;
         this.filters = $.filters;
         this.includeDeprecated = $.includeDeprecated;
@@ -198,6 +220,33 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetAmiArgs defaults) {
             $ = new GetAmiArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe
+         * filters and `most_recent` set to `true`, a third party may introduce a new image which
+         * will be returned by this data source. Consider filtering by owner or image ID rather
+         * than setting this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowUnsafeFilter(@Nullable Output<Boolean> allowUnsafeFilter) {
+            $.allowUnsafeFilter = allowUnsafeFilter;
+            return this;
+        }
+
+        /**
+         * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe
+         * filters and `most_recent` set to `true`, a third party may introduce a new image which
+         * will be returned by this data source. Consider filtering by owner or image ID rather
+         * than setting this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowUnsafeFilter(Boolean allowUnsafeFilter) {
+            return allowUnsafeFilter(Output.of(allowUnsafeFilter));
         }
 
         /**

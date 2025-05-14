@@ -22,27 +22,36 @@ __all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
 @pulumi.input_type
 class OrganizationConfigurationArgs:
     def __init__(__self__, *,
+                 auto_enable_organization_members: pulumi.Input[builtins.str],
                  detector_id: pulumi.Input[builtins.str],
-                 auto_enable: Optional[pulumi.Input[builtins.bool]] = None,
-                 auto_enable_organization_members: Optional[pulumi.Input[builtins.str]] = None,
                  datasources: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
+        :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+               Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty account.
-        :param pulumi.Input[builtins.bool] auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
         """
+        pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
         pulumi.set(__self__, "detector_id", detector_id)
-        if auto_enable is not None:
-            warnings.warn("""auto_enable is deprecated. Use auto_enable_organization_members instead.""", DeprecationWarning)
-            pulumi.log.warn("""auto_enable is deprecated: auto_enable is deprecated. Use auto_enable_organization_members instead.""")
-        if auto_enable is not None:
-            pulumi.set(__self__, "auto_enable", auto_enable)
-        if auto_enable_organization_members is not None:
-            pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
+        if datasources is not None:
+            warnings.warn("""datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""", DeprecationWarning)
+            pulumi.log.warn("""datasources is deprecated: datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""")
         if datasources is not None:
             pulumi.set(__self__, "datasources", datasources)
+
+    @property
+    @pulumi.getter(name="autoEnableOrganizationMembers")
+    def auto_enable_organization_members(self) -> pulumi.Input[builtins.str]:
+        """
+        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+        Valid values are `ALL`, `NEW`, `NONE`.
+        """
+        return pulumi.get(self, "auto_enable_organization_members")
+
+    @auto_enable_organization_members.setter
+    def auto_enable_organization_members(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "auto_enable_organization_members", value)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -57,32 +66,8 @@ class OrganizationConfigurationArgs:
         pulumi.set(self, "detector_id", value)
 
     @property
-    @pulumi.getter(name="autoEnable")
-    @_utilities.deprecated("""auto_enable is deprecated. Use auto_enable_organization_members instead.""")
-    def auto_enable(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        """
-        return pulumi.get(self, "auto_enable")
-
-    @auto_enable.setter
-    def auto_enable(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "auto_enable", value)
-
-    @property
-    @pulumi.getter(name="autoEnableOrganizationMembers")
-    def auto_enable_organization_members(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
-        """
-        return pulumi.get(self, "auto_enable_organization_members")
-
-    @auto_enable_organization_members.setter
-    def auto_enable_organization_members(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "auto_enable_organization_members", value)
-
-    @property
     @pulumi.getter
+    @_utilities.deprecated("""datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""")
     def datasources(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']]:
         """
         Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
@@ -97,47 +82,32 @@ class OrganizationConfigurationArgs:
 @pulumi.input_type
 class _OrganizationConfigurationState:
     def __init__(__self__, *,
-                 auto_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  auto_enable_organization_members: Optional[pulumi.Input[builtins.str]] = None,
                  datasources: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
-        :param pulumi.Input[builtins.bool] auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+               Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty account.
         """
-        if auto_enable is not None:
-            warnings.warn("""auto_enable is deprecated. Use auto_enable_organization_members instead.""", DeprecationWarning)
-            pulumi.log.warn("""auto_enable is deprecated: auto_enable is deprecated. Use auto_enable_organization_members instead.""")
-        if auto_enable is not None:
-            pulumi.set(__self__, "auto_enable", auto_enable)
         if auto_enable_organization_members is not None:
             pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
+        if datasources is not None:
+            warnings.warn("""datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""", DeprecationWarning)
+            pulumi.log.warn("""datasources is deprecated: datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""")
         if datasources is not None:
             pulumi.set(__self__, "datasources", datasources)
         if detector_id is not None:
             pulumi.set(__self__, "detector_id", detector_id)
 
     @property
-    @pulumi.getter(name="autoEnable")
-    @_utilities.deprecated("""auto_enable is deprecated. Use auto_enable_organization_members instead.""")
-    def auto_enable(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        """
-        return pulumi.get(self, "auto_enable")
-
-    @auto_enable.setter
-    def auto_enable(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "auto_enable", value)
-
-    @property
     @pulumi.getter(name="autoEnableOrganizationMembers")
     def auto_enable_organization_members(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+        Valid values are `ALL`, `NEW`, `NONE`.
         """
         return pulumi.get(self, "auto_enable_organization_members")
 
@@ -147,6 +117,7 @@ class _OrganizationConfigurationState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""")
     def datasources(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']]:
         """
         Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
@@ -178,7 +149,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  auto_enable_organization_members: Optional[pulumi.Input[builtins.str]] = None,
                  datasources: Optional[pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -227,8 +197,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+               Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty account.
         """
@@ -295,7 +265,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  auto_enable_organization_members: Optional[pulumi.Input[builtins.str]] = None,
                  datasources: Optional[pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -308,7 +277,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrganizationConfigurationArgs.__new__(OrganizationConfigurationArgs)
 
-            __props__.__dict__["auto_enable"] = auto_enable
+            if auto_enable_organization_members is None and not opts.urn:
+                raise TypeError("Missing required property 'auto_enable_organization_members'")
             __props__.__dict__["auto_enable_organization_members"] = auto_enable_organization_members
             __props__.__dict__["datasources"] = datasources
             if detector_id is None and not opts.urn:
@@ -324,7 +294,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_enable: Optional[pulumi.Input[builtins.bool]] = None,
             auto_enable_organization_members: Optional[pulumi.Input[builtins.str]] = None,
             datasources: Optional[pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
             detector_id: Optional[pulumi.Input[builtins.str]] = None) -> 'OrganizationConfiguration':
@@ -335,8 +304,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+               Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty account.
         """
@@ -344,31 +313,23 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         __props__ = _OrganizationConfigurationState.__new__(_OrganizationConfigurationState)
 
-        __props__.__dict__["auto_enable"] = auto_enable
         __props__.__dict__["auto_enable_organization_members"] = auto_enable_organization_members
         __props__.__dict__["datasources"] = datasources
         __props__.__dict__["detector_id"] = detector_id
         return OrganizationConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="autoEnable")
-    @_utilities.deprecated("""auto_enable is deprecated. Use auto_enable_organization_members instead.""")
-    def auto_enable(self) -> pulumi.Output[builtins.bool]:
-        """
-        *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        """
-        return pulumi.get(self, "auto_enable")
-
-    @property
     @pulumi.getter(name="autoEnableOrganizationMembers")
     def auto_enable_organization_members(self) -> pulumi.Output[builtins.str]:
         """
-        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+        Valid values are `ALL`, `NEW`, `NONE`.
         """
         return pulumi.get(self, "auto_enable_organization_members")
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""")
     def datasources(self) -> pulumi.Output['outputs.OrganizationConfigurationDatasources']:
         """
         Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.

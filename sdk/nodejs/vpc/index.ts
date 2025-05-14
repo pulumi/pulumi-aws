@@ -15,6 +15,11 @@ export type EndpointServicePrivateDnsVerification = import("./endpointServicePri
 export const EndpointServicePrivateDnsVerification: typeof import("./endpointServicePrivateDnsVerification").EndpointServicePrivateDnsVerification = null as any;
 utilities.lazyLoad(exports, ["EndpointServicePrivateDnsVerification"], () => require("./endpointServicePrivateDnsVerification"));
 
+export { GetEndpointAssociationsArgs, GetEndpointAssociationsResult, GetEndpointAssociationsOutputArgs } from "./getEndpointAssociations";
+export const getEndpointAssociations: typeof import("./getEndpointAssociations").getEndpointAssociations = null as any;
+export const getEndpointAssociationsOutput: typeof import("./getEndpointAssociations").getEndpointAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpointAssociations","getEndpointAssociationsOutput"], () => require("./getEndpointAssociations"));
+
 export { GetSecurityGroupRuleArgs, GetSecurityGroupRuleResult, GetSecurityGroupRuleOutputArgs } from "./getSecurityGroupRule";
 export const getSecurityGroupRule: typeof import("./getSecurityGroupRule").getSecurityGroupRule = null as any;
 export const getSecurityGroupRuleOutput: typeof import("./getSecurityGroupRule").getSecurityGroupRuleOutput = null as any;

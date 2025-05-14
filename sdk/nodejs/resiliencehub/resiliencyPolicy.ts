@@ -10,6 +10,38 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS Resilience Hub Resiliency Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.resiliencehub.ResiliencyPolicy("example", {
+ *     name: "testexample",
+ *     description: "testexample",
+ *     tier: "NonCritical",
+ *     dataLocationConstraint: "AnyLocation",
+ *     policy: {
+ *         region: {
+ *             rpo: "24h",
+ *             rto: "24h",
+ *         },
+ *         az: {
+ *             rpo: "24h",
+ *             rto: "24h",
+ *         },
+ *         hardware: {
+ *             rpo: "24h",
+ *             rto: "24h",
+ *         },
+ *         software: {
+ *             rpo: "24h",
+ *             rto: "24h",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
@@ -81,8 +113,6 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -175,8 +205,6 @@ export interface ResiliencyPolicyState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

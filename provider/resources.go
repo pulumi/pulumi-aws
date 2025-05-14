@@ -33,9 +33,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	"github.com/mitchellh/go-homedir"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/batch"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/batch"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/rds"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -197,7 +197,6 @@ const (
 	networkMonitorMod           = "NetworkMonitor"           // Network Monitor
 	oamMod                      = "Oam"                      // Observability Access Manager
 	opensearchMod               = "OpenSearch"               // OpenSearch
-	opsworksMod                 = "OpsWorks"                 // OpsWorks
 	organizationsMod            = "Organizations"            // Organizations
 	osisMod                     = "OpenSearchIngest"         // Open Search Ingestion Service
 	outpostsMod                 = "Outposts"                 // Outposts
@@ -244,7 +243,6 @@ const (
 	servicequotasMod            = "ServiceQuotas"            // Service Quotas
 	sfnMod                      = "Sfn"                      // Step Functions (SFN)
 	shieldMod                   = "Shield"                   // Shield
-	simpledbMod                 = "SimpleDB"                 // Simple DB
 	snsMod                      = "Sns"                      // Simple Notification Service (SNS)
 	sqsMod                      = "Sqs"                      // Simple Queueing Service (SQS)
 	ssoAdminMod                 = "SsoAdmin"                 // SSO Admin
@@ -262,7 +260,6 @@ const (
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
 	wafV2Mod                    = "WafV2"                    // Web Application Firewall V2 (WAFV2)
 	wafregionalMod              = "WafRegional"              // Web Application Firewall (WAF) Regional
-	worklinkMod                 = "WorkLink"                 // Worklink
 	workspacesMod               = "Workspaces"               // Workspaces
 	xrayMod                     = "Xray"                     // X-Ray
 
@@ -426,7 +423,6 @@ var moduleMap = map[string]string{
 	"networkmonitor":                  networkMonitorMod,
 	"oam":                             oamMod,
 	"opensearch":                      opensearchMod,
-	"opsworks":                        opsworksMod,
 	"organizations":                   organizationsMod,
 	"osis":                            osisMod,
 	"outposts":                        outpostsMod,
@@ -474,7 +470,6 @@ var moduleMap = map[string]string{
 	"sfn":                             sfnMod,
 	"shield":                          shieldMod,
 	"signer":                          signerMod,
-	"simpledb":                        simpledbMod,
 	"sns":                             snsMod,
 	"sqs":                             sqsMod,
 	"ssm":                             ssmMod,
@@ -494,7 +489,6 @@ var moduleMap = map[string]string{
 	"waf":                             wafMod,
 	"wafregional":                     wafregionalMod,
 	"wafv2":                           wafV2Mod,
-	"worklink":                        worklinkMod,
 	"workspaces":                      workspacesMod,
 	"xray":                            xrayMod,
 }
@@ -861,7 +855,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider := newUpstreamProvider(ctx)
 
-	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider)
+	up := upstreamProvider.SDKV2Provider
+	up.TerraformVersion = "1.0.0+compatible"
+	v2p := shimv2.NewProvider(up)
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
 
@@ -2422,18 +2418,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_gamelift_game_server_group":  {Tok: awsResource(gameliftMod, "GameServerGroup")},
 			"aws_gamelift_script":             {Tok: awsResource(gameliftMod, "Script")},
 
-			"aws_gamelift_matchmaking_configuration": {
-				Tok: awsResource(gameliftMod, "MatchmakingConfiguration"),
-				DeprecationMessage: "This resource will be removed in the next major version. " +
-					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead",
-			},
-
-			"aws_gamelift_matchmaking_rule_set": {
-				Tok: awsResource(gameliftMod, "MatchmakingRuleSet"),
-				DeprecationMessage: "This resource will be removed in the next major version." +
-					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead",
-			},
-
 			// Glacier
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
@@ -3116,32 +3100,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_opensearch_inbound_connection_accepter": {Tok: awsResource(opensearchMod, "InboundConnectionAccepter")},
 			"aws_opensearch_outbound_connection":         {Tok: awsResource(opensearchMod, "OutboundConnection")},
 
-			// OpsWorks
-			"aws_opsworks_application": {Tok: awsResource(opsworksMod, "Application")},
-			"aws_opsworks_stack": {
-				Tok: awsResource(opsworksMod, "Stack"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"custom_cookbooks_source": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "customCookbooksSources",
-					},
-				},
-			},
-			"aws_opsworks_java_app_layer":    {Tok: awsResource(opsworksMod, "JavaAppLayer")},
-			"aws_opsworks_haproxy_layer":     {Tok: awsResource(opsworksMod, "HaproxyLayer")},
-			"aws_opsworks_static_web_layer":  {Tok: awsResource(opsworksMod, "StaticWebLayer")},
-			"aws_opsworks_php_app_layer":     {Tok: awsResource(opsworksMod, "PhpAppLayer")},
-			"aws_opsworks_rails_app_layer":   {Tok: awsResource(opsworksMod, "RailsAppLayer")},
-			"aws_opsworks_nodejs_app_layer":  {Tok: awsResource(opsworksMod, "NodejsAppLayer")},
-			"aws_opsworks_memcached_layer":   {Tok: awsResource(opsworksMod, "MemcachedLayer")},
-			"aws_opsworks_mysql_layer":       {Tok: awsResource(opsworksMod, "MysqlLayer")},
-			"aws_opsworks_ganglia_layer":     {Tok: awsResource(opsworksMod, "GangliaLayer")},
-			"aws_opsworks_custom_layer":      {Tok: awsResource(opsworksMod, "CustomLayer")},
-			"aws_opsworks_instance":          {Tok: awsResource(opsworksMod, "Instance")},
-			"aws_opsworks_user_profile":      {Tok: awsResource(opsworksMod, "UserProfile")},
-			"aws_opsworks_permission":        {Tok: awsResource(opsworksMod, "Permission")},
-			"aws_opsworks_rds_db_instance":   {Tok: awsResource(opsworksMod, "RdsDbInstance")},
-			"aws_opsworks_ecs_cluster_layer": {Tok: awsResource(opsworksMod, "EcsClusterLayer")},
 			// Organizations
 			"aws_organizations_account":                 {Tok: awsResource(organizationsMod, "Account")},
 			"aws_organizations_organization":            {Tok: awsResource(organizationsMod, "Organization")},
@@ -3613,142 +3571,77 @@ compatibility shim in favor of the new "name" field.`)
 			// S3
 			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
 			"aws_s3_bucket": {
-				Tok: awsResource(s3Mod, "BucketV2"),
+				Tok: awsResource(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
-					"logging": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "loggings",
-					},
-					"versioning": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "versionings",
-					},
-					"website": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "websites",
-					},
-					"server_side_encryption_configuration": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "serverSideEncryptionConfigurations",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rule": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "rules",
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"apply_server_side_encryption_by_default": {
-												Name:        "applyServerSideEncryptionByDefaults",
-												MaxItemsOne: tfbridge.False(),
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-					"lifecycle_rule": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"expiration": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "expirations",
-								},
-								"noncurrent_version_expiration": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "noncurrentVersionExpirations",
-								},
-							},
-						},
-					},
-					"object_lock_configuration": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rule": {
-									Name:        "rules",
-									MaxItemsOne: tfbridge.False(),
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"default_retention": {
-												Name:        "defaultRetentions",
-												MaxItemsOne: tfbridge.False(),
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-					"replication_configuration": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "replicationConfigurations",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rules": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"filter": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "filters",
-											},
-											"source_selection_criteria": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "sourceSelectionCriterias",
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"sse_kms_encrypted_objects": {
-															Name:        "sseKmsEncryptedObjects",
-															MaxItemsOne: tfbridge.False(),
-														},
-													},
-												},
-											},
-											"destination": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "destinations",
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"metrics": {
-															MaxItemsOne: tfbridge.False(),
-														},
-														"replication_time": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "replicationTimes",
-														},
-														"access_control_translation": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "accessControlTranslations",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: ref("aws:s3/bucket:Bucket"),
+						Type: ref("aws:s3/bucketV2:BucketV2"),
 					},
 				},
 			},
-			"aws_s3_bucket_accelerate_configuration":             {Tok: awsResource(s3Mod, "BucketAccelerateConfigurationV2")},
-			"aws_s3_bucket_acl":                                  {Tok: awsResource(s3Mod, "BucketAclV2")},
-			"aws_s3_bucket_cors_configuration":                   {Tok: awsResource(s3Mod, "BucketCorsConfigurationV2")},
-			"aws_s3_bucket_lifecycle_configuration":              {Tok: awsResource(s3Mod, "BucketLifecycleConfigurationV2")},
-			"aws_s3_bucket_logging":                              {Tok: awsResource(s3Mod, "BucketLoggingV2")},
-			"aws_s3_bucket_object_lock_configuration":            {Tok: awsResource(s3Mod, "BucketObjectLockConfigurationV2")},
-			"aws_s3_bucket_request_payment_configuration":        {Tok: awsResource(s3Mod, "BucketRequestPaymentConfigurationV2")},
-			"aws_s3_bucket_server_side_encryption_configuration": {Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfigurationV2")},
-			"aws_s3_bucket_versioning":                           {Tok: awsResource(s3Mod, "BucketVersioningV2")},
+			"aws_s3_bucket_accelerate_configuration": {
+				Tok: awsResource(s3Mod, "BucketAccelerateConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_acl": {
+				Tok: awsResource(s3Mod, "BucketAcl"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketAclV2:BucketAclV2")},
+				},
+			},
+			"aws_s3_bucket_cors_configuration": {
+				Tok: awsResource(s3Mod, "BucketCorsConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_lifecycle_configuration": {
+				Tok: awsResource(s3Mod, "BucketLifecycleConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_logging": {
+				Tok: awsResource(s3Mod, "BucketLogging"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketLoggingV2:BucketLoggingV2")},
+				},
+			},
+			"aws_s3_bucket_object_lock_configuration": {
+				Tok: awsResource(s3Mod, "BucketObjectLockConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_request_payment_configuration": {
+				Tok: awsResource(s3Mod, "BucketRequestPaymentConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_server_side_encryption_configuration": {
+				Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_versioning": {
+				Tok: awsResource(s3Mod, "BucketVersioning"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketVersioningV2:BucketVersioningV2")},
+				},
+			},
 			"aws_s3_bucket_website_configuration": {
-				Tok: awsResource(s3Mod, "BucketWebsiteConfigurationV2"),
+				Tok: awsResource(s3Mod, "BucketWebsiteConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")},
+				},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"routing_rules": {
 						Name: "routingRuleDetails",
@@ -3789,40 +3682,6 @@ compatibility shim in favor of the new "name" field.`)
 						Type: ref("aws:s3/BucketObject:BucketObject"),
 					},
 				},
-			},
-			"aws_s3_bucket_legacy": {
-				Tok: awsResource(s3Mod, "Bucket"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"acl": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsType(s3Mod, "CannedAcl", "CannedAcl")},
-					},
-					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
-						return strings.ToLower(name)
-					}),
-					// Website only accepts a single value in the AWS
-					// API but is not marked MaxItems==1 in the TF
-					// provider.
-					"website": {
-						Name: "website",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"routing_rules": {
-									Name:      "routingRules",
-									Type:      "string",
-									AltTypes:  []tokens.Type{awsType(s3Mod, "routingRules", "RoutingRule[]")},
-									Transform: tfbridge.TransformJSONDocument,
-								},
-							},
-						},
-					},
-					"policy": {
-						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-						Transform: tfbridge.TransformJSONDocument,
-					},
-				},
-				Docs: &tfbridge.DocInfo{Markdown: maybeReadFile("docs/resource/aws_s3_bucket_legacy.md")},
 			},
 			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
 			"aws_s3_bucket_metric":       {Tok: awsResource(s3Mod, "BucketMetric")},
@@ -3953,8 +3812,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_ssmcontacts_contact_channel": {Tok: awsResource(ssmContactsMod, "ContactChannel")},
 			"aws_ssmcontacts_plan":            {Tok: awsResource(ssmContactsMod, "Plan")},
 
-			// SimpleDB
-			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
 			// Simple Queuing Service (SQS)
 			"aws_sqs_queue": {
 				Tok: awsResource(sqsMod, "Queue"),
@@ -3975,6 +3832,7 @@ compatibility shim in favor of the new "name" field.`)
 					}),
 				},
 			},
+
 			"aws_sqs_queue_policy": {
 				Tok: awsResource(sqsMod, "QueuePolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -4129,11 +3987,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_wafregional_web_acl":                 {Tok: awsResource(wafregionalMod, "WebAcl")},
 			"aws_wafregional_web_acl_association":     {Tok: awsResource(wafregionalMod, "WebAclAssociation")},
 			"aws_wafregional_xss_match_set":           {Tok: awsResource(wafregionalMod, "XssMatchSet")},
-			// Worklink
-			"aws_worklink_fleet": {Tok: awsResource(worklinkMod, "Fleet")},
-			"aws_worklink_website_certificate_authority_association": {
-				Tok: awsResource(worklinkMod, "WebsiteCertificateAuthorityAssociation"),
-			},
 			// Xray
 			"aws_xray_sampling_rule":     {Tok: awsResource(xrayMod, "SamplingRule")},
 			"aws_xray_encryption_config": {Tok: awsResource(xrayMod, "EncryptionConfig")},
@@ -4478,6 +4331,9 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			"aws_vpc_security_group_rules": {
 				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
+			},
+			"aws_vpc_endpoint_associations": {
+				Tok: awsDataSource("Vpc", "getEndpointAssociations"),
 			},
 
 			// AWS
@@ -5562,7 +5418,7 @@ compatibility shim in favor of the new "name" field.`)
 		})
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
-	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
+	prov.Resources["aws_s3_bucket"].Fields["bucket"].CSharpName = "BucketName"
 
 	pluginFrameworkResoures := map[string]*tfbridge.ResourceInfo{
 		"aws_auditmanager_account_registration": {
@@ -5651,6 +5507,61 @@ compatibility shim in favor of the new "name" field.`)
 		},
 	}
 
+	// This adds special handling for the `tagsAll` properties.
+	// We rely on the upstream Terraform provider to correctly handle `tags` and `tagsAll` and it
+	// works fine for pf based resources. For SDKv2 resources, terraform relies on two things for tags handling to work:
+	// (note: this is only true for a specific scenario where `defaultTags` was non-empty and is then completely removed)
+	//   1. Terraform is run with `--refresh` (default for Terraform)
+	//   2. When refresh is run, the latest provider config is used.
+	// When you run Pulumi, by default neither of these two things are true which means that to get the same behavior for
+	// SKDv2 resources, you would have to:
+	//   1. Run `pulumi refresh --run-program` (run-program is required to get the latest provider config)
+	//   2. Run `pulumi up` to apply the tags changes.
+	// In order to handle this scenario we add a callback function that is run prior to `Check` which sets the value of `tagsAll`.
+	// This is a workaround that allows the program to have the latest `tagsAll` values without having to run `refresh` or `run-program`.
+	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
+		// only process sdkv2 resources
+		if _, ok := up.ResourcesMap[key]; !ok {
+			return true
+		}
+		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
+			return true
+		}
+
+		if _, ok := prov.Resources[key]; ok {
+			if callback := prov.Resources[key].PreCheckCallback; callback != nil {
+				prov.Resources[key].PreCheckCallback = func(
+					ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					config, err := callback(ctx, config, meta)
+					if err != nil {
+						return nil, err
+					}
+					return applyTags(ctx, config, meta)
+				}
+			} else {
+				prov.Resources[key].PreCheckCallback = applyTags
+			}
+			if prov.Resources[key].GetFields() == nil {
+				prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
+			}
+			fields := prov.Resources[key].GetFields()
+
+			if _, ok := fields["tags_all"]; !ok {
+				fields["tags_all"] = &tfbridge.SchemaInfo{}
+			}
+
+			// `tags_all` is an optional/computed property in TF, but should never
+			// be set by the user (TF internals will set it). We can mark it as only an
+			// output property on our side so that users don't have the option to set it themselves,
+			// but we still can in the callback function
+			fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
+			fields["tags_all"].MarkAsOptional = tfbridge.False()
+		}
+
+		return true
+	})
+
 	for k, v := range pluginFrameworkResoures {
 		if _, conflict := prov.Resources[k]; conflict {
 			panic(fmt.Sprintf("Resoruce already defined: %s", k))
@@ -5662,61 +5573,6 @@ compatibility shim in favor of the new "name" field.`)
 		func(mod, name string) (string, error) {
 			return awsResource(mod, name).String(), nil
 		}))
-
-	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
-		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
-			return true
-		}
-
-		// We have ensured that this resource is using upstream's generic tagging
-		// mechanism, so override check so it works.
-		if callback := prov.Resources[key].PreCheckCallback; callback != nil {
-			prov.Resources[key].PreCheckCallback = func(
-				ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
-			) (resource.PropertyMap, error) {
-				config, err := callback(ctx, config, meta)
-				if err != nil {
-					return nil, err
-				}
-				return applyTags(ctx, config, meta)
-			}
-		} else {
-			prov.Resources[key].PreCheckCallback = applyTags
-		}
-
-		// also override read so that it works during import
-		// as a side effect this will also run during create and update, but since
-		// `tags` and `defaultTags` should always be equal then it doesn't really matter.
-		// One extra place that we make sure `tags=defaultTags` is fine.
-		if transform := prov.Resources[key].TransformOutputs; transform != nil {
-			prov.Resources[key].TransformOutputs = func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-				config, err := transform(ctx, pm)
-				if err != nil {
-					return nil, err
-				}
-				return applyTagsOutputs(ctx, config)
-			}
-		} else {
-			prov.Resources[key].TransformOutputs = applyTagsOutputs
-		}
-
-		if prov.Resources[key].GetFields() == nil {
-			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
-		}
-		fields := prov.Resources[key].GetFields()
-
-		if _, ok := fields["tags_all"]; !ok {
-			fields["tags_all"] = &tfbridge.SchemaInfo{}
-		}
-
-		// Upstream provider is edited to unmark tags_all as computed internally so that
-		// Pulumi provider internals can set it, but the user should not be able to set it.
-		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
-		fields["tags_all"].MarkAsOptional = tfbridge.False()
-
-		return true
-	})
 
 	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
 		// These examples hang on Go generation. Issue tracking to unblock:
@@ -5796,16 +5652,6 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 		"aws_wafv2_web_acl_logging_configuration":
 		return false
 	case "aws_medialive_channel",
-		"aws_opsworks_custom_layer",
-		"aws_opsworks_ecs_cluster_layer",
-		"aws_opsworks_ganglia_layer",
-		"aws_opsworks_haproxy_layer",
-		"aws_opsworks_java_app_layer",
-		"aws_opsworks_memcached_layer",
-		"aws_opsworks_mysql_layer",
-		"aws_opsworks_nodejs_app_layer",
-		"aws_opsworks_php_app_layer",
-		"aws_opsworks_rails_app_layer",
 		"aws_quicksight_analysis",
 		"aws_quicksight_dashboard",
 		"aws_quicksight_data_set",
@@ -5816,8 +5662,7 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 		"aws_wafv2_regex_pattern_set",
 		"aws_wafv2_rule_group",
 		"aws_wafv2_web_acl",
-		"aws_kinesis_firehose_delivery_stream",
-		"aws_opsworks_static_web_layer":
+		"aws_kinesis_firehose_delivery_stream":
 		return true
 	}
 	return hasOptionalOrRequiredNameProperty(p, tfResourceName)
@@ -5828,17 +5673,6 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resource) bool {
 	switch tfResourceName {
 	case "aws_kinesis_firehose_delivery_stream",
-		"aws_opsworks_custom_layer",
-		"aws_opsworks_ecs_cluster_layer",
-		"aws_opsworks_ganglia_layer",
-		"aws_opsworks_haproxy_layer",
-		"aws_opsworks_java_app_layer",
-		"aws_opsworks_memcached_layer",
-		"aws_opsworks_mysql_layer",
-		"aws_opsworks_nodejs_app_layer",
-		"aws_opsworks_php_app_layer",
-		"aws_opsworks_rails_app_layer",
-		"aws_opsworks_static_web_layer",
 		"aws_quicksight_analysis",
 		"aws_quicksight_dashboard",
 		"aws_quicksight_data_set",
@@ -5875,7 +5709,7 @@ func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool
 		return false
 	}
 	// tags must be non-computed.
-	if tagsF.Computed() {
+	if tagsF.Computed() && !tagsF.Optional() {
 		return false
 	}
 	return true

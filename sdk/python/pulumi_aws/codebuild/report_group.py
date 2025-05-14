@@ -140,9 +140,6 @@ class _ReportGroupState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -221,7 +218,6 @@ class _ReportGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -283,14 +279,14 @@ class ReportGroup(pulumi.CustomResource):
             description="my test kms key",
             deletion_window_in_days=7,
             policy=example.json)
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test")
+        example_bucket = aws.s3.Bucket("example", bucket="my-test")
         example_report_group = aws.codebuild.ReportGroup("example",
             name="my test report group",
             type="TEST",
             export_config={
                 "type": "S3",
                 "s3_destination": {
-                    "bucket": example_bucket_v2.id,
+                    "bucket": example_bucket.id,
                     "encryption_disabled": False,
                     "encryption_key": example_key.arn,
                     "packaging": "NONE",
@@ -345,14 +341,14 @@ class ReportGroup(pulumi.CustomResource):
             description="my test kms key",
             deletion_window_in_days=7,
             policy=example.json)
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test")
+        example_bucket = aws.s3.Bucket("example", bucket="my-test")
         example_report_group = aws.codebuild.ReportGroup("example",
             name="my test report group",
             type="TEST",
             export_config={
                 "type": "S3",
                 "s3_destination": {
-                    "bucket": example_bucket_v2.id,
+                    "bucket": example_bucket.id,
                     "encryption_disabled": False,
                     "encryption_key": example_key.arn,
                     "packaging": "NONE",
@@ -508,7 +504,6 @@ class ReportGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

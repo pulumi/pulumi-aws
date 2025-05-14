@@ -104,9 +104,6 @@ class _LoggingConfigurationState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -171,7 +168,6 @@ class _LoggingConfigurationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -220,7 +216,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket_prefix="tf-ivschat-logging-bucket")
+        example_bucket = aws.s3.Bucket("example", bucket_prefix="tf-ivschat-logging-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -237,13 +233,13 @@ class LoggingConfiguration(pulumi.CustomResource):
             destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": example_role.arn,
-                "bucket_arn": example_bucket_v2.arn,
+                "bucket_arn": example_bucket.arn,
             },
             tags={
                 "LogDeliveryEnabled": "true",
             })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+        example_bucket_acl = aws.s3.BucketAcl("example",
+            bucket=example_bucket.id,
             acl="private")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
             "firehose": {
@@ -297,7 +293,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket_prefix="tf-ivschat-logging-bucket")
+        example_bucket = aws.s3.Bucket("example", bucket_prefix="tf-ivschat-logging-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -314,13 +310,13 @@ class LoggingConfiguration(pulumi.CustomResource):
             destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": example_role.arn,
-                "bucket_arn": example_bucket_v2.arn,
+                "bucket_arn": example_bucket.arn,
             },
             tags={
                 "LogDeliveryEnabled": "true",
             })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+        example_bucket_acl = aws.s3.BucketAcl("example",
+            bucket=example_bucket.id,
             acl="private")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
             "firehose": {
@@ -454,7 +450,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

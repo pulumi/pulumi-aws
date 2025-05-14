@@ -86,8 +86,8 @@ def get_service_account(region: Optional[builtins.str] = None,
     import pulumi_aws as aws
 
     main = aws.elb.get_service_account()
-    elb_logs = aws.s3.BucketV2("elb_logs", bucket="my-elb-tf-test-bucket")
-    elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
+    elb_logs = aws.s3.Bucket("elb_logs", bucket="my-elb-tf-test-bucket")
+    elb_logs_acl = aws.s3.BucketAcl("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
     allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
@@ -145,8 +145,8 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     import pulumi_aws as aws
 
     main = aws.elb.get_service_account()
-    elb_logs = aws.s3.BucketV2("elb_logs", bucket="my-elb-tf-test-bucket")
-    elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
+    elb_logs = aws.s3.Bucket("elb_logs", bucket="my-elb-tf-test-bucket")
+    elb_logs_acl = aws.s3.BucketAcl("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
     allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{

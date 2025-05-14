@@ -22,9 +22,9 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSourceBucketV2 = new Aws.S3.BucketV2("example_source", new()
+    ///     var exampleSourceBucket = new Aws.S3.Bucket("example_source", new()
     ///     {
-    ///         Bucket = "example-source",
+    ///         BucketName = "example-source",
     ///     });
     /// 
     ///     var exampleSource = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -62,20 +62,20 @@ namespace Pulumi.Aws.AppFlow
     /// 
     ///     var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("example_source", new()
     ///     {
-    ///         Bucket = exampleSourceBucketV2.Id,
+    ///         Bucket = exampleSourceBucket.Id,
     ///         Policy = exampleSource.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var example = new Aws.S3.BucketObjectv2("example", new()
     ///     {
-    ///         Bucket = exampleSourceBucketV2.Id,
+    ///         Bucket = exampleSourceBucket.Id,
     ///         Key = "example_source.csv",
     ///         Source = new FileAsset("example_source.csv"),
     ///     });
     /// 
-    ///     var exampleDestinationBucketV2 = new Aws.S3.BucketV2("example_destination", new()
+    ///     var exampleDestinationBucket = new Aws.S3.Bucket("example_destination", new()
     ///     {
-    ///         Bucket = "example-destination",
+    ///         BucketName = "example-destination",
     ///     });
     /// 
     ///     var exampleDestination = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.AppFlow
     /// 
     ///     var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("example_destination", new()
     ///     {
-    ///         Bucket = exampleDestinationBucketV2.Id,
+    ///         Bucket = exampleDestinationBucket.Id,
     ///         Policy = exampleDestination.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -466,7 +466,6 @@ namespace Pulumi.Aws.AppFlow
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

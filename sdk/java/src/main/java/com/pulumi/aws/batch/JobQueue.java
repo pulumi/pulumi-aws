@@ -175,24 +175,6 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.computeEnvironmentOrders);
     }
     /**
-     * (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-     * 
-     * @deprecated
-     * This parameter will be replaced by `compute_environment_order`.
-     * 
-     */
-    @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-    @Export(name="computeEnvironments", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> computeEnvironments;
-
-    /**
-     * @return (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-     * 
-     */
-    public Output<Optional<List<String>>> computeEnvironments() {
-        return Codegen.optional(this.computeEnvironments);
-    }
-    /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
@@ -281,11 +263,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

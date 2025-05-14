@@ -8,6 +8,7 @@ import com.pulumi.aws.fis.ExperimentTemplateArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateState;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateAction;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateExperimentOptions;
+import com.pulumi.aws.fis.outputs.ExperimentTemplateExperimentReportConfiguration;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateLogConfiguration;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateStopCondition;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateTarget;
@@ -88,6 +89,156 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### With Report Configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.fis.ExperimentTemplate;
+ * import com.pulumi.aws.fis.ExperimentTemplateArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionTargetArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationOutputsArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
+ *         var example = new Role("example", RoleArgs.builder()
+ *             .name("example")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", jsonArray(String.format("fis.%s", current.dnsSuffix())))
+ *                         ))
+ *                     ))),
+ *                     jsonProperty("Version", "2012-10-17")
+ *                 )))
+ *             .build());
+ * 
+ *         final var reportAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .version("2012-10-17")
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid("logsDelivery")
+ *                     .effect("Allow")
+ *                     .actions("logs:CreateLogDelivery")
+ *                     .resources("*")
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid("ReportsBucket")
+ *                     .effect("Allow")
+ *                     .actions(                    
+ *                         "s3:PutObject",
+ *                         "s3:GetObject")
+ *                     .resources("*")
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid("GetDashboard")
+ *                     .effect("Allow")
+ *                     .actions("cloudwatch:GetDashboard")
+ *                     .resources("*")
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid("GetDashboardData")
+ *                     .effect("Allow")
+ *                     .actions("cloudwatch:getMetricWidgetImage")
+ *                     .resources("*")
+ *                     .build())
+ *             .build());
+ * 
+ *         var reportAccessPolicy = new Policy("reportAccessPolicy", PolicyArgs.builder()
+ *             .name("report_access")
+ *             .policy(reportAccess.json())
+ *             .build());
+ * 
+ *         var reportAccessRolePolicyAttachment = new RolePolicyAttachment("reportAccessRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .role(test.name())
+ *             .policyArn(reportAccessPolicy.arn())
+ *             .build());
+ * 
+ *         var exampleExperimentTemplate = new ExperimentTemplate("exampleExperimentTemplate", ExperimentTemplateArgs.builder()
+ *             .description("example")
+ *             .roleArn(example.arn())
+ *             .stopConditions(ExperimentTemplateStopConditionArgs.builder()
+ *                 .source("none")
+ *                 .build())
+ *             .actions(ExperimentTemplateActionArgs.builder()
+ *                 .name("example-action")
+ *                 .actionId("aws:ec2:terminate-instances")
+ *                 .target(ExperimentTemplateActionTargetArgs.builder()
+ *                     .key("Instances")
+ *                     .value("example-target")
+ *                     .build())
+ *                 .build())
+ *             .targets(ExperimentTemplateTargetArgs.builder()
+ *                 .name("example-target")
+ *                 .resourceType("aws:ec2:instance")
+ *                 .selectionMode("COUNT(1)")
+ *                 .resourceTags(ExperimentTemplateTargetResourceTagArgs.builder()
+ *                     .key("env")
+ *                     .value("example")
+ *                     .build())
+ *                 .build())
+ *             .experimentReportConfiguration(ExperimentTemplateExperimentReportConfigurationArgs.builder()
+ *                 .dataSources(ExperimentTemplateExperimentReportConfigurationDataSourcesArgs.builder()
+ *                     .cloudwatchDashboards(ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs.builder()
+ *                         .dashboardArn(exampleAwsCloudwatchDashboard.dashboardArn())
+ *                         .build())
+ *                     .build())
+ *                 .outputs(ExperimentTemplateExperimentReportConfigurationOutputsArgs.builder()
+ *                     .s3Configuration(ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs.builder()
+ *                         .bucketName(exampleAwsS3Bucket.bucket())
+ *                         .prefix("fis-example-reports")
+ *                         .build())
+ *                     .build())
+ *                 .postExperimentDuration("PT10M")
+ *                 .preExperimentDuration("PT10M")
+ *                 .build())
+ *             .tags(Map.of("Name", "example"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
@@ -140,6 +291,20 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<ExperimentTemplateExperimentOptions> experimentOptions() {
         return this.experimentOptions;
+    }
+    /**
+     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * 
+     */
+    @Export(name="experimentReportConfiguration", refs={ExperimentTemplateExperimentReportConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ExperimentTemplateExperimentReportConfiguration> experimentReportConfiguration;
+
+    /**
+     * @return The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * 
+     */
+    public Output<Optional<ExperimentTemplateExperimentReportConfiguration>> experimentReportConfiguration() {
+        return Codegen.optional(this.experimentReportConfiguration);
     }
     /**
      * The configuration for experiment logging. See below.
@@ -201,12 +366,6 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

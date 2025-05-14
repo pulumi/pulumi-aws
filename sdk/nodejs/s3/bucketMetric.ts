@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {
  *     bucket: example.id,
  *     name: "EntireBucket",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
  *     bucket: example.id,
  *     name: "ImportantBlueDocuments",
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_access_point = new aws.s3.AccessPoint("example-access-point", {
  *     bucket: example.id,
  *     name: "example-access-point",

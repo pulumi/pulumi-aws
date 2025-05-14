@@ -324,29 +324,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    @Import(name="kibanaEndpoint")
-    private @Nullable Output<String> kibanaEndpoint;
-
-    /**
-     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    public Optional<Output<String>> kibanaEndpoint() {
-        return Optional.ofNullable(this.kibanaEndpoint);
-    }
-
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
@@ -439,22 +416,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -496,7 +465,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.endpointV2 = $.endpointV2;
         this.engineVersion = $.engineVersion;
         this.ipAddressType = $.ipAddressType;
-        this.kibanaEndpoint = $.kibanaEndpoint;
         this.logPublishingOptions = $.logPublishingOptions;
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
         this.offPeakWindowOptions = $.offPeakWindowOptions;
@@ -933,35 +901,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kibanaEndpoint (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-         * 
-         */
-        @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-        public Builder kibanaEndpoint(@Nullable Output<String> kibanaEndpoint) {
-            $.kibanaEndpoint = kibanaEndpoint;
-            return this;
-        }
-
-        /**
-         * @param kibanaEndpoint (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-         * 
-         */
-        @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-        public Builder kibanaEndpoint(String kibanaEndpoint) {
-            return kibanaEndpoint(Output.of(kibanaEndpoint));
-        }
-
-        /**
          * @param logPublishingOptions Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
          * 
          * @return builder
@@ -1102,11 +1041,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1117,11 +1052,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

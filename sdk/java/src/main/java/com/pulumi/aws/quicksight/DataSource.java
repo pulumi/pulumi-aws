@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.iam.Role;
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
- *         var example = new BucketV2("example");
+ *         var example = new Bucket("example");
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(example.bucket())
@@ -356,11 +356,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

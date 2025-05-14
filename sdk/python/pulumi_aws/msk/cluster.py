@@ -329,9 +329,6 @@ class _ClusterState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if zookeeper_connect_string is not None:
             pulumi.set(__self__, "zookeeper_connect_string", zookeeper_connect_string)
@@ -640,7 +637,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -727,8 +723,8 @@ class Cluster(pulumi.CustomResource):
         sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
         kms = aws.kms.Key("kms", description="example")
         test = aws.cloudwatch.LogGroup("test", name="msk_broker_logs")
-        bucket = aws.s3.BucketV2("bucket", bucket="msk-broker-logs-bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket = aws.s3.Bucket("bucket", bucket="msk-broker-logs-bucket")
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
@@ -896,8 +892,8 @@ class Cluster(pulumi.CustomResource):
         sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
         kms = aws.kms.Key("kms", description="example")
         test = aws.cloudwatch.LogGroup("test", name="msk_broker_logs")
-        bucket = aws.s3.BucketV2("bucket", bucket="msk-broker-logs-bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket = aws.s3.Bucket("bucket", bucket="msk-broker-logs-bucket")
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
@@ -1394,7 +1390,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

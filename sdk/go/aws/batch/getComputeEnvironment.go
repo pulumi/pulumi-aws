@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.LookupComputeEnvironment(ctx, &batch.LookupComputeEnvironmentArgs{
-//				ComputeEnvironmentName: "batch-mongo-production",
+//				Name: "batch-mongo-production",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -52,7 +52,7 @@ func LookupComputeEnvironment(ctx *pulumi.Context, args *LookupComputeEnvironmen
 // A collection of arguments for invoking getComputeEnvironment.
 type LookupComputeEnvironmentArgs struct {
 	// Name of the Batch Compute Environment
-	ComputeEnvironmentName string `pulumi:"computeEnvironmentName"`
+	Name string `pulumi:"name"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -60,12 +60,12 @@ type LookupComputeEnvironmentArgs struct {
 // A collection of values returned by getComputeEnvironment.
 type LookupComputeEnvironmentResult struct {
 	// ARN of the compute environment.
-	Arn                    string `pulumi:"arn"`
-	ComputeEnvironmentName string `pulumi:"computeEnvironmentName"`
+	Arn string `pulumi:"arn"`
 	// ARN of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn string `pulumi:"ecsClusterArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
 	// ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole string `pulumi:"serviceRole"`
 	// State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
@@ -94,7 +94,7 @@ func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvir
 // A collection of arguments for invoking getComputeEnvironment.
 type LookupComputeEnvironmentOutputArgs struct {
 	// Name of the Batch Compute Environment
-	ComputeEnvironmentName pulumi.StringInput `pulumi:"computeEnvironmentName"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -123,10 +123,6 @@ func (o LookupComputeEnvironmentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o LookupComputeEnvironmentResultOutput) ComputeEnvironmentName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.ComputeEnvironmentName }).(pulumi.StringOutput)
-}
-
 // ARN of the underlying Amazon ECS cluster used by the compute environment.
 func (o LookupComputeEnvironmentResultOutput) EcsClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.EcsClusterArn }).(pulumi.StringOutput)
@@ -135,6 +131,10 @@ func (o LookupComputeEnvironmentResultOutput) EcsClusterArn() pulumi.StringOutpu
 // The provider-assigned unique ID for this managed resource.
 func (o LookupComputeEnvironmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupComputeEnvironmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

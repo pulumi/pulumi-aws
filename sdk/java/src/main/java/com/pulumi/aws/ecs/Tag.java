@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ComputeEnvironment("example", ComputeEnvironmentArgs.builder()
- *             .computeEnvironmentName("example")
+ *             .name("example")
  *             .serviceRole(exampleAwsIamRole.arn())
  *             .type("UNMANAGED")
  *             .build());

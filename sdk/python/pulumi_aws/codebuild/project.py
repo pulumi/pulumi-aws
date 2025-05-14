@@ -551,9 +551,6 @@ class _ProjectState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
@@ -876,7 +873,6 @@ class _ProjectState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider 
@@ -944,9 +940,9 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+        example_bucket = aws.s3.Bucket("example", bucket="example")
+        example_bucket_acl = aws.s3.BucketAcl("example",
+            bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
@@ -960,8 +956,8 @@ class Project(pulumi.CustomResource):
             name="example",
             assume_role_policy=assume_role.json)
         example = pulumi.Output.all(
-            exampleBucketV2Arn=example_bucket_v2.arn,
-            exampleBucketV2Arn1=example_bucket_v2.arn
+            exampleBucketArn=example_bucket.arn,
+            exampleBucketArn1=example_bucket.arn
         ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
@@ -1009,8 +1005,8 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    resolved_outputs['exampleBucketV2Arn'],
-                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
+                    resolved_outputs['exampleBucketArn'],
+                    f"{resolved_outputs['exampleBucketArn1']}/*",
                 ],
             },
             {
@@ -1036,7 +1032,7 @@ class Project(pulumi.CustomResource):
             },
             cache={
                 "type": "S3",
-                "location": example_bucket_v2.bucket,
+                "location": example_bucket.bucket,
             },
             environment={
                 "compute_type": "BUILD_GENERAL1_SMALL",
@@ -1062,7 +1058,7 @@ class Project(pulumi.CustomResource):
                 },
                 "s3_logs": {
                     "status": "ENABLED",
-                    "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
+                    "location": example_bucket.id.apply(lambda id: f"{id}/build-log"),
                 },
             },
             source={
@@ -1212,9 +1208,9 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+        example_bucket = aws.s3.Bucket("example", bucket="example")
+        example_bucket_acl = aws.s3.BucketAcl("example",
+            bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
@@ -1228,8 +1224,8 @@ class Project(pulumi.CustomResource):
             name="example",
             assume_role_policy=assume_role.json)
         example = pulumi.Output.all(
-            exampleBucketV2Arn=example_bucket_v2.arn,
-            exampleBucketV2Arn1=example_bucket_v2.arn
+            exampleBucketArn=example_bucket.arn,
+            exampleBucketArn1=example_bucket.arn
         ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
@@ -1277,8 +1273,8 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    resolved_outputs['exampleBucketV2Arn'],
-                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
+                    resolved_outputs['exampleBucketArn'],
+                    f"{resolved_outputs['exampleBucketArn1']}/*",
                 ],
             },
             {
@@ -1304,7 +1300,7 @@ class Project(pulumi.CustomResource):
             },
             cache={
                 "type": "S3",
-                "location": example_bucket_v2.bucket,
+                "location": example_bucket.bucket,
             },
             environment={
                 "compute_type": "BUILD_GENERAL1_SMALL",
@@ -1330,7 +1326,7 @@ class Project(pulumi.CustomResource):
                 },
                 "s3_logs": {
                     "status": "ENABLED",
-                    "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
+                    "location": example_bucket.id.apply(lambda id: f"{id}/build-log"),
                 },
             },
             source={
@@ -1843,7 +1839,6 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider 

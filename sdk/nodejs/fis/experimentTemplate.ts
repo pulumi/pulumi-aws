@@ -46,6 +46,110 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Report Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getPartition({});
+ * const example = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: JSON.stringify({
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 Service: [current.then(current => `fis.${current.dnsSuffix}`)],
+ *             },
+ *         }],
+ *         Version: "2012-10-17",
+ *     }),
+ * });
+ * const reportAccess = aws.iam.getPolicyDocument({
+ *     version: "2012-10-17",
+ *     statements: [
+ *         {
+ *             sid: "logsDelivery",
+ *             effect: "Allow",
+ *             actions: ["logs:CreateLogDelivery"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             sid: "ReportsBucket",
+ *             effect: "Allow",
+ *             actions: [
+ *                 "s3:PutObject",
+ *                 "s3:GetObject",
+ *             ],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             sid: "GetDashboard",
+ *             effect: "Allow",
+ *             actions: ["cloudwatch:GetDashboard"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             sid: "GetDashboardData",
+ *             effect: "Allow",
+ *             actions: ["cloudwatch:getMetricWidgetImage"],
+ *             resources: ["*"],
+ *         },
+ *     ],
+ * });
+ * const reportAccessPolicy = new aws.iam.Policy("report_access", {
+ *     name: "report_access",
+ *     policy: reportAccess.then(reportAccess => reportAccess.json),
+ * });
+ * const reportAccessRolePolicyAttachment = new aws.iam.RolePolicyAttachment("report_access", {
+ *     role: test.name,
+ *     policyArn: reportAccessPolicy.arn,
+ * });
+ * const exampleExperimentTemplate = new aws.fis.ExperimentTemplate("example", {
+ *     description: "example",
+ *     roleArn: example.arn,
+ *     stopConditions: [{
+ *         source: "none",
+ *     }],
+ *     actions: [{
+ *         name: "example-action",
+ *         actionId: "aws:ec2:terminate-instances",
+ *         target: {
+ *             key: "Instances",
+ *             value: "example-target",
+ *         },
+ *     }],
+ *     targets: [{
+ *         name: "example-target",
+ *         resourceType: "aws:ec2:instance",
+ *         selectionMode: "COUNT(1)",
+ *         resourceTags: [{
+ *             key: "env",
+ *             value: "example",
+ *         }],
+ *     }],
+ *     experimentReportConfiguration: {
+ *         dataSources: {
+ *             cloudwatchDashboards: [{
+ *                 dashboardArn: exampleAwsCloudwatchDashboard.dashboardArn,
+ *             }],
+ *         },
+ *         outputs: {
+ *             s3Configuration: {
+ *                 bucketName: exampleAwsS3Bucket.bucket,
+ *                 prefix: "fis-example-reports",
+ *             },
+ *         },
+ *         postExperimentDuration: "PT10M",
+ *         preExperimentDuration: "PT10M",
+ *     },
+ *     tags: {
+ *         Name: "example",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
@@ -95,6 +199,10 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions>;
     /**
+     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     */
+    public readonly experimentReportConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
+    /**
      * The configuration for experiment logging. See below.
      */
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
@@ -112,9 +220,6 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target of an action. See below.
@@ -137,6 +242,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["actions"] = state ? state.actions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["experimentOptions"] = state ? state.experimentOptions : undefined;
+            resourceInputs["experimentReportConfiguration"] = state ? state.experimentReportConfiguration : undefined;
             resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stopConditions"] = state ? state.stopConditions : undefined;
@@ -160,6 +266,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["experimentOptions"] = args ? args.experimentOptions : undefined;
+            resourceInputs["experimentReportConfiguration"] = args ? args.experimentReportConfiguration : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
@@ -189,6 +296,10 @@ export interface ExperimentTemplateState {
      */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions>;
     /**
+     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     */
+    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfiguration>;
+    /**
      * The configuration for experiment logging. See below.
      */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
@@ -206,9 +317,6 @@ export interface ExperimentTemplateState {
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target of an action. See below.
@@ -232,6 +340,10 @@ export interface ExperimentTemplateArgs {
      * The experiment options for the experiment template. See experimentOptions below for more details!
      */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions>;
+    /**
+     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     */
+    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfiguration>;
     /**
      * The configuration for experiment logging. See below.
      */

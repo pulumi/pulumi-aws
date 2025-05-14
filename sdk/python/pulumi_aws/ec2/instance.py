@@ -27,9 +27,7 @@ class InstanceArgs:
                  associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']] = None,
-                 cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
                  cpu_options: Optional[pulumi.Input['InstanceCpuOptionsArgs']] = None,
-                 cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  credit_specification: Optional[pulumi.Input['InstanceCreditSpecificationArgs']] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -76,11 +74,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[builtins.str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-               
-               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-        :param pulumi.Input[builtins.int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['InstanceCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[builtins.int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input['InstanceCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -134,18 +128,8 @@ class InstanceArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if capacity_reservation_specification is not None:
             pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
-        if cpu_core_count is not None:
-            warnings.warn("""cpu_core_count is deprecated. Use cpu_options instead.""", DeprecationWarning)
-            pulumi.log.warn("""cpu_core_count is deprecated: cpu_core_count is deprecated. Use cpu_options instead.""")
-        if cpu_core_count is not None:
-            pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_options is not None:
             pulumi.set(__self__, "cpu_options", cpu_options)
-        if cpu_threads_per_core is not None:
-            warnings.warn("""cpu_threads_per_core is deprecated. Use cpu_options instead.""", DeprecationWarning)
-            pulumi.log.warn("""cpu_threads_per_core is deprecated: cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-        if cpu_threads_per_core is not None:
-            pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
             pulumi.set(__self__, "credit_specification", credit_specification)
         if disable_api_stop is not None:
@@ -271,27 +255,12 @@ class InstanceArgs:
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-
-        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
     def capacity_reservation_specification(self, value: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
-
-    @property
-    @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
-    def cpu_core_count(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        """
-        return pulumi.get(self, "cpu_core_count")
-
-    @cpu_core_count.setter
-    def cpu_core_count(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cpu_core_count", value)
 
     @property
     @pulumi.getter(name="cpuOptions")
@@ -304,19 +273,6 @@ class InstanceArgs:
     @cpu_options.setter
     def cpu_options(self, value: Optional[pulumi.Input['InstanceCpuOptionsArgs']]):
         pulumi.set(self, "cpu_options", value)
-
-    @property
-    @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-    def cpu_threads_per_core(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        """
-        return pulumi.get(self, "cpu_threads_per_core")
-
-    @cpu_threads_per_core.setter
-    def cpu_threads_per_core(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cpu_threads_per_core", value)
 
     @property
     @pulumi.getter(name="creditSpecification")
@@ -812,9 +768,7 @@ class _InstanceState:
                  associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']] = None,
-                 cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
                  cpu_options: Optional[pulumi.Input['InstanceCpuOptionsArgs']] = None,
-                 cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  credit_specification: Optional[pulumi.Input['InstanceCreditSpecificationArgs']] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -872,11 +826,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[builtins.str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-               
-               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-        :param pulumi.Input[builtins.int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['InstanceCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[builtins.int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input['InstanceCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -942,18 +892,8 @@ class _InstanceState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if capacity_reservation_specification is not None:
             pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
-        if cpu_core_count is not None:
-            warnings.warn("""cpu_core_count is deprecated. Use cpu_options instead.""", DeprecationWarning)
-            pulumi.log.warn("""cpu_core_count is deprecated: cpu_core_count is deprecated. Use cpu_options instead.""")
-        if cpu_core_count is not None:
-            pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_options is not None:
             pulumi.set(__self__, "cpu_options", cpu_options)
-        if cpu_threads_per_core is not None:
-            warnings.warn("""cpu_threads_per_core is deprecated. Use cpu_options instead.""", DeprecationWarning)
-            pulumi.log.warn("""cpu_threads_per_core is deprecated: cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-        if cpu_threads_per_core is not None:
-            pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
             pulumi.set(__self__, "credit_specification", credit_specification)
         if disable_api_stop is not None:
@@ -1044,9 +984,6 @@ class _InstanceState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tenancy is not None:
             pulumi.set(__self__, "tenancy", tenancy)
@@ -1114,27 +1051,12 @@ class _InstanceState:
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-
-        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
     def capacity_reservation_specification(self, value: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
-
-    @property
-    @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
-    def cpu_core_count(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        """
-        return pulumi.get(self, "cpu_core_count")
-
-    @cpu_core_count.setter
-    def cpu_core_count(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cpu_core_count", value)
 
     @property
     @pulumi.getter(name="cpuOptions")
@@ -1147,19 +1069,6 @@ class _InstanceState:
     @cpu_options.setter
     def cpu_options(self, value: Optional[pulumi.Input['InstanceCpuOptionsArgs']]):
         pulumi.set(self, "cpu_options", value)
-
-    @property
-    @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-    def cpu_threads_per_core(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        """
-        return pulumi.get(self, "cpu_threads_per_core")
-
-    @cpu_threads_per_core.setter
-    def cpu_threads_per_core(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cpu_threads_per_core", value)
 
     @property
     @pulumi.getter(name="creditSpecification")
@@ -1682,7 +1591,6 @@ class _InstanceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1780,9 +1688,7 @@ class Instance(pulumi.CustomResource):
                  associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input[Union['InstanceCapacityReservationSpecificationArgs', 'InstanceCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
                  cpu_options: Optional[pulumi.Input[Union['InstanceCpuOptionsArgs', 'InstanceCpuOptionsArgsDict']]] = None,
-                 cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  credit_specification: Optional[pulumi.Input[Union['InstanceCreditSpecificationArgs', 'InstanceCreditSpecificationArgsDict']]] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2019,11 +1925,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[builtins.str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[Union['InstanceCapacityReservationSpecificationArgs', 'InstanceCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-               
-               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-        :param pulumi.Input[builtins.int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[Union['InstanceCpuOptionsArgs', 'InstanceCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[builtins.int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[Union['InstanceCreditSpecificationArgs', 'InstanceCreditSpecificationArgsDict']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -2283,9 +2185,7 @@ class Instance(pulumi.CustomResource):
                  associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input[Union['InstanceCapacityReservationSpecificationArgs', 'InstanceCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
                  cpu_options: Optional[pulumi.Input[Union['InstanceCpuOptionsArgs', 'InstanceCpuOptionsArgsDict']]] = None,
-                 cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  credit_specification: Optional[pulumi.Input[Union['InstanceCreditSpecificationArgs', 'InstanceCreditSpecificationArgsDict']]] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2339,9 +2239,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
-            __props__.__dict__["cpu_core_count"] = cpu_core_count
             __props__.__dict__["cpu_options"] = cpu_options
-            __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
             __props__.__dict__["credit_specification"] = credit_specification
             __props__.__dict__["disable_api_stop"] = disable_api_stop
             __props__.__dict__["disable_api_termination"] = disable_api_termination
@@ -2408,9 +2306,7 @@ class Instance(pulumi.CustomResource):
             associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
             availability_zone: Optional[pulumi.Input[builtins.str]] = None,
             capacity_reservation_specification: Optional[pulumi.Input[Union['InstanceCapacityReservationSpecificationArgs', 'InstanceCapacityReservationSpecificationArgsDict']]] = None,
-            cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
             cpu_options: Optional[pulumi.Input[Union['InstanceCpuOptionsArgs', 'InstanceCpuOptionsArgsDict']]] = None,
-            cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
             credit_specification: Optional[pulumi.Input[Union['InstanceCreditSpecificationArgs', 'InstanceCreditSpecificationArgsDict']]] = None,
             disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
             disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2473,11 +2369,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[builtins.str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[Union['InstanceCapacityReservationSpecificationArgs', 'InstanceCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-               
-               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-        :param pulumi.Input[builtins.int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[Union['InstanceCpuOptionsArgs', 'InstanceCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[builtins.int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[Union['InstanceCreditSpecificationArgs', 'InstanceCreditSpecificationArgsDict']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -2542,9 +2434,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
-        __props__.__dict__["cpu_core_count"] = cpu_core_count
         __props__.__dict__["cpu_options"] = cpu_options
-        __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
         __props__.__dict__["credit_specification"] = credit_specification
         __props__.__dict__["disable_api_stop"] = disable_api_stop
         __props__.__dict__["disable_api_termination"] = disable_api_termination
@@ -2634,19 +2524,8 @@ class Instance(pulumi.CustomResource):
     def capacity_reservation_specification(self) -> pulumi.Output['outputs.InstanceCapacityReservationSpecification']:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-
-        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
-
-    @property
-    @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
-    def cpu_core_count(self) -> pulumi.Output[builtins.int]:
-        """
-        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        """
-        return pulumi.get(self, "cpu_core_count")
 
     @property
     @pulumi.getter(name="cpuOptions")
@@ -2655,15 +2534,6 @@ class Instance(pulumi.CustomResource):
         The CPU options for the instance. See CPU Options below for more details.
         """
         return pulumi.get(self, "cpu_options")
-
-    @property
-    @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-    def cpu_threads_per_core(self) -> pulumi.Output[builtins.int]:
-        """
-        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        """
-        return pulumi.get(self, "cpu_threads_per_core")
 
     @property
     @pulumi.getter(name="creditSpecification")
@@ -3014,7 +2884,6 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -3031,7 +2900,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> pulumi.Output[builtins.str]:
+    def user_data(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         """

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class FlowLogDestinationOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        /// File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
         /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }

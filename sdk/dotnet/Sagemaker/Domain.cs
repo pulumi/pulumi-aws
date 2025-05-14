@@ -74,6 +74,72 @@ namespace Pulumi.Aws.Sagemaker
     /// });
     /// ```
     /// 
+    /// ### Using Custom Images
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Sagemaker.Image("example", new()
+    ///     {
+    ///         ImageName = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///     });
+    /// 
+    ///     var exampleAppImageConfig = new Aws.Sagemaker.AppImageConfig("example", new()
+    ///     {
+    ///         AppImageConfigName = "example",
+    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///         {
+    ///             KernelSpecs = new[]
+    ///             {
+    ///                 new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleImageVersion = new Aws.Sagemaker.ImageVersion("example", new()
+    ///     {
+    ///         ImageName = example.Id,
+    ///         BaseImage = "base-image",
+    ///     });
+    /// 
+    ///     var exampleDomain = new Aws.Sagemaker.Domain("example", new()
+    ///     {
+    ///         DomainName = "example",
+    ///         AuthMode = "IAM",
+    ///         VpcId = exampleAwsVpc.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
+    ///         {
+    ///             ExecutionRole = exampleAwsIamRole.Arn,
+    ///             KernelGatewayAppSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
+    ///             {
+    ///                 CustomImages = new[]
+    ///                 {
+    ///                     new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs
+    ///                     {
+    ///                         AppImageConfigName = exampleAppImageConfig.AppImageConfigName,
+    ///                         ImageName = exampleImageVersion.ImageName,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
@@ -473,7 +539,6 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -5,7 +5,6 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketObjectLockConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,28 +13,44 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketObjectLockConfiguration {
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+     * 
+     * @deprecated
+     * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
      * 
      */
-    private String objectLockEnabled;
+    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
+    private @Nullable String objectLockEnabled;
     /**
-     * @return The Object Lock rule in place for this bucket.
+     * @return Object Lock rule in place for this bucket (documented below).
+     * 
+     * @deprecated
+     * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
+    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead. */
     private @Nullable BucketObjectLockConfigurationRule rule;
 
     private BucketObjectLockConfiguration() {}
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+     * 
+     * @deprecated
+     * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
      * 
      */
-    public String objectLockEnabled() {
-        return this.objectLockEnabled;
+    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
+    public Optional<String> objectLockEnabled() {
+        return Optional.ofNullable(this.objectLockEnabled);
     }
     /**
-     * @return The Object Lock rule in place for this bucket.
+     * @return Object Lock rule in place for this bucket (documented below).
+     * 
+     * @deprecated
+     * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
+    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead. */
     public Optional<BucketObjectLockConfigurationRule> rule() {
         return Optional.ofNullable(this.rule);
     }
@@ -49,7 +64,7 @@ public final class BucketObjectLockConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String objectLockEnabled;
+        private @Nullable String objectLockEnabled;
         private @Nullable BucketObjectLockConfigurationRule rule;
         public Builder() {}
         public Builder(BucketObjectLockConfiguration defaults) {
@@ -59,10 +74,8 @@ public final class BucketObjectLockConfiguration {
         }
 
         @CustomType.Setter
-        public Builder objectLockEnabled(String objectLockEnabled) {
-            if (objectLockEnabled == null) {
-              throw new MissingRequiredPropertyException("BucketObjectLockConfiguration", "objectLockEnabled");
-            }
+        public Builder objectLockEnabled(@Nullable String objectLockEnabled) {
+
             this.objectLockEnabled = objectLockEnabled;
             return this;
         }

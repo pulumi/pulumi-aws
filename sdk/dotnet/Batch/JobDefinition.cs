@@ -151,6 +151,59 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// 
+    /// ### Job Definition of type EKS
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Batch.JobDefinition("test", new()
+    ///     {
+    ///         Name = " tf_test_batch_job_definition_eks",
+    ///         Type = "container",
+    ///         EksProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesArgs
+    ///         {
+    ///             PodProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesArgs
+    ///             {
+    ///                 HostNetwork = true,
+    ///                 Containers = new[]
+    ///                 {
+    ///                     new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainerArgs
+    ///                     {
+    ///                         Image = "public.ecr.aws/amazonlinux/amazonlinux:1",
+    ///                         Commands = new[]
+    ///                         {
+    ///                             "sleep",
+    ///                             "60",
+    ///                         },
+    ///                         Resources = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs
+    ///                         {
+    ///                             Limits = 
+    ///                             {
+    ///                                 { "cpu", "1" },
+    ///                                 { "memory", "1024Mi" },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Metadata = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs
+    ///                 {
+    ///                     Labels = 
+    ///                     {
+    ///                         { "environment", "test" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Fargate Platform Capability
     /// 
     /// ```csharp
@@ -754,7 +807,6 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -50,7 +50,7 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
     ///         BucketPrefix = "tf-ivschat-logging-bucket",
     ///     });
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.IvsChat
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
     ///             RoleArn = exampleRole.Arn,
-    ///             BucketArn = exampleBucketV2.Arn,
+    ///             BucketArn = exampleBucket.Arn,
     ///         },
     ///         Tags = 
     ///         {
@@ -102,9 +102,9 @@ namespace Pulumi.Aws.IvsChat
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
@@ -289,7 +289,6 @@ namespace Pulumi.Aws.IvsChat
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -34,14 +34,14 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  *     policy: example.then(example => example.json),
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "my-test"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "my-test"});
  * const exampleReportGroup = new aws.codebuild.ReportGroup("example", {
  *     name: "my test report group",
  *     type: "TEST",
  *     exportConfig: {
  *         type: "S3",
  *         s3Destination: {
- *             bucket: exampleBucketV2.id,
+ *             bucket: exampleBucket.id,
  *             encryptionDisabled: false,
  *             encryptionKey: exampleKey.arn,
  *             packaging: "NONE",
@@ -113,8 +113,6 @@ export class ReportGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -195,8 +193,6 @@ export interface ReportGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

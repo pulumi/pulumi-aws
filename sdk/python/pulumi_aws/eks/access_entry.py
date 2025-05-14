@@ -24,6 +24,7 @@ class AccessEntryArgs:
                  principal_arn: pulumi.Input[builtins.str],
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -34,6 +35,7 @@ class AccessEntryArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
         :param pulumi.Input[builtins.str] user_name: Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         """
@@ -43,6 +45,8 @@ class AccessEntryArgs:
             pulumi.set(__self__, "kubernetes_groups", kubernetes_groups)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_name is not None:
@@ -97,6 +101,18 @@ class AccessEntryArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -165,9 +181,6 @@ class _AccessEntryState:
             pulumi.set(__self__, "principal_arn", principal_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -263,7 +276,6 @@ class _AccessEntryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
@@ -311,6 +323,7 @@ class AccessEntry(pulumi.CustomResource):
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -349,6 +362,7 @@ class AccessEntry(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
         :param pulumi.Input[builtins.str] user_name: Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         """
@@ -404,6 +418,7 @@ class AccessEntry(pulumi.CustomResource):
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -423,12 +438,12 @@ class AccessEntry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'principal_arn'")
             __props__.__dict__["principal_arn"] = principal_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["type"] = type
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["access_entry_arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
-            __props__.__dict__["tags_all"] = None
         super(AccessEntry, __self__).__init__(
             'aws:eks/accessEntry:AccessEntry',
             resource_name,
@@ -545,7 +560,6 @@ class AccessEntry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.

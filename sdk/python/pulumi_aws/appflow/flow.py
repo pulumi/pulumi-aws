@@ -216,9 +216,6 @@ class _FlowState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tasks is not None:
             pulumi.set(__self__, "tasks", tasks)
@@ -335,7 +332,6 @@ class _FlowState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -398,7 +394,7 @@ class Flow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_source_bucket_v2 = aws.s3.BucketV2("example_source", bucket="example-source")
+        example_source_bucket = aws.s3.Bucket("example_source", bucket="example-source")
         example_source = aws.iam.get_policy_document(statements=[{
             "sid": "AllowAppFlowSourceActions",
             "effect": "Allow",
@@ -416,13 +412,13 @@ class Flow(pulumi.CustomResource):
             ],
         }])
         example_source_bucket_policy = aws.s3.BucketPolicy("example_source",
-            bucket=example_source_bucket_v2.id,
+            bucket=example_source_bucket.id,
             policy=example_source.json)
         example = aws.s3.BucketObjectv2("example",
-            bucket=example_source_bucket_v2.id,
+            bucket=example_source_bucket.id,
             key="example_source.csv",
             source=pulumi.FileAsset("example_source.csv"))
-        example_destination_bucket_v2 = aws.s3.BucketV2("example_destination", bucket="example-destination")
+        example_destination_bucket = aws.s3.Bucket("example_destination", bucket="example-destination")
         example_destination = aws.iam.get_policy_document(statements=[{
             "sid": "AllowAppFlowDestinationActions",
             "effect": "Allow",
@@ -444,7 +440,7 @@ class Flow(pulumi.CustomResource):
             ],
         }])
         example_destination_bucket_policy = aws.s3.BucketPolicy("example_destination",
-            bucket=example_destination_bucket_v2.id,
+            bucket=example_destination_bucket.id,
             policy=example_destination.json)
         example_flow = aws.appflow.Flow("example",
             name="example",
@@ -518,7 +514,7 @@ class Flow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_source_bucket_v2 = aws.s3.BucketV2("example_source", bucket="example-source")
+        example_source_bucket = aws.s3.Bucket("example_source", bucket="example-source")
         example_source = aws.iam.get_policy_document(statements=[{
             "sid": "AllowAppFlowSourceActions",
             "effect": "Allow",
@@ -536,13 +532,13 @@ class Flow(pulumi.CustomResource):
             ],
         }])
         example_source_bucket_policy = aws.s3.BucketPolicy("example_source",
-            bucket=example_source_bucket_v2.id,
+            bucket=example_source_bucket.id,
             policy=example_source.json)
         example = aws.s3.BucketObjectv2("example",
-            bucket=example_source_bucket_v2.id,
+            bucket=example_source_bucket.id,
             key="example_source.csv",
             source=pulumi.FileAsset("example_source.csv"))
-        example_destination_bucket_v2 = aws.s3.BucketV2("example_destination", bucket="example-destination")
+        example_destination_bucket = aws.s3.Bucket("example_destination", bucket="example-destination")
         example_destination = aws.iam.get_policy_document(statements=[{
             "sid": "AllowAppFlowDestinationActions",
             "effect": "Allow",
@@ -564,7 +560,7 @@ class Flow(pulumi.CustomResource):
             ],
         }])
         example_destination_bucket_policy = aws.s3.BucketPolicy("example_destination",
-            bucket=example_destination_bucket_v2.id,
+            bucket=example_destination_bucket.id,
             policy=example_destination.json)
         example_flow = aws.appflow.Flow("example",
             name="example",
@@ -798,7 +794,6 @@ class Flow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

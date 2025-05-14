@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  *
  * Note that the grant must exist in the destination region, and not in the region of the cluster.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.redshift.SnapshotCopyGrant("test", {snapshotCopyGrantName: "my-grant"});
- * const testCluster = new aws.redshift.Cluster("test", {snapshotCopy: {
- *     destinationRegion: "us-east-2",
- *     grantName: test.snapshotCopyGrantName,
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
@@ -76,8 +63,6 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -137,8 +122,6 @@ export interface SnapshotCopyGrantState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

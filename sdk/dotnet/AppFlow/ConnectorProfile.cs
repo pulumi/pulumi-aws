@@ -58,9 +58,9 @@ namespace Pulumi.Aws.AppFlow
     ///         }),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///     });
     /// 
     ///     var exampleCluster = new Aws.RedShift.Cluster("example", new()
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.AppFlow
     ///             {
     ///                 Redshift = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs
     ///                 {
-    ///                     BucketName = exampleBucketV2.Name,
+    ///                     BucketName = exampleBucket.Name,
     ///                     DatabaseUrl = Output.Tuple(exampleCluster.Endpoint, exampleCluster.DatabaseName).Apply(values =&gt;
     ///                     {
     ///                         var endpoint = values.Item1;

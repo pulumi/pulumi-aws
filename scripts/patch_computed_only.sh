@@ -19,13 +19,12 @@
 set -euo pipefail
 
 FILES=$(cd upstream && git grep TagsAttributeComputedOnly |
-        grep -v data_source |
-        grep -v tools/ |
-        grep -v tags/framework |
-        grep -v docs/ |
-        grep -v skaff/ |
-        awk -F: '{print $1}')
-
+    grep -v data_source |
+    grep -v tools/ |
+    grep -v tags/framework |
+    grep -v docs/ |
+    grep -v skaff/ |
+    awk -F: '{print $1}')
 
 for f in $FILES; do
     replace="s/names.AttrTagsAll:\s+tftags.TagsAttributeComputedOnly/names.AttrTagsAll: tftags.TagsAttribute/g"
@@ -37,4 +36,4 @@ cd upstream
 git add .
 tags_all_commit=$(git log --pretty=format:"%h" --grep="Apply tags patches" -n 1)
 git commit --fixup="$tags_all_commit"
-git -c rebase --interactive --autosquash "$tags_all_commit^"
+git rebase --interactive --autosquash "$tags_all_commit^"

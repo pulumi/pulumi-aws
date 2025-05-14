@@ -29,9 +29,9 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.Bucket("bucket");
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",
@@ -272,7 +272,6 @@ namespace Pulumi.Aws.GuardDuty
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

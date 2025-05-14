@@ -5,6 +5,7 @@ package com.pulumi.aws.fis.inputs;
 
 import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentOptionsArgs;
+import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateLogConfigurationArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
@@ -65,6 +66,21 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
      */
     public Optional<Output<ExperimentTemplateExperimentOptionsArgs>> experimentOptions() {
         return Optional.ofNullable(this.experimentOptions);
+    }
+
+    /**
+     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * 
+     */
+    @Import(name="experimentReportConfiguration")
+    private @Nullable Output<ExperimentTemplateExperimentReportConfigurationArgs> experimentReportConfiguration;
+
+    /**
+     * @return The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * 
+     */
+    public Optional<Output<ExperimentTemplateExperimentReportConfigurationArgs>> experimentReportConfiguration() {
+        return Optional.ofNullable(this.experimentReportConfiguration);
     }
 
     /**
@@ -131,21 +147,9 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -171,6 +175,7 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
         this.actions = $.actions;
         this.description = $.description;
         this.experimentOptions = $.experimentOptions;
+        this.experimentReportConfiguration = $.experimentReportConfiguration;
         this.logConfiguration = $.logConfiguration;
         this.roleArn = $.roleArn;
         this.stopConditions = $.stopConditions;
@@ -268,6 +273,27 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
          */
         public Builder experimentOptions(ExperimentTemplateExperimentOptionsArgs experimentOptions) {
             return experimentOptions(Output.of(experimentOptions));
+        }
+
+        /**
+         * @param experimentReportConfiguration The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentReportConfiguration(@Nullable Output<ExperimentTemplateExperimentReportConfigurationArgs> experimentReportConfiguration) {
+            $.experimentReportConfiguration = experimentReportConfiguration;
+            return this;
+        }
+
+        /**
+         * @param experimentReportConfiguration The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentReportConfiguration(ExperimentTemplateExperimentReportConfigurationArgs experimentReportConfiguration) {
+            return experimentReportConfiguration(Output.of(experimentReportConfiguration));
         }
 
         /**
@@ -370,27 +396,11 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
             return tags(Output.of(tags));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

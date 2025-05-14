@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"slices"
 	"testing"
 	"time"
 
@@ -18,8 +19,10 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
+	"github.com/pulumi/providertest/pulumitest/optrun"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
@@ -27,12 +30,51 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	aws "github.com/pulumi/pulumi-aws/provider/v6"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	aws "github.com/pulumi/pulumi-aws/provider/v7"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )
 
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
+}
+
+// runPreviewWithPlanDiff runs a pulumi preview that creates a plan file
+// and returns a map of resource diffs for the resources that have changes based on the plan
+func runPreviewWithPlanDiff(
+	t *testing.T,
+	pt *pulumitest.PulumiTest,
+	previewOpts ...optpreview.Option,
+) map[string]interface{} {
+	t.Helper()
+
+	root := pt.CurrentStack().Workspace().WorkDir()
+	planPath := filepath.Join(root, "pulumiPlan.out")
+	opts := []optpreview.Option{
+		optpreview.Diff(), optpreview.Plan(planPath),
+	}
+	opts = append(opts, previewOpts...)
+	pt.Preview(t, opts...)
+	planContents, err := os.ReadFile(planPath)
+	assert.NoError(t, err)
+
+	var plan apitype.DeploymentPlanV1
+	err = json.Unmarshal(planContents, &plan)
+	assert.NoError(t, err)
+
+	resourceDiffs := map[string]interface{}{}
+	for urn, resourcePlan := range plan.ResourcePlans {
+		if !slices.Contains(resourcePlan.Steps, apitype.OpSame) {
+			var diff apitype.PlanDiffV1
+			if resourcePlan.Goal != nil {
+				diff = resourcePlan.Goal.InputDiff
+			}
+			resourceDiffs[urn.Name()] = map[string]interface{}{
+				"diff":  diff,
+				"steps": resourcePlan.Steps,
+			}
+		}
+	}
+	return resourceDiffs
 }
 
 func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args ...string) {
@@ -54,15 +96,16 @@ func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args
 }
 
 type testProviderUpgradeOptions struct {
-	baselineVersion string
-	linkNodeSDK     bool
-	installDeps     bool
-	setEnvRegion    bool
-	region          string
-	extraOpts       []opttest.Option
+	baselineVersion        string
+	linkNodeSDK            bool
+	installDeps            bool
+	setEnvRegion           bool
+	region                 string
+	skipDefaultPreviewTest bool
+	extraOpts              []opttest.Option
 }
 
-func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions) {
+func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions, upgradeOpts ...optproviderupgrade.PreviewProviderUpgradeOpt) (*pulumitest.PulumiTest, auto.PreviewResult) {
 	skipIfShort(t)
 	t.Parallel()
 	t.Helper()
@@ -96,9 +139,60 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	if opts != nil && opts.region != "" {
 		test.SetConfig(t, "aws:region", opts.region)
 	}
-	result := providertest.PreviewProviderUpgrade(t, test, providerName, baselineVersion,
-		optproviderupgrade.DisableAttach())
+	upOpts := []optproviderupgrade.PreviewProviderUpgradeOpt{
+		optproviderupgrade.DisableAttach(),
+	}
+	for _, opt := range upgradeOpts {
+		upOpts = append(upOpts, opt)
+	}
+	test = providerUpgradeTest(t, test, providerName, baselineVersion, upOpts...)
+	if opts != nil && opts.skipDefaultPreviewTest {
+		return test, auto.PreviewResult{}
+	}
+	result := test.Preview(t, optpreview.Diff())
 	assertpreview.HasNoReplacements(t, result)
+	return test, result
+}
+
+// taken from providertest.PreviewProviderUpgrade, but customized to return the test instead of the result
+func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, providerName string, baselineVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) *pulumitest.PulumiTest {
+	t.Helper()
+	previewTest := pulumiTest.CopyToTempDir(t, opttest.NewStackOptions(optnewstack.DisableAutoDestroy()))
+	options := optproviderupgrade.Defaults()
+	for _, opt := range opts {
+		opt.Apply(&options)
+	}
+	programName := filepath.Base(pulumiTest.WorkingDir())
+	cacheDir := providertest.GetUpgradeCacheDir(programName, baselineVersion, options.CacheDirTemplate...)
+	previewTest.Run(t,
+		func(test *pulumitest.PulumiTest) {
+			t.Helper()
+			test.Up(t)
+			grptLog := test.GrpcLog(t)
+			grpcLogPath := filepath.Join(cacheDir, "grpc.json")
+			t.Log(fmt.Sprintf("writing grpc log to %s", grpcLogPath))
+			grptLog.SanitizeSecrets()
+			grptLog.WriteTo(grpcLogPath)
+		},
+		optrun.WithCache(filepath.Join(cacheDir, "stack.json")),
+		optrun.WithOpts(
+			opttest.NewStackOptions(optnewstack.EnableAutoDestroy()),
+			baselineProviderOpt(options, providerName, baselineVersion)),
+		optrun.WithOpts(options.BaselineOpts...),
+	)
+
+	if options.NewSourcePath != "" {
+		previewTest.UpdateSource(t, options.NewSourcePath)
+	}
+	return previewTest
+}
+
+func baselineProviderOpt(options optproviderupgrade.PreviewProviderUpgradeOptions, providerName string, baselineVersion string) opttest.Option {
+	if options.DisableAttach {
+		return opttest.DownloadProviderVersion(providerName, baselineVersion)
+	} else {
+		return opttest.AttachDownloadedPlugin(providerName, baselineVersion)
+	}
 }
 
 type testProviderCodeChangesOptions struct {

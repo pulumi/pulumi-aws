@@ -42,8 +42,8 @@ import * as utilities from "../utilities";
  * const sg = new aws.ec2.SecurityGroup("sg", {vpcId: vpc.id});
  * const kms = new aws.kms.Key("kms", {description: "example"});
  * const test = new aws.cloudwatch.LogGroup("test", {name: "msk_broker_logs"});
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "msk-broker-logs-bucket"});
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "msk-broker-logs-bucket"});
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
@@ -297,8 +297,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -502,8 +500,6 @@ export interface ClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

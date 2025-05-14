@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -95,7 +95,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,8 +166,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -245,7 +245,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -337,11 +337,10 @@ type TlsInspectionConfiguration struct {
 	// Descriptive name of the TLS inspection configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations pulumi.IntOutput       `pulumi:"numberOfAssociations"`
-	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapOutput                      `pulumi:"tagsAll"`
-	Timeouts TlsInspectionConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
+	NumberOfAssociations pulumi.IntOutput                            `pulumi:"numberOfAssociations"`
+	Tags                 pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	Timeouts             TlsInspectionConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
@@ -395,11 +394,10 @@ type tlsInspectionConfigurationState struct {
 	// Descriptive name of the TLS inspection configuration.
 	Name *string `pulumi:"name"`
 	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations *int              `pulumi:"numberOfAssociations"`
-	Tags                 map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  map[string]string                   `pulumi:"tagsAll"`
-	Timeouts *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
+	NumberOfAssociations *int                                `pulumi:"numberOfAssociations"`
+	Tags                 map[string]string                   `pulumi:"tags"`
+	TagsAll              map[string]string                   `pulumi:"tagsAll"`
+	Timeouts             *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
@@ -426,9 +424,8 @@ type TlsInspectionConfigurationState struct {
 	// Number of firewall policies that use this TLS inspection configuration.
 	NumberOfAssociations pulumi.IntPtrInput
 	Tags                 pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapInput
-	Timeouts TlsInspectionConfigurationTimeoutsPtrInput
+	TagsAll              pulumi.StringMapInput
+	Timeouts             TlsInspectionConfigurationTimeoutsPtrInput
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
@@ -606,7 +603,6 @@ func (o TlsInspectionConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o TlsInspectionConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

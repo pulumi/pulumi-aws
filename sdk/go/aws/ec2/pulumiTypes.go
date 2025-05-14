@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -5909,7 +5909,7 @@ func (o FleetTargetCapacitySpecificationPtrOutput) TotalTargetCapacity() pulumi.
 }
 
 type FlowLogDestinationOptions struct {
-	// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+	// File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
 	FileFormat *string `pulumi:"fileFormat"`
 	// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
 	HiveCompatiblePartitions *bool `pulumi:"hiveCompatiblePartitions"`
@@ -5929,7 +5929,7 @@ type FlowLogDestinationOptionsInput interface {
 }
 
 type FlowLogDestinationOptionsArgs struct {
-	// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+	// File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
 	FileFormat pulumi.StringPtrInput `pulumi:"fileFormat"`
 	// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
 	HiveCompatiblePartitions pulumi.BoolPtrInput `pulumi:"hiveCompatiblePartitions"`
@@ -6014,7 +6014,7 @@ func (o FlowLogDestinationOptionsOutput) ToFlowLogDestinationOptionsPtrOutputWit
 	}).(FlowLogDestinationOptionsPtrOutput)
 }
 
-// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+// File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
 func (o FlowLogDestinationOptionsOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowLogDestinationOptions) *string { return v.FileFormat }).(pulumi.StringPtrOutput)
 }
@@ -6053,7 +6053,7 @@ func (o FlowLogDestinationOptionsPtrOutput) Elem() FlowLogDestinationOptionsOutp
 	}).(FlowLogDestinationOptionsOutput)
 }
 
-// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+// File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
 func (o FlowLogDestinationOptionsPtrOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLogDestinationOptions) *string {
 		if v == nil {
@@ -10420,240 +10420,6 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPt
 			return nil
 		}
 		return v.CpuCredits
-	}).(pulumi.StringPtrOutput)
-}
-
-type LaunchTemplateElasticGpuSpecification struct {
-	// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
-	Type string `pulumi:"type"`
-}
-
-// LaunchTemplateElasticGpuSpecificationInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArgs and LaunchTemplateElasticGpuSpecificationOutput values.
-// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationInput` via:
-//
-//	LaunchTemplateElasticGpuSpecificationArgs{...}
-type LaunchTemplateElasticGpuSpecificationInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput
-	ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationOutput
-}
-
-type LaunchTemplateElasticGpuSpecificationArgs struct {
-	// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LaunchTemplateElasticGpuSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput {
-	return i.ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationOutput)
-}
-
-// LaunchTemplateElasticGpuSpecificationArrayInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArray and LaunchTemplateElasticGpuSpecificationArrayOutput values.
-// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationArrayInput` via:
-//
-//	LaunchTemplateElasticGpuSpecificationArray{ LaunchTemplateElasticGpuSpecificationArgs{...} }
-type LaunchTemplateElasticGpuSpecificationArrayInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput
-	ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput
-}
-
-type LaunchTemplateElasticGpuSpecificationArray []LaunchTemplateElasticGpuSpecificationInput
-
-func (LaunchTemplateElasticGpuSpecificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return i.ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-type LaunchTemplateElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateElasticGpuSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationOutput {
-	return o
-}
-
-// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
-func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type LaunchTemplateElasticGpuSpecificationArrayOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateElasticGpuSpecificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (o LaunchTemplateElasticGpuSpecificationArrayOutput) ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticGpuSpecificationArrayOutput) ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateElasticGpuSpecificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateElasticGpuSpecification {
-		return vs[0].([]LaunchTemplateElasticGpuSpecification)[vs[1].(int)]
-	}).(LaunchTemplateElasticGpuSpecificationOutput)
-}
-
-type LaunchTemplateElasticInferenceAccelerator struct {
-	// Accelerator type.
-	Type string `pulumi:"type"`
-}
-
-// LaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArgs and LaunchTemplateElasticInferenceAcceleratorOutput values.
-// You can construct a concrete instance of `LaunchTemplateElasticInferenceAcceleratorInput` via:
-//
-//	LaunchTemplateElasticInferenceAcceleratorArgs{...}
-type LaunchTemplateElasticInferenceAcceleratorInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput
-	ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) LaunchTemplateElasticInferenceAcceleratorOutput
-}
-
-type LaunchTemplateElasticInferenceAcceleratorArgs struct {
-	// Accelerator type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput {
-	return i.ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorOutput)
-}
-
-func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorPtrOutput() LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return i.ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorOutput).ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(ctx)
-}
-
-// LaunchTemplateElasticInferenceAcceleratorPtrInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArgs, LaunchTemplateElasticInferenceAcceleratorPtr and LaunchTemplateElasticInferenceAcceleratorPtrOutput values.
-// You can construct a concrete instance of `LaunchTemplateElasticInferenceAcceleratorPtrInput` via:
-//
-//	        LaunchTemplateElasticInferenceAcceleratorArgs{...}
-//
-//	or:
-//
-//	        nil
-type LaunchTemplateElasticInferenceAcceleratorPtrInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateElasticInferenceAcceleratorPtrOutput() LaunchTemplateElasticInferenceAcceleratorPtrOutput
-	ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(context.Context) LaunchTemplateElasticInferenceAcceleratorPtrOutput
-}
-
-type launchTemplateElasticInferenceAcceleratorPtrType LaunchTemplateElasticInferenceAcceleratorArgs
-
-func LaunchTemplateElasticInferenceAcceleratorPtr(v *LaunchTemplateElasticInferenceAcceleratorArgs) LaunchTemplateElasticInferenceAcceleratorPtrInput {
-	return (*launchTemplateElasticInferenceAcceleratorPtrType)(v)
-}
-
-func (*launchTemplateElasticInferenceAcceleratorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (i *launchTemplateElasticInferenceAcceleratorPtrType) ToLaunchTemplateElasticInferenceAcceleratorPtrOutput() LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return i.ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(context.Background())
-}
-
-func (i *launchTemplateElasticInferenceAcceleratorPtrType) ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorPtrOutput)
-}
-
-type LaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorPtrOutput() LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return o.ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(context.Background())
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateElasticInferenceAccelerator) *LaunchTemplateElasticInferenceAccelerator {
-		return &v
-	}).(LaunchTemplateElasticInferenceAcceleratorPtrOutput)
-}
-
-// Accelerator type.
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type LaunchTemplateElasticInferenceAcceleratorPtrOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateElasticInferenceAcceleratorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) ToLaunchTemplateElasticInferenceAcceleratorPtrOutput() LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Elem() LaunchTemplateElasticInferenceAcceleratorOutput {
-	return o.ApplyT(func(v *LaunchTemplateElasticInferenceAccelerator) LaunchTemplateElasticInferenceAccelerator {
-		if v != nil {
-			return *v
-		}
-		var ret LaunchTemplateElasticInferenceAccelerator
-		return ret
-	}).(LaunchTemplateElasticInferenceAcceleratorOutput)
-}
-
-// Accelerator type.
-func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateElasticInferenceAccelerator) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -41126,194 +40892,6 @@ func (o GetLaunchTemplateCreditSpecificationArrayOutput) Index(i pulumi.IntInput
 	}).(GetLaunchTemplateCreditSpecificationOutput)
 }
 
-type GetLaunchTemplateElasticGpuSpecification struct {
-	Type string `pulumi:"type"`
-}
-
-// GetLaunchTemplateElasticGpuSpecificationInput is an input type that accepts GetLaunchTemplateElasticGpuSpecificationArgs and GetLaunchTemplateElasticGpuSpecificationOutput values.
-// You can construct a concrete instance of `GetLaunchTemplateElasticGpuSpecificationInput` via:
-//
-//	GetLaunchTemplateElasticGpuSpecificationArgs{...}
-type GetLaunchTemplateElasticGpuSpecificationInput interface {
-	pulumi.Input
-
-	ToGetLaunchTemplateElasticGpuSpecificationOutput() GetLaunchTemplateElasticGpuSpecificationOutput
-	ToGetLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) GetLaunchTemplateElasticGpuSpecificationOutput
-}
-
-type GetLaunchTemplateElasticGpuSpecificationArgs struct {
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetLaunchTemplateElasticGpuSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (i GetLaunchTemplateElasticGpuSpecificationArgs) ToGetLaunchTemplateElasticGpuSpecificationOutput() GetLaunchTemplateElasticGpuSpecificationOutput {
-	return i.ToGetLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Background())
-}
-
-func (i GetLaunchTemplateElasticGpuSpecificationArgs) ToGetLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) GetLaunchTemplateElasticGpuSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateElasticGpuSpecificationOutput)
-}
-
-// GetLaunchTemplateElasticGpuSpecificationArrayInput is an input type that accepts GetLaunchTemplateElasticGpuSpecificationArray and GetLaunchTemplateElasticGpuSpecificationArrayOutput values.
-// You can construct a concrete instance of `GetLaunchTemplateElasticGpuSpecificationArrayInput` via:
-//
-//	GetLaunchTemplateElasticGpuSpecificationArray{ GetLaunchTemplateElasticGpuSpecificationArgs{...} }
-type GetLaunchTemplateElasticGpuSpecificationArrayInput interface {
-	pulumi.Input
-
-	ToGetLaunchTemplateElasticGpuSpecificationArrayOutput() GetLaunchTemplateElasticGpuSpecificationArrayOutput
-	ToGetLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Context) GetLaunchTemplateElasticGpuSpecificationArrayOutput
-}
-
-type GetLaunchTemplateElasticGpuSpecificationArray []GetLaunchTemplateElasticGpuSpecificationInput
-
-func (GetLaunchTemplateElasticGpuSpecificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (i GetLaunchTemplateElasticGpuSpecificationArray) ToGetLaunchTemplateElasticGpuSpecificationArrayOutput() GetLaunchTemplateElasticGpuSpecificationArrayOutput {
-	return i.ToGetLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Background())
-}
-
-func (i GetLaunchTemplateElasticGpuSpecificationArray) ToGetLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) GetLaunchTemplateElasticGpuSpecificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-type GetLaunchTemplateElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
-
-func (GetLaunchTemplateElasticGpuSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (o GetLaunchTemplateElasticGpuSpecificationOutput) ToGetLaunchTemplateElasticGpuSpecificationOutput() GetLaunchTemplateElasticGpuSpecificationOutput {
-	return o
-}
-
-func (o GetLaunchTemplateElasticGpuSpecificationOutput) ToGetLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) GetLaunchTemplateElasticGpuSpecificationOutput {
-	return o
-}
-
-func (o GetLaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLaunchTemplateElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type GetLaunchTemplateElasticGpuSpecificationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetLaunchTemplateElasticGpuSpecificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (o GetLaunchTemplateElasticGpuSpecificationArrayOutput) ToGetLaunchTemplateElasticGpuSpecificationArrayOutput() GetLaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o
-}
-
-func (o GetLaunchTemplateElasticGpuSpecificationArrayOutput) ToGetLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) GetLaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o
-}
-
-func (o GetLaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateElasticGpuSpecificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateElasticGpuSpecification {
-		return vs[0].([]GetLaunchTemplateElasticGpuSpecification)[vs[1].(int)]
-	}).(GetLaunchTemplateElasticGpuSpecificationOutput)
-}
-
-type GetLaunchTemplateElasticInferenceAccelerator struct {
-	Type string `pulumi:"type"`
-}
-
-// GetLaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts GetLaunchTemplateElasticInferenceAcceleratorArgs and GetLaunchTemplateElasticInferenceAcceleratorOutput values.
-// You can construct a concrete instance of `GetLaunchTemplateElasticInferenceAcceleratorInput` via:
-//
-//	GetLaunchTemplateElasticInferenceAcceleratorArgs{...}
-type GetLaunchTemplateElasticInferenceAcceleratorInput interface {
-	pulumi.Input
-
-	ToGetLaunchTemplateElasticInferenceAcceleratorOutput() GetLaunchTemplateElasticInferenceAcceleratorOutput
-	ToGetLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) GetLaunchTemplateElasticInferenceAcceleratorOutput
-}
-
-type GetLaunchTemplateElasticInferenceAcceleratorArgs struct {
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetLaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (i GetLaunchTemplateElasticInferenceAcceleratorArgs) ToGetLaunchTemplateElasticInferenceAcceleratorOutput() GetLaunchTemplateElasticInferenceAcceleratorOutput {
-	return i.ToGetLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Background())
-}
-
-func (i GetLaunchTemplateElasticInferenceAcceleratorArgs) ToGetLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) GetLaunchTemplateElasticInferenceAcceleratorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateElasticInferenceAcceleratorOutput)
-}
-
-// GetLaunchTemplateElasticInferenceAcceleratorArrayInput is an input type that accepts GetLaunchTemplateElasticInferenceAcceleratorArray and GetLaunchTemplateElasticInferenceAcceleratorArrayOutput values.
-// You can construct a concrete instance of `GetLaunchTemplateElasticInferenceAcceleratorArrayInput` via:
-//
-//	GetLaunchTemplateElasticInferenceAcceleratorArray{ GetLaunchTemplateElasticInferenceAcceleratorArgs{...} }
-type GetLaunchTemplateElasticInferenceAcceleratorArrayInput interface {
-	pulumi.Input
-
-	ToGetLaunchTemplateElasticInferenceAcceleratorArrayOutput() GetLaunchTemplateElasticInferenceAcceleratorArrayOutput
-	ToGetLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Context) GetLaunchTemplateElasticInferenceAcceleratorArrayOutput
-}
-
-type GetLaunchTemplateElasticInferenceAcceleratorArray []GetLaunchTemplateElasticInferenceAcceleratorInput
-
-func (GetLaunchTemplateElasticInferenceAcceleratorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (i GetLaunchTemplateElasticInferenceAcceleratorArray) ToGetLaunchTemplateElasticInferenceAcceleratorArrayOutput() GetLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return i.ToGetLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Background())
-}
-
-func (i GetLaunchTemplateElasticInferenceAcceleratorArray) ToGetLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateElasticInferenceAcceleratorArrayOutput)
-}
-
-type GetLaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
-
-func (GetLaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (o GetLaunchTemplateElasticInferenceAcceleratorOutput) ToGetLaunchTemplateElasticInferenceAcceleratorOutput() GetLaunchTemplateElasticInferenceAcceleratorOutput {
-	return o
-}
-
-func (o GetLaunchTemplateElasticInferenceAcceleratorOutput) ToGetLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) GetLaunchTemplateElasticInferenceAcceleratorOutput {
-	return o
-}
-
-func (o GetLaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLaunchTemplateElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type GetLaunchTemplateElasticInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
-
-func (GetLaunchTemplateElasticInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (o GetLaunchTemplateElasticInferenceAcceleratorArrayOutput) ToGetLaunchTemplateElasticInferenceAcceleratorArrayOutput() GetLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o GetLaunchTemplateElasticInferenceAcceleratorArrayOutput) ToGetLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o GetLaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateElasticInferenceAcceleratorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateElasticInferenceAccelerator {
-		return vs[0].([]GetLaunchTemplateElasticInferenceAccelerator)[vs[1].(int)]
-	}).(GetLaunchTemplateElasticInferenceAcceleratorOutput)
-}
-
 type GetLaunchTemplateEnclaveOption struct {
 	Enabled bool `pulumi:"enabled"`
 }
@@ -57860,7 +57438,7 @@ type GetSubnetsFilter struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -57909,7 +57487,7 @@ type GetSubnetsFilterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -57998,7 +57576,7 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58929,665 +58507,6 @@ func (o GetVpcFilterArrayOutput) Index(i pulumi.IntInput) GetVpcFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcFilter {
 		return vs[0].([]GetVpcFilter)[vs[1].(int)]
 	}).(GetVpcFilterOutput)
-}
-
-type GetVpcIamPoolCidrsFilter struct {
-	Name   string   `pulumi:"name"`
-	Values []string `pulumi:"values"`
-}
-
-// GetVpcIamPoolCidrsFilterInput is an input type that accepts GetVpcIamPoolCidrsFilterArgs and GetVpcIamPoolCidrsFilterOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolCidrsFilterInput` via:
-//
-//	GetVpcIamPoolCidrsFilterArgs{...}
-type GetVpcIamPoolCidrsFilterInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolCidrsFilterOutput() GetVpcIamPoolCidrsFilterOutput
-	ToGetVpcIamPoolCidrsFilterOutputWithContext(context.Context) GetVpcIamPoolCidrsFilterOutput
-}
-
-type GetVpcIamPoolCidrsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (GetVpcIamPoolCidrsFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolCidrsFilter)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolCidrsFilterArgs) ToGetVpcIamPoolCidrsFilterOutput() GetVpcIamPoolCidrsFilterOutput {
-	return i.ToGetVpcIamPoolCidrsFilterOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolCidrsFilterArgs) ToGetVpcIamPoolCidrsFilterOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolCidrsFilterOutput)
-}
-
-// GetVpcIamPoolCidrsFilterArrayInput is an input type that accepts GetVpcIamPoolCidrsFilterArray and GetVpcIamPoolCidrsFilterArrayOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolCidrsFilterArrayInput` via:
-//
-//	GetVpcIamPoolCidrsFilterArray{ GetVpcIamPoolCidrsFilterArgs{...} }
-type GetVpcIamPoolCidrsFilterArrayInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolCidrsFilterArrayOutput() GetVpcIamPoolCidrsFilterArrayOutput
-	ToGetVpcIamPoolCidrsFilterArrayOutputWithContext(context.Context) GetVpcIamPoolCidrsFilterArrayOutput
-}
-
-type GetVpcIamPoolCidrsFilterArray []GetVpcIamPoolCidrsFilterInput
-
-func (GetVpcIamPoolCidrsFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolCidrsFilter)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolCidrsFilterArray) ToGetVpcIamPoolCidrsFilterArrayOutput() GetVpcIamPoolCidrsFilterArrayOutput {
-	return i.ToGetVpcIamPoolCidrsFilterArrayOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolCidrsFilterArray) ToGetVpcIamPoolCidrsFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolCidrsFilterArrayOutput)
-}
-
-type GetVpcIamPoolCidrsFilterOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolCidrsFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolCidrsFilter)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolCidrsFilterOutput) ToGetVpcIamPoolCidrsFilterOutput() GetVpcIamPoolCidrsFilterOutput {
-	return o
-}
-
-func (o GetVpcIamPoolCidrsFilterOutput) ToGetVpcIamPoolCidrsFilterOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsFilterOutput {
-	return o
-}
-
-func (o GetVpcIamPoolCidrsFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolCidrsFilter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetVpcIamPoolCidrsFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetVpcIamPoolCidrsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetVpcIamPoolCidrsFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolCidrsFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolCidrsFilter)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolCidrsFilterArrayOutput) ToGetVpcIamPoolCidrsFilterArrayOutput() GetVpcIamPoolCidrsFilterArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolCidrsFilterArrayOutput) ToGetVpcIamPoolCidrsFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsFilterArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolCidrsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolCidrsFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolCidrsFilter {
-		return vs[0].([]GetVpcIamPoolCidrsFilter)[vs[1].(int)]
-	}).(GetVpcIamPoolCidrsFilterOutput)
-}
-
-type GetVpcIamPoolCidrsIpamPoolCidr struct {
-	// A network CIDR.
-	Cidr string `pulumi:"cidr"`
-	// The provisioning state of that CIDR.
-	State string `pulumi:"state"`
-}
-
-// GetVpcIamPoolCidrsIpamPoolCidrInput is an input type that accepts GetVpcIamPoolCidrsIpamPoolCidrArgs and GetVpcIamPoolCidrsIpamPoolCidrOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolCidrsIpamPoolCidrInput` via:
-//
-//	GetVpcIamPoolCidrsIpamPoolCidrArgs{...}
-type GetVpcIamPoolCidrsIpamPoolCidrInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolCidrsIpamPoolCidrOutput() GetVpcIamPoolCidrsIpamPoolCidrOutput
-	ToGetVpcIamPoolCidrsIpamPoolCidrOutputWithContext(context.Context) GetVpcIamPoolCidrsIpamPoolCidrOutput
-}
-
-type GetVpcIamPoolCidrsIpamPoolCidrArgs struct {
-	// A network CIDR.
-	Cidr pulumi.StringInput `pulumi:"cidr"`
-	// The provisioning state of that CIDR.
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (GetVpcIamPoolCidrsIpamPoolCidrArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidr)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolCidrsIpamPoolCidrArgs) ToGetVpcIamPoolCidrsIpamPoolCidrOutput() GetVpcIamPoolCidrsIpamPoolCidrOutput {
-	return i.ToGetVpcIamPoolCidrsIpamPoolCidrOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolCidrsIpamPoolCidrArgs) ToGetVpcIamPoolCidrsIpamPoolCidrOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsIpamPoolCidrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolCidrsIpamPoolCidrOutput)
-}
-
-// GetVpcIamPoolCidrsIpamPoolCidrArrayInput is an input type that accepts GetVpcIamPoolCidrsIpamPoolCidrArray and GetVpcIamPoolCidrsIpamPoolCidrArrayOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolCidrsIpamPoolCidrArrayInput` via:
-//
-//	GetVpcIamPoolCidrsIpamPoolCidrArray{ GetVpcIamPoolCidrsIpamPoolCidrArgs{...} }
-type GetVpcIamPoolCidrsIpamPoolCidrArrayInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutput() GetVpcIamPoolCidrsIpamPoolCidrArrayOutput
-	ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutputWithContext(context.Context) GetVpcIamPoolCidrsIpamPoolCidrArrayOutput
-}
-
-type GetVpcIamPoolCidrsIpamPoolCidrArray []GetVpcIamPoolCidrsIpamPoolCidrInput
-
-func (GetVpcIamPoolCidrsIpamPoolCidrArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolCidrsIpamPoolCidr)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolCidrsIpamPoolCidrArray) ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutput() GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
-	return i.ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolCidrsIpamPoolCidrArray) ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolCidrsIpamPoolCidrArrayOutput)
-}
-
-type GetVpcIamPoolCidrsIpamPoolCidrOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolCidrsIpamPoolCidrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidr)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolCidrsIpamPoolCidrOutput) ToGetVpcIamPoolCidrsIpamPoolCidrOutput() GetVpcIamPoolCidrsIpamPoolCidrOutput {
-	return o
-}
-
-func (o GetVpcIamPoolCidrsIpamPoolCidrOutput) ToGetVpcIamPoolCidrsIpamPoolCidrOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsIpamPoolCidrOutput {
-	return o
-}
-
-// A network CIDR.
-func (o GetVpcIamPoolCidrsIpamPoolCidrOutput) Cidr() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolCidrsIpamPoolCidr) string { return v.Cidr }).(pulumi.StringOutput)
-}
-
-// The provisioning state of that CIDR.
-func (o GetVpcIamPoolCidrsIpamPoolCidrOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolCidrsIpamPoolCidr) string { return v.State }).(pulumi.StringOutput)
-}
-
-type GetVpcIamPoolCidrsIpamPoolCidrArrayOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolCidrsIpamPoolCidr)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutput() GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolCidrsIpamPoolCidrOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolCidrsIpamPoolCidr {
-		return vs[0].([]GetVpcIamPoolCidrsIpamPoolCidr)[vs[1].(int)]
-	}).(GetVpcIamPoolCidrsIpamPoolCidrOutput)
-}
-
-type GetVpcIamPoolFilter struct {
-	// The name of the filter. Filter names are case-sensitive.
-	Name string `pulumi:"name"`
-	// The filter values. Filter values are case-sensitive.
-	Values []string `pulumi:"values"`
-}
-
-// GetVpcIamPoolFilterInput is an input type that accepts GetVpcIamPoolFilterArgs and GetVpcIamPoolFilterOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolFilterInput` via:
-//
-//	GetVpcIamPoolFilterArgs{...}
-type GetVpcIamPoolFilterInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolFilterOutput() GetVpcIamPoolFilterOutput
-	ToGetVpcIamPoolFilterOutputWithContext(context.Context) GetVpcIamPoolFilterOutput
-}
-
-type GetVpcIamPoolFilterArgs struct {
-	// The name of the filter. Filter names are case-sensitive.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The filter values. Filter values are case-sensitive.
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (GetVpcIamPoolFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolFilter)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolFilterArgs) ToGetVpcIamPoolFilterOutput() GetVpcIamPoolFilterOutput {
-	return i.ToGetVpcIamPoolFilterOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolFilterArgs) ToGetVpcIamPoolFilterOutputWithContext(ctx context.Context) GetVpcIamPoolFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolFilterOutput)
-}
-
-// GetVpcIamPoolFilterArrayInput is an input type that accepts GetVpcIamPoolFilterArray and GetVpcIamPoolFilterArrayOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolFilterArrayInput` via:
-//
-//	GetVpcIamPoolFilterArray{ GetVpcIamPoolFilterArgs{...} }
-type GetVpcIamPoolFilterArrayInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolFilterArrayOutput() GetVpcIamPoolFilterArrayOutput
-	ToGetVpcIamPoolFilterArrayOutputWithContext(context.Context) GetVpcIamPoolFilterArrayOutput
-}
-
-type GetVpcIamPoolFilterArray []GetVpcIamPoolFilterInput
-
-func (GetVpcIamPoolFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolFilter)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolFilterArray) ToGetVpcIamPoolFilterArrayOutput() GetVpcIamPoolFilterArrayOutput {
-	return i.ToGetVpcIamPoolFilterArrayOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolFilterArray) ToGetVpcIamPoolFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolFilterArrayOutput)
-}
-
-type GetVpcIamPoolFilterOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolFilter)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolFilterOutput) ToGetVpcIamPoolFilterOutput() GetVpcIamPoolFilterOutput {
-	return o
-}
-
-func (o GetVpcIamPoolFilterOutput) ToGetVpcIamPoolFilterOutputWithContext(ctx context.Context) GetVpcIamPoolFilterOutput {
-	return o
-}
-
-// The name of the filter. Filter names are case-sensitive.
-func (o GetVpcIamPoolFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolFilter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The filter values. Filter values are case-sensitive.
-func (o GetVpcIamPoolFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetVpcIamPoolFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetVpcIamPoolFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolFilter)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolFilterArrayOutput) ToGetVpcIamPoolFilterArrayOutput() GetVpcIamPoolFilterArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolFilterArrayOutput) ToGetVpcIamPoolFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolFilterArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolFilter {
-		return vs[0].([]GetVpcIamPoolFilter)[vs[1].(int)]
-	}).(GetVpcIamPoolFilterOutput)
-}
-
-type GetVpcIamPoolsFilter struct {
-	// The name of the filter. Filter names are case-sensitive.
-	Name string `pulumi:"name"`
-	// The filter values. Filter values are case-sensitive.
-	Values []string `pulumi:"values"`
-}
-
-// GetVpcIamPoolsFilterInput is an input type that accepts GetVpcIamPoolsFilterArgs and GetVpcIamPoolsFilterOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolsFilterInput` via:
-//
-//	GetVpcIamPoolsFilterArgs{...}
-type GetVpcIamPoolsFilterInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolsFilterOutput() GetVpcIamPoolsFilterOutput
-	ToGetVpcIamPoolsFilterOutputWithContext(context.Context) GetVpcIamPoolsFilterOutput
-}
-
-type GetVpcIamPoolsFilterArgs struct {
-	// The name of the filter. Filter names are case-sensitive.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The filter values. Filter values are case-sensitive.
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (GetVpcIamPoolsFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolsFilter)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolsFilterArgs) ToGetVpcIamPoolsFilterOutput() GetVpcIamPoolsFilterOutput {
-	return i.ToGetVpcIamPoolsFilterOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolsFilterArgs) ToGetVpcIamPoolsFilterOutputWithContext(ctx context.Context) GetVpcIamPoolsFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolsFilterOutput)
-}
-
-// GetVpcIamPoolsFilterArrayInput is an input type that accepts GetVpcIamPoolsFilterArray and GetVpcIamPoolsFilterArrayOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolsFilterArrayInput` via:
-//
-//	GetVpcIamPoolsFilterArray{ GetVpcIamPoolsFilterArgs{...} }
-type GetVpcIamPoolsFilterArrayInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolsFilterArrayOutput() GetVpcIamPoolsFilterArrayOutput
-	ToGetVpcIamPoolsFilterArrayOutputWithContext(context.Context) GetVpcIamPoolsFilterArrayOutput
-}
-
-type GetVpcIamPoolsFilterArray []GetVpcIamPoolsFilterInput
-
-func (GetVpcIamPoolsFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolsFilter)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolsFilterArray) ToGetVpcIamPoolsFilterArrayOutput() GetVpcIamPoolsFilterArrayOutput {
-	return i.ToGetVpcIamPoolsFilterArrayOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolsFilterArray) ToGetVpcIamPoolsFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolsFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolsFilterArrayOutput)
-}
-
-type GetVpcIamPoolsFilterOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolsFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolsFilter)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolsFilterOutput) ToGetVpcIamPoolsFilterOutput() GetVpcIamPoolsFilterOutput {
-	return o
-}
-
-func (o GetVpcIamPoolsFilterOutput) ToGetVpcIamPoolsFilterOutputWithContext(ctx context.Context) GetVpcIamPoolsFilterOutput {
-	return o
-}
-
-// The name of the filter. Filter names are case-sensitive.
-func (o GetVpcIamPoolsFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsFilter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The filter values. Filter values are case-sensitive.
-func (o GetVpcIamPoolsFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetVpcIamPoolsFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolsFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolsFilter)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolsFilterArrayOutput) ToGetVpcIamPoolsFilterArrayOutput() GetVpcIamPoolsFilterArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolsFilterArrayOutput) ToGetVpcIamPoolsFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolsFilterArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolsFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolsFilter {
-		return vs[0].([]GetVpcIamPoolsFilter)[vs[1].(int)]
-	}).(GetVpcIamPoolsFilterOutput)
-}
-
-type GetVpcIamPoolsIpamPool struct {
-	// IP protocol assigned to this pool.
-	AddressFamily string `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
-	AllocationDefaultNetmaskLength int `pulumi:"allocationDefaultNetmaskLength"`
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMaxNetmaskLength int `pulumi:"allocationMaxNetmaskLength"`
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMinNetmaskLength int `pulumi:"allocationMinNetmaskLength"`
-	// Tags that are required to create resources in using this pool.
-	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
-	// ARN of the pool
-	Arn string `pulumi:"arn"`
-	// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-	AutoImport bool `pulumi:"autoImport"`
-	// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
-	AwsService string `pulumi:"awsService"`
-	// Description for the IPAM pool.
-	Description string `pulumi:"description"`
-	// ID of the IPAM pool.
-	Id string `pulumi:"id"`
-	// ID of the scope the pool belongs to.
-	IpamScopeId   string `pulumi:"ipamScopeId"`
-	IpamScopeType string `pulumi:"ipamScopeType"`
-	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-	Locale    string `pulumi:"locale"`
-	PoolDepth int    `pulumi:"poolDepth"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-	PubliclyAdvertisable bool `pulumi:"publiclyAdvertisable"`
-	// ID of the source IPAM pool.
-	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
-	State            string `pulumi:"state"`
-	// Map of tags to assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// GetVpcIamPoolsIpamPoolInput is an input type that accepts GetVpcIamPoolsIpamPoolArgs and GetVpcIamPoolsIpamPoolOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolsIpamPoolInput` via:
-//
-//	GetVpcIamPoolsIpamPoolArgs{...}
-type GetVpcIamPoolsIpamPoolInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolsIpamPoolOutput() GetVpcIamPoolsIpamPoolOutput
-	ToGetVpcIamPoolsIpamPoolOutputWithContext(context.Context) GetVpcIamPoolsIpamPoolOutput
-}
-
-type GetVpcIamPoolsIpamPoolArgs struct {
-	// IP protocol assigned to this pool.
-	AddressFamily pulumi.StringInput `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
-	AllocationDefaultNetmaskLength pulumi.IntInput `pulumi:"allocationDefaultNetmaskLength"`
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMaxNetmaskLength pulumi.IntInput `pulumi:"allocationMaxNetmaskLength"`
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMinNetmaskLength pulumi.IntInput `pulumi:"allocationMinNetmaskLength"`
-	// Tags that are required to create resources in using this pool.
-	AllocationResourceTags pulumi.StringMapInput `pulumi:"allocationResourceTags"`
-	// ARN of the pool
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-	AutoImport pulumi.BoolInput `pulumi:"autoImport"`
-	// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
-	AwsService pulumi.StringInput `pulumi:"awsService"`
-	// Description for the IPAM pool.
-	Description pulumi.StringInput `pulumi:"description"`
-	// ID of the IPAM pool.
-	Id pulumi.StringInput `pulumi:"id"`
-	// ID of the scope the pool belongs to.
-	IpamScopeId   pulumi.StringInput `pulumi:"ipamScopeId"`
-	IpamScopeType pulumi.StringInput `pulumi:"ipamScopeType"`
-	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-	Locale    pulumi.StringInput `pulumi:"locale"`
-	PoolDepth pulumi.IntInput    `pulumi:"poolDepth"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-	PubliclyAdvertisable pulumi.BoolInput `pulumi:"publiclyAdvertisable"`
-	// ID of the source IPAM pool.
-	SourceIpamPoolId pulumi.StringInput `pulumi:"sourceIpamPoolId"`
-	State            pulumi.StringInput `pulumi:"state"`
-	// Map of tags to assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (GetVpcIamPoolsIpamPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolsIpamPool)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolsIpamPoolArgs) ToGetVpcIamPoolsIpamPoolOutput() GetVpcIamPoolsIpamPoolOutput {
-	return i.ToGetVpcIamPoolsIpamPoolOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolsIpamPoolArgs) ToGetVpcIamPoolsIpamPoolOutputWithContext(ctx context.Context) GetVpcIamPoolsIpamPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolsIpamPoolOutput)
-}
-
-// GetVpcIamPoolsIpamPoolArrayInput is an input type that accepts GetVpcIamPoolsIpamPoolArray and GetVpcIamPoolsIpamPoolArrayOutput values.
-// You can construct a concrete instance of `GetVpcIamPoolsIpamPoolArrayInput` via:
-//
-//	GetVpcIamPoolsIpamPoolArray{ GetVpcIamPoolsIpamPoolArgs{...} }
-type GetVpcIamPoolsIpamPoolArrayInput interface {
-	pulumi.Input
-
-	ToGetVpcIamPoolsIpamPoolArrayOutput() GetVpcIamPoolsIpamPoolArrayOutput
-	ToGetVpcIamPoolsIpamPoolArrayOutputWithContext(context.Context) GetVpcIamPoolsIpamPoolArrayOutput
-}
-
-type GetVpcIamPoolsIpamPoolArray []GetVpcIamPoolsIpamPoolInput
-
-func (GetVpcIamPoolsIpamPoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolsIpamPool)(nil)).Elem()
-}
-
-func (i GetVpcIamPoolsIpamPoolArray) ToGetVpcIamPoolsIpamPoolArrayOutput() GetVpcIamPoolsIpamPoolArrayOutput {
-	return i.ToGetVpcIamPoolsIpamPoolArrayOutputWithContext(context.Background())
-}
-
-func (i GetVpcIamPoolsIpamPoolArray) ToGetVpcIamPoolsIpamPoolArrayOutputWithContext(ctx context.Context) GetVpcIamPoolsIpamPoolArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolsIpamPoolArrayOutput)
-}
-
-type GetVpcIamPoolsIpamPoolOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolsIpamPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcIamPoolsIpamPool)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolsIpamPoolOutput) ToGetVpcIamPoolsIpamPoolOutput() GetVpcIamPoolsIpamPoolOutput {
-	return o
-}
-
-func (o GetVpcIamPoolsIpamPoolOutput) ToGetVpcIamPoolsIpamPoolOutputWithContext(ctx context.Context) GetVpcIamPoolsIpamPoolOutput {
-	return o
-}
-
-// IP protocol assigned to this pool.
-func (o GetVpcIamPoolsIpamPoolOutput) AddressFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.AddressFamily }).(pulumi.StringOutput)
-}
-
-// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
-func (o GetVpcIamPoolsIpamPoolOutput) AllocationDefaultNetmaskLength() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.AllocationDefaultNetmaskLength }).(pulumi.IntOutput)
-}
-
-// The maximum netmask length that will be required for CIDR allocations in this pool.
-func (o GetVpcIamPoolsIpamPoolOutput) AllocationMaxNetmaskLength() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.AllocationMaxNetmaskLength }).(pulumi.IntOutput)
-}
-
-// The minimum netmask length that will be required for CIDR allocations in this pool.
-func (o GetVpcIamPoolsIpamPoolOutput) AllocationMinNetmaskLength() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.AllocationMinNetmaskLength }).(pulumi.IntOutput)
-}
-
-// Tags that are required to create resources in using this pool.
-func (o GetVpcIamPoolsIpamPoolOutput) AllocationResourceTags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) map[string]string { return v.AllocationResourceTags }).(pulumi.StringMapOutput)
-}
-
-// ARN of the pool
-func (o GetVpcIamPoolsIpamPoolOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.Arn }).(pulumi.StringOutput)
-}
-
-// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-func (o GetVpcIamPoolsIpamPoolOutput) AutoImport() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) bool { return v.AutoImport }).(pulumi.BoolOutput)
-}
-
-// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
-func (o GetVpcIamPoolsIpamPoolOutput) AwsService() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.AwsService }).(pulumi.StringOutput)
-}
-
-// Description for the IPAM pool.
-func (o GetVpcIamPoolsIpamPoolOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.Description }).(pulumi.StringOutput)
-}
-
-// ID of the IPAM pool.
-func (o GetVpcIamPoolsIpamPoolOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// ID of the scope the pool belongs to.
-func (o GetVpcIamPoolsIpamPoolOutput) IpamScopeId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.IpamScopeId }).(pulumi.StringOutput)
-}
-
-func (o GetVpcIamPoolsIpamPoolOutput) IpamScopeType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.IpamScopeType }).(pulumi.StringOutput)
-}
-
-// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-func (o GetVpcIamPoolsIpamPoolOutput) Locale() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.Locale }).(pulumi.StringOutput)
-}
-
-func (o GetVpcIamPoolsIpamPoolOutput) PoolDepth() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.PoolDepth }).(pulumi.IntOutput)
-}
-
-// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-func (o GetVpcIamPoolsIpamPoolOutput) PubliclyAdvertisable() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) bool { return v.PubliclyAdvertisable }).(pulumi.BoolOutput)
-}
-
-// ID of the source IPAM pool.
-func (o GetVpcIamPoolsIpamPoolOutput) SourceIpamPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.SourceIpamPoolId }).(pulumi.StringOutput)
-}
-
-func (o GetVpcIamPoolsIpamPoolOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.State }).(pulumi.StringOutput)
-}
-
-// Map of tags to assigned to the resource.
-func (o GetVpcIamPoolsIpamPoolOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-type GetVpcIamPoolsIpamPoolArrayOutput struct{ *pulumi.OutputState }
-
-func (GetVpcIamPoolsIpamPoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcIamPoolsIpamPool)(nil)).Elem()
-}
-
-func (o GetVpcIamPoolsIpamPoolArrayOutput) ToGetVpcIamPoolsIpamPoolArrayOutput() GetVpcIamPoolsIpamPoolArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolsIpamPoolArrayOutput) ToGetVpcIamPoolsIpamPoolArrayOutputWithContext(ctx context.Context) GetVpcIamPoolsIpamPoolArrayOutput {
-	return o
-}
-
-func (o GetVpcIamPoolsIpamPoolArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolsIpamPoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolsIpamPool {
-		return vs[0].([]GetVpcIamPoolsIpamPool)[vs[1].(int)]
-	}).(GetVpcIamPoolsIpamPoolOutput)
 }
 
 type GetVpcIpamOperatingRegion struct {
@@ -61730,10 +60649,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsPtrInput)(nil)).Elem(), LaunchTemplateCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCreditSpecificationInput)(nil)).Elem(), LaunchTemplateCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCreditSpecificationPtrInput)(nil)).Elem(), LaunchTemplateCreditSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticGpuSpecificationInput)(nil)).Elem(), LaunchTemplateElasticGpuSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticGpuSpecificationArrayInput)(nil)).Elem(), LaunchTemplateElasticGpuSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticInferenceAcceleratorInput)(nil)).Elem(), LaunchTemplateElasticInferenceAcceleratorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticInferenceAcceleratorPtrInput)(nil)).Elem(), LaunchTemplateElasticInferenceAcceleratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnclaveOptionsInput)(nil)).Elem(), LaunchTemplateEnclaveOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnclaveOptionsPtrInput)(nil)).Elem(), LaunchTemplateEnclaveOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateHibernationOptionsInput)(nil)).Elem(), LaunchTemplateHibernationOptionsArgs{})
@@ -62169,10 +61084,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateCpuOptionArrayInput)(nil)).Elem(), GetLaunchTemplateCpuOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateCreditSpecificationInput)(nil)).Elem(), GetLaunchTemplateCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateCreditSpecificationArrayInput)(nil)).Elem(), GetLaunchTemplateCreditSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateElasticGpuSpecificationInput)(nil)).Elem(), GetLaunchTemplateElasticGpuSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateElasticGpuSpecificationArrayInput)(nil)).Elem(), GetLaunchTemplateElasticGpuSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateElasticInferenceAcceleratorInput)(nil)).Elem(), GetLaunchTemplateElasticInferenceAcceleratorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateElasticInferenceAcceleratorArrayInput)(nil)).Elem(), GetLaunchTemplateElasticInferenceAcceleratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateEnclaveOptionInput)(nil)).Elem(), GetLaunchTemplateEnclaveOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateEnclaveOptionArrayInput)(nil)).Elem(), GetLaunchTemplateEnclaveOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateFilterInput)(nil)).Elem(), GetLaunchTemplateFilterArgs{})
@@ -62473,16 +61384,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointServiceFilterArrayInput)(nil)).Elem(), GetVpcEndpointServiceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcFilterInput)(nil)).Elem(), GetVpcFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcFilterArrayInput)(nil)).Elem(), GetVpcFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsFilterInput)(nil)).Elem(), GetVpcIamPoolCidrsFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsFilterArrayInput)(nil)).Elem(), GetVpcIamPoolCidrsFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidrInput)(nil)).Elem(), GetVpcIamPoolCidrsIpamPoolCidrArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidrArrayInput)(nil)).Elem(), GetVpcIamPoolCidrsIpamPoolCidrArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolFilterInput)(nil)).Elem(), GetVpcIamPoolFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolFilterArrayInput)(nil)).Elem(), GetVpcIamPoolFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsFilterInput)(nil)).Elem(), GetVpcIamPoolsFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsFilterArrayInput)(nil)).Elem(), GetVpcIamPoolsFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsIpamPoolInput)(nil)).Elem(), GetVpcIamPoolsIpamPoolArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsIpamPoolArrayInput)(nil)).Elem(), GetVpcIamPoolsIpamPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamOperatingRegionInput)(nil)).Elem(), GetVpcIpamOperatingRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamOperatingRegionArrayInput)(nil)).Elem(), GetVpcIpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolCidrsFilterInput)(nil)).Elem(), GetVpcIpamPoolCidrsFilterArgs{})
@@ -62635,10 +61536,6 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationPtrOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsOutput{})
@@ -63074,10 +61971,6 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateCpuOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateCreditSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(GetLaunchTemplateElasticGpuSpecificationOutput{})
-	pulumi.RegisterOutputType(GetLaunchTemplateElasticGpuSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(GetLaunchTemplateElasticInferenceAcceleratorOutput{})
-	pulumi.RegisterOutputType(GetLaunchTemplateElasticInferenceAcceleratorArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateEnclaveOptionOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateEnclaveOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateFilterOutput{})
@@ -63378,16 +62271,6 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolCidrsFilterOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolCidrsFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolCidrsIpamPoolCidrOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolCidrsIpamPoolCidrArrayOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolFilterOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolsFilterOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolsFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolsIpamPoolOutput{})
-	pulumi.RegisterOutputType(GetVpcIamPoolsIpamPoolArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamOperatingRegionOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolCidrsFilterOutput{})

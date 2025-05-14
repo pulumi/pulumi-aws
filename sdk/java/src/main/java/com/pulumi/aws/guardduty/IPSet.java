@@ -33,13 +33,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.guardduty.IPSet;
  * import com.pulumi.aws.guardduty.IPSetArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .enable(true)
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket");
+ *         var bucket = new Bucket("bucket");
  * 
  *         var myIPSet = new BucketObjectv2("myIPSet", BucketObjectv2Args.builder()
  *             .content("""
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .name("MyIPSet")
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
+ *         var bucketAcl = new BucketAcl("bucketAcl", BucketAclArgs.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());
@@ -202,11 +202,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

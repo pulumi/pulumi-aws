@@ -130,9 +130,6 @@ class _LanguageModelState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -206,7 +203,6 @@ class _LanguageModelState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -267,11 +263,11 @@ class LanguageModel(pulumi.CustomResource):
                     "Resource": ["*"],
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example-transcribe",
             force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
         example_language_model = aws.transcribe.LanguageModel("example",
@@ -279,7 +275,7 @@ class LanguageModel(pulumi.CustomResource):
             base_model_name="NarrowBand",
             input_data_config={
                 "data_access_role_arn": example_role.arn,
-                "s3_uri": example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
+                "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
             language_code="en-US",
             tags={
@@ -346,11 +342,11 @@ class LanguageModel(pulumi.CustomResource):
                     "Resource": ["*"],
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example-transcribe",
             force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
         example_language_model = aws.transcribe.LanguageModel("example",
@@ -358,7 +354,7 @@ class LanguageModel(pulumi.CustomResource):
             base_model_name="NarrowBand",
             input_data_config={
                 "data_access_role_arn": example_role.arn,
-                "s3_uri": example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
+                "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
             language_code="en-US",
             tags={
@@ -508,7 +504,6 @@ class LanguageModel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

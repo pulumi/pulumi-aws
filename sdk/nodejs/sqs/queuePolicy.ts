@@ -51,7 +51,7 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "brodobaggins"});
+ * const example = new aws.s3.Bucket("example", {bucket: "brodobaggins"});
  * const exampleQueue = new aws.sqs.Queue("example", {name: "be-giant"});
  * const exampleQueuePolicy = new aws.sqs.QueuePolicy("example", {
  *     queueUrl: exampleQueue.id,

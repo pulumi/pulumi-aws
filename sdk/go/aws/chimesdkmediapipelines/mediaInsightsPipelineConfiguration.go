@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,9 +24,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,8 +108,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -197,7 +197,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -268,7 +268,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -319,7 +319,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -379,7 +379,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -428,8 +428,7 @@ type MediaInsightsPipelineConfiguration struct {
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringOutput `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -480,8 +479,7 @@ type mediaInsightsPipelineConfigurationState struct {
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn *string `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -497,8 +495,7 @@ type MediaInsightsPipelineConfigurationState struct {
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringPtrInput
 	// Key-value map of tags for the resource.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -654,7 +651,6 @@ func (o MediaInsightsPipelineConfigurationOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o MediaInsightsPipelineConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

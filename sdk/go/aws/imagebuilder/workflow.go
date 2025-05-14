@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -105,8 +105,7 @@ type Workflow struct {
 	// Owner of the workflow.
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -171,8 +170,7 @@ type workflowState struct {
 	// Owner of the workflow.
 	Owner *string `pulumi:"owner"`
 	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type *string `pulumi:"type"`
@@ -202,8 +200,7 @@ type WorkflowState struct {
 	// Owner of the workflow.
 	Owner pulumi.StringPtrInput
 	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type pulumi.StringPtrInput
@@ -231,7 +228,8 @@ type workflowArgs struct {
 	// Name of the workflow.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type string `pulumi:"type"`
 	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
@@ -255,7 +253,8 @@ type WorkflowArgs struct {
 	// Name of the workflow.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type pulumi.StringInput
 	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
@@ -398,7 +397,6 @@ func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o WorkflowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

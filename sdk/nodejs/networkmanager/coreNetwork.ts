@@ -349,12 +349,6 @@ export class CoreNetwork extends pulumi.CustomResource {
      */
     public readonly basePolicyDocument!: pulumi.Output<string | undefined>;
     /**
-     * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-     *
-     * @deprecated base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-     */
-    public readonly basePolicyRegion!: pulumi.Output<string | undefined>;
-    /**
      * A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      */
     public readonly basePolicyRegions!: pulumi.Output<string[] | undefined>;
@@ -417,8 +411,6 @@ export class CoreNetwork extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -437,7 +429,6 @@ export class CoreNetwork extends pulumi.CustomResource {
             const state = argsOrState as CoreNetworkState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["basePolicyDocument"] = state ? state.basePolicyDocument : undefined;
-            resourceInputs["basePolicyRegion"] = state ? state.basePolicyRegion : undefined;
             resourceInputs["basePolicyRegions"] = state ? state.basePolicyRegions : undefined;
             resourceInputs["createBasePolicy"] = state ? state.createBasePolicy : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
@@ -454,7 +445,6 @@ export class CoreNetwork extends pulumi.CustomResource {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
             resourceInputs["basePolicyDocument"] = args ? args.basePolicyDocument : undefined;
-            resourceInputs["basePolicyRegion"] = args ? args.basePolicyRegion : undefined;
             resourceInputs["basePolicyRegions"] = args ? args.basePolicyRegions : undefined;
             resourceInputs["createBasePolicy"] = args ? args.createBasePolicy : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -484,12 +474,6 @@ export interface CoreNetworkState {
      * Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      */
     basePolicyDocument?: pulumi.Input<string>;
-    /**
-     * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-     *
-     * @deprecated base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-     */
-    basePolicyRegion?: pulumi.Input<string>;
     /**
      * A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      */
@@ -553,8 +537,6 @@ export interface CoreNetworkState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -567,12 +549,6 @@ export interface CoreNetworkArgs {
      * Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      */
     basePolicyDocument?: pulumi.Input<string>;
-    /**
-     * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-     *
-     * @deprecated base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-     */
-    basePolicyRegion?: pulumi.Input<string>;
     /**
      * A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      */

@@ -33,12 +33,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example",
  *     forceDestroy: true,
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
+ *     bucket: exampleBucket.id,
  *     acl: "private",
  * });
  * const exampleRole = new aws.iam.Role("example", {
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *                 "s3:GetBucketLocation",
  *                 "s3:ListBucket",
  *             ],
- *             resources: [exampleBucketV2.arn],
+ *             resources: [exampleBucket.arn],
  *         },
  *         {
  *             actions: [
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *                 "s3:PutObject",
  *                 "s3:DeleteObject",
  *             ],
- *             resources: [pulumi.interpolate`${exampleBucketV2.arn}/*`],
+ *             resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *         },
  *     ],
  * });
@@ -106,7 +106,7 @@ import * as utilities from "../utilities";
  * const exampleExportTask = new aws.rds.ExportTask("example", {
  *     exportTaskIdentifier: "example",
  *     sourceArn: exampleSnapshot.dbSnapshotArn,
- *     s3BucketName: exampleBucketV2.id,
+ *     s3BucketName: exampleBucket.id,
  *     iamRoleArn: exampleRole.arn,
  *     kmsKeyId: exampleKey.arn,
  *     exportOnlies: ["database"],

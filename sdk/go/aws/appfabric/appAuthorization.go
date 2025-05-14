@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appfabric"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appfabric"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +76,6 @@ type AppAuthorization struct {
 	// The user persona of the app authorization.
 	Persona pulumi.StringOutput    `pulumi:"persona"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants   AppAuthorizationTenantArrayOutput `pulumi:"tenants"`
@@ -140,7 +139,6 @@ type appAuthorizationState struct {
 	// The user persona of the app authorization.
 	Persona *string           `pulumi:"persona"`
 	Tags    map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants   []AppAuthorizationTenant  `pulumi:"tenants"`
@@ -166,7 +164,6 @@ type AppAuthorizationState struct {
 	// The user persona of the app authorization.
 	Persona pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants   AppAuthorizationTenantArrayInput
@@ -342,7 +339,6 @@ func (o AppAuthorizationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppAuthorization) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AppAuthorizationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppAuthorization) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

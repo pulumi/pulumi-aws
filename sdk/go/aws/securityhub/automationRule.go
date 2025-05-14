@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,8 +100,7 @@ type AutomationRule struct {
 	// Whether the rule is active after it is created.
 	RuleStatus pulumi.StringOutput    `pulumi:"ruleStatus"`
 	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAutomationRule registers a new resource with the given unique name, arguments, and options.
@@ -160,8 +159,7 @@ type automationRuleState struct {
 	// Whether the rule is active after it is created.
 	RuleStatus *string           `pulumi:"ruleStatus"`
 	Tags       map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll    map[string]string `pulumi:"tagsAll"`
 }
 
 type AutomationRuleState struct {
@@ -182,8 +180,7 @@ type AutomationRuleState struct {
 	// Whether the rule is active after it is created.
 	RuleStatus pulumi.StringPtrInput
 	Tags       pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 }
 
 func (AutomationRuleState) ElementType() reflect.Type {
@@ -358,7 +355,6 @@ func (o AutomationRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AutomationRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

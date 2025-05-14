@@ -88,12 +88,6 @@ export class NotebookInstance extends pulumi.CustomResource {
     }
 
     /**
-     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     *
-     * @deprecated accelerator_types is deprecated. Use instanceType instead.
-     */
-    public readonly acceleratorTypes!: pulumi.Output<string[] | undefined>;
-    /**
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      */
@@ -160,8 +154,6 @@ export class NotebookInstance extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -186,7 +178,6 @@ export class NotebookInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotebookInstanceState | undefined;
-            resourceInputs["acceleratorTypes"] = state ? state.acceleratorTypes : undefined;
             resourceInputs["additionalCodeRepositories"] = state ? state.additionalCodeRepositories : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["defaultCodeRepository"] = state ? state.defaultCodeRepository : undefined;
@@ -214,7 +205,6 @@ export class NotebookInstance extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["acceleratorTypes"] = args ? args.acceleratorTypes : undefined;
             resourceInputs["additionalCodeRepositories"] = args ? args.additionalCodeRepositories : undefined;
             resourceInputs["defaultCodeRepository"] = args ? args.defaultCodeRepository : undefined;
             resourceInputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
@@ -244,12 +234,6 @@ export class NotebookInstance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotebookInstance resources.
  */
 export interface NotebookInstanceState {
-    /**
-     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     *
-     * @deprecated accelerator_types is deprecated. Use instanceType instead.
-     */
-    acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
@@ -317,8 +301,6 @@ export interface NotebookInstanceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -335,12 +317,6 @@ export interface NotebookInstanceState {
  * The set of arguments for constructing a NotebookInstance resource.
  */
 export interface NotebookInstanceArgs {
-    /**
-     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     *
-     * @deprecated accelerator_types is deprecated. Use instanceType instead.
-     */
-    acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.

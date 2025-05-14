@@ -23,7 +23,7 @@ __all__ = ['SubscriberArgs', 'Subscriber']
 class SubscriberArgs:
     def __init__(__self__, *,
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
-                 source: Optional[pulumi.Input['SubscriberSourceArgs']] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]] = None,
                  subscriber_description: Optional[pulumi.Input[builtins.str]] = None,
                  subscriber_identity: Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']] = None,
                  subscriber_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -32,7 +32,7 @@ class SubscriberArgs:
         """
         The set of arguments for constructing a Subscriber resource.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
-        :param pulumi.Input['SubscriberSourceArgs'] source: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input['SubscriberSubscriberIdentityArgs'] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
         :param pulumi.Input[builtins.str] subscriber_name: The name of your Security Lake subscriber account.
@@ -40,8 +40,8 @@ class SubscriberArgs:
         """
         if access_type is not None:
             pulumi.set(__self__, "access_type", access_type)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
         if subscriber_description is not None:
             pulumi.set(__self__, "subscriber_description", subscriber_description)
         if subscriber_identity is not None:
@@ -67,15 +67,15 @@ class SubscriberArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['SubscriberSourceArgs']]:
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]]:
         """
         The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         """
-        return pulumi.get(self, "source")
+        return pulumi.get(self, "sources")
 
-    @source.setter
-    def source(self, value: Optional[pulumi.Input['SubscriberSourceArgs']]):
-        pulumi.set(self, "source", value)
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]]):
+        pulumi.set(self, "sources", value)
 
     @property
     @pulumi.getter(name="subscriberDescription")
@@ -144,7 +144,7 @@ class _SubscriberState:
                  resource_share_name: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 source: Optional[pulumi.Input['SubscriberSourceArgs']] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]] = None,
                  subscriber_description: Optional[pulumi.Input[builtins.str]] = None,
                  subscriber_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  subscriber_identity: Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']] = None,
@@ -161,7 +161,7 @@ class _SubscriberState:
         :param pulumi.Input[builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         :param pulumi.Input[builtins.str] s3_bucket_arn: The ARN for the Amazon Security Lake Amazon S3 bucket.
-        :param pulumi.Input['SubscriberSourceArgs'] source: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input[builtins.str] subscriber_endpoint: The subscriber endpoint to which exception messages are posted.
         :param pulumi.Input['SubscriberSubscriberIdentityArgs'] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
@@ -182,8 +182,8 @@ class _SubscriberState:
             pulumi.set(__self__, "role_arn", role_arn)
         if s3_bucket_arn is not None:
             pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
         if subscriber_description is not None:
             pulumi.set(__self__, "subscriber_description", subscriber_description)
         if subscriber_endpoint is not None:
@@ -196,9 +196,6 @@ class _SubscriberState:
             pulumi.set(__self__, "subscriber_status", subscriber_status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -278,15 +275,15 @@ class _SubscriberState:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['SubscriberSourceArgs']]:
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]]:
         """
         The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         """
-        return pulumi.get(self, "source")
+        return pulumi.get(self, "sources")
 
-    @source.setter
-    def source(self, value: Optional[pulumi.Input['SubscriberSourceArgs']]):
-        pulumi.set(self, "source", value)
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]]):
+        pulumi.set(self, "sources", value)
 
     @property
     @pulumi.getter(name="subscriberDescription")
@@ -362,7 +359,6 @@ class _SubscriberState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -392,7 +388,7 @@ class Subscriber(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
                  subscriber_description: Optional[pulumi.Input[builtins.str]] = None,
                  subscriber_identity: Optional[pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
                  subscriber_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -413,12 +409,12 @@ class Subscriber(pulumi.CustomResource):
         example = aws.securitylake.Subscriber("example",
             subscriber_name="example-name",
             access_type="S3",
-            source={
+            sources=[{
                 "aws_log_source_resource": {
                     "source_name": "ROUTE53",
                     "source_version": "1.0",
                 },
-            },
+            }],
             subscriber_identity={
                 "external_id": "example",
                 "principal": "1234567890",
@@ -437,7 +433,7 @@ class Subscriber(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
-        :param pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']] source: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
         :param pulumi.Input[builtins.str] subscriber_name: The name of your Security Lake subscriber account.
@@ -463,12 +459,12 @@ class Subscriber(pulumi.CustomResource):
         example = aws.securitylake.Subscriber("example",
             subscriber_name="example-name",
             access_type="S3",
-            source={
+            sources=[{
                 "aws_log_source_resource": {
                     "source_name": "ROUTE53",
                     "source_version": "1.0",
                 },
-            },
+            }],
             subscriber_identity={
                 "external_id": "example",
                 "principal": "1234567890",
@@ -500,7 +496,7 @@ class Subscriber(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
                  subscriber_description: Optional[pulumi.Input[builtins.str]] = None,
                  subscriber_identity: Optional[pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
                  subscriber_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -516,7 +512,7 @@ class Subscriber(pulumi.CustomResource):
             __props__ = SubscriberArgs.__new__(SubscriberArgs)
 
             __props__.__dict__["access_type"] = access_type
-            __props__.__dict__["source"] = source
+            __props__.__dict__["sources"] = sources
             __props__.__dict__["subscriber_description"] = subscriber_description
             __props__.__dict__["subscriber_identity"] = subscriber_identity
             __props__.__dict__["subscriber_name"] = subscriber_name
@@ -546,7 +542,7 @@ class Subscriber(pulumi.CustomResource):
             resource_share_name: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
-            source: Optional[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]] = None,
+            sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
             subscriber_description: Optional[pulumi.Input[builtins.str]] = None,
             subscriber_endpoint: Optional[pulumi.Input[builtins.str]] = None,
             subscriber_identity: Optional[pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
@@ -568,7 +564,7 @@ class Subscriber(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         :param pulumi.Input[builtins.str] s3_bucket_arn: The ARN for the Amazon Security Lake Amazon S3 bucket.
-        :param pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']] source: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input[builtins.str] subscriber_endpoint: The subscriber endpoint to which exception messages are posted.
         :param pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
@@ -587,7 +583,7 @@ class Subscriber(pulumi.CustomResource):
         __props__.__dict__["resource_share_name"] = resource_share_name
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
-        __props__.__dict__["source"] = source
+        __props__.__dict__["sources"] = sources
         __props__.__dict__["subscriber_description"] = subscriber_description
         __props__.__dict__["subscriber_endpoint"] = subscriber_endpoint
         __props__.__dict__["subscriber_identity"] = subscriber_identity
@@ -648,11 +644,11 @@ class Subscriber(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Output[Optional['outputs.SubscriberSource']]:
+    def sources(self) -> pulumi.Output[Optional[Sequence['outputs.SubscriberSource']]]:
         """
         The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         """
-        return pulumi.get(self, "source")
+        return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter(name="subscriberDescription")
@@ -704,7 +700,6 @@ class Subscriber(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

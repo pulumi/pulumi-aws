@@ -65,11 +65,11 @@ import * as utilities from "../utilities";
  *             audioRecognitionStrategy: "UseSlotValuesAsCustomVocabulary",
  *         }],
  *     },
- *     slotTypeValues: {
+ *     slotTypeValues: [{
  *         sampleValues: [{
  *             value: "exampleValue",
  *         }],
- *     },
+ *     }],
  * });
  * ```
  *
@@ -121,7 +121,7 @@ export class V2modelsSlotType extends pulumi.CustomResource {
      * Specifications for a composite slot type.
      * See `compositeSlotTypeSetting` argument reference below.
      */
-    public readonly compositeSlotTypeSetting!: pulumi.Output<outputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting | undefined>;
+    public readonly compositeSlotTypeSettings!: pulumi.Output<outputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting[] | undefined>;
     /**
      * Description of the slot type.
      */
@@ -130,7 +130,7 @@ export class V2modelsSlotType extends pulumi.CustomResource {
      * Type of external information used to create the slot type.
      * See `externalSourceSetting` argument reference below.
      */
-    public readonly externalSourceSetting!: pulumi.Output<outputs.lex.V2modelsSlotTypeExternalSourceSetting | undefined>;
+    public readonly externalSourceSettings!: pulumi.Output<outputs.lex.V2modelsSlotTypeExternalSourceSetting[] | undefined>;
     /**
      * Identifier of the language and locale where this slot type is used.
      * All of the bots, slot types, and slots used by the intent must have the same locale.
@@ -157,7 +157,7 @@ export class V2modelsSlotType extends pulumi.CustomResource {
      * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
      * See `slotTypeValues` argument reference below.
      */
-    public readonly slotTypeValues!: pulumi.Output<outputs.lex.V2modelsSlotTypeSlotTypeValues | undefined>;
+    public readonly slotTypeValues!: pulumi.Output<outputs.lex.V2modelsSlotTypeSlotTypeValue[] | undefined>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsSlotTypeTimeouts | undefined>;
     /**
      * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
@@ -180,9 +180,9 @@ export class V2modelsSlotType extends pulumi.CustomResource {
             const state = argsOrState as V2modelsSlotTypeState | undefined;
             resourceInputs["botId"] = state ? state.botId : undefined;
             resourceInputs["botVersion"] = state ? state.botVersion : undefined;
-            resourceInputs["compositeSlotTypeSetting"] = state ? state.compositeSlotTypeSetting : undefined;
+            resourceInputs["compositeSlotTypeSettings"] = state ? state.compositeSlotTypeSettings : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["externalSourceSetting"] = state ? state.externalSourceSetting : undefined;
+            resourceInputs["externalSourceSettings"] = state ? state.externalSourceSettings : undefined;
             resourceInputs["localeId"] = state ? state.localeId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentSlotTypeSignature"] = state ? state.parentSlotTypeSignature : undefined;
@@ -203,9 +203,9 @@ export class V2modelsSlotType extends pulumi.CustomResource {
             }
             resourceInputs["botId"] = args ? args.botId : undefined;
             resourceInputs["botVersion"] = args ? args.botVersion : undefined;
-            resourceInputs["compositeSlotTypeSetting"] = args ? args.compositeSlotTypeSetting : undefined;
+            resourceInputs["compositeSlotTypeSettings"] = args ? args.compositeSlotTypeSettings : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["externalSourceSetting"] = args ? args.externalSourceSetting : undefined;
+            resourceInputs["externalSourceSettings"] = args ? args.externalSourceSettings : undefined;
             resourceInputs["localeId"] = args ? args.localeId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentSlotTypeSignature"] = args ? args.parentSlotTypeSignature : undefined;
@@ -235,7 +235,7 @@ export interface V2modelsSlotTypeState {
      * Specifications for a composite slot type.
      * See `compositeSlotTypeSetting` argument reference below.
      */
-    compositeSlotTypeSetting?: pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting>;
+    compositeSlotTypeSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting>[]>;
     /**
      * Description of the slot type.
      */
@@ -244,7 +244,7 @@ export interface V2modelsSlotTypeState {
      * Type of external information used to create the slot type.
      * See `externalSourceSetting` argument reference below.
      */
-    externalSourceSetting?: pulumi.Input<inputs.lex.V2modelsSlotTypeExternalSourceSetting>;
+    externalSourceSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeExternalSourceSetting>[]>;
     /**
      * Identifier of the language and locale where this slot type is used.
      * All of the bots, slot types, and slots used by the intent must have the same locale.
@@ -271,7 +271,7 @@ export interface V2modelsSlotTypeState {
      * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
      * See `slotTypeValues` argument reference below.
      */
-    slotTypeValues?: pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValues>;
+    slotTypeValues?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValue>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTypeTimeouts>;
     /**
      * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
@@ -296,7 +296,7 @@ export interface V2modelsSlotTypeArgs {
      * Specifications for a composite slot type.
      * See `compositeSlotTypeSetting` argument reference below.
      */
-    compositeSlotTypeSetting?: pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting>;
+    compositeSlotTypeSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting>[]>;
     /**
      * Description of the slot type.
      */
@@ -305,7 +305,7 @@ export interface V2modelsSlotTypeArgs {
      * Type of external information used to create the slot type.
      * See `externalSourceSetting` argument reference below.
      */
-    externalSourceSetting?: pulumi.Input<inputs.lex.V2modelsSlotTypeExternalSourceSetting>;
+    externalSourceSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeExternalSourceSetting>[]>;
     /**
      * Identifier of the language and locale where this slot type is used.
      * All of the bots, slot types, and slots used by the intent must have the same locale.
@@ -328,7 +328,7 @@ export interface V2modelsSlotTypeArgs {
      * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
      * See `slotTypeValues` argument reference below.
      */
-    slotTypeValues?: pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValues>;
+    slotTypeValues?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValue>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTypeTimeouts>;
     /**
      * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.

@@ -12,14 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as pulumi from "@pulumi/pulumi";
-// Import the nested module directly to regression test:
-// https://github.com/pulumi/pulumi-aws/issues/772
-import { Bucket } from "@pulumi/aws/s3";
 import * as aws from "@pulumi/aws";
 import * as s3 from "@aws-sdk/client-s3";
 
-const bucket = new Bucket("testbucket", {
+const bucket = new aws.s3.Bucket("testbucket", {
     serverSideEncryptionConfiguration: {
         rule: {
             applyServerSideEncryptionByDefault: {

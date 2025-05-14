@@ -7,8 +7,6 @@ import com.pulumi.aws.ec2.outputs.GetLaunchTemplateBlockDeviceMapping;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateCapacityReservationSpecification;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateCpuOption;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateCreditSpecification;
-import com.pulumi.aws.ec2.outputs.GetLaunchTemplateElasticGpuSpecification;
-import com.pulumi.aws.ec2.outputs.GetLaunchTemplateElasticInferenceAccelerator;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateEnclaveOption;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateFilter;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateHibernationOption;
@@ -45,20 +43,6 @@ public final class GetLaunchTemplateResult {
     private Boolean disableApiStop;
     private Boolean disableApiTermination;
     private String ebsOptimized;
-    /**
-     * @deprecated
-     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-     * 
-     */
-    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-    private List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications;
-    /**
-     * @deprecated
-     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-    private List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators;
     private List<GetLaunchTemplateEnclaveOption> enclaveOptions;
     private @Nullable List<GetLaunchTemplateFilter> filters;
     private List<GetLaunchTemplateHibernationOption> hibernationOptions;
@@ -121,24 +105,6 @@ public final class GetLaunchTemplateResult {
     }
     public String ebsOptimized() {
         return this.ebsOptimized;
-    }
-    /**
-     * @deprecated
-     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-     * 
-     */
-    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-    public List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications() {
-        return this.elasticGpuSpecifications;
-    }
-    /**
-     * @deprecated
-     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-    public List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators() {
-        return this.elasticInferenceAccelerators;
     }
     public List<GetLaunchTemplateEnclaveOption> enclaveOptions() {
         return this.enclaveOptions;
@@ -245,8 +211,6 @@ public final class GetLaunchTemplateResult {
         private Boolean disableApiStop;
         private Boolean disableApiTermination;
         private String ebsOptimized;
-        private List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications;
-        private List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators;
         private List<GetLaunchTemplateEnclaveOption> enclaveOptions;
         private @Nullable List<GetLaunchTemplateFilter> filters;
         private List<GetLaunchTemplateHibernationOption> hibernationOptions;
@@ -287,8 +251,6 @@ public final class GetLaunchTemplateResult {
     	      this.disableApiStop = defaults.disableApiStop;
     	      this.disableApiTermination = defaults.disableApiTermination;
     	      this.ebsOptimized = defaults.ebsOptimized;
-    	      this.elasticGpuSpecifications = defaults.elasticGpuSpecifications;
-    	      this.elasticInferenceAccelerators = defaults.elasticInferenceAccelerators;
     	      this.enclaveOptions = defaults.enclaveOptions;
     	      this.filters = defaults.filters;
     	      this.hibernationOptions = defaults.hibernationOptions;
@@ -409,28 +371,6 @@ public final class GetLaunchTemplateResult {
             }
             this.ebsOptimized = ebsOptimized;
             return this;
-        }
-        @CustomType.Setter
-        public Builder elasticGpuSpecifications(List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications) {
-            if (elasticGpuSpecifications == null) {
-              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "elasticGpuSpecifications");
-            }
-            this.elasticGpuSpecifications = elasticGpuSpecifications;
-            return this;
-        }
-        public Builder elasticGpuSpecifications(GetLaunchTemplateElasticGpuSpecification... elasticGpuSpecifications) {
-            return elasticGpuSpecifications(List.of(elasticGpuSpecifications));
-        }
-        @CustomType.Setter
-        public Builder elasticInferenceAccelerators(List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators) {
-            if (elasticInferenceAccelerators == null) {
-              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "elasticInferenceAccelerators");
-            }
-            this.elasticInferenceAccelerators = elasticInferenceAccelerators;
-            return this;
-        }
-        public Builder elasticInferenceAccelerators(GetLaunchTemplateElasticInferenceAccelerator... elasticInferenceAccelerators) {
-            return elasticInferenceAccelerators(List.of(elasticInferenceAccelerators));
         }
         @CustomType.Setter
         public Builder enclaveOptions(List<GetLaunchTemplateEnclaveOption> enclaveOptions) {
@@ -706,8 +646,6 @@ public final class GetLaunchTemplateResult {
             _resultValue.disableApiStop = disableApiStop;
             _resultValue.disableApiTermination = disableApiTermination;
             _resultValue.ebsOptimized = ebsOptimized;
-            _resultValue.elasticGpuSpecifications = elasticGpuSpecifications;
-            _resultValue.elasticInferenceAccelerators = elasticInferenceAccelerators;
             _resultValue.enclaveOptions = enclaveOptions;
             _resultValue.filters = filters;
             _resultValue.hibernationOptions = hibernationOptions;

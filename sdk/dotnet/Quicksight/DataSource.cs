@@ -62,11 +62,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.Bucket("example");
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
-    ///         Bucket = example.Bucket,
+    ///         Bucket = example.BucketName,
     ///         Key = "manifest.json",
     ///         Content = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -473,7 +473,6 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

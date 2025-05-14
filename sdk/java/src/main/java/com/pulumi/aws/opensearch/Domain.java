@@ -775,24 +775,6 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.ipAddressType;
     }
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> kibanaEndpoint;
-
-    /**
-     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     */
-    public Output<String> kibanaEndpoint() {
-        return this.kibanaEndpoint;
-    }
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
@@ -879,11 +861,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

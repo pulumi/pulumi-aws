@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.codebuild.ReportGroup;
  * import com.pulumi.aws.codebuild.ReportGroupArgs;
  * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigArgs;
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .policy(example.json())
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("my-test")
  *             .build());
  * 
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
  *                 .type("S3")
  *                 .s3Destination(ReportGroupExportConfigS3DestinationArgs.builder()
- *                     .bucket(exampleBucketV2.id())
+ *                     .bucket(exampleBucket.id())
  *                     .encryptionDisabled(false)
  *                     .encryptionKey(exampleKey.arn())
  *                     .packaging("NONE")
@@ -200,11 +200,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
