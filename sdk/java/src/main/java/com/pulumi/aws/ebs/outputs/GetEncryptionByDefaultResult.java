@@ -21,6 +21,7 @@ public final class GetEncryptionByDefaultResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetEncryptionByDefaultResult() {}
     /**
@@ -37,6 +38,9 @@ public final class GetEncryptionByDefaultResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +53,13 @@ public final class GetEncryptionByDefaultResult {
     public static final class Builder {
         private Boolean enabled;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetEncryptionByDefaultResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -72,10 +78,19 @@ public final class GetEncryptionByDefaultResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEncryptionByDefaultResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetEncryptionByDefaultResult build() {
             final var _resultValue = new GetEncryptionByDefaultResult();
             _resultValue.enabled = enabled;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

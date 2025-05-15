@@ -60,6 +60,13 @@ public final class GetOutpostsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.ownerId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Site identifier.
      * 
@@ -81,6 +88,7 @@ public final class GetOutpostsArgs extends com.pulumi.resources.InvokeArgs {
         this.availabilityZone = $.availabilityZone;
         this.availabilityZoneId = $.availabilityZoneId;
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.siteId = $.siteId;
     }
 
@@ -163,6 +171,15 @@ public final class GetOutpostsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

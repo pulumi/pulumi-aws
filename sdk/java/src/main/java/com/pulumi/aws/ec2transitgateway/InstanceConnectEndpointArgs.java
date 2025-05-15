@@ -36,6 +36,21 @@ public final class InstanceConnectEndpointArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * One or more security groups to associate with the endpoint. If you don&#39;t specify a security group, the default security group for the VPC will be associated with the endpoint.
      * 
      */
@@ -91,6 +106,7 @@ public final class InstanceConnectEndpointArgs extends com.pulumi.resources.Reso
 
     private InstanceConnectEndpointArgs(InstanceConnectEndpointArgs $) {
         this.preserveClientIp = $.preserveClientIp;
+        this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
@@ -134,6 +150,27 @@ public final class InstanceConnectEndpointArgs extends com.pulumi.resources.Reso
          */
         public Builder preserveClientIp(Boolean preserveClientIp) {
             return preserveClientIp(Output.of(preserveClientIp));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

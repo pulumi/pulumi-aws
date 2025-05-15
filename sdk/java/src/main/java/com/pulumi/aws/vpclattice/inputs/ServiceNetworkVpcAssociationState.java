@@ -48,6 +48,21 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IDs of the security groups.
      * 
      */
@@ -144,6 +159,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     private ServiceNetworkVpcAssociationState(ServiceNetworkVpcAssociationState $) {
         this.arn = $.arn;
         this.createdBy = $.createdBy;
+        this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
         this.status = $.status;
@@ -210,6 +226,27 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
          */
         public Builder createdBy(String createdBy) {
             return createdBy(Output.of(createdBy));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

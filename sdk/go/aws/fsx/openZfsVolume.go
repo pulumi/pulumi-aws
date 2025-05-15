@@ -72,6 +72,8 @@ type OpenZfsVolume struct {
 	ReadOnly pulumi.BoolOutput `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrOutput `pulumi:"recordSizeKib"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntOutput `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
@@ -138,6 +140,8 @@ type openZfsVolumeState struct {
 	ReadOnly *bool `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
@@ -172,6 +176,8 @@ type OpenZfsVolumeState struct {
 	ReadOnly pulumi.BoolPtrInput
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntPtrInput
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
@@ -208,6 +214,8 @@ type openZfsVolumeArgs struct {
 	ReadOnly *bool `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
@@ -239,6 +247,8 @@ type OpenZfsVolumeArgs struct {
 	ReadOnly pulumi.BoolPtrInput
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntPtrInput
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
@@ -385,6 +395,11 @@ func (o OpenZfsVolumeOutput) ReadOnly() pulumi.BoolOutput {
 // The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 func (o OpenZfsVolumeOutput) RecordSizeKib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntPtrOutput { return v.RecordSizeKib }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OpenZfsVolumeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.

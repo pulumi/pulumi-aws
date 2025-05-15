@@ -28,10 +28,13 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, alias=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_security_group_id=None):
+    def __init__(__self__, alias=None, certificate_based_auth_properties=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, region=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_security_group_id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
+        if certificate_based_auth_properties and not isinstance(certificate_based_auth_properties, list):
+            raise TypeError("Expected argument 'certificate_based_auth_properties' to be a list")
+        pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
         if customer_user_name and not isinstance(customer_user_name, str):
             raise TypeError("Expected argument 'customer_user_name' to be a str")
         pulumi.set(__self__, "customer_user_name", customer_user_name)
@@ -56,6 +59,9 @@ class GetDirectoryResult:
         if ip_group_ids and not isinstance(ip_group_ids, list):
             raise TypeError("Expected argument 'ip_group_ids' to be a list")
         pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if registration_code and not isinstance(registration_code, str):
             raise TypeError("Expected argument 'registration_code' to be a str")
         pulumi.set(__self__, "registration_code", registration_code)
@@ -88,6 +94,11 @@ class GetDirectoryResult:
         Directory alias.
         """
         return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> Sequence['outputs.GetDirectoryCertificateBasedAuthPropertyResult']:
+        return pulumi.get(self, "certificate_based_auth_properties")
 
     @property
     @pulumi.getter(name="customerUserName")
@@ -149,6 +160,11 @@ class GetDirectoryResult:
         Identifiers of the IP access control groups associated with the directory.
         """
         return pulumi.get(self, "ip_group_ids")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registrationCode")
@@ -219,6 +235,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             yield self
         return GetDirectoryResult(
             alias=self.alias,
+            certificate_based_auth_properties=self.certificate_based_auth_properties,
             customer_user_name=self.customer_user_name,
             directory_id=self.directory_id,
             directory_name=self.directory_name,
@@ -227,6 +244,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             iam_role_id=self.iam_role_id,
             id=self.id,
             ip_group_ids=self.ip_group_ids,
+            region=self.region,
             registration_code=self.registration_code,
             saml_properties=self.saml_properties,
             self_service_permissions=self.self_service_permissions,
@@ -238,6 +256,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
 
 
 def get_directory(directory_id: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryResult:
     """
@@ -258,12 +277,14 @@ def get_directory(directory_id: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult).value
 
     return AwaitableGetDirectoryResult(
         alias=pulumi.get(__ret__, 'alias'),
+        certificate_based_auth_properties=pulumi.get(__ret__, 'certificate_based_auth_properties'),
         customer_user_name=pulumi.get(__ret__, 'customer_user_name'),
         directory_id=pulumi.get(__ret__, 'directory_id'),
         directory_name=pulumi.get(__ret__, 'directory_name'),
@@ -272,6 +293,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
         iam_role_id=pulumi.get(__ret__, 'iam_role_id'),
         id=pulumi.get(__ret__, 'id'),
         ip_group_ids=pulumi.get(__ret__, 'ip_group_ids'),
+        region=pulumi.get(__ret__, 'region'),
         registration_code=pulumi.get(__ret__, 'registration_code'),
         saml_properties=pulumi.get(__ret__, 'saml_properties'),
         self_service_permissions=pulumi.get(__ret__, 'self_service_permissions'),
@@ -281,6 +303,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
         workspace_creation_properties=pulumi.get(__ret__, 'workspace_creation_properties'),
         workspace_security_group_id=pulumi.get(__ret__, 'workspace_security_group_id'))
 def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryResult]:
     """
@@ -301,11 +324,13 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult)
     return __ret__.apply(lambda __response__: GetDirectoryResult(
         alias=pulumi.get(__response__, 'alias'),
+        certificate_based_auth_properties=pulumi.get(__response__, 'certificate_based_auth_properties'),
         customer_user_name=pulumi.get(__response__, 'customer_user_name'),
         directory_id=pulumi.get(__response__, 'directory_id'),
         directory_name=pulumi.get(__response__, 'directory_name'),
@@ -314,6 +339,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
         iam_role_id=pulumi.get(__response__, 'iam_role_id'),
         id=pulumi.get(__response__, 'id'),
         ip_group_ids=pulumi.get(__response__, 'ip_group_ids'),
+        region=pulumi.get(__response__, 'region'),
         registration_code=pulumi.get(__response__, 'registration_code'),
         saml_properties=pulumi.get(__response__, 'saml_properties'),
         self_service_permissions=pulumi.get(__response__, 'self_service_permissions'),

@@ -7,6 +7,7 @@ import com.pulumi.aws.dataexchange.inputs.EventActionActionArgs;
 import com.pulumi.aws.dataexchange.inputs.EventActionEventArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -50,11 +51,27 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.event);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private EventActionArgs() {}
 
     private EventActionArgs(EventActionArgs $) {
         this.action = $.action;
         this.event = $.event;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -119,6 +136,27 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder event(EventActionEventArgs event) {
             return event(Output.of(event));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public EventActionArgs build() {

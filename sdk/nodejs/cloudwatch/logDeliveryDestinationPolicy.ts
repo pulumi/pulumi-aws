@@ -65,6 +65,10 @@ export class LogDeliveryDestinationPolicy extends pulumi.CustomResource {
      * The contents of the policy.
      */
     public readonly deliveryDestinationPolicy!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogDeliveryDestinationPolicy resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class LogDeliveryDestinationPolicy extends pulumi.CustomResource {
             const state = argsOrState as LogDeliveryDestinationPolicyState | undefined;
             resourceInputs["deliveryDestinationName"] = state ? state.deliveryDestinationName : undefined;
             resourceInputs["deliveryDestinationPolicy"] = state ? state.deliveryDestinationPolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogDeliveryDestinationPolicyArgs | undefined;
             if ((!args || args.deliveryDestinationName === undefined) && !opts.urn) {
@@ -91,6 +96,7 @@ export class LogDeliveryDestinationPolicy extends pulumi.CustomResource {
             }
             resourceInputs["deliveryDestinationName"] = args ? args.deliveryDestinationName : undefined;
             resourceInputs["deliveryDestinationPolicy"] = args ? args.deliveryDestinationPolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogDeliveryDestinationPolicy.__pulumiType, name, resourceInputs, opts);
@@ -109,6 +115,10 @@ export interface LogDeliveryDestinationPolicyState {
      * The contents of the policy.
      */
     deliveryDestinationPolicy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -123,4 +133,8 @@ export interface LogDeliveryDestinationPolicyArgs {
      * The contents of the policy.
      */
     deliveryDestinationPolicy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

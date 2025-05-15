@@ -25,6 +25,7 @@ class AppArgs:
                  app_name: pulumi.Input[builtins.str],
                  app_type: pulumi.Input[builtins.str],
                  domain_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -34,6 +35,7 @@ class AppArgs:
         :param pulumi.Input[builtins.str] app_name: The name of the app.
         :param pulumi.Input[builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         :param pulumi.Input[builtins.str] domain_id: The domain ID.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
         :param pulumi.Input[builtins.str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -42,6 +44,8 @@ class AppArgs:
         pulumi.set(__self__, "app_name", app_name)
         pulumi.set(__self__, "app_type", app_type)
         pulumi.set(__self__, "domain_id", domain_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_spec is not None:
             pulumi.set(__self__, "resource_spec", resource_spec)
         if space_name is not None:
@@ -86,6 +90,18 @@ class AppArgs:
     @domain_id.setter
     def domain_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "domain_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceSpec")
@@ -143,6 +159,7 @@ class _AppState:
                  app_type: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -154,6 +171,7 @@ class _AppState:
         :param pulumi.Input[builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the app.
         :param pulumi.Input[builtins.str] domain_id: The domain ID.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
         :param pulumi.Input[builtins.str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -168,6 +186,8 @@ class _AppState:
             pulumi.set(__self__, "arn", arn)
         if domain_id is not None:
             pulumi.set(__self__, "domain_id", domain_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_spec is not None:
             pulumi.set(__self__, "resource_spec", resource_spec)
         if space_name is not None:
@@ -226,6 +246,18 @@ class _AppState:
     @domain_id.setter
     def domain_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "domain_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceSpec")
@@ -299,6 +331,7 @@ class App(pulumi.CustomResource):
                  app_name: Optional[pulumi.Input[builtins.str]] = None,
                  app_type: Optional[pulumi.Input[builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_spec: Optional[pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -335,6 +368,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_name: The name of the app.
         :param pulumi.Input[builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         :param pulumi.Input[builtins.str] domain_id: The domain ID.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
         :param pulumi.Input[builtins.str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -390,6 +424,7 @@ class App(pulumi.CustomResource):
                  app_name: Optional[pulumi.Input[builtins.str]] = None,
                  app_type: Optional[pulumi.Input[builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_spec: Optional[pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -412,6 +447,7 @@ class App(pulumi.CustomResource):
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_spec"] = resource_spec
             __props__.__dict__["space_name"] = space_name
             __props__.__dict__["tags"] = tags
@@ -432,6 +468,7 @@ class App(pulumi.CustomResource):
             app_type: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             domain_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_spec: Optional[pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']]] = None,
             space_name: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -448,6 +485,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the app.
         :param pulumi.Input[builtins.str] domain_id: The domain ID.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
         :param pulumi.Input[builtins.str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -462,6 +500,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["app_type"] = app_type
         __props__.__dict__["arn"] = arn
         __props__.__dict__["domain_id"] = domain_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_spec"] = resource_spec
         __props__.__dict__["space_name"] = space_name
         __props__.__dict__["tags"] = tags
@@ -500,6 +539,14 @@ class App(pulumi.CustomResource):
         The domain ID.
         """
         return pulumi.get(self, "domain_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceSpec")

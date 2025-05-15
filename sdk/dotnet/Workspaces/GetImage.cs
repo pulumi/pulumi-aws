@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Workspaces
         [Input("imageId", required: true)]
         public string ImageId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetImageArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetImageInvokeArgs()
         {
@@ -131,6 +137,7 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly string Name;
         public readonly string OperatingSystemType;
+        public readonly string Region;
         /// <summary>
         /// Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
         /// </summary>
@@ -152,6 +159,8 @@ namespace Pulumi.Aws.Workspaces
 
             string operatingSystemType,
 
+            string region,
+
             string requiredTenancy,
 
             string state)
@@ -161,6 +170,7 @@ namespace Pulumi.Aws.Workspaces
             ImageId = imageId;
             Name = name;
             OperatingSystemType = operatingSystemType;
+            Region = region;
             RequiredTenancy = requiredTenancy;
             State = state;
         }

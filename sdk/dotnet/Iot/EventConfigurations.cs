@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Iot
         [Output("eventConfigurations")]
         public Output<ImmutableDictionary<string, bool>> Configurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EventConfigurations resource with the given unique name, arguments, and options.
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Iot
             set => _eventConfigurations = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public EventConfigurationsArgs()
         {
         }
@@ -139,6 +151,12 @@ namespace Pulumi.Aws.Iot
             get => _eventConfigurations ?? (_eventConfigurations = new InputMap<bool>());
             set => _eventConfigurations = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public EventConfigurationsState()
         {

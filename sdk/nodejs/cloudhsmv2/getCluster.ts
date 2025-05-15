@@ -26,6 +26,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("aws:cloudhsmv2/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "clusterState": args.clusterState,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,7 @@ export interface GetClusterArgs {
      * State of the cluster to be found.
      */
     clusterState?: string;
+    region?: string;
 }
 
 /**
@@ -57,6 +59,7 @@ export interface GetClusterResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * ID of the security group associated with the CloudHSM cluster.
      */
@@ -89,6 +92,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     return pulumi.runtime.invokeOutput("aws:cloudhsmv2/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "clusterState": args.clusterState,
+        "region": args.region,
     }, opts);
 }
 
@@ -104,4 +108,5 @@ export interface GetClusterOutputArgs {
      * State of the cluster to be found.
      */
     clusterState?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

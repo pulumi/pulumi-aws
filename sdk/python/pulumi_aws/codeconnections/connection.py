@@ -25,6 +25,7 @@ class ConnectionArgs:
                  host_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ConnectionTimeoutsArgs']] = None):
         """
@@ -32,6 +33,7 @@ class ConnectionArgs:
         :param pulumi.Input[builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if host_arn is not None:
@@ -40,6 +42,8 @@ class ConnectionArgs:
             pulumi.set(__self__, "name", name)
         if provider_type is not None:
             pulumi.set(__self__, "provider_type", provider_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -83,6 +87,18 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -112,6 +128,7 @@ class _ConnectionState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ConnectionTimeoutsArgs']] = None):
@@ -122,6 +139,7 @@ class _ConnectionState:
         :param pulumi.Input[builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -137,6 +155,8 @@ class _ConnectionState:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
         if provider_type is not None:
             pulumi.set(__self__, "provider_type", provider_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -215,6 +235,18 @@ class _ConnectionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -258,6 +290,7 @@ class Connection(pulumi.CustomResource):
                  host_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ConnectionTimeoutsArgs', 'ConnectionTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -292,6 +325,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -344,6 +378,7 @@ class Connection(pulumi.CustomResource):
                  host_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ConnectionTimeoutsArgs', 'ConnectionTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -358,6 +393,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["host_arn"] = host_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["provider_type"] = provider_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -380,6 +416,7 @@ class Connection(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
             provider_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['ConnectionTimeoutsArgs', 'ConnectionTimeoutsArgsDict']]] = None) -> 'Connection':
@@ -395,6 +432,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -408,6 +446,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["provider_type"] = provider_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -457,6 +496,14 @@ class Connection(pulumi.CustomResource):
         The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
         """
         return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

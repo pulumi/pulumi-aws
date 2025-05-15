@@ -112,6 +112,8 @@ type LifecycleHook struct {
 	NotificationMetadata pulumi.StringPtrOutput `pulumi:"notificationMetadata"`
 	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
 	NotificationTargetArn pulumi.StringPtrOutput `pulumi:"notificationTargetArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 }
@@ -166,6 +168,8 @@ type lifecycleHookState struct {
 	NotificationMetadata *string `pulumi:"notificationMetadata"`
 	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
 	NotificationTargetArn *string `pulumi:"notificationTargetArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
 	RoleArn *string `pulumi:"roleArn"`
 }
@@ -185,6 +189,8 @@ type LifecycleHookState struct {
 	NotificationMetadata pulumi.StringPtrInput
 	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
 	NotificationTargetArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
 	RoleArn pulumi.StringPtrInput
 }
@@ -208,6 +214,8 @@ type lifecycleHookArgs struct {
 	NotificationMetadata *string `pulumi:"notificationMetadata"`
 	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
 	NotificationTargetArn *string `pulumi:"notificationTargetArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
 	RoleArn *string `pulumi:"roleArn"`
 }
@@ -228,6 +236,8 @@ type LifecycleHookArgs struct {
 	NotificationMetadata pulumi.StringPtrInput
 	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
 	NotificationTargetArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
 	RoleArn pulumi.StringPtrInput
 }
@@ -352,6 +362,11 @@ func (o LifecycleHookOutput) NotificationMetadata() pulumi.StringPtrOutput {
 // ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
 func (o LifecycleHookOutput) NotificationTargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecycleHook) pulumi.StringPtrOutput { return v.NotificationTargetArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LifecycleHookOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LifecycleHook) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.

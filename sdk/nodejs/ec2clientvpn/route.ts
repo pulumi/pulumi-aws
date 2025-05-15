@@ -90,6 +90,10 @@ export class Route extends pulumi.CustomResource {
      */
     public /*out*/ readonly origin!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      */
     public readonly targetVpcSubnetId!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             resourceInputs["origin"] = state ? state.origin : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetVpcSubnetId"] = state ? state.targetVpcSubnetId : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
@@ -131,6 +136,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetVpcSubnetId"] = args ? args.targetVpcSubnetId : undefined;
             resourceInputs["origin"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -161,6 +167,10 @@ export interface RouteState {
      */
     origin?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      */
     targetVpcSubnetId?: pulumi.Input<string>;
@@ -186,6 +196,10 @@ export interface RouteArgs {
      * The IPv4 address range, in CIDR notation, of the route destination.
      */
     destinationCidrBlock: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      */

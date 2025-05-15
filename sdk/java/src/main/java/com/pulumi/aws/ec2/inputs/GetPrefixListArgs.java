@@ -20,12 +20,20 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * prefix lists. The given filters must match exactly one prefix list
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetPrefixListFilterArgs>> filters;
 
     /**
      * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * prefix lists. The given filters must match exactly one prefix list
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetPrefixListFilterArgs>>> filters() {
@@ -62,12 +70,20 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.prefixListId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPrefixListArgs() {}
 
     private GetPrefixListArgs(GetPrefixListArgs $) {
         this.filters = $.filters;
         this.name = $.name;
         this.prefixListId = $.prefixListId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -91,6 +107,10 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * prefix lists. The given filters must match exactly one prefix list
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +122,10 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * prefix lists. The given filters must match exactly one prefix list
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -111,6 +135,10 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * prefix lists. The given filters must match exactly one prefix list
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -159,6 +187,15 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder prefixListId(String prefixListId) {
             return prefixListId(Output.of(prefixListId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetPrefixListArgs build() {

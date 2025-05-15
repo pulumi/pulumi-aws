@@ -28,6 +28,7 @@ public final class GetPatchBaselinesResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetPatchBaselinesResult() {}
     /**
@@ -50,6 +51,9 @@ public final class GetPatchBaselinesResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,6 +68,7 @@ public final class GetPatchBaselinesResult {
         private @Nullable Boolean defaultBaselines;
         private @Nullable List<GetPatchBaselinesFilter> filters;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetPatchBaselinesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,6 +76,7 @@ public final class GetPatchBaselinesResult {
     	      this.defaultBaselines = defaults.defaultBaselines;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -107,12 +113,21 @@ public final class GetPatchBaselinesResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselinesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetPatchBaselinesResult build() {
             final var _resultValue = new GetPatchBaselinesResult();
             _resultValue.baselineIdentities = baselineIdentities;
             _resultValue.defaultBaselines = defaultBaselines;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

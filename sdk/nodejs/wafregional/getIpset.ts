@@ -22,6 +22,7 @@ export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getIpset:getIpset", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetIpsetArgs {
      * Name of the WAF Regional IP set.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -44,6 +46,7 @@ export interface GetIpsetResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
@@ -63,6 +66,7 @@ export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafregional/getIpset:getIpset", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -74,4 +78,5 @@ export interface GetIpsetOutputArgs {
      * Name of the WAF Regional IP set.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

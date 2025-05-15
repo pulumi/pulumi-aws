@@ -105,6 +105,9 @@ namespace Pulumi.Aws.Outposts
         [Input("ownerId")]
         public string? OwnerId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Site identifier.
         /// </summary>
@@ -137,6 +140,9 @@ namespace Pulumi.Aws.Outposts
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Site identifier.
         /// </summary>
@@ -168,6 +174,7 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string OwnerId;
+        public readonly string Region;
         public readonly string SiteId;
 
         [OutputConstructor]
@@ -184,6 +191,8 @@ namespace Pulumi.Aws.Outposts
 
             string ownerId,
 
+            string region,
+
             string siteId)
         {
             Arns = arns;
@@ -192,6 +201,7 @@ namespace Pulumi.Aws.Outposts
             Id = id;
             Ids = ids;
             OwnerId = ownerId;
+            Region = region;
             SiteId = siteId;
         }
     }

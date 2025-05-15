@@ -181,6 +181,20 @@ public class Bucket extends com.pulumi.resources.CustomResource {
         return this.bucketPrefix;
     }
     /**
+     * AWS region this bucket resides in.
+     * 
+     */
+    @Export(name="bucketRegion", refs={String.class}, tree="[0]")
+    private Output<String> bucketRegion;
+
+    /**
+     * @return AWS region this bucket resides in.
+     * 
+     */
+    public Output<String> bucketRegion() {
+        return this.bucketRegion;
+    }
+    /**
      * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      * 
      */
@@ -357,14 +371,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
         return this.policy;
     }
     /**
-     * AWS region this bucket resides in.
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return AWS region this bucket resides in.
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

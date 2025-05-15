@@ -76,6 +76,8 @@ type CodeSigningConfig struct {
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies CodeSigningConfigPoliciesOutput `pulumi:"policies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -127,6 +129,8 @@ type codeSigningConfigState struct {
 	LastModified *string `pulumi:"lastModified"`
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies *CodeSigningConfigPolicies `pulumi:"policies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -146,6 +150,8 @@ type CodeSigningConfigState struct {
 	LastModified pulumi.StringPtrInput
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies CodeSigningConfigPoliciesPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -163,6 +169,8 @@ type codeSigningConfigArgs struct {
 	Description *string `pulumi:"description"`
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies *CodeSigningConfigPolicies `pulumi:"policies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -175,6 +183,8 @@ type CodeSigningConfigArgs struct {
 	Description pulumi.StringPtrInput
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies CodeSigningConfigPoliciesPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -294,6 +304,11 @@ func (o CodeSigningConfigOutput) LastModified() pulumi.StringOutput {
 // A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 func (o CodeSigningConfigOutput) Policies() CodeSigningConfigPoliciesOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfigPoliciesOutput { return v.Policies }).(CodeSigningConfigPoliciesOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CodeSigningConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

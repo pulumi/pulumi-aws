@@ -44,6 +44,7 @@ public final class GetCodeSigningConfigResult {
      * 
      */
     private List<GetCodeSigningConfigPolicy> policies;
+    private String region;
 
     private GetCodeSigningConfigResult() {}
     /**
@@ -91,6 +92,9 @@ public final class GetCodeSigningConfigResult {
     public List<GetCodeSigningConfigPolicy> policies() {
         return this.policies;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -108,6 +112,7 @@ public final class GetCodeSigningConfigResult {
         private String id;
         private String lastModified;
         private List<GetCodeSigningConfigPolicy> policies;
+        private String region;
         public Builder() {}
         public Builder(GetCodeSigningConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -118,6 +123,7 @@ public final class GetCodeSigningConfigResult {
     	      this.id = defaults.id;
     	      this.lastModified = defaults.lastModified;
     	      this.policies = defaults.policies;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -182,6 +188,14 @@ public final class GetCodeSigningConfigResult {
         public Builder policies(GetCodeSigningConfigPolicy... policies) {
             return policies(List.of(policies));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetCodeSigningConfigResult build() {
             final var _resultValue = new GetCodeSigningConfigResult();
             _resultValue.allowedPublishers = allowedPublishers;
@@ -191,6 +205,7 @@ public final class GetCodeSigningConfigResult {
             _resultValue.id = id;
             _resultValue.lastModified = lastModified;
             _resultValue.policies = policies;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

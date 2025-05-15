@@ -173,6 +173,21 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
@@ -267,6 +282,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         this.parentVolumeId = $.parentVolumeId;
         this.readOnly = $.readOnly;
         this.recordSizeKib = $.recordSizeKib;
+        this.region = $.region;
         this.storageCapacityQuotaGib = $.storageCapacityQuotaGib;
         this.storageCapacityReservationGib = $.storageCapacityReservationGib;
         this.tags = $.tags;
@@ -501,6 +517,27 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder recordSizeKib(Integer recordSizeKib) {
             return recordSizeKib(Output.of(recordSizeKib));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

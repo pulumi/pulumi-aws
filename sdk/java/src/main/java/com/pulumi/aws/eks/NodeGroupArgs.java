@@ -207,6 +207,21 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      * 
      */
@@ -345,6 +360,7 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.nodeGroupNamePrefix = $.nodeGroupNamePrefix;
         this.nodeRepairConfig = $.nodeRepairConfig;
         this.nodeRoleArn = $.nodeRoleArn;
+        this.region = $.region;
         this.releaseVersion = $.releaseVersion;
         this.remoteAccess = $.remoteAccess;
         this.scalingConfig = $.scalingConfig;
@@ -633,6 +649,27 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nodeRoleArn(String nodeRoleArn) {
             return nodeRoleArn(Output.of(nodeRoleArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

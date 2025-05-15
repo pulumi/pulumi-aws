@@ -34,6 +34,7 @@ class BranchArgs:
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None):
@@ -53,6 +54,7 @@ class BranchArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] ttl: Content Time To Live (TTL) for the website in seconds.
@@ -83,6 +85,8 @@ class BranchArgs:
             pulumi.set(__self__, "framework", framework)
         if pull_request_environment_name is not None:
             pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if stage is not None:
             pulumi.set(__self__, "stage", stage)
         if tags is not None:
@@ -260,6 +264,18 @@ class BranchArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
@@ -316,6 +332,7 @@ class _BranchState:
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_branch: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -341,6 +358,7 @@ class _BranchState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_branch: Source branch if the branch is a pull request branch.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -383,6 +401,8 @@ class _BranchState:
             pulumi.set(__self__, "framework", framework)
         if pull_request_environment_name is not None:
             pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_branch is not None:
             pulumi.set(__self__, "source_branch", source_branch)
         if stage is not None:
@@ -611,6 +631,18 @@ class _BranchState:
         pulumi.set(self, "pull_request_environment_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceBranch")
     def source_branch(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -693,6 +725,7 @@ class Branch(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None,
@@ -826,6 +859,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] ttl: Content Time To Live (TTL) for the website in seconds.
@@ -978,6 +1012,7 @@ class Branch(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None,
@@ -1008,6 +1043,7 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["framework"] = framework
             __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["stage"] = stage
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ttl"] = ttl
@@ -1047,6 +1083,7 @@ class Branch(pulumi.CustomResource):
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             framework: Optional[pulumi.Input[builtins.str]] = None,
             pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_branch: Optional[pulumi.Input[builtins.str]] = None,
             stage: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1077,6 +1114,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_branch: Source branch if the branch is a pull request branch.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1105,6 +1143,7 @@ class Branch(pulumi.CustomResource):
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["framework"] = framework
         __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_branch"] = source_branch
         __props__.__dict__["stage"] = stage
         __props__.__dict__["tags"] = tags
@@ -1255,6 +1294,14 @@ class Branch(pulumi.CustomResource):
         Amplify environment name for the pull request.
         """
         return pulumi.get(self, "pull_request_environment_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sourceBranch")

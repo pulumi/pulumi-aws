@@ -95,6 +95,10 @@ export class DefaultVpc extends pulumi.CustomResource {
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -131,6 +135,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
             resourceInputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -144,6 +149,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
             resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
@@ -196,6 +202,10 @@ export interface DefaultVpcState {
     ipv6NetmaskLength?: pulumi.Input<number>;
     mainRouteTableId?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -216,5 +226,9 @@ export interface DefaultVpcArgs {
     ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
     ipv6IpamPoolId?: pulumi.Input<string>;
     ipv6NetmaskLength?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

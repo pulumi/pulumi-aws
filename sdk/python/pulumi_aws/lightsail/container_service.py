@@ -28,6 +28,7 @@ class ContainerServiceArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
                  public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContainerService resource.
@@ -45,6 +46,7 @@ class ContainerServiceArgs:
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
                configured with a provider
                `default_tags` configuration block
@@ -60,6 +62,8 @@ class ContainerServiceArgs:
             pulumi.set(__self__, "private_registry_access", private_registry_access)
         if public_domain_names is not None:
             pulumi.set(__self__, "public_domain_names", public_domain_names)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -145,6 +149,18 @@ class ContainerServiceArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
@@ -173,6 +189,7 @@ class _ContainerServiceState:
                  private_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
                  public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  scale: Optional[pulumi.Input[builtins.int]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
@@ -201,6 +218,7 @@ class _ContainerServiceState:
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The Lightsail resource type of the container service (i.e., ContainerService).
         :param pulumi.Input[builtins.int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
@@ -236,6 +254,8 @@ class _ContainerServiceState:
             pulumi.set(__self__, "private_registry_access", private_registry_access)
         if public_domain_names is not None:
             pulumi.set(__self__, "public_domain_names", public_domain_names)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if scale is not None:
@@ -389,6 +409,18 @@ class _ContainerServiceState:
         pulumi.set(self, "public_domain_names", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -480,6 +512,7 @@ class ContainerService(pulumi.CustomResource):
                  power: Optional[pulumi.Input[builtins.str]] = None,
                  private_registry_access: Optional[pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
                  public_domain_names: Optional[pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scale: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -573,6 +606,7 @@ class ContainerService(pulumi.CustomResource):
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
@@ -682,6 +716,7 @@ class ContainerService(pulumi.CustomResource):
                  power: Optional[pulumi.Input[builtins.str]] = None,
                  private_registry_access: Optional[pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
                  public_domain_names: Optional[pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scale: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -700,6 +735,7 @@ class ContainerService(pulumi.CustomResource):
             __props__.__dict__["power"] = power
             __props__.__dict__["private_registry_access"] = private_registry_access
             __props__.__dict__["public_domain_names"] = public_domain_names
+            __props__.__dict__["region"] = region
             if scale is None and not opts.urn:
                 raise TypeError("Missing required property 'scale'")
             __props__.__dict__["scale"] = scale
@@ -735,6 +771,7 @@ class ContainerService(pulumi.CustomResource):
             private_domain_name: Optional[pulumi.Input[builtins.str]] = None,
             private_registry_access: Optional[pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
             public_domain_names: Optional[pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None,
             scale: Optional[pulumi.Input[builtins.int]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
@@ -768,6 +805,7 @@ class ContainerService(pulumi.CustomResource):
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The Lightsail resource type of the container service (i.e., ContainerService).
         :param pulumi.Input[builtins.int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
@@ -796,6 +834,7 @@ class ContainerService(pulumi.CustomResource):
         __props__.__dict__["private_domain_name"] = private_domain_name
         __props__.__dict__["private_registry_access"] = private_registry_access
         __props__.__dict__["public_domain_names"] = public_domain_names
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["scale"] = scale
         __props__.__dict__["state"] = state
@@ -898,6 +937,14 @@ class ContainerService(pulumi.CustomResource):
         Defined below.
         """
         return pulumi.get(self, "public_domain_names")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceType")

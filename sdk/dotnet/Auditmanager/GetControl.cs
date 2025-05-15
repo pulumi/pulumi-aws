@@ -261,19 +261,14 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class GetControlArgs : global::Pulumi.InvokeArgs
     {
-        [Input("controlMappingSources")]
-        private List<Inputs.GetControlControlMappingSourceArgs>? _controlMappingSources;
-        public List<Inputs.GetControlControlMappingSourceArgs> ControlMappingSources
-        {
-            get => _controlMappingSources ?? (_controlMappingSources = new List<Inputs.GetControlControlMappingSourceArgs>());
-            set => _controlMappingSources = value;
-        }
-
         /// <summary>
         /// Name of the control.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// Type of control. Valid values are `Custom` and `Standard`.
@@ -289,19 +284,14 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class GetControlInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("controlMappingSources")]
-        private InputList<Inputs.GetControlControlMappingSourceInputArgs>? _controlMappingSources;
-        public InputList<Inputs.GetControlControlMappingSourceInputArgs> ControlMappingSources
-        {
-            get => _controlMappingSources ?? (_controlMappingSources = new InputList<Inputs.GetControlControlMappingSourceInputArgs>());
-            set => _controlMappingSources = value;
-        }
-
         /// <summary>
         /// Name of the control.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of control. Valid values are `Custom` and `Standard`.
@@ -326,6 +316,7 @@ namespace Pulumi.Aws.Auditmanager
         public readonly string Description;
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string TestingInformation;
         public readonly string Type;
@@ -346,6 +337,8 @@ namespace Pulumi.Aws.Auditmanager
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string testingInformation,
@@ -359,6 +352,7 @@ namespace Pulumi.Aws.Auditmanager
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             Tags = tags;
             TestingInformation = testingInformation;
             Type = type;

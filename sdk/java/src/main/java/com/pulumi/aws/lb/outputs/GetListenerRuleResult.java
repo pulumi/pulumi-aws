@@ -40,6 +40,7 @@ public final class GetListenerRuleResult {
     private String id;
     private String listenerArn;
     private Integer priority;
+    private String region;
     /**
      * @return Tags assigned to the Listener Rule.
      * 
@@ -83,6 +84,9 @@ public final class GetListenerRuleResult {
     public Integer priority() {
         return this.priority;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Tags assigned to the Listener Rule.
      * 
@@ -106,6 +110,7 @@ public final class GetListenerRuleResult {
         private String id;
         private String listenerArn;
         private Integer priority;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetListenerRuleResult defaults) {
@@ -116,6 +121,7 @@ public final class GetListenerRuleResult {
     	      this.id = defaults.id;
     	      this.listenerArn = defaults.listenerArn;
     	      this.priority = defaults.priority;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -170,6 +176,14 @@ public final class GetListenerRuleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetListenerRuleResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetListenerRuleResult", "tags");
@@ -185,6 +199,7 @@ public final class GetListenerRuleResult {
             _resultValue.id = id;
             _resultValue.listenerArn = listenerArn;
             _resultValue.priority = priority;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

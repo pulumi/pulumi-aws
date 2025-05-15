@@ -40,6 +40,7 @@ public final class GetPortfolioResult {
      * 
      */
     private String providerName;
+    private String region;
     /**
      * @return Tags applied to the portfolio.
      * 
@@ -88,6 +89,9 @@ public final class GetPortfolioResult {
     public String providerName() {
         return this.providerName;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Tags applied to the portfolio.
      * 
@@ -112,6 +116,7 @@ public final class GetPortfolioResult {
         private String id;
         private String name;
         private String providerName;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetPortfolioResult defaults) {
@@ -123,6 +128,7 @@ public final class GetPortfolioResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.providerName = defaults.providerName;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -181,6 +187,14 @@ public final class GetPortfolioResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPortfolioResult", "tags");
@@ -197,6 +211,7 @@ public final class GetPortfolioResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.providerName = providerName;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

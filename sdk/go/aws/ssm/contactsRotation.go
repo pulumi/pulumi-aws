@@ -202,6 +202,8 @@ type ContactsRotation struct {
 	//
 	// The following arguments are optional:
 	Recurrence ContactsRotationRecurrencePtrOutput `pulumi:"recurrence"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -258,6 +260,8 @@ type contactsRotationState struct {
 	//
 	// The following arguments are optional:
 	Recurrence *ContactsRotationRecurrence `pulumi:"recurrence"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime *string `pulumi:"startTime"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -279,6 +283,8 @@ type ContactsRotationState struct {
 	//
 	// The following arguments are optional:
 	Recurrence ContactsRotationRecurrencePtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -302,6 +308,8 @@ type contactsRotationArgs struct {
 	//
 	// The following arguments are optional:
 	Recurrence *ContactsRotationRecurrence `pulumi:"recurrence"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime *string `pulumi:"startTime"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -320,6 +328,8 @@ type ContactsRotationArgs struct {
 	//
 	// The following arguments are optional:
 	Recurrence ContactsRotationRecurrencePtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -435,6 +445,11 @@ func (o ContactsRotationOutput) Name() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ContactsRotationOutput) Recurrence() ContactsRotationRecurrencePtrOutput {
 	return o.ApplyT(func(v *ContactsRotation) ContactsRotationRecurrencePtrOutput { return v.Recurrence }).(ContactsRotationRecurrencePtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ContactsRotationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactsRotation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The date and time, in RFC 3339 format, that the rotation goes into effect.

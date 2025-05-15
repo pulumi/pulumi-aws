@@ -145,6 +145,21 @@ public final class ReceiptRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the rule set
      * 
      */
@@ -260,6 +275,7 @@ public final class ReceiptRuleState extends com.pulumi.resources.ResourceArgs {
         this.lambdaActions = $.lambdaActions;
         this.name = $.name;
         this.recipients = $.recipients;
+        this.region = $.region;
         this.ruleSetName = $.ruleSetName;
         this.s3Actions = $.s3Actions;
         this.scanEnabled = $.scanEnabled;
@@ -493,6 +509,27 @@ public final class ReceiptRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder recipients(String... recipients) {
             return recipients(List.of(recipients));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

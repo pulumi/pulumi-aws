@@ -62,6 +62,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
     public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -82,6 +86,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["apiId"] = state ? state.apiId : undefined;
             resourceInputs["autoDeployed"] = state ? state.autoDeployed : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
@@ -90,6 +95,7 @@ export class Deployment extends pulumi.CustomResource {
             }
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["autoDeployed"] = undefined /*out*/;
         }
@@ -115,6 +121,10 @@ export interface DeploymentState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -132,6 +142,10 @@ export interface DeploymentArgs {
      * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */

@@ -323,6 +323,8 @@ type EventSourceMapping struct {
 	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrOutput `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrOutput `pulumi:"queues"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrOutput `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -428,6 +430,8 @@ type eventSourceMappingState struct {
 	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues *string `pulumi:"queues"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -501,6 +505,8 @@ type EventSourceMappingState struct {
 	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrInput
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -570,6 +576,8 @@ type eventSourceMappingArgs struct {
 	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues *string `pulumi:"queues"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -628,6 +636,8 @@ type EventSourceMappingArgs struct {
 	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrInput
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -849,6 +859,11 @@ func (o EventSourceMappingOutput) ProvisionedPollerConfig() EventSourceMappingPr
 // The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 func (o EventSourceMappingOutput) Queues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.Queues }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventSourceMappingOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Scaling configuration of the event source. Only available for SQS queues. Detailed below.

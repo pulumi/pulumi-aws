@@ -77,6 +77,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<Outputs.ReservedCacheNodeRecurringCharge>> RecurringCharges { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the reserved cache node offering to purchase.
         /// To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
         /// 
@@ -172,6 +178,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<int>? CacheNodeCount { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the reserved cache node offering to purchase.
         /// To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
         /// 
@@ -257,6 +269,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _recurringCharges ?? (_recurringCharges = new InputList<Inputs.ReservedCacheNodeRecurringChargeGetArgs>());
             set => _recurringCharges = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the reserved cache node offering to purchase.

@@ -24,6 +24,7 @@ class ChannelArgs:
                  latency_mode: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -32,6 +33,7 @@ class ChannelArgs:
         :param pulumi.Input[builtins.str] latency_mode: Channel latency mode. Valid values: `NORMAL`, `LOW`.
         :param pulumi.Input[builtins.str] name: Channel name.
         :param pulumi.Input[builtins.str] recording_configuration_arn: Recording configuration ARN.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """
@@ -43,6 +45,8 @@ class ChannelArgs:
             pulumi.set(__self__, "name", name)
         if recording_configuration_arn is not None:
             pulumi.set(__self__, "recording_configuration_arn", recording_configuration_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
@@ -98,6 +102,18 @@ class ChannelArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -131,6 +147,7 @@ class _ChannelState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  playback_url: Optional[pulumi.Input[builtins.str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
@@ -143,6 +160,7 @@ class _ChannelState:
         :param pulumi.Input[builtins.str] name: Channel name.
         :param pulumi.Input[builtins.str] playback_url: Channel playback URL.
         :param pulumi.Input[builtins.str] recording_configuration_arn: Recording configuration ARN.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
@@ -161,6 +179,8 @@ class _ChannelState:
             pulumi.set(__self__, "playback_url", playback_url)
         if recording_configuration_arn is not None:
             pulumi.set(__self__, "recording_configuration_arn", recording_configuration_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -254,6 +274,18 @@ class _ChannelState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -301,6 +333,7 @@ class Channel(pulumi.CustomResource):
                  latency_mode: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -332,6 +365,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] latency_mode: Channel latency mode. Valid values: `NORMAL`, `LOW`.
         :param pulumi.Input[builtins.str] name: Channel name.
         :param pulumi.Input[builtins.str] recording_configuration_arn: Recording configuration ARN.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """
@@ -382,6 +416,7 @@ class Channel(pulumi.CustomResource):
                  latency_mode: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -397,6 +432,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["latency_mode"] = latency_mode
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_configuration_arn"] = recording_configuration_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
@@ -420,6 +456,7 @@ class Channel(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             playback_url: Optional[pulumi.Input[builtins.str]] = None,
             recording_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'Channel':
@@ -437,6 +474,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Channel name.
         :param pulumi.Input[builtins.str] playback_url: Channel playback URL.
         :param pulumi.Input[builtins.str] recording_configuration_arn: Recording configuration ARN.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
@@ -452,6 +490,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["playback_url"] = playback_url
         __props__.__dict__["recording_configuration_arn"] = recording_configuration_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
@@ -512,6 +551,14 @@ class Channel(pulumi.CustomResource):
         Recording configuration ARN.
         """
         return pulumi.get(self, "recording_configuration_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

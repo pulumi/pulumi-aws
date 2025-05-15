@@ -122,6 +122,13 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.passwordLength);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      * 
@@ -147,6 +154,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         this.excludeUppercase = $.excludeUppercase;
         this.includeSpace = $.includeSpace;
         this.passwordLength = $.passwordLength;
+        this.region = $.region;
         this.requireEachIncludedType = $.requireEachIncludedType;
     }
 
@@ -313,6 +321,15 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder passwordLength(Integer passwordLength) {
             return passwordLength(Output.of(passwordLength));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

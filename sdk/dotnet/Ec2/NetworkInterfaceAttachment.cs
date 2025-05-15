@@ -68,6 +68,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the Network Interface Attachment.
         /// </summary>
         [Output("status")]
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.Ec2
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public NetworkInterfaceAttachmentArgs()
         {
         }
@@ -168,6 +180,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The status of the Network Interface Attachment.

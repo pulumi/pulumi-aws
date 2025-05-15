@@ -91,6 +91,10 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The lifecycle state of the association when you associate or disassociate a resource discovery.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
             resourceInputs["ipamResourceDiscoveryId"] = state ? state.ipamResourceDiscoveryId : undefined;
             resourceInputs["isDefault"] = state ? state.isDefault : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -136,6 +141,7 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
             }
             resourceInputs["ipamId"] = args ? args.ipamId : undefined;
             resourceInputs["ipamResourceDiscoveryId"] = args ? args.ipamResourceDiscoveryId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
@@ -183,6 +189,10 @@ export interface VpcIpamResourceDiscoveryAssociationState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The lifecycle state of the association when you associate or disassociate a resource discovery.
      */
     state?: pulumi.Input<string>;
@@ -208,6 +218,10 @@ export interface VpcIpamResourceDiscoveryAssociationArgs {
      * The ID of the Resource Discovery to associate.
      */
     ipamResourceDiscoveryId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to add to the IPAM resource discovery association resource.
      */

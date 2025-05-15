@@ -73,6 +73,10 @@ export class UserProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
     public readonly singleSignOnUserIdentifier!: pulumi.Output<string | undefined>;
@@ -113,6 +117,7 @@ export class UserProfile extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["singleSignOnUserIdentifier"] = state ? state.singleSignOnUserIdentifier : undefined;
             resourceInputs["singleSignOnUserValue"] = state ? state.singleSignOnUserValue : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -128,6 +133,7 @@ export class UserProfile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userProfileName'");
             }
             resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
             resourceInputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -158,6 +164,10 @@ export interface UserProfileState {
      * The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
      */
     homeEfsFileSystemUid?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
@@ -192,6 +202,10 @@ export interface UserProfileArgs {
      * The ID of the associated Domain.
      */
     domainId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */

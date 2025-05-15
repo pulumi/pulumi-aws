@@ -121,6 +121,12 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableArray<Outputs.ThemePermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The theme creation status.
         /// </summary>
         [Output("status")]
@@ -240,6 +246,12 @@ namespace Pulumi.Aws.Quicksight
             set => _permissions = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -250,18 +262,6 @@ namespace Pulumi.Aws.Quicksight
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -339,6 +339,12 @@ namespace Pulumi.Aws.Quicksight
             get => _permissions ?? (_permissions = new InputList<Inputs.ThemePermissionGetArgs>());
             set => _permissions = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The theme creation status.

@@ -22,6 +22,7 @@ public final class GetSiteResult {
     private String description;
     private String id;
     private String name;
+    private String region;
 
     private GetSiteResult() {}
     /**
@@ -44,6 +45,9 @@ public final class GetSiteResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -58,6 +62,7 @@ public final class GetSiteResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetSiteResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -65,6 +70,7 @@ public final class GetSiteResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -99,12 +105,21 @@ public final class GetSiteResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSiteResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetSiteResult build() {
             final var _resultValue = new GetSiteResult();
             _resultValue.accountId = accountId;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -144,6 +144,10 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly phoneNumber!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A block that specifies the customer’s shipping address. Documented below.
      */
     public readonly shippingAddress!: pulumi.Output<outputs.customerprofiles.ProfileShippingAddress | undefined>;
@@ -182,6 +186,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["partyTypeString"] = state ? state.partyTypeString : undefined;
             resourceInputs["personalEmailAddress"] = state ? state.personalEmailAddress : undefined;
             resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["shippingAddress"] = state ? state.shippingAddress : undefined;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
@@ -209,6 +214,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["partyTypeString"] = args ? args.partyTypeString : undefined;
             resourceInputs["personalEmailAddress"] = args ? args.personalEmailAddress : undefined;
             resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -307,6 +313,10 @@ export interface ProfileState {
      */
     phoneNumber?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A block that specifies the customer’s shipping address. Documented below.
      */
     shippingAddress?: pulumi.Input<inputs.customerprofiles.ProfileShippingAddress>;
@@ -402,6 +412,10 @@ export interface ProfileArgs {
      * The customer’s phone number, which has not been specified as a mobile, home, or business number.
      */
     phoneNumber?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that specifies the customer’s shipping address. Documented below.
      */

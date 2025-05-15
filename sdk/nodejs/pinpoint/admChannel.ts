@@ -75,6 +75,10 @@ export class AdmChannel extends pulumi.CustomResource {
      * Specifies whether to enable the channel. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AdmChannel resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class AdmChannel extends pulumi.CustomResource {
             resourceInputs["clientId"] = state ? state.clientId : undefined;
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AdmChannelArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -108,6 +113,7 @@ export class AdmChannel extends pulumi.CustomResource {
             resourceInputs["clientId"] = args?.clientId ? pulumi.secret(args.clientId) : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientId", "clientSecret"] };
@@ -136,6 +142,10 @@ export interface AdmChannelState {
      * Specifies whether to enable the channel. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -158,4 +168,8 @@ export interface AdmChannelArgs {
      * Specifies whether to enable the channel. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

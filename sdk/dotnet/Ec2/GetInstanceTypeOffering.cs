@@ -165,6 +165,9 @@ namespace Pulumi.Aws.Ec2
             set => _preferredInstanceTypes = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetInstanceTypeOfferingArgs()
         {
         }
@@ -203,6 +206,9 @@ namespace Pulumi.Aws.Ec2
             set => _preferredInstanceTypes = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetInstanceTypeOfferingInvokeArgs()
         {
         }
@@ -224,6 +230,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string InstanceType;
         public readonly string? LocationType;
         public readonly ImmutableArray<string> PreferredInstanceTypes;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetInstanceTypeOfferingResult(
@@ -235,13 +242,16 @@ namespace Pulumi.Aws.Ec2
 
             string? locationType,
 
-            ImmutableArray<string> preferredInstanceTypes)
+            ImmutableArray<string> preferredInstanceTypes,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             InstanceType = instanceType;
             LocationType = locationType;
             PreferredInstanceTypes = preferredInstanceTypes;
+            Region = region;
         }
     }
 }

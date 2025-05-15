@@ -60,6 +60,12 @@ namespace Pulumi.Aws.DirectConnect
         [Output("lagId")]
         public Output<string> LagId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ConnectionAssociation resource with the given unique name, arguments, and options.
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.DirectConnect
         [Input("lagId", required: true)]
         public Input<string> LagId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ConnectionAssociationArgs()
         {
         }
@@ -137,6 +149,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("lagId")]
         public Input<string>? LagId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ConnectionAssociationState()
         {

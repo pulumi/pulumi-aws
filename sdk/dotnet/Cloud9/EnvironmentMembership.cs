@@ -67,6 +67,12 @@ namespace Pulumi.Aws.Cloud9
         public Output<string> Permissions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the environment member you want to add.
         /// </summary>
         [Output("userArn")]
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.Cloud9
         public Input<string> Permissions { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the environment member you want to add.
         /// </summary>
         [Input("userArn", required: true)]
@@ -161,6 +173,12 @@ namespace Pulumi.Aws.Cloud9
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the environment member you want to add.

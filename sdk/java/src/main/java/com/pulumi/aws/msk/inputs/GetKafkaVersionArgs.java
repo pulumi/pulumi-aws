@@ -31,6 +31,13 @@ public final class GetKafkaVersionArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.preferredVersions);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferred_versions` or `version` must be set.
      * 
@@ -50,6 +57,7 @@ public final class GetKafkaVersionArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetKafkaVersionArgs(GetKafkaVersionArgs $) {
         this.preferredVersions = $.preferredVersions;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -100,6 +108,15 @@ public final class GetKafkaVersionArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -96,6 +96,10 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -126,6 +130,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -140,6 +145,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface DedicatedHostState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -232,6 +242,10 @@ export interface DedicatedHostArgs {
      * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
      */
     outpostArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

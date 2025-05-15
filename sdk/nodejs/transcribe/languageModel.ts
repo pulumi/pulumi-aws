@@ -127,6 +127,10 @@ export class LanguageModel extends pulumi.CustomResource {
      * The model name.
      */
     public readonly modelName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -148,6 +152,7 @@ export class LanguageModel extends pulumi.CustomResource {
             resourceInputs["inputDataConfig"] = state ? state.inputDataConfig : undefined;
             resourceInputs["languageCode"] = state ? state.languageCode : undefined;
             resourceInputs["modelName"] = state ? state.modelName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -168,6 +173,7 @@ export class LanguageModel extends pulumi.CustomResource {
             resourceInputs["inputDataConfig"] = args ? args.inputDataConfig : undefined;
             resourceInputs["languageCode"] = args ? args.languageCode : undefined;
             resourceInputs["modelName"] = args ? args.modelName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -201,6 +207,10 @@ export interface LanguageModelState {
      * The model name.
      */
     modelName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -225,5 +235,9 @@ export interface LanguageModelArgs {
      * The model name.
      */
     modelName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

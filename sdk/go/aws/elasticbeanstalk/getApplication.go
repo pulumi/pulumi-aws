@@ -53,7 +53,8 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 // A collection of arguments for invoking getApplication.
 type LookupApplicationArgs struct {
 	// Name of the application
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApplication.
@@ -64,8 +65,9 @@ type LookupApplicationResult struct {
 	// Short description of the application
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -80,7 +82,8 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 // A collection of arguments for invoking getApplication.
 type LookupApplicationOutputArgs struct {
 	// Name of the application
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {
@@ -123,6 +126,10 @@ func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupApplicationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

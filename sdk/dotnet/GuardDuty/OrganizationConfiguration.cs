@@ -92,6 +92,12 @@ namespace Pulumi.Aws.GuardDuty
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -157,6 +163,12 @@ namespace Pulumi.Aws.GuardDuty
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public OrganizationConfigurationArgs()
         {
         }
@@ -183,6 +195,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public OrganizationConfigurationState()
         {

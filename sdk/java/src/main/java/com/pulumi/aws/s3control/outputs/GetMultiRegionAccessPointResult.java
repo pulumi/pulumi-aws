@@ -46,6 +46,11 @@ public final class GetMultiRegionAccessPointResult {
      */
     private List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks;
     /**
+     * @return The name of the region.
+     * 
+     */
+    private String region;
+    /**
      * @return A collection of the regions and buckets associated with the Multi-Region Access Point.
      * 
      */
@@ -106,6 +111,13 @@ public final class GetMultiRegionAccessPointResult {
         return this.publicAccessBlocks;
     }
     /**
+     * @return The name of the region.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
+    /**
      * @return A collection of the regions and buckets associated with the Multi-Region Access Point.
      * 
      */
@@ -137,6 +149,7 @@ public final class GetMultiRegionAccessPointResult {
         private String id;
         private String name;
         private List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks;
+        private String region;
         private List<GetMultiRegionAccessPointRegion> regions;
         private String status;
         public Builder() {}
@@ -150,6 +163,7 @@ public final class GetMultiRegionAccessPointResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.publicAccessBlocks = defaults.publicAccessBlocks;
+    	      this.region = defaults.region;
     	      this.regions = defaults.regions;
     	      this.status = defaults.status;
         }
@@ -222,6 +236,14 @@ public final class GetMultiRegionAccessPointResult {
             return publicAccessBlocks(List.of(publicAccessBlocks));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder regions(List<GetMultiRegionAccessPointRegion> regions) {
             if (regions == null) {
               throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "regions");
@@ -250,6 +272,7 @@ public final class GetMultiRegionAccessPointResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.publicAccessBlocks = publicAccessBlocks;
+            _resultValue.region = region;
             _resultValue.regions = regions;
             _resultValue.status = status;
             return _resultValue;

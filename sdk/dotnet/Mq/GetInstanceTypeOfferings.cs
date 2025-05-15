@@ -156,6 +156,9 @@ namespace Pulumi.Aws.Mq
         [Input("hostInstanceType")]
         public string? HostInstanceType { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Filter response by storage type.
         /// </summary>
@@ -181,6 +184,9 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("hostInstanceType")]
         public Input<string>? HostInstanceType { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Filter response by storage type.
@@ -214,6 +220,7 @@ namespace Pulumi.Aws.Mq
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Broker's storage type.
         /// </summary>
@@ -229,12 +236,15 @@ namespace Pulumi.Aws.Mq
 
             string id,
 
+            string region,
+
             string? storageType)
         {
             BrokerInstanceOptions = brokerInstanceOptions;
             EngineType = engineType;
             HostInstanceType = hostInstanceType;
             Id = id;
+            Region = region;
             StorageType = storageType;
         }
     }

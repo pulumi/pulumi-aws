@@ -60,6 +60,12 @@ namespace Pulumi.Aws.GameLift
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Information indicating where your game script files are stored. See below.
         /// </summary>
         [Output("storageLocation")]
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Information indicating where your game script files are stored. See below.
         /// </summary>
         [Input("storageLocation")]
@@ -190,6 +202,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Information indicating where your game script files are stored. See below.

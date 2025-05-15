@@ -29,7 +29,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, addresses=None, alternate_identifier=None, display_name=None, emails=None, external_ids=None, id=None, identity_store_id=None, locale=None, names=None, nickname=None, phone_numbers=None, preferred_language=None, profile_url=None, timezone=None, title=None, user_id=None, user_name=None, user_type=None):
+    def __init__(__self__, addresses=None, alternate_identifier=None, display_name=None, emails=None, external_ids=None, id=None, identity_store_id=None, locale=None, names=None, nickname=None, phone_numbers=None, preferred_language=None, profile_url=None, region=None, timezone=None, title=None, user_id=None, user_name=None, user_type=None):
         if addresses and not isinstance(addresses, list):
             raise TypeError("Expected argument 'addresses' to be a list")
         pulumi.set(__self__, "addresses", addresses)
@@ -69,6 +69,9 @@ class GetUserResult:
         if profile_url and not isinstance(profile_url, str):
             raise TypeError("Expected argument 'profile_url' to be a str")
         pulumi.set(__self__, "profile_url", profile_url)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if timezone and not isinstance(timezone, str):
             raise TypeError("Expected argument 'timezone' to be a str")
         pulumi.set(__self__, "timezone", timezone)
@@ -185,6 +188,14 @@ class GetUserResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        The region of the address.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def timezone(self) -> builtins.str:
         """
         The user's time zone.
@@ -240,6 +251,7 @@ class AwaitableGetUserResult(GetUserResult):
             phone_numbers=self.phone_numbers,
             preferred_language=self.preferred_language,
             profile_url=self.profile_url,
+            region=self.region,
             timezone=self.timezone,
             title=self.title,
             user_id=self.user_id,
@@ -249,6 +261,7 @@ class AwaitableGetUserResult(GetUserResult):
 
 def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']] = None,
              identity_store_id: Optional[builtins.str] = None,
+             region: Optional[builtins.str] = None,
              user_id: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
@@ -276,6 +289,7 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
+    :param builtins.str region: The region of the address.
     :param builtins.str user_id: The identifier for a user in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
@@ -283,6 +297,7 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     __args__['userId'] = user_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
@@ -301,6 +316,7 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         phone_numbers=pulumi.get(__ret__, 'phone_numbers'),
         preferred_language=pulumi.get(__ret__, 'preferred_language'),
         profile_url=pulumi.get(__ret__, 'profile_url'),
+        region=pulumi.get(__ret__, 'region'),
         timezone=pulumi.get(__ret__, 'timezone'),
         title=pulumi.get(__ret__, 'title'),
         user_id=pulumi.get(__ret__, 'user_id'),
@@ -308,6 +324,7 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         user_type=pulumi.get(__ret__, 'user_type'))
 def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']]]] = None,
                     identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     user_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -335,6 +352,7 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
+    :param builtins.str region: The region of the address.
     :param builtins.str user_id: The identifier for a user in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
@@ -342,6 +360,7 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     __args__['userId'] = user_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
@@ -359,6 +378,7 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
         phone_numbers=pulumi.get(__response__, 'phone_numbers'),
         preferred_language=pulumi.get(__response__, 'preferred_language'),
         profile_url=pulumi.get(__response__, 'profile_url'),
+        region=pulumi.get(__response__, 'region'),
         timezone=pulumi.get(__response__, 'timezone'),
         title=pulumi.get(__response__, 'title'),
         user_id=pulumi.get(__response__, 'user_id'),

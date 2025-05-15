@@ -54,7 +54,7 @@ export interface GetHostedZoneIdResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly region?: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId

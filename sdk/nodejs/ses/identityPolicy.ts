@@ -82,6 +82,10 @@ export class IdentityPolicy extends pulumi.CustomResource {
      * JSON string of the policy.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a IdentityPolicy resource with the given unique name, arguments, and options.
@@ -99,6 +103,7 @@ export class IdentityPolicy extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as IdentityPolicyArgs | undefined;
             if ((!args || args.identity === undefined) && !opts.urn) {
@@ -110,6 +115,7 @@ export class IdentityPolicy extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentityPolicy.__pulumiType, name, resourceInputs, opts);
@@ -132,6 +138,10 @@ export interface IdentityPolicyState {
      * JSON string of the policy.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -150,4 +160,8 @@ export interface IdentityPolicyArgs {
      * JSON string of the policy.
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

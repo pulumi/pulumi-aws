@@ -101,6 +101,10 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a UserHierarchyStructure resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
             const state = argsOrState as UserHierarchyStructureState | undefined;
             resourceInputs["hierarchyStructure"] = state ? state.hierarchyStructure : undefined;
             resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as UserHierarchyStructureArgs | undefined;
             if ((!args || args.hierarchyStructure === undefined) && !opts.urn) {
@@ -127,6 +132,7 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
             }
             resourceInputs["hierarchyStructure"] = args ? args.hierarchyStructure : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserHierarchyStructure.__pulumiType, name, resourceInputs, opts);
@@ -145,6 +151,10 @@ export interface UserHierarchyStructureState {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
     instanceId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -159,4 +169,8 @@ export interface UserHierarchyStructureArgs {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
     instanceId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

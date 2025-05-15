@@ -799,6 +799,7 @@ type GetSecurityGroupRulesFilter struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
+	//
 	// Security group rule IDs will be selected if any one of the given values match.
 	Values []string `pulumi:"values"`
 }
@@ -819,6 +820,7 @@ type GetSecurityGroupRulesFilterArgs struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
+	//
 	// Security group rule IDs will be selected if any one of the given values match.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -881,6 +883,7 @@ func (o GetSecurityGroupRulesFilterOutput) Name() pulumi.StringOutput {
 }
 
 // Set of values that are accepted for the given field.
+//
 // Security group rule IDs will be selected if any one of the given values match.
 func (o GetSecurityGroupRulesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityGroupRulesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)

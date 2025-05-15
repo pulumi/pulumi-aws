@@ -72,6 +72,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
      */
     public readonly retentionPeriod!: pulumi.Output<number>;
@@ -96,6 +100,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["destinationRegion"] = state ? state.destinationRegion : undefined;
             resourceInputs["manualSnapshotRetentionPeriod"] = state ? state.manualSnapshotRetentionPeriod : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
             resourceInputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
         } else {
@@ -109,6 +114,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
             resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
             resourceInputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
         }
@@ -135,6 +141,10 @@ export interface SnapshotCopyState {
      * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
      */
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
      */
@@ -163,6 +173,10 @@ export interface SnapshotCopyArgs {
      * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
      */
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
      */

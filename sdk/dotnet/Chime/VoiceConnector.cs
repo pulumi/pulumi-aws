@@ -68,6 +68,12 @@ namespace Pulumi.Aws.Chime
         public Output<string> OutboundHostName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
         /// 
         /// The following arguments are optional:
@@ -146,6 +152,12 @@ namespace Pulumi.Aws.Chime
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
         /// 
         /// The following arguments are optional:
@@ -196,6 +208,12 @@ namespace Pulumi.Aws.Chime
         /// </summary>
         [Input("outboundHostName")]
         public Input<string>? OutboundHostName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.

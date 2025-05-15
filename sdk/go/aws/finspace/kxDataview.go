@@ -97,6 +97,8 @@ type KxDataview struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite pulumi.BoolPtrOutput `pulumi:"readWrite"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayOutput `pulumi:"segmentConfigurations"`
 	Status                pulumi.StringOutput                       `pulumi:"status"`
@@ -179,6 +181,8 @@ type kxDataviewState struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite *bool `pulumi:"readWrite"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations []KxDataviewSegmentConfiguration `pulumi:"segmentConfigurations"`
 	Status                *string                          `pulumi:"status"`
@@ -220,6 +224,8 @@ type KxDataviewState struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayInput
 	Status                pulumi.StringPtrInput
@@ -259,12 +265,12 @@ type kxDataviewArgs struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite *bool `pulumi:"readWrite"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations []KxDataviewSegmentConfiguration `pulumi:"segmentConfigurations"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a KxDataview resource.
@@ -294,12 +300,12 @@ type KxDataviewArgs struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (KxDataviewArgs) ElementType() reflect.Type {
@@ -454,6 +460,11 @@ func (o KxDataviewOutput) Name() pulumi.StringOutput {
 // * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 func (o KxDataviewOutput) ReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KxDataview) pulumi.BoolPtrOutput { return v.ReadWrite }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o KxDataviewOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KxDataview) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.

@@ -151,12 +151,12 @@ export const getBucketPolicy: typeof import("./getBucketPolicy").getBucketPolicy
 export const getBucketPolicyOutput: typeof import("./getBucketPolicy").getBucketPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => require("./getBucketPolicy"));
 
-export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
+export { GetCanonicalUserIdArgs, GetCanonicalUserIdResult, GetCanonicalUserIdOutputArgs } from "./getCanonicalUserId";
 export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
 export const getCanonicalUserIdOutput: typeof import("./getCanonicalUserId").getCanonicalUserIdOutput = null as any;
 utilities.lazyLoad(exports, ["getCanonicalUserId","getCanonicalUserIdOutput"], () => require("./getCanonicalUserId"));
 
-export { GetDirectoryBucketsResult } from "./getDirectoryBuckets";
+export { GetDirectoryBucketsArgs, GetDirectoryBucketsResult, GetDirectoryBucketsOutputArgs } from "./getDirectoryBuckets";
 export const getDirectoryBuckets: typeof import("./getDirectoryBuckets").getDirectoryBuckets = null as any;
 export const getDirectoryBucketsOutput: typeof import("./getDirectoryBuckets").getDirectoryBucketsOutput = null as any;
 utilities.lazyLoad(exports, ["getDirectoryBuckets","getDirectoryBucketsOutput"], () => require("./getDirectoryBuckets"));

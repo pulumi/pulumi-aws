@@ -111,6 +111,10 @@ export class SlotType extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
      * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -142,6 +146,7 @@ export class SlotType extends pulumi.CustomResource {
             resourceInputs["enumerationValues"] = state ? state.enumerationValues : undefined;
             resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["valueSelectionStrategy"] = state ? state.valueSelectionStrategy : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
@@ -153,6 +158,7 @@ export class SlotType extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enumerationValues"] = args ? args.enumerationValues : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["valueSelectionStrategy"] = args ? args.valueSelectionStrategy : undefined;
             resourceInputs["checksum"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
@@ -202,6 +208,10 @@ export interface SlotTypeState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
      * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -238,6 +248,10 @@ export interface SlotTypeArgs {
      * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user

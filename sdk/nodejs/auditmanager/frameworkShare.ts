@@ -77,6 +77,10 @@ export class FrameworkShare extends pulumi.CustomResource {
      */
     public readonly frameworkId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of the share request.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class FrameworkShare extends pulumi.CustomResource {
             resourceInputs["destinationAccount"] = state ? state.destinationAccount : undefined;
             resourceInputs["destinationRegion"] = state ? state.destinationRegion : undefined;
             resourceInputs["frameworkId"] = state ? state.frameworkId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as FrameworkShareArgs | undefined;
@@ -114,6 +119,7 @@ export class FrameworkShare extends pulumi.CustomResource {
             resourceInputs["destinationAccount"] = args ? args.destinationAccount : undefined;
             resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
             resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -144,6 +150,10 @@ export interface FrameworkShareState {
      */
     frameworkId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Status of the share request.
      */
     status?: pulumi.Input<string>;
@@ -171,4 +181,8 @@ export interface FrameworkShareArgs {
      * The following arguments are optional:
      */
     frameworkId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

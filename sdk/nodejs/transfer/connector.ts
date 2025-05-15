@@ -107,6 +107,10 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the security policy for the connector.
      */
     public readonly securityPolicyName!: pulumi.Output<string>;
@@ -118,7 +122,7 @@ export class Connector extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
      */
@@ -142,6 +146,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["as2Config"] = state ? state.as2Config : undefined;
             resourceInputs["connectorId"] = state ? state.connectorId : undefined;
             resourceInputs["loggingRole"] = state ? state.loggingRole : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
             resourceInputs["sftpConfig"] = state ? state.sftpConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -158,13 +163,14 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["accessRole"] = args ? args.accessRole : undefined;
             resourceInputs["as2Config"] = args ? args.as2Config : undefined;
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
@@ -195,6 +201,10 @@ export interface ConnectorState {
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      */
     loggingRole?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the security policy for the connector.
      */
@@ -231,6 +241,10 @@ export interface ConnectorArgs {
      */
     loggingRole?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the security policy for the connector.
      */
     securityPolicyName?: pulumi.Input<string>;
@@ -242,7 +256,6 @@ export interface ConnectorArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
      */

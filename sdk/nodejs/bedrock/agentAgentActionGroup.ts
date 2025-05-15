@@ -205,6 +205,10 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
      */
     public readonly prepareAgent!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether the in-use check is skipped when deleting the action group.
      */
     public readonly skipResourceInUseCheck!: pulumi.Output<boolean>;
@@ -234,6 +238,7 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
             resourceInputs["functionSchema"] = state ? state.functionSchema : undefined;
             resourceInputs["parentActionGroupSignature"] = state ? state.parentActionGroupSignature : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
@@ -257,6 +262,7 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
             resourceInputs["functionSchema"] = args ? args.functionSchema : undefined;
             resourceInputs["parentActionGroupSignature"] = args ? args.parentActionGroupSignature : undefined;
             resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipResourceInUseCheck"] = args ? args.skipResourceInUseCheck : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["actionGroupId"] = undefined /*out*/;
@@ -319,6 +325,10 @@ export interface AgentAgentActionGroupState {
      */
     prepareAgent?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether the in-use check is skipped when deleting the action group.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean>;
@@ -373,6 +383,10 @@ export interface AgentAgentActionGroupArgs {
      * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
      */
     prepareAgent?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether the in-use check is skipped when deleting the action group.
      */

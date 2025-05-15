@@ -74,6 +74,8 @@ type LbCertificateAttachment struct {
 	CertificateName pulumi.StringOutput `pulumi:"certificateName"`
 	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbCertificateAttachment registers a new resource with the given unique name, arguments, and options.
@@ -116,6 +118,8 @@ type lbCertificateAttachmentState struct {
 	CertificateName *string `pulumi:"certificateName"`
 	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
 	LbName *string `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LbCertificateAttachmentState struct {
@@ -123,6 +127,8 @@ type LbCertificateAttachmentState struct {
 	CertificateName pulumi.StringPtrInput
 	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
 	LbName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbCertificateAttachmentState) ElementType() reflect.Type {
@@ -134,6 +140,8 @@ type lbCertificateAttachmentArgs struct {
 	CertificateName string `pulumi:"certificateName"`
 	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
 	LbName string `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbCertificateAttachment resource.
@@ -142,6 +150,8 @@ type LbCertificateAttachmentArgs struct {
 	CertificateName pulumi.StringInput
 	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
 	LbName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbCertificateAttachmentArgs) ElementType() reflect.Type {
@@ -239,6 +249,11 @@ func (o LbCertificateAttachmentOutput) CertificateName() pulumi.StringOutput {
 // The name of the load balancer to which you want to associate the SSL/TLS certificate.
 func (o LbCertificateAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificateAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LbCertificateAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbCertificateAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LbCertificateAttachmentArrayOutput struct{ *pulumi.OutputState }

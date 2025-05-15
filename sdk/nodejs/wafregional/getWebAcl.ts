@@ -22,6 +22,7 @@ export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getWebAcl:getWebAcl", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetWebAclArgs {
      * Name of the WAF Regional Web ACL.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -44,6 +46,7 @@ export interface GetWebAclResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
@@ -63,6 +66,7 @@ export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafregional/getWebAcl:getWebAcl", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -74,4 +78,5 @@ export interface GetWebAclOutputArgs {
      * Name of the WAF Regional Web ACL.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

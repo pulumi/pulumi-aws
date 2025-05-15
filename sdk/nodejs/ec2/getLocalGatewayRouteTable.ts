@@ -36,6 +36,7 @@ export function getLocalGatewayRouteTable(args?: GetLocalGatewayRouteTableArgs, 
         "localGatewayId": args.localGatewayId,
         "localGatewayRouteTableId": args.localGatewayRouteTableId,
         "outpostArn": args.outpostArn,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -58,6 +59,7 @@ export interface GetLocalGatewayRouteTableArgs {
      * ARN of the Outpost the local gateway route table is associated with.
      */
     outpostArn?: string;
+    region?: string;
     /**
      * State of the local gateway route table.
      */
@@ -66,8 +68,9 @@ export interface GetLocalGatewayRouteTableArgs {
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * Local Gateway Route Tables in the current region. The given filters must match exactly one
+     * Local Gateway Route Table whose data will be exported as attributes.
      */
     tags?: {[key: string]: string};
 }
@@ -84,6 +87,7 @@ export interface GetLocalGatewayRouteTableResult {
     readonly localGatewayId: string;
     readonly localGatewayRouteTableId: string;
     readonly outpostArn: string;
+    readonly region: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
@@ -116,6 +120,7 @@ export function getLocalGatewayRouteTableOutput(args?: GetLocalGatewayRouteTable
         "localGatewayId": args.localGatewayId,
         "localGatewayRouteTableId": args.localGatewayRouteTableId,
         "outpostArn": args.outpostArn,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -138,6 +143,7 @@ export interface GetLocalGatewayRouteTableOutputArgs {
      * ARN of the Outpost the local gateway route table is associated with.
      */
     outpostArn?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * State of the local gateway route table.
      */
@@ -146,8 +152,9 @@ export interface GetLocalGatewayRouteTableOutputArgs {
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * Local Gateway Route Tables in the current region. The given filters must match exactly one
+     * Local Gateway Route Table whose data will be exported as attributes.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("modelId", required: true)]
         public string ModelId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetCustomModelArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetCustomModelInvokeArgs()
         {
@@ -163,6 +169,7 @@ namespace Pulumi.Aws.Bedrock
         /// Output data configuration associated with this custom model.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelOutputDataConfigResult> OutputDataConfigs;
+        public readonly string Region;
         /// <summary>
         /// Information about the training dataset.
         /// </summary>
@@ -208,6 +215,8 @@ namespace Pulumi.Aws.Bedrock
 
             ImmutableArray<Outputs.GetCustomModelOutputDataConfigResult> outputDataConfigs,
 
+            string region,
+
             ImmutableArray<Outputs.GetCustomModelTrainingDataConfigResult> trainingDataConfigs,
 
             ImmutableArray<Outputs.GetCustomModelTrainingMetricResult> trainingMetrics,
@@ -229,6 +238,7 @@ namespace Pulumi.Aws.Bedrock
             ModelName = modelName;
             ModelTags = modelTags;
             OutputDataConfigs = outputDataConfigs;
+            Region = region;
             TrainingDataConfigs = trainingDataConfigs;
             TrainingMetrics = trainingMetrics;
             ValidationDataConfigs = validationDataConfigs;

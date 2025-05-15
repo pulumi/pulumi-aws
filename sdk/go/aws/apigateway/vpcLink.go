@@ -74,6 +74,8 @@ type VpcLink struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name used to label and identify the VPC link.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -120,6 +122,8 @@ type vpcLinkState struct {
 	Description *string `pulumi:"description"`
 	// Name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -134,6 +138,8 @@ type VpcLinkState struct {
 	Description pulumi.StringPtrInput
 	// Name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -151,6 +157,8 @@ type vpcLinkArgs struct {
 	Description *string `pulumi:"description"`
 	// Name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
@@ -163,6 +171,8 @@ type VpcLinkArgs struct {
 	Description pulumi.StringPtrInput
 	// Name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
@@ -268,6 +278,11 @@ func (o VpcLinkOutput) Description() pulumi.StringPtrOutput {
 // Name used to label and identify the VPC link.
 func (o VpcLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcLinkOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

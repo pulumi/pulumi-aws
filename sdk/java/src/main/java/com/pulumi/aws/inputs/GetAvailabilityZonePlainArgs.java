@@ -62,6 +62,13 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
      * 
@@ -80,12 +87,20 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
     /**
      * Zone ID of the availability zone to select.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * availability zones. The given filters must match exactly one availability
+     * zone whose data will be exported as attributes.
+     * 
      */
     @Import(name="zoneId")
     private @Nullable String zoneId;
 
     /**
      * @return Zone ID of the availability zone to select.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * availability zones. The given filters must match exactly one availability
+     * zone whose data will be exported as attributes.
      * 
      */
     public Optional<String> zoneId() {
@@ -98,6 +113,7 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
         this.allAvailabilityZones = $.allAvailabilityZones;
         this.filters = $.filters;
         this.name = $.name;
+        this.region = $.region;
         this.state = $.state;
         this.zoneId = $.zoneId;
     }
@@ -163,6 +179,11 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
             return this;
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param state Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
          * 
@@ -176,6 +197,10 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
 
         /**
          * @param zoneId Zone ID of the availability zone to select.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * availability zones. The given filters must match exactly one availability
+         * zone whose data will be exported as attributes.
          * 
          * @return builder
          * 

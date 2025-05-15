@@ -19,6 +19,8 @@ from . import outputs
 __all__ = [
     'AnalyzerConfiguration',
     'AnalyzerConfigurationUnusedAccess',
+    'AnalyzerConfigurationUnusedAccessAnalysisRule',
+    'AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion',
     'ArchiveRuleFilter',
 ]
 
@@ -63,7 +65,9 @@ class AnalyzerConfigurationUnusedAccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "unusedAccessAge":
+        if key == "analysisRule":
+            suggest = "analysis_rule"
+        elif key == "unusedAccessAge":
             suggest = "unused_access_age"
 
         if suggest:
@@ -78,12 +82,24 @@ class AnalyzerConfigurationUnusedAccess(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 analysis_rule: Optional['outputs.AnalyzerConfigurationUnusedAccessAnalysisRule'] = None,
                  unused_access_age: Optional[builtins.int] = None):
         """
+        :param 'AnalyzerConfigurationUnusedAccessAnalysisRuleArgs' analysis_rule: A block for analysis rules. Documented below
         :param builtins.int unused_access_age: The specified access age in days for which to generate findings for unused access.
         """
+        if analysis_rule is not None:
+            pulumi.set(__self__, "analysis_rule", analysis_rule)
         if unused_access_age is not None:
             pulumi.set(__self__, "unused_access_age", unused_access_age)
+
+    @property
+    @pulumi.getter(name="analysisRule")
+    def analysis_rule(self) -> Optional['outputs.AnalyzerConfigurationUnusedAccessAnalysisRule']:
+        """
+        A block for analysis rules. Documented below
+        """
+        return pulumi.get(self, "analysis_rule")
 
     @property
     @pulumi.getter(name="unusedAccessAge")
@@ -92,6 +108,75 @@ class AnalyzerConfigurationUnusedAccess(dict):
         The specified access age in days for which to generate findings for unused access.
         """
         return pulumi.get(self, "unused_access_age")
+
+
+@pulumi.output_type
+class AnalyzerConfigurationUnusedAccessAnalysisRule(dict):
+    def __init__(__self__, *,
+                 exclusions: Optional[Sequence['outputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion']] = None):
+        """
+        :param Sequence['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs'] exclusions: A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        """
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion']]:
+        """
+        A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        """
+        return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
+class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountIds":
+            suggest = "account_ids"
+        elif key == "resourceTags":
+            suggest = "resource_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_ids: Optional[Sequence[builtins.str]] = None,
+                 resource_tags: Optional[Sequence[Mapping[str, builtins.str]]] = None):
+        """
+        :param Sequence[builtins.str] account_ids: A list of account IDs to exclude from the analysis.
+        :param Sequence[Mapping[str, builtins.str]] resource_tags: A list of key-value pairs for resource tags to exclude from the analysis.
+        """
+        if account_ids is not None:
+            pulumi.set(__self__, "account_ids", account_ids)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+
+    @property
+    @pulumi.getter(name="accountIds")
+    def account_ids(self) -> Optional[Sequence[builtins.str]]:
+        """
+        A list of account IDs to exclude from the analysis.
+        """
+        return pulumi.get(self, "account_ids")
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[Sequence[Mapping[str, builtins.str]]]:
+        """
+        A list of key-value pairs for resource tags to exclude from the analysis.
+        """
+        return pulumi.get(self, "resource_tags")
 
 
 @pulumi.output_type

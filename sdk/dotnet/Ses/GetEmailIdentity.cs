@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Ses
         [Input("email", required: true)]
         public string Email { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetEmailIdentityArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.Ses
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetEmailIdentityInvokeArgs()
         {
@@ -129,6 +135,7 @@ namespace Pulumi.Aws.Ses
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetEmailIdentityResult(
@@ -136,11 +143,14 @@ namespace Pulumi.Aws.Ses
 
             string email,
 
-            string id)
+            string id,
+
+            string region)
         {
             Arn = arn;
             Email = email;
             Id = id;
+            Region = region;
         }
     }
 }

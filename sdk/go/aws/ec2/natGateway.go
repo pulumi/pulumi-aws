@@ -158,6 +158,8 @@ type NatGateway struct {
 	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
 	// The Elastic IP address associated with the NAT Gateway.
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of secondary allocation EIP IDs for this NAT Gateway.
 	SecondaryAllocationIds pulumi.StringArrayOutput `pulumi:"secondaryAllocationIds"`
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
@@ -217,6 +219,8 @@ type natGatewayState struct {
 	PrivateIp *string `pulumi:"privateIp"`
 	// The Elastic IP address associated with the NAT Gateway.
 	PublicIp *string `pulumi:"publicIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of secondary allocation EIP IDs for this NAT Gateway.
 	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
@@ -244,6 +248,8 @@ type NatGatewayState struct {
 	PrivateIp pulumi.StringPtrInput
 	// The Elastic IP address associated with the NAT Gateway.
 	PublicIp pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of secondary allocation EIP IDs for this NAT Gateway.
 	SecondaryAllocationIds pulumi.StringArrayInput
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
@@ -269,6 +275,8 @@ type natGatewayArgs struct {
 	ConnectivityType *string `pulumi:"connectivityType"`
 	// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
 	PrivateIp *string `pulumi:"privateIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of secondary allocation EIP IDs for this NAT Gateway.
 	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
@@ -289,6 +297,8 @@ type NatGatewayArgs struct {
 	ConnectivityType pulumi.StringPtrInput
 	// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
 	PrivateIp pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of secondary allocation EIP IDs for this NAT Gateway.
 	SecondaryAllocationIds pulumi.StringArrayInput
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
@@ -416,6 +426,11 @@ func (o NatGatewayOutput) PrivateIp() pulumi.StringOutput {
 // The Elastic IP address associated with the NAT Gateway.
 func (o NatGatewayOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NatGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of secondary allocation EIP IDs for this NAT Gateway.

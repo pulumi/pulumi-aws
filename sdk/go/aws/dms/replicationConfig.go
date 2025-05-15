@@ -68,6 +68,8 @@ type ReplicationConfig struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigOutput `pulumi:"computeConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier pulumi.StringOutput `pulumi:"replicationConfigIdentifier"`
 	// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
@@ -144,6 +146,8 @@ type replicationConfigState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig *ReplicationConfigComputeConfig `pulumi:"computeConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier *string `pulumi:"replicationConfigIdentifier"`
 	// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
@@ -173,6 +177,8 @@ type ReplicationConfigState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier pulumi.StringPtrInput
 	// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
@@ -204,6 +210,8 @@ func (ReplicationConfigState) ElementType() reflect.Type {
 type replicationConfigArgs struct {
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfig `pulumi:"computeConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier string `pulumi:"replicationConfigIdentifier"`
 	// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
@@ -222,8 +230,6 @@ type replicationConfigArgs struct {
 	TableMappings string `pulumi:"tableMappings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn string `pulumi:"targetEndpointArn"`
 }
@@ -232,6 +238,8 @@ type replicationConfigArgs struct {
 type ReplicationConfigArgs struct {
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier pulumi.StringInput
 	// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
@@ -250,8 +258,6 @@ type ReplicationConfigArgs struct {
 	TableMappings pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringInput
 }
@@ -351,6 +357,11 @@ func (o ReplicationConfigOutput) Arn() pulumi.StringOutput {
 // Configuration block for provisioning an DMS Serverless replication.
 func (o ReplicationConfigOutput) ComputeConfig() ReplicationConfigComputeConfigOutput {
 	return o.ApplyT(func(v *ReplicationConfig) ReplicationConfigComputeConfigOutput { return v.ComputeConfig }).(ReplicationConfigComputeConfigOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReplicationConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Unique identifier that you want to use to create the config.

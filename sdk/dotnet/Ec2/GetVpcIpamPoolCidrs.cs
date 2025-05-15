@@ -333,6 +333,9 @@ namespace Pulumi.Aws.Ec2
         [Input("ipamPoolId", required: true)]
         public string IpamPoolId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetVpcIpamPoolCidrsArgs()
         {
         }
@@ -359,6 +362,9 @@ namespace Pulumi.Aws.Ec2
         [Input("ipamPoolId", required: true)]
         public Input<string> IpamPoolId { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetVpcIpamPoolCidrsInvokeArgs()
         {
         }
@@ -379,6 +385,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult> IpamPoolCidrs;
         public readonly string IpamPoolId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetVpcIpamPoolCidrsResult(
@@ -388,12 +395,15 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult> ipamPoolCidrs,
 
-            string ipamPoolId)
+            string ipamPoolId,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             IpamPoolCidrs = ipamPoolCidrs;
             IpamPoolId = ipamPoolId;
+            Region = region;
         }
     }
 }

@@ -2839,10 +2839,6 @@ class GetContributorManagedInsightRulesManagedRuleResult(dict):
                  template_name: builtins.str):
         """
         :param builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-               
-               The following arguments are optional:
-               
-               There are no optional arguments.
         :param Sequence['GetContributorManagedInsightRulesManagedRuleRuleStateArgs'] rule_states: Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
         :param builtins.str template_name: Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
         """
@@ -2855,10 +2851,6 @@ class GetContributorManagedInsightRulesManagedRuleResult(dict):
     def resource_arn(self) -> builtins.str:
         """
         ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-
-        The following arguments are optional:
-
-        There are no optional arguments.
         """
         return pulumi.get(self, "resource_arn")
 

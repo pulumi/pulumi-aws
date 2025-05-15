@@ -131,6 +131,12 @@ namespace Pulumi.Aws.Signer
         public Output<string> ProfileVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM principal that requested the signing job.
         /// </summary>
         [Output("requestedBy")]
@@ -237,6 +243,12 @@ namespace Pulumi.Aws.Signer
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The S3 bucket that contains the object to sign. See Source below for details.
         /// </summary>
         [Input("source", required: true)]
@@ -315,6 +327,12 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         [Input("profileVersion")]
         public Input<string>? ProfileVersion { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The IAM principal that requested the signing job.

@@ -71,6 +71,10 @@ export class Script extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Information indicating where your game script files are stored. See below.
      */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.ScriptStorageLocation>;
@@ -106,6 +110,7 @@ export class Script extends pulumi.CustomResource {
             const state = argsOrState as ScriptState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageLocation"] = state ? state.storageLocation : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -114,6 +119,7 @@ export class Script extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ScriptArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -138,6 +144,10 @@ export interface ScriptState {
      * Name of the script
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Information indicating where your game script files are stored. See below.
      */
@@ -168,6 +178,10 @@ export interface ScriptArgs {
      * Name of the script
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Information indicating where your game script files are stored. See below.
      */

@@ -47,6 +47,21 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The workspace id.
      * 
      */
@@ -66,6 +81,7 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
     private LicenseAssociationArgs(LicenseAssociationArgs $) {
         this.grafanaToken = $.grafanaToken;
         this.licenseType = $.licenseType;
+        this.region = $.region;
         this.workspaceId = $.workspaceId;
     }
 
@@ -127,6 +143,27 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
          */
         public Builder licenseType(String licenseType) {
             return licenseType(Output.of(licenseType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

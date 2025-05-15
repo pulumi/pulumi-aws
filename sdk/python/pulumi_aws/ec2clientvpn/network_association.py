@@ -21,14 +21,18 @@ __all__ = ['NetworkAssociationArgs', 'NetworkAssociation']
 class NetworkAssociationArgs:
     def __init__(__self__, *,
                  client_vpn_endpoint_id: pulumi.Input[builtins.str],
-                 subnet_id: pulumi.Input[builtins.str]):
+                 subnet_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkAssociation resource.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -54,18 +58,32 @@ class NetworkAssociationArgs:
     def subnet_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "subnet_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _NetworkAssociationState:
     def __init__(__self__, *,
                  association_id: Optional[pulumi.Input[builtins.str]] = None,
                  client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkAssociation resources.
         :param pulumi.Input[builtins.str] association_id: The unique ID of the target network association.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
@@ -73,6 +91,8 @@ class _NetworkAssociationState:
             pulumi.set(__self__, "association_id", association_id)
         if client_vpn_endpoint_id is not None:
             pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if vpc_id is not None:
@@ -101,6 +121,18 @@ class _NetworkAssociationState:
     @client_vpn_endpoint_id.setter
     def client_vpn_endpoint_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "client_vpn_endpoint_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -136,6 +168,7 @@ class NetworkAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -164,6 +197,7 @@ class NetworkAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         """
         ...
@@ -211,6 +245,7 @@ class NetworkAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -224,6 +259,7 @@ class NetworkAssociation(pulumi.CustomResource):
             if client_vpn_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_vpn_endpoint_id'")
             __props__.__dict__["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+            __props__.__dict__["region"] = region
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
@@ -241,6 +277,7 @@ class NetworkAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             association_id: Optional[pulumi.Input[builtins.str]] = None,
             client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'NetworkAssociation':
         """
@@ -252,6 +289,7 @@ class NetworkAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] association_id: The unique ID of the target network association.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
@@ -261,6 +299,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
         __props__.__dict__["association_id"] = association_id
         __props__.__dict__["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["vpc_id"] = vpc_id
         return NetworkAssociation(resource_name, opts=opts, __props__=__props__)
@@ -280,6 +319,14 @@ class NetworkAssociation(pulumi.CustomResource):
         The ID of the Client VPN endpoint.
         """
         return pulumi.get(self, "client_vpn_endpoint_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="subnetId")

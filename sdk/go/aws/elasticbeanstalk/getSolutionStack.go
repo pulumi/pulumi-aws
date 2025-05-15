@@ -61,7 +61,8 @@ type GetSolutionStackArgs struct {
 	// > **NOTE:** If more or less than a single match is returned by the search,
 	// this call will fail. Ensure that your search is specific enough to return
 	// a single solution stack, or use `mostRecent` to choose the most recent one.
-	NameRegex string `pulumi:"nameRegex"`
+	NameRegex string  `pulumi:"nameRegex"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSolutionStack.
@@ -72,6 +73,7 @@ type GetSolutionStackResult struct {
 	// Name of the solution stack.
 	Name      string `pulumi:"name"`
 	NameRegex string `pulumi:"nameRegex"`
+	Region    string `pulumi:"region"`
 }
 
 func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs, opts ...pulumi.InvokeOption) GetSolutionStackResultOutput {
@@ -95,7 +97,8 @@ type GetSolutionStackOutputArgs struct {
 	// > **NOTE:** If more or less than a single match is returned by the search,
 	// this call will fail. Ensure that your search is specific enough to return
 	// a single solution stack, or use `mostRecent` to choose the most recent one.
-	NameRegex pulumi.StringInput `pulumi:"nameRegex"`
+	NameRegex pulumi.StringInput    `pulumi:"nameRegex"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSolutionStackOutputArgs) ElementType() reflect.Type {
@@ -133,6 +136,10 @@ func (o GetSolutionStackResultOutput) Name() pulumi.StringOutput {
 
 func (o GetSolutionStackResultOutput) NameRegex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSolutionStackResult) string { return v.NameRegex }).(pulumi.StringOutput)
+}
+
+func (o GetSolutionStackResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSolutionStackResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -50,6 +50,7 @@ func LookupReplicationGroup(ctx *pulumi.Context, args *LookupReplicationGroupArg
 
 // A collection of arguments for invoking getReplicationGroup.
 type LookupReplicationGroupArgs struct {
+	Region *string `pulumi:"region"`
 	// Identifier for the replication group.
 	ReplicationGroupId string `pulumi:"replicationGroupId"`
 }
@@ -88,6 +89,7 @@ type LookupReplicationGroupResult struct {
 	PrimaryEndpointAddress string `pulumi:"primaryEndpointAddress"`
 	// The endpoint of the reader node in this node group (shard).
 	ReaderEndpointAddress string `pulumi:"readerEndpointAddress"`
+	Region                string `pulumi:"region"`
 	// Number of replica nodes in each node group.
 	ReplicasPerNodeGroup int    `pulumi:"replicasPerNodeGroup"`
 	ReplicationGroupId   string `pulumi:"replicationGroupId"`
@@ -108,6 +110,7 @@ func LookupReplicationGroupOutput(ctx *pulumi.Context, args LookupReplicationGro
 
 // A collection of arguments for invoking getReplicationGroup.
 type LookupReplicationGroupOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier for the replication group.
 	ReplicationGroupId pulumi.StringInput `pulumi:"replicationGroupId"`
 }
@@ -211,6 +214,10 @@ func (o LookupReplicationGroupResultOutput) PrimaryEndpointAddress() pulumi.Stri
 // The endpoint of the reader node in this node group (shard).
 func (o LookupReplicationGroupResultOutput) ReaderEndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ReaderEndpointAddress }).(pulumi.StringOutput)
+}
+
+func (o LookupReplicationGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of replica nodes in each node group.

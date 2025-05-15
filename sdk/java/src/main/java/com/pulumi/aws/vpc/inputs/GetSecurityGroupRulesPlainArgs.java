@@ -32,12 +32,16 @@ public final class GetSecurityGroupRulesPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      * 
      */
     @Import(name="tags")
@@ -46,9 +50,6 @@ public final class GetSecurityGroupRulesPlainArgs extends com.pulumi.resources.I
     /**
      * @return Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -59,6 +60,7 @@ public final class GetSecurityGroupRulesPlainArgs extends com.pulumi.resources.I
 
     private GetSecurityGroupRulesPlainArgs(GetSecurityGroupRulesPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -101,12 +103,14 @@ public final class GetSecurityGroupRulesPlainArgs extends com.pulumi.resources.I
             return filters(List.of(filters));
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired security group rule.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
          * 
          * @return builder
          * 

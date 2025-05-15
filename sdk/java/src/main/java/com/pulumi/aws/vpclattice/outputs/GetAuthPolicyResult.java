@@ -22,6 +22,7 @@ public final class GetAuthPolicyResult {
      * 
      */
     private @Nullable String policy;
+    private String region;
     private String resourceIdentifier;
     /**
      * @return The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
@@ -43,6 +44,9 @@ public final class GetAuthPolicyResult {
      */
     public Optional<String> policy() {
         return Optional.ofNullable(this.policy);
+    }
+    public String region() {
+        return this.region;
     }
     public String resourceIdentifier() {
         return this.resourceIdentifier;
@@ -66,6 +70,7 @@ public final class GetAuthPolicyResult {
     public static final class Builder {
         private String id;
         private @Nullable String policy;
+        private String region;
         private String resourceIdentifier;
         private @Nullable String state;
         public Builder() {}
@@ -73,6 +78,7 @@ public final class GetAuthPolicyResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.policy = defaults.policy;
+    	      this.region = defaults.region;
     	      this.resourceIdentifier = defaults.resourceIdentifier;
     	      this.state = defaults.state;
         }
@@ -89,6 +95,14 @@ public final class GetAuthPolicyResult {
         public Builder policy(@Nullable String policy) {
 
             this.policy = policy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAuthPolicyResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -109,6 +123,7 @@ public final class GetAuthPolicyResult {
             final var _resultValue = new GetAuthPolicyResult();
             _resultValue.id = id;
             _resultValue.policy = policy;
+            _resultValue.region = region;
             _resultValue.resourceIdentifier = resourceIdentifier;
             _resultValue.state = state;
             return _resultValue;

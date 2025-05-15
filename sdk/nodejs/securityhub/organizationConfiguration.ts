@@ -107,6 +107,10 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      * Provides information about the way an organization is configured in Security Hub.
      */
     public readonly organizationConfiguration!: pulumi.Output<outputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -124,6 +128,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
             resourceInputs["autoEnableStandards"] = state ? state.autoEnableStandards : undefined;
             resourceInputs["organizationConfiguration"] = state ? state.organizationConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
             if ((!args || args.autoEnable === undefined) && !opts.urn) {
@@ -132,6 +137,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
             resourceInputs["autoEnableStandards"] = args ? args.autoEnableStandards : undefined;
             resourceInputs["organizationConfiguration"] = args ? args.organizationConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -154,6 +160,10 @@ export interface OrganizationConfigurationState {
      * Provides information about the way an organization is configured in Security Hub.
      */
     organizationConfiguration?: pulumi.Input<inputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -172,4 +182,8 @@ export interface OrganizationConfigurationArgs {
      * Provides information about the way an organization is configured in Security Hub.
      */
     organizationConfiguration?: pulumi.Input<inputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

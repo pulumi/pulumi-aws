@@ -275,6 +275,21 @@ public final class DocumentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The schema version of the document.
      * 
      */
@@ -384,6 +399,7 @@ public final class DocumentState extends com.pulumi.resources.ResourceArgs {
         this.parameters = $.parameters;
         this.permissions = $.permissions;
         this.platformTypes = $.platformTypes;
+        this.region = $.region;
         this.schemaVersion = $.schemaVersion;
         this.status = $.status;
         this.tags = $.tags;
@@ -795,6 +811,27 @@ public final class DocumentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder platformTypes(String... platformTypes) {
             return platformTypes(List.of(platformTypes));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

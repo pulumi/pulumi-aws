@@ -935,6 +935,8 @@ type EventTarget struct {
 	KinesisTarget EventTargetKinesisTargetPtrOutput `pulumi:"kinesisTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
 	RedshiftTarget EventTargetRedshiftTargetPtrOutput `pulumi:"redshiftTarget"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrOutput `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
@@ -1016,6 +1018,8 @@ type eventTargetState struct {
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
 	RedshiftTarget *EventTargetRedshiftTarget `pulumi:"redshiftTarget"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
@@ -1062,6 +1066,8 @@ type EventTargetState struct {
 	KinesisTarget EventTargetKinesisTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
 	RedshiftTarget EventTargetRedshiftTargetPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
@@ -1112,6 +1118,8 @@ type eventTargetArgs struct {
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
 	RedshiftTarget *EventTargetRedshiftTarget `pulumi:"redshiftTarget"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
@@ -1159,6 +1167,8 @@ type EventTargetArgs struct {
 	KinesisTarget EventTargetKinesisTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
 	RedshiftTarget EventTargetRedshiftTargetPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
@@ -1328,6 +1338,11 @@ func (o EventTargetOutput) KinesisTarget() EventTargetKinesisTargetPtrOutput {
 // Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
 func (o EventTargetOutput) RedshiftTarget() EventTargetRedshiftTargetPtrOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetRedshiftTargetPtrOutput { return v.RedshiftTarget }).(EventTargetRedshiftTargetPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventTargetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.

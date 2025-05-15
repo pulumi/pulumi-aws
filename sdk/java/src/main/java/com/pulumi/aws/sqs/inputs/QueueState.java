@@ -259,6 +259,21 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
@@ -352,6 +367,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         this.receiveWaitTimeSeconds = $.receiveWaitTimeSeconds;
         this.redriveAllowPolicy = $.redriveAllowPolicy;
         this.redrivePolicy = $.redrivePolicy;
+        this.region = $.region;
         this.sqsManagedSseEnabled = $.sqsManagedSseEnabled;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -711,6 +727,27 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder redrivePolicy(String redrivePolicy) {
             return redrivePolicy(Output.of(redrivePolicy));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

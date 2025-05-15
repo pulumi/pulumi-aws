@@ -34,6 +34,7 @@ export function getTableItem(args: GetTableItemArgs, opts?: pulumi.InvokeOptions
         "expressionAttributeNames": args.expressionAttributeNames,
         "key": args.key,
         "projectionExpression": args.projectionExpression,
+        "region": args.region,
         "tableName": args.tableName,
     }, opts);
 }
@@ -55,6 +56,7 @@ export interface GetTableItemArgs {
      * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
      */
     projectionExpression?: string;
+    region?: string;
     /**
      * The name of the table containing the requested item.
      */
@@ -76,6 +78,7 @@ export interface GetTableItemResult {
     readonly item: string;
     readonly key: string;
     readonly projectionExpression?: string;
+    readonly region: string;
     readonly tableName: string;
 }
 /**
@@ -108,6 +111,7 @@ export function getTableItemOutput(args: GetTableItemOutputArgs, opts?: pulumi.I
         "expressionAttributeNames": args.expressionAttributeNames,
         "key": args.key,
         "projectionExpression": args.projectionExpression,
+        "region": args.region,
         "tableName": args.tableName,
     }, opts);
 }
@@ -129,6 +133,7 @@ export interface GetTableItemOutputArgs {
      * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
      */
     projectionExpression?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The name of the table containing the requested item.
      */

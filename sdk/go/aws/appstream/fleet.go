@@ -105,6 +105,8 @@ type Fleet struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
 	State pulumi.StringOutput `pulumi:"state"`
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
@@ -188,6 +190,8 @@ type fleetState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
 	State *string `pulumi:"state"`
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
@@ -236,6 +240,8 @@ type FleetState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
 	State pulumi.StringPtrInput
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
@@ -284,6 +290,8 @@ type fleetArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView *string `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
@@ -326,6 +334,8 @@ type FleetArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView pulumi.StringPtrInput
 	// Map of tags to attach to AppStream instances.
@@ -506,6 +516,11 @@ func (o FleetOutput) MaxUserDurationInSeconds() pulumi.IntOutput {
 // The following arguments are optional:
 func (o FleetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FleetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`

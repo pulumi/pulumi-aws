@@ -81,6 +81,9 @@ namespace Pulumi.Aws.S3
         [Input("prefix")]
         public string? Prefix { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
         /// </summary>
@@ -131,6 +134,9 @@ namespace Pulumi.Aws.S3
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
         /// </summary>
@@ -169,6 +175,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly ImmutableArray<string> Owners;
         public readonly string? Prefix;
+        public readonly string Region;
         public readonly string? StartAfter;
 
         [OutputConstructor]
@@ -193,6 +200,8 @@ namespace Pulumi.Aws.S3
 
             string? prefix,
 
+            string region,
+
             string? startAfter)
         {
             Bucket = bucket;
@@ -205,6 +214,7 @@ namespace Pulumi.Aws.S3
             MaxKeys = maxKeys;
             Owners = owners;
             Prefix = prefix;
+            Region = region;
             StartAfter = startAfter;
         }
     }

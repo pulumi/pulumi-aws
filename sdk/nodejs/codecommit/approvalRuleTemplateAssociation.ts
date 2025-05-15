@@ -60,6 +60,10 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
      */
     public readonly approvalRuleTemplateName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the repository that you want to associate with the template.
      */
     public readonly repositoryName!: pulumi.Output<string>;
@@ -78,6 +82,7 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApprovalRuleTemplateAssociationState | undefined;
             resourceInputs["approvalRuleTemplateName"] = state ? state.approvalRuleTemplateName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
         } else {
             const args = argsOrState as ApprovalRuleTemplateAssociationArgs | undefined;
@@ -88,6 +93,7 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repositoryName'");
             }
             resourceInputs["approvalRuleTemplateName"] = args ? args.approvalRuleTemplateName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -104,6 +110,10 @@ export interface ApprovalRuleTemplateAssociationState {
      */
     approvalRuleTemplateName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the repository that you want to associate with the template.
      */
     repositoryName?: pulumi.Input<string>;
@@ -117,6 +127,10 @@ export interface ApprovalRuleTemplateAssociationArgs {
      * The name for the approval rule template.
      */
     approvalRuleTemplateName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the repository that you want to associate with the template.
      */

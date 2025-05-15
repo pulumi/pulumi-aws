@@ -151,6 +151,12 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.PeeringConnectionOptionsAccepter> Accepter { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
         /// </summary>
         [Output("requester")]
@@ -215,6 +221,12 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.PeeringConnectionOptionsAccepterArgs>? Accepter { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
         /// </summary>
         [Input("requester")]
@@ -239,6 +251,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("accepter")]
         public Input<Inputs.PeeringConnectionOptionsAccepterGetArgs>? Accepter { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).

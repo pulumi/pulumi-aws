@@ -108,6 +108,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         /// </summary>
         [Output("skipDestroy")]
@@ -236,6 +242,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string> Platform { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         /// </summary>
         [Input("skipDestroy")]
@@ -348,6 +360,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.

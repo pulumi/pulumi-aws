@@ -25,6 +25,7 @@ export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getRepository:getRepository", {
         "name": args.name,
+        "region": args.region,
         "registryId": args.registryId,
         "tags": args.tags,
     }, opts);
@@ -38,6 +39,7 @@ export interface GetRepositoryArgs {
      * Name of the ECR Repository.
      */
     name: string;
+    region?: string;
     /**
      * Registry ID where the repository was created.
      */
@@ -77,6 +79,7 @@ export interface GetRepositoryResult {
      */
     readonly mostRecentImageTags: string[];
     readonly name: string;
+    readonly region: string;
     readonly registryId: string;
     /**
      * URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
@@ -105,6 +108,7 @@ export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getRepository:getRepository", {
         "name": args.name,
+        "region": args.region,
         "registryId": args.registryId,
         "tags": args.tags,
     }, opts);
@@ -118,6 +122,7 @@ export interface GetRepositoryOutputArgs {
      * Name of the ECR Repository.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Registry ID where the repository was created.
      */

@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Quicksight
         [Output("memberType")]
         public Output<string> MemberType { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FolderMembership resource with the given unique name, arguments, and options.
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.Quicksight
         [Input("memberType", required: true)]
         public Input<string> MemberType { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public FolderMembershipArgs()
         {
         }
@@ -176,6 +188,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("memberType")]
         public Input<string>? MemberType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public FolderMembershipState()
         {

@@ -24,6 +24,7 @@ public final class GetRouteTablePropagationsResult {
      * 
      */
     private List<String> ids;
+    private String region;
     private String transitGatewayRouteTableId;
 
     private GetRouteTablePropagationsResult() {}
@@ -44,6 +45,9 @@ public final class GetRouteTablePropagationsResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
     public String transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
     }
@@ -60,6 +64,7 @@ public final class GetRouteTablePropagationsResult {
         private @Nullable List<GetRouteTablePropagationsFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         private String transitGatewayRouteTableId;
         public Builder() {}
         public Builder(GetRouteTablePropagationsResult defaults) {
@@ -67,6 +72,7 @@ public final class GetRouteTablePropagationsResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
     	      this.transitGatewayRouteTableId = defaults.transitGatewayRouteTableId;
         }
 
@@ -99,6 +105,14 @@ public final class GetRouteTablePropagationsResult {
             return ids(List.of(ids));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRouteTablePropagationsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder transitGatewayRouteTableId(String transitGatewayRouteTableId) {
             if (transitGatewayRouteTableId == null) {
               throw new MissingRequiredPropertyException("GetRouteTablePropagationsResult", "transitGatewayRouteTableId");
@@ -111,6 +125,7 @@ public final class GetRouteTablePropagationsResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             _resultValue.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return _resultValue;
         }

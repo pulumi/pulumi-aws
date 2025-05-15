@@ -110,6 +110,21 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for the remote Opensearch domain.
      * 
      */
@@ -133,6 +148,7 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
         this.connectionProperties = $.connectionProperties;
         this.connectionStatus = $.connectionStatus;
         this.localDomainInfo = $.localDomainInfo;
+        this.region = $.region;
         this.remoteDomainInfo = $.remoteDomainInfo;
     }
 
@@ -278,6 +294,27 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
          */
         public Builder localDomainInfo(OutboundConnectionLocalDomainInfoArgs localDomainInfo) {
             return localDomainInfo(Output.of(localDomainInfo));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

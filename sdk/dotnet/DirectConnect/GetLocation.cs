@@ -102,6 +102,9 @@ namespace Pulumi.Aws.DirectConnect
         [Input("locationCode", required: true)]
         public string LocationCode { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetLocationArgs()
         {
         }
@@ -115,6 +118,9 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("locationCode", required: true)]
         public Input<string> LocationCode { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetLocationInvokeArgs()
         {
@@ -147,6 +153,7 @@ namespace Pulumi.Aws.DirectConnect
         /// Name of the location. This includes the name of the colocation partner and the physical site of the building.
         /// </summary>
         public readonly string LocationName;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetLocationResult(
@@ -160,7 +167,9 @@ namespace Pulumi.Aws.DirectConnect
 
             string locationCode,
 
-            string locationName)
+            string locationName,
+
+            string region)
         {
             AvailableMacsecPortSpeeds = availableMacsecPortSpeeds;
             AvailablePortSpeeds = availablePortSpeeds;
@@ -168,6 +177,7 @@ namespace Pulumi.Aws.DirectConnect
             Id = id;
             LocationCode = locationCode;
             LocationName = locationName;
+            Region = region;
         }
     }
 }

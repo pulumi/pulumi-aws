@@ -9,21 +9,24 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSupportedInstanceTypesResult {
     private String id;
+    private String region;
     private String releaseLabel;
     /**
      * @return List of supported instance types. See `supported_instance_types` below.
      * 
      */
-    private @Nullable List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes;
+    private List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes;
 
     private GetSupportedInstanceTypesResult() {}
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     public String releaseLabel() {
         return this.releaseLabel;
@@ -33,7 +36,7 @@ public final class GetSupportedInstanceTypesResult {
      * 
      */
     public List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes() {
-        return this.supportedInstanceTypes == null ? List.of() : this.supportedInstanceTypes;
+        return this.supportedInstanceTypes;
     }
 
     public static Builder builder() {
@@ -46,12 +49,14 @@ public final class GetSupportedInstanceTypesResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private String releaseLabel;
-        private @Nullable List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes;
+        private List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes;
         public Builder() {}
         public Builder(GetSupportedInstanceTypesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.releaseLabel = defaults.releaseLabel;
     	      this.supportedInstanceTypes = defaults.supportedInstanceTypes;
         }
@@ -65,6 +70,14 @@ public final class GetSupportedInstanceTypesResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder releaseLabel(String releaseLabel) {
             if (releaseLabel == null) {
               throw new MissingRequiredPropertyException("GetSupportedInstanceTypesResult", "releaseLabel");
@@ -73,8 +86,10 @@ public final class GetSupportedInstanceTypesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder supportedInstanceTypes(@Nullable List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes) {
-
+        public Builder supportedInstanceTypes(List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes) {
+            if (supportedInstanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesResult", "supportedInstanceTypes");
+            }
             this.supportedInstanceTypes = supportedInstanceTypes;
             return this;
         }
@@ -84,6 +99,7 @@ public final class GetSupportedInstanceTypesResult {
         public GetSupportedInstanceTypesResult build() {
             final var _resultValue = new GetSupportedInstanceTypesResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.releaseLabel = releaseLabel;
             _resultValue.supportedInstanceTypes = supportedInstanceTypes;
             return _resultValue;

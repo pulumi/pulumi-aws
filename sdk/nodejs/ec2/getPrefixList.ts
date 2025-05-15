@@ -65,6 +65,7 @@ export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOpti
         "filters": args.filters,
         "name": args.name,
         "prefixListId": args.prefixListId,
+        "region": args.region,
     }, opts);
 }
 
@@ -74,6 +75,10 @@ export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOpti
 export interface GetPrefixListArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * prefix lists. The given filters must match exactly one prefix list
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetPrefixListFilter[];
     /**
@@ -84,6 +89,7 @@ export interface GetPrefixListArgs {
      * ID of the prefix list to select.
      */
     prefixListId?: string;
+    region?: string;
 }
 
 /**
@@ -104,6 +110,7 @@ export interface GetPrefixListResult {
      */
     readonly name: string;
     readonly prefixListId?: string;
+    readonly region: string;
 }
 /**
  * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
@@ -163,6 +170,7 @@ export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulum
         "filters": args.filters,
         "name": args.name,
         "prefixListId": args.prefixListId,
+        "region": args.region,
     }, opts);
 }
 
@@ -172,6 +180,10 @@ export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulum
 export interface GetPrefixListOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * prefix lists. The given filters must match exactly one prefix list
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetPrefixListFilterArgs>[]>;
     /**
@@ -182,4 +194,5 @@ export interface GetPrefixListOutputArgs {
      * ID of the prefix list to select.
      */
     prefixListId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

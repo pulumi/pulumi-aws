@@ -351,6 +351,10 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly propagateTags!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
@@ -405,6 +409,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["platformCapabilities"] = state ? state.platformCapabilities : undefined;
             resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retryStrategy"] = state ? state.retryStrategy : undefined;
             resourceInputs["revision"] = state ? state.revision : undefined;
             resourceInputs["schedulingPriority"] = state ? state.schedulingPriority : undefined;
@@ -426,6 +431,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
             resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retryStrategy"] = args ? args.retryStrategy : undefined;
             resourceInputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -489,6 +495,10 @@ export interface JobDefinitionState {
      * Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      */
     propagateTags?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
@@ -561,6 +571,10 @@ export interface JobDefinitionArgs {
      * Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      */
     propagateTags?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */

@@ -66,6 +66,12 @@ namespace Pulumi.Aws.LightSail
         [Output("portInfos")]
         public Output<ImmutableArray<Outputs.InstancePublicPortsPortInfo>> PortInfos { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a InstancePublicPorts resource with the given unique name, arguments, and options.
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.LightSail
             set => _portInfos = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public InstancePublicPortsArgs()
         {
         }
@@ -155,6 +167,12 @@ namespace Pulumi.Aws.LightSail
             get => _portInfos ?? (_portInfos = new InputList<Inputs.InstancePublicPortsPortInfoGetArgs>());
             set => _portInfos = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public InstancePublicPortsState()
         {

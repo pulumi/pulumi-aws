@@ -268,6 +268,23 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### DynamoDB Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.glue.Connection("test", {
+ *     name: "example",
+ *     connectionType: "DYNAMODB",
+ *     athenaProperties: {
+ *         lambda_function_arn: "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_athena_abcdefgh",
+ *         disable_spill_encryption: "false",
+ *         spill_bucket: "example-bucket",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
@@ -309,6 +326,10 @@ export class Connection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     */
+    public readonly athenaProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
     public readonly catalogId!: pulumi.Output<string>;
@@ -319,7 +340,7 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly connectionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      */
     public readonly connectionType!: pulumi.Output<string | undefined>;
     /**
@@ -340,6 +361,10 @@ export class Connection extends pulumi.CustomResource {
      * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      */
     public readonly physicalConnectionRequirements!: pulumi.Output<outputs.glue.ConnectionPhysicalConnectionRequirements | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -363,6 +388,7 @@ export class Connection extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["athenaProperties"] = state ? state.athenaProperties : undefined;
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["connectionProperties"] = state ? state.connectionProperties : undefined;
             resourceInputs["connectionType"] = state ? state.connectionType : undefined;
@@ -370,10 +396,12 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["matchCriterias"] = state ? state.matchCriterias : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["physicalConnectionRequirements"] = state ? state.physicalConnectionRequirements : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
+            resourceInputs["athenaProperties"] = args?.athenaProperties ? pulumi.secret(args.athenaProperties) : undefined;
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["connectionProperties"] = args?.connectionProperties ? pulumi.secret(args.connectionProperties) : undefined;
             resourceInputs["connectionType"] = args ? args.connectionType : undefined;
@@ -381,12 +409,13 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["matchCriterias"] = args ? args.matchCriterias : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["physicalConnectionRequirements"] = args ? args.physicalConnectionRequirements : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["connectionProperties"] };
+        const secretOpts = { additionalSecretOutputs: ["athenaProperties", "connectionProperties"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
@@ -401,6 +430,10 @@ export interface ConnectionState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     */
+    athenaProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
     catalogId?: pulumi.Input<string>;
@@ -411,7 +444,7 @@ export interface ConnectionState {
      */
     connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      */
     connectionType?: pulumi.Input<string>;
     /**
@@ -432,6 +465,10 @@ export interface ConnectionState {
      * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      */
     physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -447,6 +484,10 @@ export interface ConnectionState {
  */
 export interface ConnectionArgs {
     /**
+     * Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     */
+    athenaProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
     catalogId?: pulumi.Input<string>;
@@ -457,7 +498,7 @@ export interface ConnectionArgs {
      */
     connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      */
     connectionType?: pulumi.Input<string>;
     /**
@@ -478,6 +519,10 @@ export interface ConnectionArgs {
      * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      */
     physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

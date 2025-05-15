@@ -182,6 +182,10 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the config rule
      */
     public /*out*/ readonly ruleId!: pulumi.Output<string>;
@@ -221,6 +225,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleId"] = state ? state.ruleId : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
@@ -236,6 +241,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -276,6 +282,10 @@ export interface RuleState {
      * The name of the rule
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the config rule
      */
@@ -322,6 +332,10 @@ export interface RuleArgs {
      * The name of the rule
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */

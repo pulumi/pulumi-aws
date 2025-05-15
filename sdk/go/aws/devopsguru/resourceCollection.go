@@ -158,6 +158,8 @@ type ResourceCollection struct {
 
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrOutput `pulumi:"cloudformation"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags ResourceCollectionTagsPtrOutput `pulumi:"tags"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -201,6 +203,8 @@ func GetResourceCollection(ctx *pulumi.Context,
 type resourceCollectionState struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation *ResourceCollectionCloudformation `pulumi:"cloudformation"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags *ResourceCollectionTags `pulumi:"tags"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -212,6 +216,8 @@ type resourceCollectionState struct {
 type ResourceCollectionState struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags ResourceCollectionTagsPtrInput
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -227,6 +233,8 @@ func (ResourceCollectionState) ElementType() reflect.Type {
 type resourceCollectionArgs struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation *ResourceCollectionCloudformation `pulumi:"cloudformation"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags *ResourceCollectionTags `pulumi:"tags"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -239,6 +247,8 @@ type resourceCollectionArgs struct {
 type ResourceCollectionArgs struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags ResourceCollectionTagsPtrInput
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -337,6 +347,11 @@ func (o ResourceCollectionOutput) ToResourceCollectionOutputWithContext(ctx cont
 // A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 func (o ResourceCollectionOutput) Cloudformation() ResourceCollectionCloudformationPtrOutput {
 	return o.ApplyT(func(v *ResourceCollection) ResourceCollectionCloudformationPtrOutput { return v.Cloudformation }).(ResourceCollectionCloudformationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourceCollectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceCollection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.

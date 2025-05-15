@@ -75,6 +75,12 @@ namespace Pulumi.Aws.Ivs
         public Output<int> RecordingReconnectWindowSeconds { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The current state of the Recording Configuration.
         /// </summary>
         [Output("state")]
@@ -162,6 +168,12 @@ namespace Pulumi.Aws.Ivs
         [Input("recordingReconnectWindowSeconds")]
         public Input<int>? RecordingReconnectWindowSeconds { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -211,6 +223,12 @@ namespace Pulumi.Aws.Ivs
         /// </summary>
         [Input("recordingReconnectWindowSeconds")]
         public Input<int>? RecordingReconnectWindowSeconds { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The current state of the Recording Configuration.

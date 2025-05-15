@@ -46,6 +46,21 @@ public final class MulticastGroupSourceState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the transit gateway multicast domain.
      * 
      */
@@ -65,6 +80,7 @@ public final class MulticastGroupSourceState extends com.pulumi.resources.Resour
     private MulticastGroupSourceState(MulticastGroupSourceState $) {
         this.groupIpAddress = $.groupIpAddress;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.region = $.region;
         this.transitGatewayMulticastDomainId = $.transitGatewayMulticastDomainId;
     }
 
@@ -126,6 +142,27 @@ public final class MulticastGroupSourceState extends com.pulumi.resources.Resour
          */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -124,6 +124,8 @@ type BucketIntelligentTieringConfiguration struct {
 	Filter BucketIntelligentTieringConfigurationFilterPtrOutput `pulumi:"filter"`
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
@@ -172,6 +174,8 @@ type bucketIntelligentTieringConfigurationState struct {
 	Filter *BucketIntelligentTieringConfigurationFilter `pulumi:"filter"`
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status *string `pulumi:"status"`
 	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
@@ -185,6 +189,8 @@ type BucketIntelligentTieringConfigurationState struct {
 	Filter BucketIntelligentTieringConfigurationFilterPtrInput
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrInput
 	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
@@ -202,6 +208,8 @@ type bucketIntelligentTieringConfigurationArgs struct {
 	Filter *BucketIntelligentTieringConfigurationFilter `pulumi:"filter"`
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status *string `pulumi:"status"`
 	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
@@ -216,6 +224,8 @@ type BucketIntelligentTieringConfigurationArgs struct {
 	Filter BucketIntelligentTieringConfigurationFilterPtrInput
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrInput
 	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
@@ -324,6 +334,11 @@ func (o BucketIntelligentTieringConfigurationOutput) Filter() BucketIntelligentT
 // Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 func (o BucketIntelligentTieringConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketIntelligentTieringConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.

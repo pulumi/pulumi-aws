@@ -119,6 +119,12 @@ namespace Pulumi.Aws.Lex
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of an IAM role that has permission to access the bot.
         /// 
         /// The following arguments are optional:
@@ -239,6 +245,12 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of an IAM role that has permission to access the bot.
         /// 
         /// The following arguments are optional:
@@ -331,6 +343,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of an IAM role that has permission to access the bot.

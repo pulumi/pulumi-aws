@@ -34,6 +34,7 @@ class IntegrationArgs:
                  credentials: Optional[pulumi.Input[builtins.str]] = None,
                  integration_http_method: Optional[pulumi.Input[builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[builtins.int]] = None,
@@ -58,6 +59,7 @@ class IntegrationArgs:
                Not all methods are compatible with all `AWS` integrations.
                e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
         :param pulumi.Input[builtins.str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_templates: Map of the integration's request templates.
@@ -87,6 +89,8 @@ class IntegrationArgs:
             pulumi.set(__self__, "integration_http_method", integration_http_method)
         if passthrough_behavior is not None:
             pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_parameters is not None:
             pulumi.set(__self__, "request_parameters", request_parameters)
         if request_templates is not None:
@@ -248,6 +252,18 @@ class IntegrationArgs:
         pulumi.set(self, "passthrough_behavior", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -323,6 +339,7 @@ class _IntegrationState:
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  integration_http_method: Optional[pulumi.Input[builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -347,6 +364,7 @@ class _IntegrationState:
                Not all methods are compatible with all `AWS` integrations.
                e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
         :param pulumi.Input[builtins.str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_templates: Map of the integration's request templates.
@@ -377,6 +395,8 @@ class _IntegrationState:
             pulumi.set(__self__, "integration_http_method", integration_http_method)
         if passthrough_behavior is not None:
             pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_parameters is not None:
             pulumi.set(__self__, "request_parameters", request_parameters)
         if request_templates is not None:
@@ -508,6 +528,18 @@ class _IntegrationState:
         pulumi.set(self, "passthrough_behavior", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -624,6 +656,7 @@ class Integration(pulumi.CustomResource):
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  integration_http_method: Optional[pulumi.Input[builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -810,6 +843,7 @@ class Integration(pulumi.CustomResource):
                Not all methods are compatible with all `AWS` integrations.
                e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
         :param pulumi.Input[builtins.str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_templates: Map of the integration's request templates.
@@ -1013,6 +1047,7 @@ class Integration(pulumi.CustomResource):
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  integration_http_method: Optional[pulumi.Input[builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1041,6 +1076,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["http_method"] = http_method
             __props__.__dict__["integration_http_method"] = integration_http_method
             __props__.__dict__["passthrough_behavior"] = passthrough_behavior
+            __props__.__dict__["region"] = region
             __props__.__dict__["request_parameters"] = request_parameters
             __props__.__dict__["request_templates"] = request_templates
             if resource_id is None and not opts.urn:
@@ -1074,6 +1110,7 @@ class Integration(pulumi.CustomResource):
             http_method: Optional[pulumi.Input[builtins.str]] = None,
             integration_http_method: Optional[pulumi.Input[builtins.str]] = None,
             passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1103,6 +1140,7 @@ class Integration(pulumi.CustomResource):
                Not all methods are compatible with all `AWS` integrations.
                e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
         :param pulumi.Input[builtins.str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_templates: Map of the integration's request templates.
@@ -1128,6 +1166,7 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["http_method"] = http_method
         __props__.__dict__["integration_http_method"] = integration_http_method
         __props__.__dict__["passthrough_behavior"] = passthrough_behavior
+        __props__.__dict__["region"] = region
         __props__.__dict__["request_parameters"] = request_parameters
         __props__.__dict__["request_templates"] = request_templates
         __props__.__dict__["resource_id"] = resource_id
@@ -1214,6 +1253,14 @@ class Integration(pulumi.CustomResource):
         Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         """
         return pulumi.get(self, "passthrough_behavior")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requestParameters")

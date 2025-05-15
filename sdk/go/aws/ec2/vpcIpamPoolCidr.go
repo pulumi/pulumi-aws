@@ -147,6 +147,8 @@ type VpcIpamPoolCidr struct {
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
 	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewVpcIpamPoolCidr registers a new resource with the given unique name, arguments, and options.
@@ -192,6 +194,8 @@ type vpcIpamPoolCidrState struct {
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
 	NetmaskLength *int `pulumi:"netmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type VpcIpamPoolCidrState struct {
@@ -205,6 +209,8 @@ type VpcIpamPoolCidrState struct {
 	IpamPoolId pulumi.StringPtrInput
 	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
 	NetmaskLength pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrState) ElementType() reflect.Type {
@@ -220,6 +226,8 @@ type vpcIpamPoolCidrArgs struct {
 	IpamPoolId string `pulumi:"ipamPoolId"`
 	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
 	NetmaskLength *int `pulumi:"netmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VpcIpamPoolCidr resource.
@@ -232,6 +240,8 @@ type VpcIpamPoolCidrArgs struct {
 	IpamPoolId pulumi.StringInput
 	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
 	NetmaskLength pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrArgs) ElementType() reflect.Type {
@@ -346,6 +356,11 @@ func (o VpcIpamPoolCidrOutput) IpamPoolId() pulumi.StringOutput {
 // If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
 func (o VpcIpamPoolCidrOutput) NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcIpamPoolCidrOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type VpcIpamPoolCidrArrayOutput struct{ *pulumi.OutputState }

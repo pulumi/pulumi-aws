@@ -84,7 +84,7 @@ export interface GetServiceAccountResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly region?: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)

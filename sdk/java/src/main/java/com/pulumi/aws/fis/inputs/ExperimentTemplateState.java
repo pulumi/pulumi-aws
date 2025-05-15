@@ -99,6 +99,21 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      * 
      */
@@ -177,6 +192,7 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
         this.experimentOptions = $.experimentOptions;
         this.experimentReportConfiguration = $.experimentReportConfiguration;
         this.logConfiguration = $.logConfiguration;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.stopConditions = $.stopConditions;
         this.tags = $.tags;
@@ -315,6 +331,27 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
          */
         public Builder logConfiguration(ExperimentTemplateLogConfigurationArgs logConfiguration) {
             return logConfiguration(Output.of(logConfiguration));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -739,6 +739,10 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly redshiftConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
      *
      * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
@@ -788,6 +792,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["opensearchConfiguration"] = state ? state.opensearchConfiguration : undefined;
             resourceInputs["opensearchserverlessConfiguration"] = state ? state.opensearchserverlessConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["snowflakeConfiguration"] = state ? state.snowflakeConfiguration : undefined;
             resourceInputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
@@ -812,6 +817,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["opensearchConfiguration"] = args ? args.opensearchConfiguration : undefined;
             resourceInputs["opensearchserverlessConfiguration"] = args ? args.opensearchserverlessConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["snowflakeConfiguration"] = args ? args.snowflakeConfiguration : undefined;
             resourceInputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
@@ -877,6 +883,10 @@ export interface FirehoseDeliveryStreamState {
      * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
      */
     redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
      *
@@ -955,6 +965,10 @@ export interface FirehoseDeliveryStreamArgs {
      * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
      */
     redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
      *

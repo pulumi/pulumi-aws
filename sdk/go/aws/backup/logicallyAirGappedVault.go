@@ -62,6 +62,8 @@ type LogicallyAirGappedVault struct {
 	MinRetentionDays pulumi.IntOutput `pulumi:"minRetentionDays"`
 	// Name of the Logically Air Gapped Backup Vault to create.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -113,6 +115,8 @@ type logicallyAirGappedVaultState struct {
 	MinRetentionDays *int `pulumi:"minRetentionDays"`
 	// Name of the Logically Air Gapped Backup Vault to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -129,6 +133,8 @@ type LogicallyAirGappedVaultState struct {
 	MinRetentionDays pulumi.IntPtrInput
 	// Name of the Logically Air Gapped Backup Vault to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -147,6 +153,8 @@ type logicallyAirGappedVaultArgs struct {
 	MinRetentionDays int `pulumi:"minRetentionDays"`
 	// Name of the Logically Air Gapped Backup Vault to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string                `pulumi:"tags"`
 	Timeouts *LogicallyAirGappedVaultTimeouts `pulumi:"timeouts"`
@@ -160,6 +168,8 @@ type LogicallyAirGappedVaultArgs struct {
 	MinRetentionDays pulumi.IntInput
 	// Name of the Logically Air Gapped Backup Vault to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts LogicallyAirGappedVaultTimeoutsPtrInput
@@ -270,6 +280,11 @@ func (o LogicallyAirGappedVaultOutput) MinRetentionDays() pulumi.IntOutput {
 // Name of the Logically Air Gapped Backup Vault to create.
 func (o LogicallyAirGappedVaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogicallyAirGappedVaultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

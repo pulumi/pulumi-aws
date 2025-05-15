@@ -106,6 +106,10 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
      */
     public readonly preSignedUrl!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The retention period for the replicated automated backups, defaults to `7`.
      */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
@@ -129,6 +133,7 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
             const state = argsOrState as InstanceAutomatedBackupsReplicationState | undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["preSignedUrl"] = state ? state.preSignedUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
             resourceInputs["sourceDbInstanceArn"] = state ? state.sourceDbInstanceArn : undefined;
         } else {
@@ -138,6 +143,7 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
             }
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["preSignedUrl"] = args ? args.preSignedUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
             resourceInputs["sourceDbInstanceArn"] = args ? args.sourceDbInstanceArn : undefined;
         }
@@ -158,6 +164,10 @@ export interface InstanceAutomatedBackupsReplicationState {
      * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      */
     preSignedUrl?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The retention period for the replicated automated backups, defaults to `7`.
      */
@@ -180,6 +190,10 @@ export interface InstanceAutomatedBackupsReplicationArgs {
      * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      */
     preSignedUrl?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The retention period for the replicated automated backups, defaults to `7`.
      */

@@ -30,6 +30,7 @@ class FileCacheArgs:
                  data_repository_associations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -45,6 +46,7 @@ class FileCacheArgs:
                A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
         :param pulumi.Input[builtins.str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -60,6 +62,8 @@ class FileCacheArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if lustre_configurations is not None:
             pulumi.set(__self__, "lustre_configurations", lustre_configurations)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
@@ -165,6 +169,18 @@ class FileCacheArgs:
         pulumi.set(self, "lustre_configurations", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -204,6 +220,7 @@ class _FileCacheState:
                  lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -224,6 +241,7 @@ class _FileCacheState:
         :param pulumi.Input[builtins.str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: A list of network interface IDs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[builtins.int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
@@ -256,6 +274,8 @@ class _FileCacheState:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if storage_capacity is not None:
@@ -412,6 +432,18 @@ class _FileCacheState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -497,6 +529,7 @@ class FileCache(pulumi.CustomResource):
                  file_cache_type_version: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -559,6 +592,7 @@ class FileCache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] file_cache_type_version: The version for the type of cache that you're creating. The only supported value is `2.12`.
         :param pulumi.Input[builtins.str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[builtins.int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
@@ -641,6 +675,7 @@ class FileCache(pulumi.CustomResource):
                  file_cache_type_version: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -664,6 +699,7 @@ class FileCache(pulumi.CustomResource):
             __props__.__dict__["file_cache_type_version"] = file_cache_type_version
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["lustre_configurations"] = lustre_configurations
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
             if storage_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_capacity'")
@@ -702,6 +738,7 @@ class FileCache(pulumi.CustomResource):
             lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             storage_capacity: Optional[pulumi.Input[builtins.int]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -727,6 +764,7 @@ class FileCache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: A list of network interface IDs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[builtins.int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
@@ -751,6 +789,7 @@ class FileCache(pulumi.CustomResource):
         __props__.__dict__["lustre_configurations"] = lustre_configurations
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["storage_capacity"] = storage_capacity
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -852,6 +891,14 @@ class FileCache(pulumi.CustomResource):
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupIds")

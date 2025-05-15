@@ -28,7 +28,7 @@ class GetDataSetResult:
     """
     A collection of values returned by getDataSet.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, column_groups=None, column_level_permission_rules=None, data_set_id=None, data_set_usage_configurations=None, field_folders=None, id=None, import_mode=None, logical_table_maps=None, name=None, permissions=None, physical_table_maps=None, row_level_permission_data_sets=None, row_level_permission_tag_configurations=None, tags=None):
+    def __init__(__self__, arn=None, aws_account_id=None, column_groups=None, column_level_permission_rules=None, data_set_id=None, data_set_usage_configurations=None, field_folders=None, id=None, import_mode=None, logical_table_maps=None, name=None, permissions=None, physical_table_maps=None, region=None, row_level_permission_data_sets=None, row_level_permission_tag_configurations=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -68,6 +68,9 @@ class GetDataSetResult:
         if physical_table_maps and not isinstance(physical_table_maps, list):
             raise TypeError("Expected argument 'physical_table_maps' to be a list")
         pulumi.set(__self__, "physical_table_maps", physical_table_maps)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if row_level_permission_data_sets and not isinstance(row_level_permission_data_sets, list):
             raise TypeError("Expected argument 'row_level_permission_data_sets' to be a list")
         pulumi.set(__self__, "row_level_permission_data_sets", row_level_permission_data_sets)
@@ -147,6 +150,11 @@ class GetDataSetResult:
         return pulumi.get(self, "physical_table_maps")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rowLevelPermissionDataSets")
     def row_level_permission_data_sets(self) -> Sequence['outputs.GetDataSetRowLevelPermissionDataSetResult']:
         return pulumi.get(self, "row_level_permission_data_sets")
@@ -181,6 +189,7 @@ class AwaitableGetDataSetResult(GetDataSetResult):
             name=self.name,
             permissions=self.permissions,
             physical_table_maps=self.physical_table_maps,
+            region=self.region,
             row_level_permission_data_sets=self.row_level_permission_data_sets,
             row_level_permission_tag_configurations=self.row_level_permission_tag_configurations,
             tags=self.tags)
@@ -188,6 +197,7 @@ class AwaitableGetDataSetResult(GetDataSetResult):
 
 def get_data_set(aws_account_id: Optional[builtins.str] = None,
                  data_set_id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetResult:
     """
@@ -207,12 +217,11 @@ def get_data_set(aws_account_id: Optional[builtins.str] = None,
 
     :param builtins.str aws_account_id: AWS account ID.
     :param builtins.str data_set_id: Identifier for the data set.
-           
-           The following arguments are optional:
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['dataSetId'] = data_set_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getDataSet:getDataSet', __args__, opts=opts, typ=GetDataSetResult).value
@@ -231,11 +240,13 @@ def get_data_set(aws_account_id: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
         physical_table_maps=pulumi.get(__ret__, 'physical_table_maps'),
+        region=pulumi.get(__ret__, 'region'),
         row_level_permission_data_sets=pulumi.get(__ret__, 'row_level_permission_data_sets'),
         row_level_permission_tag_configurations=pulumi.get(__ret__, 'row_level_permission_tag_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         data_set_id: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSetResult]:
     """
@@ -255,12 +266,11 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.
 
     :param builtins.str aws_account_id: AWS account ID.
     :param builtins.str data_set_id: Identifier for the data set.
-           
-           The following arguments are optional:
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['dataSetId'] = data_set_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getDataSet:getDataSet', __args__, opts=opts, typ=GetDataSetResult)
@@ -278,6 +288,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.
         name=pulumi.get(__response__, 'name'),
         permissions=pulumi.get(__response__, 'permissions'),
         physical_table_maps=pulumi.get(__response__, 'physical_table_maps'),
+        region=pulumi.get(__response__, 'region'),
         row_level_permission_data_sets=pulumi.get(__response__, 'row_level_permission_data_sets'),
         row_level_permission_tag_configurations=pulumi.get(__response__, 'row_level_permission_tag_configurations'),
         tags=pulumi.get(__response__, 'tags')))

@@ -54,6 +54,12 @@ namespace Pulumi.Aws.Vpc
         public Output<bool> PrivateDnsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// VPC endpoint identifier.
         /// </summary>
         [Output("vpcEndpointId")]
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.Vpc
         public Input<bool> PrivateDnsEnabled { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// VPC endpoint identifier.
         /// </summary>
         [Input("vpcEndpointId", required: true)]
@@ -130,6 +142,12 @@ namespace Pulumi.Aws.Vpc
         /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// VPC endpoint identifier.

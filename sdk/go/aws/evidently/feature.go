@@ -212,6 +212,8 @@ type Feature struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name or ARN of the project that is to contain the new feature.
 	Project pulumi.StringOutput `pulumi:"project"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -280,6 +282,8 @@ type featureState struct {
 	Name *string `pulumi:"name"`
 	// The name or ARN of the project that is to contain the new feature.
 	Project *string `pulumi:"project"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
 	Status *string `pulumi:"status"`
 	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -313,6 +317,8 @@ type FeatureState struct {
 	Name pulumi.StringPtrInput
 	// The name or ARN of the project that is to contain the new feature.
 	Project pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
 	Status pulumi.StringPtrInput
 	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -342,6 +348,8 @@ type featureArgs struct {
 	Name *string `pulumi:"name"`
 	// The name or ARN of the project that is to contain the new feature.
 	Project string `pulumi:"project"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
@@ -362,6 +370,8 @@ type FeatureArgs struct {
 	Name pulumi.StringPtrInput
 	// The name or ARN of the project that is to contain the new feature.
 	Project pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
@@ -503,6 +513,11 @@ func (o FeatureOutput) Name() pulumi.StringOutput {
 // The name or ARN of the project that is to contain the new feature.
 func (o FeatureOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FeatureOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.

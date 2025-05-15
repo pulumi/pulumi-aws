@@ -32,6 +32,13 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
         return this.emailIdentity;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value mapping of resource tags.
      * 
@@ -51,6 +58,7 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
 
     private GetEmailIdentityArgs(GetEmailIdentityArgs $) {
         this.emailIdentity = $.emailIdentity;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder emailIdentity(String emailIdentity) {
             return emailIdentity(Output.of(emailIdentity));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

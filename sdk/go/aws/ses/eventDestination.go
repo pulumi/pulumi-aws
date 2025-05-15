@@ -150,6 +150,8 @@ type EventDestination struct {
 	MatchingTypes pulumi.StringArrayOutput `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -206,6 +208,8 @@ type eventDestinationState struct {
 	MatchingTypes []string `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -227,6 +231,8 @@ type EventDestinationState struct {
 	MatchingTypes pulumi.StringArrayInput
 	// The name of the event destination
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -250,6 +256,8 @@ type eventDestinationArgs struct {
 	MatchingTypes []string `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -270,6 +278,8 @@ type EventDestinationArgs struct {
 	MatchingTypes pulumi.StringArrayInput
 	// The name of the event destination
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -398,6 +408,11 @@ func (o EventDestinationOutput) MatchingTypes() pulumi.StringArrayOutput {
 // The name of the event destination
 func (o EventDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Send the events to an SNS Topic destination

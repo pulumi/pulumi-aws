@@ -124,6 +124,12 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Version of FinSpace Managed kdb to run.
         /// </summary>
         [Output("releaseLabel")]
@@ -329,6 +335,12 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Version of FinSpace Managed kdb to run.
         /// </summary>
         [Input("releaseLabel", required: true)]
@@ -356,18 +368,6 @@ namespace Pulumi.Aws.FinSpace
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         [Input("tickerplantLogConfigurations")]
@@ -524,6 +524,12 @@ namespace Pulumi.Aws.FinSpace
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Version of FinSpace Managed kdb to run.

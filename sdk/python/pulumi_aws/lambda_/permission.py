@@ -27,6 +27,7 @@ class PermissionArgs:
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_account: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  statement_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -44,6 +45,7 @@ class PermissionArgs:
                [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
                [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         :param pulumi.Input[builtins.str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[builtins.str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
                Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
@@ -64,6 +66,8 @@ class PermissionArgs:
             pulumi.set(__self__, "principal_org_id", principal_org_id)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_account is not None:
             pulumi.set(__self__, "source_account", source_account)
         if source_arn is not None:
@@ -162,6 +166,18 @@ class PermissionArgs:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -224,6 +240,7 @@ class _PermissionState:
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_account: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  statement_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -241,6 +258,7 @@ class _PermissionState:
                [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
                [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         :param pulumi.Input[builtins.str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[builtins.str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
                Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
@@ -264,6 +282,8 @@ class _PermissionState:
             pulumi.set(__self__, "principal_org_id", principal_org_id)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_account is not None:
             pulumi.set(__self__, "source_account", source_account)
         if source_arn is not None:
@@ -362,6 +382,18 @@ class _PermissionState:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -429,6 +461,7 @@ class Permission(pulumi.CustomResource):
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_account: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  statement_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -613,6 +646,7 @@ class Permission(pulumi.CustomResource):
                [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
                [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         :param pulumi.Input[builtins.str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[builtins.str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
                Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
@@ -816,6 +850,7 @@ class Permission(pulumi.CustomResource):
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_account: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  statement_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -842,6 +877,7 @@ class Permission(pulumi.CustomResource):
             __props__.__dict__["principal"] = principal
             __props__.__dict__["principal_org_id"] = principal_org_id
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["source_account"] = source_account
             __props__.__dict__["source_arn"] = source_arn
             __props__.__dict__["statement_id"] = statement_id
@@ -863,6 +899,7 @@ class Permission(pulumi.CustomResource):
             principal: Optional[pulumi.Input[builtins.str]] = None,
             principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
             qualifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_account: Optional[pulumi.Input[builtins.str]] = None,
             source_arn: Optional[pulumi.Input[builtins.str]] = None,
             statement_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -885,6 +922,7 @@ class Permission(pulumi.CustomResource):
                [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
                [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         :param pulumi.Input[builtins.str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[builtins.str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
                Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
@@ -905,6 +943,7 @@ class Permission(pulumi.CustomResource):
         __props__.__dict__["principal"] = principal
         __props__.__dict__["principal_org_id"] = principal_org_id
         __props__.__dict__["qualifier"] = qualifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_account"] = source_account
         __props__.__dict__["source_arn"] = source_arn
         __props__.__dict__["statement_id"] = statement_id
@@ -970,6 +1009,14 @@ class Permission(pulumi.CustomResource):
         Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         """
         return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sourceAccount")

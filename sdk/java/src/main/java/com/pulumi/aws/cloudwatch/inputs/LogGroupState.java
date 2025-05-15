@@ -98,6 +98,21 @@ public final class LogGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the number of days
      * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
      * If you select 0, the events in the log group are always retained and never expire.
@@ -169,6 +184,7 @@ public final class LogGroupState extends com.pulumi.resources.ResourceArgs {
         this.logGroupClass = $.logGroupClass;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.region = $.region;
         this.retentionInDays = $.retentionInDays;
         this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
@@ -300,6 +316,27 @@ public final class LogGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

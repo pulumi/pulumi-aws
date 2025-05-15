@@ -67,8 +67,13 @@ type LookupReplicationSetResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ARN of the user who last modified the replication set.
-	LastModifiedBy string                    `pulumi:"lastModifiedBy"`
-	Regions        []GetReplicationSetRegion `pulumi:"regions"`
+	LastModifiedBy string `pulumi:"lastModifiedBy"`
+	// (**Deprecated**) The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region []GetReplicationSetRegion `pulumi:"region"`
+	// The replication set's Regions.
+	Regions []GetReplicationSetRegion `pulumi:"regions"`
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
 	Status string `pulumi:"status"`
@@ -135,6 +140,14 @@ func (o LookupReplicationSetResultOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
+// (**Deprecated**) The replication set's Regions. Use `regions` instead.
+//
+// Deprecated: region is deprecated. Use regions instead.
+func (o LookupReplicationSetResultOutput) Region() GetReplicationSetRegionArrayOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) []GetReplicationSetRegion { return v.Region }).(GetReplicationSetRegionArrayOutput)
+}
+
+// The replication set's Regions.
 func (o LookupReplicationSetResultOutput) Regions() GetReplicationSetRegionArrayOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) []GetReplicationSetRegion { return v.Regions }).(GetReplicationSetRegionArrayOutput)
 }

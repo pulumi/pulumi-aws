@@ -42,6 +42,7 @@ export function getBundle(args?: GetBundleArgs, opts?: pulumi.InvokeOptions): Pr
         "bundleId": args.bundleId,
         "name": args.name,
         "owner": args.owner,
+        "region": args.region,
     }, opts);
 }
 
@@ -61,6 +62,7 @@ export interface GetBundleArgs {
      * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
      */
     owner?: string;
+    region?: string;
 }
 
 /**
@@ -91,6 +93,7 @@ export interface GetBundleResult {
      * The owner of the bundle.
      */
     readonly owner?: string;
+    readonly region: string;
     /**
      * The root volume. See supported fields below.
      */
@@ -135,6 +138,7 @@ export function getBundleOutput(args?: GetBundleOutputArgs, opts?: pulumi.Invoke
         "bundleId": args.bundleId,
         "name": args.name,
         "owner": args.owner,
+        "region": args.region,
     }, opts);
 }
 
@@ -154,4 +158,5 @@ export interface GetBundleOutputArgs {
      * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
      */
     owner?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -53,7 +53,8 @@ func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opt
 // A collection of arguments for invoking getEmailIdentity.
 type LookupEmailIdentityArgs struct {
 	// The name of the email identity.
-	EmailIdentity string `pulumi:"emailIdentity"`
+	EmailIdentity string  `pulumi:"emailIdentity"`
+	Region        *string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -70,6 +71,7 @@ type LookupEmailIdentityResult struct {
 	Id string `pulumi:"id"`
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 	IdentityType string `pulumi:"identityType"`
+	Region       string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies whether or not the identity is verified.
@@ -88,7 +90,8 @@ func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutp
 // A collection of arguments for invoking getEmailIdentity.
 type LookupEmailIdentityOutputArgs struct {
 	// The name of the email identity.
-	EmailIdentity pulumi.StringInput `pulumi:"emailIdentity"`
+	EmailIdentity pulumi.StringInput    `pulumi:"emailIdentity"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -140,6 +143,10 @@ func (o LookupEmailIdentityResultOutput) Id() pulumi.StringOutput {
 // The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 func (o LookupEmailIdentityResultOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.IdentityType }).(pulumi.StringOutput)
+}
+
+func (o LookupEmailIdentityResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value mapping of resource tags.

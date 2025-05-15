@@ -166,6 +166,12 @@ namespace Pulumi.Aws.Connect
         public Output<ImmutableArray<string>> QuickConnectIds { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         /// </summary>
         [Output("status")]
@@ -278,6 +284,12 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         /// </summary>
         [Input("status")]
@@ -362,6 +374,12 @@ namespace Pulumi.Aws.Connect
             get => _quickConnectIds ?? (_quickConnectIds = new InputList<string>());
             set => _quickConnectIds = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.

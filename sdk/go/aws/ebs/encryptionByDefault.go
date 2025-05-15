@@ -53,6 +53,8 @@ type EncryptionByDefault struct {
 
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEncryptionByDefault registers a new resource with the given unique name, arguments, and options.
@@ -87,11 +89,15 @@ func GetEncryptionByDefault(ctx *pulumi.Context,
 type encryptionByDefaultState struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EncryptionByDefaultState struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EncryptionByDefaultState) ElementType() reflect.Type {
@@ -101,12 +107,16 @@ func (EncryptionByDefaultState) ElementType() reflect.Type {
 type encryptionByDefaultArgs struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EncryptionByDefault resource.
 type EncryptionByDefaultArgs struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EncryptionByDefaultArgs) ElementType() reflect.Type {
@@ -199,6 +209,11 @@ func (o EncryptionByDefaultOutput) ToEncryptionByDefaultOutputWithContext(ctx co
 // Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 func (o EncryptionByDefaultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionByDefault) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EncryptionByDefaultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionByDefault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EncryptionByDefaultArrayOutput struct{ *pulumi.OutputState }

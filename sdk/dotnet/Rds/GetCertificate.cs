@@ -105,6 +105,9 @@ namespace Pulumi.Aws.Rds
         [Input("latestValidTill")]
         public bool? LatestValidTill { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetCertificateArgs()
         {
         }
@@ -130,6 +133,9 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("latestValidTill")]
         public Input<bool>? LatestValidTill { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetCertificateInvokeArgs()
         {
@@ -160,6 +166,7 @@ namespace Pulumi.Aws.Rds
         public readonly bool? DefaultForNewLaunches;
         public readonly string Id;
         public readonly bool? LatestValidTill;
+        public readonly string Region;
         /// <summary>
         /// Thumbprint of the certificate.
         /// </summary>
@@ -189,6 +196,8 @@ namespace Pulumi.Aws.Rds
 
             bool? latestValidTill,
 
+            string region,
+
             string thumbprint,
 
             string validFrom,
@@ -202,6 +211,7 @@ namespace Pulumi.Aws.Rds
             DefaultForNewLaunches = defaultForNewLaunches;
             Id = id;
             LatestValidTill = latestValidTill;
+            Region = region;
             Thumbprint = thumbprint;
             ValidFrom = validFrom;
             ValidTill = validTill;

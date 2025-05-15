@@ -16,10 +16,19 @@ import * as utilities from "../utilities";
  * const all = aws.lambda.getFunctions({});
  * ```
  */
-export function getFunctions(opts?: pulumi.InvokeOptions): Promise<GetFunctionsResult> {
+export function getFunctions(args?: GetFunctionsArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getFunctions:getFunctions", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getFunctions.
+ */
+export interface GetFunctionsArgs {
+    region?: string;
 }
 
 /**
@@ -38,6 +47,7 @@ export interface GetFunctionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data resource to get a list of Lambda Functions.
@@ -51,8 +61,17 @@ export interface GetFunctionsResult {
  * const all = aws.lambda.getFunctions({});
  * ```
  */
-export function getFunctionsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionsResult> {
+export function getFunctionsOutput(args?: GetFunctionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lambda/getFunctions:getFunctions", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getFunctions.
+ */
+export interface GetFunctionsOutputArgs {
+    region?: pulumi.Input<string>;
 }

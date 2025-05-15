@@ -93,6 +93,12 @@ namespace Pulumi.Aws.SecurityLake
         public Output<ImmutableArray<Outputs.CustomLogSourceProviderDetail>> ProviderDetails { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specify the name for a third-party custom source.
         /// This must be a Regionally unique value.
         /// Has a maximum length of 20.
@@ -171,6 +177,12 @@ namespace Pulumi.Aws.SecurityLake
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specify the name for a third-party custom source.
         /// This must be a Regionally unique value.
         /// Has a maximum length of 20.
@@ -233,6 +245,12 @@ namespace Pulumi.Aws.SecurityLake
             get => _providerDetails ?? (_providerDetails = new InputList<Inputs.CustomLogSourceProviderDetailGetArgs>());
             set => _providerDetails = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specify the name for a third-party custom source.

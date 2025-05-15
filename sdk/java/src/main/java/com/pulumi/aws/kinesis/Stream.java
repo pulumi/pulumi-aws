@@ -152,6 +152,20 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream&#39;s retention period is 8760 hours. Minimum value is 24. Default is 24.
      * 
      */

@@ -146,6 +146,20 @@ public class BucketObjectLockConfiguration extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.objectLockEnabled);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      * 
      */

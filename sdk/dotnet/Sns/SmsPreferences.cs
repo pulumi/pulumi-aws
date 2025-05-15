@@ -65,6 +65,12 @@ namespace Pulumi.Aws.Sns
         public Output<int> MonthlySpendLimit { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         /// </summary>
         [Output("usageReportS3Bucket")]
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.Sns
         public Input<int>? MonthlySpendLimit { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         /// </summary>
         [Input("usageReportS3Bucket")]
@@ -189,6 +201,12 @@ namespace Pulumi.Aws.Sns
         /// </summary>
         [Input("monthlySpendLimit")]
         public Input<int>? MonthlySpendLimit { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.

@@ -26,6 +26,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getCluster:getCluster", {
         "clusterName": args.clusterName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,7 @@ export interface GetClusterArgs {
      * Name of the ECS Cluster
      */
     clusterName: string;
+    region?: string;
     /**
      * Key-value map of resource tags
      */
@@ -61,6 +63,7 @@ export interface GetClusterResult {
      * Number of pending tasks for the ECS Cluster
      */
     readonly pendingTasksCount: number;
+    readonly region: string;
     /**
      * The number of registered container instances for the ECS Cluster
      */
@@ -105,6 +108,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecs/getCluster:getCluster", {
         "clusterName": args.clusterName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -117,6 +121,7 @@ export interface GetClusterOutputArgs {
      * Name of the ECS Cluster
      */
     clusterName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */

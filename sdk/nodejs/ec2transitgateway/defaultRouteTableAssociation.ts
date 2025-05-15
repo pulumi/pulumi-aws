@@ -53,6 +53,10 @@ export class DefaultRouteTableAssociation extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly originalDefaultRouteTableId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.ec2transitgateway.DefaultRouteTableAssociationTimeouts | undefined>;
     /**
      * ID of the Transit Gateway to change the default association route table on.
@@ -77,6 +81,7 @@ export class DefaultRouteTableAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DefaultRouteTableAssociationState | undefined;
             resourceInputs["originalDefaultRouteTableId"] = state ? state.originalDefaultRouteTableId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
@@ -88,6 +93,7 @@ export class DefaultRouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
@@ -103,6 +109,10 @@ export class DefaultRouteTableAssociation extends pulumi.CustomResource {
  */
 export interface DefaultRouteTableAssociationState {
     originalDefaultRouteTableId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2transitgateway.DefaultRouteTableAssociationTimeouts>;
     /**
      * ID of the Transit Gateway to change the default association route table on.
@@ -118,6 +128,10 @@ export interface DefaultRouteTableAssociationState {
  * The set of arguments for constructing a DefaultRouteTableAssociation resource.
  */
 export interface DefaultRouteTableAssociationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2transitgateway.DefaultRouteTableAssociationTimeouts>;
     /**
      * ID of the Transit Gateway to change the default association route table on.

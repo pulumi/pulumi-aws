@@ -129,6 +129,10 @@ export class DataQualityRuleset extends pulumi.CustomResource {
      */
     public /*out*/ readonly recommendationRunId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     public readonly ruleset!: pulumi.Output<string>;
@@ -139,7 +143,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
      */
@@ -164,6 +168,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             resourceInputs["lastModifiedOn"] = state ? state.lastModifiedOn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recommendationRunId"] = state ? state.recommendationRunId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleset"] = state ? state.ruleset : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -175,14 +180,15 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleset"] = args ? args.ruleset : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetTable"] = args ? args.targetTable : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["lastModifiedOn"] = undefined /*out*/;
             resourceInputs["recommendationRunId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataQualityRuleset.__pulumiType, name, resourceInputs, opts);
@@ -218,6 +224,10 @@ export interface DataQualityRulesetState {
      */
     recommendationRunId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     ruleset?: pulumi.Input<string>;
@@ -248,6 +258,10 @@ export interface DataQualityRulesetArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     ruleset: pulumi.Input<string>;
@@ -255,10 +269,6 @@ export interface DataQualityRulesetArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
      */

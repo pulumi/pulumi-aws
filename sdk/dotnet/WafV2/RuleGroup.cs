@@ -52,6 +52,12 @@ namespace Pulumi.Aws.WafV2
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         /// </summary>
         [Output("rules")]
@@ -163,6 +169,12 @@ namespace Pulumi.Aws.WafV2
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules")]
         private InputList<Inputs.RuleGroupRuleArgs>? _rules;
 
@@ -251,6 +263,12 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RuleGroupRuleGetArgs>? _rules;

@@ -100,6 +100,10 @@ export class RestApiPut extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the associated REST API.
      *
      * The following arguments are optional:
@@ -127,6 +131,7 @@ export class RestApiPut extends pulumi.CustomResource {
             resourceInputs["body"] = state ? state.body : undefined;
             resourceInputs["failOnWarnings"] = state ? state.failOnWarnings : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApiId"] = state ? state.restApiId : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
@@ -141,6 +146,7 @@ export class RestApiPut extends pulumi.CustomResource {
             resourceInputs["body"] = args ? args.body : undefined;
             resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApiId"] = args ? args.restApiId : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
@@ -166,6 +172,10 @@ export interface RestApiPutState {
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the associated REST API.
      *
@@ -195,6 +205,10 @@ export interface RestApiPutArgs {
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the associated REST API.
      *

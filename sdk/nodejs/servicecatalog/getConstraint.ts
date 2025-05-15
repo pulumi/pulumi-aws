@@ -27,6 +27,7 @@ export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptio
         "acceptLanguage": args.acceptLanguage,
         "description": args.description,
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -48,6 +49,7 @@ export interface GetConstraintArgs {
      * The following arguments are optional:
      */
     id: string;
+    region?: string;
 }
 
 /**
@@ -76,6 +78,7 @@ export interface GetConstraintResult {
      * Product identifier.
      */
     readonly productId: string;
+    readonly region: string;
     /**
      * Constraint status.
      */
@@ -108,6 +111,7 @@ export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi
         "acceptLanguage": args.acceptLanguage,
         "description": args.description,
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -129,4 +133,5 @@ export interface GetConstraintOutputArgs {
      * The following arguments are optional:
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

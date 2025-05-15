@@ -100,6 +100,13 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.mostRecent);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
@@ -144,6 +151,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         this.includePublic = $.includePublic;
         this.includeShared = $.includeShared;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
         this.snapshotType = $.snapshotType;
         this.tags = $.tags;
     }
@@ -277,6 +285,15 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

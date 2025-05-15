@@ -63,6 +63,8 @@ type InputSecurityGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The list of inputs currently using this InputSecurityGroup.
 	Inputs pulumi.StringArrayOutput `pulumi:"inputs"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -109,6 +111,8 @@ type inputSecurityGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// The list of inputs currently using this InputSecurityGroup.
 	Inputs []string `pulumi:"inputs"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -123,6 +127,8 @@ type InputSecurityGroupState struct {
 	Arn pulumi.StringPtrInput
 	// The list of inputs currently using this InputSecurityGroup.
 	Inputs pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -137,6 +143,8 @@ func (InputSecurityGroupState) ElementType() reflect.Type {
 }
 
 type inputSecurityGroupArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Whitelist rules. See Whitelist Rules for more details.
@@ -147,6 +155,8 @@ type inputSecurityGroupArgs struct {
 
 // The set of arguments for constructing a InputSecurityGroup resource.
 type InputSecurityGroupArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Whitelist rules. See Whitelist Rules for more details.
@@ -250,6 +260,11 @@ func (o InputSecurityGroupOutput) Arn() pulumi.StringOutput {
 // The list of inputs currently using this InputSecurityGroup.
 func (o InputSecurityGroupOutput) Inputs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringArrayOutput { return v.Inputs }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InputSecurityGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

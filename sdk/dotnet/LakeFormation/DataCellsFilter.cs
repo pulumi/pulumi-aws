@@ -58,6 +58,12 @@ namespace Pulumi.Aws.LakeFormation
     public partial class DataCellsFilter : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the data cells filter. See Table Data below for details.
         /// </summary>
         [Output("tableData")]
@@ -113,6 +119,12 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class DataCellsFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Information about the data cells filter. See Table Data below for details.
         /// </summary>
         [Input("tableData")]
@@ -129,6 +141,12 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class DataCellsFilterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Information about the data cells filter. See Table Data below for details.
         /// </summary>

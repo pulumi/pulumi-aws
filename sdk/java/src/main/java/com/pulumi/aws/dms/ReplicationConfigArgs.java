@@ -35,6 +35,21 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Unique identifier that you want to use to create the config.
      * 
      */
@@ -170,21 +185,6 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      * 
      */
@@ -203,6 +203,7 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
 
     private ReplicationConfigArgs(ReplicationConfigArgs $) {
         this.computeConfig = $.computeConfig;
+        this.region = $.region;
         this.replicationConfigIdentifier = $.replicationConfigIdentifier;
         this.replicationSettings = $.replicationSettings;
         this.replicationType = $.replicationType;
@@ -212,7 +213,6 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         this.supplementalSettings = $.supplementalSettings;
         this.tableMappings = $.tableMappings;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.targetEndpointArn = $.targetEndpointArn;
     }
 
@@ -253,6 +253,27 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder computeConfig(ReplicationConfigComputeConfigArgs computeConfig) {
             return computeConfig(Output.of(computeConfig));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -442,27 +463,6 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

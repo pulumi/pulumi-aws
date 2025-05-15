@@ -88,6 +88,10 @@ export class DomainPermissions extends pulumi.CustomResource {
      */
     public readonly policyRevision!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the resource associated with the resource policy.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class DomainPermissions extends pulumi.CustomResource {
             resourceInputs["domainOwner"] = state ? state.domainOwner : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["policyRevision"] = state ? state.policyRevision : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as DomainPermissionsArgs | undefined;
@@ -122,6 +127,7 @@ export class DomainPermissions extends pulumi.CustomResource {
             resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyRevision"] = args ? args.policyRevision : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,6 +156,10 @@ export interface DomainPermissionsState {
      */
     policyRevision?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the resource associated with the resource policy.
      */
     resourceArn?: pulumi.Input<string>;
@@ -175,4 +185,8 @@ export interface DomainPermissionsArgs {
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
     policyRevision?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -103,6 +103,10 @@ export class ClusterActivityStream extends pulumi.CustomResource {
      */
     public readonly mode!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class ClusterActivityStream extends pulumi.CustomResource {
             resourceInputs["kinesisStreamName"] = state ? state.kinesisStreamName : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as ClusterActivityStreamArgs | undefined;
@@ -139,6 +144,7 @@ export class ClusterActivityStream extends pulumi.CustomResource {
             resourceInputs["engineNativeAuditFieldsIncluded"] = args ? args.engineNativeAuditFieldsIncluded : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["kinesisStreamName"] = undefined /*out*/;
         }
@@ -168,6 +174,10 @@ export interface ClusterActivityStreamState {
      */
     mode?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */
     resourceArn?: pulumi.Input<string>;
@@ -189,6 +199,10 @@ export interface ClusterActivityStreamArgs {
      * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      */
     mode: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */

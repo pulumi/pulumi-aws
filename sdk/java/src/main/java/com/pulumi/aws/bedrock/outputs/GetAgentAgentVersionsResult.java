@@ -24,6 +24,7 @@ public final class GetAgentAgentVersionsResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetAgentAgentVersionsResult() {}
     public String agentId() {
@@ -43,6 +44,9 @@ public final class GetAgentAgentVersionsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +60,14 @@ public final class GetAgentAgentVersionsResult {
         private String agentId;
         private @Nullable List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetAgentAgentVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.agentId = defaults.agentId;
     	      this.agentVersionSummaries = defaults.agentVersionSummaries;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -89,11 +95,20 @@ public final class GetAgentAgentVersionsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAgentAgentVersionsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetAgentAgentVersionsResult build() {
             final var _resultValue = new GetAgentAgentVersionsResult();
             _resultValue.agentId = agentId;
             _resultValue.agentVersionSummaries = agentVersionSummaries;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

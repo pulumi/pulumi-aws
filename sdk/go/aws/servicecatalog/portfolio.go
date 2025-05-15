@@ -60,6 +60,8 @@ type Portfolio struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -107,6 +109,8 @@ type portfolioState struct {
 	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName *string `pulumi:"providerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -122,6 +126,8 @@ type PortfolioState struct {
 	Name pulumi.StringPtrInput
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -139,6 +145,8 @@ type portfolioArgs struct {
 	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName string `pulumi:"providerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -151,6 +159,8 @@ type PortfolioArgs struct {
 	Name pulumi.StringPtrInput
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -263,6 +273,11 @@ func (o PortfolioOutput) Name() pulumi.StringOutput {
 // Name of the person or organization who owns the portfolio.
 func (o PortfolioOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PortfolioOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

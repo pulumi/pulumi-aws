@@ -71,6 +71,8 @@ type LocationAzureBlob struct {
 	BlobType pulumi.StringPtrOutput `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringOutput `pulumi:"containerUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrOutput `pulumi:"sasConfiguration"`
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -133,6 +135,8 @@ type locationAzureBlobState struct {
 	BlobType *string `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl *string `pulumi:"containerUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration *LocationAzureBlobSasConfiguration `pulumi:"sasConfiguration"`
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -157,6 +161,8 @@ type LocationAzureBlobState struct {
 	BlobType pulumi.StringPtrInput
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrInput
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -183,14 +189,14 @@ type locationAzureBlobArgs struct {
 	BlobType *string `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl string `pulumi:"containerUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration *LocationAzureBlobSasConfiguration `pulumi:"sasConfiguration"`
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a LocationAzureBlob resource.
@@ -205,14 +211,14 @@ type LocationAzureBlobArgs struct {
 	BlobType pulumi.StringPtrInput
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrInput
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (LocationAzureBlobArgs) ElementType() reflect.Type {
@@ -330,6 +336,11 @@ func (o LocationAzureBlobOutput) BlobType() pulumi.StringPtrOutput {
 // The URL of the Azure Blob Storage container involved in your transfer.
 func (o LocationAzureBlobOutput) ContainerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.ContainerUrl }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LocationAzureBlobOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.

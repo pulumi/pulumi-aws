@@ -51,7 +51,8 @@ func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ..
 // A collection of arguments for invoking getImageRecipe.
 type LookupImageRecipeArgs struct {
 	// ARN of the image recipe.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the image recipe.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -77,6 +78,7 @@ type LookupImageRecipeResult struct {
 	ParentImage string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform string `pulumi:"platform"`
+	Region   string `pulumi:"region"`
 	// Key-value map of resource tags for the image recipe.
 	Tags map[string]string `pulumi:"tags"`
 	// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
@@ -99,7 +101,8 @@ func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputAr
 // A collection of arguments for invoking getImageRecipe.
 type LookupImageRecipeOutputArgs struct {
 	// ARN of the image recipe.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the image recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -170,6 +173,10 @@ func (o LookupImageRecipeResultOutput) ParentImage() pulumi.StringOutput {
 // Platform of the image recipe.
 func (o LookupImageRecipeResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+func (o LookupImageRecipeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the image recipe.

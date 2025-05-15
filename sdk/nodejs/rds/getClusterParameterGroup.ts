@@ -22,6 +22,7 @@ export function getClusterParameterGroup(args: GetClusterParameterGroupArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getClusterParameterGroup:getClusterParameterGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetClusterParameterGroupArgs {
      * DB cluster parameter group name.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -56,6 +58,7 @@ export interface GetClusterParameterGroupResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Information about an RDS cluster parameter group.
@@ -75,6 +78,7 @@ export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getClusterParameterGroup:getClusterParameterGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -86,4 +90,5 @@ export interface GetClusterParameterGroupOutputArgs {
      * DB cluster parameter group name.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

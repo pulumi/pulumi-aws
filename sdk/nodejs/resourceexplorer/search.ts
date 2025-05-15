@@ -28,6 +28,7 @@ export function search(args: SearchArgs, opts?: pulumi.InvokeOptions): Promise<S
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:resourceexplorer/search:Search", {
         "queryString": args.queryString,
+        "region": args.region,
         "viewArn": args.viewArn,
     }, opts);
 }
@@ -43,6 +44,10 @@ export interface SearchArgs {
      */
     queryString: string;
     /**
+     * Amazon Web Services Region in which the resource was created and exists.
+     */
+    region?: string;
+    /**
      * Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
      */
     viewArn?: string;
@@ -57,6 +62,10 @@ export interface SearchResult {
      */
     readonly id: string;
     readonly queryString: string;
+    /**
+     * Amazon Web Services Region in which the resource was created and exists.
+     */
+    readonly region: string;
     /**
      * Number of resources that match the query. See `resourceCount` below.
      */
@@ -88,6 +97,7 @@ export function searchOutput(args: SearchOutputArgs, opts?: pulumi.InvokeOutputO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:resourceexplorer/search:Search", {
         "queryString": args.queryString,
+        "region": args.region,
         "viewArn": args.viewArn,
     }, opts);
 }
@@ -102,6 +112,10 @@ export interface SearchOutputArgs {
      * The following arguments are optional:
      */
     queryString: pulumi.Input<string>;
+    /**
+     * Amazon Web Services Region in which the resource was created and exists.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
      */

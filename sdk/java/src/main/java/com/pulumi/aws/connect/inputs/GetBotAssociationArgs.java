@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetBotAssociationArgs extends com.pulumi.resources.InvokeArgs {
@@ -45,11 +47,19 @@ public final class GetBotAssociationArgs extends com.pulumi.resources.InvokeArgs
         return this.lexBot;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetBotAssociationArgs() {}
 
     private GetBotAssociationArgs(GetBotAssociationArgs $) {
         this.instanceId = $.instanceId;
         this.lexBot = $.lexBot;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -110,6 +120,15 @@ public final class GetBotAssociationArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder lexBot(GetBotAssociationLexBotArgs lexBot) {
             return lexBot(Output.of(lexBot));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetBotAssociationArgs build() {

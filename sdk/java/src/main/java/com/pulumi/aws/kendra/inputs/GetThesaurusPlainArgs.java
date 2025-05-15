@@ -31,6 +31,13 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.indexId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Metadata that helps organize the Thesaurus you create.
      * 
@@ -65,6 +72,7 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
 
     private GetThesaurusPlainArgs(GetThesaurusPlainArgs $) {
         this.indexId = $.indexId;
+        this.region = $.region;
         this.tags = $.tags;
         this.thesaurusId = $.thesaurusId;
     }
@@ -95,6 +103,11 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder indexId(String indexId) {
             $.indexId = indexId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

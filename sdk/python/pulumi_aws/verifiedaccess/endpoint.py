@@ -34,10 +34,10 @@ class EndpointArgs:
                  network_interface_options: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  rds_options: Optional[pulumi.Input['EndpointRdsOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
@@ -53,6 +53,7 @@ class EndpointArgs:
         :param pulumi.Input['EndpointLoadBalancerOptionsArgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         :param pulumi.Input['EndpointNetworkInterfaceOptionsArgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
         :param pulumi.Input['EndpointSseSpecificationArgs'] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -78,14 +79,14 @@ class EndpointArgs:
             pulumi.set(__self__, "policy_document", policy_document)
         if rds_options is not None:
             pulumi.set(__self__, "rds_options", rds_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="attachmentType")
@@ -231,6 +232,18 @@ class EndpointArgs:
         pulumi.set(self, "rds_options", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -266,15 +279,6 @@ class EndpointArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _EndpointState:
@@ -292,6 +296,7 @@ class _EndpointState:
                  network_interface_options: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  rds_options: Optional[pulumi.Input['EndpointRdsOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -312,6 +317,7 @@ class _EndpointState:
         :param pulumi.Input['EndpointLoadBalancerOptionsArgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         :param pulumi.Input['EndpointNetworkInterfaceOptionsArgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
         :param pulumi.Input['EndpointSseSpecificationArgs'] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -345,6 +351,8 @@ class _EndpointState:
             pulumi.set(__self__, "policy_document", policy_document)
         if rds_options is not None:
             pulumi.set(__self__, "rds_options", rds_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if sse_specification is not None:
@@ -512,6 +520,18 @@ class _EndpointState:
         pulumi.set(self, "rds_options", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -599,10 +619,10 @@ class Endpoint(pulumi.CustomResource):
                  network_interface_options: Optional[pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  rds_options: Optional[pulumi.Input[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -698,6 +718,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         :param pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
         :param pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -818,10 +839,10 @@ class Endpoint(pulumi.CustomResource):
                  network_interface_options: Optional[pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  rds_options: Optional[pulumi.Input[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -847,15 +868,16 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["network_interface_options"] = network_interface_options
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["rds_options"] = rds_options
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if verified_access_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'verified_access_group_id'")
             __props__.__dict__["verified_access_group_id"] = verified_access_group_id
             __props__.__dict__["device_validation_domain"] = None
             __props__.__dict__["endpoint_domain"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["verified_access_instance_id"] = None
         super(Endpoint, __self__).__init__(
             'aws:verifiedaccess/endpoint:Endpoint',
@@ -880,6 +902,7 @@ class Endpoint(pulumi.CustomResource):
             network_interface_options: Optional[pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
             policy_document: Optional[pulumi.Input[builtins.str]] = None,
             rds_options: Optional[pulumi.Input[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             sse_specification: Optional[pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -905,6 +928,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         :param pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
         :param pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -929,6 +953,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["network_interface_options"] = network_interface_options
         __props__.__dict__["policy_document"] = policy_document
         __props__.__dict__["rds_options"] = rds_options
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["sse_specification"] = sse_specification
         __props__.__dict__["tags"] = tags
@@ -1037,6 +1062,14 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="rdsOptions")
     def rds_options(self) -> pulumi.Output[Optional['outputs.EndpointRdsOptions']]:
         return pulumi.get(self, "rds_options")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupIds")

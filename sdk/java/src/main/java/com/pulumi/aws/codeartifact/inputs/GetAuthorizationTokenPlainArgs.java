@@ -61,12 +61,20 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.durationSeconds);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetAuthorizationTokenPlainArgs() {}
 
     private GetAuthorizationTokenPlainArgs(GetAuthorizationTokenPlainArgs $) {
         this.domain = $.domain;
         this.domainOwner = $.domainOwner;
         this.durationSeconds = $.durationSeconds;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -117,6 +125,11 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
          */
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
             $.durationSeconds = durationSeconds;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

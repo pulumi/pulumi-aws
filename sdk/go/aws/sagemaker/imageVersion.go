@@ -72,6 +72,8 @@ type ImageVersion struct {
 	Processor pulumi.StringPtrOutput `pulumi:"processor"`
 	// The supported programming language and its version.
 	ProgrammingLang pulumi.StringPtrOutput `pulumi:"programmingLang"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The maintainer description of the image version.
 	ReleaseNotes pulumi.StringPtrOutput `pulumi:"releaseNotes"`
 	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
@@ -135,6 +137,8 @@ type imageVersionState struct {
 	Processor *string `pulumi:"processor"`
 	// The supported programming language and its version.
 	ProgrammingLang *string `pulumi:"programmingLang"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The maintainer description of the image version.
 	ReleaseNotes *string `pulumi:"releaseNotes"`
 	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
@@ -163,6 +167,8 @@ type ImageVersionState struct {
 	Processor pulumi.StringPtrInput
 	// The supported programming language and its version.
 	ProgrammingLang pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The maintainer description of the image version.
 	ReleaseNotes pulumi.StringPtrInput
 	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
@@ -190,6 +196,8 @@ type imageVersionArgs struct {
 	Processor *string `pulumi:"processor"`
 	// The supported programming language and its version.
 	ProgrammingLang *string `pulumi:"programmingLang"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The maintainer description of the image version.
 	ReleaseNotes *string `pulumi:"releaseNotes"`
 	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
@@ -212,6 +220,8 @@ type ImageVersionArgs struct {
 	Processor pulumi.StringPtrInput
 	// The supported programming language and its version.
 	ProgrammingLang pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The maintainer description of the image version.
 	ReleaseNotes pulumi.StringPtrInput
 	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
@@ -352,6 +362,11 @@ func (o ImageVersionOutput) Processor() pulumi.StringPtrOutput {
 // The supported programming language and its version.
 func (o ImageVersionOutput) ProgrammingLang() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.ProgrammingLang }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ImageVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The maintainer description of the image version.

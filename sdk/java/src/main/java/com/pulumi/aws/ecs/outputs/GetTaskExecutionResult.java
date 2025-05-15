@@ -41,6 +41,7 @@ public final class GetTaskExecutionResult {
     private @Nullable String platformVersion;
     private @Nullable String propagateTags;
     private @Nullable String referenceId;
+    private String region;
     private @Nullable String startedBy;
     private @Nullable Map<String,String> tags;
     /**
@@ -103,6 +104,9 @@ public final class GetTaskExecutionResult {
     public Optional<String> referenceId() {
         return Optional.ofNullable(this.referenceId);
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> startedBy() {
         return Optional.ofNullable(this.startedBy);
     }
@@ -145,6 +149,7 @@ public final class GetTaskExecutionResult {
         private @Nullable String platformVersion;
         private @Nullable String propagateTags;
         private @Nullable String referenceId;
+        private String region;
         private @Nullable String startedBy;
         private @Nullable Map<String,String> tags;
         private List<String> taskArns;
@@ -168,6 +173,7 @@ public final class GetTaskExecutionResult {
     	      this.platformVersion = defaults.platformVersion;
     	      this.propagateTags = defaults.propagateTags;
     	      this.referenceId = defaults.referenceId;
+    	      this.region = defaults.region;
     	      this.startedBy = defaults.startedBy;
     	      this.tags = defaults.tags;
     	      this.taskArns = defaults.taskArns;
@@ -284,6 +290,14 @@ public final class GetTaskExecutionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTaskExecutionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder startedBy(@Nullable String startedBy) {
 
             this.startedBy = startedBy;
@@ -332,6 +346,7 @@ public final class GetTaskExecutionResult {
             _resultValue.platformVersion = platformVersion;
             _resultValue.propagateTags = propagateTags;
             _resultValue.referenceId = referenceId;
+            _resultValue.region = region;
             _resultValue.startedBy = startedBy;
             _resultValue.tags = tags;
             _resultValue.taskArns = taskArns;

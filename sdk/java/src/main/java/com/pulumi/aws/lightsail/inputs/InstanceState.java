@@ -261,6 +261,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -338,6 +353,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.privateIpAddress = $.privateIpAddress;
         this.publicIpAddress = $.publicIpAddress;
         this.ramSize = $.ramSize;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.userData = $.userData;
@@ -699,6 +715,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ramSize(Double ramSize) {
             return ramSize(Output.of(ramSize));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

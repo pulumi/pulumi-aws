@@ -92,6 +92,8 @@ type Mesh struct {
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// Service mesh specification to apply.
@@ -142,6 +144,8 @@ type meshState struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
 	// Service mesh specification to apply.
@@ -163,6 +167,8 @@ type MeshState struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
 	// Service mesh specification to apply.
@@ -180,6 +186,8 @@ func (MeshState) ElementType() reflect.Type {
 type meshArgs struct {
 	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Service mesh specification to apply.
 	Spec *MeshSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -190,6 +198,8 @@ type meshArgs struct {
 type MeshArgs struct {
 	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Service mesh specification to apply.
 	Spec MeshSpecPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -306,6 +316,11 @@ func (o MeshOutput) MeshOwner() pulumi.StringOutput {
 // Name to use for the service mesh. Must be between 1 and 255 characters in length.
 func (o MeshOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MeshOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

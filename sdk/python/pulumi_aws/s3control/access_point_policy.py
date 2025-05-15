@@ -21,14 +21,18 @@ __all__ = ['AccessPointPolicyArgs', 'AccessPointPolicy']
 class AccessPointPolicyArgs:
     def __init__(__self__, *,
                  access_point_arn: pulumi.Input[builtins.str],
-                 policy: pulumi.Input[builtins.str]):
+                 policy: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPointPolicy resource.
         :param pulumi.Input[builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
         :param pulumi.Input[builtins.str] policy: The policy that you want to apply to the specified access point.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_point_arn", access_point_arn)
         pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accessPointArn")
@@ -54,18 +58,32 @@ class AccessPointPolicyArgs:
     def policy(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AccessPointPolicyState:
     def __init__(__self__, *,
                  access_point_arn: Optional[pulumi.Input[builtins.str]] = None,
                  has_public_access_policy: Optional[pulumi.Input[builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None):
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPointPolicy resources.
         :param pulumi.Input[builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
         :param pulumi.Input[builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[builtins.str] policy: The policy that you want to apply to the specified access point.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if access_point_arn is not None:
             pulumi.set(__self__, "access_point_arn", access_point_arn)
@@ -73,6 +91,8 @@ class _AccessPointPolicyState:
             pulumi.set(__self__, "has_public_access_policy", has_public_access_policy)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accessPointArn")
@@ -110,6 +130,18 @@ class _AccessPointPolicyState:
     def policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class AccessPointPolicy(pulumi.CustomResource):
 
@@ -121,6 +153,7 @@ class AccessPointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_point_arn: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage an S3 Access Point resource policy.
@@ -171,6 +204,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
         :param pulumi.Input[builtins.str] policy: The policy that you want to apply to the specified access point.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -240,6 +274,7 @@ class AccessPointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_point_arn: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -255,6 +290,7 @@ class AccessPointPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["has_public_access_policy"] = None
         super(AccessPointPolicy, __self__).__init__(
             'aws:s3control/accessPointPolicy:AccessPointPolicy',
@@ -268,7 +304,8 @@ class AccessPointPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_point_arn: Optional[pulumi.Input[builtins.str]] = None,
             has_public_access_policy: Optional[pulumi.Input[builtins.bool]] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None) -> 'AccessPointPolicy':
+            policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'AccessPointPolicy':
         """
         Get an existing AccessPointPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -279,6 +316,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
         :param pulumi.Input[builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[builtins.str] policy: The policy that you want to apply to the specified access point.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -287,6 +325,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         __props__.__dict__["access_point_arn"] = access_point_arn
         __props__.__dict__["has_public_access_policy"] = has_public_access_policy
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         return AccessPointPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -312,4 +351,12 @@ class AccessPointPolicy(pulumi.CustomResource):
         The policy that you want to apply to the specified access point.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

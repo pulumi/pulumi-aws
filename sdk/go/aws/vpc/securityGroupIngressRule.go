@@ -88,6 +88,8 @@ type SecurityGroupIngressRule struct {
 	PrefixListId pulumi.StringPtrOutput `pulumi:"prefixListId"`
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId pulumi.StringPtrOutput `pulumi:"referencedSecurityGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// The ID of the security group rule.
@@ -152,6 +154,8 @@ type securityGroupIngressRuleState struct {
 	PrefixListId *string `pulumi:"prefixListId"`
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId *string `pulumi:"referencedSecurityGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
 	// The ID of the security group rule.
@@ -181,6 +185,8 @@ type SecurityGroupIngressRuleState struct {
 	PrefixListId pulumi.StringPtrInput
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringPtrInput
 	// The ID of the security group rule.
@@ -212,6 +218,8 @@ type securityGroupIngressRuleArgs struct {
 	PrefixListId *string `pulumi:"prefixListId"`
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId *string `pulumi:"referencedSecurityGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -236,6 +244,8 @@ type SecurityGroupIngressRuleArgs struct {
 	PrefixListId pulumi.StringPtrInput
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -369,6 +379,11 @@ func (o SecurityGroupIngressRuleOutput) PrefixListId() pulumi.StringPtrOutput {
 // The source security group that is referenced in the rule.
 func (o SecurityGroupIngressRuleOutput) ReferencedSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringPtrOutput { return v.ReferencedSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SecurityGroupIngressRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the security group.

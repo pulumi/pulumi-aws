@@ -62,7 +62,8 @@ type GetClusterCredentialsArgs struct {
 	// Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
 	DbUser string `pulumi:"dbUser"`
 	// The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-	DurationSeconds *int `pulumi:"durationSeconds"`
+	DurationSeconds *int    `pulumi:"durationSeconds"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusterCredentials.
@@ -78,7 +79,8 @@ type GetClusterCredentialsResult struct {
 	// Date and time the password in `dbPassword` expires.
 	Expiration string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetClusterCredentialsOutput(ctx *pulumi.Context, args GetClusterCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetClusterCredentialsResultOutput {
@@ -103,7 +105,8 @@ type GetClusterCredentialsOutputArgs struct {
 	// Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
 	DbUser pulumi.StringInput `pulumi:"dbUser"`
 	// The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	DurationSeconds pulumi.IntPtrInput    `pulumi:"durationSeconds"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetClusterCredentialsOutputArgs) ElementType() reflect.Type {
@@ -162,6 +165,10 @@ func (o GetClusterCredentialsResultOutput) Expiration() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetClusterCredentialsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetClusterCredentialsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

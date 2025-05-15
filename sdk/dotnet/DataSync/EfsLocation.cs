@@ -88,6 +88,12 @@ namespace Pulumi.Aws.DataSync
         public Output<string?> InTransitEncryption { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.
         /// </summary>
         [Output("subdirectory")]
@@ -185,6 +191,12 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? InTransitEncryption { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.
         /// </summary>
         [Input("subdirectory")]
@@ -245,6 +257,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("inTransitEncryption")]
         public Input<string>? InTransitEncryption { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.

@@ -50,6 +50,21 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name for the container service.
      * 
      */
@@ -69,6 +84,7 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
     private ContainerServiceDeploymentVersionArgs(ContainerServiceDeploymentVersionArgs $) {
         this.containers = $.containers;
         this.publicEndpoint = $.publicEndpoint;
+        this.region = $.region;
         this.serviceName = $.serviceName;
     }
 
@@ -140,6 +156,27 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
          */
         public Builder publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs publicEndpoint) {
             return publicEndpoint(Output.of(publicEndpoint));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

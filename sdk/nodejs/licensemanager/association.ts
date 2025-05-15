@@ -78,6 +78,10 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly licenseConfigurationArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the resource associated with the license configuration.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class Association extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AssociationState | undefined;
             resourceInputs["licenseConfigurationArn"] = state ? state.licenseConfigurationArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as AssociationArgs | undefined;
@@ -106,6 +111,7 @@ export class Association extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceArn'");
             }
             resourceInputs["licenseConfigurationArn"] = args ? args.licenseConfigurationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -122,6 +128,10 @@ export interface AssociationState {
      */
     licenseConfigurationArn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the resource associated with the license configuration.
      */
     resourceArn?: pulumi.Input<string>;
@@ -135,6 +145,10 @@ export interface AssociationArgs {
      * ARN of the license configuration.
      */
     licenseConfigurationArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the resource associated with the license configuration.
      */

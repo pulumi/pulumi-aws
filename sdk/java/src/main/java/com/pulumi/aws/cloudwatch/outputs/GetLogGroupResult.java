@@ -38,6 +38,7 @@ public final class GetLogGroupResult {
      */
     private String logGroupClass;
     private String name;
+    private String region;
     /**
      * @return Number of days log events retained in the specified log group.
      * 
@@ -88,6 +89,9 @@ public final class GetLogGroupResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Number of days log events retained in the specified log group.
      * 
@@ -118,6 +122,7 @@ public final class GetLogGroupResult {
         private String kmsKeyId;
         private String logGroupClass;
         private String name;
+        private String region;
         private Integer retentionInDays;
         private Map<String,String> tags;
         public Builder() {}
@@ -129,6 +134,7 @@ public final class GetLogGroupResult {
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.logGroupClass = defaults.logGroupClass;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.retentionInDays = defaults.retentionInDays;
     	      this.tags = defaults.tags;
         }
@@ -182,6 +188,14 @@ public final class GetLogGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             if (retentionInDays == null) {
               throw new MissingRequiredPropertyException("GetLogGroupResult", "retentionInDays");
@@ -205,6 +219,7 @@ public final class GetLogGroupResult {
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.logGroupClass = logGroupClass;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.retentionInDays = retentionInDays;
             _resultValue.tags = tags;
             return _resultValue;

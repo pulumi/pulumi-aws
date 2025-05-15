@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.cfg.AggregateAuthorization("example", {
  *     accountId: "123456789012",
- *     region: "eu-west-2",
+ *     authorizedAwsRegion: "eu-west-2",
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
+ * Using `pulumi import`, import Config aggregate authorizations using `account_id:authorized_aws_region`. For example:
  *
  * ```sh
  * $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
@@ -56,7 +56,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
     }
 
     /**
-     * Account ID
+     * Account ID.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -64,9 +64,15 @@ export class AggregateAuthorization extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Region
+     * The region authorized to collect aggregated data.
      */
-    public readonly region!: pulumi.Output<string>;
+    public readonly authorizedAwsRegion!: pulumi.Output<string | undefined>;
+    /**
+     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+     *
+     * @deprecated region is deprecated. Use authorizedAwsRegion instead.
+     */
+    public readonly region!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -91,6 +97,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             const state = argsOrState as AggregateAuthorizationState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authorizedAwsRegion"] = state ? state.authorizedAwsRegion : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -99,10 +106,8 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'region'");
-            }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["authorizedAwsRegion"] = args ? args.authorizedAwsRegion : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -118,7 +123,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
  */
 export interface AggregateAuthorizationState {
     /**
-     * Account ID
+     * Account ID.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -126,7 +131,13 @@ export interface AggregateAuthorizationState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Region
+     * The region authorized to collect aggregated data.
+     */
+    authorizedAwsRegion?: pulumi.Input<string>;
+    /**
+     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+     *
+     * @deprecated region is deprecated. Use authorizedAwsRegion instead.
      */
     region?: pulumi.Input<string>;
     /**
@@ -144,13 +155,19 @@ export interface AggregateAuthorizationState {
  */
 export interface AggregateAuthorizationArgs {
     /**
-     * Account ID
+     * Account ID.
      */
     accountId: pulumi.Input<string>;
     /**
-     * Region
+     * The region authorized to collect aggregated data.
      */
-    region: pulumi.Input<string>;
+    authorizedAwsRegion?: pulumi.Input<string>;
+    /**
+     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+     *
+     * @deprecated region is deprecated. Use authorizedAwsRegion instead.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

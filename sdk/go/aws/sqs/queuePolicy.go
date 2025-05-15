@@ -171,6 +171,8 @@ type QueuePolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewQueuePolicy registers a new resource with the given unique name, arguments, and options.
@@ -212,12 +214,16 @@ type queuePolicyState struct {
 	Policy interface{} `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl *string `pulumi:"queueUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type QueuePolicyState struct {
 	Policy pulumi.Input
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (QueuePolicyState) ElementType() reflect.Type {
@@ -228,6 +234,8 @@ type queuePolicyArgs struct {
 	Policy interface{} `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl string `pulumi:"queueUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a QueuePolicy resource.
@@ -235,6 +243,8 @@ type QueuePolicyArgs struct {
 	Policy pulumi.Input
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (QueuePolicyArgs) ElementType() reflect.Type {
@@ -331,6 +341,11 @@ func (o QueuePolicyOutput) Policy() pulumi.StringOutput {
 // URL of the SQS Queue to which to attach the policy.
 func (o QueuePolicyOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o QueuePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type QueuePolicyArrayOutput struct{ *pulumi.OutputState }

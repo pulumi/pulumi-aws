@@ -53,7 +53,8 @@ type LookupNetworkInterfaceArgs struct {
 	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
 	Filters []GetNetworkInterfaceFilter `pulumi:"filters"`
 	// Identifier for the network interface.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Any tags assigned to the network interface.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -87,6 +88,7 @@ type LookupNetworkInterfaceResult struct {
 	PrivateIp string `pulumi:"privateIp"`
 	// Private IPv4 addresses associated with the network interface.
 	PrivateIps []string `pulumi:"privateIps"`
+	Region     string   `pulumi:"region"`
 	// ID of the entity that launched the instance on your behalf.
 	RequesterId string `pulumi:"requesterId"`
 	// List of security groups for the network interface.
@@ -113,7 +115,8 @@ type LookupNetworkInterfaceOutputArgs struct {
 	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
 	Filters GetNetworkInterfaceFilterArrayInput `pulumi:"filters"`
 	// Identifier for the network interface.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags assigned to the network interface.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -207,6 +210,10 @@ func (o LookupNetworkInterfaceResultOutput) PrivateIp() pulumi.StringOutput {
 // Private IPv4 addresses associated with the network interface.
 func (o LookupNetworkInterfaceResultOutput) PrivateIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.PrivateIps }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupNetworkInterfaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the entity that launched the instance on your behalf.

@@ -82,6 +82,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.DeviceFleetOutputConfig> OutputConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         /// </summary>
         [Output("roleArn")]
@@ -170,6 +176,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.DeviceFleetOutputConfigArgs> OutputConfig { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         /// </summary>
         [Input("roleArn", required: true)]
@@ -227,6 +239,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("outputConfig")]
         public Input<Inputs.DeviceFleetOutputConfigGetArgs>? OutputConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).

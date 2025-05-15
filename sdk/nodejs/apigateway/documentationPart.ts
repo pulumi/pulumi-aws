@@ -77,6 +77,10 @@ export class DocumentationPart extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the associated Rest API
      */
     public readonly restApiId!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class DocumentationPart extends pulumi.CustomResource {
             resourceInputs["documentationPartId"] = state ? state.documentationPartId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApiId"] = state ? state.restApiId : undefined;
         } else {
             const args = argsOrState as DocumentationPartArgs | undefined;
@@ -111,6 +116,7 @@ export class DocumentationPart extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApiId"] = args ? args.restApiId : undefined;
             resourceInputs["documentationPartId"] = undefined /*out*/;
         }
@@ -136,6 +142,10 @@ export interface DocumentationPartState {
      */
     properties?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the associated Rest API
      */
     restApiId?: pulumi.Input<string>;
@@ -153,6 +163,10 @@ export interface DocumentationPartArgs {
      * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
     properties: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated Rest API
      */

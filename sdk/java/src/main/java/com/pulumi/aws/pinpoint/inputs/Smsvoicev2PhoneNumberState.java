@@ -155,6 +155,21 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Use this field to attach your phone number for an external registration process.
      * 
      */
@@ -255,6 +270,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         this.numberType = $.numberType;
         this.optOutListName = $.optOutListName;
         this.phoneNumber = $.phoneNumber;
+        this.region = $.region;
         this.registrationId = $.registrationId;
         this.selfManagedOptOutsEnabled = $.selfManagedOptOutsEnabled;
         this.tags = $.tags;
@@ -479,6 +495,27 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
          */
         public Builder phoneNumber(String phoneNumber) {
             return phoneNumber(Output.of(phoneNumber));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

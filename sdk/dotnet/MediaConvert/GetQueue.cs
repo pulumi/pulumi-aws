@@ -93,6 +93,9 @@ namespace Pulumi.Aws.MediaConvert
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.MediaConvert
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -150,6 +156,7 @@ namespace Pulumi.Aws.MediaConvert
         /// The same as `id`.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The status of the queue.
         /// </summary>
@@ -167,6 +174,8 @@ namespace Pulumi.Aws.MediaConvert
 
             string name,
 
+            string region,
+
             string status,
 
             ImmutableDictionary<string, string> tags)
@@ -174,6 +183,7 @@ namespace Pulumi.Aws.MediaConvert
             Arn = arn;
             Id = id;
             Name = name;
+            Region = region;
             Status = status;
             Tags = tags;
         }

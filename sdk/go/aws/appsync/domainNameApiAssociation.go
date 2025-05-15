@@ -55,6 +55,8 @@ type DomainNameApiAssociation struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// Appsync domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomainNameApiAssociation registers a new resource with the given unique name, arguments, and options.
@@ -97,6 +99,8 @@ type domainNameApiAssociationState struct {
 	ApiId *string `pulumi:"apiId"`
 	// Appsync domain name.
 	DomainName *string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DomainNameApiAssociationState struct {
@@ -104,6 +108,8 @@ type DomainNameApiAssociationState struct {
 	ApiId pulumi.StringPtrInput
 	// Appsync domain name.
 	DomainName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainNameApiAssociationState) ElementType() reflect.Type {
@@ -115,6 +121,8 @@ type domainNameApiAssociationArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// Appsync domain name.
 	DomainName string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainNameApiAssociation resource.
@@ -123,6 +131,8 @@ type DomainNameApiAssociationArgs struct {
 	ApiId pulumi.StringInput
 	// Appsync domain name.
 	DomainName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainNameApiAssociationArgs) ElementType() reflect.Type {
@@ -220,6 +230,11 @@ func (o DomainNameApiAssociationOutput) ApiId() pulumi.StringOutput {
 // Appsync domain name.
 func (o DomainNameApiAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainNameApiAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DomainNameApiAssociationArrayOutput struct{ *pulumi.OutputState }

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +30,18 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
         return this.arn;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetCodeSigningConfigPlainArgs() {}
 
     private GetCodeSigningConfigPlainArgs(GetCodeSigningConfigPlainArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -60,6 +70,11 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
          */
         public Builder arn(String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -274,6 +274,9 @@ namespace Pulumi.Aws.Ec2
             set => _owners = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -377,6 +380,9 @@ namespace Pulumi.Aws.Ec2
             get => _owners ?? (_owners = new InputList<string>());
             set => _owners = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -517,6 +523,7 @@ namespace Pulumi.Aws.Ec2
         /// for machine images.
         /// </summary>
         public readonly string RamdiskId;
+        public readonly string Region;
         /// <summary>
         /// Device name of the root device.
         /// </summary>
@@ -631,6 +638,8 @@ namespace Pulumi.Aws.Ec2
 
             string ramdiskId,
 
+            string region,
+
             string rootDeviceName,
 
             string rootDeviceType,
@@ -684,6 +693,7 @@ namespace Pulumi.Aws.Ec2
             ProductCodes = productCodes;
             Public = @public;
             RamdiskId = ramdiskId;
+            Region = region;
             RootDeviceName = rootDeviceName;
             RootDeviceType = rootDeviceType;
             RootSnapshotId = rootSnapshotId;

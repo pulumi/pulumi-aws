@@ -25,6 +25,7 @@ public final class GetAliasResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return ARN pointed to by the alias.
      * 
@@ -58,6 +59,9 @@ public final class GetAliasResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN pointed to by the alias.
      * 
@@ -85,6 +89,7 @@ public final class GetAliasResult {
         private String arn;
         private String id;
         private String name;
+        private String region;
         private String targetKeyArn;
         private String targetKeyId;
         public Builder() {}
@@ -93,6 +98,7 @@ public final class GetAliasResult {
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.targetKeyArn = defaults.targetKeyArn;
     	      this.targetKeyId = defaults.targetKeyId;
         }
@@ -122,6 +128,14 @@ public final class GetAliasResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder targetKeyArn(String targetKeyArn) {
             if (targetKeyArn == null) {
               throw new MissingRequiredPropertyException("GetAliasResult", "targetKeyArn");
@@ -142,6 +156,7 @@ public final class GetAliasResult {
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.targetKeyArn = targetKeyArn;
             _resultValue.targetKeyId = targetKeyId;
             return _resultValue;

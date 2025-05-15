@@ -9,11 +9,10 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFrameworkControlSet {
-    private @Nullable List<GetFrameworkControlSetControl> controls;
+    private List<GetFrameworkControlSetControl> controls;
     private String id;
     /**
      * @return Name of the framework.
@@ -23,7 +22,7 @@ public final class GetFrameworkControlSet {
 
     private GetFrameworkControlSet() {}
     public List<GetFrameworkControlSetControl> controls() {
-        return this.controls == null ? List.of() : this.controls;
+        return this.controls;
     }
     public String id() {
         return this.id;
@@ -45,7 +44,7 @@ public final class GetFrameworkControlSet {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<GetFrameworkControlSetControl> controls;
+        private List<GetFrameworkControlSetControl> controls;
         private String id;
         private String name;
         public Builder() {}
@@ -57,8 +56,10 @@ public final class GetFrameworkControlSet {
         }
 
         @CustomType.Setter
-        public Builder controls(@Nullable List<GetFrameworkControlSetControl> controls) {
-
+        public Builder controls(List<GetFrameworkControlSetControl> controls) {
+            if (controls == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControlSet", "controls");
+            }
             this.controls = controls;
             return this;
         }

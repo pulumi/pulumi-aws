@@ -29,6 +29,7 @@ export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: 
         "arn": args.arn,
         "instanceType": args.instanceType,
         "preferredInstanceTypes": args.preferredInstanceTypes,
+        "region": args.region,
     }, opts);
 }
 
@@ -50,6 +51,7 @@ export interface GetOutpostInstanceTypeArgs {
      * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
      */
     preferredInstanceTypes?: string[];
+    region?: string;
 }
 
 /**
@@ -63,6 +65,7 @@ export interface GetOutpostInstanceTypeResult {
     readonly id: string;
     readonly instanceType: string;
     readonly preferredInstanceTypes?: string[];
+    readonly region: string;
 }
 /**
  * Information about single Outpost Instance Type.
@@ -89,6 +92,7 @@ export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputA
         "arn": args.arn,
         "instanceType": args.instanceType,
         "preferredInstanceTypes": args.preferredInstanceTypes,
+        "region": args.region,
     }, opts);
 }
 
@@ -110,4 +114,5 @@ export interface GetOutpostInstanceTypeOutputArgs {
      * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
      */
     preferredInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
 }

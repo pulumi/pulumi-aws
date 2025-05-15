@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSharesResult {
@@ -17,12 +16,13 @@ public final class GetDataSharesResult {
      * @return An array of all data shares in the current region. See `data_shares` below.
      * 
      */
-    private @Nullable List<GetDataSharesDataShare> dataShares;
+    private List<GetDataSharesDataShare> dataShares;
     /**
      * @return AWS region.
      * 
      */
     private String id;
+    private String region;
 
     private GetDataSharesResult() {}
     /**
@@ -30,7 +30,7 @@ public final class GetDataSharesResult {
      * 
      */
     public List<GetDataSharesDataShare> dataShares() {
-        return this.dataShares == null ? List.of() : this.dataShares;
+        return this.dataShares;
     }
     /**
      * @return AWS region.
@@ -38,6 +38,9 @@ public final class GetDataSharesResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -49,18 +52,22 @@ public final class GetDataSharesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<GetDataSharesDataShare> dataShares;
+        private List<GetDataSharesDataShare> dataShares;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetDataSharesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataShares = defaults.dataShares;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
-        public Builder dataShares(@Nullable List<GetDataSharesDataShare> dataShares) {
-
+        public Builder dataShares(List<GetDataSharesDataShare> dataShares) {
+            if (dataShares == null) {
+              throw new MissingRequiredPropertyException("GetDataSharesResult", "dataShares");
+            }
             this.dataShares = dataShares;
             return this;
         }
@@ -75,10 +82,19 @@ public final class GetDataSharesResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDataSharesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetDataSharesResult build() {
             final var _resultValue = new GetDataSharesResult();
             _resultValue.dataShares = dataShares;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

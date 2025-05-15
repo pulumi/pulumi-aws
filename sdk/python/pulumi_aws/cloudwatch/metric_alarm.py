@@ -38,6 +38,7 @@ class MetricAlarmArgs:
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
@@ -68,6 +69,7 @@ class MetricAlarmArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.int] period: The period in seconds over which the specified `statistic` is applied.
                Valid values are `10`, `30`, or any multiple of `60`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -108,6 +110,8 @@ class MetricAlarmArgs:
             pulumi.set(__self__, "ok_actions", ok_actions)
         if period is not None:
             pulumi.set(__self__, "period", period)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
         if tags is not None:
@@ -321,6 +325,18 @@ class MetricAlarmArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def statistic(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The statistic to apply to the alarm's associated metric.
@@ -415,6 +431,7 @@ class _MetricAlarmState:
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -447,6 +464,7 @@ class _MetricAlarmState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.int] period: The period in seconds over which the specified `statistic` is applied.
                Valid values are `10`, `30`, or any multiple of `60`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -492,6 +510,8 @@ class _MetricAlarmState:
             pulumi.set(__self__, "ok_actions", ok_actions)
         if period is not None:
             pulumi.set(__self__, "period", period)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
         if tags is not None:
@@ -719,6 +739,18 @@ class _MetricAlarmState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def statistic(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The statistic to apply to the alarm's associated metric.
@@ -829,6 +861,7 @@ class MetricAlarm(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
@@ -1029,6 +1062,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.int] period: The period in seconds over which the specified `statistic` is applied.
                Valid values are `10`, `30`, or any multiple of `60`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1245,6 +1279,7 @@ class MetricAlarm(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
@@ -1280,6 +1315,7 @@ class MetricAlarm(pulumi.CustomResource):
             __props__.__dict__["namespace"] = namespace
             __props__.__dict__["ok_actions"] = ok_actions
             __props__.__dict__["period"] = period
+            __props__.__dict__["region"] = region
             __props__.__dict__["statistic"] = statistic
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threshold"] = threshold
@@ -1315,6 +1351,7 @@ class MetricAlarm(pulumi.CustomResource):
             namespace: Optional[pulumi.Input[builtins.str]] = None,
             ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             period: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             statistic: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1352,6 +1389,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.int] period: The period in seconds over which the specified `statistic` is applied.
                Valid values are `10`, `30`, or any multiple of `60`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1384,6 +1422,7 @@ class MetricAlarm(pulumi.CustomResource):
         __props__.__dict__["namespace"] = namespace
         __props__.__dict__["ok_actions"] = ok_actions
         __props__.__dict__["period"] = period
+        __props__.__dict__["region"] = region
         __props__.__dict__["statistic"] = statistic
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1534,6 +1573,14 @@ class MetricAlarm(pulumi.CustomResource):
         Valid values are `10`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

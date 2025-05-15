@@ -40,6 +40,7 @@ class EventSourceMappingArgs:
                  parallelization_factor: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_poller_config: Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']] = None,
                  queues: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] = None,
@@ -69,6 +70,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input[builtins.int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         :param pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs'] provisioned_poller_config: - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         :param pulumi.Input[builtins.str] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs'] self_managed_kafka_event_source_config: Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
@@ -114,6 +116,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "provisioned_poller_config", provisioned_poller_config)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_config is not None:
             pulumi.set(__self__, "scaling_config", scaling_config)
         if self_managed_event_source is not None:
@@ -350,6 +354,18 @@ class EventSourceMappingArgs:
         pulumi.set(self, "queues", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]:
         """
@@ -483,6 +499,7 @@ class _EventSourceMappingState:
                  parallelization_factor: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_poller_config: Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']] = None,
                  queues: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] = None,
@@ -520,6 +537,7 @@ class _EventSourceMappingState:
         :param pulumi.Input[builtins.int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         :param pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs'] provisioned_poller_config: - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         :param pulumi.Input[builtins.str] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs'] self_managed_kafka_event_source_config: Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
@@ -578,6 +596,8 @@ class _EventSourceMappingState:
             pulumi.set(__self__, "provisioned_poller_config", provisioned_poller_config)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_config is not None:
             pulumi.set(__self__, "scaling_config", scaling_config)
         if self_managed_event_source is not None:
@@ -870,6 +890,18 @@ class _EventSourceMappingState:
         pulumi.set(self, "queues", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]:
         """
@@ -1052,6 +1084,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  parallelization_factor: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_poller_config: Optional[pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']]] = None,
                  queues: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_config: Optional[pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']]] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs', 'EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict']]] = None,
@@ -1220,6 +1253,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         :param pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']] provisioned_poller_config: - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         :param pulumi.Input[builtins.str] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         :param pulumi.Input[Union['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs', 'EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict']] self_managed_kafka_event_source_config: Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
@@ -1407,6 +1441,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  parallelization_factor: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_poller_config: Optional[pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']]] = None,
                  queues: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_config: Optional[pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']]] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs', 'EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict']]] = None,
@@ -1445,6 +1480,7 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["parallelization_factor"] = parallelization_factor
             __props__.__dict__["provisioned_poller_config"] = provisioned_poller_config
             __props__.__dict__["queues"] = queues
+            __props__.__dict__["region"] = region
             __props__.__dict__["scaling_config"] = scaling_config
             __props__.__dict__["self_managed_event_source"] = self_managed_event_source
             __props__.__dict__["self_managed_kafka_event_source_config"] = self_managed_kafka_event_source_config
@@ -1494,6 +1530,7 @@ class EventSourceMapping(pulumi.CustomResource):
             parallelization_factor: Optional[pulumi.Input[builtins.int]] = None,
             provisioned_poller_config: Optional[pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']]] = None,
             queues: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scaling_config: Optional[pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']]] = None,
             self_managed_event_source: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']]] = None,
             self_managed_kafka_event_source_config: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs', 'EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict']]] = None,
@@ -1536,6 +1573,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         :param pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']] provisioned_poller_config: - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         :param pulumi.Input[builtins.str] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         :param pulumi.Input[Union['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs', 'EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict']] self_managed_kafka_event_source_config: Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
@@ -1576,6 +1614,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["parallelization_factor"] = parallelization_factor
         __props__.__dict__["provisioned_poller_config"] = provisioned_poller_config
         __props__.__dict__["queues"] = queues
+        __props__.__dict__["region"] = region
         __props__.__dict__["scaling_config"] = scaling_config
         __props__.__dict__["self_managed_event_source"] = self_managed_event_source
         __props__.__dict__["self_managed_kafka_event_source_config"] = self_managed_kafka_event_source_config
@@ -1766,6 +1805,14 @@ class EventSourceMapping(pulumi.CustomResource):
         The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         """
         return pulumi.get(self, "queues")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scalingConfig")

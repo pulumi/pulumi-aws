@@ -29,7 +29,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, region=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -105,6 +105,9 @@ class GetDomainResult:
         if processing and not isinstance(processing, bool):
             raise TypeError("Expected argument 'processing' to be a bool")
         pulumi.set(__self__, "processing", processing)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if snapshot_options and not isinstance(snapshot_options, list):
             raise TypeError("Expected argument 'snapshot_options' to be a list")
         pulumi.set(__self__, "snapshot_options", snapshot_options)
@@ -316,6 +319,11 @@ class GetDomainResult:
         return pulumi.get(self, "processing")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Sequence['outputs.GetDomainSnapshotOptionResult']:
         """
@@ -379,6 +387,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             node_to_node_encryptions=self.node_to_node_encryptions,
             off_peak_window_options=self.off_peak_window_options,
             processing=self.processing,
+            region=self.region,
             snapshot_options=self.snapshot_options,
             software_update_options=self.software_update_options,
             tags=self.tags,
@@ -387,6 +396,7 @@ class AwaitableGetDomainResult(GetDomainResult):
 
 def get_domain(domain_name: Optional[builtins.str] = None,
                off_peak_window_options: Optional[Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict']] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
@@ -409,6 +419,7 @@ def get_domain(domain_name: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['offPeakWindowOptions'] = off_peak_window_options
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:opensearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
@@ -439,12 +450,14 @@ def get_domain(domain_name: Optional[builtins.str] = None,
         node_to_node_encryptions=pulumi.get(__ret__, 'node_to_node_encryptions'),
         off_peak_window_options=pulumi.get(__ret__, 'off_peak_window_options'),
         processing=pulumi.get(__ret__, 'processing'),
+        region=pulumi.get(__ret__, 'region'),
         snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
         software_update_options=pulumi.get(__ret__, 'software_update_options'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
 def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
                       off_peak_window_options: Optional[pulumi.Input[Optional[Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict']]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -467,6 +480,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['offPeakWindowOptions'] = off_peak_window_options
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
@@ -496,6 +510,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
         node_to_node_encryptions=pulumi.get(__response__, 'node_to_node_encryptions'),
         off_peak_window_options=pulumi.get(__response__, 'off_peak_window_options'),
         processing=pulumi.get(__response__, 'processing'),
+        region=pulumi.get(__response__, 'region'),
         snapshot_options=pulumi.get(__response__, 'snapshot_options'),
         software_update_options=pulumi.get(__response__, 'software_update_options'),
         tags=pulumi.get(__response__, 'tags'),

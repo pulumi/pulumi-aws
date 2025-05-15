@@ -120,6 +120,8 @@ type ClusterInstance struct {
 	PromotionTier pulumi.IntPtrOutput `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Determines whether a final DB snapshot is created before the DB instance is deleted.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
 	// Specifies whether the neptune cluster is encrypted.
@@ -214,6 +216,8 @@ type clusterInstanceState struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Determines whether a final DB snapshot is created before the DB instance is deleted.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// Specifies whether the neptune cluster is encrypted.
@@ -273,6 +277,8 @@ type ClusterInstanceState struct {
 	PromotionTier pulumi.IntPtrInput
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Determines whether a final DB snapshot is created before the DB instance is deleted.
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// Specifies whether the neptune cluster is encrypted.
@@ -326,6 +332,8 @@ type clusterInstanceArgs struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Determines whether a final DB snapshot is created before the DB instance is deleted.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -368,6 +376,8 @@ type ClusterInstanceArgs struct {
 	PromotionTier pulumi.IntPtrInput
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Determines whether a final DB snapshot is created before the DB instance is deleted.
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -566,6 +576,11 @@ func (o ClusterInstanceOutput) PromotionTier() pulumi.IntPtrOutput {
 // Bool to control if instance is publicly accessible. Default is `false`.
 func (o ClusterInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterInstanceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Determines whether a final DB snapshot is created before the DB instance is deleted.

@@ -40,6 +40,7 @@ export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOption
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getWorkspace:getWorkspace", {
         "directoryId": args.directoryId,
+        "region": args.region,
         "tags": args.tags,
         "userName": args.userName,
         "workspaceId": args.workspaceId,
@@ -54,6 +55,7 @@ export interface GetWorkspaceArgs {
      * ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
      */
     directoryId?: string;
+    region?: string;
     /**
      * Tags for the WorkSpace.
      */
@@ -86,6 +88,7 @@ export interface GetWorkspaceResult {
      * IP address of the WorkSpace.
      */
     readonly ipAddress: string;
+    readonly region: string;
     readonly rootVolumeEncryptionEnabled: boolean;
     /**
      * Operational state of the WorkSpace.
@@ -131,6 +134,7 @@ export function getWorkspaceOutput(args?: GetWorkspaceOutputArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:workspaces/getWorkspace:getWorkspace", {
         "directoryId": args.directoryId,
+        "region": args.region,
         "tags": args.tags,
         "userName": args.userName,
         "workspaceId": args.workspaceId,
@@ -145,6 +149,7 @@ export interface GetWorkspaceOutputArgs {
      * ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
      */
     directoryId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Tags for the WorkSpace.
      */

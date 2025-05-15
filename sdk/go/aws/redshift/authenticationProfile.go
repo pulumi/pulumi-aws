@@ -66,6 +66,8 @@ type AuthenticationProfile struct {
 	AuthenticationProfileContent pulumi.StringOutput `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringOutput `pulumi:"authenticationProfileName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAuthenticationProfile registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +110,8 @@ type authenticationProfileState struct {
 	AuthenticationProfileContent *string `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName *string `pulumi:"authenticationProfileName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AuthenticationProfileState struct {
@@ -115,6 +119,8 @@ type AuthenticationProfileState struct {
 	AuthenticationProfileContent pulumi.StringPtrInput
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthenticationProfileState) ElementType() reflect.Type {
@@ -126,6 +132,8 @@ type authenticationProfileArgs struct {
 	AuthenticationProfileContent string `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName string `pulumi:"authenticationProfileName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AuthenticationProfile resource.
@@ -134,6 +142,8 @@ type AuthenticationProfileArgs struct {
 	AuthenticationProfileContent pulumi.StringInput
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthenticationProfileArgs) ElementType() reflect.Type {
@@ -231,6 +241,11 @@ func (o AuthenticationProfileOutput) AuthenticationProfileContent() pulumi.Strin
 // The name of the authentication profile.
 func (o AuthenticationProfileOutput) AuthenticationProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.AuthenticationProfileName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AuthenticationProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AuthenticationProfileArrayOutput struct{ *pulumi.OutputState }

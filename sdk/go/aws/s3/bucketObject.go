@@ -302,6 +302,8 @@ type BucketObject struct {
 	ObjectLockMode pulumi.StringPtrOutput `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrOutput `pulumi:"objectLockRetainUntilDate"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -395,6 +397,8 @@ type bucketObjectState struct {
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -456,6 +460,8 @@ type BucketObjectState struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -519,6 +525,8 @@ type bucketObjectArgs struct {
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -575,6 +583,8 @@ type BucketObjectArgs struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -773,6 +783,11 @@ func (o BucketObjectOutput) ObjectLockMode() pulumi.StringPtrOutput {
 // Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 func (o BucketObjectOutput) ObjectLockRetainUntilDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringPtrOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketObjectOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketObject) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".

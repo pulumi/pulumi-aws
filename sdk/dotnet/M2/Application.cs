@@ -124,6 +124,12 @@ namespace Pulumi.Aws.M2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of role for application to use to access AWS resources.
         /// </summary>
         [Output("roleArn")]
@@ -223,6 +229,12 @@ namespace Pulumi.Aws.M2
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of role for application to use to access AWS resources.
         /// </summary>
         [Input("roleArn")]
@@ -300,6 +312,12 @@ namespace Pulumi.Aws.M2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of role for application to use to access AWS resources.

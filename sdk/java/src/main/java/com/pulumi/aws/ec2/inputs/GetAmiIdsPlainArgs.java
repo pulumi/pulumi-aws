@@ -109,6 +109,13 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.owners;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Used to sort AMIs by creation time.
      * If no value is specified, the default value is `false`.
@@ -134,6 +141,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.includeDeprecated = $.includeDeprecated;
         this.nameRegex = $.nameRegex;
         this.owners = $.owners;
+        this.region = $.region;
         this.sortAscending = $.sortAscending;
     }
 
@@ -249,6 +257,11 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder owners(String... owners) {
             return owners(List.of(owners));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

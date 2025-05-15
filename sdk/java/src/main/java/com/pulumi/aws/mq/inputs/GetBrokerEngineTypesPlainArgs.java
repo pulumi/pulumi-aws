@@ -29,10 +29,18 @@ public final class GetBrokerEngineTypesPlainArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.engineType);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetBrokerEngineTypesPlainArgs() {}
 
     private GetBrokerEngineTypesPlainArgs(GetBrokerEngineTypesPlainArgs $) {
         this.engineType = $.engineType;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -61,6 +69,11 @@ public final class GetBrokerEngineTypesPlainArgs extends com.pulumi.resources.In
          */
         public Builder engineType(@Nullable String engineType) {
             $.engineType = engineType;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

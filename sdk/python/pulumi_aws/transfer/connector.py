@@ -26,16 +26,17 @@ class ConnectorArgs:
                  url: pulumi.Input[builtins.str],
                  as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArgs']] = None,
                  logging_role: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input['ConnectorSftpConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         :param pulumi.Input[builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
         :param pulumi.Input['ConnectorAs2ConfigArgs'] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[builtins.str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_policy_name: Name of the security policy for the connector.
         :param pulumi.Input['ConnectorSftpConfigArgs'] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -46,14 +47,14 @@ class ConnectorArgs:
             pulumi.set(__self__, "as2_config", as2_config)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_policy_name is not None:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
         if sftp_config is not None:
             pulumi.set(__self__, "sftp_config", sftp_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accessRole")
@@ -104,6 +105,18 @@ class ConnectorArgs:
         pulumi.set(self, "logging_role", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -139,15 +152,6 @@ class ConnectorArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _ConnectorState:
@@ -157,6 +161,7 @@ class _ConnectorState:
                  as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArgs']] = None,
                  connector_id: Optional[pulumi.Input[builtins.str]] = None,
                  logging_role: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input['ConnectorSftpConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -169,6 +174,7 @@ class _ConnectorState:
         :param pulumi.Input['ConnectorAs2ConfigArgs'] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[builtins.str] connector_id: The unique identifier for the AS2 profile or SFTP Profile.
         :param pulumi.Input[builtins.str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_policy_name: Name of the security policy for the connector.
         :param pulumi.Input['ConnectorSftpConfigArgs'] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -184,6 +190,8 @@ class _ConnectorState:
             pulumi.set(__self__, "connector_id", connector_id)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_policy_name is not None:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
         if sftp_config is not None:
@@ -256,6 +264,18 @@ class _ConnectorState:
         pulumi.set(self, "logging_role", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -324,10 +344,10 @@ class Connector(pulumi.CustomResource):
                  access_role: Optional[pulumi.Input[builtins.str]] = None,
                  as2_config: Optional[pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']]] = None,
                  logging_role: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -384,6 +404,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         :param pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[builtins.str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_policy_name: Name of the security policy for the connector.
         :param pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -462,10 +483,10 @@ class Connector(pulumi.CustomResource):
                  access_role: Optional[pulumi.Input[builtins.str]] = None,
                  as2_config: Optional[pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']]] = None,
                  logging_role: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -481,15 +502,16 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["access_role"] = access_role
             __props__.__dict__["as2_config"] = as2_config
             __props__.__dict__["logging_role"] = logging_role
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["sftp_config"] = sftp_config
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
             __props__.__dict__["connector_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(Connector, __self__).__init__(
             'aws:transfer/connector:Connector',
             resource_name,
@@ -505,6 +527,7 @@ class Connector(pulumi.CustomResource):
             as2_config: Optional[pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']]] = None,
             connector_id: Optional[pulumi.Input[builtins.str]] = None,
             logging_role: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
             sftp_config: Optional[pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -522,6 +545,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[builtins.str] connector_id: The unique identifier for the AS2 profile or SFTP Profile.
         :param pulumi.Input[builtins.str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_policy_name: Name of the security policy for the connector.
         :param pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -536,6 +560,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["as2_config"] = as2_config
         __props__.__dict__["connector_id"] = connector_id
         __props__.__dict__["logging_role"] = logging_role
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_policy_name"] = security_policy_name
         __props__.__dict__["sftp_config"] = sftp_config
         __props__.__dict__["tags"] = tags
@@ -582,6 +607,14 @@ class Connector(pulumi.CustomResource):
         The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         """
         return pulumi.get(self, "logging_role")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityPolicyName")

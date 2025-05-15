@@ -93,6 +93,9 @@ namespace Pulumi.Aws.MemoryDb
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -165,6 +171,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Set of user-defined MemoryDB parameters applied by the parameter group.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetParameterGroupParameterResult> Parameters;
+        public readonly string Region;
         /// <summary>
         /// Map of tags assigned to the parameter group.
         /// </summary>
@@ -184,6 +191,8 @@ namespace Pulumi.Aws.MemoryDb
 
             ImmutableArray<Outputs.GetParameterGroupParameterResult> parameters,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -192,6 +201,7 @@ namespace Pulumi.Aws.MemoryDb
             Id = id;
             Name = name;
             Parameters = parameters;
+            Region = region;
             Tags = tags;
         }
     }

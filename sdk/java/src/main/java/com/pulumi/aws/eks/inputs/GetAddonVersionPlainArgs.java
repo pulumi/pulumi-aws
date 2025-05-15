@@ -63,12 +63,20 @@ public final class GetAddonVersionPlainArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.mostRecent);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetAddonVersionPlainArgs() {}
 
     private GetAddonVersionPlainArgs(GetAddonVersionPlainArgs $) {
         this.addonName = $.addonName;
         this.kubernetesVersion = $.kubernetesVersion;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -120,6 +128,11 @@ public final class GetAddonVersionPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -56,6 +56,8 @@ type LogDestination struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A name for the log destination.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -106,6 +108,8 @@ type logDestinationState struct {
 	Arn *string `pulumi:"arn"`
 	// A name for the log destination.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -121,6 +125,8 @@ type LogDestinationState struct {
 	Arn pulumi.StringPtrInput
 	// A name for the log destination.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -138,6 +144,8 @@ func (LogDestinationState) ElementType() reflect.Type {
 type logDestinationArgs struct {
 	// A name for the log destination.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -150,6 +158,8 @@ type logDestinationArgs struct {
 type LogDestinationArgs struct {
 	// A name for the log destination.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -253,6 +263,11 @@ func (o LogDestinationOutput) Arn() pulumi.StringOutput {
 // A name for the log destination.
 func (o LogDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.

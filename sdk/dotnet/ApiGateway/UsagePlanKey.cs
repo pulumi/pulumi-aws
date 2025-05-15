@@ -86,6 +86,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Id of the usage plan resource representing to associate the key to.
         /// </summary>
         [Output("usagePlanId")]
@@ -156,6 +162,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> KeyType { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Id of the usage plan resource representing to associate the key to.
         /// </summary>
         [Input("usagePlanId", required: true)]
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Id of the usage plan resource representing to associate the key to.

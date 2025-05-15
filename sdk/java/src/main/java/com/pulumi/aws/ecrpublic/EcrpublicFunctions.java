@@ -4,13 +4,14 @@
 package com.pulumi.aws.ecrpublic;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
+import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenPlainArgs;
 import com.pulumi.aws.ecrpublic.outputs.GetAuthorizationTokenResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class EcrpublicFunctions {
@@ -30,6 +31,7 @@ public final class EcrpublicFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
+     * import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -43,7 +45,8 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -53,7 +56,7 @@ public final class EcrpublicFunctions {
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken() {
-        return getAuthorizationToken(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getAuthorizationToken(GetAuthorizationTokenArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
@@ -71,6 +74,7 @@ public final class EcrpublicFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
+     * import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -84,7 +88,8 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -94,7 +99,7 @@ public final class EcrpublicFunctions {
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain() {
-        return getAuthorizationTokenPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
@@ -112,6 +117,7 @@ public final class EcrpublicFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
+     * import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -125,7 +131,8 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -134,7 +141,7 @@ public final class EcrpublicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetAuthorizationTokenResult> getAuthorizationToken(InvokeArgs args) {
+    public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args) {
         return getAuthorizationToken(args, InvokeOptions.Empty);
     }
     /**
@@ -153,6 +160,7 @@ public final class EcrpublicFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
+     * import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -166,7 +174,8 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -175,7 +184,7 @@ public final class EcrpublicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(InvokeArgs args) {
+    public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args) {
         return getAuthorizationTokenPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -194,6 +203,7 @@ public final class EcrpublicFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
+     * import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -207,7 +217,8 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -216,7 +227,7 @@ public final class EcrpublicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetAuthorizationTokenResult> getAuthorizationToken(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -235,6 +246,7 @@ public final class EcrpublicFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
+     * import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -248,7 +260,8 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -257,7 +270,7 @@ public final class EcrpublicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetAuthorizationTokenResult> getAuthorizationToken(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -276,6 +289,7 @@ public final class EcrpublicFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
+     * import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -289,7 +303,8 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -298,7 +313,7 @@ public final class EcrpublicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
     }
 }

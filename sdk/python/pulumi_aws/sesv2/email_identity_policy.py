@@ -22,16 +22,20 @@ class EmailIdentityPolicyArgs:
     def __init__(__self__, *,
                  email_identity: pulumi.Input[builtins.str],
                  policy: pulumi.Input[builtins.str],
-                 policy_name: pulumi.Input[builtins.str]):
+                 policy_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a EmailIdentityPolicy resource.
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[builtins.str] policy_name: The name of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "policy_name", policy_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="emailIdentity")
@@ -69,18 +73,32 @@ class EmailIdentityPolicyArgs:
     def policy_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "policy_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _EmailIdentityPolicyState:
     def __init__(__self__, *,
                  email_identity: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[builtins.str]] = None):
+                 policy_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentityPolicy resources.
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[builtins.str] policy_name: The name of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if email_identity is not None:
             pulumi.set(__self__, "email_identity", email_identity)
@@ -88,6 +106,8 @@ class _EmailIdentityPolicyState:
             pulumi.set(__self__, "policy", policy)
         if policy_name is not None:
             pulumi.set(__self__, "policy_name", policy_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="emailIdentity")
@@ -125,6 +145,18 @@ class _EmailIdentityPolicyState:
     def policy_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class EmailIdentityPolicy(pulumi.CustomResource):
 
@@ -137,6 +169,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
                  email_identity: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
@@ -190,6 +223,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[builtins.str] policy_name: The name of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -262,6 +296,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
                  email_identity: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -280,6 +315,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
+            __props__.__dict__["region"] = region
         super(EmailIdentityPolicy, __self__).__init__(
             'aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy',
             resource_name,
@@ -292,7 +328,8 @@ class EmailIdentityPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             email_identity: Optional[pulumi.Input[builtins.str]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
-            policy_name: Optional[pulumi.Input[builtins.str]] = None) -> 'EmailIdentityPolicy':
+            policy_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'EmailIdentityPolicy':
         """
         Get an existing EmailIdentityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -303,6 +340,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[builtins.str] policy_name: The name of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -311,6 +349,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         __props__.__dict__["email_identity"] = email_identity
         __props__.__dict__["policy"] = policy
         __props__.__dict__["policy_name"] = policy_name
+        __props__.__dict__["region"] = region
         return EmailIdentityPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -336,4 +375,12 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         The name of the policy.
         """
         return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

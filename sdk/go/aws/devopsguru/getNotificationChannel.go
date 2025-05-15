@@ -55,7 +55,8 @@ type LookupNotificationChannelArgs struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 	Filters []GetNotificationChannelFilter `pulumi:"filters"`
 	// Unique identifier for the notification channel.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// SNS noficiation channel configurations. See the `sns` attribute reference below.
 	Sns []GetNotificationChannelSn `pulumi:"sns"`
 }
@@ -65,6 +66,7 @@ type LookupNotificationChannelResult struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 	Filters []GetNotificationChannelFilter `pulumi:"filters"`
 	Id      string                         `pulumi:"id"`
+	Region  string                         `pulumi:"region"`
 	// SNS noficiation channel configurations. See the `sns` attribute reference below.
 	Sns []GetNotificationChannelSn `pulumi:"sns"`
 }
@@ -83,7 +85,8 @@ type LookupNotificationChannelOutputArgs struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 	Filters GetNotificationChannelFilterArrayInput `pulumi:"filters"`
 	// Unique identifier for the notification channel.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// SNS noficiation channel configurations. See the `sns` attribute reference below.
 	Sns GetNotificationChannelSnArrayInput `pulumi:"sns"`
 }
@@ -114,6 +117,10 @@ func (o LookupNotificationChannelResultOutput) Filters() GetNotificationChannelF
 
 func (o LookupNotificationChannelResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNotificationChannelResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupNotificationChannelResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotificationChannelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // SNS noficiation channel configurations. See the `sns` attribute reference below.

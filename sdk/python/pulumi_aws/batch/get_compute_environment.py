@@ -28,7 +28,7 @@ class GetComputeEnvironmentResult:
     """
     A collection of values returned by getComputeEnvironment.
     """
-    def __init__(__self__, arn=None, ecs_cluster_arn=None, id=None, name=None, service_role=None, state=None, status=None, status_reason=None, tags=None, type=None, update_policies=None):
+    def __init__(__self__, arn=None, ecs_cluster_arn=None, id=None, name=None, region=None, service_role=None, state=None, status=None, status_reason=None, tags=None, type=None, update_policies=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetComputeEnvironmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_role and not isinstance(service_role, str):
             raise TypeError("Expected argument 'service_role' to be a str")
         pulumi.set(__self__, "service_role", service_role)
@@ -91,6 +94,11 @@ class GetComputeEnvironmentResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -159,6 +167,7 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
             ecs_cluster_arn=self.ecs_cluster_arn,
             id=self.id,
             name=self.name,
+            region=self.region,
             service_role=self.service_role,
             state=self.state,
             status=self.status,
@@ -169,6 +178,7 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
 
 
 def get_compute_environment(name: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             tags: Optional[Mapping[str, builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComputeEnvironmentResult:
     """
@@ -190,6 +200,7 @@ def get_compute_environment(name: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult).value
@@ -199,6 +210,7 @@ def get_compute_environment(name: Optional[builtins.str] = None,
         ecs_cluster_arn=pulumi.get(__ret__, 'ecs_cluster_arn'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         service_role=pulumi.get(__ret__, 'service_role'),
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
@@ -207,6 +219,7 @@ def get_compute_environment(name: Optional[builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         update_policies=pulumi.get(__ret__, 'update_policies'))
 def get_compute_environment_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
     """
@@ -228,6 +241,7 @@ def get_compute_environment_output(name: Optional[pulumi.Input[builtins.str]] = 
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult)
@@ -236,6 +250,7 @@ def get_compute_environment_output(name: Optional[pulumi.Input[builtins.str]] = 
         ecs_cluster_arn=pulumi.get(__response__, 'ecs_cluster_arn'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         service_role=pulumi.get(__response__, 'service_role'),
         state=pulumi.get(__response__, 'state'),
         status=pulumi.get(__response__, 'status'),

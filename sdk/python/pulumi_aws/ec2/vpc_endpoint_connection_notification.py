@@ -22,6 +22,7 @@ class VpcEndpointConnectionNotificationArgs:
     def __init__(__self__, *,
                  connection_events: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  connection_notification_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -30,11 +31,14 @@ class VpcEndpointConnectionNotificationArgs:
                
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
         """
         pulumi.set(__self__, "connection_events", connection_events)
         pulumi.set(__self__, "connection_notification_arn", connection_notification_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if vpc_endpoint_id is not None:
             pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if vpc_endpoint_service_id is not None:
@@ -67,6 +71,18 @@ class VpcEndpointConnectionNotificationArgs:
         pulumi.set(self, "connection_notification_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -97,6 +113,7 @@ class _VpcEndpointConnectionNotificationState:
                  connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  connection_notification_arn: Optional[pulumi.Input[builtins.str]] = None,
                  notification_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -107,6 +124,7 @@ class _VpcEndpointConnectionNotificationState:
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[builtins.str] notification_type: The type of notification.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: The state of the notification.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
@@ -117,6 +135,8 @@ class _VpcEndpointConnectionNotificationState:
             pulumi.set(__self__, "connection_notification_arn", connection_notification_arn)
         if notification_type is not None:
             pulumi.set(__self__, "notification_type", notification_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if vpc_endpoint_id is not None:
@@ -161,6 +181,18 @@ class _VpcEndpointConnectionNotificationState:
     @notification_type.setter
     def notification_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "notification_type", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -209,6 +241,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  connection_notification_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -260,6 +293,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
         """
@@ -328,6 +362,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  connection_notification_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -345,6 +380,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             if connection_notification_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_notification_arn'")
             __props__.__dict__["connection_notification_arn"] = connection_notification_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["vpc_endpoint_service_id"] = vpc_endpoint_service_id
             __props__.__dict__["notification_type"] = None
@@ -362,6 +398,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             connection_notification_arn: Optional[pulumi.Input[builtins.str]] = None,
             notification_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
             vpc_endpoint_service_id: Optional[pulumi.Input[builtins.str]] = None) -> 'VpcEndpointConnectionNotification':
@@ -377,6 +414,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[builtins.str] notification_type: The type of notification.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: The state of the notification.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
@@ -388,6 +426,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         __props__.__dict__["connection_events"] = connection_events
         __props__.__dict__["connection_notification_arn"] = connection_notification_arn
         __props__.__dict__["notification_type"] = notification_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["state"] = state
         __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
         __props__.__dict__["vpc_endpoint_service_id"] = vpc_endpoint_service_id
@@ -418,6 +457,14 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         The type of notification.
         """
         return pulumi.get(self, "notification_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

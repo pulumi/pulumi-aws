@@ -112,6 +112,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         /// </summary>
         [Output("ruleAction")]
@@ -220,6 +226,12 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Protocol { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         /// </summary>
         [Input("ruleAction", required: true)]
@@ -294,6 +306,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("protocol")]
         public Input<int>? Protocol { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`

@@ -392,6 +392,21 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
      * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
      * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
@@ -730,6 +745,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         this.publish = $.publish;
         this.qualifiedArn = $.qualifiedArn;
         this.qualifiedInvokeArn = $.qualifiedInvokeArn;
+        this.region = $.region;
         this.replaceSecurityGroupsOnDestroy = $.replaceSecurityGroupsOnDestroy;
         this.replacementSecurityGroupIds = $.replacementSecurityGroupIds;
         this.reservedConcurrentExecutions = $.reservedConcurrentExecutions;
@@ -1292,6 +1308,27 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder qualifiedInvokeArn(String qualifiedInvokeArn) {
             return qualifiedInvokeArn(Output.of(qualifiedInvokeArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

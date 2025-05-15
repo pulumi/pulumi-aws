@@ -51,14 +51,22 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
+     * @deprecated
+     * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
+     * 
      */
+    @Deprecated /* datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead. */
     @Import(name="datasources")
     private @Nullable Output<DetectorDatasourcesArgs> datasources;
 
     /**
      * @return Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
+     * @deprecated
+     * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
+     * 
      */
+    @Deprecated /* datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead. */
     public Optional<Output<DetectorDatasourcesArgs>> datasources() {
         return Optional.ofNullable(this.datasources);
     }
@@ -91,6 +99,21 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> findingPublishingFrequency() {
         return Optional.ofNullable(this.findingPublishingFrequency);
+    }
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -131,6 +154,7 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
         this.datasources = $.datasources;
         this.enable = $.enable;
         this.findingPublishingFrequency = $.findingPublishingFrequency;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -200,7 +224,11 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
+         * 
          */
+        @Deprecated /* datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead. */
         public Builder datasources(@Nullable Output<DetectorDatasourcesArgs> datasources) {
             $.datasources = datasources;
             return this;
@@ -211,7 +239,11 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
+         * 
          */
+        @Deprecated /* datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead. */
         public Builder datasources(DetectorDatasourcesArgs datasources) {
             return datasources(Output.of(datasources));
         }
@@ -256,6 +288,27 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder findingPublishingFrequency(String findingPublishingFrequency) {
             return findingPublishingFrequency(Output.of(findingPublishingFrequency));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

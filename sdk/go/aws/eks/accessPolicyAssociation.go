@@ -70,6 +70,8 @@ type AccessPolicyAssociation struct {
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAccessPolicyAssociation registers a new resource with the given unique name, arguments, and options.
@@ -126,6 +128,8 @@ type accessPolicyAssociationState struct {
 	PolicyArn *string `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn *string `pulumi:"principalArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AccessPolicyAssociationState struct {
@@ -141,6 +145,8 @@ type AccessPolicyAssociationState struct {
 	PolicyArn pulumi.StringPtrInput
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccessPolicyAssociationState) ElementType() reflect.Type {
@@ -156,6 +162,8 @@ type accessPolicyAssociationArgs struct {
 	PolicyArn string `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn string `pulumi:"principalArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccessPolicyAssociation resource.
@@ -168,6 +176,8 @@ type AccessPolicyAssociationArgs struct {
 	PolicyArn pulumi.StringInput
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccessPolicyAssociationArgs) ElementType() reflect.Type {
@@ -285,6 +295,11 @@ func (o AccessPolicyAssociationOutput) PolicyArn() pulumi.StringOutput {
 // The IAM Principal ARN which requires Authentication access to the EKS cluster.
 func (o AccessPolicyAssociationOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccessPolicyAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AccessPolicyAssociationArrayOutput struct{ *pulumi.OutputState }

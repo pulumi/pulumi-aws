@@ -79,6 +79,8 @@ type PublicVirtualInterface struct {
 	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
 	// The name for the virtual interface.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -153,6 +155,8 @@ type publicVirtualInterfaceState struct {
 	CustomerAddress *string `pulumi:"customerAddress"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -183,6 +187,8 @@ type PublicVirtualInterfaceState struct {
 	CustomerAddress pulumi.StringPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -212,6 +218,8 @@ type publicVirtualInterfaceArgs struct {
 	CustomerAddress *string `pulumi:"customerAddress"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -236,6 +244,8 @@ type PublicVirtualInterfaceArgs struct {
 	CustomerAddress pulumi.StringPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -378,6 +388,11 @@ func (o PublicVirtualInterfaceOutput) CustomerAddress() pulumi.StringOutput {
 // The name for the virtual interface.
 func (o PublicVirtualInterfaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicVirtualInterface) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PublicVirtualInterfaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicVirtualInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of routes to be advertised to the AWS network in this region.

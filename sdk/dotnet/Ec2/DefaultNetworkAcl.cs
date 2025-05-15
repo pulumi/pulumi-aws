@@ -204,6 +204,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         /// </summary>
         [Output("subnetIds")]
@@ -305,6 +311,12 @@ namespace Pulumi.Aws.Ec2
             set => _ingress = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
 
@@ -380,6 +392,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

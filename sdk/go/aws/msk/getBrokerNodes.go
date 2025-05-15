@@ -51,7 +51,8 @@ func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulum
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesArgs struct {
 	// ARN of the cluster the nodes belong to.
-	ClusterArn string `pulumi:"clusterArn"`
+	ClusterArn string  `pulumi:"clusterArn"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBrokerNodes.
@@ -60,6 +61,7 @@ type GetBrokerNodesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id            string                       `pulumi:"id"`
 	NodeInfoLists []GetBrokerNodesNodeInfoList `pulumi:"nodeInfoLists"`
+	Region        string                       `pulumi:"region"`
 }
 
 func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, opts ...pulumi.InvokeOption) GetBrokerNodesResultOutput {
@@ -74,7 +76,8 @@ func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, op
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesOutputArgs struct {
 	// ARN of the cluster the nodes belong to.
-	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	ClusterArn pulumi.StringInput    `pulumi:"clusterArn"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBrokerNodesOutputArgs) ElementType() reflect.Type {
@@ -107,6 +110,10 @@ func (o GetBrokerNodesResultOutput) Id() pulumi.StringOutput {
 
 func (o GetBrokerNodesResultOutput) NodeInfoLists() GetBrokerNodesNodeInfoListArrayOutput {
 	return o.ApplyT(func(v GetBrokerNodesResult) []GetBrokerNodesNodeInfoList { return v.NodeInfoLists }).(GetBrokerNodesNodeInfoListArrayOutput)
+}
+
+func (o GetBrokerNodesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerNodesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

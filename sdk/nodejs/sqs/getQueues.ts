@@ -25,6 +25,7 @@ export function getQueues(args?: GetQueuesArgs, opts?: pulumi.InvokeOptions): Pr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sqs/getQueues:getQueues", {
         "queueNamePrefix": args.queueNamePrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,7 @@ export interface GetQueuesArgs {
      * A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
      */
     queueNamePrefix?: string;
+    region?: string;
 }
 
 /**
@@ -51,6 +53,7 @@ export interface GetQueuesResult {
      * A list of queue URLs.
      */
     readonly queueUrls: string[];
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS SQS (Simple Queue) Queues.
@@ -73,6 +76,7 @@ export function getQueuesOutput(args?: GetQueuesOutputArgs, opts?: pulumi.Invoke
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sqs/getQueues:getQueues", {
         "queueNamePrefix": args.queueNamePrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -84,4 +88,5 @@ export interface GetQueuesOutputArgs {
      * A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
      */
     queueNamePrefix?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

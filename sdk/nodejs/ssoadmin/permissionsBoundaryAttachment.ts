@@ -112,6 +112,10 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
      * The permissions boundary policy. See below.
      */
     public readonly permissionsBoundary!: pulumi.Output<outputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PermissionsBoundaryAttachment resource with the given unique name, arguments, and options.
@@ -129,6 +133,7 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
             resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
             resourceInputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PermissionsBoundaryAttachmentArgs | undefined;
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
@@ -143,6 +148,7 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
             resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PermissionsBoundaryAttachment.__pulumiType, name, resourceInputs, opts);
@@ -165,6 +171,10 @@ export interface PermissionsBoundaryAttachmentState {
      * The permissions boundary policy. See below.
      */
     permissionsBoundary?: pulumi.Input<inputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -183,4 +193,8 @@ export interface PermissionsBoundaryAttachmentArgs {
      * The permissions boundary policy. See below.
      */
     permissionsBoundary: pulumi.Input<inputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

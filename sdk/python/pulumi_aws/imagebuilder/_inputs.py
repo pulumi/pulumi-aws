@@ -92,6 +92,8 @@ __all__ = [
     'InfrastructureConfigurationLoggingArgsDict',
     'InfrastructureConfigurationLoggingS3LogsArgs',
     'InfrastructureConfigurationLoggingS3LogsArgsDict',
+    'InfrastructureConfigurationPlacementArgs',
+    'InfrastructureConfigurationPlacementArgsDict',
     'LifecyclePolicyPolicyDetailArgs',
     'LifecyclePolicyPolicyDetailArgsDict',
     'LifecyclePolicyPolicyDetailActionArgs',
@@ -2895,6 +2897,98 @@ class InfrastructureConfigurationLoggingS3LogsArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "s3_key_prefix", value)
+
+
+if not MYPY:
+    class InfrastructureConfigurationPlacementArgsDict(TypedDict):
+        availability_zone: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Availability Zone where your build and test instances will launch.
+        """
+        host_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+        """
+        host_resource_group_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+        """
+        tenancy: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
+        """
+elif False:
+    InfrastructureConfigurationPlacementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InfrastructureConfigurationPlacementArgs:
+    def __init__(__self__, *,
+                 availability_zone: Optional[pulumi.Input[builtins.str]] = None,
+                 host_id: Optional[pulumi.Input[builtins.str]] = None,
+                 host_resource_group_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 tenancy: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] availability_zone: Availability Zone where your build and test instances will launch.
+        :param pulumi.Input[builtins.str] host_id: ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+        :param pulumi.Input[builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+        :param pulumi.Input[builtins.str] tenancy: Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if host_id is not None:
+            pulumi.set(__self__, "host_id", host_id)
+        if host_resource_group_arn is not None:
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Availability Zone where your build and test instances will launch.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="hostId")
+    def host_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+        """
+        return pulumi.get(self, "host_id")
+
+    @host_id.setter
+    def host_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host_id", value)
+
+    @property
+    @pulumi.getter(name="hostResourceGroupArn")
+    def host_resource_group_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+        """
+        return pulumi.get(self, "host_resource_group_arn")
+
+    @host_resource_group_arn.setter
+    def host_resource_group_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host_resource_group_arn", value)
+
+    @property
+    @pulumi.getter
+    def tenancy(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
+        """
+        return pulumi.get(self, "tenancy")
+
+    @tenancy.setter
+    def tenancy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "tenancy", value)
 
 
 if not MYPY:

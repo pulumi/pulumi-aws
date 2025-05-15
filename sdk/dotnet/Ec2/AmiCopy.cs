@@ -182,6 +182,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> RamdiskId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         /// </summary>
         [Output("rootDeviceName")]
@@ -351,6 +357,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Id of the AMI to copy. This id must be valid in the region
@@ -529,6 +541,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ramdiskId")]
         public Input<string>? RamdiskId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).

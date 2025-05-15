@@ -71,6 +71,8 @@ type AssetType struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier pulumi.StringOutput `pulumi:"owningProjectIdentifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The revision of the asset type.
 	Revision pulumi.StringOutput        `pulumi:"revision"`
 	Timeouts AssetTypeTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -128,6 +130,8 @@ type assetTypeState struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier *string `pulumi:"owningProjectIdentifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The revision of the asset type.
 	Revision *string            `pulumi:"revision"`
 	Timeouts *AssetTypeTimeouts `pulumi:"timeouts"`
@@ -150,6 +154,8 @@ type AssetTypeState struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The revision of the asset type.
 	Revision pulumi.StringPtrInput
 	Timeouts AssetTypeTimeoutsPtrInput
@@ -171,8 +177,10 @@ type assetTypeArgs struct {
 	// The unique identifier of the Amazon DataZone project that owns the custom asset type.
 	//
 	// The following arguments are optional:
-	OwningProjectIdentifier string             `pulumi:"owningProjectIdentifier"`
-	Timeouts                *AssetTypeTimeouts `pulumi:"timeouts"`
+	OwningProjectIdentifier string `pulumi:"owningProjectIdentifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string            `pulumi:"region"`
+	Timeouts *AssetTypeTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AssetType resource.
@@ -189,7 +197,9 @@ type AssetTypeArgs struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier pulumi.StringInput
-	Timeouts                AssetTypeTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts AssetTypeTimeoutsPtrInput
 }
 
 func (AssetTypeArgs) ElementType() reflect.Type {
@@ -314,6 +324,11 @@ func (o AssetTypeOutput) Name() pulumi.StringOutput {
 // The following arguments are optional:
 func (o AssetTypeOutput) OwningProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.OwningProjectIdentifier }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AssetTypeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The revision of the asset type.

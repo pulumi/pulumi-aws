@@ -26,6 +26,7 @@ export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getNodeGroups:getNodeGroups", {
         "clusterName": args.clusterName,
+        "region": args.region,
     }, opts);
 }
 
@@ -37,6 +38,7 @@ export interface GetNodeGroupsArgs {
      * Name of the cluster.
      */
     clusterName: string;
+    region?: string;
 }
 
 /**
@@ -52,6 +54,7 @@ export interface GetNodeGroupsResult {
      * Set of all node group names in an EKS Cluster.
      */
     readonly names: string[];
+    readonly region: string;
 }
 /**
  * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
@@ -75,6 +78,7 @@ export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getNodeGroups:getNodeGroups", {
         "clusterName": args.clusterName,
+        "region": args.region,
     }, opts);
 }
 
@@ -86,4 +90,5 @@ export interface GetNodeGroupsOutputArgs {
      * Name of the cluster.
      */
     clusterName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

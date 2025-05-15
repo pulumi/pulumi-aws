@@ -34,6 +34,21 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      * 
      */
@@ -71,6 +86,7 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.ResourceA
 
     private ResourceCollectionArgs(ResourceCollectionArgs $) {
         this.cloudformation = $.cloudformation;
+        this.region = $.region;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -112,6 +128,27 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.ResourceA
          */
         public Builder cloudformation(ResourceCollectionCloudformationArgs cloudformation) {
             return cloudformation(Output.of(cloudformation));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

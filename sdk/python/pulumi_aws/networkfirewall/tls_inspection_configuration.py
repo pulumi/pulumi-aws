@@ -25,6 +25,7 @@ class TlsInspectionConfigurationArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']] = None,
                  tls_inspection_configuration: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']] = None):
@@ -33,6 +34,7 @@ class TlsInspectionConfigurationArgs:
         :param pulumi.Input[builtins.str] description: Description of the TLS inspection configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Descriptive name of the TLS inspection configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -43,6 +45,8 @@ class TlsInspectionConfigurationArgs:
             pulumi.set(__self__, "encryption_configurations", encryption_configurations)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -88,6 +92,18 @@ class TlsInspectionConfigurationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -129,6 +145,7 @@ class _TlsInspectionConfigurationState:
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  number_of_associations: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']] = None,
@@ -144,6 +161,7 @@ class _TlsInspectionConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Descriptive name of the TLS inspection configuration.
         :param pulumi.Input[builtins.int] number_of_associations: Number of firewall policies that use this TLS inspection configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -164,6 +182,8 @@ class _TlsInspectionConfigurationState:
             pulumi.set(__self__, "name", name)
         if number_of_associations is not None:
             pulumi.set(__self__, "number_of_associations", number_of_associations)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -263,6 +283,18 @@ class _TlsInspectionConfigurationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -338,6 +370,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
                  tls_inspection_configuration: Optional[pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
@@ -528,6 +561,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the TLS inspection configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Descriptive name of the TLS inspection configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -737,6 +771,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
                  tls_inspection_configuration: Optional[pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
@@ -752,6 +787,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["encryption_configurations"] = encryption_configurations
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["tls_inspection_configuration"] = tls_inspection_configuration
@@ -779,6 +815,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             number_of_associations: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
@@ -799,6 +836,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Descriptive name of the TLS inspection configuration.
         :param pulumi.Input[builtins.int] number_of_associations: Number of firewall policies that use this TLS inspection configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -816,6 +854,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         __props__.__dict__["encryption_configurations"] = encryption_configurations
         __props__.__dict__["name"] = name
         __props__.__dict__["number_of_associations"] = number_of_associations
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -879,6 +918,14 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         Number of firewall policies that use this TLS inspection configuration.
         """
         return pulumi.get(self, "number_of_associations")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

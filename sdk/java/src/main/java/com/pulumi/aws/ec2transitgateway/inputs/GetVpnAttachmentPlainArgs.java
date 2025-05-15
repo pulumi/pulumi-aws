@@ -32,6 +32,13 @@ public final class GetVpnAttachmentPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      * 
@@ -81,6 +88,7 @@ public final class GetVpnAttachmentPlainArgs extends com.pulumi.resources.Invoke
 
     private GetVpnAttachmentPlainArgs(GetVpnAttachmentPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
         this.transitGatewayId = $.transitGatewayId;
         this.vpnConnectionId = $.vpnConnectionId;
@@ -123,6 +131,11 @@ public final class GetVpnAttachmentPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder filters(GetVpnAttachmentFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

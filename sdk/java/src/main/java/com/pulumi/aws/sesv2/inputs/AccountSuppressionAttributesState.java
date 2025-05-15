@@ -17,6 +17,21 @@ public final class AccountSuppressionAttributesState extends com.pulumi.resource
     public static final AccountSuppressionAttributesState Empty = new AccountSuppressionAttributesState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      * 
      */
@@ -34,6 +49,7 @@ public final class AccountSuppressionAttributesState extends com.pulumi.resource
     private AccountSuppressionAttributesState() {}
 
     private AccountSuppressionAttributesState(AccountSuppressionAttributesState $) {
+        this.region = $.region;
         this.suppressedReasons = $.suppressedReasons;
     }
 
@@ -53,6 +69,27 @@ public final class AccountSuppressionAttributesState extends com.pulumi.resource
 
         public Builder(AccountSuppressionAttributesState defaults) {
             $ = new AccountSuppressionAttributesState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

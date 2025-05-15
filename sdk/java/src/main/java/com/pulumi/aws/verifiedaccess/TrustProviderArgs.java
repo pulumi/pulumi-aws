@@ -111,6 +111,21 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         return this.policyReferenceName;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="sseSpecification")
     private @Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification;
 
@@ -131,13 +146,6 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
     }
 
     /**
@@ -183,9 +191,9 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.nativeApplicationOidcOptions = $.nativeApplicationOidcOptions;
         this.oidcOptions = $.oidcOptions;
         this.policyReferenceName = $.policyReferenceName;
+        this.region = $.region;
         this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.trustProviderType = $.trustProviderType;
         this.userTrustProviderType = $.userTrustProviderType;
     }
@@ -334,6 +342,27 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
             return policyReferenceName(Output.of(policyReferenceName));
         }
 
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         public Builder sseSpecification(@Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification) {
             $.sseSpecification = sseSpecification;
             return this;
@@ -362,15 +391,6 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

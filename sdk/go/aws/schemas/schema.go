@@ -98,6 +98,8 @@ type Schema struct {
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +163,8 @@ type schemaState struct {
 	LastModified *string `pulumi:"lastModified"`
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the registry in which this schema belongs.
 	RegistryName *string `pulumi:"registryName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -186,6 +190,8 @@ type SchemaState struct {
 	LastModified pulumi.StringPtrInput
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -211,6 +217,8 @@ type schemaArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the registry in which this schema belongs.
 	RegistryName string `pulumi:"registryName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -227,6 +235,8 @@ type SchemaArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -345,6 +355,11 @@ func (o SchemaOutput) LastModified() pulumi.StringOutput {
 // The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 func (o SchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SchemaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the registry in which this schema belongs.

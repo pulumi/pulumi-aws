@@ -32,6 +32,13 @@ public final class GetRepositoryCreationTemplateArgs extends com.pulumi.resource
         return this.prefix;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags to assign to any created repositories.
      * 
@@ -51,6 +58,7 @@ public final class GetRepositoryCreationTemplateArgs extends com.pulumi.resource
 
     private GetRepositoryCreationTemplateArgs(GetRepositoryCreationTemplateArgs $) {
         this.prefix = $.prefix;
+        this.region = $.region;
         this.resourceTags = $.resourceTags;
     }
 
@@ -91,6 +99,15 @@ public final class GetRepositoryCreationTemplateArgs extends com.pulumi.resource
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

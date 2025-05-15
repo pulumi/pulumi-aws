@@ -59,6 +59,12 @@ namespace Pulumi.Aws.Location
         public Output<string> ConsumerArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the tracker resource to be associated with a geofence collection.
         /// </summary>
         [Output("trackerName")]
@@ -117,6 +123,12 @@ namespace Pulumi.Aws.Location
         public Input<string> ConsumerArn { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the tracker resource to be associated with a geofence collection.
         /// </summary>
         [Input("trackerName", required: true)]
@@ -135,6 +147,12 @@ namespace Pulumi.Aws.Location
         /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the tracker resource to be associated with a geofence collection.

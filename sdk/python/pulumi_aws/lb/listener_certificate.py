@@ -21,14 +21,18 @@ __all__ = ['ListenerCertificateArgs', 'ListenerCertificate']
 class ListenerCertificateArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[builtins.str],
-                 listener_arn: pulumi.Input[builtins.str]):
+                 listener_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ListenerCertificate resource.
         :param pulumi.Input[builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "listener_arn", listener_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -54,21 +58,37 @@ class ListenerCertificateArgs:
     def listener_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "listener_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ListenerCertificateState:
     def __init__(__self__, *,
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 listener_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 listener_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ListenerCertificate resources.
         :param pulumi.Input[builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if listener_arn is not None:
             pulumi.set(__self__, "listener_arn", listener_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -94,6 +114,18 @@ class _ListenerCertificateState:
     def listener_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "listener_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class ListenerCertificate(pulumi.CustomResource):
 
@@ -105,6 +137,7 @@ class ListenerCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  listener_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a Load Balancer Listener Certificate resource.
@@ -139,6 +172,7 @@ class ListenerCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -192,6 +226,7 @@ class ListenerCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  listener_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,6 +242,7 @@ class ListenerCertificate(pulumi.CustomResource):
             if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
             __props__.__dict__["listener_arn"] = listener_arn
+            __props__.__dict__["region"] = region
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ListenerCertificate, __self__).__init__(
@@ -220,7 +256,8 @@ class ListenerCertificate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
-            listener_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'ListenerCertificate':
+            listener_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ListenerCertificate':
         """
         Get an existing ListenerCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -230,6 +267,7 @@ class ListenerCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -237,6 +275,7 @@ class ListenerCertificate(pulumi.CustomResource):
 
         __props__.__dict__["certificate_arn"] = certificate_arn
         __props__.__dict__["listener_arn"] = listener_arn
+        __props__.__dict__["region"] = region
         return ListenerCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -254,4 +293,12 @@ class ListenerCertificate(pulumi.CustomResource):
         The ARN of the listener to which to attach the certificate.
         """
         return pulumi.get(self, "listener_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

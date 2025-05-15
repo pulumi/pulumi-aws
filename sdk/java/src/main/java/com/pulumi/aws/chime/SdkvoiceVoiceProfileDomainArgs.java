@@ -49,6 +49,21 @@ public final class SdkvoiceVoiceProfileDomainArgs extends com.pulumi.resources.R
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration for server side encryption.
      * 
      */
@@ -70,21 +85,14 @@ public final class SdkvoiceVoiceProfileDomainArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private SdkvoiceVoiceProfileDomainArgs() {}
 
     private SdkvoiceVoiceProfileDomainArgs(SdkvoiceVoiceProfileDomainArgs $) {
         this.description = $.description;
         this.name = $.name;
+        this.region = $.region;
         this.serverSideEncryptionConfiguration = $.serverSideEncryptionConfiguration;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -148,6 +156,27 @@ public final class SdkvoiceVoiceProfileDomainArgs extends com.pulumi.resources.R
         }
 
         /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param serverSideEncryptionConfiguration Configuration for server side encryption.
          * 
          * @return builder
@@ -175,15 +204,6 @@ public final class SdkvoiceVoiceProfileDomainArgs extends com.pulumi.resources.R
 
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public SdkvoiceVoiceProfileDomainArgs build() {

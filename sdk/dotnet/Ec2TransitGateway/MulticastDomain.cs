@@ -224,6 +224,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
         [Output("staticSourcesSupport")]
@@ -306,6 +312,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Igmpv2Support { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
         [Input("staticSourcesSupport")]
@@ -360,6 +372,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.

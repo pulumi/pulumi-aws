@@ -99,6 +99,9 @@ namespace Pulumi.Aws.SesV2
         [Input("poolName", required: true)]
         public string PoolName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -160,6 +166,7 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public readonly string Id;
         public readonly string PoolName;
+        public readonly string Region;
         /// <summary>
         /// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
         /// </summary>
@@ -179,6 +186,8 @@ namespace Pulumi.Aws.SesV2
 
             string poolName,
 
+            string region,
+
             string scalingMode,
 
             ImmutableDictionary<string, string> tags)
@@ -187,6 +196,7 @@ namespace Pulumi.Aws.SesV2
             DedicatedIps = dedicatedIps;
             Id = id;
             PoolName = poolName;
+            Region = region;
             ScalingMode = scalingMode;
             Tags = tags;
         }

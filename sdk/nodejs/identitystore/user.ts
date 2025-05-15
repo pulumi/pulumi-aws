@@ -118,6 +118,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly profileUrl!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The user's time zone.
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
@@ -164,6 +168,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["phoneNumbers"] = state ? state.phoneNumbers : undefined;
             resourceInputs["preferredLanguage"] = state ? state.preferredLanguage : undefined;
             resourceInputs["profileUrl"] = state ? state.profileUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timezone"] = state ? state.timezone : undefined;
             resourceInputs["title"] = state ? state.title : undefined;
             resourceInputs["userId"] = state ? state.userId : undefined;
@@ -190,6 +195,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["phoneNumbers"] = args ? args.phoneNumbers : undefined;
             resourceInputs["preferredLanguage"] = args ? args.preferredLanguage : undefined;
             resourceInputs["profileUrl"] = args ? args.profileUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
@@ -250,6 +256,10 @@ export interface UserState {
      * An URL that may be associated with the user.
      */
     profileUrl?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user's time zone.
      */
@@ -318,6 +328,10 @@ export interface UserArgs {
      * An URL that may be associated with the user.
      */
     profileUrl?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user's time zone.
      */

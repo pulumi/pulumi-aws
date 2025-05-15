@@ -34,6 +34,7 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "serviceName": args.serviceName,
         "state": args.state,
         "tags": args.tags,
@@ -53,6 +54,7 @@ export interface GetVpcEndpointArgs {
      * ID of the specific VPC Endpoint to retrieve.
      */
     id?: string;
+    region?: string;
     /**
      * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
@@ -69,8 +71,8 @@ export interface GetVpcEndpointArgs {
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC endpoints.
+     * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
      */
     vpcId?: string;
 }
@@ -118,6 +120,7 @@ export interface GetVpcEndpointResult {
      * Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
      */
     readonly privateDnsEnabled: boolean;
+    readonly region: string;
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
@@ -170,6 +173,7 @@ export function getVpcEndpointOutput(args?: GetVpcEndpointOutputArgs, opts?: pul
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "serviceName": args.serviceName,
         "state": args.state,
         "tags": args.tags,
@@ -189,6 +193,7 @@ export interface GetVpcEndpointOutputArgs {
      * ID of the specific VPC Endpoint to retrieve.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
@@ -205,8 +210,8 @@ export interface GetVpcEndpointOutputArgs {
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC endpoints.
+     * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
      */
     vpcId?: pulumi.Input<string>;
 }

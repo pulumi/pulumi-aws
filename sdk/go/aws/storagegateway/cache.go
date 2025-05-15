@@ -57,6 +57,8 @@ type Cache struct {
 	DiskId pulumi.StringOutput `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewCache registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,8 @@ type cacheState struct {
 	DiskId *string `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type CacheState struct {
@@ -106,6 +110,8 @@ type CacheState struct {
 	DiskId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (CacheState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type cacheArgs struct {
 	DiskId string `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -125,6 +133,8 @@ type CacheArgs struct {
 	DiskId pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {
@@ -222,6 +232,11 @@ func (o CacheOutput) DiskId() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the gateway.
 func (o CacheOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CacheOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type CacheArrayOutput struct{ *pulumi.OutputState }

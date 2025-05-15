@@ -91,6 +91,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
@@ -184,6 +190,12 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
@@ -243,6 +255,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.

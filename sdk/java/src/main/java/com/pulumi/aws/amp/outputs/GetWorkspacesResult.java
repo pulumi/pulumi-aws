@@ -29,6 +29,7 @@ public final class GetWorkspacesResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return List of workspace IDs of the matched Prometheus workspaces.
      * 
@@ -60,6 +61,9 @@ public final class GetWorkspacesResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return List of workspace IDs of the matched Prometheus workspaces.
      * 
@@ -81,6 +85,7 @@ public final class GetWorkspacesResult {
         private List<String> aliases;
         private List<String> arns;
         private String id;
+        private String region;
         private List<String> workspaceIds;
         public Builder() {}
         public Builder(GetWorkspacesResult defaults) {
@@ -89,6 +94,7 @@ public final class GetWorkspacesResult {
     	      this.aliases = defaults.aliases;
     	      this.arns = defaults.arns;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.workspaceIds = defaults.workspaceIds;
         }
 
@@ -129,6 +135,14 @@ public final class GetWorkspacesResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workspaceIds(List<String> workspaceIds) {
             if (workspaceIds == null) {
               throw new MissingRequiredPropertyException("GetWorkspacesResult", "workspaceIds");
@@ -145,6 +159,7 @@ public final class GetWorkspacesResult {
             _resultValue.aliases = aliases;
             _resultValue.arns = arns;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.workspaceIds = workspaceIds;
             return _resultValue;
         }

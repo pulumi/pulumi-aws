@@ -165,6 +165,9 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Returns information on a specific Routing Profile by Routing Profile id
         /// </summary>
@@ -202,6 +205,9 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Returns information on a specific Routing Profile by Routing Profile id
@@ -257,6 +263,7 @@ namespace Pulumi.Aws.Connect
         /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoutingProfileQueueConfigResult> QueueConfigs;
+        public readonly string Region;
         public readonly string RoutingProfileId;
         /// <summary>
         /// Map of tags to assign to the Routing Profile.
@@ -281,6 +288,8 @@ namespace Pulumi.Aws.Connect
 
             ImmutableArray<Outputs.GetRoutingProfileQueueConfigResult> queueConfigs,
 
+            string region,
+
             string routingProfileId,
 
             ImmutableDictionary<string, string> tags)
@@ -293,6 +302,7 @@ namespace Pulumi.Aws.Connect
             MediaConcurrencies = mediaConcurrencies;
             Name = name;
             QueueConfigs = queueConfigs;
+            Region = region;
             RoutingProfileId = routingProfileId;
             Tags = tags;
         }

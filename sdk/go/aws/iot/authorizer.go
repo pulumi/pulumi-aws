@@ -75,6 +75,8 @@ type Authorizer struct {
 	EnableCachingForHttp pulumi.BoolPtrOutput `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled pulumi.BoolPtrOutput `pulumi:"signingDisabled"`
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -137,6 +139,8 @@ type authorizerState struct {
 	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled *bool `pulumi:"signingDisabled"`
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -160,6 +164,8 @@ type AuthorizerState struct {
 	EnableCachingForHttp pulumi.BoolPtrInput
 	// The name of the authorizer.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled pulumi.BoolPtrInput
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -185,6 +191,8 @@ type authorizerArgs struct {
 	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled *bool `pulumi:"signingDisabled"`
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -205,6 +213,8 @@ type AuthorizerArgs struct {
 	EnableCachingForHttp pulumi.BoolPtrInput
 	// The name of the authorizer.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled pulumi.BoolPtrInput
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -322,6 +332,11 @@ func (o AuthorizerOutput) EnableCachingForHttp() pulumi.BoolPtrOutput {
 // The name of the authorizer.
 func (o AuthorizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AuthorizerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.

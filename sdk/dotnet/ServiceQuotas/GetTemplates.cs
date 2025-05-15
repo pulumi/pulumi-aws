@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ServiceQuotas
     public static class GetTemplates
     {
         /// <summary>
-        /// Data source for managing an AWS Service Quotas Templates.
+        /// Data source for managing AWS Service Quotas Templates.
         /// 
         /// ## Example Usage
         /// 
@@ -28,17 +28,17 @@ namespace Pulumi.Aws.ServiceQuotas
         /// {
         ///     var example = Aws.ServiceQuotas.GetTemplates.Invoke(new()
         ///     {
-        ///         Region = "us-east-1",
+        ///         AwsRegion = "us-east-1",
         ///     });
         /// 
         /// });
         /// ```
         /// </summary>
-        public static Task<GetTemplatesResult> InvokeAsync(GetTemplatesArgs args, InvokeOptions? options = null)
+        public static Task<GetTemplatesResult> InvokeAsync(GetTemplatesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplatesResult>("aws:servicequotas/getTemplates:getTemplates", args ?? new GetTemplatesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS Service Quotas Templates.
+        /// Data source for managing AWS Service Quotas Templates.
         /// 
         /// ## Example Usage
         /// 
@@ -54,17 +54,17 @@ namespace Pulumi.Aws.ServiceQuotas
         /// {
         ///     var example = Aws.ServiceQuotas.GetTemplates.Invoke(new()
         ///     {
-        ///         Region = "us-east-1",
+        ///         AwsRegion = "us-east-1",
         ///     });
         /// 
         /// });
         /// ```
         /// </summary>
-        public static Output<GetTemplatesResult> Invoke(GetTemplatesInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetTemplatesResult> Invoke(GetTemplatesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplatesResult>("aws:servicequotas/getTemplates:getTemplates", args ?? new GetTemplatesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS Service Quotas Templates.
+        /// Data source for managing AWS Service Quotas Templates.
         /// 
         /// ## Example Usage
         /// 
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.ServiceQuotas
         /// {
         ///     var example = Aws.ServiceQuotas.GetTemplates.Invoke(new()
         ///     {
-        ///         Region = "us-east-1",
+        ///         AwsRegion = "us-east-1",
         ///     });
         /// 
         /// });
@@ -96,20 +96,14 @@ namespace Pulumi.Aws.ServiceQuotas
         /// <summary>
         /// AWS Region to which the quota increases apply.
         /// </summary>
-        [Input("region", required: true)]
-        public string Region { get; set; } = null!;
-
-        [Input("templates")]
-        private List<Inputs.GetTemplatesTemplateArgs>? _templates;
+        [Input("awsRegion")]
+        public string? AwsRegion { get; set; }
 
         /// <summary>
-        /// A list of quota increase templates for specified region. See `templates`.
+        /// AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
         /// </summary>
-        public List<Inputs.GetTemplatesTemplateArgs> Templates
-        {
-            get => _templates ?? (_templates = new List<Inputs.GetTemplatesTemplateArgs>());
-            set => _templates = value;
-        }
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetTemplatesArgs()
         {
@@ -122,20 +116,14 @@ namespace Pulumi.Aws.ServiceQuotas
         /// <summary>
         /// AWS Region to which the quota increases apply.
         /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
-
-        [Input("templates")]
-        private InputList<Inputs.GetTemplatesTemplateInputArgs>? _templates;
+        [Input("awsRegion")]
+        public Input<string>? AwsRegion { get; set; }
 
         /// <summary>
-        /// A list of quota increase templates for specified region. See `templates`.
+        /// AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
         /// </summary>
-        public InputList<Inputs.GetTemplatesTemplateInputArgs> Templates
-        {
-            get => _templates ?? (_templates = new InputList<Inputs.GetTemplatesTemplateInputArgs>());
-            set => _templates = value;
-        }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetTemplatesInvokeArgs()
         {
@@ -147,11 +135,12 @@ namespace Pulumi.Aws.ServiceQuotas
     [OutputType]
     public sealed class GetTemplatesResult
     {
+        public readonly string? AwsRegion;
         public readonly string Id;
         /// <summary>
         /// AWS Region to which the template applies.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
         /// <summary>
         /// A list of quota increase templates for specified region. See `templates`.
         /// </summary>
@@ -159,12 +148,15 @@ namespace Pulumi.Aws.ServiceQuotas
 
         [OutputConstructor]
         private GetTemplatesResult(
+            string? awsRegion,
+
             string id,
 
-            string region,
+            string? region,
 
             ImmutableArray<Outputs.GetTemplatesTemplateResult> templates)
         {
+            AwsRegion = awsRegion;
             Id = id;
             Region = region;
             Templates = templates;

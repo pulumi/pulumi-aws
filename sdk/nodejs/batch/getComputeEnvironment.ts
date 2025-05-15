@@ -26,6 +26,7 @@ export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,7 @@ export interface GetComputeEnvironmentArgs {
      * Name of the Batch Compute Environment
      */
     name: string;
+    region?: string;
     /**
      * Key-value map of resource tags
      */
@@ -61,6 +63,7 @@ export interface GetComputeEnvironmentResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
@@ -109,6 +112,7 @@ export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArg
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -121,6 +125,7 @@ export interface GetComputeEnvironmentOutputArgs {
      * Name of the Batch Compute Environment
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */

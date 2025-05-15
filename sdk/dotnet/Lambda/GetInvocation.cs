@@ -70,6 +70,9 @@ namespace Pulumi.Aws.Lambda
         [Input("qualifier")]
         public string? Qualifier { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetInvocationArgs()
         {
         }
@@ -97,6 +100,9 @@ namespace Pulumi.Aws.Lambda
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetInvocationInvokeArgs()
         {
         }
@@ -114,6 +120,7 @@ namespace Pulumi.Aws.Lambda
         public readonly string Id;
         public readonly string Input;
         public readonly string? Qualifier;
+        public readonly string Region;
         /// <summary>
         /// String result of the lambda function invocation.
         /// </summary>
@@ -129,12 +136,15 @@ namespace Pulumi.Aws.Lambda
 
             string? qualifier,
 
+            string region,
+
             string result)
         {
             FunctionName = functionName;
             Id = id;
             Input = input;
             Qualifier = qualifier;
+            Region = region;
             Result = result;
         }
     }

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.GetCustomModels(ctx, map[string]interface{}{}, nil)
+//			_, err := bedrock.GetCustomModels(ctx, &bedrock.GetCustomModelsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,14 +36,19 @@ import (
 //	}
 //
 // ```
-func GetCustomModels(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCustomModelsResult, error) {
+func GetCustomModels(ctx *pulumi.Context, args *GetCustomModelsArgs, opts ...pulumi.InvokeOption) (*GetCustomModelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCustomModelsResult
-	err := ctx.Invoke("aws:bedrock/getCustomModels:getCustomModels", nil, &rv, opts...)
+	err := ctx.Invoke("aws:bedrock/getCustomModels:getCustomModels", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getCustomModels.
+type GetCustomModelsArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCustomModels.
@@ -51,13 +56,25 @@ type GetCustomModelsResult struct {
 	Id string `pulumi:"id"`
 	// Model summaries.
 	ModelSummaries []GetCustomModelsModelSummary `pulumi:"modelSummaries"`
+	Region         string                        `pulumi:"region"`
 }
 
-func GetCustomModelsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCustomModelsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCustomModelsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:bedrock/getCustomModels:getCustomModels", nil, GetCustomModelsResultOutput{}, options).(GetCustomModelsResultOutput), nil
-	}).(GetCustomModelsResultOutput)
+func GetCustomModelsOutput(ctx *pulumi.Context, args GetCustomModelsOutputArgs, opts ...pulumi.InvokeOption) GetCustomModelsResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetCustomModelsResultOutput, error) {
+			args := v.(GetCustomModelsArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:bedrock/getCustomModels:getCustomModels", args, GetCustomModelsResultOutput{}, options).(GetCustomModelsResultOutput), nil
+		}).(GetCustomModelsResultOutput)
+}
+
+// A collection of arguments for invoking getCustomModels.
+type GetCustomModelsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetCustomModelsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomModelsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getCustomModels.
@@ -82,6 +99,10 @@ func (o GetCustomModelsResultOutput) Id() pulumi.StringOutput {
 // Model summaries.
 func (o GetCustomModelsResultOutput) ModelSummaries() GetCustomModelsModelSummaryArrayOutput {
 	return o.ApplyT(func(v GetCustomModelsResult) []GetCustomModelsModelSummary { return v.ModelSummaries }).(GetCustomModelsModelSummaryArrayOutput)
+}
+
+func (o GetCustomModelsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomModelsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

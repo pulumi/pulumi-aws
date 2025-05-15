@@ -216,6 +216,21 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Encrypt at rest options. See `server_side_encryption` block below for details.
      * 
      * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
@@ -317,6 +332,7 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
         this.opensearchConfiguration = $.opensearchConfiguration;
         this.opensearchserverlessConfiguration = $.opensearchserverlessConfiguration;
         this.redshiftConfiguration = $.redshiftConfiguration;
+        this.region = $.region;
         this.serverSideEncryption = $.serverSideEncryption;
         this.snowflakeConfiguration = $.snowflakeConfiguration;
         this.splunkConfiguration = $.splunkConfiguration;
@@ -602,6 +618,27 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
          */
         public Builder redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs redshiftConfiguration) {
             return redshiftConfiguration(Output.of(redshiftConfiguration));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

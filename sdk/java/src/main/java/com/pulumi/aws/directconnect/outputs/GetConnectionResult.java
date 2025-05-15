@@ -53,6 +53,7 @@ public final class GetConnectionResult {
      * 
      */
     private String providerName;
+    private String region;
     /**
      * @return State of the connection.
      * 
@@ -129,6 +130,9 @@ public final class GetConnectionResult {
     public String providerName() {
         return this.providerName;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return State of the connection.
      * 
@@ -169,6 +173,7 @@ public final class GetConnectionResult {
         private String ownerAccountId;
         private String partnerName;
         private String providerName;
+        private String region;
         private String state;
         private Map<String,String> tags;
         private Integer vlanId;
@@ -184,6 +189,7 @@ public final class GetConnectionResult {
     	      this.ownerAccountId = defaults.ownerAccountId;
     	      this.partnerName = defaults.partnerName;
     	      this.providerName = defaults.providerName;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.vlanId = defaults.vlanId;
@@ -262,6 +268,14 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetConnectionResult", "state");
@@ -296,6 +310,7 @@ public final class GetConnectionResult {
             _resultValue.ownerAccountId = ownerAccountId;
             _resultValue.partnerName = partnerName;
             _resultValue.providerName = providerName;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             _resultValue.vlanId = vlanId;

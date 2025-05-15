@@ -72,6 +72,8 @@ type AutoScalingConfigurationVersion struct {
 	MaxSize pulumi.IntPtrOutput `pulumi:"maxSize"`
 	// Minimal number of instances that App Runner provisions for your service.
 	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -129,6 +131,8 @@ type autoScalingConfigurationVersionState struct {
 	MaxSize *int `pulumi:"maxSize"`
 	// Minimal number of instances that App Runner provisions for your service.
 	MinSize *int `pulumi:"minSize"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -154,6 +158,8 @@ type AutoScalingConfigurationVersionState struct {
 	MaxSize pulumi.IntPtrInput
 	// Minimal number of instances that App Runner provisions for your service.
 	MinSize pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -175,6 +181,8 @@ type autoScalingConfigurationVersionArgs struct {
 	MaxSize *int `pulumi:"maxSize"`
 	// Minimal number of instances that App Runner provisions for your service.
 	MinSize *int `pulumi:"minSize"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -189,6 +197,8 @@ type AutoScalingConfigurationVersionArgs struct {
 	MaxSize pulumi.IntPtrInput
 	// Minimal number of instances that App Runner provisions for your service.
 	MinSize pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -321,6 +331,11 @@ func (o AutoScalingConfigurationVersionOutput) MaxSize() pulumi.IntPtrOutput {
 // Minimal number of instances that App Runner provisions for your service.
 func (o AutoScalingConfigurationVersionOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AutoScalingConfigurationVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.

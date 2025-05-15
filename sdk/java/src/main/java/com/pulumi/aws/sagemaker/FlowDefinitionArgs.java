@@ -97,6 +97,21 @@ public final class FlowDefinitionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      * 
      */
@@ -134,6 +149,7 @@ public final class FlowDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         this.humanLoopConfig = $.humanLoopConfig;
         this.humanLoopRequestSource = $.humanLoopRequestSource;
         this.outputConfig = $.outputConfig;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.tags = $.tags;
     }
@@ -259,6 +275,27 @@ public final class FlowDefinitionArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder outputConfig(FlowDefinitionOutputConfigArgs outputConfig) {
             return outputConfig(Output.of(outputConfig));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

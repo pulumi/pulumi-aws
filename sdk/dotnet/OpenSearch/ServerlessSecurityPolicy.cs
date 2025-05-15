@@ -331,6 +331,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> PolicyVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Type of security policy. One of `encryption` or `network`.
         /// 
         /// The following arguments are optional:
@@ -403,6 +409,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Type of security policy. One of `encryption` or `network`.
         /// 
         /// The following arguments are optional:
@@ -441,6 +453,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("policyVersion")]
         public Input<string>? PolicyVersion { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of security policy. One of `encryption` or `network`.

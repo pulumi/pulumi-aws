@@ -101,6 +101,10 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
      */
     public readonly ipv6Pool!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPC to make the association with.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -125,6 +129,7 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
             resourceInputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
             resourceInputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
             resourceInputs["ipv6Pool"] = state ? state.ipv6Pool : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcIpv6CidrBlockAssociationArgs | undefined;
@@ -136,6 +141,7 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
             resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["ipSource"] = undefined /*out*/;
             resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface VpcIpv6CidrBlockAssociationState {
      */
     ipv6Pool?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the VPC to make the association with.
      */
     vpcId?: pulumi.Input<string>;
@@ -207,6 +217,10 @@ export interface VpcIpv6CidrBlockAssociationArgs {
      * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
      */
     ipv6Pool?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC to make the association with.
      */

@@ -7,6 +7,7 @@ import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,11 +48,19 @@ public final class GetPatchBaselinesArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPatchBaselinesArgs() {}
 
     private GetPatchBaselinesArgs(GetPatchBaselinesArgs $) {
         this.defaultBaselines = $.defaultBaselines;
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -122,6 +131,15 @@ public final class GetPatchBaselinesArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder filters(GetPatchBaselinesFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetPatchBaselinesArgs build() {

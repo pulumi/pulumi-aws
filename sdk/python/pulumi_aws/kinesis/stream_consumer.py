@@ -21,15 +21,19 @@ __all__ = ['StreamConsumerArgs', 'StreamConsumer']
 class StreamConsumerArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[builtins.str],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StreamConsumer resource.
         :param pulumi.Input[builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         :param pulumi.Input[builtins.str] name: Name of the stream consumer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "stream_arn", stream_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -55,6 +59,18 @@ class StreamConsumerArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _StreamConsumerState:
@@ -62,12 +78,14 @@ class _StreamConsumerState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  creation_timestamp: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamConsumer resources.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the stream consumer.
         :param pulumi.Input[builtins.str] creation_timestamp: Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         :param pulumi.Input[builtins.str] name: Name of the stream consumer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         """
         if arn is not None:
@@ -76,6 +94,8 @@ class _StreamConsumerState:
             pulumi.set(__self__, "creation_timestamp", creation_timestamp)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
 
@@ -116,6 +136,18 @@ class _StreamConsumerState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -137,6 +169,7 @@ class StreamConsumer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -171,6 +204,7 @@ class StreamConsumer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the stream consumer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         """
         ...
@@ -224,6 +258,7 @@ class StreamConsumer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -235,6 +270,7 @@ class StreamConsumer(pulumi.CustomResource):
             __props__ = StreamConsumerArgs.__new__(StreamConsumerArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_arn'")
             __props__.__dict__["stream_arn"] = stream_arn
@@ -253,6 +289,7 @@ class StreamConsumer(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             creation_timestamp: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             stream_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'StreamConsumer':
         """
         Get an existing StreamConsumer resource's state with the given name, id, and optional extra
@@ -264,6 +301,7 @@ class StreamConsumer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the stream consumer.
         :param pulumi.Input[builtins.str] creation_timestamp: Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         :param pulumi.Input[builtins.str] name: Name of the stream consumer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -273,6 +311,7 @@ class StreamConsumer(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["creation_timestamp"] = creation_timestamp
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["stream_arn"] = stream_arn
         return StreamConsumer(resource_name, opts=opts, __props__=__props__)
 
@@ -299,6 +338,14 @@ class StreamConsumer(pulumi.CustomResource):
         Name of the stream consumer.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="streamArn")

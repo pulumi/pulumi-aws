@@ -108,6 +108,9 @@ namespace Pulumi.Aws.StorageGateway
         [Input("gatewayArn", required: true)]
         public string GatewayArn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetLocalDiskArgs()
         {
         }
@@ -134,6 +137,9 @@ namespace Pulumi.Aws.StorageGateway
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetLocalDiskInvokeArgs()
         {
         }
@@ -155,6 +161,7 @@ namespace Pulumi.Aws.StorageGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetLocalDiskResult(
@@ -166,13 +173,16 @@ namespace Pulumi.Aws.StorageGateway
 
             string gatewayArn,
 
-            string id)
+            string id,
+
+            string region)
         {
             DiskId = diskId;
             DiskNode = diskNode;
             DiskPath = diskPath;
             GatewayArn = gatewayArn;
             Id = id;
+            Region = region;
         }
     }
 }

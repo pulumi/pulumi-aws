@@ -112,6 +112,10 @@ export class Replicator extends pulumi.CustomResource {
      */
     public readonly kafkaClusters!: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
     public readonly replicationInfoList!: pulumi.Output<outputs.msk.ReplicatorReplicationInfoList>;
@@ -130,7 +134,7 @@ export class Replicator extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Replicator resource with the given unique name, arguments, and options.
@@ -149,6 +153,7 @@ export class Replicator extends pulumi.CustomResource {
             resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["kafkaClusters"] = state ? state.kafkaClusters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationInfoList"] = state ? state.replicationInfoList : undefined;
             resourceInputs["replicatorName"] = state ? state.replicatorName : undefined;
             resourceInputs["serviceExecutionRoleArn"] = state ? state.serviceExecutionRoleArn : undefined;
@@ -170,13 +175,14 @@ export class Replicator extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kafkaClusters"] = args ? args.kafkaClusters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationInfoList"] = args ? args.replicationInfoList : undefined;
             resourceInputs["replicatorName"] = args ? args.replicatorName : undefined;
             resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Replicator.__pulumiType, name, resourceInputs, opts);
@@ -200,6 +206,10 @@ export interface ReplicatorState {
      * A list of Kafka clusters which are targets of the replicator.
      */
     kafkaClusters?: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
@@ -235,6 +245,10 @@ export interface ReplicatorArgs {
      */
     kafkaClusters: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
     replicationInfoList: pulumi.Input<inputs.msk.ReplicatorReplicationInfoList>;
@@ -250,8 +264,4 @@ export interface ReplicatorArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

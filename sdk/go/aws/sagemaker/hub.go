@@ -63,6 +63,8 @@ type Hub struct {
 	HubName pulumi.StringOutput `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayOutput `pulumi:"hubSearchKeywords"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrOutput `pulumi:"s3StorageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -117,6 +119,8 @@ type hubState struct {
 	HubName *string `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords []string `pulumi:"hubSearchKeywords"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig *HubS3StorageConfig `pulumi:"s3StorageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -136,6 +140,8 @@ type HubState struct {
 	HubName pulumi.StringPtrInput
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -157,12 +163,12 @@ type hubArgs struct {
 	HubName string `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords []string `pulumi:"hubSearchKeywords"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig *HubS3StorageConfig `pulumi:"s3StorageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Hub resource.
@@ -175,12 +181,12 @@ type HubArgs struct {
 	HubName pulumi.StringInput
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (HubArgs) ElementType() reflect.Type {
@@ -293,6 +299,11 @@ func (o HubOutput) HubName() pulumi.StringOutput {
 // The searchable keywords for the hub.
 func (o HubOutput) HubSearchKeywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringArrayOutput { return v.HubSearchKeywords }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HubOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.

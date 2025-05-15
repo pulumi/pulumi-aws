@@ -78,6 +78,7 @@ func GetInstanceTypes(ctx *pulumi.Context, args *GetInstanceTypesArgs, opts ...p
 type GetInstanceTypesArgs struct {
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
 	Filters []GetInstanceTypesFilter `pulumi:"filters"`
+	Region  *string                  `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceTypes.
@@ -87,6 +88,7 @@ type GetInstanceTypesResult struct {
 	Id string `pulumi:"id"`
 	// List of EC2 Instance Types.
 	InstanceTypes []string `pulumi:"instanceTypes"`
+	Region        string   `pulumi:"region"`
 }
 
 func GetInstanceTypesOutput(ctx *pulumi.Context, args GetInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypesResultOutput {
@@ -102,6 +104,7 @@ func GetInstanceTypesOutput(ctx *pulumi.Context, args GetInstanceTypesOutputArgs
 type GetInstanceTypesOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
 	Filters GetInstanceTypesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput            `pulumi:"region"`
 }
 
 func (GetInstanceTypesOutputArgs) ElementType() reflect.Type {
@@ -135,6 +138,10 @@ func (o GetInstanceTypesResultOutput) Id() pulumi.StringOutput {
 // List of EC2 Instance Types.
 func (o GetInstanceTypesResultOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypesResult) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstanceTypesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

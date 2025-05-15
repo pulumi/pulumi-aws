@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFirehoseDeliveryStreamArgs extends com.pulumi.resources.InvokeArgs {
@@ -15,24 +17,32 @@ public final class GetFirehoseDeliveryStreamArgs extends com.pulumi.resources.In
     public static final GetFirehoseDeliveryStreamArgs Empty = new GetFirehoseDeliveryStreamArgs();
 
     /**
-     * Name of the Kinesis Stream.
+     * Name of the Kinesis Firehose Delivery Stream.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the Kinesis Stream.
+     * @return Name of the Kinesis Firehose Delivery Stream.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetFirehoseDeliveryStreamArgs() {}
 
     private GetFirehoseDeliveryStreamArgs(GetFirehoseDeliveryStreamArgs $) {
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -54,7 +64,7 @@ public final class GetFirehoseDeliveryStreamArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name Name of the Kinesis Stream.
+         * @param name Name of the Kinesis Firehose Delivery Stream.
          * 
          * @return builder
          * 
@@ -65,13 +75,22 @@ public final class GetFirehoseDeliveryStreamArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name Name of the Kinesis Stream.
+         * @param name Name of the Kinesis Firehose Delivery Stream.
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetFirehoseDeliveryStreamArgs build() {

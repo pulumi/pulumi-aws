@@ -42,6 +42,7 @@ export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pu
         "hierarchyGroupId": args.hierarchyGroupId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -62,6 +63,7 @@ export interface GetUserHierarchyGroupArgs {
      * Returns information on a specific hierarchy group by name
      */
     name?: string;
+    region?: string;
     /**
      * Map of tags to assign to the hierarchy group.
      */
@@ -94,6 +96,7 @@ export interface GetUserHierarchyGroupResult {
      * Name of the hierarchy group.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags to assign to the hierarchy group.
      */
@@ -134,6 +137,7 @@ export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArg
         "hierarchyGroupId": args.hierarchyGroupId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -154,6 +158,7 @@ export interface GetUserHierarchyGroupOutputArgs {
      * Returns information on a specific hierarchy group by name
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the hierarchy group.
      */

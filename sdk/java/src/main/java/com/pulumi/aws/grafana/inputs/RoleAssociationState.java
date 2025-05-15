@@ -32,6 +32,21 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      * 
      */
@@ -84,6 +99,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
 
     private RoleAssociationState(RoleAssociationState $) {
         this.groupIds = $.groupIds;
+        this.region = $.region;
         this.role = $.role;
         this.userIds = $.userIds;
         this.workspaceId = $.workspaceId;
@@ -136,6 +152,27 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
          */
         public Builder groupIds(String... groupIds) {
             return groupIds(List.of(groupIds));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

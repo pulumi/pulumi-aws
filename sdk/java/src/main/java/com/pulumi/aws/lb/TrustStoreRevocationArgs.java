@@ -17,6 +17,21 @@ public final class TrustStoreRevocationArgs extends com.pulumi.resources.Resourc
     public static final TrustStoreRevocationArgs Empty = new TrustStoreRevocationArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * S3 Bucket name holding the client certificate CA bundle.
      * 
      */
@@ -79,6 +94,7 @@ public final class TrustStoreRevocationArgs extends com.pulumi.resources.Resourc
     private TrustStoreRevocationArgs() {}
 
     private TrustStoreRevocationArgs(TrustStoreRevocationArgs $) {
+        this.region = $.region;
         this.revocationsS3Bucket = $.revocationsS3Bucket;
         this.revocationsS3Key = $.revocationsS3Key;
         this.revocationsS3ObjectVersion = $.revocationsS3ObjectVersion;
@@ -101,6 +117,27 @@ public final class TrustStoreRevocationArgs extends com.pulumi.resources.Resourc
 
         public Builder(TrustStoreRevocationArgs defaults) {
             $ = new TrustStoreRevocationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -21,13 +21,17 @@ __all__ = ['RegionSettingsArgs', 'RegionSettings']
 class RegionSettingsArgs:
     def __init__(__self__, *,
                  resource_type_opt_in_preference: pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None):
         """
         The set of arguments for constructing a RegionSettings resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         """
         pulumi.set(__self__, "resource_type_opt_in_preference", resource_type_opt_in_preference)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_type_management_preference is not None:
             pulumi.set(__self__, "resource_type_management_preference", resource_type_management_preference)
 
@@ -42,6 +46,18 @@ class RegionSettingsArgs:
     @resource_type_opt_in_preference.setter
     def resource_type_opt_in_preference(self, value: pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]):
         pulumi.set(self, "resource_type_opt_in_preference", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceTypeManagementPreference")
@@ -59,17 +75,33 @@ class RegionSettingsArgs:
 @pulumi.input_type
 class _RegionSettingsState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None):
         """
         Input properties used for looking up and filtering RegionSettings resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_type_management_preference is not None:
             pulumi.set(__self__, "resource_type_management_preference", resource_type_management_preference)
         if resource_type_opt_in_preference is not None:
             pulumi.set(__self__, "resource_type_opt_in_preference", resource_type_opt_in_preference)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceTypeManagementPreference")
@@ -104,6 +136,7 @@ class RegionSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  __props__=None):
@@ -150,6 +183,7 @@ class RegionSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
         """
@@ -215,6 +249,7 @@ class RegionSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  __props__=None):
@@ -226,6 +261,7 @@ class RegionSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegionSettingsArgs.__new__(RegionSettingsArgs)
 
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_type_management_preference"] = resource_type_management_preference
             if resource_type_opt_in_preference is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type_opt_in_preference'")
@@ -240,6 +276,7 @@ class RegionSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
             resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None) -> 'RegionSettings':
         """
@@ -249,6 +286,7 @@ class RegionSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
         """
@@ -256,9 +294,18 @@ class RegionSettings(pulumi.CustomResource):
 
         __props__ = _RegionSettingsState.__new__(_RegionSettingsState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_type_management_preference"] = resource_type_management_preference
         __props__.__dict__["resource_type_opt_in_preference"] = resource_type_opt_in_preference
         return RegionSettings(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceTypeManagementPreference")

@@ -65,6 +65,8 @@ type RecordingConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 	RecordingReconnectWindowSeconds pulumi.IntOutput `pulumi:"recordingReconnectWindowSeconds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The current state of the Recording Configuration.
 	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -116,6 +118,8 @@ type recordingConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 	RecordingReconnectWindowSeconds *int `pulumi:"recordingReconnectWindowSeconds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The current state of the Recording Configuration.
 	State *string `pulumi:"state"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -135,6 +139,8 @@ type RecordingConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 	RecordingReconnectWindowSeconds pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The current state of the Recording Configuration.
 	State pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -156,6 +162,8 @@ type recordingConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 	RecordingReconnectWindowSeconds *int `pulumi:"recordingReconnectWindowSeconds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
@@ -170,6 +178,8 @@ type RecordingConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 	RecordingReconnectWindowSeconds pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
@@ -283,6 +293,11 @@ func (o RecordingConfigurationOutput) Name() pulumi.StringOutput {
 // If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 func (o RecordingConfigurationOutput) RecordingReconnectWindowSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.IntOutput { return v.RecordingReconnectWindowSeconds }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RecordingConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The current state of the Recording Configuration.

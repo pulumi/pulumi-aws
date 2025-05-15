@@ -22,6 +22,7 @@ public final class GetActivityResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetActivityResult() {}
     public String arn() {
@@ -44,6 +45,9 @@ public final class GetActivityResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -58,6 +62,7 @@ public final class GetActivityResult {
         private String creationDate;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetActivityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -65,6 +70,7 @@ public final class GetActivityResult {
     	      this.creationDate = defaults.creationDate;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -99,12 +105,21 @@ public final class GetActivityResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetActivityResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetActivityResult build() {
             final var _resultValue = new GetActivityResult();
             _resultValue.arn = arn;
             _resultValue.creationDate = creationDate;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

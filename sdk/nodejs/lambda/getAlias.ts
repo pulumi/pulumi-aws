@@ -24,6 +24,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("aws:lambda/getAlias:getAlias", {
         "functionName": args.functionName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,7 @@ export interface GetAliasArgs {
      * Name of the Lambda alias.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -67,6 +69,7 @@ export interface GetAliasResult {
      */
     readonly invokeArn: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Provides information about a Lambda Alias.
@@ -88,6 +91,7 @@ export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOut
     return pulumi.runtime.invokeOutput("aws:lambda/getAlias:getAlias", {
         "functionName": args.functionName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -103,4 +107,5 @@ export interface GetAliasOutputArgs {
      * Name of the Lambda alias.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

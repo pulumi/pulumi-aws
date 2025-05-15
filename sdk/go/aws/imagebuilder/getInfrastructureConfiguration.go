@@ -51,7 +51,8 @@ func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastr
 // A collection of arguments for invoking getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationArgs struct {
 	// ARN of the infrastructure configuration.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Key-value map of resource tags for the infrastructure configuration.
@@ -80,6 +81,9 @@ type LookupInfrastructureConfigurationResult struct {
 	Loggings []GetInfrastructureConfigurationLogging `pulumi:"loggings"`
 	// Name of the infrastructure configuration.
 	Name string `pulumi:"name"`
+	// Placement settings that define where the instances that are launched from your image will run.
+	Placements []GetInfrastructureConfigurationPlacement `pulumi:"placements"`
+	Region     string                                    `pulumi:"region"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers associated with the configuration.
@@ -106,7 +110,8 @@ func LookupInfrastructureConfigurationOutput(ctx *pulumi.Context, args LookupInf
 // A collection of arguments for invoking getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationOutputArgs struct {
 	// ARN of the infrastructure configuration.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`
 	// Key-value map of resource tags for the infrastructure configuration.
@@ -187,6 +192,17 @@ func (o LookupInfrastructureConfigurationResultOutput) Loggings() GetInfrastruct
 // Name of the infrastructure configuration.
 func (o LookupInfrastructureConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Placement settings that define where the instances that are launched from your image will run.
+func (o LookupInfrastructureConfigurationResultOutput) Placements() GetInfrastructureConfigurationPlacementArrayOutput {
+	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) []GetInfrastructureConfigurationPlacement {
+		return v.Placements
+	}).(GetInfrastructureConfigurationPlacementArrayOutput)
+}
+
+func (o LookupInfrastructureConfigurationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the infrastructure created by the infrastructure configuration.

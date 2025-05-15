@@ -115,6 +115,13 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.prefix);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      * 
@@ -139,6 +146,7 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
         this.fetchOwner = $.fetchOwner;
         this.maxKeys = $.maxKeys;
         this.prefix = $.prefix;
+        this.region = $.region;
         this.startAfter = $.startAfter;
     }
 
@@ -227,6 +235,11 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder prefix(@Nullable String prefix) {
             $.prefix = prefix;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

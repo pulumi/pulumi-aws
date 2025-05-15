@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
+        "region": args.region,
         "secretId": args.secretId,
         "versionId": args.versionId,
         "versionStage": args.versionStage,
@@ -47,6 +48,7 @@ export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getSecretVersion.
  */
 export interface GetSecretVersionArgs {
+    region?: string;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
@@ -77,6 +79,7 @@ export interface GetSecretVersionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Decrypted part of the protected secret information that was originally provided as a binary.
      */
@@ -126,6 +129,7 @@ export interface GetSecretVersionResult {
 export function getSecretVersionOutput(args: GetSecretVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecretVersion:getSecretVersion", {
+        "region": args.region,
         "secretId": args.secretId,
         "versionId": args.versionId,
         "versionStage": args.versionStage,
@@ -136,6 +140,7 @@ export function getSecretVersionOutput(args: GetSecretVersionOutputArgs, opts?: 
  * A collection of arguments for invoking getSecretVersion.
  */
 export interface GetSecretVersionOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */

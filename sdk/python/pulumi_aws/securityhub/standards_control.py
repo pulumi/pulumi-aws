@@ -22,17 +22,21 @@ class StandardsControlArgs:
     def __init__(__self__, *,
                  control_status: pulumi.Input[builtins.str],
                  standards_control_arn: pulumi.Input[builtins.str],
-                 disabled_reason: Optional[pulumi.Input[builtins.str]] = None):
+                 disabled_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StandardsControl resource.
         :param pulumi.Input[builtins.str] control_status: The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         :param pulumi.Input[builtins.str] standards_control_arn: The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         :param pulumi.Input[builtins.str] disabled_reason: A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "control_status", control_status)
         pulumi.set(__self__, "standards_control_arn", standards_control_arn)
         if disabled_reason is not None:
             pulumi.set(__self__, "disabled_reason", disabled_reason)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="controlStatus")
@@ -70,6 +74,18 @@ class StandardsControlArgs:
     def disabled_reason(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "disabled_reason", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _StandardsControlState:
@@ -79,6 +95,7 @@ class _StandardsControlState:
                  control_status_updated_at: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disabled_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  related_requirements: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  remediation_url: Optional[pulumi.Input[builtins.str]] = None,
                  severity_rating: Optional[pulumi.Input[builtins.str]] = None,
@@ -91,6 +108,7 @@ class _StandardsControlState:
         :param pulumi.Input[builtins.str] control_status_updated_at: The date and time that the status of the security standard control was most recently updated.
         :param pulumi.Input[builtins.str] description: The standard control longer description. Provides information about what the control is checking for.
         :param pulumi.Input[builtins.str] disabled_reason: A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] related_requirements: The list of requirements that are related to this control.
         :param pulumi.Input[builtins.str] remediation_url: A link to remediation information for the control in the Security Hub user documentation.
         :param pulumi.Input[builtins.str] severity_rating: The severity of findings generated from this security standard control.
@@ -107,6 +125,8 @@ class _StandardsControlState:
             pulumi.set(__self__, "description", description)
         if disabled_reason is not None:
             pulumi.set(__self__, "disabled_reason", disabled_reason)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if related_requirements is not None:
             pulumi.set(__self__, "related_requirements", related_requirements)
         if remediation_url is not None:
@@ -179,6 +199,18 @@ class _StandardsControlState:
         pulumi.set(self, "disabled_reason", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="relatedRequirements")
     def related_requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -249,6 +281,7 @@ class StandardsControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_status: Optional[pulumi.Input[builtins.str]] = None,
                  disabled_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  standards_control_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -278,6 +311,7 @@ class StandardsControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] control_status: The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         :param pulumi.Input[builtins.str] disabled_reason: A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] standards_control_arn: The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         """
         ...
@@ -326,6 +360,7 @@ class StandardsControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_status: Optional[pulumi.Input[builtins.str]] = None,
                  disabled_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  standards_control_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -340,6 +375,7 @@ class StandardsControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'control_status'")
             __props__.__dict__["control_status"] = control_status
             __props__.__dict__["disabled_reason"] = disabled_reason
+            __props__.__dict__["region"] = region
             if standards_control_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'standards_control_arn'")
             __props__.__dict__["standards_control_arn"] = standards_control_arn
@@ -365,6 +401,7 @@ class StandardsControl(pulumi.CustomResource):
             control_status_updated_at: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             disabled_reason: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             related_requirements: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             remediation_url: Optional[pulumi.Input[builtins.str]] = None,
             severity_rating: Optional[pulumi.Input[builtins.str]] = None,
@@ -382,6 +419,7 @@ class StandardsControl(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] control_status_updated_at: The date and time that the status of the security standard control was most recently updated.
         :param pulumi.Input[builtins.str] description: The standard control longer description. Provides information about what the control is checking for.
         :param pulumi.Input[builtins.str] disabled_reason: A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] related_requirements: The list of requirements that are related to this control.
         :param pulumi.Input[builtins.str] remediation_url: A link to remediation information for the control in the Security Hub user documentation.
         :param pulumi.Input[builtins.str] severity_rating: The severity of findings generated from this security standard control.
@@ -397,6 +435,7 @@ class StandardsControl(pulumi.CustomResource):
         __props__.__dict__["control_status_updated_at"] = control_status_updated_at
         __props__.__dict__["description"] = description
         __props__.__dict__["disabled_reason"] = disabled_reason
+        __props__.__dict__["region"] = region
         __props__.__dict__["related_requirements"] = related_requirements
         __props__.__dict__["remediation_url"] = remediation_url
         __props__.__dict__["severity_rating"] = severity_rating
@@ -443,6 +482,14 @@ class StandardsControl(pulumi.CustomResource):
         A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         """
         return pulumi.get(self, "disabled_reason")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="relatedRequirements")

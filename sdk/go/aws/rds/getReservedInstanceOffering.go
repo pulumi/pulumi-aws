@@ -63,7 +63,8 @@ type GetReservedInstanceOfferingArgs struct {
 	// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
 	OfferingType string `pulumi:"offeringType"`
 	// Description of the reserved DB instance.
-	ProductDescription string `pulumi:"productDescription"`
+	ProductDescription string  `pulumi:"productDescription"`
+	Region             *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReservedInstanceOffering.
@@ -81,6 +82,7 @@ type GetReservedInstanceOfferingResult struct {
 	OfferingId         string `pulumi:"offeringId"`
 	OfferingType       string `pulumi:"offeringType"`
 	ProductDescription string `pulumi:"productDescription"`
+	Region             string `pulumi:"region"`
 }
 
 func GetReservedInstanceOfferingOutput(ctx *pulumi.Context, args GetReservedInstanceOfferingOutputArgs, opts ...pulumi.InvokeOption) GetReservedInstanceOfferingResultOutput {
@@ -103,7 +105,8 @@ type GetReservedInstanceOfferingOutputArgs struct {
 	// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
 	OfferingType pulumi.StringInput `pulumi:"offeringType"`
 	// Description of the reserved DB instance.
-	ProductDescription pulumi.StringInput `pulumi:"productDescription"`
+	ProductDescription pulumi.StringInput    `pulumi:"productDescription"`
+	Region             pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReservedInstanceOfferingOutputArgs) ElementType() reflect.Type {
@@ -163,6 +166,10 @@ func (o GetReservedInstanceOfferingResultOutput) OfferingType() pulumi.StringOut
 
 func (o GetReservedInstanceOfferingResultOutput) ProductDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReservedInstanceOfferingResult) string { return v.ProductDescription }).(pulumi.StringOutput)
+}
+
+func (o GetReservedInstanceOfferingResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReservedInstanceOfferingResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

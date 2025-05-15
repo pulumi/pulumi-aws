@@ -26,6 +26,7 @@ class ListenerArgs:
                  protocol: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -35,6 +36,7 @@ class ListenerArgs:
         :param pulumi.Input[builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[builtins.str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[builtins.str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
@@ -46,6 +48,8 @@ class ListenerArgs:
             pulumi.set(__self__, "name", name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_arn is not None:
             pulumi.set(__self__, "service_arn", service_arn)
         if service_identifier is not None:
@@ -102,6 +106,18 @@ class ListenerArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -150,6 +166,7 @@ class _ListenerState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -163,6 +180,7 @@ class _ListenerState:
         :param pulumi.Input[builtins.str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[builtins.str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
@@ -184,6 +202,8 @@ class _ListenerState:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_arn is not None:
             pulumi.set(__self__, "service_arn", service_arn)
         if service_identifier is not None:
@@ -287,6 +307,18 @@ class _ListenerState:
         pulumi.set(self, "protocol", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -345,6 +377,7 @@ class Listener(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -457,6 +490,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[builtins.str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
@@ -589,6 +623,7 @@ class Listener(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -609,6 +644,7 @@ class Listener(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             __props__.__dict__["service_arn"] = service_arn
             __props__.__dict__["service_identifier"] = service_identifier
             __props__.__dict__["tags"] = tags
@@ -635,6 +671,7 @@ class Listener(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_arn: Optional[pulumi.Input[builtins.str]] = None,
             service_identifier: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -653,6 +690,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[builtins.str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
@@ -670,6 +708,7 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["port"] = port
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_arn"] = service_arn
         __props__.__dict__["service_identifier"] = service_identifier
         __props__.__dict__["tags"] = tags
@@ -736,6 +775,14 @@ class Listener(pulumi.CustomResource):
         Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceArn")

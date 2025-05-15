@@ -73,6 +73,8 @@ type ParameterGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of ElastiCache parameters to apply.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -125,6 +127,8 @@ type parameterGroupState struct {
 	Name *string `pulumi:"name"`
 	// A list of ElastiCache parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -142,6 +146,8 @@ type ParameterGroupState struct {
 	Name pulumi.StringPtrInput
 	// A list of ElastiCache parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -161,6 +167,8 @@ type parameterGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of ElastiCache parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -175,6 +183,8 @@ type ParameterGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of ElastiCache parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 }
@@ -289,6 +299,11 @@ func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 // A list of ElastiCache parameters to apply.
 func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ParameterGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

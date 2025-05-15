@@ -54,7 +54,8 @@ func GetEnvironments(ctx *pulumi.Context, args *GetEnvironmentsArgs, opts ...pul
 // A collection of arguments for invoking getEnvironments.
 type GetEnvironmentsArgs struct {
 	// ID of the AppConfig Application.
-	ApplicationId string `pulumi:"applicationId"`
+	ApplicationId string  `pulumi:"applicationId"`
+	Region        *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEnvironments.
@@ -63,7 +64,8 @@ type GetEnvironmentsResult struct {
 	// Set of Environment IDs associated with this AppConfig Application.
 	EnvironmentIds []string `pulumi:"environmentIds"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetEnvironmentsOutput(ctx *pulumi.Context, args GetEnvironmentsOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentsResultOutput {
@@ -78,7 +80,8 @@ func GetEnvironmentsOutput(ctx *pulumi.Context, args GetEnvironmentsOutputArgs, 
 // A collection of arguments for invoking getEnvironments.
 type GetEnvironmentsOutputArgs struct {
 	// ID of the AppConfig Application.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	ApplicationId pulumi.StringInput    `pulumi:"applicationId"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEnvironmentsOutputArgs) ElementType() reflect.Type {
@@ -112,6 +115,10 @@ func (o GetEnvironmentsResultOutput) EnvironmentIds() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetEnvironmentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEnvironmentsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

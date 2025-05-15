@@ -27,7 +27,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getApplication:getApplication", {
         "applicationArn": args.applicationArn,
-        "portalOptions": args.portalOptions,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,10 +39,7 @@ export interface GetApplicationArgs {
      * ARN of the application.
      */
     applicationArn: string;
-    /**
-     * Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-     */
-    portalOptions?: inputs.ssoadmin.GetApplicationPortalOption[];
+    region?: string;
 }
 
 /**
@@ -77,7 +74,8 @@ export interface GetApplicationResult {
     /**
      * Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
      */
-    readonly portalOptions?: outputs.ssoadmin.GetApplicationPortalOption[];
+    readonly portalOptions: outputs.ssoadmin.GetApplicationPortalOption[];
+    readonly region: string;
     /**
      * Status of the application.
      */
@@ -103,7 +101,7 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplication:getApplication", {
         "applicationArn": args.applicationArn,
-        "portalOptions": args.portalOptions,
+        "region": args.region,
     }, opts);
 }
 
@@ -115,8 +113,5 @@ export interface GetApplicationOutputArgs {
      * ARN of the application.
      */
     applicationArn: pulumi.Input<string>;
-    /**
-     * Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-     */
-    portalOptions?: pulumi.Input<pulumi.Input<inputs.ssoadmin.GetApplicationPortalOptionArgs>[]>;
+    region?: pulumi.Input<string>;
 }

@@ -501,6 +501,12 @@ namespace Pulumi.Aws.Kms
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         /// </summary>
         [Output("rotationPeriodInDays")]
@@ -640,6 +646,12 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Policy { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         /// </summary>
         [Input("rotationPeriodInDays")]
@@ -751,6 +763,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).

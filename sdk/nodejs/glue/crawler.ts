@@ -235,6 +235,10 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly recrawlPolicy!: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     public readonly role!: pulumi.Output<string>;
@@ -296,6 +300,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["mongodbTargets"] = state ? state.mongodbTargets : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recrawlPolicy"] = state ? state.recrawlPolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["s3Targets"] = state ? state.s3Targets : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
@@ -327,6 +332,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["mongodbTargets"] = args ? args.mongodbTargets : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recrawlPolicy"] = args ? args.recrawlPolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["s3Targets"] = args ? args.s3Targets : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
@@ -410,6 +416,10 @@ export interface CrawlerState {
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
     recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
@@ -508,6 +518,10 @@ export interface CrawlerArgs {
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
     recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */

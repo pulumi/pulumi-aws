@@ -22,13 +22,29 @@ __all__ = ['AwsLogSourceArgs', 'AwsLogSource']
 @pulumi.input_type
 class AwsLogSourceArgs:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input['AwsLogSourceSourceArgs']] = None):
         """
         The set of arguments for constructing a AwsLogSource resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['AwsLogSourceSourceArgs'] source: Specify the natively-supported AWS service to add as a source in Security Lake.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source is not None:
             pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -46,13 +62,29 @@ class AwsLogSourceArgs:
 @pulumi.input_type
 class _AwsLogSourceState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input['AwsLogSourceSourceArgs']] = None):
         """
         Input properties used for looking up and filtering AwsLogSource resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['AwsLogSourceSourceArgs'] source: Specify the natively-supported AWS service to add as a source in Security Lake.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source is not None:
             pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -75,6 +107,7 @@ class AwsLogSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']]] = None,
                  __props__=None):
         """
@@ -110,6 +143,7 @@ class AwsLogSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']] source: Specify the natively-supported AWS service to add as a source in Security Lake.
         """
         ...
@@ -164,6 +198,7 @@ class AwsLogSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -174,6 +209,7 @@ class AwsLogSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AwsLogSourceArgs.__new__(AwsLogSourceArgs)
 
+            __props__.__dict__["region"] = region
             __props__.__dict__["source"] = source
         super(AwsLogSource, __self__).__init__(
             'aws:securitylake/awsLogSource:AwsLogSource',
@@ -185,6 +221,7 @@ class AwsLogSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source: Optional[pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']]] = None) -> 'AwsLogSource':
         """
         Get an existing AwsLogSource resource's state with the given name, id, and optional extra
@@ -193,14 +230,24 @@ class AwsLogSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']] source: Specify the natively-supported AWS service to add as a source in Security Lake.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _AwsLogSourceState.__new__(_AwsLogSourceState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["source"] = source
         return AwsLogSource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

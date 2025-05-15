@@ -64,6 +64,12 @@ namespace Pulumi.Aws.SecurityHub
         [Output("enableDefaultStandards")]
         public Output<bool?> EnableDefaultStandards { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Account resource with the given unique name, arguments, and options.
@@ -128,6 +134,12 @@ namespace Pulumi.Aws.SecurityHub
         [Input("enableDefaultStandards")]
         public Input<bool>? EnableDefaultStandards { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public AccountArgs()
         {
         }
@@ -159,6 +171,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("enableDefaultStandards")]
         public Input<bool>? EnableDefaultStandards { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public AccountState()
         {

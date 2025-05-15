@@ -167,6 +167,12 @@ namespace Pulumi.Aws.S3
         public Output<string?> Mfa { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the versioning parameters. See below.
         /// </summary>
         [Output("versioningConfiguration")]
@@ -242,6 +248,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? Mfa { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for the versioning parameters. See below.
         /// </summary>
         [Input("versioningConfiguration", required: true)]
@@ -272,6 +284,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("mfa")]
         public Input<string>? Mfa { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for the versioning parameters. See below.

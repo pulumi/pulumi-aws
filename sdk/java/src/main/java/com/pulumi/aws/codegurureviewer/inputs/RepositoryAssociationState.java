@@ -126,6 +126,21 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
      * 
      * The following arguments are optional:
@@ -205,6 +220,7 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
         this.name = $.name;
         this.owner = $.owner;
         this.providerType = $.providerType;
+        this.region = $.region;
         this.repository = $.repository;
         this.s3RepositoryDetails = $.s3RepositoryDetails;
         this.state = $.state;
@@ -376,6 +392,27 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
          */
         public Builder providerType(String providerType) {
             return providerType(Output.of(providerType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -28,6 +28,7 @@ export function getGroups(args: GetGroupsArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getGroups:getGroups", {
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,7 @@ export interface GetGroupsArgs {
      * Identity Store ID associated with the Single Sign-On (SSO) Instance.
      */
     identityStoreId: string;
+    region?: string;
 }
 
 /**
@@ -54,6 +56,7 @@ export interface GetGroupsResult {
      */
     readonly id: string;
     readonly identityStoreId: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS SSO Identity Store Groups.
@@ -76,6 +79,7 @@ export function getGroupsOutput(args: GetGroupsOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getGroups:getGroups", {
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -87,4 +91,5 @@ export interface GetGroupsOutputArgs {
      * Identity Store ID associated with the Single Sign-On (SSO) Instance.
      */
     identityStoreId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

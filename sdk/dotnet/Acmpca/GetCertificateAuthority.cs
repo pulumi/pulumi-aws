@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Acmpca
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -167,6 +173,7 @@ namespace Pulumi.Aws.Acmpca
         /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
         public readonly string NotBefore;
+        public readonly string Region;
         /// <summary>
         /// Nested attribute containing revocation configuration.
         /// </summary>
@@ -210,6 +217,8 @@ namespace Pulumi.Aws.Acmpca
 
             string notBefore,
 
+            string region,
+
             ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationResult> revocationConfigurations,
 
             string serial,
@@ -230,6 +239,7 @@ namespace Pulumi.Aws.Acmpca
             KeyStorageSecurityStandard = keyStorageSecurityStandard;
             NotAfter = notAfter;
             NotBefore = notBefore;
+            Region = region;
             RevocationConfigurations = revocationConfigurations;
             Serial = serial;
             Status = status;

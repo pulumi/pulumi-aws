@@ -86,6 +86,10 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The rules to be used during the run.
      */
     public readonly rulesPackageArns!: pulumi.Output<string[]>;
@@ -119,6 +123,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             resourceInputs["duration"] = state ? state.duration : undefined;
             resourceInputs["eventSubscriptions"] = state ? state.eventSubscriptions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rulesPackageArns"] = state ? state.rulesPackageArns : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -137,6 +142,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             resourceInputs["duration"] = args ? args.duration : undefined;
             resourceInputs["eventSubscriptions"] = args ? args.eventSubscriptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetArn"] = args ? args.targetArn : undefined;
@@ -168,6 +174,10 @@ export interface AssessmentTemplateState {
      * The name of the assessment template.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The rules to be used during the run.
      */
@@ -202,6 +212,10 @@ export interface AssessmentTemplateArgs {
      * The name of the assessment template.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The rules to be used during the run.
      */

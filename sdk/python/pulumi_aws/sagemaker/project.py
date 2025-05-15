@@ -25,18 +25,22 @@ class ProjectArgs:
                  project_name: pulumi.Input[builtins.str],
                  service_catalog_provisioning_details: pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'],
                  project_description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[builtins.str] project_name: The name of the Project.
         :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[builtins.str] project_description: A description for the project.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
         if project_description is not None:
             pulumi.set(__self__, "project_description", project_description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,6 +82,18 @@ class ProjectArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -96,6 +112,7 @@ class _ProjectState:
                  project_description: Optional[pulumi.Input[builtins.str]] = None,
                  project_id: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_catalog_provisioning_details: Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -105,6 +122,7 @@ class _ProjectState:
         :param pulumi.Input[builtins.str] project_description: A description for the project.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] project_name: The name of the Project.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -117,6 +135,8 @@ class _ProjectState:
             pulumi.set(__self__, "project_id", project_id)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_catalog_provisioning_details is not None:
             pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
         if tags is not None:
@@ -173,6 +193,18 @@ class _ProjectState:
         pulumi.set(self, "project_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
     def service_catalog_provisioning_details(self) -> Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']]:
         """
@@ -219,6 +251,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_catalog_provisioning_details: Optional[pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -252,6 +285,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] project_description: A description for the project.
         :param pulumi.Input[builtins.str] project_name: The name of the Project.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -304,6 +338,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_catalog_provisioning_details: Optional[pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -319,6 +354,7 @@ class Project(pulumi.CustomResource):
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["region"] = region
             if service_catalog_provisioning_details is None and not opts.urn:
                 raise TypeError("Missing required property 'service_catalog_provisioning_details'")
             __props__.__dict__["service_catalog_provisioning_details"] = service_catalog_provisioning_details
@@ -340,6 +376,7 @@ class Project(pulumi.CustomResource):
             project_description: Optional[pulumi.Input[builtins.str]] = None,
             project_id: Optional[pulumi.Input[builtins.str]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_catalog_provisioning_details: Optional[pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Project':
@@ -354,6 +391,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] project_description: A description for the project.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] project_name: The name of the Project.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -366,6 +404,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["project_description"] = project_description
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["project_name"] = project_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_catalog_provisioning_details"] = service_catalog_provisioning_details
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -402,6 +441,14 @@ class Project(pulumi.CustomResource):
         The name of the Project.
         """
         return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")

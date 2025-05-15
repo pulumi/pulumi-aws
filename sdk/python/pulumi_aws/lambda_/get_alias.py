@@ -27,7 +27,7 @@ class GetAliasResult:
     """
     A collection of values returned by getAlias.
     """
-    def __init__(__self__, arn=None, description=None, function_name=None, function_version=None, id=None, invoke_arn=None, name=None):
+    def __init__(__self__, arn=None, description=None, function_name=None, function_version=None, id=None, invoke_arn=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetAliasResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -100,6 +103,11 @@ class GetAliasResult:
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetAliasResult(GetAliasResult):
     # pylint: disable=using-constant-test
@@ -113,11 +121,13 @@ class AwaitableGetAliasResult(GetAliasResult):
             function_version=self.function_version,
             id=self.id,
             invoke_arn=self.invoke_arn,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_alias(function_name: Optional[builtins.str] = None,
               name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
     Provides information about a Lambda Alias.
@@ -139,6 +149,7 @@ def get_alias(function_name: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lambda/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
@@ -149,9 +160,11 @@ def get_alias(function_name: Optional[builtins.str] = None,
         function_version=pulumi.get(__ret__, 'function_version'),
         id=pulumi.get(__ret__, 'id'),
         invoke_arn=pulumi.get(__ret__, 'invoke_arn'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_alias_output(function_name: Optional[pulumi.Input[builtins.str]] = None,
                      name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     Provides information about a Lambda Alias.
@@ -173,6 +186,7 @@ def get_alias_output(function_name: Optional[pulumi.Input[builtins.str]] = None,
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
@@ -182,4 +196,5 @@ def get_alias_output(function_name: Optional[pulumi.Input[builtins.str]] = None,
         function_version=pulumi.get(__response__, 'function_version'),
         id=pulumi.get(__response__, 'id'),
         invoke_arn=pulumi.get(__response__, 'invoke_arn'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

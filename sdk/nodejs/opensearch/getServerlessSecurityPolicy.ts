@@ -23,6 +23,7 @@ export function getServerlessSecurityPolicy(args: GetServerlessSecurityPolicyArg
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", {
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -35,6 +36,7 @@ export interface GetServerlessSecurityPolicyArgs {
      * Name of the policy
      */
     name: string;
+    region?: string;
     /**
      * Type of security policy. One of `encryption` or `network`.
      */
@@ -70,6 +72,7 @@ export interface GetServerlessSecurityPolicyResult {
      * Version of the policy.
      */
     readonly policyVersion: string;
+    readonly region: string;
     readonly type: string;
 }
 /**
@@ -91,6 +94,7 @@ export function getServerlessSecurityPolicyOutput(args: GetServerlessSecurityPol
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", {
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -103,6 +107,7 @@ export interface GetServerlessSecurityPolicyOutputArgs {
      * Name of the policy
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Type of security policy. One of `encryption` or `network`.
      */

@@ -107,6 +107,8 @@ type Vault struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notification VaultNotificationPtrOutput `pulumi:"notification"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -154,6 +156,8 @@ type vaultState struct {
 	Name *string `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notification *VaultNotification `pulumi:"notification"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -172,6 +176,8 @@ type VaultState struct {
 	Name pulumi.StringPtrInput
 	// The notifications for the Vault. Fields documented below.
 	Notification VaultNotificationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -190,6 +196,8 @@ type vaultArgs struct {
 	Name *string `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notification *VaultNotification `pulumi:"notification"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -203,6 +211,8 @@ type VaultArgs struct {
 	Name pulumi.StringPtrInput
 	// The notifications for the Vault. Fields documented below.
 	Notification VaultNotificationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -318,6 +328,11 @@ func (o VaultOutput) Name() pulumi.StringOutput {
 // The notifications for the Vault. Fields documented below.
 func (o VaultOutput) Notification() VaultNotificationPtrOutput {
 	return o.ApplyT(func(v *Vault) VaultNotificationPtrOutput { return v.Notification }).(VaultNotificationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VaultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

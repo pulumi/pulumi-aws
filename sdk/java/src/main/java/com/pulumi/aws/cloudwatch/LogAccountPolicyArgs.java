@@ -62,6 +62,21 @@ public final class LogAccountPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Currently defaults to and only accepts the value: `ALL`.
      * 
      */
@@ -97,6 +112,7 @@ public final class LogAccountPolicyArgs extends com.pulumi.resources.ResourceArg
         this.policyDocument = $.policyDocument;
         this.policyName = $.policyName;
         this.policyType = $.policyType;
+        this.region = $.region;
         this.scope = $.scope;
         this.selectionCriteria = $.selectionCriteria;
     }
@@ -180,6 +196,27 @@ public final class LogAccountPolicyArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder policyType(String policyType) {
             return policyType(Output.of(policyType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

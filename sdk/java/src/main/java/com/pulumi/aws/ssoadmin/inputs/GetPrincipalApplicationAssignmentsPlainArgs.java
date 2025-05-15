@@ -77,6 +77,13 @@ public final class GetPrincipalApplicationAssignmentsPlainArgs extends com.pulum
         return this.principalType;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPrincipalApplicationAssignmentsPlainArgs() {}
 
     private GetPrincipalApplicationAssignmentsPlainArgs(GetPrincipalApplicationAssignmentsPlainArgs $) {
@@ -84,6 +91,7 @@ public final class GetPrincipalApplicationAssignmentsPlainArgs extends com.pulum
         this.instanceArn = $.instanceArn;
         this.principalId = $.principalId;
         this.principalType = $.principalType;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -155,6 +163,11 @@ public final class GetPrincipalApplicationAssignmentsPlainArgs extends com.pulum
          */
         public Builder principalType(String principalType) {
             $.principalType = principalType;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

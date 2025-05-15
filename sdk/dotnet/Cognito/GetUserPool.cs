@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The cognito pool ID
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The cognito pool ID
         /// </summary>
@@ -174,6 +180,7 @@ namespace Pulumi.Aws.Cognito
         /// - Name of the attribute.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetUserPoolSchemaAttributeResult> SchemaAttributes;
         /// <summary>
         /// The contents of the SMS authentication message.
@@ -235,6 +242,8 @@ namespace Pulumi.Aws.Cognito
 
             string name,
 
+            string region,
+
             ImmutableArray<Outputs.GetUserPoolSchemaAttributeResult> schemaAttributes,
 
             string smsAuthenticationMessage,
@@ -267,6 +276,7 @@ namespace Pulumi.Aws.Cognito
             LastModifiedDate = lastModifiedDate;
             MfaConfiguration = mfaConfiguration;
             Name = name;
+            Region = region;
             SchemaAttributes = schemaAttributes;
             SmsAuthenticationMessage = smsAuthenticationMessage;
             SmsConfigurationFailure = smsConfigurationFailure;

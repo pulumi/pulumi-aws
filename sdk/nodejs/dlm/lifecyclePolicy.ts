@@ -243,6 +243,10 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      */
     public readonly policyDetails!: pulumi.Output<outputs.dlm.LifecyclePolicyPolicyDetails>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
     public readonly state!: pulumi.Output<string | undefined>;
@@ -272,6 +276,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             resourceInputs["policyDetails"] = state ? state.policyDetails : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -289,6 +294,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["policyDetails"] = args ? args.policyDetails : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -320,6 +326,10 @@ export interface LifecyclePolicyState {
      */
     policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
     state?: pulumi.Input<string>;
@@ -349,6 +359,10 @@ export interface LifecyclePolicyArgs {
      * See the `policyDetails` configuration block. Max of 1.
      */
     policyDetails: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */

@@ -86,6 +86,10 @@ export class LogDelivery extends pulumi.CustomResource {
      */
     public readonly recordFields!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
      */
     public readonly s3DeliveryConfigurations!: pulumi.Output<outputs.cloudwatch.LogDeliveryS3DeliveryConfiguration[]>;
@@ -116,6 +120,7 @@ export class LogDelivery extends pulumi.CustomResource {
             resourceInputs["deliverySourceName"] = state ? state.deliverySourceName : undefined;
             resourceInputs["fieldDelimiter"] = state ? state.fieldDelimiter : undefined;
             resourceInputs["recordFields"] = state ? state.recordFields : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3DeliveryConfigurations"] = state ? state.s3DeliveryConfigurations : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -131,6 +136,7 @@ export class LogDelivery extends pulumi.CustomResource {
             resourceInputs["deliverySourceName"] = args ? args.deliverySourceName : undefined;
             resourceInputs["fieldDelimiter"] = args ? args.fieldDelimiter : undefined;
             resourceInputs["recordFields"] = args ? args.recordFields : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3DeliveryConfigurations"] = args ? args.s3DeliveryConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -166,6 +172,10 @@ export interface LogDeliveryState {
      */
     recordFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
      */
     s3DeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.LogDeliveryS3DeliveryConfiguration>[]>;
@@ -199,6 +209,10 @@ export interface LogDeliveryArgs {
      * The list of record fields to be delivered to the destination, in order.
      */
     recordFields?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
      */

@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> PipelineName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
         [Output("roleArn")]
@@ -205,6 +211,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
         [Input("roleArn")]
@@ -220,18 +232,6 @@ namespace Pulumi.Aws.Sagemaker
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public PipelineArgs()
@@ -283,6 +283,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.

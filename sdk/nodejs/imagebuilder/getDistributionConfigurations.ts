@@ -29,6 +29,7 @@ export function getDistributionConfigurations(args?: GetDistributionConfiguratio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,6 +41,7 @@ export interface GetDistributionConfigurationsArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.imagebuilder.GetDistributionConfigurationsFilter[];
+    region?: string;
 }
 
 /**
@@ -59,6 +61,7 @@ export interface GetDistributionConfigurationsResult {
      * Set of names of the matched Image Builder Distribution Configurations.
      */
     readonly names: string[];
+    readonly region: string;
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
@@ -82,6 +85,7 @@ export function getDistributionConfigurationsOutput(args?: GetDistributionConfig
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -93,4 +97,5 @@ export interface GetDistributionConfigurationsOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetDistributionConfigurationsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
 }

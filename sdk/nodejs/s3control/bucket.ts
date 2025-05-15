@@ -78,6 +78,10 @@ export class Bucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicAccessBlockEnabled!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -104,6 +108,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
             resourceInputs["outpostId"] = state ? state.outpostId : undefined;
             resourceInputs["publicAccessBlockEnabled"] = state ? state.publicAccessBlockEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -116,6 +121,7 @@ export class Bucket extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["outpostId"] = args ? args.outpostId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
@@ -152,6 +158,10 @@ export interface BucketState {
      */
     publicAccessBlockEnabled?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -173,6 +183,10 @@ export interface BucketArgs {
      * Identifier of the Outpost to contain this bucket.
      */
     outpostId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

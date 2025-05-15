@@ -219,6 +219,21 @@ public final class BotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      * 
      */
@@ -249,6 +264,7 @@ public final class BotArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.nluIntentConfidenceThreshold = $.nluIntentConfidenceThreshold;
         this.processBehavior = $.processBehavior;
+        this.region = $.region;
         this.voiceId = $.voiceId;
     }
 
@@ -551,6 +567,27 @@ public final class BotArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder processBehavior(String processBehavior) {
             return processBehavior(Output.of(processBehavior));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

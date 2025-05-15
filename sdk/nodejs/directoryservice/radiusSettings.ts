@@ -90,6 +90,10 @@ export class RadiusSettings extends pulumi.CustomResource {
      */
     public readonly radiusTimeout!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Required for enabling RADIUS on the directory.
      */
     public readonly sharedSecret!: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class RadiusSettings extends pulumi.CustomResource {
             resourceInputs["radiusRetries"] = state ? state.radiusRetries : undefined;
             resourceInputs["radiusServers"] = state ? state.radiusServers : undefined;
             resourceInputs["radiusTimeout"] = state ? state.radiusTimeout : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharedSecret"] = state ? state.sharedSecret : undefined;
             resourceInputs["useSameUsername"] = state ? state.useSameUsername : undefined;
         } else {
@@ -153,6 +158,7 @@ export class RadiusSettings extends pulumi.CustomResource {
             resourceInputs["radiusRetries"] = args ? args.radiusRetries : undefined;
             resourceInputs["radiusServers"] = args ? args.radiusServers : undefined;
             resourceInputs["radiusTimeout"] = args ? args.radiusTimeout : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sharedSecret"] = args?.sharedSecret ? pulumi.secret(args.sharedSecret) : undefined;
             resourceInputs["useSameUsername"] = args ? args.useSameUsername : undefined;
         }
@@ -196,6 +202,10 @@ export interface RadiusSettingsState {
      */
     radiusTimeout?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Required for enabling RADIUS on the directory.
      */
     sharedSecret?: pulumi.Input<string>;
@@ -237,6 +247,10 @@ export interface RadiusSettingsArgs {
      * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
      */
     radiusTimeout: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Required for enabling RADIUS on the directory.
      */

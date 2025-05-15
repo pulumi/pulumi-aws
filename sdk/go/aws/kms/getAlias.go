@@ -53,7 +53,8 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getAlias.
 type LookupAliasArgs struct {
 	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAlias.
@@ -63,7 +64,8 @@ type LookupAliasResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Name of the alias
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// ARN pointed to by the alias.
 	TargetKeyArn string `pulumi:"targetKeyArn"`
 	// Key identifier pointed to by the alias.
@@ -82,7 +84,8 @@ func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...
 // A collection of arguments for invoking getAlias.
 type LookupAliasOutputArgs struct {
 	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupAliasOutputArgs) ElementType() reflect.Type {
@@ -117,6 +120,10 @@ func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
 // Name of the alias
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAliasResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAliasResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN pointed to by the alias.

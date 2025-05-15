@@ -102,6 +102,8 @@ type AccessPointPolicy struct {
 	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
 	// The policy that you want to apply to the specified access point.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -146,6 +148,8 @@ type accessPointPolicyState struct {
 	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
 	// The policy that you want to apply to the specified access point.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AccessPointPolicyState struct {
@@ -155,6 +159,8 @@ type AccessPointPolicyState struct {
 	HasPublicAccessPolicy pulumi.BoolPtrInput
 	// The policy that you want to apply to the specified access point.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccessPointPolicyState) ElementType() reflect.Type {
@@ -166,6 +172,8 @@ type accessPointPolicyArgs struct {
 	AccessPointArn string `pulumi:"accessPointArn"`
 	// The policy that you want to apply to the specified access point.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccessPointPolicy resource.
@@ -174,6 +182,8 @@ type AccessPointPolicyArgs struct {
 	AccessPointArn pulumi.StringInput
 	// The policy that you want to apply to the specified access point.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccessPointPolicyArgs) ElementType() reflect.Type {
@@ -276,6 +286,11 @@ func (o AccessPointPolicyOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
 // The policy that you want to apply to the specified access point.
 func (o AccessPointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccessPointPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AccessPointPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -110,6 +110,7 @@ public final class GetBucketObjectResult {
      */
     private String objectLockRetainUntilDate;
     private @Nullable String range;
+    private String region;
     /**
      * @return If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
      * 
@@ -279,6 +280,9 @@ public final class GetBucketObjectResult {
     public Optional<String> range() {
         return Optional.ofNullable(this.range);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
      * 
@@ -352,6 +356,7 @@ public final class GetBucketObjectResult {
         private String objectLockMode;
         private String objectLockRetainUntilDate;
         private @Nullable String range;
+        private String region;
         private String serverSideEncryption;
         private String sseKmsKeyId;
         private String storageClass;
@@ -382,6 +387,7 @@ public final class GetBucketObjectResult {
     	      this.objectLockMode = defaults.objectLockMode;
     	      this.objectLockRetainUntilDate = defaults.objectLockRetainUntilDate;
     	      this.range = defaults.range;
+    	      this.region = defaults.region;
     	      this.serverSideEncryption = defaults.serverSideEncryption;
     	      this.sseKmsKeyId = defaults.sseKmsKeyId;
     	      this.storageClass = defaults.storageClass;
@@ -557,6 +563,14 @@ public final class GetBucketObjectResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBucketObjectResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serverSideEncryption(String serverSideEncryption) {
             if (serverSideEncryption == null) {
               throw new MissingRequiredPropertyException("GetBucketObjectResult", "serverSideEncryption");
@@ -627,6 +641,7 @@ public final class GetBucketObjectResult {
             _resultValue.objectLockMode = objectLockMode;
             _resultValue.objectLockRetainUntilDate = objectLockRetainUntilDate;
             _resultValue.range = range;
+            _resultValue.region = region;
             _resultValue.serverSideEncryption = serverSideEncryption;
             _resultValue.sseKmsKeyId = sseKmsKeyId;
             _resultValue.storageClass = storageClass;

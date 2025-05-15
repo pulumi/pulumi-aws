@@ -548,6 +548,47 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### DynamoDB Connection
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Connection("test", ConnectionArgs.builder()
+ *             .name("example")
+ *             .connectionType("DYNAMODB")
+ *             .athenaProperties(Map.ofEntries(
+ *                 Map.entry("lambda_function_arn", "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_athena_abcdefgh"),
+ *                 Map.entry("disable_spill_encryption", "false"),
+ *                 Map.entry("spill_bucket", "example-bucket")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
@@ -572,6 +613,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     * 
+     */
+    @Export(name="athenaProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> athenaProperties;
+
+    /**
+     * @return Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> athenaProperties() {
+        return Codegen.optional(this.athenaProperties);
     }
     /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
@@ -606,14 +661,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.connectionProperties);
     }
     /**
-     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     @Export(name="connectionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionType;
 
     /**
-     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     public Output<Optional<String>> connectionType() {
@@ -678,6 +733,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ConnectionPhysicalConnectionRequirements>> physicalConnectionRequirements() {
         return Codegen.optional(this.physicalConnectionRequirements);
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -748,6 +817,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "athenaProperties",
                 "connectionProperties"
             ))
             .build();

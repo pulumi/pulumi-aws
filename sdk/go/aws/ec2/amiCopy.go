@@ -105,6 +105,8 @@ type AmiCopy struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringOutput `pulumi:"ramdiskId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringOutput `pulumi:"rootDeviceName"`
 	RootSnapshotId pulumi.StringOutput `pulumi:"rootSnapshotId"`
@@ -215,6 +217,8 @@ type amiCopyState struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId *string `pulumi:"ramdiskId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName *string `pulumi:"rootDeviceName"`
 	RootSnapshotId *string `pulumi:"rootSnapshotId"`
@@ -290,6 +294,8 @@ type AmiCopyState struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrInput
 	RootSnapshotId pulumi.StringPtrInput
@@ -340,6 +346,8 @@ type amiCopyArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Region-unique name for the AMI.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Id of the AMI to copy. This id must be valid in the region
 	// given by `sourceAmiRegion`.
 	SourceAmiId string `pulumi:"sourceAmiId"`
@@ -371,6 +379,8 @@ type AmiCopyArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Region-unique name for the AMI.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Id of the AMI to copy. This id must be valid in the region
 	// given by `sourceAmiRegion`.
 	SourceAmiId pulumi.StringInput
@@ -589,6 +599,11 @@ func (o AmiCopyOutput) Public() pulumi.BoolOutput {
 // created instances.
 func (o AmiCopyOutput) RamdiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.RamdiskId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AmiCopyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).

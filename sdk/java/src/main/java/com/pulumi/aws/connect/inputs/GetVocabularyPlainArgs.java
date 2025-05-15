@@ -46,6 +46,13 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags to assign to the Vocabulary.
      * 
@@ -81,6 +88,7 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
     private GetVocabularyPlainArgs(GetVocabularyPlainArgs $) {
         this.instanceId = $.instanceId;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
         this.vocabularyId = $.vocabularyId;
     }
@@ -122,6 +130,11 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

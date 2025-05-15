@@ -62,6 +62,10 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
      */
     public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The unique identifiers of a traffic sources.
      */
     public readonly trafficSource!: pulumi.Output<outputs.autoscaling.TrafficSourceAttachmentTrafficSource | undefined>;
@@ -80,6 +84,7 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TrafficSourceAttachmentState | undefined;
             resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["trafficSource"] = state ? state.trafficSource : undefined;
         } else {
             const args = argsOrState as TrafficSourceAttachmentArgs | undefined;
@@ -87,6 +92,7 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
             resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["trafficSource"] = args ? args.trafficSource : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -103,6 +109,10 @@ export interface TrafficSourceAttachmentState {
      */
     autoscalingGroupName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The unique identifiers of a traffic sources.
      */
     trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource>;
@@ -116,6 +126,10 @@ export interface TrafficSourceAttachmentArgs {
      * The name of the Auto Scaling group.
      */
     autoscalingGroupName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The unique identifiers of a traffic sources.
      */

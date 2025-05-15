@@ -46,6 +46,13 @@ public final class GetGeofenceCollectionPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.kmsKeyId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags for the geofence collection.
      * 
@@ -66,6 +73,7 @@ public final class GetGeofenceCollectionPlainArgs extends com.pulumi.resources.I
     private GetGeofenceCollectionPlainArgs(GetGeofenceCollectionPlainArgs $) {
         this.collectionName = $.collectionName;
         this.kmsKeyId = $.kmsKeyId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -106,6 +114,11 @@ public final class GetGeofenceCollectionPlainArgs extends com.pulumi.resources.I
          */
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

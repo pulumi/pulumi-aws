@@ -176,6 +176,20 @@ public class DataLake extends com.pulumi.resources.CustomResource {
         return this.metaStoreManagerRoleArn;
     }
     /**
+     * The AWS Regions where Security Lake is automatically enabled.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Regions where Security Lake is automatically enabled.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ARN for the Amazon Security Lake Amazon S3 bucket.
      * 
      */

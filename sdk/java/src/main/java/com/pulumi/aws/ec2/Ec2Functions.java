@@ -92,6 +92,10 @@ import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
 import com.pulumi.aws.ec2.inputs.GetSecurityGroupPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
 import com.pulumi.aws.ec2.inputs.GetSecurityGroupsPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
+import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
+import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotPricePlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
@@ -194,7 +198,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class Ec2Functions {
@@ -17158,6 +17161,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17171,7 +17175,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = Ec2Functions.getSerialConsoleAccess(GetSerialConsoleAccessArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17181,7 +17186,7 @@ public final class Ec2Functions {
      * 
      */
     public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess() {
-        return getSerialConsoleAccess(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSerialConsoleAccess(GetSerialConsoleAccessArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
@@ -17197,6 +17202,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17210,7 +17216,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = Ec2Functions.getSerialConsoleAccess(GetSerialConsoleAccessArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17220,7 +17227,7 @@ public final class Ec2Functions {
      * 
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain() {
-        return getSerialConsoleAccessPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSerialConsoleAccessPlain(GetSerialConsoleAccessPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
@@ -17236,6 +17243,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17249,7 +17257,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = Ec2Functions.getSerialConsoleAccess(GetSerialConsoleAccessArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17258,7 +17267,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(InvokeArgs args) {
+    public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(GetSerialConsoleAccessArgs args) {
         return getSerialConsoleAccess(args, InvokeOptions.Empty);
     }
     /**
@@ -17275,6 +17284,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17288,7 +17298,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = Ec2Functions.getSerialConsoleAccess(GetSerialConsoleAccessArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17297,7 +17308,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(InvokeArgs args) {
+    public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(GetSerialConsoleAccessPlainArgs args) {
         return getSerialConsoleAccessPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -17314,6 +17325,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17327,7 +17339,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = Ec2Functions.getSerialConsoleAccess(GetSerialConsoleAccessArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17336,7 +17349,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(GetSerialConsoleAccessArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", TypeShape.of(GetSerialConsoleAccessResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -17353,6 +17366,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17366,7 +17380,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = Ec2Functions.getSerialConsoleAccess(GetSerialConsoleAccessArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17375,7 +17390,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(GetSerialConsoleAccessArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", TypeShape.of(GetSerialConsoleAccessResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -17392,6 +17407,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17405,7 +17421,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = Ec2Functions.getSerialConsoleAccess(GetSerialConsoleAccessArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17414,7 +17431,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(GetSerialConsoleAccessPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", TypeShape.of(GetSerialConsoleAccessResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -17433,6 +17450,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17446,7 +17464,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17456,7 +17475,7 @@ public final class Ec2Functions {
      * 
      */
     public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription() {
-        return getSpotDatafeedSubscription(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * &gt; There is only a single spot data feed subscription per account.
@@ -17474,6 +17493,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17487,7 +17507,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17497,7 +17518,7 @@ public final class Ec2Functions {
      * 
      */
     public static CompletableFuture<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscriptionPlain() {
-        return getSpotDatafeedSubscriptionPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSpotDatafeedSubscriptionPlain(GetSpotDatafeedSubscriptionPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * &gt; There is only a single spot data feed subscription per account.
@@ -17515,6 +17536,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17528,7 +17550,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17537,7 +17560,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription(InvokeArgs args) {
+    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs args) {
         return getSpotDatafeedSubscription(args, InvokeOptions.Empty);
     }
     /**
@@ -17556,6 +17579,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17569,7 +17593,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17578,7 +17603,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscriptionPlain(InvokeArgs args) {
+    public static CompletableFuture<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscriptionPlain(GetSpotDatafeedSubscriptionPlainArgs args) {
         return getSpotDatafeedSubscriptionPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -17597,6 +17622,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17610,7 +17636,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17619,7 +17646,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", TypeShape.of(GetSpotDatafeedSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -17638,6 +17665,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17651,7 +17679,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17660,7 +17689,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", TypeShape.of(GetSpotDatafeedSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -17679,6 +17708,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -17692,7 +17722,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(GetSpotDatafeedSubscriptionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -17701,7 +17732,7 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscriptionPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscriptionPlain(GetSpotDatafeedSubscriptionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", TypeShape.of(GetSpotDatafeedSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**

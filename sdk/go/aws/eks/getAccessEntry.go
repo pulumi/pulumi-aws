@@ -56,6 +56,7 @@ type LookupAccessEntryArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn string            `pulumi:"principalArn"`
+	Region       *string           `pulumi:"region"`
 	Tags         map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -75,6 +76,7 @@ type LookupAccessEntryResult struct {
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt   string            `pulumi:"modifiedAt"`
 	PrincipalArn string            `pulumi:"principalArn"`
+	Region       string            `pulumi:"region"`
 	Tags         map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -99,6 +101,7 @@ type LookupAccessEntryOutputArgs struct {
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringInput    `pulumi:"principalArn"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	Tags         pulumi.StringMapInput `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
@@ -154,6 +157,10 @@ func (o LookupAccessEntryResultOutput) ModifiedAt() pulumi.StringOutput {
 
 func (o LookupAccessEntryResultOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessEntryResult) string { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+func (o LookupAccessEntryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccessEntryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupAccessEntryResultOutput) Tags() pulumi.StringMapOutput {

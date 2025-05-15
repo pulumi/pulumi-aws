@@ -101,6 +101,12 @@ namespace Pulumi.Aws.CloudSearch
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DomainServiceAccessPolicy resource with the given unique name, arguments, and options.
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.CloudSearch
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DomainServiceAccessPolicyArgs()
         {
         }
@@ -178,6 +190,12 @@ namespace Pulumi.Aws.CloudSearch
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DomainServiceAccessPolicyState()
         {

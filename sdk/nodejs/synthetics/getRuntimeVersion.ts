@@ -38,6 +38,7 @@ export function getRuntimeVersion(args: GetRuntimeVersionArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("aws:synthetics/getRuntimeVersion:getRuntimeVersion", {
         "latest": args.latest,
         "prefix": args.prefix,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -56,6 +57,7 @@ export interface GetRuntimeVersionArgs {
      * The following arguments are optional:
      */
     prefix: string;
+    region?: string;
     /**
      * Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
      */
@@ -80,6 +82,7 @@ export interface GetRuntimeVersionResult {
     readonly id: string;
     readonly latest?: boolean;
     readonly prefix: string;
+    readonly region: string;
     /**
      * Date that the runtime version was released.
      */
@@ -124,6 +127,7 @@ export function getRuntimeVersionOutput(args: GetRuntimeVersionOutputArgs, opts?
     return pulumi.runtime.invokeOutput("aws:synthetics/getRuntimeVersion:getRuntimeVersion", {
         "latest": args.latest,
         "prefix": args.prefix,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -142,6 +146,7 @@ export interface GetRuntimeVersionOutputArgs {
      * The following arguments are optional:
      */
     prefix: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
      */

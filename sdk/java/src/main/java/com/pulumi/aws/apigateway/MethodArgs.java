@@ -110,6 +110,21 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of the API models used for the request&#39;s content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
@@ -199,6 +214,7 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
         this.authorizerId = $.authorizerId;
         this.httpMethod = $.httpMethod;
         this.operationName = $.operationName;
+        this.region = $.region;
         this.requestModels = $.requestModels;
         this.requestParameters = $.requestParameters;
         this.requestValidatorId = $.requestValidatorId;
@@ -358,6 +374,27 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder operationName(String operationName) {
             return operationName(Output.of(operationName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

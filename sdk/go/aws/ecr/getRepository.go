@@ -51,7 +51,8 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
 	// Name of the ECR Repository.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
 	// Map of tags assigned to the resource.
@@ -73,6 +74,7 @@ type LookupRepositoryResult struct {
 	// List of image tags associated with the most recently pushed image in the repository.
 	MostRecentImageTags []string `pulumi:"mostRecentImageTags"`
 	Name                string   `pulumi:"name"`
+	Region              string   `pulumi:"region"`
 	RegistryId          string   `pulumi:"registryId"`
 	// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl string `pulumi:"repositoryUrl"`
@@ -92,7 +94,8 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryOutputArgs struct {
 	// Name of the ECR Repository.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Registry ID where the repository was created.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
 	// Map of tags assigned to the resource.
@@ -154,6 +157,10 @@ func (o LookupRepositoryResultOutput) MostRecentImageTags() pulumi.StringArrayOu
 
 func (o LookupRepositoryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupRepositoryResultOutput) RegistryId() pulumi.StringOutput {

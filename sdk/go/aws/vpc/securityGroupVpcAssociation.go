@@ -51,6 +51,8 @@ import (
 type SecurityGroupVpcAssociation struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
@@ -96,6 +98,8 @@ func GetSecurityGroupVpcAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityGroupVpcAssociation resources.
 type securityGroupVpcAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
 	// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
@@ -106,6 +110,8 @@ type securityGroupVpcAssociationState struct {
 }
 
 type SecurityGroupVpcAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringPtrInput
 	// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
@@ -120,6 +126,8 @@ func (SecurityGroupVpcAssociationState) ElementType() reflect.Type {
 }
 
 type securityGroupVpcAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId string                               `pulumi:"securityGroupId"`
 	Timeouts        *SecurityGroupVpcAssociationTimeouts `pulumi:"timeouts"`
@@ -129,6 +137,8 @@ type securityGroupVpcAssociationArgs struct {
 
 // The set of arguments for constructing a SecurityGroupVpcAssociation resource.
 type SecurityGroupVpcAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringInput
 	Timeouts        SecurityGroupVpcAssociationTimeoutsPtrInput
@@ -221,6 +231,11 @@ func (o SecurityGroupVpcAssociationOutput) ToSecurityGroupVpcAssociationOutput()
 
 func (o SecurityGroupVpcAssociationOutput) ToSecurityGroupVpcAssociationOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SecurityGroupVpcAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupVpcAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the security group.

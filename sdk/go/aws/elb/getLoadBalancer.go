@@ -63,8 +63,9 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerArgs struct {
 	// Unique name of the load balancer.
-	Name string            `pulumi:"name"`
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLoadBalancer.
@@ -85,6 +86,7 @@ type LookupLoadBalancerResult struct {
 	Internal              bool                      `pulumi:"internal"`
 	Listeners             []GetLoadBalancerListener `pulumi:"listeners"`
 	Name                  string                    `pulumi:"name"`
+	Region                string                    `pulumi:"region"`
 	SecurityGroups        []string                  `pulumi:"securityGroups"`
 	SourceSecurityGroup   string                    `pulumi:"sourceSecurityGroup"`
 	SourceSecurityGroupId string                    `pulumi:"sourceSecurityGroupId"`
@@ -105,8 +107,9 @@ func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutput
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerOutputArgs struct {
 	// Unique name of the load balancer.
-	Name pulumi.StringInput    `pulumi:"name"`
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLoadBalancerOutputArgs) ElementType() reflect.Type {
@@ -187,6 +190,10 @@ func (o LookupLoadBalancerResultOutput) Listeners() GetLoadBalancerListenerArray
 
 func (o LookupLoadBalancerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) SecurityGroups() pulumi.StringArrayOutput {

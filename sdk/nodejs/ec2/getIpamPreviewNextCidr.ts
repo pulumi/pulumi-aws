@@ -33,6 +33,7 @@ export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: 
         "disallowedCidrs": args.disallowedCidrs,
         "ipamPoolId": args.ipamPoolId,
         "netmaskLength": args.netmaskLength,
+        "region": args.region,
     }, opts);
 }
 
@@ -52,6 +53,7 @@ export interface GetIpamPreviewNextCidrArgs {
      * Netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     netmaskLength?: number;
+    region?: string;
 }
 
 /**
@@ -69,6 +71,7 @@ export interface GetIpamPreviewNextCidrResult {
     readonly id: string;
     readonly ipamPoolId: string;
     readonly netmaskLength?: number;
+    readonly region: string;
 }
 /**
  * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
@@ -99,6 +102,7 @@ export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputA
         "disallowedCidrs": args.disallowedCidrs,
         "ipamPoolId": args.ipamPoolId,
         "netmaskLength": args.netmaskLength,
+        "region": args.region,
     }, opts);
 }
 
@@ -118,4 +122,5 @@ export interface GetIpamPreviewNextCidrOutputArgs {
      * Netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     netmaskLength?: pulumi.Input<number>;
+    region?: pulumi.Input<string>;
 }

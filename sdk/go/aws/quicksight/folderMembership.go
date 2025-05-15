@@ -64,6 +64,8 @@ type FolderMembership struct {
 	//
 	// The following arguments are optional:
 	MemberType pulumi.StringOutput `pulumi:"memberType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewFolderMembership registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +117,8 @@ type folderMembershipState struct {
 	//
 	// The following arguments are optional:
 	MemberType *string `pulumi:"memberType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type FolderMembershipState struct {
@@ -128,6 +132,8 @@ type FolderMembershipState struct {
 	//
 	// The following arguments are optional:
 	MemberType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FolderMembershipState) ElementType() reflect.Type {
@@ -145,6 +151,8 @@ type folderMembershipArgs struct {
 	//
 	// The following arguments are optional:
 	MemberType string `pulumi:"memberType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a FolderMembership resource.
@@ -159,6 +167,8 @@ type FolderMembershipArgs struct {
 	//
 	// The following arguments are optional:
 	MemberType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FolderMembershipArgs) ElementType() reflect.Type {
@@ -268,6 +278,11 @@ func (o FolderMembershipOutput) MemberId() pulumi.StringOutput {
 // The following arguments are optional:
 func (o FolderMembershipOutput) MemberType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.MemberType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FolderMembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type FolderMembershipArrayOutput struct{ *pulumi.OutputState }

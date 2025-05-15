@@ -144,6 +144,20 @@ public class SlackChannelConfiguration extends com.pulumi.resources.CustomResour
         return this.loggingLevel;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      * 
      */

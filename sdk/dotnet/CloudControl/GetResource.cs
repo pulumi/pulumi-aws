@@ -96,6 +96,9 @@ namespace Pulumi.Aws.CloudControl
         [Input("identifier", required: true)]
         public string Identifier { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ARN of the IAM Role to assume for operations.
         /// </summary>
@@ -129,6 +132,9 @@ namespace Pulumi.Aws.CloudControl
         /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the IAM Role to assume for operations.
@@ -169,6 +175,7 @@ namespace Pulumi.Aws.CloudControl
         /// JSON string matching the CloudFormation resource type schema with current configuration.
         /// </summary>
         public readonly string Properties;
+        public readonly string Region;
         public readonly string? RoleArn;
         public readonly string TypeName;
         public readonly string? TypeVersionId;
@@ -181,6 +188,8 @@ namespace Pulumi.Aws.CloudControl
 
             string properties,
 
+            string region,
+
             string? roleArn,
 
             string typeName,
@@ -190,6 +199,7 @@ namespace Pulumi.Aws.CloudControl
             Id = id;
             Identifier = identifier;
             Properties = properties;
+            Region = region;
             RoleArn = roleArn;
             TypeName = typeName;
             TypeVersionId = typeVersionId;

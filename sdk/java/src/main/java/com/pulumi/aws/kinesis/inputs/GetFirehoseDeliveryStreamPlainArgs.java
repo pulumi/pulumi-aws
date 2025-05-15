@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFirehoseDeliveryStreamPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -14,24 +16,32 @@ public final class GetFirehoseDeliveryStreamPlainArgs extends com.pulumi.resourc
     public static final GetFirehoseDeliveryStreamPlainArgs Empty = new GetFirehoseDeliveryStreamPlainArgs();
 
     /**
-     * Name of the Kinesis Stream.
+     * Name of the Kinesis Firehose Delivery Stream.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the Kinesis Stream.
+     * @return Name of the Kinesis Firehose Delivery Stream.
      * 
      */
     public String name() {
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetFirehoseDeliveryStreamPlainArgs() {}
 
     private GetFirehoseDeliveryStreamPlainArgs(GetFirehoseDeliveryStreamPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -53,13 +63,18 @@ public final class GetFirehoseDeliveryStreamPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name Name of the Kinesis Stream.
+         * @param name Name of the Kinesis Firehose Delivery Stream.
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

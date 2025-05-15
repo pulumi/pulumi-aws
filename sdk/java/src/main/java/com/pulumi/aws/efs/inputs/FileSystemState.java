@@ -240,6 +240,21 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      * 
      */
@@ -316,6 +331,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         this.performanceMode = $.performanceMode;
         this.protection = $.protection;
         this.provisionedThroughputInMibps = $.provisionedThroughputInMibps;
+        this.region = $.region;
         this.sizeInBytes = $.sizeInBytes;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -648,6 +664,27 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder provisionedThroughputInMibps(Double provisionedThroughputInMibps) {
             return provisionedThroughputInMibps(Output.of(provisionedThroughputInMibps));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

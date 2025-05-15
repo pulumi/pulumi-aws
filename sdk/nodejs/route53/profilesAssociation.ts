@@ -59,6 +59,10 @@ export class ProfilesAssociation extends pulumi.CustomResource {
      */
     public readonly profileId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Resource ID of the VPC the profile to be associated with.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class ProfilesAssociation extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["profileId"] = state ? state.profileId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusMessage"] = state ? state.statusMessage : undefined;
@@ -113,6 +118,7 @@ export class ProfilesAssociation extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["profileId"] = args ? args.profileId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -141,6 +147,10 @@ export interface ProfilesAssociationState {
      * ID of the profile associated with the VPC.
      */
     profileId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource ID of the VPC the profile to be associated with.
      */
@@ -176,6 +186,10 @@ export interface ProfilesAssociationArgs {
      * ID of the profile associated with the VPC.
      */
     profileId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource ID of the VPC the profile to be associated with.
      */

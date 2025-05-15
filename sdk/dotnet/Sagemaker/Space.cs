@@ -69,6 +69,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the space that appears in the SageMaker AI Studio UI.
         /// </summary>
         [Output("spaceDisplayName")]
@@ -169,6 +175,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the space that appears in the SageMaker AI Studio UI.
         /// </summary>
         [Input("spaceDisplayName")]
@@ -235,6 +247,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("ownershipSettings")]
         public Input<Inputs.SpaceOwnershipSettingsGetArgs>? OwnershipSettings { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the space that appears in the SageMaker AI Studio UI.

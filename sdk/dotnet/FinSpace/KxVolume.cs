@@ -116,6 +116,12 @@ namespace Pulumi.Aws.FinSpace
         public Output<ImmutableArray<Outputs.KxVolumeNas1Configuration>> Nas1Configurations { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The status of volume creation.
         /// * `CREATING` – The volume creation is in progress.
         /// * `CREATE_FAILED` – The volume creation has failed.
@@ -248,6 +254,12 @@ namespace Pulumi.Aws.FinSpace
             set => _nas1Configurations = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -258,14 +270,6 @@ namespace Pulumi.Aws.FinSpace
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -358,6 +362,12 @@ namespace Pulumi.Aws.FinSpace
             get => _nas1Configurations ?? (_nas1Configurations = new InputList<Inputs.KxVolumeNas1ConfigurationGetArgs>());
             set => _nas1Configurations = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The status of volume creation.

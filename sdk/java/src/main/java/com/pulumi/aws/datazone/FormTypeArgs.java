@@ -93,6 +93,21 @@ public final class FormTypeArgs extends com.pulumi.resources.ResourceArgs {
         return this.owningProjectIdentifier;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="status")
     private @Nullable Output<String> status;
 
@@ -115,6 +130,7 @@ public final class FormTypeArgs extends com.pulumi.resources.ResourceArgs {
         this.model = $.model;
         this.name = $.name;
         this.owningProjectIdentifier = $.owningProjectIdentifier;
+        this.region = $.region;
         this.status = $.status;
         this.timeouts = $.timeouts;
     }
@@ -240,6 +256,27 @@ public final class FormTypeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder owningProjectIdentifier(String owningProjectIdentifier) {
             return owningProjectIdentifier(Output.of(owningProjectIdentifier));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder status(@Nullable Output<String> status) {

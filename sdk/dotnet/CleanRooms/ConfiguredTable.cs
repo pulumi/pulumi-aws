@@ -97,6 +97,12 @@ namespace Pulumi.Aws.CleanRooms
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.
         /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
         /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -196,6 +202,12 @@ namespace Pulumi.Aws.CleanRooms
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.
         /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
         /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -213,14 +225,6 @@ namespace Pulumi.Aws.CleanRooms
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public ConfiguredTableArgs()
@@ -272,6 +276,12 @@ namespace Pulumi.Aws.CleanRooms
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.

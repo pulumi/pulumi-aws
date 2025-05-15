@@ -59,6 +59,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> FeatureName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         /// </summary>
         [Output("roleArn")]
@@ -123,6 +129,12 @@ namespace Pulumi.Aws.Rds
         public Input<string> FeatureName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -147,6 +159,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("featureName")]
         public Input<string>? FeatureName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.

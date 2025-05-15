@@ -53,7 +53,8 @@ func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ..
 // A collection of arguments for invoking getPolicyStore.
 type LookupPolicyStoreArgs struct {
 	// The ID of the Policy Store.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPolicyStore.
@@ -66,6 +67,7 @@ type LookupPolicyStoreResult struct {
 	Id          string `pulumi:"id"`
 	// The date the Policy Store was last updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
+	Region          string `pulumi:"region"`
 	// Validation settings for the policy store.
 	ValidationSettings []GetPolicyStoreValidationSetting `pulumi:"validationSettings"`
 }
@@ -82,7 +84,8 @@ func LookupPolicyStoreOutput(ctx *pulumi.Context, args LookupPolicyStoreOutputAr
 // A collection of arguments for invoking getPolicyStore.
 type LookupPolicyStoreOutputArgs struct {
 	// The ID of the Policy Store.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPolicyStoreOutputArgs) ElementType() reflect.Type {
@@ -125,6 +128,10 @@ func (o LookupPolicyStoreResultOutput) Id() pulumi.StringOutput {
 // The date the Policy Store was last updated.
 func (o LookupPolicyStoreResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+}
+
+func (o LookupPolicyStoreResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Validation settings for the policy store.

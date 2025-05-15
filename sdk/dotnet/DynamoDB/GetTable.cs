@@ -93,6 +93,9 @@ namespace Pulumi.Aws.DynamoDB
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("serverSideEncryption")]
         public Inputs.GetTableServerSideEncryptionArgs? ServerSideEncryption { get; set; }
 
@@ -117,6 +120,9 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("serverSideEncryption")]
         public Input<Inputs.GetTableServerSideEncryptionInputArgs>? ServerSideEncryption { get; set; }
@@ -155,6 +161,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly Outputs.GetTablePointInTimeRecoveryResult PointInTimeRecovery;
         public readonly string RangeKey;
         public readonly int ReadCapacity;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetTableReplicaResult> Replicas;
         public readonly Outputs.GetTableServerSideEncryptionResult ServerSideEncryption;
         public readonly string StreamArn;
@@ -194,6 +201,8 @@ namespace Pulumi.Aws.DynamoDB
 
             int readCapacity,
 
+            string region,
+
             ImmutableArray<Outputs.GetTableReplicaResult> replicas,
 
             Outputs.GetTableServerSideEncryptionResult serverSideEncryption,
@@ -227,6 +236,7 @@ namespace Pulumi.Aws.DynamoDB
             PointInTimeRecovery = pointInTimeRecovery;
             RangeKey = rangeKey;
             ReadCapacity = readCapacity;
+            Region = region;
             Replicas = replicas;
             ServerSideEncryption = serverSideEncryption;
             StreamArn = streamArn;

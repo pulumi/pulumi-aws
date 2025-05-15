@@ -34,6 +34,21 @@ public final class LocationFsxLustreArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
      * 
      */
@@ -82,6 +97,7 @@ public final class LocationFsxLustreArgs extends com.pulumi.resources.ResourceAr
 
     private LocationFsxLustreArgs(LocationFsxLustreArgs $) {
         this.fsxFilesystemArn = $.fsxFilesystemArn;
+        this.region = $.region;
         this.securityGroupArns = $.securityGroupArns;
         this.subdirectory = $.subdirectory;
         this.tags = $.tags;
@@ -124,6 +140,27 @@ public final class LocationFsxLustreArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder fsxFilesystemArn(String fsxFilesystemArn) {
             return fsxFilesystemArn(Output.of(fsxFilesystemArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -130,6 +130,21 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      * 
      */
@@ -207,6 +222,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         this.principal = $.principal;
         this.principalOrgId = $.principalOrgId;
         this.qualifier = $.qualifier;
+        this.region = $.region;
         this.sourceAccount = $.sourceAccount;
         this.sourceArn = $.sourceArn;
         this.statementId = $.statementId;
@@ -384,6 +400,27 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

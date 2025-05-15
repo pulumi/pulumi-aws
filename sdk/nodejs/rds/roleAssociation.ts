@@ -57,6 +57,10 @@ export class RoleAssociation extends pulumi.CustomResource {
      */
     public readonly featureName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -76,6 +80,7 @@ export class RoleAssociation extends pulumi.CustomResource {
             const state = argsOrState as RoleAssociationState | undefined;
             resourceInputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
             resourceInputs["featureName"] = state ? state.featureName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as RoleAssociationArgs | undefined;
@@ -90,6 +95,7 @@ export class RoleAssociation extends pulumi.CustomResource {
             }
             resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
             resourceInputs["featureName"] = args ? args.featureName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -110,6 +116,10 @@ export interface RoleAssociationState {
      */
     featureName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      */
     roleArn?: pulumi.Input<string>;
@@ -127,6 +137,10 @@ export interface RoleAssociationArgs {
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
     featureName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      */

@@ -150,6 +150,10 @@ export class ResponsePlan extends pulumi.CustomResource {
      * The name of the response plan.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -177,6 +181,7 @@ export class ResponsePlan extends pulumi.CustomResource {
             resourceInputs["incidentTemplate"] = state ? state.incidentTemplate : undefined;
             resourceInputs["integration"] = state ? state.integration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -191,6 +196,7 @@ export class ResponsePlan extends pulumi.CustomResource {
             resourceInputs["incidentTemplate"] = args ? args.incidentTemplate : undefined;
             resourceInputs["integration"] = args ? args.integration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -218,6 +224,10 @@ export interface ResponsePlanState {
      * The name of the response plan.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -239,5 +249,9 @@ export interface ResponsePlanArgs {
      * The name of the response plan.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

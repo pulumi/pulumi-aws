@@ -24,6 +24,7 @@ public final class GetClusterResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return ID of the security group associated with the CloudHSM cluster.
      * 
@@ -61,6 +62,9 @@ public final class GetClusterResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ID of the security group associated with the CloudHSM cluster.
      * 
@@ -96,6 +100,7 @@ public final class GetClusterResult {
         private String clusterId;
         private String clusterState;
         private String id;
+        private String region;
         private String securityGroupId;
         private List<String> subnetIds;
         private String vpcId;
@@ -106,6 +111,7 @@ public final class GetClusterResult {
     	      this.clusterId = defaults.clusterId;
     	      this.clusterState = defaults.clusterState;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.securityGroupId = defaults.securityGroupId;
     	      this.subnetIds = defaults.subnetIds;
     	      this.vpcId = defaults.vpcId;
@@ -147,6 +153,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
             if (securityGroupId == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "securityGroupId");
@@ -179,6 +193,7 @@ public final class GetClusterResult {
             _resultValue.clusterId = clusterId;
             _resultValue.clusterState = clusterState;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.securityGroupId = securityGroupId;
             _resultValue.subnetIds = subnetIds;
             _resultValue.vpcId = vpcId;

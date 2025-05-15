@@ -68,7 +68,10 @@ func GetVpcIpamPools(ctx *pulumi.Context, args *GetVpcIpamPoolsArgs, opts ...pul
 // A collection of arguments for invoking getVpcIpamPools.
 type GetVpcIpamPoolsArgs struct {
 	// Custom filter block as described below.
+	//
+	// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
 	Filters []GetVpcIpamPoolsFilter `pulumi:"filters"`
+	Region  *string                 `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpamPools.
@@ -78,6 +81,7 @@ type GetVpcIpamPoolsResult struct {
 	Id string `pulumi:"id"`
 	// List of IPAM pools and their attributes. See below for details
 	IpamPools []GetVpcIpamPoolsIpamPool `pulumi:"ipamPools"`
+	Region    string                    `pulumi:"region"`
 }
 
 func GetVpcIpamPoolsOutput(ctx *pulumi.Context, args GetVpcIpamPoolsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIpamPoolsResultOutput {
@@ -92,7 +96,10 @@ func GetVpcIpamPoolsOutput(ctx *pulumi.Context, args GetVpcIpamPoolsOutputArgs, 
 // A collection of arguments for invoking getVpcIpamPools.
 type GetVpcIpamPoolsOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
 	Filters GetVpcIpamPoolsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput           `pulumi:"region"`
 }
 
 func (GetVpcIpamPoolsOutputArgs) ElementType() reflect.Type {
@@ -126,6 +133,10 @@ func (o GetVpcIpamPoolsResultOutput) Id() pulumi.StringOutput {
 // List of IPAM pools and their attributes. See below for details
 func (o GetVpcIpamPoolsResultOutput) IpamPools() GetVpcIpamPoolsIpamPoolArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsResult) []GetVpcIpamPoolsIpamPool { return v.IpamPools }).(GetVpcIpamPoolsIpamPoolArrayOutput)
+}
+
+func (o GetVpcIpamPoolsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamPoolsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -142,6 +142,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly matching!: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
     public readonly ruleBasedMatching!: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
@@ -152,7 +156,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -173,6 +177,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultExpirationDays"] = state ? state.defaultExpirationDays : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["matching"] = state ? state.matching : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleBasedMatching"] = state ? state.ruleBasedMatching : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -189,10 +194,11 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["matching"] = args ? args.matching : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleBasedMatching"] = args ? args.ruleBasedMatching : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
@@ -229,6 +235,10 @@ export interface DomainState {
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
@@ -270,6 +280,10 @@ export interface DomainArgs {
      */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
     ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
@@ -277,8 +291,4 @@ export interface DomainArgs {
      * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

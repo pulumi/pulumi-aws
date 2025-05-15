@@ -62,6 +62,8 @@ type ApplicationAssignmentConfiguration struct {
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
 	AssignmentRequired pulumi.BoolOutput `pulumi:"assignmentRequired"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewApplicationAssignmentConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -104,6 +106,8 @@ type applicationAssignmentConfigurationState struct {
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
 	AssignmentRequired *bool `pulumi:"assignmentRequired"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ApplicationAssignmentConfigurationState struct {
@@ -111,6 +115,8 @@ type ApplicationAssignmentConfigurationState struct {
 	ApplicationArn pulumi.StringPtrInput
 	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
 	AssignmentRequired pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentConfigurationState) ElementType() reflect.Type {
@@ -122,6 +128,8 @@ type applicationAssignmentConfigurationArgs struct {
 	ApplicationArn string `pulumi:"applicationArn"`
 	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
 	AssignmentRequired bool `pulumi:"assignmentRequired"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApplicationAssignmentConfiguration resource.
@@ -130,6 +138,8 @@ type ApplicationAssignmentConfigurationArgs struct {
 	ApplicationArn pulumi.StringInput
 	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
 	AssignmentRequired pulumi.BoolInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentConfigurationArgs) ElementType() reflect.Type {
@@ -227,6 +237,11 @@ func (o ApplicationAssignmentConfigurationOutput) ApplicationArn() pulumi.String
 // Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
 func (o ApplicationAssignmentConfigurationOutput) AssignmentRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ApplicationAssignmentConfiguration) pulumi.BoolOutput { return v.AssignmentRequired }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ApplicationAssignmentConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationAssignmentConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ApplicationAssignmentConfigurationArrayOutput struct{ *pulumi.OutputState }

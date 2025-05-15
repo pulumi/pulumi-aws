@@ -71,6 +71,10 @@ export class DocumentationVersion extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the associated Rest API
      */
     public readonly restApiId!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DocumentationVersionState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApiId"] = state ? state.restApiId : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
@@ -104,6 +109,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'version'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApiId"] = args ? args.restApiId : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
         }
@@ -120,6 +126,10 @@ export interface DocumentationVersionState {
      * Description of the API documentation version.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated Rest API
      */
@@ -138,6 +148,10 @@ export interface DocumentationVersionArgs {
      * Description of the API documentation version.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated Rest API
      */

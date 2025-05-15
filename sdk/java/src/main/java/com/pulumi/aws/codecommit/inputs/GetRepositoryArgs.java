@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRepositoryArgs Empty = new GetRepositoryArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Name for the repository. This needs to be less than 100 characters.
@@ -32,6 +41,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
     private GetRepositoryArgs() {}
 
     private GetRepositoryArgs(GetRepositoryArgs $) {
+        this.region = $.region;
         this.repositoryName = $.repositoryName;
     }
 
@@ -51,6 +61,15 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetRepositoryArgs defaults) {
             $ = new GetRepositoryArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

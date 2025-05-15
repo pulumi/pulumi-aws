@@ -55,6 +55,7 @@ func GetLbs(ctx *pulumi.Context, args *GetLbsArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getLbs.
 type GetLbsArgs struct {
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Load Balancers.
 	Tags map[string]string `pulumi:"tags"`
@@ -65,8 +66,9 @@ type GetLbsResult struct {
 	// Set of Load Balancer ARNs.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string            `pulumi:"id"`
-	Tags map[string]string `pulumi:"tags"`
+	Id     string            `pulumi:"id"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetLbsOutput(ctx *pulumi.Context, args GetLbsOutputArgs, opts ...pulumi.InvokeOption) GetLbsResultOutput {
@@ -80,6 +82,7 @@ func GetLbsOutput(ctx *pulumi.Context, args GetLbsOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getLbs.
 type GetLbsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Load Balancers.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -112,6 +115,10 @@ func (o GetLbsResultOutput) Arns() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetLbsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLbsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetLbsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLbsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetLbsResultOutput) Tags() pulumi.StringMapOutput {

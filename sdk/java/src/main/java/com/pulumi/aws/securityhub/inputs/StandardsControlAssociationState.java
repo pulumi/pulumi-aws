@@ -31,6 +31,21 @@ public final class StandardsControlAssociationState extends com.pulumi.resources
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The unique identifier for the security control whose enablement status you want to update.
      * 
      */
@@ -83,6 +98,7 @@ public final class StandardsControlAssociationState extends com.pulumi.resources
 
     private StandardsControlAssociationState(StandardsControlAssociationState $) {
         this.associationStatus = $.associationStatus;
+        this.region = $.region;
         this.securityControlId = $.securityControlId;
         this.standardsArn = $.standardsArn;
         this.updatedReason = $.updatedReason;
@@ -125,6 +141,27 @@ public final class StandardsControlAssociationState extends com.pulumi.resources
          */
         public Builder associationStatus(String associationStatus) {
             return associationStatus(Output.of(associationStatus));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

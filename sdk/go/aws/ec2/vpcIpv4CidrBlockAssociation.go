@@ -80,6 +80,8 @@ type VpcIpv4CidrBlockAssociation struct {
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPC to make the association with.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -123,6 +125,8 @@ type vpcIpv4CidrBlockAssociationState struct {
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC to make the association with.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -134,6 +138,8 @@ type VpcIpv4CidrBlockAssociationState struct {
 	Ipv4IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC to make the association with.
 	VpcId pulumi.StringPtrInput
 }
@@ -149,6 +155,8 @@ type vpcIpv4CidrBlockAssociationArgs struct {
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC to make the association with.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -161,6 +169,8 @@ type VpcIpv4CidrBlockAssociationArgs struct {
 	Ipv4IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC to make the association with.
 	VpcId pulumi.StringInput
 }
@@ -265,6 +275,11 @@ func (o VpcIpv4CidrBlockAssociationOutput) Ipv4IpamPoolId() pulumi.StringPtrOutp
 // The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 func (o VpcIpv4CidrBlockAssociationOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpv4CidrBlockAssociation) pulumi.IntPtrOutput { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcIpv4CidrBlockAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpv4CidrBlockAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the VPC to make the association with.

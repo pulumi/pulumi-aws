@@ -72,6 +72,21 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key value pairs which tag the membership.
      * 
      */
@@ -93,6 +108,7 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
         this.defaultResultConfiguration = $.defaultResultConfiguration;
         this.paymentConfiguration = $.paymentConfiguration;
         this.queryLogStatus = $.queryLogStatus;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -184,6 +200,27 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder queryLogStatus(String queryLogStatus) {
             return queryLogStatus(Output.of(queryLogStatus));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

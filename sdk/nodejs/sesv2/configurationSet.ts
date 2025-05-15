@@ -92,6 +92,10 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     public readonly deliveryOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetDeliveryOptions | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      */
     public readonly reputationOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetReputationOptions>;
@@ -133,6 +137,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configurationSetName"] = state ? state.configurationSetName : undefined;
             resourceInputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reputationOptions"] = state ? state.reputationOptions : undefined;
             resourceInputs["sendingOptions"] = state ? state.sendingOptions : undefined;
             resourceInputs["suppressionOptions"] = state ? state.suppressionOptions : undefined;
@@ -147,6 +152,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             }
             resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
             resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reputationOptions"] = args ? args.reputationOptions : undefined;
             resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
             resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
@@ -177,6 +183,10 @@ export interface ConfigurationSetState {
      * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
      */
     deliveryOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetDeliveryOptions>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      */
@@ -216,6 +226,10 @@ export interface ConfigurationSetArgs {
      * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
      */
     deliveryOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetDeliveryOptions>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      */

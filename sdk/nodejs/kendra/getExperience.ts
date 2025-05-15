@@ -27,6 +27,7 @@ export function getExperience(args: GetExperienceArgs, opts?: pulumi.InvokeOptio
     return pulumi.runtime.invoke("aws:kendra/getExperience:getExperience", {
         "experienceId": args.experienceId,
         "indexId": args.indexId,
+        "region": args.region,
     }, opts);
 }
 
@@ -42,6 +43,7 @@ export interface GetExperienceArgs {
      * Identifier of the index that contains the Experience.
      */
     indexId: string;
+    region?: string;
 }
 
 /**
@@ -82,6 +84,7 @@ export interface GetExperienceResult {
      * Name of the Experience.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      */
@@ -115,6 +118,7 @@ export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi
     return pulumi.runtime.invokeOutput("aws:kendra/getExperience:getExperience", {
         "experienceId": args.experienceId,
         "indexId": args.indexId,
+        "region": args.region,
     }, opts);
 }
 
@@ -130,4 +134,5 @@ export interface GetExperienceOutputArgs {
      * Identifier of the index that contains the Experience.
      */
     indexId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

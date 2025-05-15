@@ -68,6 +68,10 @@ export class Keyspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The replication specification of the keyspace.
      */
     public readonly replicationSpecification!: pulumi.Output<outputs.keyspaces.KeyspaceReplicationSpecification>;
@@ -95,12 +99,14 @@ export class Keyspace extends pulumi.CustomResource {
             const state = argsOrState as KeyspaceState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationSpecification"] = state ? state.replicationSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as KeyspaceArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationSpecification"] = args ? args.replicationSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -126,6 +132,10 @@ export interface KeyspaceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The replication specification of the keyspace.
      */
     replicationSpecification?: pulumi.Input<inputs.keyspaces.KeyspaceReplicationSpecification>;
@@ -149,6 +159,10 @@ export interface KeyspaceArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The replication specification of the keyspace.
      */

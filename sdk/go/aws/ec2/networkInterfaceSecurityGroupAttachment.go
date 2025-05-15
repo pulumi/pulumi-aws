@@ -146,6 +146,8 @@ type NetworkInterfaceSecurityGroupAttachment struct {
 
 	// The ID of the network interface to attach to.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 }
@@ -188,6 +190,8 @@ func GetNetworkInterfaceSecurityGroupAttachment(ctx *pulumi.Context,
 type networkInterfaceSecurityGroupAttachmentState struct {
 	// The ID of the network interface to attach to.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
 }
@@ -195,6 +199,8 @@ type networkInterfaceSecurityGroupAttachmentState struct {
 type NetworkInterfaceSecurityGroupAttachmentState struct {
 	// The ID of the network interface to attach to.
 	NetworkInterfaceId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringPtrInput
 }
@@ -206,6 +212,8 @@ func (NetworkInterfaceSecurityGroupAttachmentState) ElementType() reflect.Type {
 type networkInterfaceSecurityGroupAttachmentArgs struct {
 	// The ID of the network interface to attach to.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 }
@@ -214,6 +222,8 @@ type networkInterfaceSecurityGroupAttachmentArgs struct {
 type NetworkInterfaceSecurityGroupAttachmentArgs struct {
 	// The ID of the network interface to attach to.
 	NetworkInterfaceId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringInput
 }
@@ -308,6 +318,11 @@ func (o NetworkInterfaceSecurityGroupAttachmentOutput) ToNetworkInterfaceSecurit
 // The ID of the network interface to attach to.
 func (o NetworkInterfaceSecurityGroupAttachmentOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceSecurityGroupAttachment) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NetworkInterfaceSecurityGroupAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceSecurityGroupAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the security group.

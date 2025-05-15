@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:transfer/getServer:getServer", {
+        "region": args.region,
         "serverId": args.serverId,
         "tags": args.tags,
     }, opts);
@@ -31,6 +32,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getServer.
  */
 export interface GetServerArgs {
+    region?: string;
     /**
      * ID for an SFTP server.
      */
@@ -85,6 +87,7 @@ export interface GetServerResult {
      * File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
      */
     readonly protocols: string[];
+    readonly region: string;
     /**
      * The name of the security policy that is attached to the server.
      */
@@ -121,6 +124,7 @@ export interface GetServerResult {
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:transfer/getServer:getServer", {
+        "region": args.region,
         "serverId": args.serverId,
         "tags": args.tags,
     }, opts);
@@ -130,6 +134,7 @@ export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getServer.
  */
 export interface GetServerOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * ID for an SFTP server.
      */

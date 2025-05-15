@@ -108,6 +108,9 @@ namespace Pulumi.Aws.Sfn
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ARN of the State Machine.
         /// </summary>
@@ -133,6 +136,9 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the State Machine.
@@ -167,6 +173,7 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Routing Configuration of state machine alias
         /// </summary>
@@ -185,6 +192,8 @@ namespace Pulumi.Aws.Sfn
 
             string name,
 
+            string region,
+
             ImmutableArray<Outputs.GetAliasRoutingConfigurationResult> routingConfigurations,
 
             string statemachineArn)
@@ -194,6 +203,7 @@ namespace Pulumi.Aws.Sfn
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             RoutingConfigurations = routingConfigurations;
             StatemachineArn = statemachineArn;
         }

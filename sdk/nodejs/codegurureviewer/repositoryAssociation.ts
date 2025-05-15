@@ -88,6 +88,10 @@ export class RepositoryAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
      *
      * The following arguments are optional:
@@ -125,6 +129,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["s3RepositoryDetails"] = state ? state.s3RepositoryDetails : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -137,6 +142,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["kmsKeyDetails"] = args ? args.kmsKeyDetails : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -188,6 +194,10 @@ export interface RepositoryAssociationState {
      */
     providerType?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
      *
      * The following arguments are optional:
@@ -214,6 +224,10 @@ export interface RepositoryAssociationArgs {
      * An object describing the KMS key to asssociate. Block is documented below.
      */
     kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
      *

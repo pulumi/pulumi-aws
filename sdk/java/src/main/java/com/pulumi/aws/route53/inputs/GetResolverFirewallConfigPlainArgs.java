@@ -7,16 +7,23 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResolverFirewallConfigPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetResolverFirewallConfigPlainArgs Empty = new GetResolverFirewallConfigPlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
-     * 
-     * The following attribute is additionally exported:
      * 
      */
     @Import(name="resourceId", required=true)
@@ -24,8 +31,6 @@ public final class GetResolverFirewallConfigPlainArgs extends com.pulumi.resourc
 
     /**
      * @return The ID of the VPC from Amazon VPC that the configuration is for.
-     * 
-     * The following attribute is additionally exported:
      * 
      */
     public String resourceId() {
@@ -35,6 +40,7 @@ public final class GetResolverFirewallConfigPlainArgs extends com.pulumi.resourc
     private GetResolverFirewallConfigPlainArgs() {}
 
     private GetResolverFirewallConfigPlainArgs(GetResolverFirewallConfigPlainArgs $) {
+        this.region = $.region;
         this.resourceId = $.resourceId;
     }
 
@@ -56,10 +62,13 @@ public final class GetResolverFirewallConfigPlainArgs extends com.pulumi.resourc
             $ = new GetResolverFirewallConfigPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param resourceId The ID of the VPC from Amazon VPC that the configuration is for.
-         * 
-         * The following attribute is additionally exported:
          * 
          * @return builder
          * 

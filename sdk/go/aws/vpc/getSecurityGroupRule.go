@@ -51,7 +51,12 @@ func GetSecurityGroupRule(ctx *pulumi.Context, args *GetSecurityGroupRuleArgs, o
 // A collection of arguments for invoking getSecurityGroupRule.
 type GetSecurityGroupRuleArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// security group rules. The given filters must match exactly one security group rule
+	// whose data will be exported as attributes.
 	Filters []GetSecurityGroupRuleFilter `pulumi:"filters"`
+	Region  *string                      `pulumi:"region"`
 	// ID of the security group rule to select.
 	SecurityGroupRuleId *string `pulumi:"securityGroupRuleId"`
 }
@@ -78,6 +83,7 @@ type GetSecurityGroupRuleResult struct {
 	PrefixListId string `pulumi:"prefixListId"`
 	// The destination security group that is referenced in the rule.
 	ReferencedSecurityGroupId string `pulumi:"referencedSecurityGroupId"`
+	Region                    string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId     string `pulumi:"securityGroupId"`
 	SecurityGroupRuleId string `pulumi:"securityGroupRuleId"`
@@ -99,7 +105,12 @@ func GetSecurityGroupRuleOutput(ctx *pulumi.Context, args GetSecurityGroupRuleOu
 // A collection of arguments for invoking getSecurityGroupRule.
 type GetSecurityGroupRuleOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// security group rules. The given filters must match exactly one security group rule
+	// whose data will be exported as attributes.
 	Filters GetSecurityGroupRuleFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                `pulumi:"region"`
 	// ID of the security group rule to select.
 	SecurityGroupRuleId pulumi.StringPtrInput `pulumi:"securityGroupRuleId"`
 }
@@ -174,6 +185,10 @@ func (o GetSecurityGroupRuleResultOutput) PrefixListId() pulumi.StringOutput {
 // The destination security group that is referenced in the rule.
 func (o GetSecurityGroupRuleResultOutput) ReferencedSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.ReferencedSecurityGroupId }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityGroupRuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the security group.

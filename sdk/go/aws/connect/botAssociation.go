@@ -143,6 +143,8 @@ type BotAssociation struct {
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot BotAssociationLexBotOutput `pulumi:"lexBot"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBotAssociation registers a new resource with the given unique name, arguments, and options.
@@ -185,6 +187,8 @@ type botAssociationState struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot *BotAssociationLexBot `pulumi:"lexBot"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BotAssociationState struct {
@@ -192,6 +196,8 @@ type BotAssociationState struct {
 	InstanceId pulumi.StringPtrInput
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot BotAssociationLexBotPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BotAssociationState) ElementType() reflect.Type {
@@ -203,6 +209,8 @@ type botAssociationArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot BotAssociationLexBot `pulumi:"lexBot"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BotAssociation resource.
@@ -211,6 +219,8 @@ type BotAssociationArgs struct {
 	InstanceId pulumi.StringInput
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot BotAssociationLexBotInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BotAssociationArgs) ElementType() reflect.Type {
@@ -308,6 +318,11 @@ func (o BotAssociationOutput) InstanceId() pulumi.StringOutput {
 // Configuration information of an Amazon Lex (V1) bot. Detailed below.
 func (o BotAssociationOutput) LexBot() BotAssociationLexBotOutput {
 	return o.ApplyT(func(v *BotAssociation) BotAssociationLexBotOutput { return v.LexBot }).(BotAssociationLexBotOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BotAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BotAssociationArrayOutput struct{ *pulumi.OutputState }

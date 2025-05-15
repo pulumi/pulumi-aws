@@ -66,6 +66,8 @@ type ActionTarget struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// The description for the custom action target.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewActionTarget registers a new resource with the given unique name, arguments, and options.
@@ -112,6 +114,8 @@ type actionTargetState struct {
 	Identifier *string `pulumi:"identifier"`
 	// The description for the custom action target.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ActionTargetState struct {
@@ -123,6 +127,8 @@ type ActionTargetState struct {
 	Identifier pulumi.StringPtrInput
 	// The description for the custom action target.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ActionTargetState) ElementType() reflect.Type {
@@ -136,6 +142,8 @@ type actionTargetArgs struct {
 	Identifier string `pulumi:"identifier"`
 	// The description for the custom action target.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ActionTarget resource.
@@ -146,6 +154,8 @@ type ActionTargetArgs struct {
 	Identifier pulumi.StringInput
 	// The description for the custom action target.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ActionTargetArgs) ElementType() reflect.Type {
@@ -253,6 +263,11 @@ func (o ActionTargetOutput) Identifier() pulumi.StringOutput {
 // The description for the custom action target.
 func (o ActionTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ActionTargetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ActionTargetArrayOutput struct{ *pulumi.OutputState }

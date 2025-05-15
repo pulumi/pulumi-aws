@@ -54,6 +54,7 @@ func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulum
 type LookupEndpointArgs struct {
 	// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
 	EndpointId string            `pulumi:"endpointId"`
+	Region     *string           `pulumi:"region"`
 	Tags       map[string]string `pulumi:"tags"`
 }
 
@@ -78,6 +79,7 @@ type LookupEndpointResult struct {
 	PostgresSettings            []GetEndpointPostgresSetting `pulumi:"postgresSettings"`
 	RedisSettings               []GetEndpointRedisSetting    `pulumi:"redisSettings"`
 	RedshiftSettings            []GetEndpointRedshiftSetting `pulumi:"redshiftSettings"`
+	Region                      string                       `pulumi:"region"`
 	S3Settings                  []GetEndpointS3Setting       `pulumi:"s3Settings"`
 	SecretsManagerAccessRoleArn string                       `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerArn           string                       `pulumi:"secretsManagerArn"`
@@ -101,6 +103,7 @@ func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, op
 type LookupEndpointOutputArgs struct {
 	// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
 	EndpointId pulumi.StringInput    `pulumi:"endpointId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -194,6 +197,10 @@ func (o LookupEndpointResultOutput) RedisSettings() GetEndpointRedisSettingArray
 
 func (o LookupEndpointResultOutput) RedshiftSettings() GetEndpointRedshiftSettingArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointRedshiftSetting { return v.RedshiftSettings }).(GetEndpointRedshiftSettingArrayOutput)
+}
+
+func (o LookupEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupEndpointResultOutput) S3Settings() GetEndpointS3SettingArrayOutput {

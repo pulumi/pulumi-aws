@@ -28,6 +28,7 @@ export function getFunctionUrl(args: GetFunctionUrlArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("aws:lambda/getFunctionUrl:getFunctionUrl", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
+        "region": args.region,
     }, opts);
 }
 
@@ -43,6 +44,7 @@ export interface GetFunctionUrlArgs {
      * Alias name or `"$LATEST"`.
      */
     qualifier?: string;
+    region?: string;
 }
 
 /**
@@ -83,6 +85,7 @@ export interface GetFunctionUrlResult {
      */
     readonly lastModifiedTime: string;
     readonly qualifier?: string;
+    readonly region: string;
     /**
      * Generated ID for the endpoint.
      */
@@ -109,6 +112,7 @@ export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulu
     return pulumi.runtime.invokeOutput("aws:lambda/getFunctionUrl:getFunctionUrl", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
+        "region": args.region,
     }, opts);
 }
 
@@ -124,4 +128,5 @@ export interface GetFunctionUrlOutputArgs {
      * Alias name or `"$LATEST"`.
      */
     qualifier?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

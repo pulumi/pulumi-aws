@@ -57,6 +57,8 @@ type Account struct {
 	ControlFindingGenerator pulumi.StringOutput `pulumi:"controlFindingGenerator"`
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
 	EnableDefaultStandards pulumi.BoolPtrOutput `pulumi:"enableDefaultStandards"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -97,6 +99,8 @@ type accountState struct {
 	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
 	EnableDefaultStandards *bool `pulumi:"enableDefaultStandards"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AccountState struct {
@@ -108,6 +112,8 @@ type AccountState struct {
 	ControlFindingGenerator pulumi.StringPtrInput
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
 	EnableDefaultStandards pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -121,6 +127,8 @@ type accountArgs struct {
 	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
 	EnableDefaultStandards *bool `pulumi:"enableDefaultStandards"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -131,6 +139,8 @@ type AccountArgs struct {
 	ControlFindingGenerator pulumi.StringPtrInput
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
 	EnableDefaultStandards pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -238,6 +248,11 @@ func (o AccountOutput) ControlFindingGenerator() pulumi.StringOutput {
 // Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
 func (o AccountOutput) EnableDefaultStandards() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableDefaultStandards }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccountOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AccountArrayOutput struct{ *pulumi.OutputState }

@@ -111,6 +111,8 @@ type UserGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrOutput `pulumi:"precedence"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The user pool ID.
@@ -156,6 +158,8 @@ type userGroupState struct {
 	Name *string `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence *int `pulumi:"precedence"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn *string `pulumi:"roleArn"`
 	// The user pool ID.
@@ -169,6 +173,8 @@ type UserGroupState struct {
 	Name pulumi.StringPtrInput
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrInput
 	// The user pool ID.
@@ -186,6 +192,8 @@ type userGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence *int `pulumi:"precedence"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn *string `pulumi:"roleArn"`
 	// The user pool ID.
@@ -200,6 +208,8 @@ type UserGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrInput
 	// The user pool ID.
@@ -306,6 +316,11 @@ func (o UserGroupOutput) Name() pulumi.StringOutput {
 // The precedence of the user group.
 func (o UserGroupOutput) Precedence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.IntPtrOutput { return v.Precedence }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the IAM role to be associated with the user group.

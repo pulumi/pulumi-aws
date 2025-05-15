@@ -86,6 +86,7 @@ type LookupQuickConnectArgs struct {
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Quick Connect by Quick Connect id
 	QuickConnectId *string `pulumi:"quickConnectId"`
+	Region         *string `pulumi:"region"`
 	// Map of tags to assign to the Quick Connect.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -104,6 +105,7 @@ type LookupQuickConnectResult struct {
 	QuickConnectConfigs []GetQuickConnectQuickConnectConfig `pulumi:"quickConnectConfigs"`
 	// Identifier for the Quick Connect.
 	QuickConnectId string `pulumi:"quickConnectId"`
+	Region         string `pulumi:"region"`
 	// Map of tags to assign to the Quick Connect.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -125,6 +127,7 @@ type LookupQuickConnectOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Quick Connect by Quick Connect id
 	QuickConnectId pulumi.StringPtrInput `pulumi:"quickConnectId"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the Quick Connect.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -179,6 +182,10 @@ func (o LookupQuickConnectResultOutput) QuickConnectConfigs() GetQuickConnectQui
 // Identifier for the Quick Connect.
 func (o LookupQuickConnectResultOutput) QuickConnectId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.QuickConnectId }).(pulumi.StringOutput)
+}
+
+func (o LookupQuickConnectResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the Quick Connect.

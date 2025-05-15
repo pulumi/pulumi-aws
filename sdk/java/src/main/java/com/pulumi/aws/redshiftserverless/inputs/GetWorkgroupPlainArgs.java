@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetWorkgroupPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetWorkgroupPlainArgs Empty = new GetWorkgroupPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * The name of the workgroup associated with the database.
@@ -31,6 +40,7 @@ public final class GetWorkgroupPlainArgs extends com.pulumi.resources.InvokeArgs
     private GetWorkgroupPlainArgs() {}
 
     private GetWorkgroupPlainArgs(GetWorkgroupPlainArgs $) {
+        this.region = $.region;
         this.workgroupName = $.workgroupName;
     }
 
@@ -50,6 +60,11 @@ public final class GetWorkgroupPlainArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetWorkgroupPlainArgs defaults) {
             $ = new GetWorkgroupPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

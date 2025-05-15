@@ -148,6 +148,13 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
         return this.principal;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Configuration block for a table resource. Detailed below.
      * 
@@ -193,6 +200,7 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
         this.lfTag = $.lfTag;
         this.lfTagPolicy = $.lfTagPolicy;
         this.principal = $.principal;
+        this.region = $.region;
         this.table = $.table;
         this.tableWithColumns = $.tableWithColumns;
     }
@@ -385,6 +393,15 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -287,6 +287,21 @@ public final class BotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * When you send a request to create or update a bot, Amazon Lex sets the status response
      * element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can&#39;t
      * build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
@@ -358,6 +373,7 @@ public final class BotState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.nluIntentConfidenceThreshold = $.nluIntentConfidenceThreshold;
         this.processBehavior = $.processBehavior;
+        this.region = $.region;
         this.status = $.status;
         this.version = $.version;
         this.voiceId = $.voiceId;
@@ -757,6 +773,27 @@ public final class BotState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder processBehavior(String processBehavior) {
             return processBehavior(Output.of(processBehavior));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

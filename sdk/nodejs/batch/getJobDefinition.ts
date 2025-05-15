@@ -41,6 +41,7 @@ export function getJobDefinition(args?: GetJobDefinitionArgs, opts?: pulumi.Invo
     return pulumi.runtime.invoke("aws:batch/getJobDefinition:getJobDefinition", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "revision": args.revision,
         "status": args.status,
     }, opts);
@@ -58,6 +59,7 @@ export interface GetJobDefinitionArgs {
      * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
     name?: string;
+    region?: string;
     /**
      * The revision of the job definition.
      */
@@ -94,6 +96,7 @@ export interface GetJobDefinitionResult {
      * An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
      */
     readonly nodeProperties: outputs.batch.GetJobDefinitionNodeProperty[];
+    readonly region: string;
     /**
      * The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
      */
@@ -148,6 +151,7 @@ export function getJobDefinitionOutput(args?: GetJobDefinitionOutputArgs, opts?:
     return pulumi.runtime.invokeOutput("aws:batch/getJobDefinition:getJobDefinition", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "revision": args.revision,
         "status": args.status,
     }, opts);
@@ -165,6 +169,7 @@ export interface GetJobDefinitionOutputArgs {
      * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The revision of the job definition.
      */

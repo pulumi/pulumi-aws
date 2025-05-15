@@ -79,6 +79,10 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The VPC Endpoint ID.
      */
     public readonly vpcEndpointId!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcEndpointPolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
             const args = argsOrState as VpcEndpointPolicyArgs | undefined;
@@ -104,6 +109,7 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,6 +126,10 @@ export interface VpcEndpointPolicyState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The VPC Endpoint ID.
      */
     vpcEndpointId?: pulumi.Input<string>;
@@ -133,6 +143,10 @@ export interface VpcEndpointPolicyArgs {
      * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The VPC Endpoint ID.
      */

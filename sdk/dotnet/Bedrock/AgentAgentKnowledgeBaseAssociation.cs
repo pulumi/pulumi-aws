@@ -78,6 +78,12 @@ namespace Pulumi.Aws.Bedrock
         [Output("knowledgeBaseState")]
         public Output<string> KnowledgeBaseState { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.AgentAgentKnowledgeBaseAssociationTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.Bedrock
         [Input("knowledgeBaseState", required: true)]
         public Input<string> KnowledgeBaseState { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs>? Timeouts { get; set; }
 
@@ -201,6 +213,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("knowledgeBaseState")]
         public Input<string>? KnowledgeBaseState { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsGetArgs>? Timeouts { get; set; }

@@ -65,6 +65,8 @@ type DataShareAuthorization struct {
 	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn pulumi.StringOutput `pulumi:"producerArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDataShareAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +117,8 @@ type dataShareAuthorizationState struct {
 	ManagedBy *string `pulumi:"managedBy"`
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn *string `pulumi:"producerArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DataShareAuthorizationState struct {
@@ -130,6 +134,8 @@ type DataShareAuthorizationState struct {
 	ManagedBy pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataShareAuthorizationState) ElementType() reflect.Type {
@@ -145,6 +151,8 @@ type dataShareAuthorizationArgs struct {
 	//
 	// The following arguments are optional:
 	DataShareArn string `pulumi:"dataShareArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DataShareAuthorization resource.
@@ -157,6 +165,8 @@ type DataShareAuthorizationArgs struct {
 	//
 	// The following arguments are optional:
 	DataShareArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataShareAuthorizationArgs) ElementType() reflect.Type {
@@ -271,6 +281,11 @@ func (o DataShareAuthorizationOutput) ManagedBy() pulumi.StringOutput {
 // Amazon Resource Name (ARN) of the producer.
 func (o DataShareAuthorizationOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataShareAuthorization) pulumi.StringOutput { return v.ProducerArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DataShareAuthorizationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataShareAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DataShareAuthorizationArrayOutput struct{ *pulumi.OutputState }

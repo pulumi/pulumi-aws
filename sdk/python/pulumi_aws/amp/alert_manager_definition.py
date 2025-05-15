@@ -21,14 +21,18 @@ __all__ = ['AlertManagerDefinitionArgs', 'AlertManagerDefinition']
 class AlertManagerDefinitionArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[builtins.str],
-                 workspace_id: pulumi.Input[builtins.str]):
+                 workspace_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AlertManagerDefinition resource.
         :param pulumi.Input[builtins.str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         :param pulumi.Input[builtins.str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "workspace_id", workspace_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -54,19 +58,35 @@ class AlertManagerDefinitionArgs:
     def workspace_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "workspace_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AlertManagerDefinitionState:
     def __init__(__self__, *,
                  definition: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertManagerDefinition resources.
         :param pulumi.Input[builtins.str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
 
@@ -81,6 +101,18 @@ class _AlertManagerDefinitionState:
     @definition.setter
     def definition(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -104,6 +136,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -137,6 +170,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
         ...
@@ -189,6 +223,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -202,6 +237,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
+            __props__.__dict__["region"] = region
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
@@ -216,6 +252,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             definition: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             workspace_id: Optional[pulumi.Input[builtins.str]] = None) -> 'AlertManagerDefinition':
         """
         Get an existing AlertManagerDefinition resource's state with the given name, id, and optional extra
@@ -225,6 +262,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -232,6 +270,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
         __props__ = _AlertManagerDefinitionState.__new__(_AlertManagerDefinitionState)
 
         __props__.__dict__["definition"] = definition
+        __props__.__dict__["region"] = region
         __props__.__dict__["workspace_id"] = workspace_id
         return AlertManagerDefinition(resource_name, opts=opts, __props__=__props__)
 
@@ -242,6 +281,14 @@ class AlertManagerDefinition(pulumi.CustomResource):
         the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         """
         return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="workspaceId")

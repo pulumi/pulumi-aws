@@ -51,7 +51,8 @@ func LookupCustomPlugin(ctx *pulumi.Context, args *LookupCustomPluginArgs, opts 
 // A collection of arguments for invoking getCustomPlugin.
 type LookupCustomPluginArgs struct {
 	// Name of the custom plugin.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,6 +68,7 @@ type LookupCustomPluginResult struct {
 	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision int    `pulumi:"latestRevision"`
 	Name           string `pulumi:"name"`
+	Region         string `pulumi:"region"`
 	// the state of the custom plugin.
 	State string `pulumi:"state"`
 	// A map of tags assigned to the resource.
@@ -85,7 +87,8 @@ func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutput
 // A collection of arguments for invoking getCustomPlugin.
 type LookupCustomPluginOutputArgs struct {
 	// Name of the custom plugin.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -131,6 +134,10 @@ func (o LookupCustomPluginResultOutput) LatestRevision() pulumi.IntOutput {
 
 func (o LookupCustomPluginResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupCustomPluginResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // the state of the custom plugin.

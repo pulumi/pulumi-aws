@@ -57,6 +57,8 @@ type WorkingStorage struct {
 	DiskId pulumi.StringOutput `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewWorkingStorage registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,8 @@ type workingStorageState struct {
 	DiskId *string `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type WorkingStorageState struct {
@@ -106,6 +110,8 @@ type WorkingStorageState struct {
 	DiskId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (WorkingStorageState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type workingStorageArgs struct {
 	DiskId string `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a WorkingStorage resource.
@@ -125,6 +133,8 @@ type WorkingStorageArgs struct {
 	DiskId pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (WorkingStorageArgs) ElementType() reflect.Type {
@@ -222,6 +232,11 @@ func (o WorkingStorageOutput) DiskId() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the gateway.
 func (o WorkingStorageOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkingStorage) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WorkingStorageOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkingStorage) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type WorkingStorageArrayOutput struct{ *pulumi.OutputState }

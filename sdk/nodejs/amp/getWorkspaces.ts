@@ -35,6 +35,7 @@ export function getWorkspaces(args?: GetWorkspacesArgs, opts?: pulumi.InvokeOpti
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:amp/getWorkspaces:getWorkspaces", {
         "aliasPrefix": args.aliasPrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -46,6 +47,7 @@ export interface GetWorkspacesArgs {
      * Limits results to workspaces with aliases that begin with this value.
      */
     aliasPrefix?: string;
+    region?: string;
 }
 
 /**
@@ -65,6 +67,7 @@ export interface GetWorkspacesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * List of workspace IDs of the matched Prometheus workspaces.
      */
@@ -101,6 +104,7 @@ export function getWorkspacesOutput(args?: GetWorkspacesOutputArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:amp/getWorkspaces:getWorkspaces", {
         "aliasPrefix": args.aliasPrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -112,4 +116,5 @@ export interface GetWorkspacesOutputArgs {
      * Limits results to workspaces with aliases that begin with this value.
      */
     aliasPrefix?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

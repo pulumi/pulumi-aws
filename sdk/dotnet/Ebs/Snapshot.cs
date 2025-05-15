@@ -110,6 +110,12 @@ namespace Pulumi.Aws.Ebs
         public Output<bool?> PermanentRestore { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         /// </summary>
         [Output("storageTier")]
@@ -210,6 +216,12 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? PermanentRestore { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         /// </summary>
         [Input("storageTier")]
@@ -300,6 +312,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("permanentRestore")]
         public Input<bool>? PermanentRestore { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.

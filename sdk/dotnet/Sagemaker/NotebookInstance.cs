@@ -151,6 +151,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> PlatformIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -306,6 +312,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? PlatformIdentifier { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -433,6 +445,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("platformIdentifier")]
         public Input<string>? PlatformIdentifier { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.

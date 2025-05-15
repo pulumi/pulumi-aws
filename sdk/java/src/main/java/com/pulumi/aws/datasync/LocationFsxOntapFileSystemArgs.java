@@ -35,6 +35,21 @@ public final class LocationFsxOntapFileSystemArgs extends com.pulumi.resources.R
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The security groups that provide access to your file system&#39;s preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049
      * * Server Message Block (SMB): TCP port 445
@@ -102,22 +117,15 @@ public final class LocationFsxOntapFileSystemArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private LocationFsxOntapFileSystemArgs() {}
 
     private LocationFsxOntapFileSystemArgs(LocationFsxOntapFileSystemArgs $) {
         this.protocol = $.protocol;
+        this.region = $.region;
         this.securityGroupArns = $.securityGroupArns;
         this.storageVirtualMachineArn = $.storageVirtualMachineArn;
         this.subdirectory = $.subdirectory;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -157,6 +165,27 @@ public final class LocationFsxOntapFileSystemArgs extends com.pulumi.resources.R
          */
         public Builder protocol(LocationFsxOntapFileSystemProtocolArgs protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -261,15 +290,6 @@ public final class LocationFsxOntapFileSystemArgs extends com.pulumi.resources.R
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public LocationFsxOntapFileSystemArgs build() {

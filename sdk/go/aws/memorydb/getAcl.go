@@ -51,7 +51,8 @@ func LookupAcl(ctx *pulumi.Context, args *LookupAclArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getAcl.
 type LookupAclArgs struct {
 	// Name of the ACL.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the ACL.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -65,6 +66,7 @@ type LookupAclResult struct {
 	// The minimum engine version supported by the ACL.
 	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
 	Name                 string `pulumi:"name"`
+	Region               string `pulumi:"region"`
 	// Map of tags assigned to the ACL.
 	Tags map[string]string `pulumi:"tags"`
 	// Set of MemoryDB user names included in this ACL.
@@ -83,7 +85,8 @@ func LookupAclOutput(ctx *pulumi.Context, args LookupAclOutputArgs, opts ...pulu
 // A collection of arguments for invoking getAcl.
 type LookupAclOutputArgs struct {
 	// Name of the ACL.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the ACL.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -124,6 +127,10 @@ func (o LookupAclResultOutput) MinimumEngineVersion() pulumi.StringOutput {
 
 func (o LookupAclResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAclResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAclResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAclResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the ACL.

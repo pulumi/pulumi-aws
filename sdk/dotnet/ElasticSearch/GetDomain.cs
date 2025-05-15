@@ -93,6 +93,9 @@ namespace Pulumi.Aws.ElasticSearch
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -218,6 +224,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// Status of a configuration change in the domain.
         /// </summary>
         public readonly bool Processing;
+        public readonly string Region;
         /// <summary>
         /// Domain snapshot related options.
         /// </summary>
@@ -273,6 +280,8 @@ namespace Pulumi.Aws.ElasticSearch
 
             bool processing,
 
+            string region,
+
             ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
 
             ImmutableDictionary<string, string> tags,
@@ -299,6 +308,7 @@ namespace Pulumi.Aws.ElasticSearch
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptions = nodeToNodeEncryptions;
             Processing = processing;
+            Region = region;
             SnapshotOptions = snapshotOptions;
             Tags = tags;
             VpcOptions = vpcOptions;

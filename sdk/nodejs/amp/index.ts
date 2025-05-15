@@ -10,7 +10,7 @@ export type AlertManagerDefinition = import("./alertManagerDefinition").AlertMan
 export const AlertManagerDefinition: typeof import("./alertManagerDefinition").AlertManagerDefinition = null as any;
 utilities.lazyLoad(exports, ["AlertManagerDefinition"], () => require("./alertManagerDefinition"));
 
-export { GetDefaultScraperConfigurationResult } from "./getDefaultScraperConfiguration";
+export { GetDefaultScraperConfigurationArgs, GetDefaultScraperConfigurationResult, GetDefaultScraperConfigurationOutputArgs } from "./getDefaultScraperConfiguration";
 export const getDefaultScraperConfiguration: typeof import("./getDefaultScraperConfiguration").getDefaultScraperConfiguration = null as any;
 export const getDefaultScraperConfigurationOutput: typeof import("./getDefaultScraperConfiguration").getDefaultScraperConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultScraperConfiguration","getDefaultScraperConfigurationOutput"], () => require("./getDefaultScraperConfiguration"));

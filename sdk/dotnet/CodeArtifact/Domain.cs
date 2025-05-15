@@ -78,6 +78,12 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The number of repositories in the domain.
         /// </summary>
         [Output("repositoryCount")]
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.CodeArtifact
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The number of repositories in the domain.

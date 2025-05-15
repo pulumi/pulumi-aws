@@ -108,6 +108,10 @@ export class Product extends pulumi.CustomResource {
      */
     public readonly provisioningArtifactParameters!: pulumi.Output<outputs.servicecatalog.ProductProvisioningArtifactParameters>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of the product.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -160,6 +164,7 @@ export class Product extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["provisioningArtifactParameters"] = state ? state.provisioningArtifactParameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["supportDescription"] = state ? state.supportDescription : undefined;
             resourceInputs["supportEmail"] = state ? state.supportEmail : undefined;
@@ -184,6 +189,7 @@ export class Product extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
             resourceInputs["provisioningArtifactParameters"] = args ? args.provisioningArtifactParameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["supportDescription"] = args ? args.supportDescription : undefined;
             resourceInputs["supportEmail"] = args ? args.supportEmail : undefined;
             resourceInputs["supportUrl"] = args ? args.supportUrl : undefined;
@@ -240,6 +246,10 @@ export interface ProductState {
      * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
      */
     provisioningArtifactParameters?: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Status of the product.
      */
@@ -300,6 +310,10 @@ export interface ProductArgs {
      * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
      */
     provisioningArtifactParameters: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Support information about the product.
      */

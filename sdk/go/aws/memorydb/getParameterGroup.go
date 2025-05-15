@@ -51,7 +51,8 @@ func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, o
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupArgs struct {
 	// Name of the parameter group.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the parameter group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -70,6 +71,7 @@ type LookupParameterGroupResult struct {
 	Name string `pulumi:"name"`
 	// Set of user-defined MemoryDB parameters applied by the parameter group.
 	Parameters []GetParameterGroupParameter `pulumi:"parameters"`
+	Region     string                       `pulumi:"region"`
 	// Map of tags assigned to the parameter group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -86,7 +88,8 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupOutputArgs struct {
 	// Name of the parameter group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the parameter group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -138,6 +141,10 @@ func (o LookupParameterGroupResultOutput) Name() pulumi.StringOutput {
 // Set of user-defined MemoryDB parameters applied by the parameter group.
 func (o LookupParameterGroupResultOutput) Parameters() GetParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) []GetParameterGroupParameter { return v.Parameters }).(GetParameterGroupParameterArrayOutput)
+}
+
+func (o LookupParameterGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the parameter group.

@@ -27,7 +27,7 @@ class GetClusterCredentialsResult:
     """
     A collection of values returned by getClusterCredentials.
     """
-    def __init__(__self__, auto_create=None, cluster_identifier=None, db_groups=None, db_name=None, db_password=None, db_user=None, duration_seconds=None, expiration=None, id=None):
+    def __init__(__self__, auto_create=None, cluster_identifier=None, db_groups=None, db_name=None, db_password=None, db_user=None, duration_seconds=None, expiration=None, id=None, region=None):
         if auto_create and not isinstance(auto_create, bool):
             raise TypeError("Expected argument 'auto_create' to be a bool")
         pulumi.set(__self__, "auto_create", auto_create)
@@ -55,6 +55,9 @@ class GetClusterCredentialsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="autoCreate")
@@ -110,6 +113,11 @@ class GetClusterCredentialsResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetClusterCredentialsResult(GetClusterCredentialsResult):
     # pylint: disable=using-constant-test
@@ -125,7 +133,8 @@ class AwaitableGetClusterCredentialsResult(GetClusterCredentialsResult):
             db_user=self.db_user,
             duration_seconds=self.duration_seconds,
             expiration=self.expiration,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_cluster_credentials(auto_create: Optional[builtins.bool] = None,
@@ -134,6 +143,7 @@ def get_cluster_credentials(auto_create: Optional[builtins.bool] = None,
                             db_name: Optional[builtins.str] = None,
                             db_user: Optional[builtins.str] = None,
                             duration_seconds: Optional[builtins.int] = None,
+                            region: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterCredentialsResult:
     """
     Provides redshift cluster temporary credentials.
@@ -163,6 +173,7 @@ def get_cluster_credentials(auto_create: Optional[builtins.bool] = None,
     __args__['dbName'] = db_name
     __args__['dbUser'] = db_user
     __args__['durationSeconds'] = duration_seconds
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:redshift/getClusterCredentials:getClusterCredentials', __args__, opts=opts, typ=GetClusterCredentialsResult).value
 
@@ -175,13 +186,15 @@ def get_cluster_credentials(auto_create: Optional[builtins.bool] = None,
         db_user=pulumi.get(__ret__, 'db_user'),
         duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
         expiration=pulumi.get(__ret__, 'expiration'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                    cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                                    db_groups: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                    db_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    db_user: Optional[pulumi.Input[builtins.str]] = None,
                                    duration_seconds: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterCredentialsResult]:
     """
     Provides redshift cluster temporary credentials.
@@ -211,6 +224,7 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
     __args__['dbName'] = db_name
     __args__['dbUser'] = db_user
     __args__['durationSeconds'] = duration_seconds
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getClusterCredentials:getClusterCredentials', __args__, opts=opts, typ=GetClusterCredentialsResult)
     return __ret__.apply(lambda __response__: GetClusterCredentialsResult(
@@ -222,4 +236,5 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
         db_user=pulumi.get(__response__, 'db_user'),
         duration_seconds=pulumi.get(__response__, 'duration_seconds'),
         expiration=pulumi.get(__response__, 'expiration'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

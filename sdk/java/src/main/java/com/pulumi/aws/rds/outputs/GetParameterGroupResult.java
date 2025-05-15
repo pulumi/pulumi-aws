@@ -31,6 +31,7 @@ public final class GetParameterGroupResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetParameterGroupResult() {}
     /**
@@ -64,6 +65,9 @@ public final class GetParameterGroupResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -79,6 +83,7 @@ public final class GetParameterGroupResult {
         private String family;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetParameterGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,6 +92,7 @@ public final class GetParameterGroupResult {
     	      this.family = defaults.family;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -129,6 +135,14 @@ public final class GetParameterGroupResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetParameterGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetParameterGroupResult build() {
             final var _resultValue = new GetParameterGroupResult();
             _resultValue.arn = arn;
@@ -136,6 +150,7 @@ public final class GetParameterGroupResult {
             _resultValue.family = family;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

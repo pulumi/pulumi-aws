@@ -114,6 +114,10 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Route settings for the stage.
      */
     public readonly routeSettings!: pulumi.Output<outputs.apigatewayv2.StageRouteSetting[] | undefined>;
@@ -154,6 +158,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["executionArn"] = state ? state.executionArn : undefined;
             resourceInputs["invokeUrl"] = state ? state.invokeUrl : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeSettings"] = state ? state.routeSettings : undefined;
             resourceInputs["stageVariables"] = state ? state.stageVariables : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -171,6 +176,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeSettings"] = args ? args.routeSettings : undefined;
             resourceInputs["stageVariables"] = args ? args.stageVariables : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -240,6 +246,10 @@ export interface StageState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Route settings for the stage.
      */
     routeSettings?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.StageRouteSetting>[]>;
@@ -297,6 +307,10 @@ export interface StageArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Route settings for the stage.
      */

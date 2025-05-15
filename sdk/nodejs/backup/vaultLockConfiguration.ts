@@ -77,6 +77,10 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
      * The minimum retention period that the vault retains its recovery points.
      */
     public readonly minRetentionDays!: pulumi.Output<number | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a VaultLockConfiguration resource with the given unique name, arguments, and options.
@@ -96,6 +100,7 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
             resourceInputs["changeableForDays"] = state ? state.changeableForDays : undefined;
             resourceInputs["maxRetentionDays"] = state ? state.maxRetentionDays : undefined;
             resourceInputs["minRetentionDays"] = state ? state.minRetentionDays : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as VaultLockConfigurationArgs | undefined;
             if ((!args || args.backupVaultName === undefined) && !opts.urn) {
@@ -105,6 +110,7 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
             resourceInputs["changeableForDays"] = args ? args.changeableForDays : undefined;
             resourceInputs["maxRetentionDays"] = args ? args.maxRetentionDays : undefined;
             resourceInputs["minRetentionDays"] = args ? args.minRetentionDays : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -136,6 +142,10 @@ export interface VaultLockConfigurationState {
      * The minimum retention period that the vault retains its recovery points.
      */
     minRetentionDays?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -158,4 +168,8 @@ export interface VaultLockConfigurationArgs {
      * The minimum retention period that the vault retains its recovery points.
      */
     minRetentionDays?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

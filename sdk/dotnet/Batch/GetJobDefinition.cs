@@ -162,6 +162,9 @@ namespace Pulumi.Aws.Batch
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The revision of the job definition.
         /// </summary>
@@ -193,6 +196,9 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The revision of the job definition.
@@ -238,6 +244,7 @@ namespace Pulumi.Aws.Batch
         /// An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyResult> NodeProperties;
+        public readonly string Region;
         /// <summary>
         /// The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
         /// </summary>
@@ -274,6 +281,8 @@ namespace Pulumi.Aws.Batch
 
             ImmutableArray<Outputs.GetJobDefinitionNodePropertyResult> nodeProperties,
 
+            string region,
+
             ImmutableArray<Outputs.GetJobDefinitionRetryStrategyResult> retryStrategies,
 
             int? revision,
@@ -295,6 +304,7 @@ namespace Pulumi.Aws.Batch
             Id = id;
             Name = name;
             NodeProperties = nodeProperties;
+            Region = region;
             RetryStrategies = retryStrategies;
             Revision = revision;
             SchedulingPriority = schedulingPriority;

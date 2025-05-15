@@ -94,6 +94,21 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
      * 
      */
@@ -145,6 +160,7 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
         this.description = $.description;
         this.mergedApiArn = $.mergedApiArn;
         this.mergedApiId = $.mergedApiId;
+        this.region = $.region;
         this.sourceApiArn = $.sourceApiArn;
         this.sourceApiAssociationConfigs = $.sourceApiAssociationConfigs;
         this.sourceApiId = $.sourceApiId;
@@ -272,6 +288,27 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
          */
         public Builder mergedApiId(String mergedApiId) {
             return mergedApiId(Output.of(mergedApiId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

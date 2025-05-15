@@ -79,6 +79,10 @@ export class Model extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["contentType"] = state ? state.contentType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
@@ -116,6 +121,7 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["contentType"] = args ? args.contentType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
         }
@@ -140,6 +146,10 @@ export interface ModelState {
      * Name of the model
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated REST API
      */
@@ -166,6 +176,10 @@ export interface ModelArgs {
      * Name of the model
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated REST API
      */

@@ -41,6 +41,7 @@ public final class GetObjectsResult {
      */
     private List<String> owners;
     private @Nullable String prefix;
+    private String region;
     /**
      * @return If present, indicates that the requester was successfully charged for the request.
      * 
@@ -96,6 +97,9 @@ public final class GetObjectsResult {
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return If present, indicates that the requester was successfully charged for the request.
      * 
@@ -129,6 +133,7 @@ public final class GetObjectsResult {
         private @Nullable Integer maxKeys;
         private List<String> owners;
         private @Nullable String prefix;
+        private String region;
         private String requestCharged;
         private @Nullable String requestPayer;
         private @Nullable String startAfter;
@@ -145,6 +150,7 @@ public final class GetObjectsResult {
     	      this.maxKeys = defaults.maxKeys;
     	      this.owners = defaults.owners;
     	      this.prefix = defaults.prefix;
+    	      this.region = defaults.region;
     	      this.requestCharged = defaults.requestCharged;
     	      this.requestPayer = defaults.requestPayer;
     	      this.startAfter = defaults.startAfter;
@@ -230,6 +236,14 @@ public final class GetObjectsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetObjectsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requestCharged(String requestCharged) {
             if (requestCharged == null) {
               throw new MissingRequiredPropertyException("GetObjectsResult", "requestCharged");
@@ -261,6 +275,7 @@ public final class GetObjectsResult {
             _resultValue.maxKeys = maxKeys;
             _resultValue.owners = owners;
             _resultValue.prefix = prefix;
+            _resultValue.region = region;
             _resultValue.requestCharged = requestCharged;
             _resultValue.requestPayer = requestPayer;
             _resultValue.startAfter = startAfter;

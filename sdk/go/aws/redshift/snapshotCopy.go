@@ -61,6 +61,8 @@ type SnapshotCopy struct {
 	DestinationRegion pulumi.StringOutput `pulumi:"destinationRegion"`
 	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
 	ManualSnapshotRetentionPeriod pulumi.IntOutput `pulumi:"manualSnapshotRetentionPeriod"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
 	RetentionPeriod pulumi.IntOutput `pulumi:"retentionPeriod"`
 	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
@@ -111,6 +113,8 @@ type snapshotCopyState struct {
 	DestinationRegion *string `pulumi:"destinationRegion"`
 	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
@@ -126,6 +130,8 @@ type SnapshotCopyState struct {
 	DestinationRegion pulumi.StringPtrInput
 	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
 	RetentionPeriod pulumi.IntPtrInput
 	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
@@ -145,6 +151,8 @@ type snapshotCopyArgs struct {
 	DestinationRegion string `pulumi:"destinationRegion"`
 	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
@@ -161,6 +169,8 @@ type SnapshotCopyArgs struct {
 	DestinationRegion pulumi.StringInput
 	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
 	RetentionPeriod pulumi.IntPtrInput
 	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
@@ -269,6 +279,11 @@ func (o SnapshotCopyOutput) DestinationRegion() pulumi.StringOutput {
 // Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
 func (o SnapshotCopyOutput) ManualSnapshotRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntOutput { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SnapshotCopyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of days to retain automated snapshots in the destination region after they are copied from the source region.

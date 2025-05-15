@@ -21,6 +21,7 @@ public final class GetSecurityGroupRulesResult {
      * 
      */
     private List<String> ids;
+    private String region;
     private @Nullable Map<String,String> tags;
 
     private GetSecurityGroupRulesResult() {}
@@ -36,6 +37,9 @@ public final class GetSecurityGroupRulesResult {
      */
     public List<String> ids() {
         return this.ids;
+    }
+    public String region() {
+        return this.region;
     }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
@@ -53,6 +57,7 @@ public final class GetSecurityGroupRulesResult {
         private @Nullable List<GetSecurityGroupRulesFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetSecurityGroupRulesResult defaults) {
@@ -60,6 +65,7 @@ public final class GetSecurityGroupRulesResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -92,6 +98,14 @@ public final class GetSecurityGroupRulesResult {
             return ids(List.of(ids));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRulesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -102,6 +116,7 @@ public final class GetSecurityGroupRulesResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

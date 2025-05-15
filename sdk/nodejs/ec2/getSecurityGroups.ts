@@ -47,6 +47,7 @@ export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.In
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getSecurityGroups:getSecurityGroups", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -59,6 +60,7 @@ export interface GetSecurityGroupsArgs {
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
      */
     filters?: inputs.ec2.GetSecurityGroupsFilter[];
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match for desired security groups.
      */
@@ -82,6 +84,7 @@ export interface GetSecurityGroupsResult {
      * IDs of the matches security groups.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
     /**
      * VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
@@ -128,6 +131,7 @@ export function getSecurityGroupsOutput(args?: GetSecurityGroupsOutputArgs, opts
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getSecurityGroups:getSecurityGroups", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -140,6 +144,7 @@ export interface GetSecurityGroupsOutputArgs {
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSecurityGroupsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match for desired security groups.
      */

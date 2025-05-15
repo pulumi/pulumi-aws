@@ -23,6 +23,7 @@ export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getIpSet:getIpSet", {
         "name": args.name,
+        "region": args.region,
         "scope": args.scope,
     }, opts);
 }
@@ -35,6 +36,7 @@ export interface GetIpSetArgs {
      * Name of the WAFv2 IP Set.
      */
     name: string;
+    region?: string;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -66,6 +68,7 @@ export interface GetIpSetResult {
      */
     readonly ipAddressVersion: string;
     readonly name: string;
+    readonly region: string;
     readonly scope: string;
 }
 /**
@@ -87,6 +90,7 @@ export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafv2/getIpSet:getIpSet", {
         "name": args.name,
+        "region": args.region,
         "scope": args.scope,
     }, opts);
 }
@@ -99,6 +103,7 @@ export interface GetIpSetOutputArgs {
      * Name of the WAFv2 IP Set.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */

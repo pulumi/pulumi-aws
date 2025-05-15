@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -43,11 +45,19 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         return this.certificateAuthorityArn;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetCertificatePlainArgs() {}
 
     private GetCertificatePlainArgs(GetCertificatePlainArgs $) {
         this.arn = $.arn;
         this.certificateAuthorityArn = $.certificateAuthorityArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -87,6 +97,11 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             $.certificateAuthorityArn = certificateAuthorityArn;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

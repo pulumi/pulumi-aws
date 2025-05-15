@@ -26,6 +26,7 @@ export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,7 @@ export interface GetJobQueueArgs {
      * Name of the job queue.
      */
     name: string;
+    region?: string;
     /**
      * Key-value map of resource tags
      */
@@ -77,6 +79,7 @@ export interface GetJobQueueResult {
      * associated with the same compute environment.
      */
     readonly priority: number;
+    readonly region: string;
     /**
      * The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
      */
@@ -118,6 +121,7 @@ export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -130,6 +134,7 @@ export interface GetJobQueueOutputArgs {
      * Name of the job queue.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */

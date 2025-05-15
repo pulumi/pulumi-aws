@@ -53,7 +53,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName string  `pulumi:"clusterName"`
+	Region      *string `pulumi:"region"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -86,7 +87,8 @@ type LookupClusterResult struct {
 	// Apache Kafka version.
 	KafkaVersion string `pulumi:"kafkaVersion"`
 	// Number of broker nodes in the cluster.
-	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
+	NumberOfBrokerNodes int    `pulumi:"numberOfBrokerNodes"`
+	Region              string `pulumi:"region"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
@@ -107,7 +109,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
 	// Name of the cluster.
-	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	ClusterName pulumi.StringInput    `pulumi:"clusterName"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -198,6 +201,10 @@ func (o LookupClusterResultOutput) KafkaVersion() pulumi.StringOutput {
 // Number of broker nodes in the cluster.
 func (o LookupClusterResultOutput) NumberOfBrokerNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumberOfBrokerNodes }).(pulumi.IntOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of key-value pairs assigned to the cluster.

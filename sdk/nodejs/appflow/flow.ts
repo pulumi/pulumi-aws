@@ -174,6 +174,10 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
     public readonly sourceFlowConfig!: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
@@ -214,6 +218,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
             resourceInputs["metadataCatalogConfig"] = state ? state.metadataCatalogConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceFlowConfig"] = state ? state.sourceFlowConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -238,6 +243,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
             resourceInputs["metadataCatalogConfig"] = args ? args.metadataCatalogConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tasks"] = args ? args.tasks : undefined;
@@ -284,6 +290,10 @@ export interface FlowState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
     sourceFlowConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfig>;
@@ -329,6 +339,10 @@ export interface FlowArgs {
      * Name of the flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */

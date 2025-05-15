@@ -26,6 +26,7 @@ export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "streamArn": args.streamArn,
     }, opts);
 }
@@ -42,6 +43,7 @@ export interface GetStreamConsumerArgs {
      * Name of the stream consumer.
      */
     name?: string;
+    region?: string;
     /**
      * ARN of the data stream the consumer is registered with.
      */
@@ -62,6 +64,7 @@ export interface GetStreamConsumerResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Current status of the stream consumer.
      */
@@ -90,6 +93,7 @@ export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?
     return pulumi.runtime.invokeOutput("aws:kinesis/getStreamConsumer:getStreamConsumer", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "streamArn": args.streamArn,
     }, opts);
 }
@@ -106,6 +110,7 @@ export interface GetStreamConsumerOutputArgs {
      * Name of the stream consumer.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * ARN of the data stream the consumer is registered with.
      */

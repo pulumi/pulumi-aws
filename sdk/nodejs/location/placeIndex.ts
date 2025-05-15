@@ -85,6 +85,10 @@ export class PlaceIndex extends pulumi.CustomResource {
      */
     public readonly indexName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -116,6 +120,7 @@ export class PlaceIndex extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["indexArn"] = state ? state.indexArn : undefined;
             resourceInputs["indexName"] = state ? state.indexName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["updateTime"] = state ? state.updateTime : undefined;
@@ -131,6 +136,7 @@ export class PlaceIndex extends pulumi.CustomResource {
             resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["indexName"] = args ? args.indexName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["indexArn"] = undefined /*out*/;
@@ -173,6 +179,10 @@ export interface PlaceIndexState {
      */
     indexName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -208,6 +218,10 @@ export interface PlaceIndexArgs {
      * The following arguments are optional:
      */
     indexName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

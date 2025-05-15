@@ -131,6 +131,8 @@ type WebAclLoggingConfiguration struct {
 	LoggingFilter WebAclLoggingConfigurationLoggingFilterPtrOutput `pulumi:"loggingFilter"`
 	// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
 	RedactedFields WebAclLoggingConfigurationRedactedFieldArrayOutput `pulumi:"redactedFields"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
@@ -177,6 +179,8 @@ type webAclLoggingConfigurationState struct {
 	LoggingFilter *WebAclLoggingConfigurationLoggingFilter `pulumi:"loggingFilter"`
 	// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
 	RedactedFields []WebAclLoggingConfigurationRedactedField `pulumi:"redactedFields"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
@@ -188,6 +192,8 @@ type WebAclLoggingConfigurationState struct {
 	LoggingFilter WebAclLoggingConfigurationLoggingFilterPtrInput
 	// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
 	RedactedFields WebAclLoggingConfigurationRedactedFieldArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
 	ResourceArn pulumi.StringPtrInput
 }
@@ -203,6 +209,8 @@ type webAclLoggingConfigurationArgs struct {
 	LoggingFilter *WebAclLoggingConfigurationLoggingFilter `pulumi:"loggingFilter"`
 	// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
 	RedactedFields []WebAclLoggingConfigurationRedactedField `pulumi:"redactedFields"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -215,6 +223,8 @@ type WebAclLoggingConfigurationArgs struct {
 	LoggingFilter WebAclLoggingConfigurationLoggingFilterPtrInput
 	// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
 	RedactedFields WebAclLoggingConfigurationRedactedFieldArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
 	ResourceArn pulumi.StringInput
 }
@@ -323,6 +333,11 @@ func (o WebAclLoggingConfigurationOutput) RedactedFields() WebAclLoggingConfigur
 	return o.ApplyT(func(v *WebAclLoggingConfiguration) WebAclLoggingConfigurationRedactedFieldArrayOutput {
 		return v.RedactedFields
 	}).(WebAclLoggingConfigurationRedactedFieldArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WebAclLoggingConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAclLoggingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.

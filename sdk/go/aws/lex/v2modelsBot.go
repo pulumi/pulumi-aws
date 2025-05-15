@@ -105,6 +105,8 @@ type V2modelsBot struct {
 	Members V2modelsBotMemberArrayOutput `pulumi:"members"`
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
@@ -166,6 +168,8 @@ type v2modelsBotState struct {
 	Members []V2modelsBotMember `pulumi:"members"`
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
@@ -192,6 +196,8 @@ type V2modelsBotState struct {
 	Members V2modelsBotMemberArrayInput
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
@@ -221,6 +227,8 @@ type v2modelsBotArgs struct {
 	Members []V2modelsBotMember `pulumi:"members"`
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
@@ -246,6 +254,8 @@ type V2modelsBotArgs struct {
 	Members V2modelsBotMemberArrayInput
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
@@ -373,6 +383,11 @@ func (o V2modelsBotOutput) Members() V2modelsBotMemberArrayOutput {
 // Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 func (o V2modelsBotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o V2modelsBotOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of an IAM role that has permission to access the bot.

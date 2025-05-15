@@ -29,6 +29,7 @@ export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?
     return pulumi.runtime.invoke("aws:appconfig/getConfigurationProfile:getConfigurationProfile", {
         "applicationId": args.applicationId,
         "configurationProfileId": args.configurationProfileId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,6 +46,7 @@ export interface GetConfigurationProfileArgs {
      * ID of the Configuration Profile.
      */
     configurationProfileId: string;
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -78,6 +80,7 @@ export interface GetConfigurationProfileResult {
      * Name of the Configuration Profile.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * ARN of an IAM role with permission to access the configuration at the specified location_uri.
      */
@@ -117,6 +120,7 @@ export function getConfigurationProfileOutput(args: GetConfigurationProfileOutpu
     return pulumi.runtime.invokeOutput("aws:appconfig/getConfigurationProfile:getConfigurationProfile", {
         "applicationId": args.applicationId,
         "configurationProfileId": args.configurationProfileId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -133,6 +137,7 @@ export interface GetConfigurationProfileOutputArgs {
      * ID of the Configuration Profile.
      */
     configurationProfileId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

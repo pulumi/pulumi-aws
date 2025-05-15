@@ -50,6 +50,21 @@ public final class ServiceNetworkResourceAssociationState extends com.pulumi.res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of Resource Configuration to associate to the Service Network.
      * 
      */
@@ -125,6 +140,7 @@ public final class ServiceNetworkResourceAssociationState extends com.pulumi.res
     private ServiceNetworkResourceAssociationState(ServiceNetworkResourceAssociationState $) {
         this.arn = $.arn;
         this.dnsEntries = $.dnsEntries;
+        this.region = $.region;
         this.resourceConfigurationIdentifier = $.resourceConfigurationIdentifier;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
         this.tags = $.tags;
@@ -200,6 +216,27 @@ public final class ServiceNetworkResourceAssociationState extends com.pulumi.res
          */
         public Builder dnsEntries(ServiceNetworkResourceAssociationDnsEntryArgs... dnsEntries) {
             return dnsEntries(List.of(dnsEntries));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

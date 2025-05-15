@@ -97,6 +97,10 @@ export class EventArchive extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      */
     public readonly retentionDays!: pulumi.Output<number | undefined>;
@@ -119,6 +123,7 @@ export class EventArchive extends pulumi.CustomResource {
             resourceInputs["eventPattern"] = state ? state.eventPattern : undefined;
             resourceInputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
         } else {
             const args = argsOrState as EventArchiveArgs | undefined;
@@ -129,6 +134,7 @@ export class EventArchive extends pulumi.CustomResource {
             resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
             resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -162,6 +168,10 @@ export interface EventArchiveState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      */
     retentionDays?: pulumi.Input<number>;
@@ -187,6 +197,10 @@ export interface EventArchiveArgs {
      * The name of the new event archive. The archive name cannot exceed 48 characters.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      */

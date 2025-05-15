@@ -149,6 +149,8 @@ type Queue struct {
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -211,6 +213,8 @@ type queueState struct {
 	QueueId *string `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds []string `pulumi:"quickConnectIds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -238,6 +242,8 @@ type QueueState struct {
 	QueueId pulumi.StringPtrInput
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -265,6 +271,8 @@ type queueArgs struct {
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds []string `pulumi:"quickConnectIds"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -287,6 +295,8 @@ type QueueArgs struct {
 	OutboundCallerConfig QueueOutboundCallerConfigPtrInput
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -423,6 +433,11 @@ func (o QueueOutput) QueueId() pulumi.StringOutput {
 // Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 func (o QueueOutput) QuickConnectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIds }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o QueueOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.

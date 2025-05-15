@@ -53,7 +53,8 @@ type GetSiteArgs struct {
 	// Identifier of the Site.
 	Id *string `pulumi:"id"`
 	// Name of the Site.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSite.
@@ -64,6 +65,7 @@ type GetSiteResult struct {
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	Name        string `pulumi:"name"`
+	Region      string `pulumi:"region"`
 }
 
 func GetSiteOutput(ctx *pulumi.Context, args GetSiteOutputArgs, opts ...pulumi.InvokeOption) GetSiteResultOutput {
@@ -80,7 +82,8 @@ type GetSiteOutputArgs struct {
 	// Identifier of the Site.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the Site.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSiteOutputArgs) ElementType() reflect.Type {
@@ -118,6 +121,10 @@ func (o GetSiteResultOutput) Id() pulumi.StringOutput {
 
 func (o GetSiteResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSiteResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSiteResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSiteResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

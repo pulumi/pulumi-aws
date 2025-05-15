@@ -57,7 +57,8 @@ type GetLaunchPathsArgs struct {
 	// Product identifier.
 	//
 	// The following arguments are optional:
-	ProductId string `pulumi:"productId"`
+	ProductId string  `pulumi:"productId"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLaunchPaths.
@@ -66,6 +67,7 @@ type GetLaunchPathsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`
 	ProductId string `pulumi:"productId"`
+	Region    string `pulumi:"region"`
 	// Block with information about the launch path. See details below.
 	Summaries []GetLaunchPathsSummary `pulumi:"summaries"`
 }
@@ -86,7 +88,8 @@ type GetLaunchPathsOutputArgs struct {
 	// Product identifier.
 	//
 	// The following arguments are optional:
-	ProductId pulumi.StringInput `pulumi:"productId"`
+	ProductId pulumi.StringInput    `pulumi:"productId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLaunchPathsOutputArgs) ElementType() reflect.Type {
@@ -119,6 +122,10 @@ func (o GetLaunchPathsResultOutput) Id() pulumi.StringOutput {
 
 func (o GetLaunchPathsResultOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchPathsResult) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchPathsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchPathsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Block with information about the launch path. See details below.

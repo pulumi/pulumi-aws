@@ -140,6 +140,10 @@ export class Guardrail extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
      */
     public readonly sensitiveInformationPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailSensitiveInformationPolicyConfig | undefined>;
@@ -189,6 +193,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["guardrailId"] = state ? state.guardrailId : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sensitiveInformationPolicyConfig"] = state ? state.sensitiveInformationPolicyConfig : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -212,6 +217,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sensitiveInformationPolicyConfig"] = args ? args.sensitiveInformationPolicyConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -276,6 +282,10 @@ export interface GuardrailState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
      */
     sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfig>;
@@ -337,6 +347,10 @@ export interface GuardrailArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
      */

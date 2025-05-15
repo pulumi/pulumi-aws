@@ -140,6 +140,12 @@ namespace Pulumi.Aws.CleanRooms
         public Output<string> QueryLogStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Key value pairs which tag the collaboration.
         /// </summary>
         [Output("tags")]
@@ -263,6 +269,12 @@ namespace Pulumi.Aws.CleanRooms
         [Input("queryLogStatus", required: true)]
         public Input<string> QueryLogStatus { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -273,14 +285,6 @@ namespace Pulumi.Aws.CleanRooms
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public CollaborationArgs()
@@ -369,6 +373,12 @@ namespace Pulumi.Aws.CleanRooms
         /// </summary>
         [Input("queryLogStatus")]
         public Input<string>? QueryLogStatus { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

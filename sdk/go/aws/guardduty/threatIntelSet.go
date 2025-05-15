@@ -101,6 +101,8 @@ type ThreatIntelSet struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The friendly name to identify the ThreatIntelSet.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -161,6 +163,8 @@ type threatIntelSetState struct {
 	Location *string `pulumi:"location"`
 	// The friendly name to identify the ThreatIntelSet.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -180,6 +184,8 @@ type ThreatIntelSetState struct {
 	Location pulumi.StringPtrInput
 	// The friendly name to identify the ThreatIntelSet.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -201,6 +207,8 @@ type threatIntelSetArgs struct {
 	Location string `pulumi:"location"`
 	// The friendly name to identify the ThreatIntelSet.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -217,6 +225,8 @@ type ThreatIntelSetArgs struct {
 	Location pulumi.StringInput
 	// The friendly name to identify the ThreatIntelSet.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -336,6 +346,11 @@ func (o ThreatIntelSetOutput) Location() pulumi.StringOutput {
 // The friendly name to identify the ThreatIntelSet.
 func (o ThreatIntelSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ThreatIntelSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

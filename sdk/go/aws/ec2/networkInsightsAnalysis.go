@@ -74,6 +74,8 @@ type NetworkInsightsAnalysis struct {
 	NetworkInsightsPathId pulumi.StringOutput `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
 	PathFound pulumi.BoolOutput `pulumi:"pathFound"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ReturnPathComponents NetworkInsightsAnalysisReturnPathComponentArrayOutput `pulumi:"returnPathComponents"`
 	// The date/time the analysis was started.
@@ -141,6 +143,8 @@ type networkInsightsAnalysisState struct {
 	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
 	PathFound *bool `pulumi:"pathFound"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ReturnPathComponents []NetworkInsightsAnalysisReturnPathComponent `pulumi:"returnPathComponents"`
 	// The date/time the analysis was started.
@@ -176,6 +180,8 @@ type NetworkInsightsAnalysisState struct {
 	NetworkInsightsPathId pulumi.StringPtrInput
 	// Set to `true` if the destination was reachable.
 	PathFound pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ReturnPathComponents NetworkInsightsAnalysisReturnPathComponentArrayInput
 	// The date/time the analysis was started.
@@ -205,6 +211,8 @@ type networkInsightsAnalysisArgs struct {
 	//
 	// The following arguments are optional:
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
@@ -219,6 +227,8 @@ type NetworkInsightsAnalysisArgs struct {
 	//
 	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
@@ -351,6 +361,11 @@ func (o NetworkInsightsAnalysisOutput) NetworkInsightsPathId() pulumi.StringOutp
 // Set to `true` if the destination was reachable.
 func (o NetworkInsightsAnalysisOutput) PathFound() pulumi.BoolOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.BoolOutput { return v.PathFound }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NetworkInsightsAnalysisOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.

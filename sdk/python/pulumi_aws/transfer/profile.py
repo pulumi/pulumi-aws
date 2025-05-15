@@ -23,23 +23,24 @@ class ProfileArgs:
                  as2_id: pulumi.Input[builtins.str],
                  profile_type: pulumi.Input[builtins.str],
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
         :param pulumi.Input[builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         :param pulumi.Input[builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "as2_id", as2_id)
         pulumi.set(__self__, "profile_type", profile_type)
         if certificate_ids is not None:
             pulumi.set(__self__, "certificate_ids", certificate_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="as2Id")
@@ -79,6 +80,18 @@ class ProfileArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -89,15 +102,6 @@ class ProfileArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _ProfileState:
@@ -107,6 +111,7 @@ class _ProfileState:
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  profile_id: Optional[pulumi.Input[builtins.str]] = None,
                  profile_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -116,6 +121,7 @@ class _ProfileState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
         :param pulumi.Input[builtins.str] profile_id: The unique identifier for the AS2 profile.
         :param pulumi.Input[builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
@@ -128,6 +134,8 @@ class _ProfileState:
             pulumi.set(__self__, "profile_id", profile_id)
         if profile_type is not None:
             pulumi.set(__self__, "profile_type", profile_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -195,6 +203,18 @@ class _ProfileState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -226,8 +246,8 @@ class Profile(pulumi.CustomResource):
                  as2_id: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  profile_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a AWS Transfer AS2 Profile resource.
@@ -247,6 +267,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
         :param pulumi.Input[builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -286,8 +307,8 @@ class Profile(pulumi.CustomResource):
                  as2_id: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  profile_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,10 +325,11 @@ class Profile(pulumi.CustomResource):
             if profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_type'")
             __props__.__dict__["profile_type"] = profile_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["profile_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(Profile, __self__).__init__(
             'aws:transfer/profile:Profile',
             resource_name,
@@ -323,6 +345,7 @@ class Profile(pulumi.CustomResource):
             certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             profile_id: Optional[pulumi.Input[builtins.str]] = None,
             profile_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Profile':
         """
@@ -337,6 +360,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
         :param pulumi.Input[builtins.str] profile_id: The unique identifier for the AS2 profile.
         :param pulumi.Input[builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -348,6 +372,7 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["certificate_ids"] = certificate_ids
         __props__.__dict__["profile_id"] = profile_id
         __props__.__dict__["profile_type"] = profile_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Profile(resource_name, opts=opts, __props__=__props__)
@@ -391,6 +416,14 @@ class Profile(pulumi.CustomResource):
         The profile type should be LOCAL or PARTNER.
         """
         return pulumi.get(self, "profile_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

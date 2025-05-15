@@ -29,7 +29,7 @@ class GetContainerRecipesResult:
     """
     A collection of values returned by getContainerRecipes.
     """
-    def __init__(__self__, arns=None, filters=None, id=None, names=None, owner=None):
+    def __init__(__self__, arns=None, filters=None, id=None, names=None, owner=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -45,6 +45,9 @@ class GetContainerRecipesResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         pulumi.set(__self__, "owner", owner)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -80,6 +83,11 @@ class GetContainerRecipesResult:
     def owner(self) -> Optional[builtins.str]:
         return pulumi.get(self, "owner")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetContainerRecipesResult(GetContainerRecipesResult):
     # pylint: disable=using-constant-test
@@ -91,11 +99,13 @@ class AwaitableGetContainerRecipesResult(GetContainerRecipesResult):
             filters=self.filters,
             id=self.id,
             names=self.names,
-            owner=self.owner)
+            owner=self.owner,
+            region=self.region)
 
 
 def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]] = None,
                           owner: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerRecipesResult:
     """
     Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
@@ -120,6 +130,7 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getContainerRecipes:getContainerRecipes', __args__, opts=opts, typ=GetContainerRecipesResult).value
 
@@ -128,9 +139,11 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
-        owner=pulumi.get(__ret__, 'owner'))
+        owner=pulumi.get(__ret__, 'owner'),
+        region=pulumi.get(__ret__, 'region'))
 def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]]]] = None,
                                  owner: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerRecipesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
@@ -155,6 +168,7 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getContainerRecipes:getContainerRecipes', __args__, opts=opts, typ=GetContainerRecipesResult)
     return __ret__.apply(lambda __response__: GetContainerRecipesResult(
@@ -162,4 +176,5 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         names=pulumi.get(__response__, 'names'),
-        owner=pulumi.get(__response__, 'owner')))
+        owner=pulumi.get(__response__, 'owner'),
+        region=pulumi.get(__response__, 'region')))

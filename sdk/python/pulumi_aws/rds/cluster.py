@@ -73,6 +73,7 @@ class ClusterArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']] = None,
                  s3_import: Optional[pulumi.Input['ClusterS3ImportArgs']] = None,
@@ -143,6 +144,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.int] port: Port on which the DB accepts connections.
         :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
@@ -254,6 +256,8 @@ class ClusterArgs:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_source_identifier is not None:
             pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if restore_to_point_in_time is not None:
@@ -886,6 +890,18 @@ class ClusterArgs:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1088,6 +1104,7 @@ class _ClusterState:
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  reader_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']] = None,
                  s3_import: Optional[pulumi.Input['ClusterS3ImportArgs']] = None,
@@ -1168,6 +1185,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         :param pulumi.Input[builtins.str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
@@ -1297,6 +1315,8 @@ class _ClusterState:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if reader_endpoint is not None:
             pulumi.set(__self__, "reader_endpoint", reader_endpoint)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_source_identifier is not None:
             pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if restore_to_point_in_time is not None:
@@ -2028,6 +2048,18 @@ class _ClusterState:
         pulumi.set(self, "reader_endpoint", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -2239,6 +2271,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
                  s3_import: Optional[pulumi.Input[Union['ClusterS3ImportArgs', 'ClusterS3ImportArgsDict']]] = None,
@@ -2514,6 +2547,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: Port on which the DB accepts connections.
         :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
@@ -2801,6 +2835,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
                  s3_import: Optional[pulumi.Input[Union['ClusterS3ImportArgs', 'ClusterS3ImportArgsDict']]] = None,
@@ -2874,6 +2909,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+            __props__.__dict__["region"] = region
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
             __props__.__dict__["s3_import"] = s3_import
@@ -2965,6 +3001,7 @@ class Cluster(pulumi.CustomResource):
             preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
             reader_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
             restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
             s3_import: Optional[pulumi.Input[Union['ClusterS3ImportArgs', 'ClusterS3ImportArgsDict']]] = None,
@@ -3050,6 +3087,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         :param pulumi.Input[builtins.str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
@@ -3125,6 +3163,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["reader_endpoint"] = reader_endpoint
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_source_identifier"] = replication_source_identifier
         __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
         __props__.__dict__["s3_import"] = s3_import
@@ -3610,6 +3649,14 @@ class Cluster(pulumi.CustomResource):
         load-balanced across replicas
         """
         return pulumi.get(self, "reader_endpoint")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicationSourceIdentifier")

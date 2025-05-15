@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
 export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions): Promise<GetControlsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:controltower/getControls:getControls", {
+        "region": args.region,
         "targetIdentifier": args.targetIdentifier,
     }, opts);
 }
@@ -33,6 +34,7 @@ export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getControls.
  */
 export interface GetControlsArgs {
+    region?: string;
     /**
      * The ARN of the organizational unit.
      */
@@ -51,6 +53,7 @@ export interface GetControlsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly targetIdentifier: string;
 }
 /**
@@ -74,6 +77,7 @@ export interface GetControlsResult {
 export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControlsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:controltower/getControls:getControls", {
+        "region": args.region,
         "targetIdentifier": args.targetIdentifier,
     }, opts);
 }
@@ -82,6 +86,7 @@ export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getControls.
  */
 export interface GetControlsOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the organizational unit.
      */

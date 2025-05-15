@@ -97,6 +97,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the repository
      */
     public /*out*/ readonly repositoryId!: pulumi.Output<string>;
@@ -132,6 +136,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
             resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -144,6 +149,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["defaultBranch"] = args ? args.defaultBranch : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -186,6 +192,10 @@ export interface RepositoryState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the repository
      */
     repositoryId?: pulumi.Input<string>;
@@ -219,6 +229,10 @@ export interface RepositoryArgs {
      * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */

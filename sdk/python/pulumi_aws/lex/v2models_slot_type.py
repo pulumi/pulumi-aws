@@ -30,6 +30,7 @@ class V2modelsSlotTypeArgs:
                  external_source_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_slot_type_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsSlotTypeTimeoutsArgs']] = None,
                  value_selection_setting: Optional[pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs']] = None):
@@ -50,6 +51,7 @@ class V2modelsSlotTypeArgs:
         :param pulumi.Input[builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
                See `slot_type_values` argument reference below.
@@ -69,6 +71,8 @@ class V2modelsSlotTypeArgs:
             pulumi.set(__self__, "name", name)
         if parent_slot_type_signature is not None:
             pulumi.set(__self__, "parent_slot_type_signature", parent_slot_type_signature)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if slot_type_values is not None:
             pulumi.set(__self__, "slot_type_values", slot_type_values)
         if timeouts is not None:
@@ -180,6 +184,18 @@ class V2modelsSlotTypeArgs:
         pulumi.set(self, "parent_slot_type_signature", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="slotTypeValues")
     def slot_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]]]:
         """
@@ -227,6 +243,7 @@ class _V2modelsSlotTypeState:
                  locale_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_slot_type_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_id: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsSlotTypeTimeoutsArgs']] = None,
@@ -248,6 +265,7 @@ class _V2modelsSlotTypeState:
         :param pulumi.Input[builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
@@ -271,6 +289,8 @@ class _V2modelsSlotTypeState:
             pulumi.set(__self__, "name", name)
         if parent_slot_type_signature is not None:
             pulumi.set(__self__, "parent_slot_type_signature", parent_slot_type_signature)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if slot_type_id is not None:
             pulumi.set(__self__, "slot_type_id", slot_type_id)
         if slot_type_values is not None:
@@ -384,6 +404,18 @@ class _V2modelsSlotTypeState:
         pulumi.set(self, "parent_slot_type_signature", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -448,6 +480,7 @@ class V2modelsSlotType(pulumi.CustomResource):
                  locale_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_slot_type_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict']]] = None,
                  value_selection_setting: Optional[pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']]] = None,
@@ -538,6 +571,7 @@ class V2modelsSlotType(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
                See `slot_type_values` argument reference below.
@@ -642,6 +676,7 @@ class V2modelsSlotType(pulumi.CustomResource):
                  locale_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_slot_type_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict']]] = None,
                  value_selection_setting: Optional[pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']]] = None,
@@ -668,6 +703,7 @@ class V2modelsSlotType(pulumi.CustomResource):
             __props__.__dict__["locale_id"] = locale_id
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_slot_type_signature"] = parent_slot_type_signature
+            __props__.__dict__["region"] = region
             __props__.__dict__["slot_type_values"] = slot_type_values
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["value_selection_setting"] = value_selection_setting
@@ -690,6 +726,7 @@ class V2modelsSlotType(pulumi.CustomResource):
             locale_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             parent_slot_type_signature: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             slot_type_id: Optional[pulumi.Input[builtins.str]] = None,
             slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]]] = None,
             timeouts: Optional[pulumi.Input[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict']]] = None,
@@ -716,6 +753,7 @@ class V2modelsSlotType(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
@@ -735,6 +773,7 @@ class V2modelsSlotType(pulumi.CustomResource):
         __props__.__dict__["locale_id"] = locale_id
         __props__.__dict__["name"] = name
         __props__.__dict__["parent_slot_type_signature"] = parent_slot_type_signature
+        __props__.__dict__["region"] = region
         __props__.__dict__["slot_type_id"] = slot_type_id
         __props__.__dict__["slot_type_values"] = slot_type_values
         __props__.__dict__["timeouts"] = timeouts
@@ -811,6 +850,14 @@ class V2modelsSlotType(pulumi.CustomResource):
         Only `AMAZON.AlphaNumeric` is supported.
         """
         return pulumi.get(self, "parent_slot_type_signature")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="slotTypeId")

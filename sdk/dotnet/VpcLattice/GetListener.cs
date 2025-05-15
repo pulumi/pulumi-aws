@@ -90,6 +90,9 @@ namespace Pulumi.Aws.VpcLattice
         [Input("listenerIdentifier", required: true)]
         public string ListenerIdentifier { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ID or Amazon Resource Name (ARN) of the service network
         /// </summary>
@@ -121,6 +124,9 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("listenerIdentifier", required: true)]
         public Input<string> ListenerIdentifier { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID or Amazon Resource Name (ARN) of the service network
@@ -187,6 +193,7 @@ namespace Pulumi.Aws.VpcLattice
         /// The listener protocol. Either `HTTPS` or `HTTP`.
         /// </summary>
         public readonly string Protocol;
+        public readonly string Region;
         /// <summary>
         /// The ARN of the service.
         /// </summary>
@@ -223,6 +230,8 @@ namespace Pulumi.Aws.VpcLattice
 
             string protocol,
 
+            string region,
+
             string serviceArn,
 
             string serviceId,
@@ -241,6 +250,7 @@ namespace Pulumi.Aws.VpcLattice
             Name = name;
             Port = port;
             Protocol = protocol;
+            Region = region;
             ServiceArn = serviceArn;
             ServiceId = serviceId;
             ServiceIdentifier = serviceIdentifier;

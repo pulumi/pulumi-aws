@@ -84,6 +84,8 @@ type HostedPrivateVirtualInterfaceAccepter struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrOutput `pulumi:"dxGatewayId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -131,6 +133,8 @@ type hostedPrivateVirtualInterfaceAccepterState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId *string `pulumi:"dxGatewayId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -146,6 +150,8 @@ type HostedPrivateVirtualInterfaceAccepterState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -163,6 +169,8 @@ func (HostedPrivateVirtualInterfaceAccepterState) ElementType() reflect.Type {
 type hostedPrivateVirtualInterfaceAccepterArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId *string `pulumi:"dxGatewayId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
@@ -175,6 +183,8 @@ type hostedPrivateVirtualInterfaceAccepterArgs struct {
 type HostedPrivateVirtualInterfaceAccepterArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the Direct Connect virtual interface to accept.
@@ -278,6 +288,11 @@ func (o HostedPrivateVirtualInterfaceAccepterOutput) Arn() pulumi.StringOutput {
 // The ID of the Direct Connect gateway to which to connect the virtual interface.
 func (o HostedPrivateVirtualInterfaceAccepterOutput) DxGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedPrivateVirtualInterfaceAccepter) pulumi.StringPtrOutput { return v.DxGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HostedPrivateVirtualInterfaceAccepterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterfaceAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -593,6 +593,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.DomainOffPeakWindowOptions> OffPeakWindowOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         /// </summary>
         [Output("snapshotOptions")]
@@ -773,6 +779,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("offPeakWindowOptions")]
         public Input<Inputs.DomainOffPeakWindowOptionsArgs>? OffPeakWindowOptions { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -959,6 +971,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("offPeakWindowOptions")]
         public Input<Inputs.DomainOffPeakWindowOptionsGetArgs>? OffPeakWindowOptions { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.

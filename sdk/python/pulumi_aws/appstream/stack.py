@@ -30,6 +30,7 @@ class StackArgs:
                  feedback_url: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  redirect_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
                  streaming_experience_settings: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -48,6 +49,7 @@ class StackArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -72,6 +74,8 @@ class StackArgs:
             pulumi.set(__self__, "name", name)
         if redirect_url is not None:
             pulumi.set(__self__, "redirect_url", redirect_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_connectors is not None:
             pulumi.set(__self__, "storage_connectors", storage_connectors)
         if streaming_experience_settings is not None:
@@ -182,6 +186,18 @@ class StackArgs:
         pulumi.set(self, "redirect_url", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]]:
         """
@@ -246,6 +262,7 @@ class _StackState:
                  feedback_url: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  redirect_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
                  streaming_experience_settings: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -267,6 +284,7 @@ class _StackState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -295,6 +313,8 @@ class _StackState:
             pulumi.set(__self__, "name", name)
         if redirect_url is not None:
             pulumi.set(__self__, "redirect_url", redirect_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_connectors is not None:
             pulumi.set(__self__, "storage_connectors", storage_connectors)
         if streaming_experience_settings is not None:
@@ -431,6 +451,18 @@ class _StackState:
         pulumi.set(self, "redirect_url", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]]:
         """
@@ -507,6 +539,7 @@ class Stack(pulumi.CustomResource):
                  feedback_url: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  redirect_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]]] = None,
                  streaming_experience_settings: Optional[pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -595,6 +628,7 @@ class Stack(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -701,6 +735,7 @@ class Stack(pulumi.CustomResource):
                  feedback_url: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  redirect_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]]] = None,
                  streaming_experience_settings: Optional[pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -722,6 +757,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["feedback_url"] = feedback_url
             __props__.__dict__["name"] = name
             __props__.__dict__["redirect_url"] = redirect_url
+            __props__.__dict__["region"] = region
             __props__.__dict__["storage_connectors"] = storage_connectors
             __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
             __props__.__dict__["tags"] = tags
@@ -749,6 +785,7 @@ class Stack(pulumi.CustomResource):
             feedback_url: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             redirect_url: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]]] = None,
             streaming_experience_settings: Optional[pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -775,6 +812,7 @@ class Stack(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -797,6 +835,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["feedback_url"] = feedback_url
         __props__.__dict__["name"] = name
         __props__.__dict__["redirect_url"] = redirect_url
+        __props__.__dict__["region"] = region
         __props__.__dict__["storage_connectors"] = storage_connectors
         __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
         __props__.__dict__["tags"] = tags
@@ -887,6 +926,14 @@ class Stack(pulumi.CustomResource):
         URL that users are redirected to after their streaming session ends.
         """
         return pulumi.get(self, "redirect_url")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="storageConnectors")

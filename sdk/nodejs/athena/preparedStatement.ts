@@ -78,6 +78,10 @@ export class PreparedStatement extends pulumi.CustomResource {
      */
     public readonly queryStatement!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the workgroup to which the prepared statement belongs.
      */
     public readonly workgroup!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class PreparedStatement extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["queryStatement"] = state ? state.queryStatement : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["workgroup"] = state ? state.workgroup : undefined;
         } else {
             const args = argsOrState as PreparedStatementArgs | undefined;
@@ -110,6 +115,7 @@ export class PreparedStatement extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queryStatement"] = args ? args.queryStatement : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["workgroup"] = args ? args.workgroup : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -134,6 +140,10 @@ export interface PreparedStatementState {
      */
     queryStatement?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the workgroup to which the prepared statement belongs.
      */
     workgroup?: pulumi.Input<string>;
@@ -155,6 +165,10 @@ export interface PreparedStatementArgs {
      * The query string for the prepared statement.
      */
     queryStatement: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */

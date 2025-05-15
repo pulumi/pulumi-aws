@@ -76,6 +76,7 @@ public final class GetTransitGatewayResult {
      * 
      */
     private String propagationDefaultRouteTableId;
+    private String region;
     /**
      * @return Whether Security Group Referencing Support is enabled
      * 
@@ -185,6 +186,9 @@ public final class GetTransitGatewayResult {
     public String propagationDefaultRouteTableId() {
         return this.propagationDefaultRouteTableId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Whether Security Group Referencing Support is enabled
      * 
@@ -236,6 +240,7 @@ public final class GetTransitGatewayResult {
         private String multicastSupport;
         private String ownerId;
         private String propagationDefaultRouteTableId;
+        private String region;
         private String securityGroupReferencingSupport;
         private Map<String,String> tags;
         private List<String> transitGatewayCidrBlocks;
@@ -256,6 +261,7 @@ public final class GetTransitGatewayResult {
     	      this.multicastSupport = defaults.multicastSupport;
     	      this.ownerId = defaults.ownerId;
     	      this.propagationDefaultRouteTableId = defaults.propagationDefaultRouteTableId;
+    	      this.region = defaults.region;
     	      this.securityGroupReferencingSupport = defaults.securityGroupReferencingSupport;
     	      this.tags = defaults.tags;
     	      this.transitGatewayCidrBlocks = defaults.transitGatewayCidrBlocks;
@@ -368,6 +374,14 @@ public final class GetTransitGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupReferencingSupport(String securityGroupReferencingSupport) {
             if (securityGroupReferencingSupport == null) {
               throw new MissingRequiredPropertyException("GetTransitGatewayResult", "securityGroupReferencingSupport");
@@ -417,6 +431,7 @@ public final class GetTransitGatewayResult {
             _resultValue.multicastSupport = multicastSupport;
             _resultValue.ownerId = ownerId;
             _resultValue.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
+            _resultValue.region = region;
             _resultValue.securityGroupReferencingSupport = securityGroupReferencingSupport;
             _resultValue.tags = tags;
             _resultValue.transitGatewayCidrBlocks = transitGatewayCidrBlocks;

@@ -116,6 +116,12 @@ namespace Pulumi.Aws.MemoryDb
         [Output("numShards")]
         public Output<int> NumShards { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -233,6 +239,12 @@ namespace Pulumi.Aws.MemoryDb
         [Input("numShards")]
         public Input<int>? NumShards { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -320,6 +332,12 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("numShards")]
         public Input<int>? NumShards { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("status")]
         public Input<string>? Status { get; set; }

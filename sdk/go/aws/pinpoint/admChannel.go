@@ -66,6 +66,8 @@ type AdmChannel struct {
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAdmChannel registers a new resource with the given unique name, arguments, and options.
@@ -126,6 +128,8 @@ type admChannelState struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AdmChannelState struct {
@@ -137,6 +141,8 @@ type AdmChannelState struct {
 	ClientSecret pulumi.StringPtrInput
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AdmChannelState) ElementType() reflect.Type {
@@ -152,6 +158,8 @@ type admChannelArgs struct {
 	ClientSecret string `pulumi:"clientSecret"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AdmChannel resource.
@@ -164,6 +172,8 @@ type AdmChannelArgs struct {
 	ClientSecret pulumi.StringInput
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AdmChannelArgs) ElementType() reflect.Type {
@@ -271,6 +281,11 @@ func (o AdmChannelOutput) ClientSecret() pulumi.StringOutput {
 // Specifies whether to enable the channel. Defaults to `true`.
 func (o AdmChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AdmChannelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AdmChannelArrayOutput struct{ *pulumi.OutputState }

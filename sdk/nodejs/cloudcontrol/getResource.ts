@@ -23,6 +23,7 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudcontrol/getResource:getResource", {
         "identifier": args.identifier,
+        "region": args.region,
         "roleArn": args.roleArn,
         "typeName": args.typeName,
         "typeVersionId": args.typeVersionId,
@@ -37,6 +38,7 @@ export interface GetResourceArgs {
      * Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
      */
     identifier: string;
+    region?: string;
     /**
      * ARN of the IAM Role to assume for operations.
      */
@@ -66,6 +68,7 @@ export interface GetResourceResult {
      * JSON string matching the CloudFormation resource type schema with current configuration.
      */
     readonly properties: string;
+    readonly region: string;
     readonly roleArn?: string;
     readonly typeName: string;
     readonly typeVersionId?: string;
@@ -89,6 +92,7 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudcontrol/getResource:getResource", {
         "identifier": args.identifier,
+        "region": args.region,
         "roleArn": args.roleArn,
         "typeName": args.typeName,
         "typeVersionId": args.typeVersionId,
@@ -103,6 +107,7 @@ export interface GetResourceOutputArgs {
      * Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
      */
     identifier: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * ARN of the IAM Role to assume for operations.
      */

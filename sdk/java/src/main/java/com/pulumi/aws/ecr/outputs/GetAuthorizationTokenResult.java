@@ -37,6 +37,7 @@ public final class GetAuthorizationTokenResult {
      * 
      */
     private String proxyEndpoint;
+    private String region;
     private @Nullable String registryId;
     /**
      * @return User name decoded from the authorization token.
@@ -80,6 +81,9 @@ public final class GetAuthorizationTokenResult {
     public String proxyEndpoint() {
         return this.proxyEndpoint;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> registryId() {
         return Optional.ofNullable(this.registryId);
     }
@@ -105,6 +109,7 @@ public final class GetAuthorizationTokenResult {
         private String id;
         private String password;
         private String proxyEndpoint;
+        private String region;
         private @Nullable String registryId;
         private String userName;
         public Builder() {}
@@ -115,6 +120,7 @@ public final class GetAuthorizationTokenResult {
     	      this.id = defaults.id;
     	      this.password = defaults.password;
     	      this.proxyEndpoint = defaults.proxyEndpoint;
+    	      this.region = defaults.region;
     	      this.registryId = defaults.registryId;
     	      this.userName = defaults.userName;
         }
@@ -160,6 +166,14 @@ public final class GetAuthorizationTokenResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder registryId(@Nullable String registryId) {
 
             this.registryId = registryId;
@@ -180,6 +194,7 @@ public final class GetAuthorizationTokenResult {
             _resultValue.id = id;
             _resultValue.password = password;
             _resultValue.proxyEndpoint = proxyEndpoint;
+            _resultValue.region = region;
             _resultValue.registryId = registryId;
             _resultValue.userName = userName;
             return _resultValue;

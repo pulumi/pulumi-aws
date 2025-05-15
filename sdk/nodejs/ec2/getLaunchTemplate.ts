@@ -42,6 +42,7 @@ export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.In
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -62,6 +63,7 @@ export interface GetLaunchTemplateArgs {
      * Name of the launch template.
      */
     name?: string;
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */
@@ -107,6 +109,7 @@ export interface GetLaunchTemplateResult {
     readonly placements: outputs.ec2.GetLaunchTemplatePlacement[];
     readonly privateDnsNameOptions: outputs.ec2.GetLaunchTemplatePrivateDnsNameOption[];
     readonly ramDiskId: string;
+    readonly region: string;
     readonly securityGroupNames: string[];
     readonly tagSpecifications: outputs.ec2.GetLaunchTemplateTagSpecification[];
     readonly tags: {[key: string]: string};
@@ -148,6 +151,7 @@ export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -168,6 +172,7 @@ export interface GetLaunchTemplateOutputArgs {
      * Name of the launch template.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */

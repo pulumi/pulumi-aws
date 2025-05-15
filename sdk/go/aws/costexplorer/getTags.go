@@ -55,6 +55,7 @@ func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption
 type GetTagsArgs struct {
 	// Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
 	Filter *GetTagsFilter `pulumi:"filter"`
+	Region *string        `pulumi:"region"`
 	// Value that you want to search for.
 	SearchString *string `pulumi:"searchString"`
 	// Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
@@ -62,8 +63,6 @@ type GetTagsArgs struct {
 	// Key of the tag that you want to return values for.
 	TagKey *string `pulumi:"tagKey"`
 	// Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-	//
-	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriod `pulumi:"timePeriod"`
 }
 
@@ -72,6 +71,7 @@ type GetTagsResult struct {
 	Filter *GetTagsFilter `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string          `pulumi:"id"`
+	Region       string          `pulumi:"region"`
 	SearchString *string         `pulumi:"searchString"`
 	SortBies     []GetTagsSortBy `pulumi:"sortBies"`
 	TagKey       *string         `pulumi:"tagKey"`
@@ -93,6 +93,7 @@ func GetTagsOutput(ctx *pulumi.Context, args GetTagsOutputArgs, opts ...pulumi.I
 type GetTagsOutputArgs struct {
 	// Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
 	Filter GetTagsFilterPtrInput `pulumi:"filter"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Value that you want to search for.
 	SearchString pulumi.StringPtrInput `pulumi:"searchString"`
 	// Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
@@ -100,8 +101,6 @@ type GetTagsOutputArgs struct {
 	// Key of the tag that you want to return values for.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-	//
-	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriodInput `pulumi:"timePeriod"`
 }
 
@@ -131,6 +130,10 @@ func (o GetTagsResultOutput) Filter() GetTagsFilterPtrOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetTagsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTagsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTagsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetTagsResultOutput) SearchString() pulumi.StringPtrOutput {

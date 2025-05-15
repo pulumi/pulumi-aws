@@ -34,6 +34,7 @@ export function getTrustStore(args?: GetTrustStoreArgs, opts?: pulumi.InvokeOpti
     return pulumi.runtime.invoke("aws:lb/getTrustStore:getTrustStore", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -51,6 +52,7 @@ export interface GetTrustStoreArgs {
      * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: string;
+    region?: string;
 }
 
 /**
@@ -63,6 +65,7 @@ export interface GetTrustStoreResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * > **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
@@ -94,6 +97,7 @@ export function getTrustStoreOutput(args?: GetTrustStoreOutputArgs, opts?: pulum
     return pulumi.runtime.invokeOutput("aws:lb/getTrustStore:getTrustStore", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -111,4 +115,5 @@ export interface GetTrustStoreOutputArgs {
      * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

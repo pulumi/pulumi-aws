@@ -340,7 +340,7 @@ namespace Pulumi.Aws.Elb
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string? Region;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetServiceAccountResult(
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Elb
 
             string id,
 
-            string? region)
+            string region)
         {
             Arn = arn;
             Id = id;

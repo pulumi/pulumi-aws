@@ -225,6 +225,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly proxyProtocolV2!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
      */
     public readonly slowStart!: pulumi.Output<number | undefined>;
@@ -302,6 +306,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["protocolVersion"] = state ? state.protocolVersion : undefined;
             resourceInputs["proxyProtocolV2"] = state ? state.proxyProtocolV2 : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["slowStart"] = state ? state.slowStart : undefined;
             resourceInputs["stickiness"] = state ? state.stickiness : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -328,6 +333,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["protocolVersion"] = args ? args.protocolVersion : undefined;
             resourceInputs["proxyProtocolV2"] = args ? args.proxyProtocolV2 : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["slowStart"] = args ? args.slowStart : undefined;
             resourceInputs["stickiness"] = args ? args.stickiness : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -427,6 +433,10 @@ export interface TargetGroupState {
      * Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
      */
     proxyProtocolV2?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
      */
@@ -542,6 +552,10 @@ export interface TargetGroupArgs {
      * Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
      */
     proxyProtocolV2?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
      */

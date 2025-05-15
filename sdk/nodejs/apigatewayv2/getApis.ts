@@ -24,6 +24,7 @@ export function getApis(args?: GetApisArgs, opts?: pulumi.InvokeOptions): Promis
     return pulumi.runtime.invoke("aws:apigatewayv2/getApis:getApis", {
         "name": args.name,
         "protocolType": args.protocolType,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -40,6 +41,7 @@ export interface GetApisArgs {
      * API protocol.
      */
     protocolType?: string;
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired APIs.
@@ -61,6 +63,7 @@ export interface GetApisResult {
     readonly ids: string[];
     readonly name?: string;
     readonly protocolType?: string;
+    readonly region: string;
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -83,6 +86,7 @@ export function getApisOutput(args?: GetApisOutputArgs, opts?: pulumi.InvokeOutp
     return pulumi.runtime.invokeOutput("aws:apigatewayv2/getApis:getApis", {
         "name": args.name,
         "protocolType": args.protocolType,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -99,6 +103,7 @@ export interface GetApisOutputArgs {
      * API protocol.
      */
     protocolType?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired APIs.

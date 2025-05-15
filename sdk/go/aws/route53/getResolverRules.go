@@ -115,6 +115,7 @@ type GetResolverRulesArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
 	OwnerId *string `pulumi:"ownerId"`
+	Region  *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint for the desired resolver rules.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -129,6 +130,7 @@ type GetResolverRulesResult struct {
 	Id                 string  `pulumi:"id"`
 	NameRegex          *string `pulumi:"nameRegex"`
 	OwnerId            *string `pulumi:"ownerId"`
+	Region             string  `pulumi:"region"`
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// IDs of the matched resolver rules.
 	ResolverRuleIds []string `pulumi:"resolverRuleIds"`
@@ -153,6 +155,7 @@ type GetResolverRulesOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the outbound resolver endpoint for the desired resolver rules.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 	// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -191,6 +194,10 @@ func (o GetResolverRulesResultOutput) NameRegex() pulumi.StringPtrOutput {
 
 func (o GetResolverRulesResultOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetResolverRulesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetResolverRulesResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {

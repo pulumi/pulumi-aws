@@ -230,6 +230,12 @@ namespace Pulumi.Aws.Acmpca
         public Output<int?> PermanentDeletionTimeInDays { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Nested argument containing revocation configuration. Defined below.
         /// </summary>
         [Output("revocationConfiguration")]
@@ -336,6 +342,12 @@ namespace Pulumi.Aws.Acmpca
         public Input<int>? PermanentDeletionTimeInDays { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Nested argument containing revocation configuration. Defined below.
         /// </summary>
         [Input("revocationConfiguration")]
@@ -432,6 +444,12 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("permanentDeletionTimeInDays")]
         public Input<int>? PermanentDeletionTimeInDays { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Nested argument containing revocation configuration. Defined below.

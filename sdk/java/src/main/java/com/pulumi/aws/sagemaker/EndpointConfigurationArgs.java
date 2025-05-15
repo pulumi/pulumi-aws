@@ -113,6 +113,21 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
      * 
      */
@@ -151,6 +166,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.productionVariants = $.productionVariants;
+        this.region = $.region;
         this.shadowProductionVariants = $.shadowProductionVariants;
         this.tags = $.tags;
     }
@@ -307,6 +323,27 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
          */
         public Builder productionVariants(EndpointConfigurationProductionVariantArgs... productionVariants) {
             return productionVariants(List.of(productionVariants));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

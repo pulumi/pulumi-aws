@@ -33,6 +33,7 @@ class ProvisionedProductArgs:
                  provisioning_artifact_id: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_artifact_name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retain_physical_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_provisioning_preferences: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -51,6 +52,7 @@ class ProvisionedProductArgs:
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs'] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -77,6 +79,8 @@ class ProvisionedProductArgs:
             pulumi.set(__self__, "provisioning_artifact_name", provisioning_artifact_name)
         if provisioning_parameters is not None:
             pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retain_physical_resources is not None:
             pulumi.set(__self__, "retain_physical_resources", retain_physical_resources)
         if stack_set_provisioning_preferences is not None:
@@ -219,6 +223,18 @@ class ProvisionedProductArgs:
         pulumi.set(self, "provisioning_parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retainPhysicalResources")
     def retain_physical_resources(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -277,6 +293,7 @@ class _ProvisionedProductState:
                  provisioning_artifact_id: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_artifact_name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retain_physical_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_provisioning_preferences: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -307,6 +324,7 @@ class _ProvisionedProductState:
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs'] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[builtins.str] status: Current status of the provisioned product. See meanings below.
@@ -353,6 +371,8 @@ class _ProvisionedProductState:
             pulumi.set(__self__, "provisioning_artifact_name", provisioning_artifact_name)
         if provisioning_parameters is not None:
             pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retain_physical_resources is not None:
             pulumi.set(__self__, "retain_physical_resources", retain_physical_resources)
         if stack_set_provisioning_preferences is not None:
@@ -599,6 +619,18 @@ class _ProvisionedProductState:
         pulumi.set(self, "provisioning_parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retainPhysicalResources")
     def retain_physical_resources(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -702,6 +734,7 @@ class ProvisionedProduct(pulumi.CustomResource):
                  provisioning_artifact_id: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_artifact_name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retain_physical_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -761,6 +794,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -837,6 +871,7 @@ class ProvisionedProduct(pulumi.CustomResource):
                  provisioning_artifact_id: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_artifact_name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retain_physical_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -860,6 +895,7 @@ class ProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["provisioning_artifact_id"] = provisioning_artifact_id
             __props__.__dict__["provisioning_artifact_name"] = provisioning_artifact_name
             __props__.__dict__["provisioning_parameters"] = provisioning_parameters
+            __props__.__dict__["region"] = region
             __props__.__dict__["retain_physical_resources"] = retain_physical_resources
             __props__.__dict__["stack_set_provisioning_preferences"] = stack_set_provisioning_preferences
             __props__.__dict__["tags"] = tags
@@ -904,6 +940,7 @@ class ProvisionedProduct(pulumi.CustomResource):
             provisioning_artifact_id: Optional[pulumi.Input[builtins.str]] = None,
             provisioning_artifact_name: Optional[pulumi.Input[builtins.str]] = None,
             provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retain_physical_resources: Optional[pulumi.Input[builtins.bool]] = None,
             stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -939,6 +976,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[builtins.str] status: Current status of the provisioned product. See meanings below.
@@ -970,6 +1008,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         __props__.__dict__["provisioning_artifact_id"] = provisioning_artifact_id
         __props__.__dict__["provisioning_artifact_name"] = provisioning_artifact_name
         __props__.__dict__["provisioning_parameters"] = provisioning_parameters
+        __props__.__dict__["region"] = region
         __props__.__dict__["retain_physical_resources"] = retain_physical_resources
         __props__.__dict__["stack_set_provisioning_preferences"] = stack_set_provisioning_preferences
         __props__.__dict__["status"] = status
@@ -1132,6 +1171,14 @@ class ProvisionedProduct(pulumi.CustomResource):
         Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         """
         return pulumi.get(self, "provisioning_parameters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retainPhysicalResources")

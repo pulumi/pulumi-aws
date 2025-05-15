@@ -34,6 +34,8 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
     /**
      * Descriptive name of the firewall policy.
      * 
+     * One or more of these arguments is required.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -41,9 +43,18 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
     /**
      * @return Descriptive name of the firewall policy.
      * 
+     * One or more of these arguments is required.
+     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -66,6 +77,7 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
     private GetFirewallPolicyArgs(GetFirewallPolicyArgs $) {
         this.arn = $.arn;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -111,6 +123,8 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param name Descriptive name of the firewall policy.
          * 
+         * One or more of these arguments is required.
+         * 
          * @return builder
          * 
          */
@@ -122,11 +136,22 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param name Descriptive name of the firewall policy.
          * 
+         * One or more of these arguments is required.
+         * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

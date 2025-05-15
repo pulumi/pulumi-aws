@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Chatbot
 
     public sealed class GetSlackWorkspaceArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Slack workspace name configured with AWS Chatbot.
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.Chatbot
 
     public sealed class GetSlackWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Slack workspace name configured with AWS Chatbot.
         /// </summary>
@@ -127,6 +133,7 @@ namespace Pulumi.Aws.Chatbot
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// ID of the Slack Workspace assigned by AWS Chatbot.
         /// </summary>
@@ -137,11 +144,14 @@ namespace Pulumi.Aws.Chatbot
         private GetSlackWorkspaceResult(
             string id,
 
+            string region,
+
             string slackTeamId,
 
             string slackTeamName)
         {
             Id = id;
+            Region = region;
             SlackTeamId = slackTeamId;
             SlackTeamName = slackTeamName;
         }

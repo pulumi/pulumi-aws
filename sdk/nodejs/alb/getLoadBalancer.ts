@@ -37,6 +37,7 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invoke("aws:alb/getLoadBalancer:getLoadBalancer", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -53,6 +54,7 @@ export interface GetLoadBalancerArgs {
      * Unique name of the load balancer.
      */
     name?: string;
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
      *
@@ -94,6 +96,7 @@ export interface GetLoadBalancerResult {
     readonly loadBalancerType: string;
     readonly name: string;
     readonly preserveHostHeader: boolean;
+    readonly region: string;
     readonly securityGroups: string[];
     readonly subnetMappings: outputs.alb.GetLoadBalancerSubnetMapping[];
     readonly subnets: string[];
@@ -132,6 +135,7 @@ export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: p
     return pulumi.runtime.invokeOutput("aws:alb/getLoadBalancer:getLoadBalancer", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -148,6 +152,7 @@ export interface GetLoadBalancerOutputArgs {
      * Unique name of the load balancer.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
      *

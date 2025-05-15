@@ -60,6 +60,8 @@ type LogDeliverySource struct {
 	LogType pulumi.StringOutput `pulumi:"logType"`
 	// The name for this delivery source.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the AWS resource that is generating and sending logs.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The AWS service that is sending logs.
@@ -112,6 +114,8 @@ type logDeliverySourceState struct {
 	LogType *string `pulumi:"logType"`
 	// The name for this delivery source.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the AWS resource that is generating and sending logs.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The AWS service that is sending logs.
@@ -129,6 +133,8 @@ type LogDeliverySourceState struct {
 	LogType pulumi.StringPtrInput
 	// The name for this delivery source.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the AWS resource that is generating and sending logs.
 	ResourceArn pulumi.StringPtrInput
 	// The AWS service that is sending logs.
@@ -148,6 +154,8 @@ type logDeliverySourceArgs struct {
 	LogType string `pulumi:"logType"`
 	// The name for this delivery source.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the AWS resource that is generating and sending logs.
 	ResourceArn string `pulumi:"resourceArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -160,6 +168,8 @@ type LogDeliverySourceArgs struct {
 	LogType pulumi.StringInput
 	// The name for this delivery source.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the AWS resource that is generating and sending logs.
 	ResourceArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -266,6 +276,11 @@ func (o LogDeliverySourceOutput) LogType() pulumi.StringOutput {
 // The name for this delivery source.
 func (o LogDeliverySourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogDeliverySourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the AWS resource that is generating and sending logs.

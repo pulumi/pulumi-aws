@@ -82,6 +82,12 @@ namespace Pulumi.Aws.Glue
         public Output<int> NextSchemaVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the Glue Registry to create the schema in.
         /// </summary>
         [Output("registryArn")]
@@ -188,6 +194,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the Glue Registry to create the schema in.
         /// </summary>
         [Input("registryArn")]
@@ -260,6 +272,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("nextSchemaVersion")]
         public Input<int>? NextSchemaVersion { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the Glue Registry to create the schema in.

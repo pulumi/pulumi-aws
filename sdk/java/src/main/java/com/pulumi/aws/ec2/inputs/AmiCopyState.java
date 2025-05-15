@@ -344,6 +344,21 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
@@ -522,6 +537,7 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
         this.platformDetails = $.platformDetails;
         this.public_ = $.public_;
         this.ramdiskId = $.ramdiskId;
+        this.region = $.region;
         this.rootDeviceName = $.rootDeviceName;
         this.rootSnapshotId = $.rootSnapshotId;
         this.sourceAmiId = $.sourceAmiId;
@@ -1014,6 +1030,27 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ramdiskId(String ramdiskId) {
             return ramdiskId(Output.of(ramdiskId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -24,6 +24,7 @@ class InstanceConnectEndpointArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[builtins.str],
                  preserve_client_ip: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArgs']] = None):
@@ -31,12 +32,15 @@ class InstanceConnectEndpointArgs:
         The set of arguments for constructing a InstanceConnectEndpoint resource.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if preserve_client_ip is not None:
             pulumi.set(__self__, "preserve_client_ip", preserve_client_ip)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
@@ -67,6 +71,18 @@ class InstanceConnectEndpointArgs:
     @preserve_client_ip.setter
     def preserve_client_ip(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "preserve_client_ip", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -112,6 +128,7 @@ class _InstanceConnectEndpointState:
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_client_ip: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -127,6 +144,7 @@ class _InstanceConnectEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -147,6 +165,8 @@ class _InstanceConnectEndpointState:
             pulumi.set(__self__, "owner_id", owner_id)
         if preserve_client_ip is not None:
             pulumi.set(__self__, "preserve_client_ip", preserve_client_ip)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_id is not None:
@@ -245,6 +265,18 @@ class _InstanceConnectEndpointState:
         pulumi.set(self, "preserve_client_ip", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -323,6 +355,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  preserve_client_ip: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -351,6 +384,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -397,6 +431,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  preserve_client_ip: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -411,6 +446,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
             __props__ = InstanceConnectEndpointArgs.__new__(InstanceConnectEndpointArgs)
 
             __props__.__dict__["preserve_client_ip"] = preserve_client_ip
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
@@ -442,6 +478,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             preserve_client_ip: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -462,6 +499,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -479,6 +517,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["preserve_client_ip"] = preserve_client_ip
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
@@ -542,6 +581,14 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         Indicates whether your client's IP address is preserved as the source. Default: `true`.
         """
         return pulumi.get(self, "preserve_client_ip")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupIds")

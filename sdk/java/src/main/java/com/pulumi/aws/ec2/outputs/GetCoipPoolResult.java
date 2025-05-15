@@ -32,6 +32,7 @@ public final class GetCoipPoolResult {
      */
     private List<String> poolCidrs;
     private String poolId;
+    private String region;
     private Map<String,String> tags;
 
     private GetCoipPoolResult() {}
@@ -65,6 +66,9 @@ public final class GetCoipPoolResult {
     public String poolId() {
         return this.poolId;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -84,6 +88,7 @@ public final class GetCoipPoolResult {
         private String localGatewayRouteTableId;
         private List<String> poolCidrs;
         private String poolId;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetCoipPoolResult defaults) {
@@ -94,6 +99,7 @@ public final class GetCoipPoolResult {
     	      this.localGatewayRouteTableId = defaults.localGatewayRouteTableId;
     	      this.poolCidrs = defaults.poolCidrs;
     	      this.poolId = defaults.poolId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -150,6 +156,14 @@ public final class GetCoipPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetCoipPoolResult", "tags");
@@ -165,6 +179,7 @@ public final class GetCoipPoolResult {
             _resultValue.localGatewayRouteTableId = localGatewayRouteTableId;
             _resultValue.poolCidrs = poolCidrs;
             _resultValue.poolId = poolId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

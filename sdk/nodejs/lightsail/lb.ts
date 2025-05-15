@@ -93,6 +93,10 @@ export class Lb extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicPorts!: pulumi.Output<number[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
@@ -127,6 +131,7 @@ export class Lb extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["publicPorts"] = state ? state.publicPorts : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["supportCode"] = state ? state.supportCode : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -139,6 +144,7 @@ export class Lb extends pulumi.CustomResource {
             resourceInputs["instancePort"] = args ? args.instancePort : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface LbState {
      */
     publicPorts?: pulumi.Input<pulumi.Input<number>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
     supportCode?: pulumi.Input<string>;
@@ -221,6 +231,10 @@ export interface LbArgs {
      * The name of the Lightsail load balancer.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

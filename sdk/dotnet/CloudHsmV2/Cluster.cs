@@ -63,6 +63,12 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the security group associated with the CloudHSM cluster.
         /// </summary>
         [Output("securityGroupId")]
@@ -157,6 +163,12 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? Mode { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of Cloud HSM v2 cluster backup to be restored.
         /// </summary>
         [Input("sourceBackupIdentifier")]
@@ -229,6 +241,12 @@ namespace Pulumi.Aws.CloudHsmV2
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the security group associated with the CloudHSM cluster.

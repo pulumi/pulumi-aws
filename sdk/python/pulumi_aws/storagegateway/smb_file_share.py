@@ -42,6 +42,7 @@ class SmbFileShareArgs:
                  object_acl: Optional[pulumi.Input[builtins.str]] = None,
                  oplocks_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
                  smb_acl_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -71,6 +72,7 @@ class SmbFileShareArgs:
         :param pulumi.Input[builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -114,6 +116,8 @@ class SmbFileShareArgs:
             pulumi.set(__self__, "oplocks_enabled", oplocks_enabled)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requester_pays is not None:
             pulumi.set(__self__, "requester_pays", requester_pays)
         if smb_acl_enabled is not None:
@@ -368,6 +372,18 @@ class SmbFileShareArgs:
         pulumi.set(self, "read_only", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requesterPays")
     def requester_pays(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -453,6 +469,7 @@ class _SmbFileShareState:
                  oplocks_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  path: Optional[pulumi.Input[builtins.str]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  smb_acl_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -486,6 +503,7 @@ class _SmbFileShareState:
         :param pulumi.Input[builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[builtins.str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
@@ -538,6 +556,8 @@ class _SmbFileShareState:
             pulumi.set(__self__, "path", path)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requester_pays is not None:
             pulumi.set(__self__, "requester_pays", requester_pays)
         if role_arn is not None:
@@ -820,6 +840,18 @@ class _SmbFileShareState:
         pulumi.set(self, "read_only", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requesterPays")
     def requester_pays(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -931,6 +963,7 @@ class SmbFileShare(pulumi.CustomResource):
                  object_acl: Optional[pulumi.Input[builtins.str]] = None,
                  oplocks_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  smb_acl_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1004,6 +1037,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
@@ -1094,6 +1128,7 @@ class SmbFileShare(pulumi.CustomResource):
                  object_acl: Optional[pulumi.Input[builtins.str]] = None,
                  oplocks_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  smb_acl_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1132,6 +1167,7 @@ class SmbFileShare(pulumi.CustomResource):
             __props__.__dict__["object_acl"] = object_acl
             __props__.__dict__["oplocks_enabled"] = oplocks_enabled
             __props__.__dict__["read_only"] = read_only
+            __props__.__dict__["region"] = region
             __props__.__dict__["requester_pays"] = requester_pays
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -1176,6 +1212,7 @@ class SmbFileShare(pulumi.CustomResource):
             oplocks_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             path: Optional[pulumi.Input[builtins.str]] = None,
             read_only: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             smb_acl_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1214,6 +1251,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[builtins.str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
@@ -1248,6 +1286,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__.__dict__["oplocks_enabled"] = oplocks_enabled
         __props__.__dict__["path"] = path
         __props__.__dict__["read_only"] = read_only
+        __props__.__dict__["region"] = region
         __props__.__dict__["requester_pays"] = requester_pays
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["smb_acl_enabled"] = smb_acl_enabled
@@ -1434,6 +1473,14 @@ class SmbFileShare(pulumi.CustomResource):
         Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         """
         return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requesterPays")

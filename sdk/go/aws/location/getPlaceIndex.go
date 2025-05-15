@@ -51,7 +51,8 @@ func LookupPlaceIndex(ctx *pulumi.Context, args *LookupPlaceIndexArgs, opts ...p
 // A collection of arguments for invoking getPlaceIndex.
 type LookupPlaceIndexArgs struct {
 	// Name of the place index resource.
-	IndexName string `pulumi:"indexName"`
+	IndexName string  `pulumi:"indexName"`
+	Region    *string `pulumi:"region"`
 	// Key-value map of resource tags for the place index.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -71,6 +72,7 @@ type LookupPlaceIndexResult struct {
 	// ARN for the place index resource.
 	IndexArn  string `pulumi:"indexArn"`
 	IndexName string `pulumi:"indexName"`
+	Region    string `pulumi:"region"`
 	// Key-value map of resource tags for the place index.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp for when the place index resource was last updated in ISO 8601 format.
@@ -89,7 +91,8 @@ func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs
 // A collection of arguments for invoking getPlaceIndex.
 type LookupPlaceIndexOutputArgs struct {
 	// Name of the place index resource.
-	IndexName pulumi.StringInput `pulumi:"indexName"`
+	IndexName pulumi.StringInput    `pulumi:"indexName"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the place index.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -147,6 +150,10 @@ func (o LookupPlaceIndexResultOutput) IndexArn() pulumi.StringOutput {
 
 func (o LookupPlaceIndexResultOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+func (o LookupPlaceIndexResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the place index.

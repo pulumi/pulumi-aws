@@ -41,6 +41,7 @@ class TopicRuleArgs:
                  kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
                  s3: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
                  sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
@@ -56,6 +57,7 @@ class TopicRuleArgs:
         :param pulumi.Input[builtins.str] description: The description of the rule.
         :param pulumi.Input['TopicRuleErrorActionArgs'] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         :param pulumi.Input[builtins.str] name: The name of the rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -93,6 +95,8 @@ class TopicRuleArgs:
             pulumi.set(__self__, "lambdas", lambdas)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if republishes is not None:
             pulumi.set(__self__, "republishes", republishes)
         if s3 is not None:
@@ -299,6 +303,18 @@ class TopicRuleArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def republishes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]:
         return pulumi.get(self, "republishes")
 
@@ -385,6 +401,7 @@ class _TopicRuleState:
                  kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
                  s3: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
                  sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
@@ -402,6 +419,7 @@ class _TopicRuleState:
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the rule is enabled.
         :param pulumi.Input['TopicRuleErrorActionArgs'] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         :param pulumi.Input[builtins.str] name: The name of the rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[builtins.str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -443,6 +461,8 @@ class _TopicRuleState:
             pulumi.set(__self__, "lambdas", lambdas)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if republishes is not None:
             pulumi.set(__self__, "republishes", republishes)
         if s3 is not None:
@@ -643,6 +663,18 @@ class _TopicRuleState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def republishes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]:
         return pulumi.get(self, "republishes")
 
@@ -769,6 +801,7 @@ class TopicRule(pulumi.CustomResource):
                  kineses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
                  s3: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
                  sns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
@@ -844,6 +877,7 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the rule is enabled.
         :param pulumi.Input[Union['TopicRuleErrorActionArgs', 'TopicRuleErrorActionArgsDict']] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         :param pulumi.Input[builtins.str] name: The name of the rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[builtins.str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -945,6 +979,7 @@ class TopicRule(pulumi.CustomResource):
                  kineses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
                  s3: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
                  sns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
@@ -982,6 +1017,7 @@ class TopicRule(pulumi.CustomResource):
             __props__.__dict__["kineses"] = kineses
             __props__.__dict__["lambdas"] = lambdas
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["republishes"] = republishes
             __props__.__dict__["s3"] = s3
             __props__.__dict__["sns"] = sns
@@ -1025,6 +1061,7 @@ class TopicRule(pulumi.CustomResource):
             kineses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
             lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             republishes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
             s3: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
             sns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
@@ -1047,6 +1084,7 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the rule is enabled.
         :param pulumi.Input[Union['TopicRuleErrorActionArgs', 'TopicRuleErrorActionArgsDict']] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         :param pulumi.Input[builtins.str] name: The name of the rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[builtins.str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1074,6 +1112,7 @@ class TopicRule(pulumi.CustomResource):
         __props__.__dict__["kineses"] = kineses
         __props__.__dict__["lambdas"] = lambdas
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["republishes"] = republishes
         __props__.__dict__["s3"] = s3
         __props__.__dict__["sns"] = sns
@@ -1190,6 +1229,14 @@ class TopicRule(pulumi.CustomResource):
         The name of the rule.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

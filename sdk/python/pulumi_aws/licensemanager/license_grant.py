@@ -23,19 +23,23 @@ class LicenseGrantArgs:
                  allowed_operations: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  license_arn: pulumi.Input[builtins.str],
                  principal: pulumi.Input[builtins.str],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LicenseGrant resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_operations: A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
         :param pulumi.Input[builtins.str] license_arn: The ARN of the license to grant.
         :param pulumi.Input[builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
         :param pulumi.Input[builtins.str] name: The Name of the grant.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "allowed_operations", allowed_operations)
         pulumi.set(__self__, "license_arn", license_arn)
         pulumi.set(__self__, "principal", principal)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -85,6 +89,18 @@ class LicenseGrantArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LicenseGrantState:
@@ -96,6 +112,7 @@ class _LicenseGrantState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_arn: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -107,6 +124,7 @@ class _LicenseGrantState:
         :param pulumi.Input[builtins.str] name: The Name of the grant.
         :param pulumi.Input[builtins.str] parent_arn: The parent ARN.
         :param pulumi.Input[builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The grant status.
         :param pulumi.Input[builtins.str] version: The grant version.
         """
@@ -124,6 +142,8 @@ class _LicenseGrantState:
             pulumi.set(__self__, "parent_arn", parent_arn)
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if version is not None:
@@ -215,6 +235,18 @@ class _LicenseGrantState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The grant status.
@@ -250,6 +282,7 @@ class LicenseGrant(pulumi.CustomResource):
                  license_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
@@ -268,6 +301,7 @@ class LicenseGrant(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] license_arn: The ARN of the license to grant.
         :param pulumi.Input[builtins.str] name: The Name of the grant.
         :param pulumi.Input[builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -305,6 +339,7 @@ class LicenseGrant(pulumi.CustomResource):
                  license_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,6 +359,7 @@ class LicenseGrant(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["home_region"] = None
             __props__.__dict__["parent_arn"] = None
@@ -346,6 +382,7 @@ class LicenseGrant(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             parent_arn: Optional[pulumi.Input[builtins.str]] = None,
             principal: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.str]] = None) -> 'LicenseGrant':
         """
@@ -362,6 +399,7 @@ class LicenseGrant(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The Name of the grant.
         :param pulumi.Input[builtins.str] parent_arn: The parent ARN.
         :param pulumi.Input[builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The grant status.
         :param pulumi.Input[builtins.str] version: The grant version.
         """
@@ -376,6 +414,7 @@ class LicenseGrant(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["parent_arn"] = parent_arn
         __props__.__dict__["principal"] = principal
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["version"] = version
         return LicenseGrant(resource_name, opts=opts, __props__=__props__)
@@ -435,6 +474,14 @@ class LicenseGrant(pulumi.CustomResource):
         The target account for the grant in the form of the ARN for an account principal of the root user.
         """
         return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

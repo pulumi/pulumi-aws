@@ -19,13 +19,14 @@ namespace Pulumi.Aws.Alb.Inputs
         public Input<string>? AdvertiseTrustStoreCaNames { get; set; }
 
         /// <summary>
-        /// Whether client certificate expiry is ignored. Default is `false`.
+        /// Whether client certificate expiry is ignored.
+        /// Default is `false`.
         /// </summary>
         [Input("ignoreClientCertificateExpiry")]
         public Input<bool>? IgnoreClientCertificateExpiry { get; set; }
 
         /// <summary>
-        /// Valid values are `off`, `verify` and `passthrough`.
+        /// Valid values are `off`, `passthrough`, and `verify`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;

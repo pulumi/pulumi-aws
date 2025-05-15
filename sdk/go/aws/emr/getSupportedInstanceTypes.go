@@ -91,15 +91,15 @@ func GetSupportedInstanceTypes(ctx *pulumi.Context, args *GetSupportedInstanceTy
 
 // A collection of arguments for invoking getSupportedInstanceTypes.
 type GetSupportedInstanceTypesArgs struct {
+	Region *string `pulumi:"region"`
 	// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	ReleaseLabel string `pulumi:"releaseLabel"`
-	// List of supported instance types. See `supportedInstanceTypes` below.
-	SupportedInstanceTypes []GetSupportedInstanceTypesSupportedInstanceType `pulumi:"supportedInstanceTypes"`
 }
 
 // A collection of values returned by getSupportedInstanceTypes.
 type GetSupportedInstanceTypesResult struct {
 	Id           string `pulumi:"id"`
+	Region       string `pulumi:"region"`
 	ReleaseLabel string `pulumi:"releaseLabel"`
 	// List of supported instance types. See `supportedInstanceTypes` below.
 	SupportedInstanceTypes []GetSupportedInstanceTypesSupportedInstanceType `pulumi:"supportedInstanceTypes"`
@@ -116,10 +116,9 @@ func GetSupportedInstanceTypesOutput(ctx *pulumi.Context, args GetSupportedInsta
 
 // A collection of arguments for invoking getSupportedInstanceTypes.
 type GetSupportedInstanceTypesOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	ReleaseLabel pulumi.StringInput `pulumi:"releaseLabel"`
-	// List of supported instance types. See `supportedInstanceTypes` below.
-	SupportedInstanceTypes GetSupportedInstanceTypesSupportedInstanceTypeArrayInput `pulumi:"supportedInstanceTypes"`
 }
 
 func (GetSupportedInstanceTypesOutputArgs) ElementType() reflect.Type {
@@ -143,6 +142,10 @@ func (o GetSupportedInstanceTypesResultOutput) ToGetSupportedInstanceTypesResult
 
 func (o GetSupportedInstanceTypesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSupportedInstanceTypesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSupportedInstanceTypesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSupportedInstanceTypesResultOutput) ReleaseLabel() pulumi.StringOutput {

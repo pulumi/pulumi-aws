@@ -132,6 +132,8 @@ type ResourceGateway struct {
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// Name of the resource gateway.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Status of the resource gateway.
@@ -191,6 +193,8 @@ type resourceGatewayState struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Name of the resource gateway.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Status of the resource gateway.
@@ -215,6 +219,8 @@ type ResourceGatewayState struct {
 	IpAddressType pulumi.StringPtrInput
 	// Name of the resource gateway.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Status of the resource gateway.
@@ -241,6 +247,8 @@ type resourceGatewayArgs struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Name of the resource gateway.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// IDs of the VPC subnets in which to create the resource gateway.
@@ -260,6 +268,8 @@ type ResourceGatewayArgs struct {
 	IpAddressType pulumi.StringPtrInput
 	// Name of the resource gateway.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayInput
 	// IDs of the VPC subnets in which to create the resource gateway.
@@ -373,6 +383,11 @@ func (o ResourceGatewayOutput) IpAddressType() pulumi.StringOutput {
 // Name of the resource gateway.
 func (o ResourceGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourceGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Security group IDs associated with the resource gateway. The security groups must be in the same VPC.

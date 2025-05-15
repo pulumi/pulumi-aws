@@ -255,6 +255,10 @@ export class StreamProcessor extends pulumi.CustomResource {
      */
     public readonly output!: pulumi.Output<outputs.rekognition.StreamProcessorOutput | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */
     public readonly regionsOfInterests!: pulumi.Output<outputs.rekognition.StreamProcessorRegionsOfInterest[] | undefined>;
@@ -305,6 +309,7 @@ export class StreamProcessor extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationChannel"] = state ? state.notificationChannel : undefined;
             resourceInputs["output"] = state ? state.output : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["regionsOfInterests"] = state ? state.regionsOfInterests : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
@@ -323,6 +328,7 @@ export class StreamProcessor extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notificationChannel"] = args ? args.notificationChannel : undefined;
             resourceInputs["output"] = args ? args.output : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regionsOfInterests"] = args ? args.regionsOfInterests : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
@@ -369,6 +375,10 @@ export interface StreamProcessorState {
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      */
     output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */
@@ -429,6 +439,10 @@ export interface StreamProcessorArgs {
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      */
     output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */

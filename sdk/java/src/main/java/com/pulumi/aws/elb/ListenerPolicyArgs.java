@@ -65,6 +65,21 @@ public final class ListenerPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of arbitrary keys and values that, when changed, will trigger an update.
      * 
      */
@@ -85,6 +100,7 @@ public final class ListenerPolicyArgs extends com.pulumi.resources.ResourceArgs 
         this.loadBalancerName = $.loadBalancerName;
         this.loadBalancerPort = $.loadBalancerPort;
         this.policyNames = $.policyNames;
+        this.region = $.region;
         this.triggers = $.triggers;
     }
 
@@ -177,6 +193,27 @@ public final class ListenerPolicyArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder policyNames(String... policyNames) {
             return policyNames(List.of(policyNames));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

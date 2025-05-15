@@ -228,6 +228,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      * 
      */
@@ -472,6 +487,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.pointInTimeRecovery = $.pointInTimeRecovery;
         this.rangeKey = $.rangeKey;
         this.readCapacity = $.readCapacity;
+        this.region = $.region;
         this.replicas = $.replicas;
         this.restoreDateTime = $.restoreDateTime;
         this.restoreSourceName = $.restoreSourceName;
@@ -812,6 +828,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder readCapacity(Integer readCapacity) {
             return readCapacity(Output.of(readCapacity));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -64,6 +64,8 @@ type AlertManagerDefinition struct {
 
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition pulumi.StringOutput `pulumi:"definition"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -106,6 +108,8 @@ func GetAlertManagerDefinition(ctx *pulumi.Context,
 type alertManagerDefinitionState struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition *string `pulumi:"definition"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -113,6 +117,8 @@ type alertManagerDefinitionState struct {
 type AlertManagerDefinitionState struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId pulumi.StringPtrInput
 }
@@ -124,6 +130,8 @@ func (AlertManagerDefinitionState) ElementType() reflect.Type {
 type alertManagerDefinitionArgs struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition string `pulumi:"definition"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -132,6 +140,8 @@ type alertManagerDefinitionArgs struct {
 type AlertManagerDefinitionArgs struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId pulumi.StringInput
 }
@@ -226,6 +236,11 @@ func (o AlertManagerDefinitionOutput) ToAlertManagerDefinitionOutputWithContext(
 // the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 func (o AlertManagerDefinitionOutput) Definition() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertManagerDefinition) pulumi.StringOutput { return v.Definition }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AlertManagerDefinitionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertManagerDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the prometheus workspace the alert manager definition should be linked to

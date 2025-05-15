@@ -15,6 +15,7 @@ public final class GetSlackWorkspaceResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return ID of the Slack Workspace assigned by AWS Chatbot.
      * 
@@ -29,6 +30,9 @@ public final class GetSlackWorkspaceResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return ID of the Slack Workspace assigned by AWS Chatbot.
@@ -51,12 +55,14 @@ public final class GetSlackWorkspaceResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private String slackTeamId;
         private String slackTeamName;
         public Builder() {}
         public Builder(GetSlackWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.slackTeamId = defaults.slackTeamId;
     	      this.slackTeamName = defaults.slackTeamName;
         }
@@ -67,6 +73,14 @@ public final class GetSlackWorkspaceResult {
               throw new MissingRequiredPropertyException("GetSlackWorkspaceResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSlackWorkspaceResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -88,6 +102,7 @@ public final class GetSlackWorkspaceResult {
         public GetSlackWorkspaceResult build() {
             final var _resultValue = new GetSlackWorkspaceResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.slackTeamId = slackTeamId;
             _resultValue.slackTeamName = slackTeamName;
             return _resultValue;

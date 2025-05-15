@@ -59,6 +59,7 @@ func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.Invoke
 type GetSecretsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetSecretsFilter `pulumi:"filters"`
+	Region  *string            `pulumi:"region"`
 }
 
 // A collection of values returned by getSecrets.
@@ -69,7 +70,8 @@ type GetSecretsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of names of the matched Secrets Manager secrets.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
 func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pulumi.InvokeOption) GetSecretsResultOutput {
@@ -85,6 +87,7 @@ func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pu
 type GetSecretsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetSecretsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput      `pulumi:"region"`
 }
 
 func (GetSecretsOutputArgs) ElementType() reflect.Type {
@@ -123,6 +126,10 @@ func (o GetSecretsResultOutput) Id() pulumi.StringOutput {
 // Set of names of the matched Secrets Manager secrets.
 func (o GetSecretsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSecretsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

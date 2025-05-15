@@ -131,6 +131,10 @@ export class Inventory extends pulumi.CustomResource {
      */
     public readonly optionalFields!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the schedule for generating inventory results (documented below).
      */
     public readonly schedule!: pulumi.Output<outputs.s3.InventorySchedule>;
@@ -155,6 +159,7 @@ export class Inventory extends pulumi.CustomResource {
             resourceInputs["includedObjectVersions"] = state ? state.includedObjectVersions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["optionalFields"] = state ? state.optionalFields : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
         } else {
             const args = argsOrState as InventoryArgs | undefined;
@@ -177,6 +182,7 @@ export class Inventory extends pulumi.CustomResource {
             resourceInputs["includedObjectVersions"] = args ? args.includedObjectVersions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["optionalFields"] = args ? args.optionalFields : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -217,6 +223,10 @@ export interface InventoryState {
      */
     optionalFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the schedule for generating inventory results (documented below).
      */
     schedule?: pulumi.Input<inputs.s3.InventorySchedule>;
@@ -254,6 +264,10 @@ export interface InventoryArgs {
      * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
      */
     optionalFields?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the schedule for generating inventory results (documented below).
      */

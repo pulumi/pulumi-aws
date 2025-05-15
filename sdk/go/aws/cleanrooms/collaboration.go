@@ -107,6 +107,8 @@ type Collaboration struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringOutput `pulumi:"queryLogStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key value pairs which tag the collaboration.
 	Tags       pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -186,6 +188,8 @@ type collaborationState struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus *string `pulumi:"queryLogStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key value pairs which tag the collaboration.
 	Tags       map[string]string `pulumi:"tags"`
 	TagsAll    map[string]string `pulumi:"tagsAll"`
@@ -224,6 +228,8 @@ type CollaborationState struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key value pairs which tag the collaboration.
 	Tags       pulumi.StringMapInput
 	TagsAll    pulumi.StringMapInput
@@ -261,9 +267,10 @@ type collaborationArgs struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus string `pulumi:"queryLogStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key value pairs which tag the collaboration.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Collaboration resource.
@@ -294,9 +301,10 @@ type CollaborationArgs struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key value pairs which tag the collaboration.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (CollaborationArgs) ElementType() reflect.Type {
@@ -442,6 +450,11 @@ func (o CollaborationOutput) Name() pulumi.StringOutput {
 // emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 func (o CollaborationOutput) QueryLogStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.QueryLogStatus }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CollaborationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key value pairs which tag the collaboration.

@@ -111,6 +111,8 @@ type LogDataProtectionPolicy struct {
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogDataProtectionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -153,6 +155,8 @@ type logDataProtectionPolicyState struct {
 	LogGroupName *string `pulumi:"logGroupName"`
 	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument *string `pulumi:"policyDocument"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LogDataProtectionPolicyState struct {
@@ -160,6 +164,8 @@ type LogDataProtectionPolicyState struct {
 	LogGroupName pulumi.StringPtrInput
 	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogDataProtectionPolicyState) ElementType() reflect.Type {
@@ -171,6 +177,8 @@ type logDataProtectionPolicyArgs struct {
 	LogGroupName string `pulumi:"logGroupName"`
 	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument string `pulumi:"policyDocument"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogDataProtectionPolicy resource.
@@ -179,6 +187,8 @@ type LogDataProtectionPolicyArgs struct {
 	LogGroupName pulumi.StringInput
 	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogDataProtectionPolicyArgs) ElementType() reflect.Type {
@@ -276,6 +286,11 @@ func (o LogDataProtectionPolicyOutput) LogGroupName() pulumi.StringOutput {
 // Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 func (o LogDataProtectionPolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDataProtectionPolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogDataProtectionPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDataProtectionPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LogDataProtectionPolicyArrayOutput struct{ *pulumi.OutputState }

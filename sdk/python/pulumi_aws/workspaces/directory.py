@@ -23,7 +23,9 @@ __all__ = ['DirectoryArgs', 'Directory']
 class DirectoryArgs:
     def __init__(__self__, *,
                  directory_id: pulumi.Input[builtins.str],
+                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_properties: Optional[pulumi.Input['DirectorySamlPropertiesArgs']] = None,
                  self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -33,7 +35,9 @@ class DirectoryArgs:
         """
         The set of arguments for constructing a Directory resource.
         :param pulumi.Input[builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
+        :param pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['DirectorySamlPropertiesArgs'] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
@@ -42,8 +46,12 @@ class DirectoryArgs:
         :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         """
         pulumi.set(__self__, "directory_id", directory_id)
+        if certificate_based_auth_properties is not None:
+            pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
         if ip_group_ids is not None:
             pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if saml_properties is not None:
             pulumi.set(__self__, "saml_properties", saml_properties)
         if self_service_permissions is not None:
@@ -70,6 +78,18 @@ class DirectoryArgs:
         pulumi.set(self, "directory_id", value)
 
     @property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]:
+        """
+        Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        """
+        return pulumi.get(self, "certificate_based_auth_properties")
+
+    @certificate_based_auth_properties.setter
+    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]):
+        pulumi.set(self, "certificate_based_auth_properties", value)
+
+    @property
     @pulumi.getter(name="ipGroupIds")
     def ip_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -80,6 +100,18 @@ class DirectoryArgs:
     @ip_group_ids.setter
     def ip_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "ip_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="samlProperties")
@@ -158,6 +190,7 @@ class DirectoryArgs:
 class _DirectoryState:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[builtins.str]] = None,
+                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']] = None,
                  customer_user_name: Optional[pulumi.Input[builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  directory_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -165,6 +198,7 @@ class _DirectoryState:
                  dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  iam_role_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_code: Optional[pulumi.Input[builtins.str]] = None,
                  saml_properties: Optional[pulumi.Input['DirectorySamlPropertiesArgs']] = None,
                  self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
@@ -177,6 +211,7 @@ class _DirectoryState:
         """
         Input properties used for looking up and filtering Directory resources.
         :param pulumi.Input[builtins.str] alias: The directory alias.
+        :param pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[builtins.str] customer_user_name: The user name for the service account.
         :param pulumi.Input[builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[builtins.str] directory_name: The name of the directory.
@@ -184,6 +219,7 @@ class _DirectoryState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_ip_addresses: The IP addresses of the DNS servers for the directory.
         :param pulumi.Input[builtins.str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         :param pulumi.Input['DirectorySamlPropertiesArgs'] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
@@ -196,6 +232,8 @@ class _DirectoryState:
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if certificate_based_auth_properties is not None:
+            pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
         if customer_user_name is not None:
             pulumi.set(__self__, "customer_user_name", customer_user_name)
         if directory_id is not None:
@@ -210,6 +248,8 @@ class _DirectoryState:
             pulumi.set(__self__, "iam_role_id", iam_role_id)
         if ip_group_ids is not None:
             pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registration_code is not None:
             pulumi.set(__self__, "registration_code", registration_code)
         if saml_properties is not None:
@@ -240,6 +280,18 @@ class _DirectoryState:
     @alias.setter
     def alias(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]:
+        """
+        Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        """
+        return pulumi.get(self, "certificate_based_auth_properties")
+
+    @certificate_based_auth_properties.setter
+    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]):
+        pulumi.set(self, "certificate_based_auth_properties", value)
 
     @property
     @pulumi.getter(name="customerUserName")
@@ -324,6 +376,18 @@ class _DirectoryState:
     @ip_group_ids.setter
     def ip_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "ip_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="registrationCode")
@@ -442,8 +506,10 @@ class Directory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -515,6 +581,10 @@ class Directory(pulumi.CustomResource):
             tags={
                 "Example": "true",
             },
+            certificate_based_auth_properties={
+                "certificate_authority_arn": "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+                "status": "ENABLED",
+            },
             saml_properties={
                 "user_access_url": "https://sso.example.com/",
                 "status": "ENABLED",
@@ -571,8 +641,10 @@ class Directory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
@@ -650,6 +722,10 @@ class Directory(pulumi.CustomResource):
             tags={
                 "Example": "true",
             },
+            certificate_based_auth_properties={
+                "certificate_authority_arn": "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+                "status": "ENABLED",
+            },
             saml_properties={
                 "user_access_url": "https://sso.example.com/",
                 "status": "ENABLED",
@@ -719,8 +795,10 @@ class Directory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -736,10 +814,12 @@ class Directory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DirectoryArgs.__new__(DirectoryArgs)
 
+            __props__.__dict__["certificate_based_auth_properties"] = certificate_based_auth_properties
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["ip_group_ids"] = ip_group_ids
+            __props__.__dict__["region"] = region
             __props__.__dict__["saml_properties"] = saml_properties
             __props__.__dict__["self_service_permissions"] = self_service_permissions
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -766,6 +846,7 @@ class Directory(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: Optional[pulumi.Input[builtins.str]] = None,
+            certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
             customer_user_name: Optional[pulumi.Input[builtins.str]] = None,
             directory_id: Optional[pulumi.Input[builtins.str]] = None,
             directory_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -773,6 +854,7 @@ class Directory(pulumi.CustomResource):
             dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             iam_role_id: Optional[pulumi.Input[builtins.str]] = None,
             ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registration_code: Optional[pulumi.Input[builtins.str]] = None,
             saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
             self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
@@ -790,6 +872,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] alias: The directory alias.
+        :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[builtins.str] customer_user_name: The user name for the service account.
         :param pulumi.Input[builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[builtins.str] directory_name: The name of the directory.
@@ -797,6 +880,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_ip_addresses: The IP addresses of the DNS servers for the directory.
         :param pulumi.Input[builtins.str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
@@ -812,6 +896,7 @@ class Directory(pulumi.CustomResource):
         __props__ = _DirectoryState.__new__(_DirectoryState)
 
         __props__.__dict__["alias"] = alias
+        __props__.__dict__["certificate_based_auth_properties"] = certificate_based_auth_properties
         __props__.__dict__["customer_user_name"] = customer_user_name
         __props__.__dict__["directory_id"] = directory_id
         __props__.__dict__["directory_name"] = directory_name
@@ -819,6 +904,7 @@ class Directory(pulumi.CustomResource):
         __props__.__dict__["dns_ip_addresses"] = dns_ip_addresses
         __props__.__dict__["iam_role_id"] = iam_role_id
         __props__.__dict__["ip_group_ids"] = ip_group_ids
+        __props__.__dict__["region"] = region
         __props__.__dict__["registration_code"] = registration_code
         __props__.__dict__["saml_properties"] = saml_properties
         __props__.__dict__["self_service_permissions"] = self_service_permissions
@@ -837,6 +923,14 @@ class Directory(pulumi.CustomResource):
         The directory alias.
         """
         return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> pulumi.Output['outputs.DirectoryCertificateBasedAuthProperties']:
+        """
+        Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        """
+        return pulumi.get(self, "certificate_based_auth_properties")
 
     @property
     @pulumi.getter(name="customerUserName")
@@ -893,6 +987,14 @@ class Directory(pulumi.CustomResource):
         The identifiers of the IP access control groups associated with the directory.
         """
         return pulumi.get(self, "ip_group_ids")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registrationCode")

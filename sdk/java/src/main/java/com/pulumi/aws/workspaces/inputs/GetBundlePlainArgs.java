@@ -59,12 +59,20 @@ public final class GetBundlePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.owner);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetBundlePlainArgs() {}
 
     private GetBundlePlainArgs(GetBundlePlainArgs $) {
         this.bundleId = $.bundleId;
         this.name = $.name;
         this.owner = $.owner;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -115,6 +123,11 @@ public final class GetBundlePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

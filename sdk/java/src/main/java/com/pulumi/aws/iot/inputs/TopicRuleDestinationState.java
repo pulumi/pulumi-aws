@@ -48,6 +48,21 @@ public final class TopicRuleDestinationState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      * 
      */
@@ -67,6 +82,7 @@ public final class TopicRuleDestinationState extends com.pulumi.resources.Resour
     private TopicRuleDestinationState(TopicRuleDestinationState $) {
         this.arn = $.arn;
         this.enabled = $.enabled;
+        this.region = $.region;
         this.vpcConfiguration = $.vpcConfiguration;
     }
 
@@ -128,6 +144,27 @@ public final class TopicRuleDestinationState extends com.pulumi.resources.Resour
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

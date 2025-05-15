@@ -60,12 +60,20 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.mountTargetId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetMountTargetArgs() {}
 
     private GetMountTargetArgs(GetMountTargetArgs $) {
         this.accessPointId = $.accessPointId;
         this.fileSystemId = $.fileSystemId;
         this.mountTargetId = $.mountTargetId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,6 +155,15 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder mountTargetId(String mountTargetId) {
             return mountTargetId(Output.of(mountTargetId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetMountTargetArgs build() {

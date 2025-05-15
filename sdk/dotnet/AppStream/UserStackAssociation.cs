@@ -61,6 +61,12 @@ namespace Pulumi.Aws.AppStream
         public Output<string> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether a welcome email is sent to a user after the user is created in the user pool.
         /// </summary>
         [Output("sendEmailNotification")]
@@ -133,6 +139,12 @@ namespace Pulumi.Aws.AppStream
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether a welcome email is sent to a user after the user is created in the user pool.
         /// </summary>
         [Input("sendEmailNotification")]
@@ -165,6 +177,12 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether a welcome email is sent to a user after the user is created in the user pool.

@@ -38,6 +38,7 @@ class BucketObjectArgs:
                  object_lock_legal_hold_status: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -66,6 +67,7 @@ class BucketObjectArgs:
         :param pulumi.Input[builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[builtins.str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations.
@@ -110,6 +112,8 @@ class BucketObjectArgs:
             pulumi.set(__self__, "object_lock_mode", object_lock_mode)
         if object_lock_retain_until_date is not None:
             pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption is not None:
             pulumi.set(__self__, "server_side_encryption", server_side_encryption)
         if source is not None:
@@ -342,6 +346,18 @@ class BucketObjectArgs:
         pulumi.set(self, "object_lock_retain_until_date", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -438,6 +454,7 @@ class _BucketObjectState:
                  object_lock_legal_hold_status: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -469,6 +486,7 @@ class _BucketObjectState:
         :param pulumi.Input[builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[builtins.str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations.
@@ -518,6 +536,8 @@ class _BucketObjectState:
             pulumi.set(__self__, "object_lock_mode", object_lock_mode)
         if object_lock_retain_until_date is not None:
             pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption is not None:
             pulumi.set(__self__, "server_side_encryption", server_side_encryption)
         if source is not None:
@@ -766,6 +786,18 @@ class _BucketObjectState:
         pulumi.set(self, "object_lock_retain_until_date", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -890,6 +922,7 @@ class BucketObject(pulumi.CustomResource):
                  object_lock_legal_hold_status: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -1037,6 +1070,7 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[builtins.str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations.
@@ -1203,6 +1237,7 @@ class BucketObject(pulumi.CustomResource):
                  object_lock_legal_hold_status: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -1238,6 +1273,7 @@ class BucketObject(pulumi.CustomResource):
             __props__.__dict__["object_lock_legal_hold_status"] = object_lock_legal_hold_status
             __props__.__dict__["object_lock_mode"] = object_lock_mode
             __props__.__dict__["object_lock_retain_until_date"] = object_lock_retain_until_date
+            __props__.__dict__["region"] = region
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             __props__.__dict__["source"] = source
             __props__.__dict__["source_hash"] = source_hash
@@ -1276,6 +1312,7 @@ class BucketObject(pulumi.CustomResource):
             object_lock_legal_hold_status: Optional[pulumi.Input[builtins.str]] = None,
             object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
             object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
             source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
             source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -1312,6 +1349,7 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[builtins.str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations.
@@ -1346,6 +1384,7 @@ class BucketObject(pulumi.CustomResource):
         __props__.__dict__["object_lock_legal_hold_status"] = object_lock_legal_hold_status
         __props__.__dict__["object_lock_mode"] = object_lock_mode
         __props__.__dict__["object_lock_retain_until_date"] = object_lock_retain_until_date
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_side_encryption"] = server_side_encryption
         __props__.__dict__["source"] = source
         __props__.__dict__["source_hash"] = source_hash
@@ -1509,6 +1548,14 @@ class BucketObject(pulumi.CustomResource):
         Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         """
         return pulumi.get(self, "object_lock_retain_until_date")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverSideEncryption")

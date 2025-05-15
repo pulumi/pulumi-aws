@@ -108,6 +108,12 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<string> PolicyRevision { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the resource associated with the resource policy.
         /// </summary>
         [Output("resourceArn")]
@@ -183,6 +189,12 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("policyRevision")]
         public Input<string>? PolicyRevision { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DomainPermissionsArgs()
         {
         }
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.CodeArtifact
         /// </summary>
         [Input("policyRevision")]
         public Input<string>? PolicyRevision { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the resource associated with the resource policy.

@@ -22,6 +22,7 @@ public final class GetStreamKeyResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -51,6 +52,9 @@ public final class GetStreamKeyResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -78,6 +82,7 @@ public final class GetStreamKeyResult {
         private String arn;
         private String channelArn;
         private String id;
+        private String region;
         private Map<String,String> tags;
         private String value;
         public Builder() {}
@@ -86,6 +91,7 @@ public final class GetStreamKeyResult {
     	      this.arn = defaults.arn;
     	      this.channelArn = defaults.channelArn;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.value = defaults.value;
         }
@@ -115,6 +121,14 @@ public final class GetStreamKeyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetStreamKeyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetStreamKeyResult", "tags");
@@ -135,6 +149,7 @@ public final class GetStreamKeyResult {
             _resultValue.arn = arn;
             _resultValue.channelArn = channelArn;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.value = value;
             return _resultValue;

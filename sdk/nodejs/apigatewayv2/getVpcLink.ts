@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getVpcLink:getVpcLink", {
+        "region": args.region,
         "tags": args.tags,
         "vpcLinkId": args.vpcLinkId,
     }, opts);
@@ -32,6 +33,7 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getVpcLink.
  */
 export interface GetVpcLinkArgs {
+    region?: string;
     /**
      * VPC Link Tags.
      */
@@ -58,6 +60,7 @@ export interface GetVpcLinkResult {
      * VPC Link Name.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * List of security groups associated with the VPC Link.
      */
@@ -91,6 +94,7 @@ export interface GetVpcLinkResult {
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigatewayv2/getVpcLink:getVpcLink", {
+        "region": args.region,
         "tags": args.tags,
         "vpcLinkId": args.vpcLinkId,
     }, opts);
@@ -100,6 +104,7 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getVpcLink.
  */
 export interface GetVpcLinkOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * VPC Link Tags.
      */

@@ -52,6 +52,7 @@ func GetUserGroups(ctx *pulumi.Context, args *GetUserGroupsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getUserGroups.
 type GetUserGroupsArgs struct {
+	Region *string `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -62,6 +63,7 @@ type GetUserGroupsResult struct {
 	Groups []GetUserGroupsGroup `pulumi:"groups"`
 	// User pool identifier.
 	Id         string `pulumi:"id"`
+	Region     string `pulumi:"region"`
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -76,6 +78,7 @@ func GetUserGroupsOutput(ctx *pulumi.Context, args GetUserGroupsOutputArgs, opts
 
 // A collection of arguments for invoking getUserGroups.
 type GetUserGroupsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -107,6 +110,10 @@ func (o GetUserGroupsResultOutput) Groups() GetUserGroupsGroupArrayOutput {
 // User pool identifier.
 func (o GetUserGroupsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetUserGroupsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserGroupsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetUserGroupsResultOutput) UserPoolId() pulumi.StringOutput {

@@ -33,6 +33,7 @@ public final class GetEventSourceResult {
      */
     private String name;
     private @Nullable String namePrefix;
+    private String region;
     /**
      * @return State of the event source (`ACTIVE` or `PENDING`)
      * 
@@ -71,6 +72,9 @@ public final class GetEventSourceResult {
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return State of the event source (`ACTIVE` or `PENDING`)
      * 
@@ -93,6 +97,7 @@ public final class GetEventSourceResult {
         private String id;
         private String name;
         private @Nullable String namePrefix;
+        private String region;
         private String state;
         public Builder() {}
         public Builder(GetEventSourceResult defaults) {
@@ -102,6 +107,7 @@ public final class GetEventSourceResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.namePrefix = defaults.namePrefix;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
         }
 
@@ -144,6 +150,14 @@ public final class GetEventSourceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEventSourceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetEventSourceResult", "state");
@@ -158,6 +172,7 @@ public final class GetEventSourceResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.namePrefix = namePrefix;
+            _resultValue.region = region;
             _resultValue.state = state;
             return _resultValue;
         }

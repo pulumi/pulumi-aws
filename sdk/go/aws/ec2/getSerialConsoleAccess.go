@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupSerialConsoleAccess(ctx, map[string]interface{}{}, nil)
+//			_, err := ec2.LookupSerialConsoleAccess(ctx, &ec2.LookupSerialConsoleAccessArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,14 +36,19 @@ import (
 //	}
 //
 // ```
-func LookupSerialConsoleAccess(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSerialConsoleAccessResult, error) {
+func LookupSerialConsoleAccess(ctx *pulumi.Context, args *LookupSerialConsoleAccessArgs, opts ...pulumi.InvokeOption) (*LookupSerialConsoleAccessResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSerialConsoleAccessResult
-	err := ctx.Invoke("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getSerialConsoleAccess.
+type LookupSerialConsoleAccessArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSerialConsoleAccess.
@@ -51,14 +56,26 @@ type LookupSerialConsoleAccessResult struct {
 	// Whether or not serial console access is enabled. Returns as `true` or `false`.
 	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func LookupSerialConsoleAccessOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupSerialConsoleAccessResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupSerialConsoleAccessResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", nil, LookupSerialConsoleAccessResultOutput{}, options).(LookupSerialConsoleAccessResultOutput), nil
-	}).(LookupSerialConsoleAccessResultOutput)
+func LookupSerialConsoleAccessOutput(ctx *pulumi.Context, args LookupSerialConsoleAccessOutputArgs, opts ...pulumi.InvokeOption) LookupSerialConsoleAccessResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (LookupSerialConsoleAccessResultOutput, error) {
+			args := v.(LookupSerialConsoleAccessArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", args, LookupSerialConsoleAccessResultOutput{}, options).(LookupSerialConsoleAccessResultOutput), nil
+		}).(LookupSerialConsoleAccessResultOutput)
+}
+
+// A collection of arguments for invoking getSerialConsoleAccess.
+type LookupSerialConsoleAccessOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (LookupSerialConsoleAccessOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSerialConsoleAccessArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getSerialConsoleAccess.
@@ -84,6 +101,10 @@ func (o LookupSerialConsoleAccessResultOutput) Enabled() pulumi.BoolOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSerialConsoleAccessResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSerialConsoleAccessResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSerialConsoleAccessResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSerialConsoleAccessResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

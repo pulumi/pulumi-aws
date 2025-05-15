@@ -120,6 +120,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly posixProfile!: pulumi.Output<outputs.transfer.UserPosixProfile | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      */
     public readonly role!: pulumi.Output<string>;
@@ -159,6 +163,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["posixProfile"] = state ? state.posixProfile : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -180,6 +185,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["posixProfile"] = args ? args.posixProfile : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -220,6 +226,10 @@ export interface UserState {
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
      */
     posixProfile?: pulumi.Input<inputs.transfer.UserPosixProfile>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      */
@@ -266,6 +276,10 @@ export interface UserArgs {
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
      */
     posixProfile?: pulumi.Input<inputs.transfer.UserPosixProfile>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      */

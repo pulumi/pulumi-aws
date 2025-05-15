@@ -86,6 +86,8 @@ type Route struct {
 	Blackhole pulumi.BoolPtrOutput `pulumi:"blackhole"`
 	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -132,6 +134,8 @@ type routeState struct {
 	Blackhole *bool `pulumi:"blackhole"`
 	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -143,6 +147,8 @@ type RouteState struct {
 	Blackhole pulumi.BoolPtrInput
 	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -158,6 +164,8 @@ type routeArgs struct {
 	Blackhole *bool `pulumi:"blackhole"`
 	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -170,6 +178,8 @@ type RouteArgs struct {
 	Blackhole pulumi.BoolPtrInput
 	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -271,6 +281,11 @@ func (o RouteOutput) Blackhole() pulumi.BoolPtrOutput {
 // IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 func (o RouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).

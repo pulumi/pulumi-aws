@@ -34,6 +34,8 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
      * 
+     * &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+     * 
      */
     @Import(name="quotaName")
     private @Nullable Output<String> quotaName;
@@ -41,9 +43,18 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
      * 
+     * &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+     * 
      */
     public Optional<Output<String>> quotaName() {
         return Optional.ofNullable(this.quotaName);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -66,6 +77,7 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
     private GetServiceQuotaArgs(GetServiceQuotaArgs $) {
         this.quotaCode = $.quotaCode;
         this.quotaName = $.quotaName;
+        this.region = $.region;
         this.serviceCode = $.serviceCode;
     }
 
@@ -111,6 +123,8 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param quotaName Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
          * 
+         * &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+         * 
          * @return builder
          * 
          */
@@ -122,11 +136,22 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param quotaName Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
          * 
+         * &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+         * 
          * @return builder
          * 
          */
         public Builder quotaName(String quotaName) {
             return quotaName(Output.of(quotaName));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

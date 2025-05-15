@@ -71,7 +71,7 @@ import (
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("API"),
 //				},
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				RoleArn: cluster.Arn,
 //				Version: pulumi.String("1.31"),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
@@ -418,7 +418,7 @@ import (
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("CONFIG_MAP"),
 //				},
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				RoleArn: cluster.Arn,
 //				Version: pulumi.String("1.31"),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					EndpointPrivateAccess: pulumi.Bool(true),
@@ -490,6 +490,8 @@ type Cluster struct {
 	OutpostConfig ClusterOutpostConfigPtrOutput `pulumi:"outpostConfig"`
 	// Platform version for the cluster.
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrOutput `pulumi:"remoteNetworkConfig"`
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -583,6 +585,8 @@ type clusterState struct {
 	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
 	// Platform version for the cluster.
 	PlatformVersion *string `pulumi:"platformVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig *ClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfig"`
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -641,6 +645,8 @@ type ClusterState struct {
 	OutpostConfig ClusterOutpostConfigPtrInput
 	// Platform version for the cluster.
 	PlatformVersion pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrInput
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -688,6 +694,8 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig *ClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfig"`
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -728,6 +736,8 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig ClusterOutpostConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrInput
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -917,6 +927,11 @@ func (o ClusterOutput) OutpostConfig() ClusterOutpostConfigPtrOutput {
 // Platform version for the cluster.
 func (o ClusterOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.

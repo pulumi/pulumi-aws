@@ -52,7 +52,8 @@ func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.In
 // A collection of arguments for invoking getWebAcl.
 type LookupWebAclArgs struct {
 	// Name of the WAFv2 Web ACL.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
 }
@@ -64,9 +65,10 @@ type LookupWebAclResult struct {
 	// Description of the WebACL that helps with identification.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string `pulumi:"id"`
-	Name  string `pulumi:"name"`
-	Scope string `pulumi:"scope"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
+	Scope  string `pulumi:"scope"`
 }
 
 func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts ...pulumi.InvokeOption) LookupWebAclResultOutput {
@@ -81,7 +83,8 @@ func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts .
 // A collection of arguments for invoking getWebAcl.
 type LookupWebAclOutputArgs struct {
 	// Name of the WAFv2 Web ACL.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
@@ -122,6 +125,10 @@ func (o LookupWebAclResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupWebAclResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWebAclResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupWebAclResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAclResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupWebAclResultOutput) Scope() pulumi.StringOutput {

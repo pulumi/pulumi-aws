@@ -24,6 +24,7 @@ public final class GetMaintenanceWindowsResult {
      * 
      */
     private List<String> ids;
+    private String region;
 
     private GetMaintenanceWindowsResult() {}
     public List<GetMaintenanceWindowsFilter> filters() {
@@ -43,6 +44,9 @@ public final class GetMaintenanceWindowsResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +60,14 @@ public final class GetMaintenanceWindowsResult {
         private @Nullable List<GetMaintenanceWindowsFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         public Builder() {}
         public Builder(GetMaintenanceWindowsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -92,11 +98,20 @@ public final class GetMaintenanceWindowsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetMaintenanceWindowsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetMaintenanceWindowsResult build() {
             final var _resultValue = new GetMaintenanceWindowsResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

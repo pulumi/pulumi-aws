@@ -43,6 +43,7 @@ public final class GetImageResult {
      */
     private String imageUri;
     private @Nullable Boolean mostRecent;
+    private String region;
     private String registryId;
     private String repositoryName;
 
@@ -91,6 +92,9 @@ public final class GetImageResult {
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
+    public String region() {
+        return this.region;
+    }
     public String registryId() {
         return this.registryId;
     }
@@ -115,6 +119,7 @@ public final class GetImageResult {
         private List<String> imageTags;
         private String imageUri;
         private @Nullable Boolean mostRecent;
+        private String region;
         private String registryId;
         private String repositoryName;
         public Builder() {}
@@ -128,6 +133,7 @@ public final class GetImageResult {
     	      this.imageTags = defaults.imageTags;
     	      this.imageUri = defaults.imageUri;
     	      this.mostRecent = defaults.mostRecent;
+    	      this.region = defaults.region;
     	      this.registryId = defaults.registryId;
     	      this.repositoryName = defaults.repositoryName;
         }
@@ -196,6 +202,14 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             if (registryId == null) {
               throw new MissingRequiredPropertyException("GetImageResult", "registryId");
@@ -221,6 +235,7 @@ public final class GetImageResult {
             _resultValue.imageTags = imageTags;
             _resultValue.imageUri = imageUri;
             _resultValue.mostRecent = mostRecent;
+            _resultValue.region = region;
             _resultValue.registryId = registryId;
             _resultValue.repositoryName = repositoryName;
             return _resultValue;

@@ -21,14 +21,18 @@ __all__ = ['LogDataProtectionPolicyArgs', 'LogDataProtectionPolicy']
 class LogDataProtectionPolicyArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[builtins.str],
-                 policy_document: pulumi.Input[builtins.str]):
+                 policy_document: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LogDataProtectionPolicy resource.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "policy_document", policy_document)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -54,21 +58,37 @@ class LogDataProtectionPolicyArgs:
     def policy_document(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "policy_document", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LogDataProtectionPolicyState:
     def __init__(__self__, *,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
-                 policy_document: Optional[pulumi.Input[builtins.str]] = None):
+                 policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDataProtectionPolicy resources.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -94,6 +114,18 @@ class _LogDataProtectionPolicyState:
     def policy_document(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy_document", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class LogDataProtectionPolicy(pulumi.CustomResource):
 
@@ -105,6 +137,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Log Data Protection Policy resource.
@@ -164,6 +197,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -242,6 +276,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,6 +292,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
+            __props__.__dict__["region"] = region
         super(LogDataProtectionPolicy, __self__).__init__(
             'aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy',
             resource_name,
@@ -268,7 +304,8 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             log_group_name: Optional[pulumi.Input[builtins.str]] = None,
-            policy_document: Optional[pulumi.Input[builtins.str]] = None) -> 'LogDataProtectionPolicy':
+            policy_document: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LogDataProtectionPolicy':
         """
         Get an existing LogDataProtectionPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -278,6 +315,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -285,6 +323,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         __props__.__dict__["log_group_name"] = log_group_name
         __props__.__dict__["policy_document"] = policy_document
+        __props__.__dict__["region"] = region
         return LogDataProtectionPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -302,4 +341,12 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
         return pulumi.get(self, "policy_document")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

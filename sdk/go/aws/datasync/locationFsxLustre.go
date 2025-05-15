@@ -59,6 +59,8 @@ type LocationFsxLustre struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
@@ -113,6 +115,8 @@ type locationFsxLustreState struct {
 	CreationTime *string `pulumi:"creationTime"`
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
@@ -132,6 +136,8 @@ type LocationFsxLustreState struct {
 	CreationTime pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination.
@@ -151,6 +157,8 @@ func (LocationFsxLustreState) ElementType() reflect.Type {
 type locationFsxLustreArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
@@ -163,6 +171,8 @@ type locationFsxLustreArgs struct {
 type LocationFsxLustreArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination.
@@ -271,6 +281,11 @@ func (o LocationFsxLustreOutput) CreationTime() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 func (o LocationFsxLustreOutput) FsxFilesystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LocationFsxLustreOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.

@@ -38,7 +38,7 @@ public final class AgentDataSourceDataSourceConfiguration {
      */
     private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration;
     /**
-     * @return Type of storage for the data source. Valid values: `S3`.
+     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
      * 
      */
     private String type;
@@ -78,7 +78,7 @@ public final class AgentDataSourceDataSourceConfiguration {
         return Optional.ofNullable(this.sharePointConfiguration);
     }
     /**
-     * @return Type of storage for the data source. Valid values: `S3`.
+     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
      * 
      */
     public String type() {

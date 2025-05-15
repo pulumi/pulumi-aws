@@ -112,6 +112,21 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Security group to apply this rule to.
      * 
      */
@@ -205,6 +220,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         this.ipv6CidrBlocks = $.ipv6CidrBlocks;
         this.prefixListIds = $.prefixListIds;
         this.protocol = $.protocol;
+        this.region = $.region;
         this.securityGroupId = $.securityGroupId;
         this.self = $.self;
         this.sourceSecurityGroupId = $.sourceSecurityGroupId;
@@ -404,6 +420,27 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder protocol(ProtocolType protocol) {
             return protocol(Either.ofRight(protocol));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

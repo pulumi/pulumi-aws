@@ -65,6 +65,10 @@ export class ResourceSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */
     public readonly resourceSets!: pulumi.Output<outputs.fms.ResourceSetResourceSet[] | undefined>;
@@ -86,12 +90,14 @@ export class ResourceSet extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResourceSetState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceSets"] = state ? state.resourceSets : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ResourceSetArgs | undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceSets"] = args ? args.resourceSets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -112,6 +118,10 @@ export interface ResourceSetState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */
     resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[]>;
@@ -124,6 +134,10 @@ export interface ResourceSetState {
  * The set of arguments for constructing a ResourceSet resource.
  */
 export interface ResourceSetArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */

@@ -102,6 +102,10 @@ export class ProductSubscription extends pulumi.CustomResource {
      * * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
      */
     public readonly productArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ProductSubscription resource with the given unique name, arguments, and options.
@@ -118,12 +122,14 @@ export class ProductSubscription extends pulumi.CustomResource {
             const state = argsOrState as ProductSubscriptionState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["productArn"] = state ? state.productArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ProductSubscriptionArgs | undefined;
             if ((!args || args.productArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productArn'");
             }
             resourceInputs["productArn"] = args ? args.productArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -181,6 +187,10 @@ export interface ProductSubscriptionState {
      * * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
      */
     productArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -229,4 +239,8 @@ export interface ProductSubscriptionArgs {
      * * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
      */
     productArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

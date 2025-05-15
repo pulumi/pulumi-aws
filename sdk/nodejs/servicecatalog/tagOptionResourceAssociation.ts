@@ -60,6 +60,10 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the resource.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagOptionResourceAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["resourceCreatedTime"] = state ? state.resourceCreatedTime : undefined;
             resourceInputs["resourceDescription"] = state ? state.resourceDescription : undefined;
@@ -111,6 +116,7 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
             if ((!args || args.tagOptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tagOptionId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["tagOptionId"] = args ? args.tagOptionId : undefined;
             resourceInputs["resourceArn"] = undefined /*out*/;
@@ -127,6 +133,10 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TagOptionResourceAssociation resources.
  */
 export interface TagOptionResourceAssociationState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the resource.
      */
@@ -157,6 +167,10 @@ export interface TagOptionResourceAssociationState {
  * The set of arguments for constructing a TagOptionResourceAssociation resource.
  */
 export interface TagOptionResourceAssociationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource identifier.
      */

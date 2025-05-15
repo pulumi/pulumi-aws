@@ -25,18 +25,22 @@ class DomainNameArgs:
                  domain_name: pulumi.Input[builtins.str],
                  domain_name_configuration: pulumi.Input['DomainNameDomainNameConfigurationArgs'],
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
         :param pulumi.Input[builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input['DomainNameDomainNameConfigurationArgs'] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "domain_name_configuration", domain_name_configuration)
         if mutual_tls_authentication is not None:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,6 +82,18 @@ class DomainNameArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -97,6 +113,7 @@ class _DomainNameState:
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_configuration: Optional[pulumi.Input['DomainNameDomainNameConfigurationArgs']] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -106,6 +123,7 @@ class _DomainNameState:
         :param pulumi.Input[builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input['DomainNameDomainNameConfigurationArgs'] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -119,6 +137,8 @@ class _DomainNameState:
             pulumi.set(__self__, "domain_name_configuration", domain_name_configuration)
         if mutual_tls_authentication is not None:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -186,6 +206,18 @@ class _DomainNameState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -220,6 +252,7 @@ class DomainName(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -283,6 +316,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -365,6 +399,7 @@ class DomainName(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -382,6 +417,7 @@ class DomainName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name_configuration'")
             __props__.__dict__["domain_name_configuration"] = domain_name_configuration
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["api_mapping_selection_expression"] = None
             __props__.__dict__["arn"] = None
@@ -401,6 +437,7 @@ class DomainName(pulumi.CustomResource):
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
             mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'DomainName':
         """
@@ -415,6 +452,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -427,6 +465,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_name_configuration"] = domain_name_configuration
         __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return DomainName(resource_name, opts=opts, __props__=__props__)
@@ -470,6 +509,14 @@ class DomainName(pulumi.CustomResource):
         Mutual TLS authentication configuration for the domain name.
         """
         return pulumi.get(self, "mutual_tls_authentication")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

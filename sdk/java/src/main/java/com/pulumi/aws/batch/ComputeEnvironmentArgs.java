@@ -81,6 +81,21 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
@@ -162,6 +177,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         this.eksConfiguration = $.eksConfiguration;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.region = $.region;
         this.serviceRole = $.serviceRole;
         this.state = $.state;
         this.tags = $.tags;
@@ -269,6 +285,27 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

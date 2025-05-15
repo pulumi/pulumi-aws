@@ -179,6 +179,9 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -218,6 +221,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -267,6 +273,7 @@ namespace Pulumi.Aws.Ec2
         /// IP address of the gateway's Internet-routable external interface.
         /// </summary>
         public readonly string IpAddress;
+        public readonly string Region;
         /// <summary>
         /// Map of key-value pairs assigned to the gateway.
         /// </summary>
@@ -294,6 +301,8 @@ namespace Pulumi.Aws.Ec2
 
             string ipAddress,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string type)
@@ -306,6 +315,7 @@ namespace Pulumi.Aws.Ec2
             Filters = filters;
             Id = id;
             IpAddress = ipAddress;
+            Region = region;
             Tags = tags;
             Type = type;
         }

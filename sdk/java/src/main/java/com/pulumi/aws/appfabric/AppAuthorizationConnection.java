@@ -119,6 +119,20 @@ public class AppAuthorizationConnection extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.authRequest);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Contains information about an application tenant, such as the application display name and identifier.
      * 
      */

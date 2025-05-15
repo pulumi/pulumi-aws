@@ -39,6 +39,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("originalDefaultRouteTableId")]
         public Output<string> OriginalDefaultRouteTableId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.DefaultRouteTableAssociationTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -100,6 +106,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class DefaultRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.DefaultRouteTableAssociationTimeoutsArgs>? Timeouts { get; set; }
 
@@ -125,6 +137,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("originalDefaultRouteTableId")]
         public Input<string>? OriginalDefaultRouteTableId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.DefaultRouteTableAssociationTimeoutsGetArgs>? Timeouts { get; set; }

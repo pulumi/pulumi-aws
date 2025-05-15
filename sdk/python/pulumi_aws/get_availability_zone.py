@@ -29,13 +29,16 @@ class GetAvailabilityZoneResult:
     """
     A collection of values returned by getAvailabilityZone.
     """
-    def __init__(__self__, all_availability_zones=None, filters=None, group_name=None, id=None, name=None, name_suffix=None, network_border_group=None, opt_in_status=None, parent_zone_id=None, parent_zone_name=None, region=None, state=None, zone_id=None, zone_type=None):
+    def __init__(__self__, all_availability_zones=None, filters=None, group_long_name=None, group_name=None, id=None, name=None, name_suffix=None, network_border_group=None, opt_in_status=None, parent_zone_id=None, parent_zone_name=None, region=None, state=None, zone_id=None, zone_type=None):
         if all_availability_zones and not isinstance(all_availability_zones, bool):
             raise TypeError("Expected argument 'all_availability_zones' to be a bool")
         pulumi.set(__self__, "all_availability_zones", all_availability_zones)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
+        if group_long_name and not isinstance(group_long_name, str):
+            raise TypeError("Expected argument 'group_long_name' to be a str")
+        pulumi.set(__self__, "group_long_name", group_long_name)
         if group_name and not isinstance(group_name, str):
             raise TypeError("Expected argument 'group_name' to be a str")
         pulumi.set(__self__, "group_name", group_name)
@@ -84,10 +87,18 @@ class GetAvailabilityZoneResult:
         return pulumi.get(self, "filters")
 
     @property
+    @pulumi.getter(name="groupLongName")
+    def group_long_name(self) -> builtins.str:
+        """
+        The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+        """
+        return pulumi.get(self, "group_long_name")
+
+    @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> builtins.str:
         """
-        For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+        The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
         """
         return pulumi.get(self, "group_name")
 
@@ -149,9 +160,6 @@ class GetAvailabilityZoneResult:
     @property
     @pulumi.getter
     def region(self) -> builtins.str:
-        """
-        Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-        """
         return pulumi.get(self, "region")
 
     @property
@@ -181,6 +189,7 @@ class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
         return GetAvailabilityZoneResult(
             all_availability_zones=self.all_availability_zones,
             filters=self.filters,
+            group_long_name=self.group_long_name,
             group_name=self.group_name,
             id=self.id,
             name=self.name,
@@ -198,6 +207,7 @@ class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
 def get_availability_zone(all_availability_zones: Optional[builtins.bool] = None,
                           filters: Optional[Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']]] = None,
                           name: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           state: Optional[builtins.str] = None,
                           zone_id: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZoneResult:
@@ -265,11 +275,16 @@ def get_availability_zone(all_availability_zones: Optional[builtins.bool] = None
     :param builtins.str name: Full name of the availability zone to select.
     :param builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param builtins.str zone_id: Zone ID of the availability zone to select.
+           
+           The arguments of this data source act as filters for querying the available
+           availability zones. The given filters must match exactly one availability
+           zone whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones
     __args__['filters'] = filters
     __args__['name'] = name
+    __args__['region'] = region
     __args__['state'] = state
     __args__['zoneId'] = zone_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -278,6 +293,7 @@ def get_availability_zone(all_availability_zones: Optional[builtins.bool] = None
     return AwaitableGetAvailabilityZoneResult(
         all_availability_zones=pulumi.get(__ret__, 'all_availability_zones'),
         filters=pulumi.get(__ret__, 'filters'),
+        group_long_name=pulumi.get(__ret__, 'group_long_name'),
         group_name=pulumi.get(__ret__, 'group_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -293,6 +309,7 @@ def get_availability_zone(all_availability_zones: Optional[builtins.bool] = None
 def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                  filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']]]]] = None,
                                  name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  zone_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
@@ -360,11 +377,16 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     :param builtins.str name: Full name of the availability zone to select.
     :param builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param builtins.str zone_id: Zone ID of the availability zone to select.
+           
+           The arguments of this data source act as filters for querying the available
+           availability zones. The given filters must match exactly one availability
+           zone whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones
     __args__['filters'] = filters
     __args__['name'] = name
+    __args__['region'] = region
     __args__['state'] = state
     __args__['zoneId'] = zone_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -372,6 +394,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     return __ret__.apply(lambda __response__: GetAvailabilityZoneResult(
         all_availability_zones=pulumi.get(__response__, 'all_availability_zones'),
         filters=pulumi.get(__response__, 'filters'),
+        group_long_name=pulumi.get(__response__, 'group_long_name'),
         group_name=pulumi.get(__response__, 'group_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

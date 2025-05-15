@@ -198,6 +198,9 @@ namespace Pulumi.Aws.Rds
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -229,6 +232,9 @@ namespace Pulumi.Aws.Rds
             get => _filters ?? (_filters = new InputList<Inputs.GetInstancesFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -265,6 +271,7 @@ namespace Pulumi.Aws.Rds
         /// Identifiers of the matched RDS instances.
         /// </summary>
         public readonly ImmutableArray<string> InstanceIdentifiers;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
@@ -277,12 +284,15 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> instanceIdentifiers,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Filters = filters;
             Id = id;
             InstanceArns = instanceArns;
             InstanceIdentifiers = instanceIdentifiers;
+            Region = region;
             Tags = tags;
         }
     }

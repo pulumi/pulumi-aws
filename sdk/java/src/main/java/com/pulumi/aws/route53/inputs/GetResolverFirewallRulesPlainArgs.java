@@ -61,12 +61,20 @@ public final class GetResolverFirewallRulesPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.priority);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetResolverFirewallRulesPlainArgs() {}
 
     private GetResolverFirewallRulesPlainArgs(GetResolverFirewallRulesPlainArgs $) {
         this.action = $.action;
         this.firewallRuleGroupId = $.firewallRuleGroupId;
         this.priority = $.priority;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -117,6 +125,11 @@ public final class GetResolverFirewallRulesPlainArgs extends com.pulumi.resource
          */
         public Builder priority(@Nullable Integer priority) {
             $.priority = priority;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

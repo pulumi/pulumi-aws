@@ -242,6 +242,12 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableArray<Outputs.DataSourcePermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         /// </summary>
         [Output("sslProperties")]
@@ -362,6 +368,12 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         /// </summary>
         [Input("sslProperties")]
@@ -448,6 +460,12 @@ namespace Pulumi.Aws.Quicksight
             get => _permissions ?? (_permissions = new InputList<Inputs.DataSourcePermissionGetArgs>());
             set => _permissions = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.

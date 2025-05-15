@@ -22,6 +22,7 @@ public final class GetDirectoryBucketsResult {
      */
     private List<String> buckets;
     private String id;
+    private String region;
 
     private GetDirectoryBucketsResult() {}
     /**
@@ -41,6 +42,9 @@ public final class GetDirectoryBucketsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -54,12 +58,14 @@ public final class GetDirectoryBucketsResult {
         private List<String> arns;
         private List<String> buckets;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetDirectoryBucketsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
     	      this.buckets = defaults.buckets;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -92,11 +98,20 @@ public final class GetDirectoryBucketsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryBucketsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetDirectoryBucketsResult build() {
             final var _resultValue = new GetDirectoryBucketsResult();
             _resultValue.arns = arns;
             _resultValue.buckets = buckets;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

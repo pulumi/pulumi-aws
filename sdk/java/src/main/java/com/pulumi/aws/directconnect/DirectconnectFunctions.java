@@ -10,6 +10,8 @@ import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
 import com.pulumi.aws.directconnect.inputs.GetGatewayPlainArgs;
 import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
 import com.pulumi.aws.directconnect.inputs.GetLocationPlainArgs;
+import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
+import com.pulumi.aws.directconnect.inputs.GetLocationsPlainArgs;
 import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
 import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationPlainArgs;
 import com.pulumi.aws.directconnect.outputs.GetConnectionResult;
@@ -22,7 +24,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class DirectconnectFunctions {
@@ -688,6 +689,7 @@ public final class DirectconnectFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -701,7 +703,8 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var available = DirectconnectFunctions.getLocations(GetLocationsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -711,7 +714,7 @@ public final class DirectconnectFunctions {
      * 
      */
     public static Output<GetLocationsResult> getLocations() {
-        return getLocations(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getLocations(GetLocationsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
@@ -730,6 +733,7 @@ public final class DirectconnectFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -743,7 +747,8 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var available = DirectconnectFunctions.getLocations(GetLocationsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -753,7 +758,7 @@ public final class DirectconnectFunctions {
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain() {
-        return getLocationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getLocationsPlain(GetLocationsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
@@ -772,6 +777,7 @@ public final class DirectconnectFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -785,7 +791,8 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var available = DirectconnectFunctions.getLocations(GetLocationsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -794,7 +801,7 @@ public final class DirectconnectFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLocationsResult> getLocations(InvokeArgs args) {
+    public static Output<GetLocationsResult> getLocations(GetLocationsArgs args) {
         return getLocations(args, InvokeOptions.Empty);
     }
     /**
@@ -814,6 +821,7 @@ public final class DirectconnectFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -827,7 +835,8 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var available = DirectconnectFunctions.getLocations(GetLocationsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -836,7 +845,7 @@ public final class DirectconnectFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args) {
+    public static CompletableFuture<GetLocationsResult> getLocationsPlain(GetLocationsPlainArgs args) {
         return getLocationsPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -856,6 +865,7 @@ public final class DirectconnectFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -869,7 +879,8 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var available = DirectconnectFunctions.getLocations(GetLocationsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -878,7 +889,7 @@ public final class DirectconnectFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetLocationsResult> getLocations(GetLocationsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:directconnect/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -898,6 +909,7 @@ public final class DirectconnectFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -911,7 +923,8 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var available = DirectconnectFunctions.getLocations(GetLocationsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -920,7 +933,7 @@ public final class DirectconnectFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetLocationsResult> getLocations(GetLocationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:directconnect/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -940,6 +953,7 @@ public final class DirectconnectFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -953,7 +967,8 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var available = DirectconnectFunctions.getLocations(GetLocationsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -962,7 +977,7 @@ public final class DirectconnectFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetLocationsResult> getLocationsPlain(GetLocationsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:directconnect/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**

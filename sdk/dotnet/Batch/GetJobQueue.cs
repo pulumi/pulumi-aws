@@ -96,6 +96,9 @@ namespace Pulumi.Aws.Batch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -121,6 +124,9 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -173,6 +179,7 @@ namespace Pulumi.Aws.Batch
         /// associated with the same compute environment.
         /// </summary>
         public readonly int Priority;
+        public readonly string Region;
         /// <summary>
         /// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
         /// </summary>
@@ -209,6 +216,8 @@ namespace Pulumi.Aws.Batch
 
             int priority,
 
+            string region,
+
             string schedulingPolicyArn,
 
             string state,
@@ -225,6 +234,7 @@ namespace Pulumi.Aws.Batch
             JobStateTimeLimitActions = jobStateTimeLimitActions;
             Name = name;
             Priority = priority;
+            Region = region;
             SchedulingPolicyArn = schedulingPolicyArn;
             State = state;
             Status = status;

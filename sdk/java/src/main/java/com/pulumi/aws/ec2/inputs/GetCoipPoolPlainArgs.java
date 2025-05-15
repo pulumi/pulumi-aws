@@ -54,6 +54,13 @@ public final class GetCoipPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.poolId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
@@ -83,6 +90,7 @@ public final class GetCoipPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
         this.filters = $.filters;
         this.localGatewayRouteTableId = $.localGatewayRouteTableId;
         this.poolId = $.poolId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -132,6 +140,11 @@ public final class GetCoipPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder poolId(@Nullable String poolId) {
             $.poolId = poolId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

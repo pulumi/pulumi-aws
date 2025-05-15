@@ -32,6 +32,13 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
         return this.configurationSetName;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags for the container recipe.
      * 
@@ -51,6 +58,7 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
 
     private GetConfigurationSetArgs(GetConfigurationSetArgs $) {
         this.configurationSetName = $.configurationSetName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder configurationSetName(String configurationSetName) {
             return configurationSetName(Output.of(configurationSetName));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServerlessVpcEndpointPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServerlessVpcEndpointPlainArgs Empty = new GetServerlessVpcEndpointPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * The unique identifier of the endpoint.
@@ -31,6 +40,7 @@ public final class GetServerlessVpcEndpointPlainArgs extends com.pulumi.resource
     private GetServerlessVpcEndpointPlainArgs() {}
 
     private GetServerlessVpcEndpointPlainArgs(GetServerlessVpcEndpointPlainArgs $) {
+        this.region = $.region;
         this.vpcEndpointId = $.vpcEndpointId;
     }
 
@@ -50,6 +60,11 @@ public final class GetServerlessVpcEndpointPlainArgs extends com.pulumi.resource
 
         public Builder(GetServerlessVpcEndpointPlainArgs defaults) {
             $ = new GetServerlessVpcEndpointPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

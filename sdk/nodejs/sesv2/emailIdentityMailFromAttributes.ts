@@ -71,6 +71,10 @@ export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
     public readonly mailFromDomain!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EmailIdentityMailFromAttributes resource with the given unique name, arguments, and options.
@@ -88,6 +92,7 @@ export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {
             resourceInputs["behaviorOnMxFailure"] = state ? state.behaviorOnMxFailure : undefined;
             resourceInputs["emailIdentity"] = state ? state.emailIdentity : undefined;
             resourceInputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EmailIdentityMailFromAttributesArgs | undefined;
             if ((!args || args.emailIdentity === undefined) && !opts.urn) {
@@ -96,6 +101,7 @@ export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {
             resourceInputs["behaviorOnMxFailure"] = args ? args.behaviorOnMxFailure : undefined;
             resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
             resourceInputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailIdentityMailFromAttributes.__pulumiType, name, resourceInputs, opts);
@@ -118,6 +124,10 @@ export interface EmailIdentityMailFromAttributesState {
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
     mailFromDomain?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -136,4 +146,8 @@ export interface EmailIdentityMailFromAttributesArgs {
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
     mailFromDomain?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

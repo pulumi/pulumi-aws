@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewAggregateAuthorization(ctx, "example", &cfg.AggregateAuthorizationArgs{
-//				AccountId: pulumi.String("123456789012"),
-//				Region:    pulumi.String("eu-west-2"),
+//				AccountId:           pulumi.String("123456789012"),
+//				AuthorizedAwsRegion: pulumi.String("eu-west-2"),
 //			})
 //			if err != nil {
 //				return err
@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
+// Using `pulumi import`, import Config aggregate authorizations using `account_id:authorized_aws_region`. For example:
 //
 // ```sh
 // $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
@@ -51,12 +51,16 @@ import (
 type AggregateAuthorization struct {
 	pulumi.CustomResourceState
 
-	// Account ID
+	// Account ID.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The ARN of the authorization
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Region
-	Region pulumi.StringOutput `pulumi:"region"`
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion pulumi.StringPtrOutput `pulumi:"authorizedAwsRegion"`
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
+	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -72,9 +76,6 @@ func NewAggregateAuthorization(ctx *pulumi.Context,
 
 	if args.AccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AccountId'")
-	}
-	if args.Region == nil {
-		return nil, errors.New("invalid value for required argument 'Region'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AggregateAuthorization
@@ -99,11 +100,15 @@ func GetAggregateAuthorization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AggregateAuthorization resources.
 type aggregateAuthorizationState struct {
-	// Account ID
+	// Account ID.
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the authorization
 	Arn *string `pulumi:"arn"`
-	// Region
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion *string `pulumi:"authorizedAwsRegion"`
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -112,11 +117,15 @@ type aggregateAuthorizationState struct {
 }
 
 type AggregateAuthorizationState struct {
-	// Account ID
+	// Account ID.
 	AccountId pulumi.StringPtrInput
 	// The ARN of the authorization
 	Arn pulumi.StringPtrInput
-	// Region
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion pulumi.StringPtrInput
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -129,20 +138,28 @@ func (AggregateAuthorizationState) ElementType() reflect.Type {
 }
 
 type aggregateAuthorizationArgs struct {
-	// Account ID
+	// Account ID.
 	AccountId string `pulumi:"accountId"`
-	// Region
-	Region string `pulumi:"region"`
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion *string `pulumi:"authorizedAwsRegion"`
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AggregateAuthorization resource.
 type AggregateAuthorizationArgs struct {
-	// Account ID
+	// Account ID.
 	AccountId pulumi.StringInput
-	// Region
-	Region pulumi.StringInput
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion pulumi.StringPtrInput
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -234,7 +251,7 @@ func (o AggregateAuthorizationOutput) ToAggregateAuthorizationOutputWithContext(
 	return o
 }
 
-// Account ID
+// Account ID.
 func (o AggregateAuthorizationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
@@ -244,9 +261,16 @@ func (o AggregateAuthorizationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Region
-func (o AggregateAuthorizationOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+// The region authorized to collect aggregated data.
+func (o AggregateAuthorizationOutput) AuthorizedAwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringPtrOutput { return v.AuthorizedAwsRegion }).(pulumi.StringPtrOutput)
+}
+
+// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+//
+// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
+func (o AggregateAuthorizationOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

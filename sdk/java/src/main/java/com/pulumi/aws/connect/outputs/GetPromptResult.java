@@ -27,6 +27,7 @@ public final class GetPromptResult {
      * 
      */
     private String promptId;
+    private String region;
 
     private GetPromptResult() {}
     /**
@@ -56,6 +57,9 @@ public final class GetPromptResult {
     public String promptId() {
         return this.promptId;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -71,6 +75,7 @@ public final class GetPromptResult {
         private String instanceId;
         private String name;
         private String promptId;
+        private String region;
         public Builder() {}
         public Builder(GetPromptResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,6 +84,7 @@ public final class GetPromptResult {
     	      this.instanceId = defaults.instanceId;
     	      this.name = defaults.name;
     	      this.promptId = defaults.promptId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -121,6 +127,14 @@ public final class GetPromptResult {
             this.promptId = promptId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPromptResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetPromptResult build() {
             final var _resultValue = new GetPromptResult();
             _resultValue.arn = arn;
@@ -128,6 +142,7 @@ public final class GetPromptResult {
             _resultValue.instanceId = instanceId;
             _resultValue.name = name;
             _resultValue.promptId = promptId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

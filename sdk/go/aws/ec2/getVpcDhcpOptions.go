@@ -95,6 +95,7 @@ type LookupVpcDhcpOptionsArgs struct {
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// List of custom filters as described below.
 	Filters []GetVpcDhcpOptionsFilter `pulumi:"filters"`
+	Region  *string                   `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -122,6 +123,7 @@ type LookupVpcDhcpOptionsResult struct {
 	NtpServers []string `pulumi:"ntpServers"`
 	// ID of the AWS account that owns the DHCP options set.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -141,6 +143,7 @@ type LookupVpcDhcpOptionsOutputArgs struct {
 	DhcpOptionsId pulumi.StringPtrInput `pulumi:"dhcpOptionsId"`
 	// List of custom filters as described below.
 	Filters GetVpcDhcpOptionsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput             `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -216,6 +219,10 @@ func (o LookupVpcDhcpOptionsResultOutput) NtpServers() pulumi.StringArrayOutput 
 // ID of the AWS account that owns the DHCP options set.
 func (o LookupVpcDhcpOptionsResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcDhcpOptionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the resource.

@@ -54,6 +54,8 @@ type EnrollmentStatus struct {
 	IncludeMemberAccounts pulumi.BoolOutput `pulumi:"includeMemberAccounts"`
 	// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
 	NumberOfMemberAccountsOptedIn pulumi.IntOutput `pulumi:"numberOfMemberAccountsOptedIn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
 	Status   pulumi.StringOutput               `pulumi:"status"`
 	Timeouts EnrollmentStatusTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -96,6 +98,8 @@ type enrollmentStatusState struct {
 	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`
 	// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
 	NumberOfMemberAccountsOptedIn *int `pulumi:"numberOfMemberAccountsOptedIn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
 	Status   *string                   `pulumi:"status"`
 	Timeouts *EnrollmentStatusTimeouts `pulumi:"timeouts"`
@@ -106,6 +110,8 @@ type EnrollmentStatusState struct {
 	IncludeMemberAccounts pulumi.BoolPtrInput
 	// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
 	NumberOfMemberAccountsOptedIn pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
 	Status   pulumi.StringPtrInput
 	Timeouts EnrollmentStatusTimeoutsPtrInput
@@ -118,6 +124,8 @@ func (EnrollmentStatusState) ElementType() reflect.Type {
 type enrollmentStatusArgs struct {
 	// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
 	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
 	Status   string                    `pulumi:"status"`
 	Timeouts *EnrollmentStatusTimeouts `pulumi:"timeouts"`
@@ -127,6 +135,8 @@ type enrollmentStatusArgs struct {
 type EnrollmentStatusArgs struct {
 	// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
 	IncludeMemberAccounts pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
 	Status   pulumi.StringInput
 	Timeouts EnrollmentStatusTimeoutsPtrInput
@@ -227,6 +237,11 @@ func (o EnrollmentStatusOutput) IncludeMemberAccounts() pulumi.BoolOutput {
 // The count of organization member accounts that are opted in to the service, if your account is an organization management account.
 func (o EnrollmentStatusOutput) NumberOfMemberAccountsOptedIn() pulumi.IntOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.IntOutput { return v.NumberOfMemberAccountsOptedIn }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EnrollmentStatusOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnrollmentStatus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The enrollment status of the account. Valid values: `Active`, `Inactive`.

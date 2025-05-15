@@ -32,6 +32,13 @@ public final class GetRouteCalculatorArgs extends com.pulumi.resources.InvokeArg
         return this.calculatorName;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags for the route calculator.
      * 
@@ -51,6 +58,7 @@ public final class GetRouteCalculatorArgs extends com.pulumi.resources.InvokeArg
 
     private GetRouteCalculatorArgs(GetRouteCalculatorArgs $) {
         this.calculatorName = $.calculatorName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetRouteCalculatorArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder calculatorName(String calculatorName) {
             return calculatorName(Output.of(calculatorName));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

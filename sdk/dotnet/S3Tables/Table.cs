@@ -131,6 +131,12 @@ namespace Pulumi.Aws.S3Tables
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// 
         /// The following argument is optional:
@@ -235,6 +241,12 @@ namespace Pulumi.Aws.S3Tables
         public Input<string> Namespace { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// 
         /// The following argument is optional:
@@ -322,6 +334,12 @@ namespace Pulumi.Aws.S3Tables
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.

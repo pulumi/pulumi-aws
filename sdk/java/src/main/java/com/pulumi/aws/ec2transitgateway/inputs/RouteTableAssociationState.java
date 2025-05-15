@@ -17,6 +17,21 @@ public final class RouteTableAssociationState extends com.pulumi.resources.Resou
     public static final RouteTableAssociationState Empty = new RouteTableAssociationState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
      * 
      */
@@ -94,6 +109,7 @@ public final class RouteTableAssociationState extends com.pulumi.resources.Resou
     private RouteTableAssociationState() {}
 
     private RouteTableAssociationState(RouteTableAssociationState $) {
+        this.region = $.region;
         this.replaceExistingAssociation = $.replaceExistingAssociation;
         this.resourceId = $.resourceId;
         this.resourceType = $.resourceType;
@@ -117,6 +133,27 @@ public final class RouteTableAssociationState extends com.pulumi.resources.Resou
 
         public Builder(RouteTableAssociationState defaults) {
             $ = new RouteTableAssociationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

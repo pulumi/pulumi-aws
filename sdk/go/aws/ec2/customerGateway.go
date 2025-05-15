@@ -67,6 +67,8 @@ type CustomerGateway struct {
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -121,6 +123,8 @@ type customerGatewayState struct {
 	DeviceName *string `pulumi:"deviceName"`
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress *string `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -143,6 +147,8 @@ type CustomerGatewayState struct {
 	DeviceName pulumi.StringPtrInput
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -167,6 +173,8 @@ type customerGatewayArgs struct {
 	DeviceName *string `pulumi:"deviceName"`
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress *string `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
@@ -186,6 +194,8 @@ type CustomerGatewayArgs struct {
 	DeviceName pulumi.StringPtrInput
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of customer gateway. The only type AWS
@@ -308,6 +318,11 @@ func (o CustomerGatewayOutput) DeviceName() pulumi.StringPtrOutput {
 // The IPv4 address for the customer gateway device's outside interface.
 func (o CustomerGatewayOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CustomerGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

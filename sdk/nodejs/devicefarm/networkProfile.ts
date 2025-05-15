@@ -91,6 +91,10 @@ export class NetworkProfile extends pulumi.CustomResource {
      */
     public readonly projectArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -140,6 +144,7 @@ export class NetworkProfile extends pulumi.CustomResource {
             resourceInputs["downlinkLossPercent"] = state ? state.downlinkLossPercent : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["projectArn"] = state ? state.projectArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -159,6 +164,7 @@ export class NetworkProfile extends pulumi.CustomResource {
             resourceInputs["downlinkLossPercent"] = args ? args.downlinkLossPercent : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectArn"] = args ? args.projectArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["uplinkBandwidthBits"] = args ? args.uplinkBandwidthBits : undefined;
@@ -209,6 +215,10 @@ export interface NetworkProfileState {
      * The ARN of the project for the network profile.
      */
     projectArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -271,6 +281,10 @@ export interface NetworkProfileArgs {
      * The ARN of the project for the network profile.
      */
     projectArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

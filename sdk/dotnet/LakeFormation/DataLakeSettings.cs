@@ -226,6 +226,12 @@ namespace Pulumi.Aws.LakeFormation
         public Output<ImmutableArray<string>> ReadOnlyAdmins { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         /// 
         /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
@@ -381,6 +387,12 @@ namespace Pulumi.Aws.LakeFormation
             set => _readOnlyAdmins = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("trustedResourceOwners")]
         private InputList<string>? _trustedResourceOwners;
 
@@ -504,6 +516,12 @@ namespace Pulumi.Aws.LakeFormation
             get => _readOnlyAdmins ?? (_readOnlyAdmins = new InputList<string>());
             set => _readOnlyAdmins = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("trustedResourceOwners")]
         private InputList<string>? _trustedResourceOwners;

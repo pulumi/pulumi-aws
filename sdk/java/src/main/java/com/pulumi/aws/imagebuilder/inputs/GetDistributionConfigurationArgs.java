@@ -33,6 +33,21 @@ public final class GetDistributionConfigurationArgs extends com.pulumi.resources
     }
 
     /**
+     * AWS Region of distribution.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return AWS Region of distribution.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags for the distribution configuration.
      * 
      */
@@ -51,6 +66,7 @@ public final class GetDistributionConfigurationArgs extends com.pulumi.resources
 
     private GetDistributionConfigurationArgs(GetDistributionConfigurationArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +107,27 @@ public final class GetDistributionConfigurationArgs extends com.pulumi.resources
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param region AWS Region of distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region AWS Region of distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

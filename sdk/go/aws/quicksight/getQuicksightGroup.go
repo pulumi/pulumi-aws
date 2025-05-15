@@ -62,6 +62,7 @@ type GetQuicksightGroupArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getQuicksightGroup.
@@ -77,6 +78,7 @@ type GetQuicksightGroupResult struct {
 	Namespace *string `pulumi:"namespace"`
 	// The principal ID of the group.
 	PrincipalId string `pulumi:"principalId"`
+	Region      string `pulumi:"region"`
 }
 
 func GetQuicksightGroupOutput(ctx *pulumi.Context, args GetQuicksightGroupOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightGroupResultOutput {
@@ -98,6 +100,7 @@ type GetQuicksightGroupOutputArgs struct {
 	GroupName pulumi.StringInput `pulumi:"groupName"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetQuicksightGroupOutputArgs) ElementType() reflect.Type {
@@ -149,6 +152,10 @@ func (o GetQuicksightGroupResultOutput) Namespace() pulumi.StringPtrOutput {
 // The principal ID of the group.
 func (o GetQuicksightGroupResultOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetQuicksightGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

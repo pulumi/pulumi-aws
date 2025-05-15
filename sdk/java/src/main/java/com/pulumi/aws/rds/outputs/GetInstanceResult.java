@@ -191,6 +191,7 @@ public final class GetInstanceResult {
      * 
      */
     private Boolean publiclyAccessible;
+    private String region;
     /**
      * @return Identifier of the source DB that this is a replica of.
      * 
@@ -477,6 +478,9 @@ public final class GetInstanceResult {
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Identifier of the source DB that this is a replica of.
      * 
@@ -575,6 +579,7 @@ public final class GetInstanceResult {
         private String preferredBackupWindow;
         private String preferredMaintenanceWindow;
         private Boolean publiclyAccessible;
+        private String region;
         private String replicateSourceDb;
         private String resourceId;
         private Boolean storageEncrypted;
@@ -622,6 +627,7 @@ public final class GetInstanceResult {
     	      this.preferredBackupWindow = defaults.preferredBackupWindow;
     	      this.preferredMaintenanceWindow = defaults.preferredMaintenanceWindow;
     	      this.publiclyAccessible = defaults.publiclyAccessible;
+    	      this.region = defaults.region;
     	      this.replicateSourceDb = defaults.replicateSourceDb;
     	      this.resourceId = defaults.resourceId;
     	      this.storageEncrypted = defaults.storageEncrypted;
@@ -933,6 +939,14 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder replicateSourceDb(String replicateSourceDb) {
             if (replicateSourceDb == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "replicateSourceDb");
@@ -1037,6 +1051,7 @@ public final class GetInstanceResult {
             _resultValue.preferredBackupWindow = preferredBackupWindow;
             _resultValue.preferredMaintenanceWindow = preferredMaintenanceWindow;
             _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.region = region;
             _resultValue.replicateSourceDb = replicateSourceDb;
             _resultValue.resourceId = resourceId;
             _resultValue.storageEncrypted = storageEncrypted;

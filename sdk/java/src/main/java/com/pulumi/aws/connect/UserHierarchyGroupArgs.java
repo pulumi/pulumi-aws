@@ -63,6 +63,21 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Tags to apply to the hierarchy group. If configured with a provider
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -85,6 +100,7 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.ResourceA
         this.instanceId = $.instanceId;
         this.name = $.name;
         this.parentGroupId = $.parentGroupId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -167,6 +183,27 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.ResourceA
          */
         public Builder parentGroupId(String parentGroupId) {
             return parentGroupId(Output.of(parentGroupId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

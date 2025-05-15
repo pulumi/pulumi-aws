@@ -25,6 +25,7 @@ export function getContactsRotation(args: GetContactsRotationArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getContactsRotation:getContactsRotation", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,7 @@ export interface GetContactsRotationArgs {
      * The Amazon Resource Name (ARN) of the rotation.
      */
     arn: string;
+    region?: string;
 }
 
 /**
@@ -56,6 +58,7 @@ export interface GetContactsRotationResult {
      * Information about when an on-call rotation is in effect and how long the rotation period lasts.
      */
     readonly recurrences: outputs.ssm.GetContactsRotationRecurrence[];
+    readonly region: string;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
@@ -87,6 +90,7 @@ export function getContactsRotationOutput(args: GetContactsRotationOutputArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getContactsRotation:getContactsRotation", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -98,4 +102,5 @@ export interface GetContactsRotationOutputArgs {
      * The Amazon Resource Name (ARN) of the rotation.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

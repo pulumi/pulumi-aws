@@ -79,6 +79,10 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      */
     public readonly serverProperties!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["kafkaVersions"] = state ? state.kafkaVersions : undefined;
             resourceInputs["latestRevision"] = state ? state.latestRevision : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverProperties"] = state ? state.serverProperties : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
@@ -110,6 +115,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kafkaVersions"] = args ? args.kafkaVersions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverProperties"] = args ? args.serverProperties : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["latestRevision"] = undefined /*out*/;
@@ -144,6 +150,10 @@ export interface ConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      */
     serverProperties?: pulumi.Input<string>;
@@ -165,6 +175,10 @@ export interface ConfigurationArgs {
      * Name of the configuration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      */

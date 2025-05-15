@@ -121,6 +121,12 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableArray<Outputs.WorkflowOnExceptionStep>> OnExceptionSteps { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         /// </summary>
         [Output("steps")]
@@ -202,6 +208,12 @@ namespace Pulumi.Aws.Transfer
             set => _onExceptionSteps = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("steps", required: true)]
         private InputList<Inputs.WorkflowStepArgs>? _steps;
 
@@ -257,6 +269,12 @@ namespace Pulumi.Aws.Transfer
             get => _onExceptionSteps ?? (_onExceptionSteps = new InputList<Inputs.WorkflowOnExceptionStepGetArgs>());
             set => _onExceptionSteps = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("steps")]
         private InputList<Inputs.WorkflowStepGetArgs>? _steps;

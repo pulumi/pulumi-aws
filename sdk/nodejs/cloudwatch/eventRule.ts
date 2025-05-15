@@ -119,6 +119,10 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -167,6 +171,7 @@ export class EventRule extends pulumi.CustomResource {
             resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -181,6 +186,7 @@ export class EventRule extends pulumi.CustomResource {
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
@@ -234,6 +240,10 @@ export interface EventRuleState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */
@@ -300,6 +310,10 @@ export interface EventRuleArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */

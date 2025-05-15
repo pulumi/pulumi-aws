@@ -76,6 +76,7 @@ func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts 
 
 // A collection of arguments for invoking getEventCategories.
 type GetEventCategoriesArgs struct {
+	Region *string `pulumi:"region"`
 	// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
 	SourceType *string `pulumi:"sourceType"`
 }
@@ -86,6 +87,7 @@ type GetEventCategoriesResult struct {
 	EventCategories []string `pulumi:"eventCategories"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
+	Region     string  `pulumi:"region"`
 	SourceType *string `pulumi:"sourceType"`
 }
 
@@ -100,6 +102,7 @@ func GetEventCategoriesOutput(ctx *pulumi.Context, args GetEventCategoriesOutput
 
 // A collection of arguments for invoking getEventCategories.
 type GetEventCategoriesOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 }
@@ -131,6 +134,10 @@ func (o GetEventCategoriesResultOutput) EventCategories() pulumi.StringArrayOutp
 // The provider-assigned unique ID for this managed resource.
 func (o GetEventCategoriesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventCategoriesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEventCategoriesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventCategoriesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetEventCategoriesResultOutput) SourceType() pulumi.StringPtrOutput {

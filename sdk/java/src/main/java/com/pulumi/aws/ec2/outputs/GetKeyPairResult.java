@@ -50,6 +50,7 @@ public final class GetKeyPairResult {
      * 
      */
     private String publicKey;
+    private String region;
     /**
      * @return Any tags assigned to the Key Pair.
      * 
@@ -111,6 +112,9 @@ public final class GetKeyPairResult {
     public String publicKey() {
         return this.publicKey;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Any tags assigned to the Key Pair.
      * 
@@ -138,6 +142,7 @@ public final class GetKeyPairResult {
         private @Nullable String keyPairId;
         private String keyType;
         private String publicKey;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetKeyPairResult defaults) {
@@ -152,6 +157,7 @@ public final class GetKeyPairResult {
     	      this.keyPairId = defaults.keyPairId;
     	      this.keyType = defaults.keyType;
     	      this.publicKey = defaults.publicKey;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -231,6 +237,14 @@ public final class GetKeyPairResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetKeyPairResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetKeyPairResult", "tags");
@@ -250,6 +264,7 @@ public final class GetKeyPairResult {
             _resultValue.keyPairId = keyPairId;
             _resultValue.keyType = keyType;
             _resultValue.publicKey = publicKey;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

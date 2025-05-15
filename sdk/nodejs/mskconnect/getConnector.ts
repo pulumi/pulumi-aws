@@ -22,6 +22,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getConnector:getConnector", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetConnectorArgs {
      * Name of the connector.
      */
     name: string;
+    region?: string;
     /**
      * A map of tags assigned to the resource.
      */
@@ -57,6 +59,7 @@ export interface GetConnectorResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * A map of tags assigned to the resource.
      */
@@ -84,6 +87,7 @@ export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mskconnect/getConnector:getConnector", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -96,6 +100,7 @@ export interface GetConnectorOutputArgs {
      * Name of the connector.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the resource.
      */

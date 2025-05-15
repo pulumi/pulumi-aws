@@ -77,6 +77,10 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly principal!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the calling account
      */
     public readonly sourceAccount!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceAccount"] = state ? state.sourceAccount : undefined;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
@@ -113,6 +118,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
             resourceInputs["policy"] = undefined /*out*/;
         }
@@ -142,6 +148,10 @@ export interface PermissionState {
      */
     principal?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the calling account
      */
     sourceAccount?: pulumi.Input<string>;
@@ -163,6 +173,10 @@ export interface PermissionArgs {
      * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      */
     principal: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the calling account
      */

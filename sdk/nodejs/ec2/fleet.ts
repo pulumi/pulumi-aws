@@ -103,6 +103,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly onDemandOptions!: pulumi.Output<outputs.ec2.FleetOnDemandOptions | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
@@ -165,6 +169,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["fulfilledOnDemandCapacity"] = state ? state.fulfilledOnDemandCapacity : undefined;
             resourceInputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
             resourceInputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
             resourceInputs["spotOptions"] = state ? state.spotOptions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -191,6 +196,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["fulfilledOnDemandCapacity"] = args ? args.fulfilledOnDemandCapacity : undefined;
             resourceInputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
             resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -248,6 +254,10 @@ export interface FleetState {
      * Nested argument containing On-Demand configurations. Defined below.
      */
     onDemandOptions?: pulumi.Input<inputs.ec2.FleetOnDemandOptions>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */
@@ -326,6 +336,10 @@ export interface FleetArgs {
      * Nested argument containing On-Demand configurations. Defined below.
      */
     onDemandOptions?: pulumi.Input<inputs.ec2.FleetOnDemandOptions>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */

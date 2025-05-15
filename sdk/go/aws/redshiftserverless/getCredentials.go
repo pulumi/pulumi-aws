@@ -53,7 +53,8 @@ type GetCredentialsArgs struct {
 	// The name of the database to get temporary authorization to log on to.
 	DbName *string `pulumi:"dbName"`
 	// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
-	DurationSeconds *int `pulumi:"durationSeconds"`
+	DurationSeconds *int    `pulumi:"durationSeconds"`
+	Region          *string `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName string `pulumi:"workgroupName"`
 }
@@ -70,6 +71,7 @@ type GetCredentialsResult struct {
 	Expiration string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
+	Region        string `pulumi:"region"`
 	WorkgroupName string `pulumi:"workgroupName"`
 }
 
@@ -87,7 +89,8 @@ type GetCredentialsOutputArgs struct {
 	// The name of the database to get temporary authorization to log on to.
 	DbName pulumi.StringPtrInput `pulumi:"dbName"`
 	// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
-	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	DurationSeconds pulumi.IntPtrInput    `pulumi:"durationSeconds"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
 }
@@ -137,6 +140,10 @@ func (o GetCredentialsResultOutput) Expiration() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetCredentialsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCredentialsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCredentialsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetCredentialsResultOutput) WorkgroupName() pulumi.StringOutput {

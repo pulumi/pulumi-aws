@@ -54,6 +54,7 @@ public final class GetServerlessCollectionResult {
      */
     private String lastModifiedDate;
     private String name;
+    private String region;
     /**
      * @return Indicates whether standby replicas should be used for a collection.
      * 
@@ -136,6 +137,9 @@ public final class GetServerlessCollectionResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Indicates whether standby replicas should be used for a collection.
      * 
@@ -178,6 +182,7 @@ public final class GetServerlessCollectionResult {
         private String kmsKeyArn;
         private String lastModifiedDate;
         private String name;
+        private String region;
         private String standbyReplicas;
         private Map<String,String> tags;
         private String type;
@@ -195,6 +200,7 @@ public final class GetServerlessCollectionResult {
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.lastModifiedDate = defaults.lastModifiedDate;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.standbyReplicas = defaults.standbyReplicas;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
@@ -289,6 +295,14 @@ public final class GetServerlessCollectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder standbyReplicas(String standbyReplicas) {
             if (standbyReplicas == null) {
               throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "standbyReplicas");
@@ -325,6 +339,7 @@ public final class GetServerlessCollectionResult {
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.lastModifiedDate = lastModifiedDate;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.standbyReplicas = standbyReplicas;
             _resultValue.tags = tags;
             _resultValue.type = type;

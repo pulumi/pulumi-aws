@@ -129,6 +129,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the service that you want to use to create the instance.
         /// </summary>
         [Output("serviceId")]
@@ -199,6 +205,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the service that you want to use to create the instance.
         /// </summary>
         [Input("serviceId", required: true)]
@@ -229,6 +241,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the service that you want to use to create the instance.

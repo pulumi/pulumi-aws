@@ -73,6 +73,10 @@ export class PolicyAttachment extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The identity to which the policy is attached.
      */
     public readonly target!: pulumi.Output<ARN>;
@@ -91,6 +95,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyAttachmentState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["target"] = state ? state.target : undefined;
         } else {
             const args = argsOrState as PolicyAttachmentArgs | undefined;
@@ -101,6 +106,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'target'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -117,6 +123,10 @@ export interface PolicyAttachmentState {
      */
     policy?: pulumi.Input<string | Policy>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The identity to which the policy is attached.
      */
     target?: pulumi.Input<ARN>;
@@ -130,6 +140,10 @@ export interface PolicyAttachmentArgs {
      * The name of the policy to attach.
      */
     policy: pulumi.Input<string | Policy>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The identity to which the policy is attached.
      */

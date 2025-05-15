@@ -94,11 +94,16 @@ func LookupManagedPrefixList(ctx *pulumi.Context, args *LookupManagedPrefixListA
 // A collection of arguments for invoking getManagedPrefixList.
 type LookupManagedPrefixListArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// prefix lists. The given filters must match exactly one prefix list
+	// whose data will be exported as attributes.
 	Filters []GetManagedPrefixListFilter `pulumi:"filters"`
 	// ID of the prefix list to select.
 	Id *string `pulumi:"id"`
 	// Name of the prefix list to select.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -120,6 +125,7 @@ type LookupManagedPrefixListResult struct {
 	Name string `pulumi:"name"`
 	// Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags    map[string]string `pulumi:"tags"`
 	Version int               `pulumi:"version"`
@@ -137,11 +143,16 @@ func LookupManagedPrefixListOutput(ctx *pulumi.Context, args LookupManagedPrefix
 // A collection of arguments for invoking getManagedPrefixList.
 type LookupManagedPrefixListOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// prefix lists. The given filters must match exactly one prefix list
+	// whose data will be exported as attributes.
 	Filters GetManagedPrefixListFilterArrayInput `pulumi:"filters"`
 	// ID of the prefix list to select.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the prefix list to select.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -202,6 +213,10 @@ func (o LookupManagedPrefixListResultOutput) Name() pulumi.StringOutput {
 // Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
 func (o LookupManagedPrefixListResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupManagedPrefixListResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the resource.

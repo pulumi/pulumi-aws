@@ -27,6 +27,7 @@ export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sesv2/getEmailIdentity:getEmailIdentity", {
         "emailIdentity": args.emailIdentity,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,7 @@ export interface GetEmailIdentityArgs {
      * The name of the email identity.
      */
     emailIdentity: string;
+    region?: string;
     /**
      * Key-value mapping of resource tags.
      */
@@ -67,6 +69,7 @@ export interface GetEmailIdentityResult {
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
     readonly identityType: string;
+    readonly region: string;
     /**
      * Key-value mapping of resource tags.
      */
@@ -96,6 +99,7 @@ export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sesv2/getEmailIdentity:getEmailIdentity", {
         "emailIdentity": args.emailIdentity,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -108,6 +112,7 @@ export interface GetEmailIdentityOutputArgs {
      * The name of the email identity.
      */
     emailIdentity: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags.
      */

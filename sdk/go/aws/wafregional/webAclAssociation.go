@@ -139,6 +139,8 @@ import (
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The ID of the WAF Regional WebACL to create an association.
@@ -181,6 +183,8 @@ func GetWebAclAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAclAssociation resources.
 type webAclAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The ID of the WAF Regional WebACL to create an association.
@@ -188,6 +192,8 @@ type webAclAssociationState struct {
 }
 
 type WebAclAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn pulumi.StringPtrInput
 	// The ID of the WAF Regional WebACL to create an association.
@@ -199,6 +205,8 @@ func (WebAclAssociationState) ElementType() reflect.Type {
 }
 
 type webAclAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn string `pulumi:"resourceArn"`
 	// The ID of the WAF Regional WebACL to create an association.
@@ -207,6 +215,8 @@ type webAclAssociationArgs struct {
 
 // The set of arguments for constructing a WebAclAssociation resource.
 type WebAclAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn pulumi.StringInput
 	// The ID of the WAF Regional WebACL to create an association.
@@ -298,6 +308,11 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutput() WebAclAssociationOu
 
 func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx context.Context) WebAclAssociationOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WebAclAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.

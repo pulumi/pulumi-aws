@@ -24,6 +24,7 @@ export function getLocalGatewayVirtualInterfaceGroups(args?: GetLocalGatewayVirt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -36,6 +37,7 @@ export interface GetLocalGatewayVirtualInterfaceGroupsArgs {
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
      */
     filters?: inputs.ec2.GetLocalGatewayVirtualInterfaceGroupsFilter[];
+    region?: string;
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */
@@ -59,6 +61,7 @@ export interface GetLocalGatewayVirtualInterfaceGroupsResult {
      * Set of EC2 Local Gateway Virtual Interface identifiers.
      */
     readonly localGatewayVirtualInterfaceIds: string[];
+    readonly region: string;
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -78,6 +81,7 @@ export function getLocalGatewayVirtualInterfaceGroupsOutput(args?: GetLocalGatew
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -90,6 +94,7 @@ export interface GetLocalGatewayVirtualInterfaceGroupsOutputArgs {
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayVirtualInterfaceGroupsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */

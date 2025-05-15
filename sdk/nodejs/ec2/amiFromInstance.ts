@@ -136,6 +136,10 @@ export class AmiFromInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly ramdiskId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     public /*out*/ readonly rootDeviceName!: pulumi.Output<string>;
@@ -212,6 +216,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["platformDetails"] = state ? state.platformDetails : undefined;
             resourceInputs["public"] = state ? state.public : undefined;
             resourceInputs["ramdiskId"] = state ? state.ramdiskId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
             resourceInputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
             resourceInputs["snapshotWithoutReboot"] = state ? state.snapshotWithoutReboot : undefined;
@@ -233,6 +238,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
             resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotWithoutReboot"] = args ? args.snapshotWithoutReboot : undefined;
             resourceInputs["sourceInstanceId"] = args ? args.sourceInstanceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -341,6 +347,10 @@ export interface AmiFromInstanceState {
      */
     ramdiskId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     rootDeviceName?: pulumi.Input<string>;
@@ -409,6 +419,10 @@ export interface AmiFromInstanceArgs {
      * Region-unique name for the AMI.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Boolean that overrides the behavior of stopping
      * the instance before snapshotting. This is risky since it may cause a snapshot of an

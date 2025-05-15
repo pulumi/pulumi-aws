@@ -40,6 +40,8 @@ type V2modelsSlot struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayOutput `pulumi:"obfuscationSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique identifier associated with the slot.
 	SlotId pulumi.StringOutput `pulumi:"slotId"`
 	// Unique identifier for the slot type associated with this slot.
@@ -111,6 +113,8 @@ type v2modelsSlotState struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Unique identifier associated with the slot.
 	SlotId *string `pulumi:"slotId"`
 	// Unique identifier for the slot type associated with this slot.
@@ -141,6 +145,8 @@ type V2modelsSlotState struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Unique identifier associated with the slot.
 	SlotId pulumi.StringPtrInput
 	// Unique identifier for the slot type associated with this slot.
@@ -175,6 +181,8 @@ type v2modelsSlotArgs struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId *string `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
@@ -204,6 +212,8 @@ type V2modelsSlotArgs struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId pulumi.StringPtrInput
 	// Specifications for the constituent sub slots and the expression for the composite slot.
@@ -340,6 +350,11 @@ func (o V2modelsSlotOutput) Name() pulumi.StringOutput {
 // See the `obfuscationSetting` argument reference below.
 func (o V2modelsSlotOutput) ObfuscationSettings() V2modelsSlotObfuscationSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotObfuscationSettingArrayOutput { return v.ObfuscationSettings }).(V2modelsSlotObfuscationSettingArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o V2modelsSlotOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Unique identifier associated with the slot.

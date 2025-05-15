@@ -126,6 +126,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly externalConnections!: pulumi.Output<outputs.codeartifact.RepositoryExternalConnections | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the repository to create.
      */
     public readonly repository!: pulumi.Output<string>;
@@ -161,6 +165,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["domainOwner"] = state ? state.domainOwner : undefined;
             resourceInputs["externalConnections"] = state ? state.externalConnections : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -177,6 +182,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
             resourceInputs["externalConnections"] = args ? args.externalConnections : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upstreams"] = args ? args.upstreams : undefined;
@@ -218,6 +224,10 @@ export interface RepositoryState {
      */
     externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the repository to create.
      */
     repository?: pulumi.Input<string>;
@@ -255,6 +265,10 @@ export interface RepositoryArgs {
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
     externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the repository to create.
      */

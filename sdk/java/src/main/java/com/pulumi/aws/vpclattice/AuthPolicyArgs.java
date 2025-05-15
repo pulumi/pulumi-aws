@@ -32,6 +32,21 @@ public final class AuthPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
      */
@@ -65,6 +80,7 @@ public final class AuthPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     private AuthPolicyArgs(AuthPolicyArgs $) {
         this.policy = $.policy;
+        this.region = $.region;
         this.resourceIdentifier = $.resourceIdentifier;
         this.state = $.state;
     }
@@ -106,6 +122,27 @@ public final class AuthPolicyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

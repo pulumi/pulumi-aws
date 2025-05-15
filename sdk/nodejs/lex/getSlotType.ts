@@ -26,6 +26,7 @@ export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getSlotType:getSlotType", {
         "name": args.name,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -38,6 +39,7 @@ export interface GetSlotTypeArgs {
      * Name of the slot type. The name is case sensitive.
      */
     name: string;
+    region?: string;
     /**
      * Version of the slot type.
      */
@@ -79,6 +81,7 @@ export interface GetSlotTypeResult {
      * Name of the slot type. The name is not case sensitive.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -110,6 +113,7 @@ export function getSlotTypeOutput(args: GetSlotTypeOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lex/getSlotType:getSlotType", {
         "name": args.name,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -122,6 +126,7 @@ export interface GetSlotTypeOutputArgs {
      * Name of the slot type. The name is case sensitive.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Version of the slot type.
      */

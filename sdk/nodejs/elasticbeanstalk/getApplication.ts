@@ -27,6 +27,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getApplication:getApplication", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,7 @@ export interface GetApplicationArgs {
      * Name of the application
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -58,6 +60,7 @@ export interface GetApplicationResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Retrieve information about an Elastic Beanstalk Application.
@@ -79,6 +82,7 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticbeanstalk/getApplication:getApplication", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -90,4 +94,5 @@ export interface GetApplicationOutputArgs {
      * Name of the application
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

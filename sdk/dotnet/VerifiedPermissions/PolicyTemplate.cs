@@ -69,6 +69,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Output<string> PolicyTemplateId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Defines the content of the statement, written in Cedar policy language.
         /// 
         /// The following arguments are optional:
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Input<string> PolicyStoreId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Defines the content of the statement, written in Cedar policy language.
         /// 
         /// The following arguments are optional:
@@ -173,6 +185,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// </summary>
         [Input("policyTemplateId")]
         public Input<string>? PolicyTemplateId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Defines the content of the statement, written in Cedar policy language.

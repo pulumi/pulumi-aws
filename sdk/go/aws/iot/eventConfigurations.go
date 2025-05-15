@@ -66,6 +66,8 @@ type EventConfigurations struct {
 
 	// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
 	EventConfigurations pulumi.BoolMapOutput `pulumi:"eventConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEventConfigurations registers a new resource with the given unique name, arguments, and options.
@@ -103,11 +105,15 @@ func GetEventConfigurations(ctx *pulumi.Context,
 type eventConfigurationsState struct {
 	// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
 	EventConfigurations map[string]bool `pulumi:"eventConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EventConfigurationsState struct {
 	// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
 	EventConfigurations pulumi.BoolMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventConfigurationsState) ElementType() reflect.Type {
@@ -117,12 +123,16 @@ func (EventConfigurationsState) ElementType() reflect.Type {
 type eventConfigurationsArgs struct {
 	// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
 	EventConfigurations map[string]bool `pulumi:"eventConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventConfigurations resource.
 type EventConfigurationsArgs struct {
 	// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
 	EventConfigurations pulumi.BoolMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventConfigurationsArgs) ElementType() reflect.Type {
@@ -215,6 +225,11 @@ func (o EventConfigurationsOutput) ToEventConfigurationsOutputWithContext(ctx co
 // Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
 func (o EventConfigurationsOutput) EventConfigurations() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *EventConfigurations) pulumi.BoolMapOutput { return v.EventConfigurations }).(pulumi.BoolMapOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventConfigurationsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventConfigurations) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EventConfigurationsArrayOutput struct{ *pulumi.OutputState }

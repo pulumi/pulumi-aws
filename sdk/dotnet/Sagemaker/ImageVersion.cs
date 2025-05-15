@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> ProgrammingLang { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The maintainer description of the image version.
         /// </summary>
         [Output("releaseNotes")]
@@ -208,6 +214,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? ProgrammingLang { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The maintainer description of the image version.
         /// </summary>
         [Input("releaseNotes")]
@@ -283,6 +295,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("programmingLang")]
         public Input<string>? ProgrammingLang { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The maintainer description of the image version.

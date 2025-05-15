@@ -56,7 +56,8 @@ type LookupStreamConsumerArgs struct {
 	// ARN of the stream consumer.
 	Arn *string `pulumi:"arn"`
 	// Name of the stream consumer.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// ARN of the data stream the consumer is registered with.
 	StreamArn string `pulumi:"streamArn"`
 }
@@ -67,8 +68,9 @@ type LookupStreamConsumerResult struct {
 	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 	CreationTimestamp string `pulumi:"creationTimestamp"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Current status of the stream consumer.
 	Status    string `pulumi:"status"`
 	StreamArn string `pulumi:"streamArn"`
@@ -88,7 +90,8 @@ type LookupStreamConsumerOutputArgs struct {
 	// ARN of the stream consumer.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name of the stream consumer.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the data stream the consumer is registered with.
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
@@ -128,6 +131,10 @@ func (o LookupStreamConsumerResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupStreamConsumerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupStreamConsumerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Current status of the stream consumer.

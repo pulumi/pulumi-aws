@@ -93,6 +93,12 @@ namespace Pulumi.Aws.S3
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
         [Output("targetBucket")]
@@ -180,6 +186,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
         [Input("targetBucket", required: true)]
@@ -228,6 +240,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the bucket where you want Amazon S3 to store server access logs.

@@ -56,7 +56,8 @@ type LookupTableArgs struct {
 	// Name of the Timestream database.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the Timestream table.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getTable.
@@ -74,7 +75,8 @@ type LookupTableResult struct {
 	// Object containing the following attributes to desribe magnetic store writes.
 	MagneticStoreWriteProperties []GetTableMagneticStoreWriteProperty `pulumi:"magneticStoreWriteProperties"`
 	// Name of the table.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
 	RetentionProperties []GetTableRetentionProperty `pulumi:"retentionProperties"`
 	// Object containing the following attributes to describe the schema of the table.
@@ -97,7 +99,8 @@ type LookupTableOutputArgs struct {
 	// Name of the Timestream database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the Timestream table.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupTableOutputArgs) ElementType() reflect.Type {
@@ -152,6 +155,10 @@ func (o LookupTableResultOutput) MagneticStoreWriteProperties() GetTableMagnetic
 // Name of the table.
 func (o LookupTableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Object containing the following attributes to describe the retention duration for the memory and magnetic stores.

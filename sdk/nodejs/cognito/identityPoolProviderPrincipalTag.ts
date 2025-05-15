@@ -56,6 +56,10 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
      */
     public readonly principalTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * use default (username and clientID) attribute mappings.
      */
     public readonly useDefaults!: pulumi.Output<boolean | undefined>;
@@ -76,6 +80,7 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
             resourceInputs["identityPoolId"] = state ? state.identityPoolId : undefined;
             resourceInputs["identityProviderName"] = state ? state.identityProviderName : undefined;
             resourceInputs["principalTags"] = state ? state.principalTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["useDefaults"] = state ? state.useDefaults : undefined;
         } else {
             const args = argsOrState as IdentityPoolProviderPrincipalTagArgs | undefined;
@@ -88,6 +93,7 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
             resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
             resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
             resourceInputs["principalTags"] = args ? args.principalTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["useDefaults"] = args ? args.useDefaults : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -112,6 +118,10 @@ export interface IdentityPoolProviderPrincipalTagState {
      */
     principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * use default (username and clientID) attribute mappings.
      */
     useDefaults?: pulumi.Input<boolean>;
@@ -133,6 +143,10 @@ export interface IdentityPoolProviderPrincipalTagArgs {
      * String to string map of variables.
      */
     principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * use default (username and clientID) attribute mappings.
      */

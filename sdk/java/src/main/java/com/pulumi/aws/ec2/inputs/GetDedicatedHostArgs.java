@@ -36,6 +36,9 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * ID of the Dedicated Host.
      * 
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
+     * 
      */
     @Import(name="hostId")
     private @Nullable Output<String> hostId;
@@ -43,9 +46,19 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * @return ID of the Dedicated Host.
      * 
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
+     * 
      */
     public Optional<Output<String>> hostId() {
         return Optional.ofNullable(this.hostId);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     @Import(name="tags")
@@ -60,6 +73,7 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
     private GetDedicatedHostArgs(GetDedicatedHostArgs $) {
         this.filters = $.filters;
         this.hostId = $.hostId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -115,6 +129,9 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param hostId ID of the Dedicated Host.
          * 
+         * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+         * The given filters must match exactly one host whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -126,11 +143,23 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param hostId ID of the Dedicated Host.
          * 
+         * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+         * The given filters must match exactly one host whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
         public Builder hostId(String hostId) {
             return hostId(Output.of(hostId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

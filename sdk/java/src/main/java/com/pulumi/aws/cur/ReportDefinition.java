@@ -164,6 +164,20 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshClosedReports);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      * 
      */

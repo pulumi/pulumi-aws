@@ -82,6 +82,12 @@ namespace Pulumi.Aws.DeviceFarm
         public Output<string> ProjectArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The device pool's rules. See Rule.
         /// </summary>
         [Output("rules")]
@@ -172,6 +178,12 @@ namespace Pulumi.Aws.DeviceFarm
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules", required: true)]
         private InputList<Inputs.DevicePoolRuleArgs>? _rules;
 
@@ -233,6 +245,12 @@ namespace Pulumi.Aws.DeviceFarm
         /// </summary>
         [Input("projectArn")]
         public Input<string>? ProjectArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.DevicePoolRuleGetArgs>? _rules;

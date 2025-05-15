@@ -57,7 +57,8 @@ type GetAppregistryAttributeGroupAssociationsArgs struct {
 	// Name of the application to which attribute groups are associated.
 	//
 	// The following arguments are optional:
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAppregistryAttributeGroupAssociations.
@@ -66,6 +67,7 @@ type GetAppregistryAttributeGroupAssociationsResult struct {
 	AttributeGroupIds []string `pulumi:"attributeGroupIds"`
 	Id                *string  `pulumi:"id"`
 	Name              *string  `pulumi:"name"`
+	Region            string   `pulumi:"region"`
 }
 
 func GetAppregistryAttributeGroupAssociationsOutput(ctx *pulumi.Context, args GetAppregistryAttributeGroupAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetAppregistryAttributeGroupAssociationsResultOutput {
@@ -84,7 +86,8 @@ type GetAppregistryAttributeGroupAssociationsOutputArgs struct {
 	// Name of the application to which attribute groups are associated.
 	//
 	// The following arguments are optional:
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAppregistryAttributeGroupAssociationsOutputArgs) ElementType() reflect.Type {
@@ -117,6 +120,10 @@ func (o GetAppregistryAttributeGroupAssociationsResultOutput) Id() pulumi.String
 
 func (o GetAppregistryAttributeGroupAssociationsResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppregistryAttributeGroupAssociationsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GetAppregistryAttributeGroupAssociationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppregistryAttributeGroupAssociationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

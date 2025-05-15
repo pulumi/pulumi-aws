@@ -22,6 +22,7 @@ public final class GetContributorManagedInsightRulesResult {
      * 
      */
     private List<GetContributorManagedInsightRulesManagedRule> managedRules;
+    private String region;
     /**
      * @return If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
      * 
@@ -43,6 +44,9 @@ public final class GetContributorManagedInsightRulesResult {
     public List<GetContributorManagedInsightRulesManagedRule> managedRules() {
         return this.managedRules;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
      * 
@@ -62,12 +66,14 @@ public final class GetContributorManagedInsightRulesResult {
     public static final class Builder {
         private String id;
         private List<GetContributorManagedInsightRulesManagedRule> managedRules;
+        private String region;
         private String resourceArn;
         public Builder() {}
         public Builder(GetContributorManagedInsightRulesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.managedRules = defaults.managedRules;
+    	      this.region = defaults.region;
     	      this.resourceArn = defaults.resourceArn;
         }
 
@@ -91,6 +97,14 @@ public final class GetContributorManagedInsightRulesResult {
             return managedRules(List.of(managedRules));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContributorManagedInsightRulesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             if (resourceArn == null) {
               throw new MissingRequiredPropertyException("GetContributorManagedInsightRulesResult", "resourceArn");
@@ -102,6 +116,7 @@ public final class GetContributorManagedInsightRulesResult {
             final var _resultValue = new GetContributorManagedInsightRulesResult();
             _resultValue.id = id;
             _resultValue.managedRules = managedRules;
+            _resultValue.region = region;
             _resultValue.resourceArn = resourceArn;
             return _resultValue;
         }

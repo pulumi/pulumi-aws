@@ -143,6 +143,8 @@ type SshKey struct {
 
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringOutput `pulumi:"body"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	SshKeyId pulumi.StringOutput `pulumi:"sshKeyId"`
@@ -191,6 +193,8 @@ func GetSshKey(ctx *pulumi.Context,
 type sshKeyState struct {
 	// The public key portion of an SSH key pair.
 	Body *string `pulumi:"body"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
 	SshKeyId *string `pulumi:"sshKeyId"`
@@ -201,6 +205,8 @@ type sshKeyState struct {
 type SshKeyState struct {
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
 	SshKeyId pulumi.StringPtrInput
@@ -215,6 +221,8 @@ func (SshKeyState) ElementType() reflect.Type {
 type sshKeyArgs struct {
 	// The public key portion of an SSH key pair.
 	Body string `pulumi:"body"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
 	// The name of the user account that is assigned to one or more servers.
@@ -225,6 +233,8 @@ type sshKeyArgs struct {
 type SshKeyArgs struct {
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
 	// The name of the user account that is assigned to one or more servers.
@@ -321,6 +331,11 @@ func (o SshKeyOutput) ToSshKeyOutputWithContext(ctx context.Context) SshKeyOutpu
 // The public key portion of an SSH key pair.
 func (o SshKeyOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SshKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Server ID of the Transfer Server (e.g., `s-12345678`)

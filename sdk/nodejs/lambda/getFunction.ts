@@ -28,6 +28,7 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
     return pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -44,6 +45,7 @@ export interface GetFunctionArgs {
      * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      */
     qualifier?: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -133,6 +135,7 @@ export interface GetFunctionResult {
      */
     readonly qualifiedInvokeArn: string;
     readonly qualifier?: string;
+    readonly region: string;
     /**
      * The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
      */
@@ -202,6 +205,7 @@ export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.Inv
     return pulumi.runtime.invokeOutput("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -218,5 +222,6 @@ export interface GetFunctionOutputArgs {
      * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      */
     qualifier?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

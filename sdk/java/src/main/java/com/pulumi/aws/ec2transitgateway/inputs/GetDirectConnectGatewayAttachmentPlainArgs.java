@@ -47,6 +47,13 @@ public final class GetDirectConnectGatewayAttachmentPlainArgs extends com.pulumi
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      * 
@@ -82,6 +89,7 @@ public final class GetDirectConnectGatewayAttachmentPlainArgs extends com.pulumi
     private GetDirectConnectGatewayAttachmentPlainArgs(GetDirectConnectGatewayAttachmentPlainArgs $) {
         this.dxGatewayId = $.dxGatewayId;
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
         this.transitGatewayId = $.transitGatewayId;
     }
@@ -134,6 +142,11 @@ public final class GetDirectConnectGatewayAttachmentPlainArgs extends com.pulumi
          */
         public Builder filters(GetDirectConnectGatewayAttachmentFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

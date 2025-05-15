@@ -18,6 +18,21 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
     public static final ServiceNetworkServiceAssociationArgs Empty = new ServiceNetworkServiceAssociationArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
@@ -67,6 +82,7 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
     private ServiceNetworkServiceAssociationArgs() {}
 
     private ServiceNetworkServiceAssociationArgs(ServiceNetworkServiceAssociationArgs $) {
+        this.region = $.region;
         this.serviceIdentifier = $.serviceIdentifier;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
         this.tags = $.tags;
@@ -88,6 +104,27 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
 
         public Builder(ServiceNetworkServiceAssociationArgs defaults) {
             $ = new ServiceNetworkServiceAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

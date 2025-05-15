@@ -63,6 +63,13 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
      * 
@@ -81,12 +88,20 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
     /**
      * Zone ID of the availability zone to select.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * availability zones. The given filters must match exactly one availability
+     * zone whose data will be exported as attributes.
+     * 
      */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
     /**
      * @return Zone ID of the availability zone to select.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * availability zones. The given filters must match exactly one availability
+     * zone whose data will be exported as attributes.
      * 
      */
     public Optional<Output<String>> zoneId() {
@@ -99,6 +114,7 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
         this.allAvailabilityZones = $.allAvailabilityZones;
         this.filters = $.filters;
         this.name = $.name;
+        this.region = $.region;
         this.state = $.state;
         this.zoneId = $.zoneId;
     }
@@ -194,6 +210,15 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
             return name(Output.of(name));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param state Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
          * 
@@ -218,6 +243,10 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param zoneId Zone ID of the availability zone to select.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * availability zones. The given filters must match exactly one availability
+         * zone whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -228,6 +257,10 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param zoneId Zone ID of the availability zone to select.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * availability zones. The given filters must match exactly one availability
+         * zone whose data will be exported as attributes.
          * 
          * @return builder
          * 

@@ -122,6 +122,21 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The grant status.
      * 
      */
@@ -161,6 +176,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         this.name = $.name;
         this.parentArn = $.parentArn;
         this.principal = $.principal;
+        this.region = $.region;
         this.status = $.status;
         this.version = $.version;
     }
@@ -338,6 +354,27 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
          */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

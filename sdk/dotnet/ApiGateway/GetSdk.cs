@@ -120,6 +120,9 @@ namespace Pulumi.Aws.ApiGateway
             set => _parameters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Identifier of the associated REST API.
         /// </summary>
@@ -157,6 +160,9 @@ namespace Pulumi.Aws.ApiGateway
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Identifier of the associated REST API.
@@ -203,6 +209,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string Id;
         public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly string Region;
         public readonly string RestApiId;
         public readonly string SdkType;
         public readonly string StageName;
@@ -219,6 +226,8 @@ namespace Pulumi.Aws.ApiGateway
 
             ImmutableDictionary<string, string>? parameters,
 
+            string region,
+
             string restApiId,
 
             string sdkType,
@@ -230,6 +239,7 @@ namespace Pulumi.Aws.ApiGateway
             ContentType = contentType;
             Id = id;
             Parameters = parameters;
+            Region = region;
             RestApiId = restApiId;
             SdkType = sdkType;
             StageName = stageName;

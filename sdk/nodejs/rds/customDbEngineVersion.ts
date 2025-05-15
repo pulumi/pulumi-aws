@@ -189,6 +189,10 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
      */
     public readonly manifestHash!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      */
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
@@ -203,7 +207,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CustomDbEngineVersion resource with the given unique name, arguments, and options.
@@ -233,6 +237,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["manifest"] = state ? state.manifest : undefined;
             resourceInputs["manifestComputed"] = state ? state.manifestComputed : undefined;
             resourceInputs["manifestHash"] = state ? state.manifestHash : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -254,16 +259,17 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["manifest"] = args ? args.manifest : undefined;
             resourceInputs["manifestHash"] = args ? args.manifestHash : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["dbParameterGroupFamily"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["majorEngineVersion"] = undefined /*out*/;
             resourceInputs["manifestComputed"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomDbEngineVersion.__pulumiType, name, resourceInputs, opts);
@@ -335,6 +341,10 @@ export interface CustomDbEngineVersionState {
      */
     manifestHash?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      */
     sourceImageId?: pulumi.Input<string>;
@@ -393,6 +403,10 @@ export interface CustomDbEngineVersionArgs {
      */
     manifestHash?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      */
     sourceImageId?: pulumi.Input<string>;
@@ -404,8 +418,4 @@ export interface CustomDbEngineVersionArgs {
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

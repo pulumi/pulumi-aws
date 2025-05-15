@@ -63,6 +63,10 @@ export class MemberAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly delegatedAdminAccountId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of the member relationship
      */
     public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
@@ -86,6 +90,7 @@ export class MemberAssociation extends pulumi.CustomResource {
             const state = argsOrState as MemberAssociationState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["delegatedAdminAccountId"] = state ? state.delegatedAdminAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
             resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
@@ -94,6 +99,7 @@ export class MemberAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'accountId'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["delegatedAdminAccountId"] = undefined /*out*/;
             resourceInputs["relationshipStatus"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -116,6 +122,10 @@ export interface MemberAssociationState {
      */
     delegatedAdminAccountId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Status of the member relationship
      */
     relationshipStatus?: pulumi.Input<string>;
@@ -133,4 +143,8 @@ export interface MemberAssociationArgs {
      * ID of the account to associate
      */
     accountId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

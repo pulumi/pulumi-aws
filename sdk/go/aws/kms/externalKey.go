@@ -72,6 +72,8 @@ type ExternalKey struct {
 	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -139,6 +141,8 @@ type externalKeyState struct {
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -170,6 +174,8 @@ type ExternalKeyState struct {
 	MultiRegion pulumi.BoolPtrInput
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -197,6 +203,8 @@ type externalKeyArgs struct {
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -219,6 +227,8 @@ type ExternalKeyArgs struct {
 	MultiRegion pulumi.BoolPtrInput
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -365,6 +375,11 @@ func (o ExternalKeyOutput) MultiRegion() pulumi.BoolOutput {
 // A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 func (o ExternalKeyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ExternalKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

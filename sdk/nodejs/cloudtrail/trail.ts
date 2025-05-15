@@ -366,6 +366,10 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the S3 bucket designated for publishing log files.
      *
      * The following arguments are optional:
@@ -419,6 +423,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isOrganizationTrail"] = state ? state.isOrganizationTrail : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
             resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
@@ -442,6 +447,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isOrganizationTrail"] = args ? args.isOrganizationTrail : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             resourceInputs["snsTopicName"] = args ? args.snsTopicName : undefined;
@@ -516,6 +522,10 @@ export interface TrailState {
      * Name of the trail.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the S3 bucket designated for publishing log files.
      *
@@ -596,6 +606,10 @@ export interface TrailArgs {
      * Name of the trail.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the S3 bucket designated for publishing log files.
      *

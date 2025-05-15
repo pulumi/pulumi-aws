@@ -71,6 +71,8 @@ type Schema struct {
 	Namespaces pulumi.StringArrayOutput `pulumi:"namespaces"`
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -112,6 +114,8 @@ type schemaState struct {
 	Namespaces []string `pulumi:"namespaces"`
 	// The ID of the Policy Store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type SchemaState struct {
@@ -121,6 +125,8 @@ type SchemaState struct {
 	Namespaces pulumi.StringArrayInput
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (SchemaState) ElementType() reflect.Type {
@@ -132,6 +138,8 @@ type schemaArgs struct {
 	Definition *SchemaDefinition `pulumi:"definition"`
 	// The ID of the Policy Store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -140,6 +148,8 @@ type SchemaArgs struct {
 	Definition SchemaDefinitionPtrInput
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {
@@ -242,6 +252,11 @@ func (o SchemaOutput) Namespaces() pulumi.StringArrayOutput {
 // The ID of the Policy Store.
 func (o SchemaOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SchemaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type SchemaArrayOutput struct{ *pulumi.OutputState }

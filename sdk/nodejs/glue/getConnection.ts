@@ -25,6 +25,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:glue/getConnection:getConnection", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,7 @@ export interface GetConnectionArgs {
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
     id: string;
+    region?: string;
     /**
      * Tags assigned to the resource
      */
@@ -53,9 +55,16 @@ export interface GetConnectionResult {
      */
     readonly arn: string;
     /**
+     * A map of connection properties specific to the Athena compute environment.
+     */
+    readonly athenaProperties: {[key: string]: string};
+    /**
      * Catalog ID of the Glue Connection.
      */
     readonly catalogId: string;
+    /**
+     * A map of connection properties.
+     */
     readonly connectionProperties: {[key: string]: string};
     /**
      * Type of Glue Connection.
@@ -78,6 +87,7 @@ export interface GetConnectionResult {
      * A map of physical connection requirements, such as VPC and SecurityGroup.
      */
     readonly physicalConnectionRequirements: outputs.glue.GetConnectionPhysicalConnectionRequirement[];
+    readonly region: string;
     /**
      * Tags assigned to the resource
      */
@@ -101,6 +111,7 @@ export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:glue/getConnection:getConnection", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -114,6 +125,7 @@ export interface GetConnectionOutputArgs {
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Tags assigned to the resource
      */

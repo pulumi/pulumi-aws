@@ -59,6 +59,7 @@ func GetImagePipelines(ctx *pulumi.Context, args *GetImagePipelinesArgs, opts ..
 type GetImagePipelinesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetImagePipelinesFilter `pulumi:"filters"`
+	Region  *string                   `pulumi:"region"`
 }
 
 // A collection of values returned by getImagePipelines.
@@ -69,7 +70,8 @@ type GetImagePipelinesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of names of the matched Image Builder Image Pipelines.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
 func GetImagePipelinesOutput(ctx *pulumi.Context, args GetImagePipelinesOutputArgs, opts ...pulumi.InvokeOption) GetImagePipelinesResultOutput {
@@ -85,6 +87,7 @@ func GetImagePipelinesOutput(ctx *pulumi.Context, args GetImagePipelinesOutputAr
 type GetImagePipelinesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetImagePipelinesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput             `pulumi:"region"`
 }
 
 func (GetImagePipelinesOutputArgs) ElementType() reflect.Type {
@@ -123,6 +126,10 @@ func (o GetImagePipelinesResultOutput) Id() pulumi.StringOutput {
 // Set of names of the matched Image Builder Image Pipelines.
 func (o GetImagePipelinesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImagePipelinesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetImagePipelinesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagePipelinesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

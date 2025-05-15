@@ -50,11 +50,19 @@ public final class GetProvisioningArtifactsArgs extends com.pulumi.resources.Inv
         return this.productId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetProvisioningArtifactsArgs() {}
 
     private GetProvisioningArtifactsArgs(GetProvisioningArtifactsArgs $) {
         this.acceptLanguage = $.acceptLanguage;
         this.productId = $.productId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -119,6 +127,15 @@ public final class GetProvisioningArtifactsArgs extends com.pulumi.resources.Inv
          */
         public Builder productId(String productId) {
             return productId(Output.of(productId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetProvisioningArtifactsArgs build() {

@@ -23,12 +23,14 @@ class NotebookInstanceLifecycleConfigurationArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  on_create: Optional[pulumi.Input[builtins.str]] = None,
                  on_start: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a NotebookInstanceLifecycleConfiguration resource.
         :param pulumi.Input[builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         :param pulumi.Input[builtins.str] on_start: A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
@@ -37,6 +39,8 @@ class NotebookInstanceLifecycleConfigurationArgs:
             pulumi.set(__self__, "on_create", on_create)
         if on_start is not None:
             pulumi.set(__self__, "on_start", on_start)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,6 +82,18 @@ class NotebookInstanceLifecycleConfigurationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -96,6 +112,7 @@ class _NotebookInstanceLifecycleConfigurationState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  on_create: Optional[pulumi.Input[builtins.str]] = None,
                  on_start: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -104,6 +121,7 @@ class _NotebookInstanceLifecycleConfigurationState:
         :param pulumi.Input[builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         :param pulumi.Input[builtins.str] on_start: A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -115,6 +133,8 @@ class _NotebookInstanceLifecycleConfigurationState:
             pulumi.set(__self__, "on_create", on_create)
         if on_start is not None:
             pulumi.set(__self__, "on_start", on_start)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -170,6 +190,18 @@ class _NotebookInstanceLifecycleConfigurationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -204,6 +236,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  on_create: Optional[pulumi.Input[builtins.str]] = None,
                  on_start: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -237,6 +270,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         :param pulumi.Input[builtins.str] on_start: A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -289,6 +323,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  on_create: Optional[pulumi.Input[builtins.str]] = None,
                  on_start: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -302,6 +337,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["on_create"] = on_create
             __props__.__dict__["on_start"] = on_start
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -319,6 +355,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             on_create: Optional[pulumi.Input[builtins.str]] = None,
             on_start: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'NotebookInstanceLifecycleConfiguration':
         """
@@ -332,6 +369,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         :param pulumi.Input[builtins.str] on_start: A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -343,6 +381,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["on_create"] = on_create
         __props__.__dict__["on_start"] = on_start
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return NotebookInstanceLifecycleConfiguration(resource_name, opts=opts, __props__=__props__)
@@ -378,6 +417,14 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
         """
         return pulumi.get(self, "on_start")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

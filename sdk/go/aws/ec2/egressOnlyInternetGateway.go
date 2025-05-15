@@ -63,6 +63,8 @@ import (
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -104,6 +106,8 @@ func GetEgressOnlyInternetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
 type egressOnlyInternetGatewayState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -113,6 +117,8 @@ type egressOnlyInternetGatewayState struct {
 }
 
 type EgressOnlyInternetGatewayState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -126,6 +132,8 @@ func (EgressOnlyInternetGatewayState) ElementType() reflect.Type {
 }
 
 type egressOnlyInternetGatewayArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID to create in.
@@ -134,6 +142,8 @@ type egressOnlyInternetGatewayArgs struct {
 
 // The set of arguments for constructing a EgressOnlyInternetGateway resource.
 type EgressOnlyInternetGatewayArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The VPC ID to create in.
@@ -225,6 +235,11 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutput() Egr
 
 func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EgressOnlyInternetGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EgressOnlyInternetGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

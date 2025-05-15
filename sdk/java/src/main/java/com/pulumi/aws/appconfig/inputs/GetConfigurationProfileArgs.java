@@ -47,6 +47,13 @@ public final class GetConfigurationProfileArgs extends com.pulumi.resources.Invo
         return this.configurationProfileId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags for the resource.
      * 
@@ -67,6 +74,7 @@ public final class GetConfigurationProfileArgs extends com.pulumi.resources.Invo
     private GetConfigurationProfileArgs(GetConfigurationProfileArgs $) {
         this.applicationId = $.applicationId;
         this.configurationProfileId = $.configurationProfileId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -128,6 +136,15 @@ public final class GetConfigurationProfileArgs extends com.pulumi.resources.Invo
          */
         public Builder configurationProfileId(String configurationProfileId) {
             return configurationProfileId(Output.of(configurationProfileId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

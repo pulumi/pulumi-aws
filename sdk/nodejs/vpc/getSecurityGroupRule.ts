@@ -26,6 +26,7 @@ export function getSecurityGroupRule(args?: GetSecurityGroupRuleArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", {
         "filters": args.filters,
+        "region": args.region,
         "securityGroupRuleId": args.securityGroupRuleId,
     }, opts);
 }
@@ -36,8 +37,13 @@ export function getSecurityGroupRule(args?: GetSecurityGroupRuleArgs, opts?: pul
 export interface GetSecurityGroupRuleArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * security group rules. The given filters must match exactly one security group rule
+     * whose data will be exported as attributes.
      */
     filters?: inputs.vpc.GetSecurityGroupRuleFilter[];
+    region?: string;
     /**
      * ID of the security group rule to select.
      */
@@ -86,6 +92,7 @@ export interface GetSecurityGroupRuleResult {
      * The destination security group that is referenced in the rule.
      */
     readonly referencedSecurityGroupId: string;
+    readonly region: string;
     /**
      * The ID of the security group.
      */
@@ -119,6 +126,7 @@ export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", {
         "filters": args.filters,
+        "region": args.region,
         "securityGroupRuleId": args.securityGroupRuleId,
     }, opts);
 }
@@ -129,8 +137,13 @@ export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs
 export interface GetSecurityGroupRuleOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * security group rules. The given filters must match exactly one security group rule
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRuleFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * ID of the security group rule to select.
      */

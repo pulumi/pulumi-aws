@@ -109,6 +109,10 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
      */
     public readonly ruleAction!: pulumi.Output<string>;
@@ -153,6 +157,7 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
             resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             resourceInputs["destinationPortRange"] = state ? state.destinationPortRange : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleAction"] = state ? state.ruleAction : undefined;
             resourceInputs["ruleNumber"] = state ? state.ruleNumber : undefined;
             resourceInputs["sourceCidrBlock"] = state ? state.sourceCidrBlock : undefined;
@@ -183,6 +188,7 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             resourceInputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleAction"] = args ? args.ruleAction : undefined;
             resourceInputs["ruleNumber"] = args ? args.ruleNumber : undefined;
             resourceInputs["sourceCidrBlock"] = args ? args.sourceCidrBlock : undefined;
@@ -220,6 +226,10 @@ export interface TrafficMirrorFilterRuleState {
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      */
     protocol?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
      */
@@ -268,6 +278,10 @@ export interface TrafficMirrorFilterRuleArgs {
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      */
     protocol?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
      */

@@ -173,6 +173,12 @@ namespace Pulumi.Aws.CustomerProfiles
         public Output<Outputs.DomainMatching?> Matching { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         /// </summary>
         [Output("ruleBasedMatching")]
@@ -269,6 +275,12 @@ namespace Pulumi.Aws.CustomerProfiles
         public Input<Inputs.DomainMatchingArgs>? Matching { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         /// </summary>
         [Input("ruleBasedMatching")]
@@ -284,18 +296,6 @@ namespace Pulumi.Aws.CustomerProfiles
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public DomainArgs()
@@ -343,6 +343,12 @@ namespace Pulumi.Aws.CustomerProfiles
         /// </summary>
         [Input("matching")]
         public Input<Inputs.DomainMatchingGetArgs>? Matching { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.

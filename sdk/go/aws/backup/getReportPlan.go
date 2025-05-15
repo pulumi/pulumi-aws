@@ -51,7 +51,8 @@ func LookupReportPlan(ctx *pulumi.Context, args *LookupReportPlanArgs, opts ...p
 // A collection of arguments for invoking getReportPlan.
 type LookupReportPlanArgs struct {
 	// Backup report plan name.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,8 +68,9 @@ type LookupReportPlanResult struct {
 	// Description of the report plan.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 	ReportDeliveryChannels []GetReportPlanReportDeliveryChannel `pulumi:"reportDeliveryChannels"`
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
@@ -89,7 +91,8 @@ func LookupReportPlanOutput(ctx *pulumi.Context, args LookupReportPlanOutputArgs
 // A collection of arguments for invoking getReportPlan.
 type LookupReportPlanOutputArgs struct {
 	// Backup report plan name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -140,6 +143,10 @@ func (o LookupReportPlanResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupReportPlanResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupReportPlanResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.

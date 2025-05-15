@@ -360,6 +360,8 @@ type ServerlessSecurityPolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	//
 	// The following arguments are optional:
@@ -410,6 +412,8 @@ type serverlessSecurityPolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion *string `pulumi:"policyVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	//
 	// The following arguments are optional:
@@ -425,6 +429,8 @@ type ServerlessSecurityPolicyState struct {
 	Policy pulumi.StringPtrInput
 	// Version of the policy.
 	PolicyVersion pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of security policy. One of `encryption` or `network`.
 	//
 	// The following arguments are optional:
@@ -442,6 +448,8 @@ type serverlessSecurityPolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// JSON policy document to use as the content for the new policy
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	//
 	// The following arguments are optional:
@@ -456,6 +464,8 @@ type ServerlessSecurityPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// JSON policy document to use as the content for the new policy
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of security policy. One of `encryption` or `network`.
 	//
 	// The following arguments are optional:
@@ -567,6 +577,11 @@ func (o ServerlessSecurityPolicyOutput) Policy() pulumi.StringOutput {
 // Version of the policy.
 func (o ServerlessSecurityPolicyOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServerlessSecurityPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of security policy. One of `encryption` or `network`.

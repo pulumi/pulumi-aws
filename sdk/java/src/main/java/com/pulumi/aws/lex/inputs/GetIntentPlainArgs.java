@@ -30,6 +30,13 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Version of the intent.
      * 
@@ -49,6 +56,7 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetIntentPlainArgs(GetIntentPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -78,6 +86,11 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

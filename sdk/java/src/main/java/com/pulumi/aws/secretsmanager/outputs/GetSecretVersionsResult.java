@@ -27,6 +27,7 @@ public final class GetSecretVersionsResult {
     private String id;
     private @Nullable Boolean includeDeprecated;
     private String name;
+    private String region;
     private String secretId;
     /**
      * @return List of the versions of the secret. Attributes are specified below.
@@ -55,6 +56,9 @@ public final class GetSecretVersionsResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     public String secretId() {
         return this.secretId;
     }
@@ -79,6 +83,7 @@ public final class GetSecretVersionsResult {
         private String id;
         private @Nullable Boolean includeDeprecated;
         private String name;
+        private String region;
         private String secretId;
         private List<GetSecretVersionsVersion> versions;
         public Builder() {}
@@ -88,6 +93,7 @@ public final class GetSecretVersionsResult {
     	      this.id = defaults.id;
     	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.secretId = defaults.secretId;
     	      this.versions = defaults.versions;
         }
@@ -123,6 +129,14 @@ public final class GetSecretVersionsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder secretId(String secretId) {
             if (secretId == null) {
               throw new MissingRequiredPropertyException("GetSecretVersionsResult", "secretId");
@@ -147,6 +161,7 @@ public final class GetSecretVersionsResult {
             _resultValue.id = id;
             _resultValue.includeDeprecated = includeDeprecated;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.secretId = secretId;
             _resultValue.versions = versions;
             return _resultValue;

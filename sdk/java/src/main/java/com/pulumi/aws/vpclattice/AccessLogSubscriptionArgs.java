@@ -33,6 +33,21 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      * The following arguments are optional:
@@ -73,21 +88,14 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private AccessLogSubscriptionArgs() {}
 
     private AccessLogSubscriptionArgs(AccessLogSubscriptionArgs $) {
         this.destinationArn = $.destinationArn;
+        this.region = $.region;
         this.resourceIdentifier = $.resourceIdentifier;
         this.serviceNetworkLogType = $.serviceNetworkLogType;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -127,6 +135,27 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
          */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -182,15 +211,6 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
 
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public AccessLogSubscriptionArgs build() {

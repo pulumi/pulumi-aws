@@ -171,6 +171,12 @@ namespace Pulumi.Aws.Chime
         public Output<Outputs.VoiceConnectorStreamingMediaInsightsConfiguration?> MediaInsightsConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         /// </summary>
         [Output("streamingNotificationTargets")]
@@ -246,6 +252,12 @@ namespace Pulumi.Aws.Chime
         [Input("mediaInsightsConfiguration")]
         public Input<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs>? MediaInsightsConfiguration { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("streamingNotificationTargets")]
         private InputList<string>? _streamingNotificationTargets;
 
@@ -289,6 +301,12 @@ namespace Pulumi.Aws.Chime
         /// </summary>
         [Input("mediaInsightsConfiguration")]
         public Input<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationGetArgs>? MediaInsightsConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("streamingNotificationTargets")]
         private InputList<string>? _streamingNotificationTargets;

@@ -365,6 +365,20 @@ public class Intent extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentIntentSignature);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * When the user answers &#34;no&#34; to the question defined in
      * `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
      * canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.

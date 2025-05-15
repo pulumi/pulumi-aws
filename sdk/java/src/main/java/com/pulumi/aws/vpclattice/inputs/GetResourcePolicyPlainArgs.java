@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResourcePolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetResourcePolicyPlainArgs Empty = new GetResourcePolicyPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Resource ARN of the resource for which a policy is retrieved.
@@ -31,6 +40,7 @@ public final class GetResourcePolicyPlainArgs extends com.pulumi.resources.Invok
     private GetResourcePolicyPlainArgs() {}
 
     private GetResourcePolicyPlainArgs(GetResourcePolicyPlainArgs $) {
+        this.region = $.region;
         this.resourceArn = $.resourceArn;
     }
 
@@ -50,6 +60,11 @@ public final class GetResourcePolicyPlainArgs extends com.pulumi.resources.Invok
 
         public Builder(GetResourcePolicyPlainArgs defaults) {
             $ = new GetResourcePolicyPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

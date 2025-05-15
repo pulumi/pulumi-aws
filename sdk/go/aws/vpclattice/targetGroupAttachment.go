@@ -48,6 +48,8 @@ import (
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The target.
 	Target TargetGroupAttachmentTargetOutput `pulumi:"target"`
 	// The ID or Amazon Resource Name (ARN) of the target group.
@@ -90,6 +92,8 @@ func GetTargetGroupAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TargetGroupAttachment resources.
 type targetGroupAttachmentState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The target.
 	Target *TargetGroupAttachmentTarget `pulumi:"target"`
 	// The ID or Amazon Resource Name (ARN) of the target group.
@@ -97,6 +101,8 @@ type targetGroupAttachmentState struct {
 }
 
 type TargetGroupAttachmentState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The target.
 	Target TargetGroupAttachmentTargetPtrInput
 	// The ID or Amazon Resource Name (ARN) of the target group.
@@ -108,6 +114,8 @@ func (TargetGroupAttachmentState) ElementType() reflect.Type {
 }
 
 type targetGroupAttachmentArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The target.
 	Target TargetGroupAttachmentTarget `pulumi:"target"`
 	// The ID or Amazon Resource Name (ARN) of the target group.
@@ -116,6 +124,8 @@ type targetGroupAttachmentArgs struct {
 
 // The set of arguments for constructing a TargetGroupAttachment resource.
 type TargetGroupAttachmentArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The target.
 	Target TargetGroupAttachmentTargetInput
 	// The ID or Amazon Resource Name (ARN) of the target group.
@@ -207,6 +217,11 @@ func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutput() TargetGroup
 
 func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutputWithContext(ctx context.Context) TargetGroupAttachmentOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TargetGroupAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The target.

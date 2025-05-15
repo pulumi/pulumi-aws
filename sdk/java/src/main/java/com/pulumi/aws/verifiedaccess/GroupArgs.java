@@ -49,6 +49,21 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block to use KMS keys for server-side encryption.
      * 
      */
@@ -78,13 +93,6 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     /**
      * The id of the verified access instance this group is associated with.
      * 
@@ -109,9 +117,9 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private GroupArgs(GroupArgs $) {
         this.description = $.description;
         this.policyDocument = $.policyDocument;
+        this.region = $.region;
         this.sseConfiguration = $.sseConfiguration;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.verifiedaccessInstanceId = $.verifiedaccessInstanceId;
     }
 
@@ -176,6 +184,27 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
          * 
          * @return builder
@@ -215,15 +244,6 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

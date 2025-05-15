@@ -130,6 +130,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
+        /// Region of the container image.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -248,6 +254,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("infrastructureConfigurationArn", required: true)]
         public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
+
+        /// <summary>
+        /// Region of the container image.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -372,6 +384,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
+
+        /// <summary>
+        /// Region of the container image.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

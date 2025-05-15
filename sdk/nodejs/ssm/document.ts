@@ -174,6 +174,10 @@ export class Document extends pulumi.CustomResource {
      */
     public /*out*/ readonly platformTypes!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The schema version of the document.
      */
     public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
@@ -228,6 +232,7 @@ export class Document extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["platformTypes"] = state ? state.platformTypes : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schemaVersion"] = state ? state.schemaVersion : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -248,6 +253,7 @@ export class Document extends pulumi.CustomResource {
             resourceInputs["documentType"] = args ? args.documentType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
@@ -344,6 +350,10 @@ export interface DocumentState {
      */
     platformTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The schema version of the document.
      */
     schemaVersion?: pulumi.Input<string>;
@@ -397,6 +407,10 @@ export interface DocumentArgs {
      * Additional permissions to attach to the document. See Permissions below for details.
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -52,6 +52,13 @@ public final class GetCustomerGatewayArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of key-value pairs assigned to the gateway.
      * 
@@ -72,6 +79,7 @@ public final class GetCustomerGatewayArgs extends com.pulumi.resources.InvokeArg
     private GetCustomerGatewayArgs(GetCustomerGatewayArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -149,6 +157,15 @@ public final class GetCustomerGatewayArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

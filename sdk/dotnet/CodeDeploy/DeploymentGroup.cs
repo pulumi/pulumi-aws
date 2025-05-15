@@ -383,6 +383,12 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<string?> OutdatedInstancesStrategy { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The service role ARN that allows deployments.
         /// </summary>
         [Output("serviceRoleArn")]
@@ -567,6 +573,12 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<string>? OutdatedInstancesStrategy { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The service role ARN that allows deployments.
         /// </summary>
         [Input("serviceRoleArn", required: true)]
@@ -735,6 +747,12 @@ namespace Pulumi.Aws.CodeDeploy
         /// </summary>
         [Input("outdatedInstancesStrategy")]
         public Input<string>? OutdatedInstancesStrategy { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The service role ARN that allows deployments.

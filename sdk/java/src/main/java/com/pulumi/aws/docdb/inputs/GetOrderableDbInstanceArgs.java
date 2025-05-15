@@ -92,6 +92,13 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.preferredInstanceClasses);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Enable to show only VPC.
      * 
@@ -115,6 +122,7 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
         this.instanceClass = $.instanceClass;
         this.licenseModel = $.licenseModel;
         this.preferredInstanceClasses = $.preferredInstanceClasses;
+        this.region = $.region;
         this.vpc = $.vpc;
     }
 
@@ -249,6 +257,15 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
          */
         public Builder preferredInstanceClasses(String... preferredInstanceClasses) {
             return preferredInstanceClasses(List.of(preferredInstanceClasses));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

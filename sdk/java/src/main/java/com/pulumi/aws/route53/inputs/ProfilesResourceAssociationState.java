@@ -54,6 +54,21 @@ public final class ProfilesResourceAssociationState extends com.pulumi.resources
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Resource ID of the resource to be associated with the profile.
      * 
      */
@@ -141,6 +156,7 @@ public final class ProfilesResourceAssociationState extends com.pulumi.resources
         this.name = $.name;
         this.ownerId = $.ownerId;
         this.profileId = $.profileId;
+        this.region = $.region;
         this.resourceArn = $.resourceArn;
         this.resourceProperties = $.resourceProperties;
         this.resourceType = $.resourceType;
@@ -216,6 +232,27 @@ public final class ProfilesResourceAssociationState extends com.pulumi.resources
          */
         public Builder profileId(String profileId) {
             return profileId(Output.of(profileId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetReplicationGroupArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetReplicationGroupArgs Empty = new GetReplicationGroupArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Identifier for the replication group.
@@ -32,6 +41,7 @@ public final class GetReplicationGroupArgs extends com.pulumi.resources.InvokeAr
     private GetReplicationGroupArgs() {}
 
     private GetReplicationGroupArgs(GetReplicationGroupArgs $) {
+        this.region = $.region;
         this.replicationGroupId = $.replicationGroupId;
     }
 
@@ -51,6 +61,15 @@ public final class GetReplicationGroupArgs extends com.pulumi.resources.InvokeAr
 
         public Builder(GetReplicationGroupArgs defaults) {
             $ = new GetReplicationGroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

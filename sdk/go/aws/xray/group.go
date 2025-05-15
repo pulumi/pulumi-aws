@@ -63,6 +63,8 @@ type Group struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// Configuration options for enabling insights.
 	InsightsConfiguration GroupInsightsConfigurationOutput `pulumi:"insightsConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -113,6 +115,8 @@ type groupState struct {
 	GroupName *string `pulumi:"groupName"`
 	// Configuration options for enabling insights.
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -128,6 +132,8 @@ type GroupState struct {
 	GroupName pulumi.StringPtrInput
 	// Configuration options for enabling insights.
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -145,6 +151,8 @@ type groupArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// Configuration options for enabling insights.
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -157,6 +165,8 @@ type GroupArgs struct {
 	GroupName pulumi.StringInput
 	// Configuration options for enabling insights.
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 }
@@ -266,6 +276,11 @@ func (o GroupOutput) GroupName() pulumi.StringOutput {
 // Configuration options for enabling insights.
 func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationOutput {
 	return o.ApplyT(func(v *Group) GroupInsightsConfigurationOutput { return v.InsightsConfiguration }).(GroupInsightsConfigurationOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o GroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

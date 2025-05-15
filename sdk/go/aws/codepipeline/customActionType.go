@@ -69,10 +69,12 @@ type CustomActionType struct {
 	InputArtifactDetails    CustomActionTypeInputArtifactDetailsOutput       `pulumi:"inputArtifactDetails"`
 	OutputArtifactDetails   CustomActionTypeOutputArtifactDetailsOutput      `pulumi:"outputArtifactDetails"`
 	// The creator of the action being called.
-	Owner        pulumi.StringOutput               `pulumi:"owner"`
-	ProviderName pulumi.StringOutput               `pulumi:"providerName"`
-	Settings     CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
-	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
+	Owner        pulumi.StringOutput `pulumi:"owner"`
+	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput               `pulumi:"region"`
+	Settings CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
+	Tags     pulumi.StringMapOutput            `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Version pulumi.StringOutput    `pulumi:"version"`
@@ -132,10 +134,12 @@ type customActionTypeState struct {
 	InputArtifactDetails    *CustomActionTypeInputArtifactDetails   `pulumi:"inputArtifactDetails"`
 	OutputArtifactDetails   *CustomActionTypeOutputArtifactDetails  `pulumi:"outputArtifactDetails"`
 	// The creator of the action being called.
-	Owner        *string                   `pulumi:"owner"`
-	ProviderName *string                   `pulumi:"providerName"`
-	Settings     *CustomActionTypeSettings `pulumi:"settings"`
-	Tags         map[string]string         `pulumi:"tags"`
+	Owner        *string `pulumi:"owner"`
+	ProviderName *string `pulumi:"providerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                   `pulumi:"region"`
+	Settings *CustomActionTypeSettings `pulumi:"settings"`
+	Tags     map[string]string         `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Version *string           `pulumi:"version"`
@@ -153,8 +157,10 @@ type CustomActionTypeState struct {
 	// The creator of the action being called.
 	Owner        pulumi.StringPtrInput
 	ProviderName pulumi.StringPtrInput
-	Settings     CustomActionTypeSettingsPtrInput
-	Tags         pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Settings CustomActionTypeSettingsPtrInput
+	Tags     pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	Version pulumi.StringPtrInput
@@ -172,9 +178,11 @@ type customActionTypeArgs struct {
 	InputArtifactDetails    CustomActionTypeInputArtifactDetails    `pulumi:"inputArtifactDetails"`
 	OutputArtifactDetails   CustomActionTypeOutputArtifactDetails   `pulumi:"outputArtifactDetails"`
 	ProviderName            string                                  `pulumi:"providerName"`
-	Settings                *CustomActionTypeSettings               `pulumi:"settings"`
-	Tags                    map[string]string                       `pulumi:"tags"`
-	Version                 string                                  `pulumi:"version"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                   `pulumi:"region"`
+	Settings *CustomActionTypeSettings `pulumi:"settings"`
+	Tags     map[string]string         `pulumi:"tags"`
+	Version  string                    `pulumi:"version"`
 }
 
 // The set of arguments for constructing a CustomActionType resource.
@@ -186,9 +194,11 @@ type CustomActionTypeArgs struct {
 	InputArtifactDetails    CustomActionTypeInputArtifactDetailsInput
 	OutputArtifactDetails   CustomActionTypeOutputArtifactDetailsInput
 	ProviderName            pulumi.StringInput
-	Settings                CustomActionTypeSettingsPtrInput
-	Tags                    pulumi.StringMapInput
-	Version                 pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Settings CustomActionTypeSettingsPtrInput
+	Tags     pulumi.StringMapInput
+	Version  pulumi.StringInput
 }
 
 func (CustomActionTypeArgs) ElementType() reflect.Type {
@@ -310,6 +320,11 @@ func (o CustomActionTypeOutput) Owner() pulumi.StringOutput {
 
 func (o CustomActionTypeOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CustomActionTypeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o CustomActionTypeOutput) Settings() CustomActionTypeSettingsPtrOutput {

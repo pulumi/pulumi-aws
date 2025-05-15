@@ -31,6 +31,8 @@ type ProfilesResourceAssociation struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource ID of the resource to be associated with the profile.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Resource properties for the resource to be associated with the profile.
@@ -85,6 +87,8 @@ type profilesResourceAssociationState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// ID of the profile associated with the VPC.
 	ProfileId *string `pulumi:"profileId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource ID of the resource to be associated with the profile.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Resource properties for the resource to be associated with the profile.
@@ -104,6 +108,8 @@ type ProfilesResourceAssociationState struct {
 	OwnerId pulumi.StringPtrInput
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource ID of the resource to be associated with the profile.
 	ResourceArn pulumi.StringPtrInput
 	// Resource properties for the resource to be associated with the profile.
@@ -126,6 +132,8 @@ type profilesResourceAssociationArgs struct {
 	Name *string `pulumi:"name"`
 	// ID of the profile associated with the VPC.
 	ProfileId string `pulumi:"profileId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource ID of the resource to be associated with the profile.
 	ResourceArn string `pulumi:"resourceArn"`
 	// Resource properties for the resource to be associated with the profile.
@@ -139,6 +147,8 @@ type ProfilesResourceAssociationArgs struct {
 	Name pulumi.StringPtrInput
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource ID of the resource to be associated with the profile.
 	ResourceArn pulumi.StringInput
 	// Resource properties for the resource to be associated with the profile.
@@ -245,6 +255,11 @@ func (o ProfilesResourceAssociationOutput) OwnerId() pulumi.StringOutput {
 // ID of the profile associated with the VPC.
 func (o ProfilesResourceAssociationOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProfilesResourceAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource ID of the resource to be associated with the profile.

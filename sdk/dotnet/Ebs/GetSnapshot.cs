@@ -188,6 +188,9 @@ namespace Pulumi.Aws.Ebs
             set => _owners = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("restorableByUserIds")]
         private List<string>? _restorableByUserIds;
 
@@ -263,6 +266,9 @@ namespace Pulumi.Aws.Ebs
             get => _owners ?? (_owners = new InputList<string>());
             set => _owners = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("restorableByUserIds")]
         private InputList<string>? _restorableByUserIds;
@@ -349,6 +355,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string OwnerId;
         public readonly ImmutableArray<string> Owners;
+        public readonly string Region;
         public readonly ImmutableArray<string> RestorableByUserIds;
         /// <summary>
         /// Snapshot ID (e.g., snap-59fcb34e).
@@ -406,6 +413,8 @@ namespace Pulumi.Aws.Ebs
 
             ImmutableArray<string> owners,
 
+            string region,
+
             ImmutableArray<string> restorableByUserIds,
 
             string snapshotId,
@@ -436,6 +445,7 @@ namespace Pulumi.Aws.Ebs
             OwnerAlias = ownerAlias;
             OwnerId = ownerId;
             Owners = owners;
+            Region = region;
             RestorableByUserIds = restorableByUserIds;
             SnapshotId = snapshotId;
             SnapshotIds = snapshotIds;

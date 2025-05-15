@@ -52,7 +52,8 @@ func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...p
 // A collection of arguments for invoking getAuthorizer.
 type LookupAuthorizerArgs struct {
 	// Authorizer identifier.
-	AuthorizerId string `pulumi:"authorizerId"`
+	AuthorizerId string  `pulumi:"authorizerId"`
+	Region       *string `pulumi:"region"`
 	// ID of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
 }
@@ -78,6 +79,7 @@ type LookupAuthorizerResult struct {
 	Name string `pulumi:"name"`
 	// List of the Amazon Cognito user pool ARNs.
 	ProviderArns []string `pulumi:"providerArns"`
+	Region       string   `pulumi:"region"`
 	RestApiId    string   `pulumi:"restApiId"`
 	// Type of the authorizer.
 	Type string `pulumi:"type"`
@@ -95,7 +97,8 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 // A collection of arguments for invoking getAuthorizer.
 type LookupAuthorizerOutputArgs struct {
 	// Authorizer identifier.
-	AuthorizerId pulumi.StringInput `pulumi:"authorizerId"`
+	AuthorizerId pulumi.StringInput    `pulumi:"authorizerId"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
@@ -166,6 +169,10 @@ func (o LookupAuthorizerResultOutput) Name() pulumi.StringOutput {
 // List of the Amazon Cognito user pool ARNs.
 func (o LookupAuthorizerResultOutput) ProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) []string { return v.ProviderArns }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupAuthorizerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupAuthorizerResultOutput) RestApiId() pulumi.StringOutput {

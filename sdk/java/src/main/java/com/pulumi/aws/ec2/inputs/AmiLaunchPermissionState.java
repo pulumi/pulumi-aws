@@ -90,6 +90,21 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.organizationalUnitArn);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private AmiLaunchPermissionState() {}
 
     private AmiLaunchPermissionState(AmiLaunchPermissionState $) {
@@ -98,6 +113,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         this.imageId = $.imageId;
         this.organizationArn = $.organizationArn;
         this.organizationalUnitArn = $.organizationalUnitArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -221,6 +237,27 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
          */
         public Builder organizationalUnitArn(String organizationalUnitArn) {
             return organizationalUnitArn(Output.of(organizationalUnitArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public AmiLaunchPermissionState build() {

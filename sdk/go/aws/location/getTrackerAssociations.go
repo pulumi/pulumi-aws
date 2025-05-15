@@ -52,6 +52,7 @@ func GetTrackerAssociations(ctx *pulumi.Context, args *GetTrackerAssociationsArg
 
 // A collection of arguments for invoking getTrackerAssociations.
 type GetTrackerAssociationsArgs struct {
+	Region *string `pulumi:"region"`
 	// Name of the tracker resource associated with a geofence collection.
 	TrackerName string `pulumi:"trackerName"`
 }
@@ -62,6 +63,7 @@ type GetTrackerAssociationsResult struct {
 	ConsumerArns []string `pulumi:"consumerArns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
+	Region      string `pulumi:"region"`
 	TrackerName string `pulumi:"trackerName"`
 }
 
@@ -76,6 +78,7 @@ func GetTrackerAssociationsOutput(ctx *pulumi.Context, args GetTrackerAssociatio
 
 // A collection of arguments for invoking getTrackerAssociations.
 type GetTrackerAssociationsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the tracker resource associated with a geofence collection.
 	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
@@ -107,6 +110,10 @@ func (o GetTrackerAssociationsResultOutput) ConsumerArns() pulumi.StringArrayOut
 // The provider-assigned unique ID for this managed resource.
 func (o GetTrackerAssociationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrackerAssociationsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTrackerAssociationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrackerAssociationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetTrackerAssociationsResultOutput) TrackerName() pulumi.StringOutput {

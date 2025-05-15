@@ -19,16 +19,12 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
     /**
      * Identifier for the analysis.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="analysisId", required=true)
     private String analysisId;
 
     /**
      * @return Identifier for the analysis.
-     * 
-     * The following arguments are optional:
      * 
      */
     public String analysisId() {
@@ -50,6 +46,13 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.awsAccountId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -62,6 +65,7 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
     private GetQuicksightAnalysisPlainArgs(GetQuicksightAnalysisPlainArgs $) {
         this.analysisId = $.analysisId;
         this.awsAccountId = $.awsAccountId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -86,8 +90,6 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
         /**
          * @param analysisId Identifier for the analysis.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -104,6 +106,11 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
          */
         public Builder awsAccountId(@Nullable String awsAccountId) {
             $.awsAccountId = awsAccountId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

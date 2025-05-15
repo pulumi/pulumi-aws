@@ -33,6 +33,21 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
@@ -66,6 +81,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
 
     private TriggerState(TriggerState $) {
         this.configurationId = $.configurationId;
+        this.region = $.region;
         this.repositoryName = $.repositoryName;
         this.triggers = $.triggers;
     }
@@ -107,6 +123,27 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder configurationId(String configurationId) {
             return configurationId(Output.of(configurationId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

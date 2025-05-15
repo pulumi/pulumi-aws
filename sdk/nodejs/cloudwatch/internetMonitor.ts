@@ -78,6 +78,10 @@ export class InternetMonitor extends pulumi.CustomResource {
      */
     public readonly monitorName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
@@ -116,6 +120,7 @@ export class InternetMonitor extends pulumi.CustomResource {
             resourceInputs["internetMeasurementsLogDelivery"] = state ? state.internetMeasurementsLogDelivery : undefined;
             resourceInputs["maxCityNetworksToMonitor"] = state ? state.maxCityNetworksToMonitor : undefined;
             resourceInputs["monitorName"] = state ? state.monitorName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resources"] = state ? state.resources : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -130,6 +135,7 @@ export class InternetMonitor extends pulumi.CustomResource {
             resourceInputs["internetMeasurementsLogDelivery"] = args ? args.internetMeasurementsLogDelivery : undefined;
             resourceInputs["maxCityNetworksToMonitor"] = args ? args.maxCityNetworksToMonitor : undefined;
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resources"] = args ? args.resources : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -168,6 +174,10 @@ export interface InternetMonitorState {
      * The following arguments are optional:
      */
     monitorName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */
@@ -212,6 +222,10 @@ export interface InternetMonitorArgs {
      * The following arguments are optional:
      */
     monitorName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */

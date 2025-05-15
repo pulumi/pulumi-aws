@@ -3934,17 +3934,17 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3983,17 +3983,17 @@ public final class AwsFunctions {
         return getRegion(GetRegionArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4032,17 +4032,17 @@ public final class AwsFunctions {
         return getRegionPlain(GetRegionPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4081,17 +4081,17 @@ public final class AwsFunctions {
         return getRegion(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4130,17 +4130,17 @@ public final class AwsFunctions {
         return getRegionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4179,17 +4179,17 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getRegion:getRegion", TypeShape.of(GetRegionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4228,17 +4228,17 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getRegion:getRegion", TypeShape.of(GetRegionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>

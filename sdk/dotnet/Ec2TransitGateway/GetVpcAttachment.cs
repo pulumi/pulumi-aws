@@ -195,6 +195,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -232,6 +235,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -276,6 +282,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Whether IPv6 support is enabled.
         /// </summary>
         public readonly string Ipv6Support;
+        public readonly string Region;
         /// <summary>
         /// Whether Security Group Referencing Support is enabled.
         /// </summary>
@@ -315,6 +322,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string ipv6Support,
 
+            string region,
+
             string securityGroupReferencingSupport,
 
             ImmutableArray<string> subnetIds,
@@ -333,6 +342,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             Filters = filters;
             Id = id;
             Ipv6Support = ipv6Support;
+            Region = region;
             SecurityGroupReferencingSupport = securityGroupReferencingSupport;
             SubnetIds = subnetIds;
             Tags = tags;

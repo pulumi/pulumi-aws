@@ -120,6 +120,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Route settings for the stage.
         /// </summary>
         [Output("routeSettings")]
@@ -241,6 +247,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("routeSettings")]
         private InputList<Inputs.StageRouteSettingArgs>? _routeSettings;
 
@@ -357,6 +369,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("routeSettings")]
         private InputList<Inputs.StageRouteSettingGetArgs>? _routeSettings;

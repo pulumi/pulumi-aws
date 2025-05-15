@@ -39,6 +39,13 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
@@ -62,6 +69,7 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
 
     private GetRouteTableAssociationsArgs(GetRouteTableAssociationsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
     }
 
@@ -121,6 +129,15 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
          */
         public Builder filters(GetRouteTableAssociationsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

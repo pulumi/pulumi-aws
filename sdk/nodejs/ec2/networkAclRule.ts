@@ -118,6 +118,10 @@ export class NetworkAclRule extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
     public readonly ruleAction!: pulumi.Output<string>;
@@ -151,6 +155,7 @@ export class NetworkAclRule extends pulumi.CustomResource {
             resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             resourceInputs["networkAclId"] = state ? state.networkAclId : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleAction"] = state ? state.ruleAction : undefined;
             resourceInputs["ruleNumber"] = state ? state.ruleNumber : undefined;
             resourceInputs["toPort"] = state ? state.toPort : undefined;
@@ -176,6 +181,7 @@ export class NetworkAclRule extends pulumi.CustomResource {
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
             resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleAction"] = args ? args.ruleAction : undefined;
             resourceInputs["ruleNumber"] = args ? args.ruleNumber : undefined;
             resourceInputs["toPort"] = args ? args.toPort : undefined;
@@ -227,6 +233,10 @@ export interface NetworkAclRuleState {
      * The protocol. A value of -1 means all protocols.
      */
     protocol?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
@@ -283,6 +293,10 @@ export interface NetworkAclRuleArgs {
      * The protocol. A value of -1 means all protocols.
      */
     protocol: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */

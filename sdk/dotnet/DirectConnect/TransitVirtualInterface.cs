@@ -130,6 +130,12 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether to enable or disable SiteLink.
         /// </summary>
         [Output("sitelinkEnabled")]
@@ -255,6 +261,12 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Indicates whether to enable or disable SiteLink.
         /// </summary>
         [Input("sitelinkEnabled")]
@@ -361,6 +373,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Indicates whether to enable or disable SiteLink.

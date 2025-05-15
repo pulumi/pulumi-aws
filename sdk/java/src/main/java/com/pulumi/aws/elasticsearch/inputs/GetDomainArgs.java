@@ -32,6 +32,13 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
         return this.domainName;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Tags assigned to the domain.
      * 
@@ -51,6 +58,7 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetDomainArgs(GetDomainArgs $) {
         this.domainName = $.domainName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

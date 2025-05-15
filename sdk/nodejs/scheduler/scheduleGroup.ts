@@ -77,6 +77,10 @@ export class ScheduleGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * State of the schedule group. Can be `ACTIVE` or `DELETING`.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -107,6 +111,7 @@ export class ScheduleGroup extends pulumi.CustomResource {
             resourceInputs["lastModificationDate"] = state ? state.lastModificationDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -114,6 +119,7 @@ export class ScheduleGroup extends pulumi.CustomResource {
             const args = argsOrState as ScheduleGroupArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
@@ -151,6 +157,10 @@ export interface ScheduleGroupState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * State of the schedule group. Can be `ACTIVE` or `DELETING`.
      */
     state?: pulumi.Input<string>;
@@ -176,6 +186,10 @@ export interface ScheduleGroupArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

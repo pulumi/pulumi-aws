@@ -14,6 +14,10 @@ import com.pulumi.aws.s3.inputs.GetBucketObjectsPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
 import com.pulumi.aws.s3.inputs.GetBucketPolicyPlainArgs;
+import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
+import com.pulumi.aws.s3.inputs.GetCanonicalUserIdPlainArgs;
+import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
+import com.pulumi.aws.s3.inputs.GetDirectoryBucketsPlainArgs;
 import com.pulumi.aws.s3.inputs.GetObjectArgs;
 import com.pulumi.aws.s3.inputs.GetObjectPlainArgs;
 import com.pulumi.aws.s3.inputs.GetObjectsArgs;
@@ -32,7 +36,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class S3Functions {
@@ -1790,6 +1793,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1803,7 +1807,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         ctx.export("canonicalUserId", current.id());
      *     }
@@ -1814,7 +1819,7 @@ public final class S3Functions {
      * 
      */
     public static Output<GetCanonicalUserIdResult> getCanonicalUserId() {
-        return getCanonicalUserId(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getCanonicalUserId(GetCanonicalUserIdArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
@@ -1833,6 +1838,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1846,7 +1852,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         ctx.export("canonicalUserId", current.id());
      *     }
@@ -1857,7 +1864,7 @@ public final class S3Functions {
      * 
      */
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain() {
-        return getCanonicalUserIdPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getCanonicalUserIdPlain(GetCanonicalUserIdPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
@@ -1876,6 +1883,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1889,7 +1897,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         ctx.export("canonicalUserId", current.id());
      *     }
@@ -1899,7 +1908,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCanonicalUserIdResult> getCanonicalUserId(InvokeArgs args) {
+    public static Output<GetCanonicalUserIdResult> getCanonicalUserId(GetCanonicalUserIdArgs args) {
         return getCanonicalUserId(args, InvokeOptions.Empty);
     }
     /**
@@ -1919,6 +1928,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1932,7 +1942,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         ctx.export("canonicalUserId", current.id());
      *     }
@@ -1942,7 +1953,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(InvokeArgs args) {
+    public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(GetCanonicalUserIdPlainArgs args) {
         return getCanonicalUserIdPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -1962,6 +1973,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1975,7 +1987,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         ctx.export("canonicalUserId", current.id());
      *     }
@@ -1985,7 +1998,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCanonicalUserIdResult> getCanonicalUserId(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetCanonicalUserIdResult> getCanonicalUserId(GetCanonicalUserIdArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:s3/getCanonicalUserId:getCanonicalUserId", TypeShape.of(GetCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2005,6 +2018,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2018,7 +2032,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         ctx.export("canonicalUserId", current.id());
      *     }
@@ -2028,7 +2043,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCanonicalUserIdResult> getCanonicalUserId(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetCanonicalUserIdResult> getCanonicalUserId(GetCanonicalUserIdArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:s3/getCanonicalUserId:getCanonicalUserId", TypeShape.of(GetCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2048,6 +2063,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2061,7 +2077,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         ctx.export("canonicalUserId", current.id());
      *     }
@@ -2071,7 +2088,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(GetCanonicalUserIdPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getCanonicalUserId:getCanonicalUserId", TypeShape.of(GetCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2088,6 +2105,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2101,7 +2119,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = S3Functions.getDirectoryBuckets(GetDirectoryBucketsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2111,7 +2130,7 @@ public final class S3Functions {
      * 
      */
     public static Output<GetDirectoryBucketsResult> getDirectoryBuckets() {
-        return getDirectoryBuckets(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getDirectoryBuckets(GetDirectoryBucketsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Lists Amazon S3 Express directory buckets.
@@ -2127,6 +2146,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2140,7 +2160,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = S3Functions.getDirectoryBuckets(GetDirectoryBucketsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2150,7 +2171,7 @@ public final class S3Functions {
      * 
      */
     public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain() {
-        return getDirectoryBucketsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getDirectoryBucketsPlain(GetDirectoryBucketsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Lists Amazon S3 Express directory buckets.
@@ -2166,6 +2187,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2179,7 +2201,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = S3Functions.getDirectoryBuckets(GetDirectoryBucketsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2188,7 +2211,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(InvokeArgs args) {
+    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(GetDirectoryBucketsArgs args) {
         return getDirectoryBuckets(args, InvokeOptions.Empty);
     }
     /**
@@ -2205,6 +2228,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2218,7 +2242,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = S3Functions.getDirectoryBuckets(GetDirectoryBucketsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2227,7 +2252,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(InvokeArgs args) {
+    public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(GetDirectoryBucketsPlainArgs args) {
         return getDirectoryBucketsPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -2244,6 +2269,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2257,7 +2283,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = S3Functions.getDirectoryBuckets(GetDirectoryBucketsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2266,7 +2293,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(GetDirectoryBucketsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:s3/getDirectoryBuckets:getDirectoryBuckets", TypeShape.of(GetDirectoryBucketsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2283,6 +2310,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2296,7 +2324,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = S3Functions.getDirectoryBuckets(GetDirectoryBucketsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2305,7 +2334,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(GetDirectoryBucketsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:s3/getDirectoryBuckets:getDirectoryBuckets", TypeShape.of(GetDirectoryBucketsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2322,6 +2351,7 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2335,7 +2365,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = S3Functions.getDirectoryBuckets(GetDirectoryBucketsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2344,7 +2375,7 @@ public final class S3Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(GetDirectoryBucketsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getDirectoryBuckets:getDirectoryBuckets", TypeShape.of(GetDirectoryBucketsResult.class), args, Utilities.withVersion(options));
     }
     /**

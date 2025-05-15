@@ -143,6 +143,21 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Subnet ID to attach to.
      * 
      */
@@ -243,6 +258,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         this.logDestinationType = $.logDestinationType;
         this.logFormat = $.logFormat;
         this.maxAggregationInterval = $.maxAggregationInterval;
+        this.region = $.region;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.trafficType = $.trafficType;
@@ -439,6 +455,27 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maxAggregationInterval(Integer maxAggregationInterval) {
             return maxAggregationInterval(Output.of(maxAggregationInterval));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

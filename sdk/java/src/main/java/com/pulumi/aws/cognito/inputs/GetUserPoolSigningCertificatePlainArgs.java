@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetUserPoolSigningCertificatePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPoolSigningCertificatePlainArgs Empty = new GetUserPoolSigningCertificatePlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Cognito user pool ID.
@@ -31,6 +40,7 @@ public final class GetUserPoolSigningCertificatePlainArgs extends com.pulumi.res
     private GetUserPoolSigningCertificatePlainArgs() {}
 
     private GetUserPoolSigningCertificatePlainArgs(GetUserPoolSigningCertificatePlainArgs $) {
+        this.region = $.region;
         this.userPoolId = $.userPoolId;
     }
 
@@ -50,6 +60,11 @@ public final class GetUserPoolSigningCertificatePlainArgs extends com.pulumi.res
 
         public Builder(GetUserPoolSigningCertificatePlainArgs defaults) {
             $ = new GetUserPoolSigningCertificatePlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

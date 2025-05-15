@@ -108,6 +108,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The number of repositories in the domain.
      * 
      */
@@ -176,6 +191,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.domain = $.domain;
         this.encryptionKey = $.encryptionKey;
         this.owner = $.owner;
+        this.region = $.region;
         this.repositoryCount = $.repositoryCount;
         this.s3BucketArn = $.s3BucketArn;
         this.tags = $.tags;
@@ -324,6 +340,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

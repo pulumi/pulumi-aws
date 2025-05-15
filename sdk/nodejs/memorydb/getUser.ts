@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getUser:getUser", {
+        "region": args.region,
         "tags": args.tags,
         "userName": args.userName,
     }, opts);
@@ -33,6 +34,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
+    region?: string;
     /**
      * Map of tags assigned to the user.
      */
@@ -67,6 +69,7 @@ export interface GetUserResult {
      * Minimum engine version supported for the user.
      */
     readonly minimumEngineVersion: string;
+    readonly region: string;
     /**
      * Map of tags assigned to the user.
      */
@@ -90,6 +93,7 @@ export interface GetUserResult {
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:memorydb/getUser:getUser", {
+        "region": args.region,
         "tags": args.tags,
         "userName": args.userName,
     }, opts);
@@ -99,6 +103,7 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the user.
      */

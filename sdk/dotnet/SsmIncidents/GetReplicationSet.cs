@@ -152,6 +152,13 @@ namespace Pulumi.Aws.SsmIncidents
         /// The ARN of the user who last modified the replication set.
         /// </summary>
         public readonly string LastModifiedBy;
+        /// <summary>
+        /// (**Deprecated**) The replication set's Regions. Use `regions` instead.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetReplicationSetRegionResult> Region;
+        /// <summary>
+        /// The replication set's Regions.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetReplicationSetRegionResult> Regions;
         /// <summary>
         /// The current status of the Region.
@@ -175,6 +182,8 @@ namespace Pulumi.Aws.SsmIncidents
 
             string lastModifiedBy,
 
+            ImmutableArray<Outputs.GetReplicationSetRegionResult> region,
+
             ImmutableArray<Outputs.GetReplicationSetRegionResult> regions,
 
             string status,
@@ -186,6 +195,7 @@ namespace Pulumi.Aws.SsmIncidents
             DeletionProtected = deletionProtected;
             Id = id;
             LastModifiedBy = lastModifiedBy;
+            Region = region;
             Regions = regions;
             Status = status;
             Tags = tags;

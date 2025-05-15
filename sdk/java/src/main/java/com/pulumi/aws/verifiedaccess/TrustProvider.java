@@ -154,6 +154,20 @@ public class TrustProvider extends com.pulumi.resources.CustomResource {
     public Output<String> policyReferenceName() {
         return this.policyReferenceName;
     }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
     @Export(name="sseSpecification", refs={TrustProviderSseSpecification.class}, tree="[0]")
     private Output<TrustProviderSseSpecification> sseSpecification;
 

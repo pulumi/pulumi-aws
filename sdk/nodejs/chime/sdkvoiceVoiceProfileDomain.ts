@@ -83,11 +83,15 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration for server side encryption.
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a SdkvoiceVoiceProfileDomain resource with the given unique name, arguments, and options.
@@ -105,6 +109,7 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -115,10 +120,11 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SdkvoiceVoiceProfileDomain.__pulumiType, name, resourceInputs, opts);
@@ -142,6 +148,10 @@ export interface SdkvoiceVoiceProfileDomainState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration for server side encryption.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
@@ -162,9 +172,12 @@ export interface SdkvoiceVoiceProfileDomainArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration for server side encryption.
      */
     serverSideEncryptionConfiguration: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

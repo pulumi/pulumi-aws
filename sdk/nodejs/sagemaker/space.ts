@@ -77,6 +77,10 @@ export class Space extends pulumi.CustomResource {
      */
     public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      */
     public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
@@ -122,6 +126,7 @@ export class Space extends pulumi.CustomResource {
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
             resourceInputs["ownershipSettings"] = state ? state.ownershipSettings : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["spaceDisplayName"] = state ? state.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = state ? state.spaceName : undefined;
             resourceInputs["spaceSettings"] = state ? state.spaceSettings : undefined;
@@ -139,6 +144,7 @@ export class Space extends pulumi.CustomResource {
             }
             resourceInputs["domainId"] = args ? args.domainId : undefined;
             resourceInputs["ownershipSettings"] = args ? args.ownershipSettings : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["spaceDisplayName"] = args ? args.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["spaceSettings"] = args ? args.spaceSettings : undefined;
@@ -174,6 +180,10 @@ export interface SpaceState {
      * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
      */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      */
@@ -216,6 +226,10 @@ export interface SpaceArgs {
      * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
      */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      */

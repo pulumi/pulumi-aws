@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Lex
         [Output("localeSpecification")]
         public Output<ImmutableDictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>> LocaleSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.V2modelsBotVersionTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.Lex
             set => _localeSpecification = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.V2modelsBotVersionTimeoutsArgs>? Timeouts { get; set; }
 
@@ -202,6 +214,12 @@ namespace Pulumi.Aws.Lex
             get => _localeSpecification ?? (_localeSpecification = new InputMap<Inputs.V2modelsBotVersionLocaleSpecificationGetArgs>());
             set => _localeSpecification = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.V2modelsBotVersionTimeoutsGetArgs>? Timeouts { get; set; }

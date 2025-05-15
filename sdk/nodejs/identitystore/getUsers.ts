@@ -28,6 +28,7 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getUsers:getUsers", {
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,10 @@ export interface GetUsersArgs {
      * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: string;
+    /**
+     * Region of the address.
+     */
+    region?: string;
 }
 
 /**
@@ -50,6 +55,10 @@ export interface GetUsersResult {
      */
     readonly id: string;
     readonly identityStoreId: string;
+    /**
+     * Region of the address.
+     */
+    readonly region: string;
     /**
      * List of Identity Store Users
      */
@@ -76,6 +85,7 @@ export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getUsers:getUsers", {
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -87,4 +97,8 @@ export interface GetUsersOutputArgs {
      * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: pulumi.Input<string>;
+    /**
+     * Region of the address.
+     */
+    region?: pulumi.Input<string>;
 }

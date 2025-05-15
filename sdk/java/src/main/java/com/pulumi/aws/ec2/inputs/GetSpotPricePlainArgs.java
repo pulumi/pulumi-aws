@@ -61,12 +61,20 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.instanceType);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetSpotPricePlainArgs() {}
 
     private GetSpotPricePlainArgs(GetSpotPricePlainArgs $) {
         this.availabilityZone = $.availabilityZone;
         this.filters = $.filters;
         this.instanceType = $.instanceType;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -127,6 +135,11 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder instanceType(@Nullable String instanceType) {
             $.instanceType = instanceType;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

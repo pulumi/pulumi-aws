@@ -85,6 +85,7 @@ public final class GetOntapFileSystemResult {
      * 
      */
     private String preferredSubnetId;
+    private String region;
     /**
      * @return (Multi-AZ only) The VPC route tables in which your file system&#39;s endpoints exist.
      * 
@@ -230,6 +231,9 @@ public final class GetOntapFileSystemResult {
     public String preferredSubnetId() {
         return this.preferredSubnetId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return (Multi-AZ only) The VPC route tables in which your file system&#39;s endpoints exist.
      * 
@@ -317,6 +321,7 @@ public final class GetOntapFileSystemResult {
         private List<String> networkInterfaceIds;
         private String ownerId;
         private String preferredSubnetId;
+        private String region;
         private List<String> routeTableIds;
         private Integer storageCapacity;
         private String storageType;
@@ -343,6 +348,7 @@ public final class GetOntapFileSystemResult {
     	      this.networkInterfaceIds = defaults.networkInterfaceIds;
     	      this.ownerId = defaults.ownerId;
     	      this.preferredSubnetId = defaults.preferredSubnetId;
+    	      this.region = defaults.region;
     	      this.routeTableIds = defaults.routeTableIds;
     	      this.storageCapacity = defaults.storageCapacity;
     	      this.storageType = defaults.storageType;
@@ -476,6 +482,14 @@ public final class GetOntapFileSystemResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routeTableIds(List<String> routeTableIds) {
             if (routeTableIds == null) {
               throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "routeTableIds");
@@ -569,6 +583,7 @@ public final class GetOntapFileSystemResult {
             _resultValue.networkInterfaceIds = networkInterfaceIds;
             _resultValue.ownerId = ownerId;
             _resultValue.preferredSubnetId = preferredSubnetId;
+            _resultValue.region = region;
             _resultValue.routeTableIds = routeTableIds;
             _resultValue.storageCapacity = storageCapacity;
             _resultValue.storageType = storageType;

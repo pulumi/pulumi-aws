@@ -39,6 +39,12 @@ namespace Pulumi.Aws.Ec2
     public partial class VpnGatewayRoutePropagation : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>
         [Output("routeTableId")]
@@ -97,6 +103,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpnGatewayRoutePropagationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>
         [Input("routeTableId", required: true)]
@@ -116,6 +128,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpnGatewayRoutePropagationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>

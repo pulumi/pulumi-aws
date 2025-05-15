@@ -98,6 +98,8 @@ type EventPermission struct {
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An identifier string for the external account that you are granting permissions to.
 	StatementId pulumi.StringOutput `pulumi:"statementId"`
 }
@@ -147,6 +149,8 @@ type eventPermissionState struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal *string `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An identifier string for the external account that you are granting permissions to.
 	StatementId *string `pulumi:"statementId"`
 }
@@ -161,6 +165,8 @@ type EventPermissionState struct {
 	EventBusName pulumi.StringPtrInput
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An identifier string for the external account that you are granting permissions to.
 	StatementId pulumi.StringPtrInput
 }
@@ -179,6 +185,8 @@ type eventPermissionArgs struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal string `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An identifier string for the external account that you are granting permissions to.
 	StatementId string `pulumi:"statementId"`
 }
@@ -194,6 +202,8 @@ type EventPermissionArgs struct {
 	EventBusName pulumi.StringPtrInput
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An identifier string for the external account that you are granting permissions to.
 	StatementId pulumi.StringInput
 }
@@ -304,6 +314,11 @@ func (o EventPermissionOutput) EventBusName() pulumi.StringPtrOutput {
 // The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 func (o EventPermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventPermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventPermissionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // An identifier string for the external account that you are granting permissions to.

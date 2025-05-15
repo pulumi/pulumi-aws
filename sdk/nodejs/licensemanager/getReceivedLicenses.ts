@@ -31,6 +31,7 @@ export function getReceivedLicenses(args?: GetReceivedLicensesArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,11 +41,9 @@ export function getReceivedLicenses(args?: GetReceivedLicensesArgs, opts?: pulum
 export interface GetReceivedLicensesArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: inputs.licensemanager.GetReceivedLicensesFilter[];
+    region?: string;
 }
 
 /**
@@ -60,6 +59,7 @@ export interface GetReceivedLicensesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * This resource can be used to get a set of license ARNs matching a filter.
@@ -85,6 +85,7 @@ export function getReceivedLicensesOutput(args?: GetReceivedLicensesOutputArgs, 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -94,9 +95,7 @@ export function getReceivedLicensesOutput(args?: GetReceivedLicensesOutputArgs, 
 export interface GetReceivedLicensesOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.licensemanager.GetReceivedLicensesFilterArgs>[]>;
+    region?: pulumi.Input<string>;
 }

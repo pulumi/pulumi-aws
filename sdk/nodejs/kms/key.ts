@@ -404,6 +404,10 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
      */
     public readonly rotationPeriodInDays!: pulumi.Output<number>;
@@ -445,6 +449,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyUsage"] = state ? state.keyUsage : undefined;
             resourceInputs["multiRegion"] = state ? state.multiRegion : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rotationPeriodInDays"] = state ? state.rotationPeriodInDays : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -461,6 +466,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyUsage"] = args ? args.keyUsage : undefined;
             resourceInputs["multiRegion"] = args ? args.multiRegion : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rotationPeriodInDays"] = args ? args.rotationPeriodInDays : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["xksKeyId"] = args ? args.xksKeyId : undefined;
@@ -535,6 +541,10 @@ export interface KeyState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
      */
     rotationPeriodInDays?: pulumi.Input<number>;
@@ -605,6 +615,10 @@ export interface KeyArgs {
      * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
      */

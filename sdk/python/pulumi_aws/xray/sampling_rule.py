@@ -31,6 +31,7 @@ class SamplingRuleArgs:
                  url_path: pulumi.Input[builtins.str],
                  version: pulumi.Input[builtins.int],
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -46,6 +47,7 @@ class SamplingRuleArgs:
         :param pulumi.Input[builtins.str] url_path: Matches the path from a request URL.
         :param pulumi.Input[builtins.int] version: The version of the sampling rule format (`1` )
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] attributes: Matches attributes derived from the request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
@@ -61,6 +63,8 @@ class SamplingRuleArgs:
         pulumi.set(__self__, "version", version)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
         if tags is not None:
@@ -199,6 +203,18 @@ class SamplingRuleArgs:
         pulumi.set(self, "attributes", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -232,6 +248,7 @@ class _SamplingRuleState:
                  host: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservoir_size: Optional[pulumi.Input[builtins.int]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -249,6 +266,7 @@ class _SamplingRuleState:
         :param pulumi.Input[builtins.str] host: Matches the hostname from a request URL.
         :param pulumi.Input[builtins.str] http_method: Matches the HTTP method of a request.
         :param pulumi.Input[builtins.int] priority: The priority of the sampling rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         :param pulumi.Input[builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
@@ -271,6 +289,8 @@ class _SamplingRuleState:
             pulumi.set(__self__, "http_method", http_method)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reservoir_size is not None:
             pulumi.set(__self__, "reservoir_size", reservoir_size)
         if resource_arn is not None:
@@ -361,6 +381,18 @@ class _SamplingRuleState:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="reservoirSize")
@@ -484,6 +516,7 @@ class SamplingRule(pulumi.CustomResource):
                  host: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservoir_size: Optional[pulumi.Input[builtins.int]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -534,6 +567,7 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] host: Matches the hostname from a request URL.
         :param pulumi.Input[builtins.str] http_method: Matches the HTTP method of a request.
         :param pulumi.Input[builtins.int] priority: The priority of the sampling rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         :param pulumi.Input[builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
@@ -603,6 +637,7 @@ class SamplingRule(pulumi.CustomResource):
                  host: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservoir_size: Optional[pulumi.Input[builtins.int]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -633,6 +668,7 @@ class SamplingRule(pulumi.CustomResource):
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["region"] = region
             if reservoir_size is None and not opts.urn:
                 raise TypeError("Missing required property 'reservoir_size'")
             __props__.__dict__["reservoir_size"] = reservoir_size
@@ -671,6 +707,7 @@ class SamplingRule(pulumi.CustomResource):
             host: Optional[pulumi.Input[builtins.str]] = None,
             http_method: Optional[pulumi.Input[builtins.str]] = None,
             priority: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             reservoir_size: Optional[pulumi.Input[builtins.int]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None,
             rule_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -693,6 +730,7 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] host: Matches the hostname from a request URL.
         :param pulumi.Input[builtins.str] http_method: Matches the HTTP method of a request.
         :param pulumi.Input[builtins.int] priority: The priority of the sampling rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         :param pulumi.Input[builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
@@ -713,6 +751,7 @@ class SamplingRule(pulumi.CustomResource):
         __props__.__dict__["host"] = host
         __props__.__dict__["http_method"] = http_method
         __props__.__dict__["priority"] = priority
+        __props__.__dict__["region"] = region
         __props__.__dict__["reservoir_size"] = reservoir_size
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["rule_name"] = rule_name
@@ -771,6 +810,14 @@ class SamplingRule(pulumi.CustomResource):
         The priority of the sampling rule.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="reservoirSize")

@@ -10,16 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverFirewallConfigResult {
+    /**
+     * @return Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
+     * 
+     */
     private String firewallFailOpen;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
+     * 
+     */
     private String ownerId;
+    private String region;
     private String resourceId;
 
     private GetResolverFirewallConfigResult() {}
+    /**
+     * @return Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
+     * 
+     */
     public String firewallFailOpen() {
         return this.firewallFailOpen;
     }
@@ -30,8 +43,15 @@ public final class GetResolverFirewallConfigResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
+     * 
+     */
     public String ownerId() {
         return this.ownerId;
+    }
+    public String region() {
+        return this.region;
     }
     public String resourceId() {
         return this.resourceId;
@@ -49,6 +69,7 @@ public final class GetResolverFirewallConfigResult {
         private String firewallFailOpen;
         private String id;
         private String ownerId;
+        private String region;
         private String resourceId;
         public Builder() {}
         public Builder(GetResolverFirewallConfigResult defaults) {
@@ -56,6 +77,7 @@ public final class GetResolverFirewallConfigResult {
     	      this.firewallFailOpen = defaults.firewallFailOpen;
     	      this.id = defaults.id;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.resourceId = defaults.resourceId;
         }
 
@@ -84,6 +106,14 @@ public final class GetResolverFirewallConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallConfigResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             if (resourceId == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallConfigResult", "resourceId");
@@ -96,6 +126,7 @@ public final class GetResolverFirewallConfigResult {
             _resultValue.firewallFailOpen = firewallFailOpen;
             _resultValue.id = id;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.resourceId = resourceId;
             return _resultValue;
         }

@@ -62,6 +62,8 @@ type CertificateValidation struct {
 
 	// ARN of the certificate that is being validated.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns pulumi.StringArrayOutput `pulumi:"validationRecordFqdns"`
 }
@@ -101,6 +103,8 @@ func GetCertificateValidation(ctx *pulumi.Context,
 type certificateValidationState struct {
 	// ARN of the certificate that is being validated.
 	CertificateArn *string `pulumi:"certificateArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns []string `pulumi:"validationRecordFqdns"`
 }
@@ -108,6 +112,8 @@ type certificateValidationState struct {
 type CertificateValidationState struct {
 	// ARN of the certificate that is being validated.
 	CertificateArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns pulumi.StringArrayInput
 }
@@ -119,6 +125,8 @@ func (CertificateValidationState) ElementType() reflect.Type {
 type certificateValidationArgs struct {
 	// ARN of the certificate that is being validated.
 	CertificateArn string `pulumi:"certificateArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns []string `pulumi:"validationRecordFqdns"`
 }
@@ -127,6 +135,8 @@ type certificateValidationArgs struct {
 type CertificateValidationArgs struct {
 	// ARN of the certificate that is being validated.
 	CertificateArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns pulumi.StringArrayInput
 }
@@ -221,6 +231,11 @@ func (o CertificateValidationOutput) ToCertificateValidationOutputWithContext(ct
 // ARN of the certificate that is being validated.
 func (o CertificateValidationOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateValidation) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CertificateValidationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateValidation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation

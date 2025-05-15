@@ -65,6 +65,8 @@ type StaticIpAttachment struct {
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 	// The allocated static IP address
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the allocated static IP
 	StaticIpName pulumi.StringOutput `pulumi:"staticIpName"`
 }
@@ -109,6 +111,8 @@ type staticIpAttachmentState struct {
 	InstanceName *string `pulumi:"instanceName"`
 	// The allocated static IP address
 	IpAddress *string `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the allocated static IP
 	StaticIpName *string `pulumi:"staticIpName"`
 }
@@ -118,6 +122,8 @@ type StaticIpAttachmentState struct {
 	InstanceName pulumi.StringPtrInput
 	// The allocated static IP address
 	IpAddress pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the allocated static IP
 	StaticIpName pulumi.StringPtrInput
 }
@@ -129,6 +135,8 @@ func (StaticIpAttachmentState) ElementType() reflect.Type {
 type staticIpAttachmentArgs struct {
 	// The name of the Lightsail instance to attach the IP to
 	InstanceName string `pulumi:"instanceName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the allocated static IP
 	StaticIpName string `pulumi:"staticIpName"`
 }
@@ -137,6 +145,8 @@ type staticIpAttachmentArgs struct {
 type StaticIpAttachmentArgs struct {
 	// The name of the Lightsail instance to attach the IP to
 	InstanceName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the allocated static IP
 	StaticIpName pulumi.StringInput
 }
@@ -236,6 +246,11 @@ func (o StaticIpAttachmentOutput) InstanceName() pulumi.StringOutput {
 // The allocated static IP address
 func (o StaticIpAttachmentOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StaticIpAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the allocated static IP

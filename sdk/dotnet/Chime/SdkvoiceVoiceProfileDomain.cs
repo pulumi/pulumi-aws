@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Chime
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration for server side encryption.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.Chime
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration for server side encryption.
         /// </summary>
         [Input("serverSideEncryptionConfiguration", required: true)]
@@ -158,14 +170,6 @@ namespace Pulumi.Aws.Chime
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public SdkvoiceVoiceProfileDomainArgs()
@@ -193,6 +197,12 @@ namespace Pulumi.Aws.Chime
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration for server side encryption.

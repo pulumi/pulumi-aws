@@ -30,6 +30,7 @@ export function getKafkaVersion(args?: GetKafkaVersionArgs, opts?: pulumi.Invoke
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getKafkaVersion:getKafkaVersion", {
         "preferredVersions": args.preferredVersions,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -42,6 +43,7 @@ export interface GetKafkaVersionArgs {
      * Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
      */
     preferredVersions?: string[];
+    region?: string;
     /**
      * Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
      */
@@ -57,6 +59,7 @@ export interface GetKafkaVersionResult {
      */
     readonly id: string;
     readonly preferredVersions?: string[];
+    readonly region: string;
     /**
      * Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
      */
@@ -89,6 +92,7 @@ export function getKafkaVersionOutput(args?: GetKafkaVersionOutputArgs, opts?: p
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getKafkaVersion:getKafkaVersion", {
         "preferredVersions": args.preferredVersions,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -101,6 +105,7 @@ export interface GetKafkaVersionOutputArgs {
      * Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
      */
     preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
      */

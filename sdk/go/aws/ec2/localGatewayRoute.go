@@ -58,6 +58,8 @@ type LocalGatewayRoute struct {
 	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringOutput `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLocalGatewayRoute registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +107,8 @@ type localGatewayRouteState struct {
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId *string `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LocalGatewayRouteState struct {
@@ -114,6 +118,8 @@ type LocalGatewayRouteState struct {
 	LocalGatewayRouteTableId pulumi.StringPtrInput
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LocalGatewayRouteState) ElementType() reflect.Type {
@@ -127,6 +133,8 @@ type localGatewayRouteArgs struct {
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId string `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LocalGatewayRoute resource.
@@ -137,6 +145,8 @@ type LocalGatewayRouteArgs struct {
 	LocalGatewayRouteTableId pulumi.StringInput
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LocalGatewayRouteArgs) ElementType() reflect.Type {
@@ -239,6 +249,11 @@ func (o LocalGatewayRouteOutput) LocalGatewayRouteTableId() pulumi.StringOutput 
 // Identifier of EC2 Local Gateway Virtual Interface Group.
 func (o LocalGatewayRouteOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LocalGatewayRouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LocalGatewayRouteArrayOutput struct{ *pulumi.OutputState }

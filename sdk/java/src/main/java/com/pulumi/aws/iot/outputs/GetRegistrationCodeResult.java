@@ -15,6 +15,7 @@ public final class GetRegistrationCodeResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return The CA certificate registration code.
      * 
@@ -28,6 +29,9 @@ public final class GetRegistrationCodeResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return The CA certificate registration code.
@@ -47,11 +51,13 @@ public final class GetRegistrationCodeResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private String registrationCode;
         public Builder() {}
         public Builder(GetRegistrationCodeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.registrationCode = defaults.registrationCode;
         }
 
@@ -61,6 +67,14 @@ public final class GetRegistrationCodeResult {
               throw new MissingRequiredPropertyException("GetRegistrationCodeResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRegistrationCodeResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +88,7 @@ public final class GetRegistrationCodeResult {
         public GetRegistrationCodeResult build() {
             final var _resultValue = new GetRegistrationCodeResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.registrationCode = registrationCode;
             return _resultValue;
         }

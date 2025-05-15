@@ -31,6 +31,13 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
         return this.indexName;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags for the place index.
      * 
@@ -50,6 +57,7 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetPlaceIndexPlainArgs(GetPlaceIndexPlainArgs $) {
         this.indexName = $.indexName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder indexName(String indexName) {
             $.indexName = indexName;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

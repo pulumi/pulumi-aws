@@ -59,6 +59,8 @@ type AccessPoint struct {
 	OwnerId      pulumi.StringOutput `pulumi:"ownerId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrOutput `pulumi:"posixUser"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryOutput `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -109,6 +111,8 @@ type accessPointState struct {
 	OwnerId      *string `pulumi:"ownerId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -127,6 +131,8 @@ type AccessPointState struct {
 	OwnerId      pulumi.StringPtrInput
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -144,6 +150,8 @@ type accessPointArgs struct {
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -156,6 +164,8 @@ type AccessPointArgs struct {
 	FileSystemId pulumi.StringInput
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -271,6 +281,11 @@ func (o AccessPointOutput) OwnerId() pulumi.StringOutput {
 // Operating system user and group applied to all file system requests made using the access point. Detailed below.
 func (o AccessPointOutput) PosixUser() AccessPointPosixUserPtrOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointPosixUserPtrOutput { return v.PosixUser }).(AccessPointPosixUserPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccessPointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Directory on the Amazon EFS file system that the access point provides access to. Detailed below.

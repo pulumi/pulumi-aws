@@ -58,6 +58,10 @@ export class Domain extends pulumi.CustomResource {
      * The name of the Lightsail domain to manage
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -74,12 +78,14 @@ export class Domain extends pulumi.CustomResource {
             const state = argsOrState as DomainState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,6 +105,10 @@ export interface DomainState {
      * The name of the Lightsail domain to manage
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -109,4 +119,8 @@ export interface DomainArgs {
      * The name of the Lightsail domain to manage
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

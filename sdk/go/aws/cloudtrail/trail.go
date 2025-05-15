@@ -559,6 +559,8 @@ type Trail struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Name of the trail.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the S3 bucket designated for publishing log files.
 	//
 	// The following arguments are optional:
@@ -636,6 +638,8 @@ type trailState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the trail.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the S3 bucket designated for publishing log files.
 	//
 	// The following arguments are optional:
@@ -681,6 +685,8 @@ type TrailState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the trail.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
 	//
 	// The following arguments are optional:
@@ -726,6 +732,8 @@ type trailArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the trail.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the S3 bucket designated for publishing log files.
 	//
 	// The following arguments are optional:
@@ -764,6 +772,8 @@ type TrailArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the trail.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
 	//
 	// The following arguments are optional:
@@ -931,6 +941,11 @@ func (o TrailOutput) KmsKeyId() pulumi.StringPtrOutput {
 // Name of the trail.
 func (o TrailOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TrailOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the S3 bucket designated for publishing log files.

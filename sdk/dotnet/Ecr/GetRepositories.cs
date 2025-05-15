@@ -31,8 +31,8 @@ namespace Pulumi.Aws.Ecr
         /// });
         /// ```
         /// </summary>
-        public static Task<GetRepositoriesResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetRepositoriesResult> InvokeAsync(GetRepositoriesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
@@ -54,8 +54,8 @@ namespace Pulumi.Aws.Ecr
         /// });
         /// ```
         /// </summary>
-        public static Output<GetRepositoriesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
@@ -77,8 +77,31 @@ namespace Pulumi.Aws.Ecr
         /// });
         /// ```
         /// </summary>
-        public static Output<GetRepositoriesResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetRepositoriesArgs()
+        {
+        }
+        public static new GetRepositoriesArgs Empty => new GetRepositoriesArgs();
+    }
+
+    public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetRepositoriesInvokeArgs()
+        {
+        }
+        public static new GetRepositoriesInvokeArgs Empty => new GetRepositoriesInvokeArgs();
     }
 
 
@@ -93,15 +116,19 @@ namespace Pulumi.Aws.Ecr
         /// A list if AWS Elastic Container Registries for the region.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetRepositoriesResult(
             string id,
 
-            ImmutableArray<string> names)
+            ImmutableArray<string> names,
+
+            string region)
         {
             Id = id;
             Names = names;
+            Region = region;
         }
     }
 }

@@ -100,6 +100,21 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the resource.
      * 
      */
@@ -153,6 +168,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         this.ipamPoolAllocationId = $.ipamPoolAllocationId;
         this.ipamPoolId = $.ipamPoolId;
         this.netmaskLength = $.netmaskLength;
+        this.region = $.region;
         this.resourceId = $.resourceId;
         this.resourceOwner = $.resourceOwner;
         this.resourceType = $.resourceType;
@@ -298,6 +314,27 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
          */
         public Builder netmaskLength(Integer netmaskLength) {
             return netmaskLength(Output.of(netmaskLength));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

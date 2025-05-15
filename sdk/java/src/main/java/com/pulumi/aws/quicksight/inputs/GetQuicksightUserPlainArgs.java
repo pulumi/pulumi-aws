@@ -45,6 +45,13 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.namespace);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The name of the user that you want to match.
      * 
@@ -69,6 +76,7 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
     private GetQuicksightUserPlainArgs(GetQuicksightUserPlainArgs $) {
         this.awsAccountId = $.awsAccountId;
         this.namespace = $.namespace;
+        this.region = $.region;
         this.userName = $.userName;
     }
 
@@ -109,6 +117,11 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder namespace(@Nullable String namespace) {
             $.namespace = namespace;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

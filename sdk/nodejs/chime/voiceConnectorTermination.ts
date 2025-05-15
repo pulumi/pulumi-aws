@@ -86,6 +86,10 @@ export class VoiceConnectorTermination extends pulumi.CustomResource {
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Chime Voice Connector ID.
      */
     public readonly voiceConnectorId!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class VoiceConnectorTermination extends pulumi.CustomResource {
             resourceInputs["cpsLimit"] = state ? state.cpsLimit : undefined;
             resourceInputs["defaultPhoneNumber"] = state ? state.defaultPhoneNumber : undefined;
             resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorTerminationArgs | undefined;
@@ -125,6 +130,7 @@ export class VoiceConnectorTermination extends pulumi.CustomResource {
             resourceInputs["cpsLimit"] = args ? args.cpsLimit : undefined;
             resourceInputs["defaultPhoneNumber"] = args ? args.defaultPhoneNumber : undefined;
             resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -157,6 +163,10 @@ export interface VoiceConnectorTerminationState {
      */
     disabled?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Chime Voice Connector ID.
      */
     voiceConnectorId?: pulumi.Input<string>;
@@ -186,6 +196,10 @@ export interface VoiceConnectorTerminationArgs {
      * When termination settings are disabled, outbound calls can not be made.
      */
     disabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Chime Voice Connector ID.
      */

@@ -84,6 +84,10 @@ export class DevicePool extends pulumi.CustomResource {
      */
     public readonly projectArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The device pool's rules. See Rule.
      */
     public readonly rules!: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
@@ -115,6 +119,7 @@ export class DevicePool extends pulumi.CustomResource {
             resourceInputs["maxDevices"] = state ? state.maxDevices : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["projectArn"] = state ? state.projectArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -131,6 +136,7 @@ export class DevicePool extends pulumi.CustomResource {
             resourceInputs["maxDevices"] = args ? args.maxDevices : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectArn"] = args ? args.projectArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -167,6 +173,10 @@ export interface DevicePoolState {
      */
     projectArn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The device pool's rules. See Rule.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRule>[]>;
@@ -201,6 +211,10 @@ export interface DevicePoolArgs {
      * The ARN of the project for the device pool.
      */
     projectArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The device pool's rules. See Rule.
      */

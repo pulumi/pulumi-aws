@@ -51,7 +51,8 @@ func LookupCustomModel(ctx *pulumi.Context, args *LookupCustomModelArgs, opts ..
 // A collection of arguments for invoking getCustomModel.
 type LookupCustomModelArgs struct {
 	// Name or ARN of the custom model.
-	ModelId string `pulumi:"modelId"`
+	ModelId string  `pulumi:"modelId"`
+	Region  *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCustomModel.
@@ -80,6 +81,7 @@ type LookupCustomModelResult struct {
 	ModelTags map[string]string `pulumi:"modelTags"`
 	// Output data configuration associated with this custom model.
 	OutputDataConfigs []GetCustomModelOutputDataConfig `pulumi:"outputDataConfigs"`
+	Region            string                           `pulumi:"region"`
 	// Information about the training dataset.
 	TrainingDataConfigs []GetCustomModelTrainingDataConfig `pulumi:"trainingDataConfigs"`
 	// Metrics associated with the customization job.
@@ -102,7 +104,8 @@ func LookupCustomModelOutput(ctx *pulumi.Context, args LookupCustomModelOutputAr
 // A collection of arguments for invoking getCustomModel.
 type LookupCustomModelOutputArgs struct {
 	// Name or ARN of the custom model.
-	ModelId pulumi.StringInput `pulumi:"modelId"`
+	ModelId pulumi.StringInput    `pulumi:"modelId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCustomModelOutputArgs) ElementType() reflect.Type {
@@ -185,6 +188,10 @@ func (o LookupCustomModelResultOutput) ModelTags() pulumi.StringMapOutput {
 // Output data configuration associated with this custom model.
 func (o LookupCustomModelResultOutput) OutputDataConfigs() GetCustomModelOutputDataConfigArrayOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) []GetCustomModelOutputDataConfig { return v.OutputDataConfigs }).(GetCustomModelOutputDataConfigArrayOutput)
+}
+
+func (o LookupCustomModelResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomModelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Information about the training dataset.

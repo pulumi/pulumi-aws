@@ -61,6 +61,13 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
         return this.layerName;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
      * 
@@ -82,6 +89,7 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
         this.compatibleArchitecture = $.compatibleArchitecture;
         this.compatibleRuntime = $.compatibleRuntime;
         this.layerName = $.layerName;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -133,6 +141,11 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder layerName(String layerName) {
             $.layerName = layerName;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

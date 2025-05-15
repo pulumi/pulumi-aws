@@ -57,6 +57,10 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A snapshot ID
      */
     public readonly snapshotId!: pulumi.Output<string>;
@@ -75,6 +79,7 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SnapshotCreateVolumePermissionState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
         } else {
             const args = argsOrState as SnapshotCreateVolumePermissionArgs | undefined;
@@ -85,6 +90,7 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
                 throw new Error("Missing required property 'snapshotId'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -101,6 +107,10 @@ export interface SnapshotCreateVolumePermissionState {
      */
     accountId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A snapshot ID
      */
     snapshotId?: pulumi.Input<string>;
@@ -114,6 +124,10 @@ export interface SnapshotCreateVolumePermissionArgs {
      * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
      */
     accountId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A snapshot ID
      */

@@ -137,6 +137,10 @@ export class PlatformApplication extends pulumi.CustomResource {
      */
     public readonly platformPrincipal!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
     public readonly successFeedbackRoleArn!: pulumi.Output<string | undefined>;
@@ -172,6 +176,7 @@ export class PlatformApplication extends pulumi.CustomResource {
             resourceInputs["platform"] = state ? state.platform : undefined;
             resourceInputs["platformCredential"] = state ? state.platformCredential : undefined;
             resourceInputs["platformPrincipal"] = state ? state.platformPrincipal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["successFeedbackRoleArn"] = state ? state.successFeedbackRoleArn : undefined;
             resourceInputs["successFeedbackSampleRate"] = state ? state.successFeedbackSampleRate : undefined;
         } else {
@@ -193,6 +198,7 @@ export class PlatformApplication extends pulumi.CustomResource {
             resourceInputs["platform"] = args ? args.platform : undefined;
             resourceInputs["platformCredential"] = args?.platformCredential ? pulumi.secret(args.platformCredential) : undefined;
             resourceInputs["platformPrincipal"] = args?.platformPrincipal ? pulumi.secret(args.platformPrincipal) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["successFeedbackRoleArn"] = args ? args.successFeedbackRoleArn : undefined;
             resourceInputs["successFeedbackSampleRate"] = args ? args.successFeedbackSampleRate : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -257,6 +263,10 @@ export interface PlatformApplicationState {
      */
     platformPrincipal?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
     successFeedbackRoleArn?: pulumi.Input<string>;
@@ -316,6 +326,10 @@ export interface PlatformApplicationArgs {
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
     platformPrincipal?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */

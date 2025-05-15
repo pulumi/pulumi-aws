@@ -31,6 +31,13 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
@@ -69,6 +76,7 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetThemePlainArgs(GetThemePlainArgs $) {
         this.awsAccountId = $.awsAccountId;
+        this.region = $.region;
         this.tags = $.tags;
         this.themeId = $.themeId;
     }
@@ -99,6 +107,11 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder awsAccountId(@Nullable String awsAccountId) {
             $.awsAccountId = awsAccountId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

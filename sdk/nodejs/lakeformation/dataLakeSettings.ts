@@ -165,6 +165,10 @@ export class DataLakeSettings extends pulumi.CustomResource {
      */
     public readonly readOnlyAdmins!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
@@ -194,6 +198,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             resourceInputs["externalDataFilteringAllowLists"] = state ? state.externalDataFilteringAllowLists : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["readOnlyAdmins"] = state ? state.readOnlyAdmins : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["trustedResourceOwners"] = state ? state.trustedResourceOwners : undefined;
         } else {
             const args = argsOrState as DataLakeSettingsArgs | undefined;
@@ -207,6 +212,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             resourceInputs["externalDataFilteringAllowLists"] = args ? args.externalDataFilteringAllowLists : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["readOnlyAdmins"] = args ? args.readOnlyAdmins : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -259,6 +265,10 @@ export interface DataLakeSettingsState {
      */
     readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
@@ -310,6 +320,10 @@ export interface DataLakeSettingsArgs {
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
     readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      *

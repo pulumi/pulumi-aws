@@ -61,6 +61,13 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.parameters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Identifier of the associated REST API.
      * 
@@ -97,6 +104,7 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.accepts = $.accepts;
         this.exportType = $.exportType;
         this.parameters = $.parameters;
+        this.region = $.region;
         this.restApiId = $.restApiId;
         this.stageName = $.stageName;
     }
@@ -149,6 +157,11 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder parameters(@Nullable Map<String,String> parameters) {
             $.parameters = parameters;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

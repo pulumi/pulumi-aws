@@ -33,6 +33,21 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region of the container image.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region of the container image.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags for the image.
      * 
      */
@@ -51,6 +66,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetImageArgs(GetImageArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +107,27 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param region Region of the container image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region of the container image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

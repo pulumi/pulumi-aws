@@ -58,6 +58,8 @@ type SubnetGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the subnet group.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// VPC ID of the subnet group.
@@ -101,6 +103,8 @@ type subnetGroupState struct {
 	Description *string `pulumi:"description"`
 	// The name of the subnet group.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// VPC ID of the subnet group.
@@ -112,6 +116,8 @@ type SubnetGroupState struct {
 	Description pulumi.StringPtrInput
 	// The name of the subnet group.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayInput
 	// VPC ID of the subnet group.
@@ -127,6 +133,8 @@ type subnetGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the subnet group.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
@@ -137,6 +145,8 @@ type SubnetGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the subnet group.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayInput
 }
@@ -236,6 +246,11 @@ func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {
 // The name of the subnet group.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SubnetGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of VPC subnet IDs for the subnet group.

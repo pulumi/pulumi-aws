@@ -283,6 +283,10 @@ export class TopicSubscription extends pulumi.CustomResource {
      */
     public readonly redrivePolicy!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
      */
     public readonly replayPolicy!: pulumi.Output<string | undefined>;
@@ -323,6 +327,7 @@ export class TopicSubscription extends pulumi.CustomResource {
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["rawMessageDelivery"] = state ? state.rawMessageDelivery : undefined;
             resourceInputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replayPolicy"] = state ? state.replayPolicy : undefined;
             resourceInputs["subscriptionRoleArn"] = state ? state.subscriptionRoleArn : undefined;
             resourceInputs["topic"] = state ? state.topic : undefined;
@@ -346,6 +351,7 @@ export class TopicSubscription extends pulumi.CustomResource {
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
             resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replayPolicy"] = args ? args.replayPolicy : undefined;
             resourceInputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
             resourceInputs["topic"] = args ? args.topic : undefined;
@@ -416,6 +422,10 @@ export interface TopicSubscriptionState {
      */
     redrivePolicy?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
      */
     replayPolicy?: pulumi.Input<string>;
@@ -471,6 +481,10 @@ export interface TopicSubscriptionArgs {
      * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
      */
     redrivePolicy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
      */

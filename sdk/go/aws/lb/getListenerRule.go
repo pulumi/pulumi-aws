@@ -100,7 +100,8 @@ type LookupListenerRuleArgs struct {
 	ListenerArn *string `pulumi:"listenerArn"`
 	// Priority of the Listener Rule within the Listener.
 	// Must be set if `listenerArn` is set, otherwise must not be set.
-	Priority *int `pulumi:"priority"`
+	Priority *int    `pulumi:"priority"`
+	Region   *string `pulumi:"region"`
 }
 
 // A collection of values returned by getListenerRule.
@@ -117,6 +118,7 @@ type LookupListenerRuleResult struct {
 	Id          string `pulumi:"id"`
 	ListenerArn string `pulumi:"listenerArn"`
 	Priority    int    `pulumi:"priority"`
+	Region      string `pulumi:"region"`
 	// Tags assigned to the Listener Rule.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -146,7 +148,8 @@ type LookupListenerRuleOutputArgs struct {
 	ListenerArn pulumi.StringPtrInput `pulumi:"listenerArn"`
 	// Priority of the Listener Rule within the Listener.
 	// Must be set if `listenerArn` is set, otherwise must not be set.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Priority pulumi.IntPtrInput    `pulumi:"priority"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupListenerRuleOutputArgs) ElementType() reflect.Type {
@@ -196,6 +199,10 @@ func (o LookupListenerRuleResultOutput) ListenerArn() pulumi.StringOutput {
 
 func (o LookupListenerRuleResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o LookupListenerRuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags assigned to the Listener Rule.

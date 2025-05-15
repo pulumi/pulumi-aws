@@ -492,6 +492,12 @@ namespace Pulumi.Aws.Batch
         public Output<bool?> PropagateTags { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
         [Output("retryStrategy")]
@@ -648,6 +654,12 @@ namespace Pulumi.Aws.Batch
         public Input<bool>? PropagateTags { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
@@ -770,6 +782,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.

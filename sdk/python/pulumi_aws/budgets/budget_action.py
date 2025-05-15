@@ -31,8 +31,8 @@ class BudgetActionArgs:
                  notification_type: pulumi.Input[builtins.str],
                  subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]],
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a BudgetAction resource.
         :param pulumi.Input['BudgetActionActionThresholdArgs'] action_threshold: The trigger threshold of the action. See Action Threshold.
@@ -44,8 +44,8 @@ class BudgetActionArgs:
         :param pulumi.Input[builtins.str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: A list of subscribers. See Subscriber.
         :param pulumi.Input[builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "action_threshold", action_threshold)
         pulumi.set(__self__, "action_type", action_type)
@@ -57,10 +57,10 @@ class BudgetActionArgs:
         pulumi.set(__self__, "subscribers", subscribers)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="actionThreshold")
@@ -172,6 +172,18 @@ class BudgetActionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,18 +193,6 @@ class BudgetActionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -208,6 +208,7 @@ class _BudgetActionState:
                  definition: Optional[pulumi.Input['BudgetActionDefinitionArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  notification_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -224,6 +225,7 @@ class _BudgetActionState:
         :param pulumi.Input['BudgetActionDefinitionArgs'] definition: Specifies all of the type-specific parameters. See Definition.
         :param pulumi.Input[builtins.str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
         :param pulumi.Input[builtins.str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the budget action.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: A list of subscribers. See Subscriber.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -249,6 +251,8 @@ class _BudgetActionState:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if notification_type is not None:
             pulumi.set(__self__, "notification_type", notification_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if subscribers is not None:
@@ -380,6 +384,18 @@ class _BudgetActionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The status of the budget action.
@@ -443,9 +459,9 @@ class BudgetAction(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  notification_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
@@ -528,9 +544,9 @@ class BudgetAction(pulumi.CustomResource):
         :param pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict']] definition: Specifies all of the type-specific parameters. See Definition.
         :param pulumi.Input[builtins.str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
         :param pulumi.Input[builtins.str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict']]]] subscribers: A list of subscribers. See Subscriber.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -632,9 +648,9 @@ class BudgetAction(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  notification_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -666,14 +682,15 @@ class BudgetAction(pulumi.CustomResource):
             if notification_type is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_type'")
             __props__.__dict__["notification_type"] = notification_type
+            __props__.__dict__["region"] = region
             if subscribers is None and not opts.urn:
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["action_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(BudgetAction, __self__).__init__(
             'aws:budgets/budgetAction:BudgetAction',
             resource_name,
@@ -694,6 +711,7 @@ class BudgetAction(pulumi.CustomResource):
             definition: Optional[pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict']]] = None,
             execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             notification_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -715,6 +733,7 @@ class BudgetAction(pulumi.CustomResource):
         :param pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict']] definition: Specifies all of the type-specific parameters. See Definition.
         :param pulumi.Input[builtins.str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
         :param pulumi.Input[builtins.str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the budget action.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict']]]] subscribers: A list of subscribers. See Subscriber.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -734,6 +753,7 @@ class BudgetAction(pulumi.CustomResource):
         __props__.__dict__["definition"] = definition
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["notification_type"] = notification_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["subscribers"] = subscribers
         __props__.__dict__["tags"] = tags
@@ -819,6 +839,14 @@ class BudgetAction(pulumi.CustomResource):
         The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         """
         return pulumi.get(self, "notification_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

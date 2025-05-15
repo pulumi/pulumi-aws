@@ -169,6 +169,8 @@ type AgentAgent struct {
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayOutput `pulumi:"promptOverrideConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck pulumi.BoolOutput `pulumi:"skipResourceInUseCheck"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -249,6 +251,8 @@ type agentAgentState struct {
 	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -291,6 +295,8 @@ type AgentAgentState struct {
 	PrepareAgent pulumi.BoolPtrInput
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -331,6 +337,8 @@ type agentAgentArgs struct {
 	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -366,6 +374,8 @@ type AgentAgentArgs struct {
 	PrepareAgent pulumi.BoolPtrInput
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -537,6 +547,11 @@ func (o AgentAgentOutput) PromptOverrideConfigurations() AgentAgentPromptOverrid
 	return o.ApplyT(func(v *AgentAgent) AgentAgentPromptOverrideConfigurationArrayOutput {
 		return v.PromptOverrideConfigurations
 	}).(AgentAgentPromptOverrideConfigurationArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AgentAgentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether the in-use check is skipped when deleting the agent.

@@ -29,10 +29,18 @@ public final class GetLogGroupsPlainArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.logGroupNamePrefix);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetLogGroupsPlainArgs() {}
 
     private GetLogGroupsPlainArgs(GetLogGroupsPlainArgs $) {
         this.logGroupNamePrefix = $.logGroupNamePrefix;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -61,6 +69,11 @@ public final class GetLogGroupsPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder logGroupNamePrefix(@Nullable String logGroupNamePrefix) {
             $.logGroupNamePrefix = logGroupNamePrefix;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

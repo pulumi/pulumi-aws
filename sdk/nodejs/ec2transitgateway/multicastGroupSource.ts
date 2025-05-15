@@ -58,6 +58,10 @@ export class MulticastGroupSource extends pulumi.CustomResource {
      */
     public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the transit gateway multicast domain.
      */
     public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
@@ -77,6 +81,7 @@ export class MulticastGroupSource extends pulumi.CustomResource {
             const state = argsOrState as MulticastGroupSourceState | undefined;
             resourceInputs["groupIpAddress"] = state ? state.groupIpAddress : undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["transitGatewayMulticastDomainId"] = state ? state.transitGatewayMulticastDomainId : undefined;
         } else {
             const args = argsOrState as MulticastGroupSourceArgs | undefined;
@@ -91,6 +96,7 @@ export class MulticastGroupSource extends pulumi.CustomResource {
             }
             resourceInputs["groupIpAddress"] = args ? args.groupIpAddress : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -111,6 +117,10 @@ export interface MulticastGroupSourceState {
      */
     networkInterfaceId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the transit gateway multicast domain.
      */
     transitGatewayMulticastDomainId?: pulumi.Input<string>;
@@ -128,6 +138,10 @@ export interface MulticastGroupSourceArgs {
      * The group members' network interface ID to register with the transit gateway multicast group.
      */
     networkInterfaceId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the transit gateway multicast domain.
      */

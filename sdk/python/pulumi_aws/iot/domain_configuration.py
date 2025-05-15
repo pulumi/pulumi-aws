@@ -25,11 +25,11 @@ class DomainConfigurationArgs:
                  authorizer_config: Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  service_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tls_config: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']] = None,
                  validation_certificate_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -37,11 +37,11 @@ class DomainConfigurationArgs:
         :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[builtins.str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[builtins.str] name: The name of the domain configuration. This value must be unique to a region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[builtins.str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[builtins.str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[builtins.str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
@@ -51,6 +51,8 @@ class DomainConfigurationArgs:
             pulumi.set(__self__, "domain_name", domain_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_certificate_arns is not None:
             pulumi.set(__self__, "server_certificate_arns", server_certificate_arns)
         if service_type is not None:
@@ -59,8 +61,6 @@ class DomainConfigurationArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if tls_config is not None:
             pulumi.set(__self__, "tls_config", tls_config)
         if validation_certificate_arn is not None:
@@ -101,6 +101,18 @@ class DomainConfigurationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serverCertificateArns")
@@ -151,18 +163,6 @@ class DomainConfigurationArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
-
-    @property
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']]:
         """
@@ -195,6 +195,7 @@ class _DomainConfigurationState:
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  service_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -209,6 +210,7 @@ class _DomainConfigurationState:
         :param pulumi.Input[builtins.str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[builtins.str] domain_type: The type of the domain.
         :param pulumi.Input[builtins.str] name: The name of the domain configuration. This value must be unique to a region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[builtins.str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[builtins.str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
@@ -227,6 +229,8 @@ class _DomainConfigurationState:
             pulumi.set(__self__, "domain_type", domain_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_certificate_arns is not None:
             pulumi.set(__self__, "server_certificate_arns", server_certificate_arns)
         if service_type is not None:
@@ -301,6 +305,18 @@ class _DomainConfigurationState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serverCertificateArns")
@@ -398,11 +414,11 @@ class DomainConfiguration(pulumi.CustomResource):
                  authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  service_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tls_config: Optional[pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
                  validation_certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -435,11 +451,11 @@ class DomainConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[builtins.str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[builtins.str] name: The name of the domain configuration. This value must be unique to a region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[builtins.str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[builtins.str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[builtins.str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
@@ -491,11 +507,11 @@ class DomainConfiguration(pulumi.CustomResource):
                  authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  service_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tls_config: Optional[pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
                  validation_certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -510,15 +526,16 @@ class DomainConfiguration(pulumi.CustomResource):
             __props__.__dict__["authorizer_config"] = authorizer_config
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["server_certificate_arns"] = server_certificate_arns
             __props__.__dict__["service_type"] = service_type
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tls_config"] = tls_config
             __props__.__dict__["validation_certificate_arn"] = validation_certificate_arn
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_type"] = None
+            __props__.__dict__["tags_all"] = None
         super(DomainConfiguration, __self__).__init__(
             'aws:iot/domainConfiguration:DomainConfiguration',
             resource_name,
@@ -534,6 +551,7 @@ class DomainConfiguration(pulumi.CustomResource):
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             domain_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             service_type: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -553,6 +571,7 @@ class DomainConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[builtins.str] domain_type: The type of the domain.
         :param pulumi.Input[builtins.str] name: The name of the domain configuration. This value must be unique to a region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[builtins.str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[builtins.str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
@@ -570,6 +589,7 @@ class DomainConfiguration(pulumi.CustomResource):
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_type"] = domain_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_certificate_arns"] = server_certificate_arns
         __props__.__dict__["service_type"] = service_type
         __props__.__dict__["status"] = status
@@ -618,6 +638,14 @@ class DomainConfiguration(pulumi.CustomResource):
         The name of the domain configuration. This value must be unique to a region.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverCertificateArns")

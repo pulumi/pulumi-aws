@@ -65,6 +65,10 @@ export class WorkingStorage extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the gateway.
      */
     public readonly gatewayArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a WorkingStorage resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class WorkingStorage extends pulumi.CustomResource {
             const state = argsOrState as WorkingStorageState | undefined;
             resourceInputs["diskId"] = state ? state.diskId : undefined;
             resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as WorkingStorageArgs | undefined;
             if ((!args || args.diskId === undefined) && !opts.urn) {
@@ -91,6 +96,7 @@ export class WorkingStorage extends pulumi.CustomResource {
             }
             resourceInputs["diskId"] = args ? args.diskId : undefined;
             resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkingStorage.__pulumiType, name, resourceInputs, opts);
@@ -109,6 +115,10 @@ export interface WorkingStorageState {
      * The Amazon Resource Name (ARN) of the gateway.
      */
     gatewayArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -123,4 +133,8 @@ export interface WorkingStorageArgs {
      * The Amazon Resource Name (ARN) of the gateway.
      */
     gatewayArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

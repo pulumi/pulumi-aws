@@ -67,7 +67,8 @@ func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.In
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsArgs struct {
 	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getUserPools.
@@ -77,8 +78,9 @@ type GetUserPoolsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of cognito user pool ids.
-	Ids  []string `pulumi:"ids"`
-	Name string   `pulumi:"name"`
+	Ids    []string `pulumi:"ids"`
+	Name   string   `pulumi:"name"`
+	Region string   `pulumi:"region"`
 }
 
 func GetUserPoolsOutput(ctx *pulumi.Context, args GetUserPoolsOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolsResultOutput {
@@ -93,7 +95,8 @@ func GetUserPoolsOutput(ctx *pulumi.Context, args GetUserPoolsOutputArgs, opts .
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsOutputArgs struct {
 	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetUserPoolsOutputArgs) ElementType() reflect.Type {
@@ -132,6 +135,10 @@ func (o GetUserPoolsResultOutput) Ids() pulumi.StringArrayOutput {
 
 func (o GetUserPoolsResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

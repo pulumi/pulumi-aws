@@ -101,6 +101,8 @@ type Stage struct {
 	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Name of the stage
@@ -181,6 +183,8 @@ type stageState struct {
 	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl *string `pulumi:"invokeUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Name of the stage
@@ -223,6 +227,8 @@ type StageState struct {
 	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.Input
 	// Name of the stage
@@ -260,6 +266,8 @@ type stageArgs struct {
 	Description *string `pulumi:"description"`
 	// Version of the associated API documentation.
 	DocumentationVersion *string `pulumi:"documentationVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Name of the stage
@@ -290,6 +298,8 @@ type StageArgs struct {
 	Description pulumi.StringPtrInput
 	// Version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.Input
 	// Name of the stage
@@ -445,6 +455,11 @@ func (o StageOutput) ExecutionArn() pulumi.StringOutput {
 // e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 func (o StageOutput) InvokeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StageOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the associated REST API

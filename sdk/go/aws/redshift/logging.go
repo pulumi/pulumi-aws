@@ -96,6 +96,8 @@ type Logging struct {
 	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
 	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
 	LogExports pulumi.StringArrayOutput `pulumi:"logExports"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Prefix applied to the log file names.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
 }
@@ -143,6 +145,8 @@ type loggingState struct {
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
 	LogExports []string `pulumi:"logExports"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Prefix applied to the log file names.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
@@ -158,6 +162,8 @@ type LoggingState struct {
 	LogDestinationType pulumi.StringPtrInput
 	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
 	LogExports pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Prefix applied to the log file names.
 	S3KeyPrefix pulumi.StringPtrInput
 }
@@ -177,6 +183,8 @@ type loggingArgs struct {
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
 	LogExports []string `pulumi:"logExports"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Prefix applied to the log file names.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
@@ -193,6 +201,8 @@ type LoggingArgs struct {
 	LogDestinationType pulumi.StringPtrInput
 	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
 	LogExports pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Prefix applied to the log file names.
 	S3KeyPrefix pulumi.StringPtrInput
 }
@@ -304,6 +314,11 @@ func (o LoggingOutput) LogDestinationType() pulumi.StringPtrOutput {
 // Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
 func (o LoggingOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Logging) pulumi.StringArrayOutput { return v.LogExports }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LoggingOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Logging) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Prefix applied to the log file names.

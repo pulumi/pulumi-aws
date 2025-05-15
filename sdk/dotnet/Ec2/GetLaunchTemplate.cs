@@ -195,6 +195,9 @@ namespace Pulumi.Aws.Ec2
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -238,6 +241,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -296,6 +302,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> Placements;
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePrivateDnsNameOptionResult> PrivateDnsNameOptions;
         public readonly string RamDiskId;
+        public readonly string Region;
         public readonly ImmutableArray<string> SecurityGroupNames;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> TagSpecifications;
         public readonly ImmutableDictionary<string, string> Tags;
@@ -368,6 +375,8 @@ namespace Pulumi.Aws.Ec2
 
             string ramDiskId,
 
+            string region,
+
             ImmutableArray<string> securityGroupNames,
 
             ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> tagSpecifications,
@@ -410,6 +419,7 @@ namespace Pulumi.Aws.Ec2
             Placements = placements;
             PrivateDnsNameOptions = privateDnsNameOptions;
             RamDiskId = ramDiskId;
+            Region = region;
             SecurityGroupNames = securityGroupNames;
             TagSpecifications = tagSpecifications;
             Tags = tags;

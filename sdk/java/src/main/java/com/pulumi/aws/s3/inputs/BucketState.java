@@ -136,6 +136,21 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * AWS region this bucket resides in.
+     * 
+     */
+    @Import(name="bucketRegion")
+    private @Nullable Output<String> bucketRegion;
+
+    /**
+     * @return AWS region this bucket resides in.
+     * 
+     */
+    public Optional<Output<String>> bucketRegion() {
+        return Optional.ofNullable(this.bucketRegion);
+    }
+
+    /**
      * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      * 
      */
@@ -346,14 +361,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS region this bucket resides in.
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS region this bucket resides in.
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -580,6 +595,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         this.bucket = $.bucket;
         this.bucketDomainName = $.bucketDomainName;
         this.bucketPrefix = $.bucketPrefix;
+        this.bucketRegion = $.bucketRegion;
         this.bucketRegionalDomainName = $.bucketRegionalDomainName;
         this.corsRules = $.corsRules;
         this.forceDestroy = $.forceDestroy;
@@ -762,6 +778,27 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
+        }
+
+        /**
+         * @param bucketRegion AWS region this bucket resides in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketRegion(@Nullable Output<String> bucketRegion) {
+            $.bucketRegion = bucketRegion;
+            return this;
+        }
+
+        /**
+         * @param bucketRegion AWS region this bucket resides in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketRegion(String bucketRegion) {
+            return bucketRegion(Output.of(bucketRegion));
         }
 
         /**
@@ -1078,7 +1115,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region AWS region this bucket resides in.
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -1089,7 +1126,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region AWS region this bucket resides in.
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
          * 
          * @return builder
          * 

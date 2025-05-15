@@ -23,6 +23,7 @@ class VoiceConnectorArgs:
                  require_encryption: pulumi.Input[builtins.bool],
                  aws_region: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VoiceConnector resource.
@@ -31,6 +32,7 @@ class VoiceConnectorArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[builtins.str] name: The name of the Amazon Chime Voice Connector.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "require_encryption", require_encryption)
@@ -38,6 +40,8 @@ class VoiceConnectorArgs:
             pulumi.set(__self__, "aws_region", aws_region)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -81,6 +85,18 @@ class VoiceConnectorArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -99,6 +115,7 @@ class _VoiceConnectorState:
                  aws_region: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  outbound_host_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  require_encryption: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -108,6 +125,7 @@ class _VoiceConnectorState:
         :param pulumi.Input[builtins.str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[builtins.str] name: The name of the Amazon Chime Voice Connector.
         :param pulumi.Input[builtins.str] outbound_host_name: The outbound host name for the Amazon Chime Voice Connector.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
                
                The following arguments are optional:
@@ -122,6 +140,8 @@ class _VoiceConnectorState:
             pulumi.set(__self__, "name", name)
         if outbound_host_name is not None:
             pulumi.set(__self__, "outbound_host_name", outbound_host_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if require_encryption is not None:
             pulumi.set(__self__, "require_encryption", require_encryption)
         if tags is not None:
@@ -178,6 +198,18 @@ class _VoiceConnectorState:
         pulumi.set(self, "outbound_host_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requireEncryption")
     def require_encryption(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -226,6 +258,7 @@ class VoiceConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_region: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  require_encryption: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -256,6 +289,7 @@ class VoiceConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[builtins.str] name: The name of the Amazon Chime Voice Connector.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
                
                The following arguments are optional:
@@ -307,6 +341,7 @@ class VoiceConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_region: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  require_encryption: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -320,6 +355,7 @@ class VoiceConnector(pulumi.CustomResource):
 
             __props__.__dict__["aws_region"] = aws_region
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if require_encryption is None and not opts.urn:
                 raise TypeError("Missing required property 'require_encryption'")
             __props__.__dict__["require_encryption"] = require_encryption
@@ -341,6 +377,7 @@ class VoiceConnector(pulumi.CustomResource):
             aws_region: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             outbound_host_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             require_encryption: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'VoiceConnector':
@@ -355,6 +392,7 @@ class VoiceConnector(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[builtins.str] name: The name of the Amazon Chime Voice Connector.
         :param pulumi.Input[builtins.str] outbound_host_name: The outbound host name for the Amazon Chime Voice Connector.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
                
                The following arguments are optional:
@@ -369,6 +407,7 @@ class VoiceConnector(pulumi.CustomResource):
         __props__.__dict__["aws_region"] = aws_region
         __props__.__dict__["name"] = name
         __props__.__dict__["outbound_host_name"] = outbound_host_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["require_encryption"] = require_encryption
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -405,6 +444,14 @@ class VoiceConnector(pulumi.CustomResource):
         The outbound host name for the Amazon Chime Voice Connector.
         """
         return pulumi.get(self, "outbound_host_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requireEncryption")

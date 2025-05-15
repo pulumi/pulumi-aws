@@ -25,12 +25,14 @@ class ThingGroupArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input['ThingGroupPropertiesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThingGroup resource.
         :param pulumi.Input[builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         """
         if name is not None:
@@ -39,6 +41,8 @@ class ThingGroupArgs:
             pulumi.set(__self__, "parent_group_name", parent_group_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -80,6 +84,18 @@ class ThingGroupArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags
@@ -99,6 +115,7 @@ class _ThingGroupState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input['ThingGroupPropertiesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None):
@@ -108,6 +125,7 @@ class _ThingGroupState:
         :param pulumi.Input[builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[builtins.int] version: The current version of the Thing Group record in the registry.
         """
@@ -121,6 +139,8 @@ class _ThingGroupState:
             pulumi.set(__self__, "parent_group_name", parent_group_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -187,6 +207,18 @@ class _ThingGroupState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags
@@ -230,6 +262,7 @@ class ThingGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -272,6 +305,7 @@ class ThingGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']] properties: The Thing Group properties. Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         """
         ...
@@ -333,6 +367,7 @@ class ThingGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -346,6 +381,7 @@ class ThingGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_group_name"] = parent_group_name
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["metadatas"] = None
@@ -366,6 +402,7 @@ class ThingGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             parent_group_name: Optional[pulumi.Input[builtins.str]] = None,
             properties: Optional[pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             version: Optional[pulumi.Input[builtins.int]] = None) -> 'ThingGroup':
@@ -380,6 +417,7 @@ class ThingGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']] properties: The Thing Group properties. Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[builtins.int] version: The current version of the Thing Group record in the registry.
         """
@@ -392,6 +430,7 @@ class ThingGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["parent_group_name"] = parent_group_name
         __props__.__dict__["properties"] = properties
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["version"] = version
@@ -433,6 +472,14 @@ class ThingGroup(pulumi.CustomResource):
         The Thing Group properties. Defined below.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

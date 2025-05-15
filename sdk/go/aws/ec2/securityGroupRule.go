@@ -220,6 +220,8 @@ type SecurityGroupRule struct {
 	PrefixListIds pulumi.StringArrayOutput `pulumi:"prefixListIds"`
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
@@ -296,6 +298,8 @@ type securityGroupRuleState struct {
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol *string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Security group to apply this rule to.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
 	// If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
@@ -328,6 +332,8 @@ type SecurityGroupRuleState struct {
 	PrefixListIds pulumi.StringArrayInput
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringPtrInput
 	// If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
@@ -364,6 +370,8 @@ type securityGroupRuleArgs struct {
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Security group to apply this rule to.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
@@ -395,6 +403,8 @@ type SecurityGroupRuleArgs struct {
 	PrefixListIds pulumi.StringArrayInput
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringInput
 	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
@@ -527,6 +537,11 @@ func (o SecurityGroupRuleOutput) PrefixListIds() pulumi.StringArrayOutput {
 // Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 func (o SecurityGroupRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SecurityGroupRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Security group to apply this rule to.

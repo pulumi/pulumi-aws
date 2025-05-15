@@ -46,11 +46,27 @@ public final class EmailIdentityFeedbackAttributesState extends com.pulumi.resou
         return Optional.ofNullable(this.emailIdentity);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private EmailIdentityFeedbackAttributesState() {}
 
     private EmailIdentityFeedbackAttributesState(EmailIdentityFeedbackAttributesState $) {
         this.emailForwardingEnabled = $.emailForwardingEnabled;
         this.emailIdentity = $.emailIdentity;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -111,6 +127,27 @@ public final class EmailIdentityFeedbackAttributesState extends com.pulumi.resou
          */
         public Builder emailIdentity(String emailIdentity) {
             return emailIdentity(Output.of(emailIdentity));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public EmailIdentityFeedbackAttributesState build() {

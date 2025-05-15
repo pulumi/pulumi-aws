@@ -95,6 +95,8 @@ type DirectoryBucket struct {
 	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
 	// Bucket location. See Location below for more details.
 	Location DirectoryBucketLocationPtrOutput `pulumi:"location"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -142,6 +144,8 @@ type directoryBucketState struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Bucket location. See Location below for more details.
 	Location *DirectoryBucketLocation `pulumi:"location"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Bucket type. Valid values: `Directory`.
 	Type *string `pulumi:"type"`
 }
@@ -157,6 +161,8 @@ type DirectoryBucketState struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Bucket location. See Location below for more details.
 	Location DirectoryBucketLocationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringPtrInput
 }
@@ -174,6 +180,8 @@ type directoryBucketArgs struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Bucket location. See Location below for more details.
 	Location *DirectoryBucketLocation `pulumi:"location"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Bucket type. Valid values: `Directory`.
 	Type *string `pulumi:"type"`
 }
@@ -188,6 +196,8 @@ type DirectoryBucketArgs struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Bucket location. See Location below for more details.
 	Location DirectoryBucketLocationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringPtrInput
 }
@@ -302,6 +312,11 @@ func (o DirectoryBucketOutput) ForceDestroy() pulumi.BoolOutput {
 // Bucket location. See Location below for more details.
 func (o DirectoryBucketOutput) Location() DirectoryBucketLocationPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketLocationPtrOutput { return v.Location }).(DirectoryBucketLocationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DirectoryBucketOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Bucket type. Valid values: `Directory`.

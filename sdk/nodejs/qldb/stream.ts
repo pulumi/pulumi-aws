@@ -80,6 +80,10 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly ledgerName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["inclusiveStartTime"] = state ? state.inclusiveStartTime : undefined;
             resourceInputs["kinesisConfiguration"] = state ? state.kinesisConfiguration : undefined;
             resourceInputs["ledgerName"] = state ? state.ledgerName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["streamName"] = state ? state.streamName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -139,6 +144,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["inclusiveStartTime"] = args ? args.inclusiveStartTime : undefined;
             resourceInputs["kinesisConfiguration"] = args ? args.kinesisConfiguration : undefined;
             resourceInputs["ledgerName"] = args ? args.ledgerName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["streamName"] = args ? args.streamName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -174,6 +180,10 @@ export interface StreamState {
      * The name of the QLDB ledger.
      */
     ledgerName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      */
@@ -212,6 +222,10 @@ export interface StreamArgs {
      * The name of the QLDB ledger.
      */
     ledgerName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      */

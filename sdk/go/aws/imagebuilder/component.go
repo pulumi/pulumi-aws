@@ -78,6 +78,8 @@ type Component struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Platform of the component.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
@@ -154,6 +156,8 @@ type componentState struct {
 	Owner *string `pulumi:"owner"`
 	// Platform of the component.
 	Platform *string `pulumi:"platform"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
@@ -195,6 +199,8 @@ type ComponentState struct {
 	Owner pulumi.StringPtrInput
 	// Platform of the component.
 	Platform pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrInput
 	// Set of Operating Systems (OS) supported by the component.
@@ -232,6 +238,8 @@ type componentArgs struct {
 	Name *string `pulumi:"name"`
 	// Platform of the component.
 	Platform string `pulumi:"platform"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
@@ -262,6 +270,8 @@ type ComponentArgs struct {
 	Name pulumi.StringPtrInput
 	// Platform of the component.
 	Platform pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrInput
 	// Set of Operating Systems (OS) supported by the component.
@@ -413,6 +423,11 @@ func (o ComponentOutput) Owner() pulumi.StringOutput {
 // Platform of the component.
 func (o ComponentOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ComponentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.

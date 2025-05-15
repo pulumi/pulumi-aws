@@ -17,6 +17,21 @@ public final class InternetGatewayArgs extends com.pulumi.resources.ResourceArgs
     public static final InternetGatewayArgs Empty = new InternetGatewayArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
@@ -133,6 +148,7 @@ public final class InternetGatewayArgs extends com.pulumi.resources.ResourceArgs
     private InternetGatewayArgs() {}
 
     private InternetGatewayArgs(InternetGatewayArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
     }
@@ -153,6 +169,27 @@ public final class InternetGatewayArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(InternetGatewayArgs defaults) {
             $ = new InternetGatewayArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

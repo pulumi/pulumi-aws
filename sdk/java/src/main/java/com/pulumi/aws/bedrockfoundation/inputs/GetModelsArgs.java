@@ -75,6 +75,13 @@ public final class GetModelsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.byProvider);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetModelsArgs() {}
 
     private GetModelsArgs(GetModelsArgs $) {
@@ -82,6 +89,7 @@ public final class GetModelsArgs extends com.pulumi.resources.InvokeArgs {
         this.byInferenceType = $.byInferenceType;
         this.byOutputModality = $.byOutputModality;
         this.byProvider = $.byProvider;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -184,6 +192,15 @@ public final class GetModelsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder byProvider(String byProvider) {
             return byProvider(Output.of(byProvider));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetModelsArgs build() {

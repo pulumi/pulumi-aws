@@ -109,6 +109,12 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         /// </summary>
         [Output("targetId")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         /// </summary>
         [Input("targetId", required: true)]
@@ -185,6 +197,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.

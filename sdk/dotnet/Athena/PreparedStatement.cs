@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Athena
         public Output<string> QueryStatement { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
         [Output("workgroup")]
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Athena
         public Input<string> QueryStatement { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
         [Input("workgroup", required: true)]
@@ -179,6 +191,12 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Input("queryStatement")]
         public Input<string>? QueryStatement { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.

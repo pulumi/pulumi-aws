@@ -25,6 +25,7 @@ class ServerlessSecurityConfigArgs:
                  type: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_options: Optional[pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs']] = None):
         """
         The set of arguments for constructing a ServerlessSecurityConfig resource.
@@ -33,6 +34,7 @@ class ServerlessSecurityConfigArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the security configuration.
         :param pulumi.Input[builtins.str] name: Name of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs'] saml_options: Configuration block for SAML options.
         """
         pulumi.set(__self__, "type", type)
@@ -40,6 +42,8 @@ class ServerlessSecurityConfigArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if saml_options is not None:
             pulumi.set(__self__, "saml_options", saml_options)
 
@@ -82,6 +86,18 @@ class ServerlessSecurityConfigArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> Optional[pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs']]:
         """
@@ -100,6 +116,7 @@ class _ServerlessSecurityConfigState:
                  config_version: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_options: Optional[pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs']] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -107,6 +124,7 @@ class _ServerlessSecurityConfigState:
         :param pulumi.Input[builtins.str] config_version: Version of the configuration.
         :param pulumi.Input[builtins.str] description: Description of the security configuration.
         :param pulumi.Input[builtins.str] name: Name of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs'] saml_options: Configuration block for SAML options.
         :param pulumi.Input[builtins.str] type: Type of configuration. Must be `saml`.
                
@@ -118,6 +136,8 @@ class _ServerlessSecurityConfigState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if saml_options is not None:
             pulumi.set(__self__, "saml_options", saml_options)
         if type is not None:
@@ -160,6 +180,18 @@ class _ServerlessSecurityConfigState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> Optional[pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs']]:
         """
@@ -196,6 +228,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_options: Optional[pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -216,6 +249,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the security configuration.
         :param pulumi.Input[builtins.str] name: Name of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']] saml_options: Configuration block for SAML options.
         :param pulumi.Input[builtins.str] type: Type of configuration. Must be `saml`.
                
@@ -257,6 +291,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_options: Optional[pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -270,6 +305,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["saml_options"] = saml_options
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -288,6 +324,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
             config_version: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             saml_options: Optional[pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'ServerlessSecurityConfig':
         """
@@ -300,6 +337,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] config_version: Version of the configuration.
         :param pulumi.Input[builtins.str] description: Description of the security configuration.
         :param pulumi.Input[builtins.str] name: Name of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']] saml_options: Configuration block for SAML options.
         :param pulumi.Input[builtins.str] type: Type of configuration. Must be `saml`.
                
@@ -312,6 +350,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         __props__.__dict__["config_version"] = config_version
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["saml_options"] = saml_options
         __props__.__dict__["type"] = type
         return ServerlessSecurityConfig(resource_name, opts=opts, __props__=__props__)
@@ -339,6 +378,14 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         Name of the policy.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="samlOptions")

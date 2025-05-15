@@ -41,6 +41,7 @@ public final class GetProfilingGroupResult {
      * 
      */
     private List<GetProfilingGroupProfilingStatus> profilingStatuses;
+    private String region;
     /**
      * @return Mapping of Key-Value tags for the resource.
      * 
@@ -94,6 +95,9 @@ public final class GetProfilingGroupResult {
     public List<GetProfilingGroupProfilingStatus> profilingStatuses() {
         return this.profilingStatuses;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Mapping of Key-Value tags for the resource.
      * 
@@ -125,6 +129,7 @@ public final class GetProfilingGroupResult {
         private String id;
         private String name;
         private List<GetProfilingGroupProfilingStatus> profilingStatuses;
+        private String region;
         private Map<String,String> tags;
         private String updatedAt;
         public Builder() {}
@@ -137,6 +142,7 @@ public final class GetProfilingGroupResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.profilingStatuses = defaults.profilingStatuses;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.updatedAt = defaults.updatedAt;
         }
@@ -204,6 +210,14 @@ public final class GetProfilingGroupResult {
             return profilingStatuses(List.of(profilingStatuses));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetProfilingGroupResult", "tags");
@@ -228,6 +242,7 @@ public final class GetProfilingGroupResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.profilingStatuses = profilingStatuses;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.updatedAt = updatedAt;
             return _resultValue;

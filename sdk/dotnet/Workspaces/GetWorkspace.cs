@@ -156,6 +156,9 @@ namespace Pulumi.Aws.Workspaces
         [Input("directoryId")]
         public string? DirectoryId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -193,6 +196,9 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -242,6 +248,7 @@ namespace Pulumi.Aws.Workspaces
         /// IP address of the WorkSpace.
         /// </summary>
         public readonly string IpAddress;
+        public readonly string Region;
         public readonly bool RootVolumeEncryptionEnabled;
         /// <summary>
         /// Operational state of the WorkSpace.
@@ -266,6 +273,8 @@ namespace Pulumi.Aws.Workspaces
 
             string ipAddress,
 
+            string region,
+
             bool rootVolumeEncryptionEnabled,
 
             string state,
@@ -287,6 +296,7 @@ namespace Pulumi.Aws.Workspaces
             DirectoryId = directoryId;
             Id = id;
             IpAddress = ipAddress;
+            Region = region;
             RootVolumeEncryptionEnabled = rootVolumeEncryptionEnabled;
             State = state;
             Tags = tags;

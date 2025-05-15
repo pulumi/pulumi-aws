@@ -16,6 +16,7 @@ public final class GetClusterAuthResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Token to use to authenticate with the cluster.
      * 
@@ -32,6 +33,9 @@ public final class GetClusterAuthResult {
     }
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Token to use to authenticate with the cluster.
@@ -52,12 +56,14 @@ public final class GetClusterAuthResult {
     public static final class Builder {
         private String id;
         private String name;
+        private String region;
         private String token;
         public Builder() {}
         public Builder(GetClusterAuthResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.token = defaults.token;
         }
 
@@ -78,6 +84,14 @@ public final class GetClusterAuthResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterAuthResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder token(String token) {
             if (token == null) {
               throw new MissingRequiredPropertyException("GetClusterAuthResult", "token");
@@ -89,6 +103,7 @@ public final class GetClusterAuthResult {
             final var _resultValue = new GetClusterAuthResult();
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.token = token;
             return _resultValue;
         }

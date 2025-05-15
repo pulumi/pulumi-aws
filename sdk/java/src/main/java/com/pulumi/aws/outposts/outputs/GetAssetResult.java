@@ -38,6 +38,7 @@ public final class GetAssetResult {
      * 
      */
     private String rackId;
+    private String region;
 
     private GetAssetResult() {}
     public String arn() {
@@ -81,6 +82,9 @@ public final class GetAssetResult {
     public String rackId() {
         return this.rackId;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -98,6 +102,7 @@ public final class GetAssetResult {
         private String id;
         private Integer rackElevation;
         private String rackId;
+        private String region;
         public Builder() {}
         public Builder(GetAssetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,6 +113,7 @@ public final class GetAssetResult {
     	      this.id = defaults.id;
     	      this.rackElevation = defaults.rackElevation;
     	      this.rackId = defaults.rackId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -166,6 +172,14 @@ public final class GetAssetResult {
             this.rackId = rackId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetAssetResult build() {
             final var _resultValue = new GetAssetResult();
             _resultValue.arn = arn;
@@ -175,6 +189,7 @@ public final class GetAssetResult {
             _resultValue.id = id;
             _resultValue.rackElevation = rackElevation;
             _resultValue.rackId = rackId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

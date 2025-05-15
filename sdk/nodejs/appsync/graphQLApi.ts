@@ -88,6 +88,10 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly queryDepthLimit!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
      */
     public readonly resolverCountLimit!: pulumi.Output<number | undefined>;
@@ -145,6 +149,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
             resourceInputs["queryDepthLimit"] = state ? state.queryDepthLimit : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resolverCountLimit"] = state ? state.resolverCountLimit : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -169,6 +174,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
             resourceInputs["queryDepthLimit"] = args ? args.queryDepthLimit : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resolverCountLimit"] = args ? args.resolverCountLimit : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -240,6 +246,10 @@ export interface GraphQLApiState {
      * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
      */
     queryDepthLimit?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
      */
@@ -326,6 +336,10 @@ export interface GraphQLApiArgs {
      * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
      */
     queryDepthLimit?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
      */

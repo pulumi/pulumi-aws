@@ -144,6 +144,10 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly opensearchserviceConfig!: pulumi.Output<outputs.appsync.DataSourceOpensearchserviceConfig | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * AWS RDS settings. See `relationalDatabaseConfig` Block for details.
      */
     public readonly relationalDatabaseConfig!: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
@@ -179,6 +183,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["opensearchserviceConfig"] = state ? state.opensearchserviceConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relationalDatabaseConfig"] = state ? state.relationalDatabaseConfig : undefined;
             resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -199,6 +204,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["opensearchserviceConfig"] = args ? args.opensearchserviceConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -254,6 +260,10 @@ export interface DataSourceState {
      */
     opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * AWS RDS settings. See `relationalDatabaseConfig` Block for details.
      */
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
@@ -307,6 +317,10 @@ export interface DataSourceArgs {
      * Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
      */
     opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AWS RDS settings. See `relationalDatabaseConfig` Block for details.
      */

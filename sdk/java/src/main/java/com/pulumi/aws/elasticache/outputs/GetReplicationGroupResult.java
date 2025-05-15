@@ -94,6 +94,7 @@ public final class GetReplicationGroupResult {
      * 
      */
     private String readerEndpointAddress;
+    private String region;
     /**
      * @return Number of replica nodes in each node group.
      * 
@@ -224,6 +225,9 @@ public final class GetReplicationGroupResult {
     public String readerEndpointAddress() {
         return this.readerEndpointAddress;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Number of replica nodes in each node group.
      * 
@@ -274,6 +278,7 @@ public final class GetReplicationGroupResult {
         private Integer port;
         private String primaryEndpointAddress;
         private String readerEndpointAddress;
+        private String region;
         private Integer replicasPerNodeGroup;
         private String replicationGroupId;
         private Integer snapshotRetentionLimit;
@@ -297,6 +302,7 @@ public final class GetReplicationGroupResult {
     	      this.port = defaults.port;
     	      this.primaryEndpointAddress = defaults.primaryEndpointAddress;
     	      this.readerEndpointAddress = defaults.readerEndpointAddress;
+    	      this.region = defaults.region;
     	      this.replicasPerNodeGroup = defaults.replicasPerNodeGroup;
     	      this.replicationGroupId = defaults.replicationGroupId;
     	      this.snapshotRetentionLimit = defaults.snapshotRetentionLimit;
@@ -438,6 +444,14 @@ public final class GetReplicationGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder replicasPerNodeGroup(Integer replicasPerNodeGroup) {
             if (replicasPerNodeGroup == null) {
               throw new MissingRequiredPropertyException("GetReplicationGroupResult", "replicasPerNodeGroup");
@@ -487,6 +501,7 @@ public final class GetReplicationGroupResult {
             _resultValue.port = port;
             _resultValue.primaryEndpointAddress = primaryEndpointAddress;
             _resultValue.readerEndpointAddress = readerEndpointAddress;
+            _resultValue.region = region;
             _resultValue.replicasPerNodeGroup = replicasPerNodeGroup;
             _resultValue.replicationGroupId = replicationGroupId;
             _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;

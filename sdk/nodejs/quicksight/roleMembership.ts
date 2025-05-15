@@ -72,6 +72,10 @@ export class RoleMembership extends pulumi.CustomResource {
      */
     public readonly namespace!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
      *
      * The following arguments are optional:
@@ -94,6 +98,7 @@ export class RoleMembership extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             resourceInputs["memberName"] = state ? state.memberName : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
         } else {
             const args = argsOrState as RoleMembershipArgs | undefined;
@@ -106,6 +111,7 @@ export class RoleMembership extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["memberName"] = args ? args.memberName : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -130,6 +136,10 @@ export interface RoleMembershipState {
      */
     namespace?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
      *
      * The following arguments are optional:
@@ -153,6 +163,10 @@ export interface RoleMembershipArgs {
      * Name of the namespace. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
      *

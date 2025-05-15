@@ -84,6 +84,10 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly knowledgeBaseState!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts | undefined>;
 
     /**
@@ -104,6 +108,7 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["knowledgeBaseId"] = state ? state.knowledgeBaseId : undefined;
             resourceInputs["knowledgeBaseState"] = state ? state.knowledgeBaseState : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as AgentAgentKnowledgeBaseAssociationArgs | undefined;
@@ -124,6 +129,7 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["knowledgeBaseId"] = args ? args.knowledgeBaseId : undefined;
             resourceInputs["knowledgeBaseState"] = args ? args.knowledgeBaseState : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -157,6 +163,10 @@ export interface AgentAgentKnowledgeBaseAssociationState {
      * The following arguments are optional:
      */
     knowledgeBaseState?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts>;
 }
 
@@ -186,5 +196,9 @@ export interface AgentAgentKnowledgeBaseAssociationArgs {
      * The following arguments are optional:
      */
     knowledgeBaseState: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts>;
 }

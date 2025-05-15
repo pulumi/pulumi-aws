@@ -94,6 +94,10 @@ export class Logging extends pulumi.CustomResource {
      */
     public readonly logExports!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Prefix applied to the log file names.
      */
     public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
@@ -115,6 +119,7 @@ export class Logging extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["logDestinationType"] = state ? state.logDestinationType : undefined;
             resourceInputs["logExports"] = state ? state.logExports : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
         } else {
             const args = argsOrState as LoggingArgs | undefined;
@@ -125,6 +130,7 @@ export class Logging extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["logDestinationType"] = args ? args.logDestinationType : undefined;
             resourceInputs["logExports"] = args ? args.logExports : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -155,6 +161,10 @@ export interface LoggingState {
      */
     logExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Prefix applied to the log file names.
      */
     s3KeyPrefix?: pulumi.Input<string>;
@@ -182,6 +192,10 @@ export interface LoggingArgs {
      * Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
      */
     logExports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Prefix applied to the log file names.
      */

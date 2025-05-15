@@ -74,6 +74,8 @@ type BucketPublicAccessBlock struct {
 	// Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
 	// * Ignore public ACLs on this bucket and any objects that it contains.
 	IgnorePublicAcls pulumi.BoolPtrOutput `pulumi:"ignorePublicAcls"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
 	// * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
 	RestrictPublicBuckets pulumi.BoolPtrOutput `pulumi:"restrictPublicBuckets"`
@@ -124,6 +126,8 @@ type bucketPublicAccessBlockState struct {
 	// Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
 	// * Ignore public ACLs on this bucket and any objects that it contains.
 	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
 	// * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
 	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
@@ -142,6 +146,8 @@ type BucketPublicAccessBlockState struct {
 	// Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
 	// * Ignore public ACLs on this bucket and any objects that it contains.
 	IgnorePublicAcls pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
 	// * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
 	RestrictPublicBuckets pulumi.BoolPtrInput
@@ -164,6 +170,8 @@ type bucketPublicAccessBlockArgs struct {
 	// Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
 	// * Ignore public ACLs on this bucket and any objects that it contains.
 	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
 	// * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
 	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
@@ -183,6 +191,8 @@ type BucketPublicAccessBlockArgs struct {
 	// Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
 	// * Ignore public ACLs on this bucket and any objects that it contains.
 	IgnorePublicAcls pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
 	// * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
 	RestrictPublicBuckets pulumi.BoolPtrInput
@@ -297,6 +307,11 @@ func (o BucketPublicAccessBlockOutput) Bucket() pulumi.StringOutput {
 // * Ignore public ACLs on this bucket and any objects that it contains.
 func (o BucketPublicAccessBlockOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketPublicAccessBlock) pulumi.BoolPtrOutput { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketPublicAccessBlockOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketPublicAccessBlock) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:

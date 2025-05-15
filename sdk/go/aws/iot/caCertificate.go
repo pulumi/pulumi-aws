@@ -60,7 +60,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := iot.GetRegistrationCode(ctx, map[string]interface{}{}, nil)
+//			example, err := iot.GetRegistrationCode(ctx, &iot.GetRegistrationCodeArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -120,6 +120,8 @@ type CaCertificate struct {
 	CustomerVersion pulumi.IntOutput `pulumi:"customerVersion"`
 	// The generation ID of the CA certificate.
 	GenerationId pulumi.StringOutput `pulumi:"generationId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrOutput `pulumi:"registrationConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -197,6 +199,8 @@ type caCertificateState struct {
 	CustomerVersion *int `pulumi:"customerVersion"`
 	// The generation ID of the CA certificate.
 	GenerationId *string `pulumi:"generationId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -225,6 +229,8 @@ type CaCertificateState struct {
 	CustomerVersion pulumi.IntPtrInput
 	// The generation ID of the CA certificate.
 	GenerationId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -251,12 +257,12 @@ type caCertificateArgs struct {
 	CaCertificatePem string `pulumi:"caCertificatePem"`
 	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode *string `pulumi:"certificateMode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// PEM encoded verification certificate containing the common name of a registration code. Review
 	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 	VerificationCertificatePem *string `pulumi:"verificationCertificatePem"`
@@ -272,12 +278,12 @@ type CaCertificateArgs struct {
 	CaCertificatePem pulumi.StringInput
 	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// PEM encoded verification certificate containing the common name of a registration code. Review
 	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 	VerificationCertificatePem pulumi.StringPtrInput
@@ -403,6 +409,11 @@ func (o CaCertificateOutput) CustomerVersion() pulumi.IntOutput {
 // The generation ID of the CA certificate.
 func (o CaCertificateOutput) GenerationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.GenerationId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CaCertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Information about the registration configuration. See below.

@@ -17,6 +17,7 @@ from .capacity_reservation import *
 from .carrier_gateway import *
 from .customer_gateway import *
 from .dedicated_host import *
+from .default_credit_specification import *
 from .default_network_acl import *
 from .default_route_table import *
 from .default_security_group import *

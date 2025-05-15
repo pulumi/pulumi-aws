@@ -52,6 +52,8 @@ import (
 type AccountSuppressionAttributes struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayOutput `pulumi:"suppressedReasons"`
 }
@@ -89,11 +91,15 @@ func GetAccountSuppressionAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSuppressionAttributes resources.
 type accountSuppressionAttributesState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
 type AccountSuppressionAttributesState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayInput
 }
@@ -103,12 +109,16 @@ func (AccountSuppressionAttributesState) ElementType() reflect.Type {
 }
 
 type accountSuppressionAttributesArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
 // The set of arguments for constructing a AccountSuppressionAttributes resource.
 type AccountSuppressionAttributesArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayInput
 }
@@ -198,6 +208,11 @@ func (o AccountSuppressionAttributesOutput) ToAccountSuppressionAttributesOutput
 
 func (o AccountSuppressionAttributesOutput) ToAccountSuppressionAttributesOutputWithContext(ctx context.Context) AccountSuppressionAttributesOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccountSuppressionAttributesOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountSuppressionAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.

@@ -168,6 +168,8 @@ type MLTransform struct {
 	NumberOfWorkers pulumi.IntPtrOutput `pulumi:"numberOfWorkers"`
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters MLTransformParametersOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The object that represents the schema that this transform accepts. see Schema.
@@ -241,6 +243,8 @@ type mltransformState struct {
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters *MLTransformParameters `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn *string `pulumi:"roleArn"`
 	// The object that represents the schema that this transform accepts. see Schema.
@@ -276,6 +280,8 @@ type MLTransformState struct {
 	NumberOfWorkers pulumi.IntPtrInput
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters MLTransformParametersPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringPtrInput
 	// The object that represents the schema that this transform accepts. see Schema.
@@ -311,6 +317,8 @@ type mltransformArgs struct {
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters MLTransformParameters `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -339,6 +347,8 @@ type MLTransformArgs struct {
 	NumberOfWorkers pulumi.IntPtrInput
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters MLTransformParametersInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -484,6 +494,11 @@ func (o MLTransformOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 // The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 func (o MLTransformOutput) Parameters() MLTransformParametersOutput {
 	return o.ApplyT(func(v *MLTransform) MLTransformParametersOutput { return v.Parameters }).(MLTransformParametersOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MLTransformOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the IAM role associated with this ML Transform.

@@ -32,6 +32,13 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
         return this.apiId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of resource tags.
      * 
@@ -51,6 +58,7 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetApiArgs(GetApiArgs $) {
         this.apiId = $.apiId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

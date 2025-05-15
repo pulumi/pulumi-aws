@@ -202,6 +202,12 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> PubliclyAdvertisable { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         /// </summary>
         [Output("sourceIpamPoolId")]
@@ -357,6 +363,12 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? PubliclyAdvertisable { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         /// </summary>
         [Input("sourceIpamPoolId")]
@@ -478,6 +490,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.

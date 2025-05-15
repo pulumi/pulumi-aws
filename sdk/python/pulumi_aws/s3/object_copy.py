@@ -53,6 +53,7 @@ class ObjectCopyArgs:
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
                  override_provider: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source_customer_algorithm: Optional[pulumi.Input[builtins.str]] = None,
@@ -95,6 +96,7 @@ class ObjectCopyArgs:
         :param pulumi.Input[builtins.str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         :param pulumi.Input[builtins.str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         :param pulumi.Input[builtins.str] source_customer_algorithm: Specifies the algorithm to use when decrypting the source object (for example, AES256).
@@ -164,6 +166,8 @@ class ObjectCopyArgs:
             pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
         if override_provider is not None:
             pulumi.set(__self__, "override_provider", override_provider)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_payer is not None:
             pulumi.set(__self__, "request_payer", request_payer)
         if server_side_encryption is not None:
@@ -552,6 +556,18 @@ class ObjectCopyArgs:
         pulumi.set(self, "override_provider", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestPayer")
     def request_payer(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -702,6 +718,7 @@ class _ObjectCopyState:
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
                  override_provider: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_charged: Optional[pulumi.Input[builtins.bool]] = None,
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
@@ -755,6 +772,7 @@ class _ObjectCopyState:
         :param pulumi.Input[builtins.str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] request_charged: If present, indicates that the requester was successfully charged for the request.
         :param pulumi.Input[builtins.str] request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         :param pulumi.Input[builtins.str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
@@ -850,6 +868,8 @@ class _ObjectCopyState:
             pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
         if override_provider is not None:
             pulumi.set(__self__, "override_provider", override_provider)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_charged is not None:
             pulumi.set(__self__, "request_charged", request_charged)
         if request_payer is not None:
@@ -1342,6 +1362,18 @@ class _ObjectCopyState:
         pulumi.set(self, "override_provider", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestCharged")
     def request_charged(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -1550,6 +1582,7 @@ class ObjectCopy(pulumi.CustomResource):
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
                  override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
@@ -1631,6 +1664,7 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         :param pulumi.Input[builtins.str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         :param pulumi.Input[builtins.str] source: Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
@@ -1735,6 +1769,7 @@ class ObjectCopy(pulumi.CustomResource):
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
                  override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
@@ -1788,6 +1823,7 @@ class ObjectCopy(pulumi.CustomResource):
             __props__.__dict__["object_lock_mode"] = object_lock_mode
             __props__.__dict__["object_lock_retain_until_date"] = object_lock_retain_until_date
             __props__.__dict__["override_provider"] = override_provider
+            __props__.__dict__["region"] = region
             __props__.__dict__["request_payer"] = request_payer
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             if source is None and not opts.urn:
@@ -1864,6 +1900,7 @@ class ObjectCopy(pulumi.CustomResource):
             object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
             object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
             override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             request_charged: Optional[pulumi.Input[builtins.bool]] = None,
             request_payer: Optional[pulumi.Input[builtins.str]] = None,
             server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
@@ -1922,6 +1959,7 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] request_charged: If present, indicates that the requester was successfully charged for the request.
         :param pulumi.Input[builtins.str] request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         :param pulumi.Input[builtins.str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
@@ -1982,6 +2020,7 @@ class ObjectCopy(pulumi.CustomResource):
         __props__.__dict__["object_lock_mode"] = object_lock_mode
         __props__.__dict__["object_lock_retain_until_date"] = object_lock_retain_until_date
         __props__.__dict__["override_provider"] = override_provider
+        __props__.__dict__["region"] = region
         __props__.__dict__["request_charged"] = request_charged
         __props__.__dict__["request_payer"] = request_payer
         __props__.__dict__["server_side_encryption"] = server_side_encryption
@@ -2303,6 +2342,14 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="overrideProvider")
     def override_provider(self) -> pulumi.Output[Optional['outputs.ObjectCopyOverrideProvider']]:
         return pulumi.get(self, "override_provider")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requestCharged")

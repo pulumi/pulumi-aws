@@ -90,6 +90,10 @@ export class EfsLocation extends pulumi.CustomResource {
      */
     public readonly inTransitEncryption!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
     public readonly subdirectory!: pulumi.Output<string | undefined>;
@@ -122,6 +126,7 @@ export class EfsLocation extends pulumi.CustomResource {
             resourceInputs["efsFileSystemArn"] = state ? state.efsFileSystemArn : undefined;
             resourceInputs["fileSystemAccessRoleArn"] = state ? state.fileSystemAccessRoleArn : undefined;
             resourceInputs["inTransitEncryption"] = state ? state.inTransitEncryption : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -139,6 +144,7 @@ export class EfsLocation extends pulumi.CustomResource {
             resourceInputs["efsFileSystemArn"] = args ? args.efsFileSystemArn : undefined;
             resourceInputs["fileSystemAccessRoleArn"] = args ? args.fileSystemAccessRoleArn : undefined;
             resourceInputs["inTransitEncryption"] = args ? args.inTransitEncryption : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -179,6 +185,10 @@ export interface EfsLocationState {
      */
     inTransitEncryption?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
     subdirectory?: pulumi.Input<string>;
@@ -217,6 +227,10 @@ export interface EfsLocationArgs {
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      */
     inTransitEncryption?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */

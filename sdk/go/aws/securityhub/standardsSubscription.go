@@ -77,6 +77,8 @@ import (
 type StandardsSubscription struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -126,6 +128,8 @@ func GetStandardsSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StandardsSubscription resources.
 type standardsSubscriptionState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -143,6 +147,8 @@ type standardsSubscriptionState struct {
 }
 
 type StandardsSubscriptionState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -164,6 +170,8 @@ func (StandardsSubscriptionState) ElementType() reflect.Type {
 }
 
 type standardsSubscriptionArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -182,6 +190,8 @@ type standardsSubscriptionArgs struct {
 
 // The set of arguments for constructing a StandardsSubscription resource.
 type StandardsSubscriptionArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -283,6 +293,11 @@ func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutput() StandardsSu
 
 func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutputWithContext(ctx context.Context) StandardsSubscriptionOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StandardsSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StandardsSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of a standard - see below.

@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -226,6 +227,20 @@ public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomR
      */
     public Output<Optional<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>>> permittedPublicSecurityGroupRuleRanges() {
         return Codegen.optional(this.permittedPublicSecurityGroupRuleRanges);
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

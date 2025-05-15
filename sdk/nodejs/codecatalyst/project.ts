@@ -73,6 +73,10 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the space.
      */
     public readonly spaceName!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["spaceName"] = state ? state.spaceName : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
@@ -104,6 +109,7 @@ export class Project extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
         }
@@ -131,6 +137,10 @@ export interface ProjectState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the space.
      */
     spaceName?: pulumi.Input<string>;
@@ -150,6 +160,10 @@ export interface ProjectArgs {
      * The following arguments are optional:
      */
     displayName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the space.
      */

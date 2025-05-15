@@ -341,6 +341,12 @@ namespace Pulumi.Aws.LightSail
         public Output<double> RamSize { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Output("relationalDatabaseName")]
@@ -507,6 +513,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
@@ -681,6 +693,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("ramSize")]
         public Input<double>? RamSize { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.

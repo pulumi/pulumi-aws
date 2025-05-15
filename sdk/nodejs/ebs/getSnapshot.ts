@@ -39,6 +39,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "owners": args.owners,
+        "region": args.region,
         "restorableByUserIds": args.restorableByUserIds,
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
@@ -63,6 +64,7 @@ export interface GetSnapshotArgs {
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
     owners?: string[];
+    region?: string;
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      */
@@ -120,6 +122,7 @@ export interface GetSnapshotResult {
      */
     readonly ownerId: string;
     readonly owners?: string[];
+    readonly region: string;
     readonly restorableByUserIds?: string[];
     /**
      * Snapshot ID (e.g., snap-59fcb34e).
@@ -183,6 +186,7 @@ export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.In
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "owners": args.owners,
+        "region": args.region,
         "restorableByUserIds": args.restorableByUserIds,
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
@@ -207,6 +211,7 @@ export interface GetSnapshotOutputArgs {
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
     owners?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      */

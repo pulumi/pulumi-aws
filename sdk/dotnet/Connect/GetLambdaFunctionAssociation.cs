@@ -102,6 +102,9 @@ namespace Pulumi.Aws.Connect
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetLambdaFunctionAssociationArgs()
         {
         }
@@ -122,6 +125,9 @@ namespace Pulumi.Aws.Connect
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetLambdaFunctionAssociationInvokeArgs()
         {
         }
@@ -138,6 +144,7 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string Id;
         public readonly string InstanceId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetLambdaFunctionAssociationResult(
@@ -145,11 +152,14 @@ namespace Pulumi.Aws.Connect
 
             string id,
 
-            string instanceId)
+            string instanceId,
+
+            string region)
         {
             FunctionArn = functionArn;
             Id = id;
             InstanceId = instanceId;
+            Region = region;
         }
     }
 }

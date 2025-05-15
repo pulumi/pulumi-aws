@@ -111,6 +111,8 @@ type Ami struct {
 	// Whether the image has public launch permissions.
 	Public    pulumi.BoolOutput      `pulumi:"public"`
 	RamdiskId pulumi.StringPtrOutput `pulumi:"ramdiskId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrOutput `pulumi:"rootDeviceName"`
 	// Snapshot ID for the root volume (for EBS-backed AMIs)
@@ -204,6 +206,8 @@ type amiState struct {
 	// Whether the image has public launch permissions.
 	Public    *bool   `pulumi:"public"`
 	RamdiskId *string `pulumi:"ramdiskId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName *string `pulumi:"rootDeviceName"`
 	// Snapshot ID for the root volume (for EBS-backed AMIs)
@@ -268,6 +272,8 @@ type AmiState struct {
 	// Whether the image has public launch permissions.
 	Public    pulumi.BoolPtrInput
 	RamdiskId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrInput
 	// Snapshot ID for the root volume (for EBS-backed AMIs)
@@ -317,6 +323,8 @@ type amiArgs struct {
 	// Region-unique name for the AMI.
 	Name      *string `pulumi:"name"`
 	RamdiskId *string `pulumi:"ramdiskId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName  *string `pulumi:"rootDeviceName"`
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
@@ -357,6 +365,8 @@ type AmiArgs struct {
 	// Region-unique name for the AMI.
 	Name      pulumi.StringPtrInput
 	RamdiskId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName  pulumi.StringPtrInput
 	SriovNetSupport pulumi.StringPtrInput
@@ -565,6 +575,11 @@ func (o AmiOutput) Public() pulumi.BoolOutput {
 
 func (o AmiOutput) RamdiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.RamdiskId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AmiOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).

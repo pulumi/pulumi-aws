@@ -25,6 +25,7 @@ export function getGeofenceCollection(args: GetGeofenceCollectionArgs, opts?: pu
     return pulumi.runtime.invoke("aws:location/getGeofenceCollection:getGeofenceCollection", {
         "collectionName": args.collectionName,
         "kmsKeyId": args.kmsKeyId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -41,6 +42,7 @@ export interface GetGeofenceCollectionArgs {
      * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     kmsKeyId?: string;
+    region?: string;
     /**
      * Key-value map of resource tags for the geofence collection.
      */
@@ -72,6 +74,7 @@ export interface GetGeofenceCollectionResult {
      * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     readonly kmsKeyId: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags for the geofence collection.
      */
@@ -102,6 +105,7 @@ export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArg
     return pulumi.runtime.invokeOutput("aws:location/getGeofenceCollection:getGeofenceCollection", {
         "collectionName": args.collectionName,
         "kmsKeyId": args.kmsKeyId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -118,6 +122,7 @@ export interface GetGeofenceCollectionOutputArgs {
      * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     kmsKeyId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the geofence collection.
      */

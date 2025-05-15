@@ -70,6 +70,10 @@ export class PolicyStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly policyStoreId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Validation settings for the policy store.
      */
     public readonly validationSettings!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings | undefined>;
@@ -90,10 +94,12 @@ export class PolicyStore extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["validationSettings"] = state ? state.validationSettings : undefined;
         } else {
             const args = argsOrState as PolicyStoreArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["validationSettings"] = args ? args.validationSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
@@ -120,6 +126,10 @@ export interface PolicyStoreState {
      */
     policyStoreId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Validation settings for the policy store.
      */
     validationSettings?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreValidationSettings>;
@@ -133,6 +143,10 @@ export interface PolicyStoreArgs {
      * A description of the Policy Store.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Validation settings for the policy store.
      */

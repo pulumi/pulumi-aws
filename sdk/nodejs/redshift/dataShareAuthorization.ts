@@ -79,6 +79,10 @@ export class DataShareAuthorization extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the producer.
      */
     public /*out*/ readonly producerArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DataShareAuthorization resource with the given unique name, arguments, and options.
@@ -98,6 +102,7 @@ export class DataShareAuthorization extends pulumi.CustomResource {
             resourceInputs["dataShareArn"] = state ? state.dataShareArn : undefined;
             resourceInputs["managedBy"] = state ? state.managedBy : undefined;
             resourceInputs["producerArn"] = state ? state.producerArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DataShareAuthorizationArgs | undefined;
             if ((!args || args.consumerIdentifier === undefined) && !opts.urn) {
@@ -109,6 +114,7 @@ export class DataShareAuthorization extends pulumi.CustomResource {
             resourceInputs["allowWrites"] = args ? args.allowWrites : undefined;
             resourceInputs["consumerIdentifier"] = args ? args.consumerIdentifier : undefined;
             resourceInputs["dataShareArn"] = args ? args.dataShareArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["producerArn"] = undefined /*out*/;
         }
@@ -143,6 +149,10 @@ export interface DataShareAuthorizationState {
      * Amazon Resource Name (ARN) of the producer.
      */
     producerArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -163,4 +173,8 @@ export interface DataShareAuthorizationArgs {
      * The following arguments are optional:
      */
     dataShareArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

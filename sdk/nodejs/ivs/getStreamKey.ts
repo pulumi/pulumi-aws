@@ -24,6 +24,7 @@ export function getStreamKey(args: GetStreamKeyArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ivs/getStreamKey:getStreamKey", {
         "channelArn": args.channelArn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -36,6 +37,7 @@ export interface GetStreamKeyArgs {
      * ARN of the Channel.
      */
     channelArn: string;
+    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -55,6 +57,7 @@ export interface GetStreamKeyResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -84,6 +87,7 @@ export function getStreamKeyOutput(args: GetStreamKeyOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ivs/getStreamKey:getStreamKey", {
         "channelArn": args.channelArn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -96,6 +100,7 @@ export interface GetStreamKeyOutputArgs {
      * ARN of the Channel.
      */
     channelArn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

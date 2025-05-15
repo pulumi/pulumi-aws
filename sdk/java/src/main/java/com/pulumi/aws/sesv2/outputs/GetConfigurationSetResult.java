@@ -30,6 +30,7 @@ public final class GetConfigurationSetResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      * 
@@ -81,6 +82,9 @@ public final class GetConfigurationSetResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
@@ -138,6 +142,7 @@ public final class GetConfigurationSetResult {
         private String configurationSetName;
         private List<GetConfigurationSetDeliveryOption> deliveryOptions;
         private String id;
+        private String region;
         private List<GetConfigurationSetReputationOption> reputationOptions;
         private List<GetConfigurationSetSendingOption> sendingOptions;
         private List<GetConfigurationSetSuppressionOption> suppressionOptions;
@@ -151,6 +156,7 @@ public final class GetConfigurationSetResult {
     	      this.configurationSetName = defaults.configurationSetName;
     	      this.deliveryOptions = defaults.deliveryOptions;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.reputationOptions = defaults.reputationOptions;
     	      this.sendingOptions = defaults.sendingOptions;
     	      this.suppressionOptions = defaults.suppressionOptions;
@@ -192,6 +198,14 @@ public final class GetConfigurationSetResult {
               throw new MissingRequiredPropertyException("GetConfigurationSetResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -263,6 +277,7 @@ public final class GetConfigurationSetResult {
             _resultValue.configurationSetName = configurationSetName;
             _resultValue.deliveryOptions = deliveryOptions;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.reputationOptions = reputationOptions;
             _resultValue.sendingOptions = sendingOptions;
             _resultValue.suppressionOptions = suppressionOptions;

@@ -79,6 +79,21 @@ public final class ResolverQueryLogConfigState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
      * Sharing is configured through AWS Resource Access Manager (AWS RAM).
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -134,6 +149,7 @@ public final class ResolverQueryLogConfigState extends com.pulumi.resources.Reso
         this.destinationArn = $.destinationArn;
         this.name = $.name;
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.shareStatus = $.shareStatus;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -241,6 +257,27 @@ public final class ResolverQueryLogConfigState extends com.pulumi.resources.Reso
          */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

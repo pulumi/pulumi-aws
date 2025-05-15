@@ -232,6 +232,10 @@ export class Broker extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of security group IDs assigned to the broker.
      */
     public readonly securityGroups!: pulumi.Output<string[] | undefined>;
@@ -290,6 +294,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["maintenanceWindowStartTime"] = state ? state.maintenanceWindowStartTime : undefined;
             resourceInputs["pendingDataReplicationMode"] = state ? state.pendingDataReplicationMode : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -326,6 +331,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["logs"] = args ? args.logs : undefined;
             resourceInputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -422,6 +428,10 @@ export interface BrokerState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of security group IDs assigned to the broker.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -517,6 +527,10 @@ export interface BrokerArgs {
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of security group IDs assigned to the broker.
      */

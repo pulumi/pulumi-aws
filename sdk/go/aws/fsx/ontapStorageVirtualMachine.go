@@ -106,6 +106,8 @@ type OntapStorageVirtualMachine struct {
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrOutput `pulumi:"rootVolumeSecurityStyle"`
 	// Describes the SVM's subtype, e.g. `DEFAULT`
@@ -170,6 +172,8 @@ type ontapStorageVirtualMachineState struct {
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle *string `pulumi:"rootVolumeSecurityStyle"`
 	// Describes the SVM's subtype, e.g. `DEFAULT`
@@ -195,6 +199,8 @@ type OntapStorageVirtualMachineState struct {
 	FileSystemId pulumi.StringPtrInput
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrInput
 	// Describes the SVM's subtype, e.g. `DEFAULT`
@@ -220,6 +226,8 @@ type ontapStorageVirtualMachineArgs struct {
 	FileSystemId string `pulumi:"fileSystemId"`
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle *string `pulumi:"rootVolumeSecurityStyle"`
 	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
@@ -236,6 +244,8 @@ type OntapStorageVirtualMachineArgs struct {
 	FileSystemId pulumi.StringInput
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrInput
 	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
@@ -356,6 +366,11 @@ func (o OntapStorageVirtualMachineOutput) FileSystemId() pulumi.StringOutput {
 // The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 func (o OntapStorageVirtualMachineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OntapStorageVirtualMachineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.

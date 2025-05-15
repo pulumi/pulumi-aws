@@ -29,6 +29,7 @@ public final class GetComputeEnvironmentResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
@@ -89,6 +90,9 @@ public final class GetComputeEnvironmentResult {
     }
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
@@ -153,6 +157,7 @@ public final class GetComputeEnvironmentResult {
         private String ecsClusterArn;
         private String id;
         private String name;
+        private String region;
         private String serviceRole;
         private String state;
         private String status;
@@ -167,6 +172,7 @@ public final class GetComputeEnvironmentResult {
     	      this.ecsClusterArn = defaults.ecsClusterArn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.serviceRole = defaults.serviceRole;
     	      this.state = defaults.state;
     	      this.status = defaults.status;
@@ -206,6 +212,14 @@ public final class GetComputeEnvironmentResult {
               throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -273,6 +287,7 @@ public final class GetComputeEnvironmentResult {
             _resultValue.ecsClusterArn = ecsClusterArn;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.serviceRole = serviceRole;
             _resultValue.state = state;
             _resultValue.status = status;

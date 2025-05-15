@@ -103,6 +103,10 @@ export class RoutingProfile extends pulumi.CustomResource {
      */
     public readonly queueConfigs!: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The identifier for the Routing Profile.
      */
     public /*out*/ readonly routingProfileId!: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class RoutingProfile extends pulumi.CustomResource {
             resourceInputs["mediaConcurrencies"] = state ? state.mediaConcurrencies : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["queueConfigs"] = state ? state.queueConfigs : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingProfileId"] = state ? state.routingProfileId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -159,6 +164,7 @@ export class RoutingProfile extends pulumi.CustomResource {
             resourceInputs["mediaConcurrencies"] = args ? args.mediaConcurrencies : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queueConfigs"] = args ? args.queueConfigs : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["routingProfileId"] = undefined /*out*/;
@@ -202,6 +208,10 @@ export interface RoutingProfileState {
      */
     queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The identifier for the Routing Profile.
      */
     routingProfileId?: pulumi.Input<string>;
@@ -244,6 +254,10 @@ export interface RoutingProfileArgs {
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
     queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags to apply to the Routing Profile. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

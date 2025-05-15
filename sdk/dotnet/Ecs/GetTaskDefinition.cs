@@ -192,6 +192,9 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetTaskDefinitionArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
         /// </summary>
@@ -206,6 +209,9 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetTaskDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
         /// </summary>
@@ -283,6 +289,7 @@ namespace Pulumi.Aws.Ecs
         /// Configuration block for the App Mesh proxy. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionProxyConfigurationResult> ProxyConfigurations;
+        public readonly string Region;
         /// <summary>
         /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         /// </summary>
@@ -341,6 +348,8 @@ namespace Pulumi.Aws.Ecs
 
             ImmutableArray<Outputs.GetTaskDefinitionProxyConfigurationResult> proxyConfigurations,
 
+            string region,
+
             ImmutableArray<string> requiresCompatibilities,
 
             int revision,
@@ -370,6 +379,7 @@ namespace Pulumi.Aws.Ecs
             PidMode = pidMode;
             PlacementConstraints = placementConstraints;
             ProxyConfigurations = proxyConfigurations;
+            Region = region;
             RequiresCompatibilities = requiresCompatibilities;
             Revision = revision;
             RuntimePlatforms = runtimePlatforms;

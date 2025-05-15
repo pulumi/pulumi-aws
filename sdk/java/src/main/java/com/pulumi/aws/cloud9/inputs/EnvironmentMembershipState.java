@@ -46,6 +46,21 @@ public final class EnvironmentMembershipState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      * 
      */
@@ -80,6 +95,7 @@ public final class EnvironmentMembershipState extends com.pulumi.resources.Resou
     private EnvironmentMembershipState(EnvironmentMembershipState $) {
         this.environmentId = $.environmentId;
         this.permissions = $.permissions;
+        this.region = $.region;
         this.userArn = $.userArn;
         this.userId = $.userId;
     }
@@ -142,6 +158,27 @@ public final class EnvironmentMembershipState extends com.pulumi.resources.Resou
          */
         public Builder permissions(String permissions) {
             return permissions(Output.of(permissions));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

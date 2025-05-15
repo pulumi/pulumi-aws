@@ -134,6 +134,10 @@ export class ConnectorProfile extends pulumi.CustomResource {
      */
     public readonly kmsArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConnectorProfile resource with the given unique name, arguments, and options.
@@ -156,6 +160,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
             resourceInputs["credentialsArn"] = state ? state.credentialsArn : undefined;
             resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConnectorProfileArgs | undefined;
             if ((!args || args.connectionMode === undefined) && !opts.urn) {
@@ -173,6 +178,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
             resourceInputs["connectorType"] = args ? args.connectorType : undefined;
             resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["credentialsArn"] = undefined /*out*/;
         }
@@ -214,6 +220,10 @@ export interface ConnectorProfileState {
      */
     kmsArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -241,4 +251,8 @@ export interface ConnectorProfileArgs {
      */
     kmsArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

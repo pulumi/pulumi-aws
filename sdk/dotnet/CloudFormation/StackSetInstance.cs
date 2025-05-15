@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CloudFormation
     ///     var example = new Aws.CloudFormation.StackSetInstance("example", new()
     ///     {
     ///         AccountId = "123456789012",
-    ///         Region = "us-east-1",
+    ///         StackSetInstanceRegion = "us-east-1",
     ///         StackSetName = exampleAwsCloudformationStackSet.Name,
     ///     });
     /// 
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.CloudFormation
     ///                 exampleAwsOrganizationsOrganization.Roots[0].Id,
     ///             },
     ///         },
-    ///         Region = "us-east-1",
+    ///         StackSetInstanceRegion = "us-east-1",
     ///         StackSetName = exampleAwsCloudformationStackSet.Name,
     ///     });
     /// 
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<ImmutableDictionary<string, string>?> ParameterOverrides { get; private set; } = null!;
 
         /// <summary>
-        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -223,6 +223,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Output("stackInstanceSummaries")]
         public Output<ImmutableArray<Outputs.StackSetInstanceStackInstanceSummary>> StackInstanceSummaries { get; private set; } = null!;
+
+        /// <summary>
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        /// </summary>
+        [Output("stackSetInstanceRegion")]
+        public Output<string> StackSetInstanceRegion { get; private set; } = null!;
 
         /// <summary>
         /// Name of the StackSet.
@@ -313,7 +319,7 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -323,6 +329,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("retainStack")]
         public Input<bool>? RetainStack { get; set; }
+
+        /// <summary>
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        /// </summary>
+        [Input("stackSetInstanceRegion")]
+        public Input<string>? StackSetInstanceRegion { get; set; }
 
         /// <summary>
         /// Name of the StackSet.
@@ -381,7 +393,7 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -409,6 +421,12 @@ namespace Pulumi.Aws.CloudFormation
             get => _stackInstanceSummaries ?? (_stackInstanceSummaries = new InputList<Inputs.StackSetInstanceStackInstanceSummaryGetArgs>());
             set => _stackInstanceSummaries = value;
         }
+
+        /// <summary>
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        /// </summary>
+        [Input("stackSetInstanceRegion")]
+        public Input<string>? StackSetInstanceRegion { get; set; }
 
         /// <summary>
         /// Name of the StackSet.

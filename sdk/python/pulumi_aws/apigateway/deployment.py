@@ -22,18 +22,22 @@ class DeploymentArgs:
     def __init__(__self__, *,
                  rest_api: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
         :param pulumi.Input[builtins.str] description: Description of the deployment.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
         """
         pulumi.set(__self__, "rest_api", rest_api)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
         if variables is not None:
@@ -65,6 +69,18 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -93,6 +109,7 @@ class _DeploymentState:
     def __init__(__self__, *,
                  created_date: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -100,6 +117,7 @@ class _DeploymentState:
         Input properties used for looking up and filtering Deployment resources.
         :param pulumi.Input[builtins.str] created_date: Creation date of the deployment
         :param pulumi.Input[builtins.str] description: Description of the deployment.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
@@ -108,6 +126,8 @@ class _DeploymentState:
             pulumi.set(__self__, "created_date", created_date)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
         if triggers is not None:
@@ -138,6 +158,18 @@ class _DeploymentState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="restApi")
@@ -185,6 +217,7 @@ class Deployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -213,6 +246,7 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the deployment.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
@@ -260,6 +294,7 @@ class Deployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -273,6 +308,7 @@ class Deployment(pulumi.CustomResource):
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
@@ -291,6 +327,7 @@ class Deployment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             created_date: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api: Optional[pulumi.Input[builtins.str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Deployment':
@@ -303,6 +340,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] created_date: Creation date of the deployment
         :param pulumi.Input[builtins.str] description: Description of the deployment.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
@@ -313,6 +351,7 @@ class Deployment(pulumi.CustomResource):
 
         __props__.__dict__["created_date"] = created_date
         __props__.__dict__["description"] = description
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api"] = rest_api
         __props__.__dict__["triggers"] = triggers
         __props__.__dict__["variables"] = variables
@@ -333,6 +372,14 @@ class Deployment(pulumi.CustomResource):
         Description of the deployment.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApi")

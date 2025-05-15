@@ -57,6 +57,7 @@ type LookupAddonArgs struct {
 	AddonName string `pulumi:"addonName"`
 	// Name of the EKS Cluster.
 	ClusterName string            `pulumi:"clusterName"`
+	Region      *string           `pulumi:"region"`
 	Tags        map[string]string `pulumi:"tags"`
 }
 
@@ -78,6 +79,7 @@ type LookupAddonResult struct {
 	ModifiedAt string `pulumi:"modifiedAt"`
 	// Pod identity association for the EKS add-on.
 	PodIdentityAssociations []GetAddonPodIdentityAssociation `pulumi:"podIdentityAssociations"`
+	Region                  string                           `pulumi:"region"`
 	// ARN of IAM role used for EKS add-on. If value is empty -
 	// then add-on uses the IAM role assigned to the EKS Cluster node.
 	ServiceAccountRoleArn string            `pulumi:"serviceAccountRoleArn"`
@@ -100,6 +102,7 @@ type LookupAddonOutputArgs struct {
 	AddonName pulumi.StringInput `pulumi:"addonName"`
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput    `pulumi:"clusterName"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 	Tags        pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -163,6 +166,10 @@ func (o LookupAddonResultOutput) ModifiedAt() pulumi.StringOutput {
 // Pod identity association for the EKS add-on.
 func (o LookupAddonResultOutput) PodIdentityAssociations() GetAddonPodIdentityAssociationArrayOutput {
 	return o.ApplyT(func(v LookupAddonResult) []GetAddonPodIdentityAssociation { return v.PodIdentityAssociations }).(GetAddonPodIdentityAssociationArrayOutput)
+}
+
+func (o LookupAddonResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of IAM role used for EKS add-on. If value is empty -

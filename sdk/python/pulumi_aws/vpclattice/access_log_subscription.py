@@ -22,25 +22,26 @@ class AccessLogSubscriptionArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[builtins.str],
                  resource_identifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_log_type: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
         :param pulumi.Input[builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "resource_identifier", resource_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_network_log_type is not None:
             pulumi.set(__self__, "service_network_log_type", service_network_log_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -69,6 +70,18 @@ class AccessLogSubscriptionArgs:
         pulumi.set(self, "resource_identifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceNetworkLogType")
     def service_network_log_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -89,21 +102,13 @@ class AccessLogSubscriptionArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _AccessLogSubscriptionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  destination_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_log_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -113,6 +118,7 @@ class _AccessLogSubscriptionState:
         Input properties used for looking up and filtering AccessLogSubscription resources.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the access log subscription.
         :param pulumi.Input[builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
         :param pulumi.Input[builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
@@ -123,6 +129,8 @@ class _AccessLogSubscriptionState:
             pulumi.set(__self__, "arn", arn)
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if resource_identifier is not None:
@@ -157,6 +165,18 @@ class _AccessLogSubscriptionState:
     @destination_arn.setter
     def destination_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -224,10 +244,10 @@ class AccessLogSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_log_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
@@ -256,6 +276,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
@@ -307,10 +328,10 @@ class AccessLogSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_log_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,14 +344,15 @@ class AccessLogSubscription(pulumi.CustomResource):
             if destination_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_arn'")
             __props__.__dict__["destination_arn"] = destination_arn
+            __props__.__dict__["region"] = region
             if resource_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_identifier'")
             __props__.__dict__["resource_identifier"] = resource_identifier
             __props__.__dict__["service_network_log_type"] = service_network_log_type
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["resource_arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(AccessLogSubscription, __self__).__init__(
             'aws:vpclattice/accessLogSubscription:AccessLogSubscription',
             resource_name,
@@ -343,6 +365,7 @@ class AccessLogSubscription(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             destination_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None,
             resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
             service_network_log_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -357,6 +380,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the access log subscription.
         :param pulumi.Input[builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
         :param pulumi.Input[builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
@@ -369,6 +393,7 @@ class AccessLogSubscription(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["destination_arn"] = destination_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["resource_identifier"] = resource_identifier
         __props__.__dict__["service_network_log_type"] = service_network_log_type
@@ -391,6 +416,14 @@ class AccessLogSubscription(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the log destination.
         """
         return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceArn")

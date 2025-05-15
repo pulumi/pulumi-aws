@@ -108,6 +108,7 @@ type LookupAmiArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
+	Region *string  `pulumi:"region"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - Key name of the tag.
 	// * `tags.#.value` - Value of the tag.
@@ -179,6 +180,7 @@ type LookupAmiResult struct {
 	// RAM disk associated with the image, if any. Only applicable
 	// for machine images.
 	RamdiskId string `pulumi:"ramdiskId"`
+	Region    string `pulumi:"region"`
 	// Device name of the root device.
 	RootDeviceName string `pulumi:"rootDeviceName"`
 	// Type of root device (ie: `ebs` or `instance-store`).
@@ -249,6 +251,7 @@ type LookupAmiOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	Region pulumi.StringPtrInput   `pulumi:"region"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - Key name of the tag.
 	// * `tags.#.value` - Value of the tag.
@@ -428,6 +431,10 @@ func (o LookupAmiResultOutput) Public() pulumi.BoolOutput {
 // for machine images.
 func (o LookupAmiResultOutput) RamdiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.RamdiskId }).(pulumi.StringOutput)
+}
+
+func (o LookupAmiResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAmiResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Device name of the root device.

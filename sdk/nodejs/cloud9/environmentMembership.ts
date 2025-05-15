@@ -70,6 +70,10 @@ export class EnvironmentMembership extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      */
     public readonly userArn!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class EnvironmentMembership extends pulumi.CustomResource {
             const state = argsOrState as EnvironmentMembershipState | undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["userArn"] = state ? state.userArn : undefined;
             resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
@@ -108,6 +113,7 @@ export class EnvironmentMembership extends pulumi.CustomResource {
             }
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["userArn"] = args ? args.userArn : undefined;
             resourceInputs["userId"] = undefined /*out*/;
         }
@@ -128,6 +134,10 @@ export interface EnvironmentMembershipState {
      * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
      */
     permissions?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      */
@@ -150,6 +160,10 @@ export interface EnvironmentMembershipArgs {
      * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
      */
     permissions: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      */

@@ -96,6 +96,9 @@ namespace Pulumi.Aws.TimestreamWrite
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetDatabaseArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.TimestreamWrite
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetDatabaseInvokeArgs()
         {
@@ -138,6 +144,7 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         public readonly string LastUpdatedTime;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Total number of tables in the Timestream database.
         /// </summary>
@@ -157,6 +164,8 @@ namespace Pulumi.Aws.TimestreamWrite
 
             string name,
 
+            string region,
+
             int tableCount)
         {
             Arn = arn;
@@ -165,6 +174,7 @@ namespace Pulumi.Aws.TimestreamWrite
             KmsKeyId = kmsKeyId;
             LastUpdatedTime = lastUpdatedTime;
             Name = name;
+            Region = region;
             TableCount = tableCount;
         }
     }

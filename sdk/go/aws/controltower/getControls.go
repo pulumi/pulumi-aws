@@ -24,6 +24,7 @@ func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getControls.
 type GetControlsArgs struct {
+	Region *string `pulumi:"region"`
 	// The ARN of the organizational unit.
 	TargetIdentifier string `pulumi:"targetIdentifier"`
 }
@@ -34,6 +35,7 @@ type GetControlsResult struct {
 	EnabledControls []string `pulumi:"enabledControls"`
 	// The provider-assigned unique ID for this managed resource.
 	Id               string `pulumi:"id"`
+	Region           string `pulumi:"region"`
 	TargetIdentifier string `pulumi:"targetIdentifier"`
 }
 
@@ -48,6 +50,7 @@ func GetControlsOutput(ctx *pulumi.Context, args GetControlsOutputArgs, opts ...
 
 // A collection of arguments for invoking getControls.
 type GetControlsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ARN of the organizational unit.
 	TargetIdentifier pulumi.StringInput `pulumi:"targetIdentifier"`
 }
@@ -79,6 +82,10 @@ func (o GetControlsResultOutput) EnabledControls() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetControlsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetControlsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetControlsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetControlsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetControlsResultOutput) TargetIdentifier() pulumi.StringOutput {

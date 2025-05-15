@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceAccountResult {
@@ -22,7 +20,7 @@ public final class GetServiceAccountResult {
      * 
      */
     private String id;
-    private @Nullable String region;
+    private String region;
 
     private GetServiceAccountResult() {}
     /**
@@ -39,8 +37,8 @@ public final class GetServiceAccountResult {
     public String id() {
         return this.id;
     }
-    public Optional<String> region() {
-        return Optional.ofNullable(this.region);
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -54,7 +52,7 @@ public final class GetServiceAccountResult {
     public static final class Builder {
         private String arn;
         private String id;
-        private @Nullable String region;
+        private String region;
         public Builder() {}
         public Builder(GetServiceAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,8 +78,10 @@ public final class GetServiceAccountResult {
             return this;
         }
         @CustomType.Setter
-        public Builder region(@Nullable String region) {
-
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "region");
+            }
             this.region = region;
             return this;
         }

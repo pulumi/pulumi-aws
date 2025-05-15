@@ -142,6 +142,10 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly providerName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      *
      * > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
@@ -190,6 +194,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["partnerName"] = state ? state.partnerName : undefined;
             resourceInputs["portEncryptionStatus"] = state ? state.portEncryptionStatus : undefined;
             resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestMacsec"] = state ? state.requestMacsec : undefined;
             resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -208,6 +213,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestMacsec"] = args ? args.requestMacsec : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -284,6 +290,10 @@ export interface ConnectionState {
      */
     providerName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      *
      * > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
@@ -331,6 +341,10 @@ export interface ConnectionArgs {
      * The name of the service provider associated with the connection.
      */
     providerName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      *

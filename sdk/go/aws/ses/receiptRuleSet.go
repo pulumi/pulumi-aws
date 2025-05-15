@@ -52,6 +52,8 @@ type ReceiptRuleSet struct {
 
 	// SES receipt rule set ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the rule set.
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 }
@@ -91,6 +93,8 @@ func GetReceiptRuleSet(ctx *pulumi.Context,
 type receiptRuleSetState struct {
 	// SES receipt rule set ARN.
 	Arn *string `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the rule set.
 	RuleSetName *string `pulumi:"ruleSetName"`
 }
@@ -98,6 +102,8 @@ type receiptRuleSetState struct {
 type ReceiptRuleSetState struct {
 	// SES receipt rule set ARN.
 	Arn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the rule set.
 	RuleSetName pulumi.StringPtrInput
 }
@@ -107,12 +113,16 @@ func (ReceiptRuleSetState) ElementType() reflect.Type {
 }
 
 type receiptRuleSetArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the rule set.
 	RuleSetName string `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a ReceiptRuleSet resource.
 type ReceiptRuleSetArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the rule set.
 	RuleSetName pulumi.StringInput
 }
@@ -207,6 +217,11 @@ func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Cont
 // SES receipt rule set ARN.
 func (o ReceiptRuleSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReceiptRuleSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReceiptRuleSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the rule set.

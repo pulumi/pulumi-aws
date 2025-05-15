@@ -163,6 +163,10 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     public readonly promptOverrideConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentPromptOverrideConfiguration[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether the in-use check is skipped when deleting the agent.
      */
     public readonly skipResourceInUseCheck!: pulumi.Output<boolean>;
@@ -204,6 +208,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["memoryConfigurations"] = state ? state.memoryConfigurations : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
             resourceInputs["promptOverrideConfigurations"] = state ? state.promptOverrideConfigurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -231,6 +236,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["memoryConfigurations"] = args ? args.memoryConfigurations : undefined;
             resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
             resourceInputs["promptOverrideConfigurations"] = args ? args.promptOverrideConfigurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipResourceInUseCheck"] = args ? args.skipResourceInUseCheck : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -311,6 +317,10 @@ export interface AgentAgentState {
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether the in-use check is skipped when deleting the agent.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean>;
@@ -379,6 +389,10 @@ export interface AgentAgentArgs {
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether the in-use check is skipped when deleting the agent.
      */

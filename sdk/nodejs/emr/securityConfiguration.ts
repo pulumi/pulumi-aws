@@ -87,6 +87,10 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a SecurityConfiguration resource with the given unique name, arguments, and options.
@@ -105,6 +109,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as SecurityConfigurationArgs | undefined;
             if ((!args || args.configuration === undefined) && !opts.urn) {
@@ -113,6 +118,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["creationDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -141,6 +147,10 @@ export interface SecurityConfigurationState {
      * prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -160,4 +170,8 @@ export interface SecurityConfigurationArgs {
      * prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

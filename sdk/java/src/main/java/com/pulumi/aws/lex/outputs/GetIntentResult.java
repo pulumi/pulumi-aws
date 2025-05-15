@@ -56,6 +56,7 @@ public final class GetIntentResult {
      * 
      */
     private String parentIntentSignature;
+    private String region;
     /**
      * @return Version of the bot.
      * 
@@ -123,6 +124,9 @@ public final class GetIntentResult {
     public String parentIntentSignature() {
         return this.parentIntentSignature;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Version of the bot.
      * 
@@ -148,6 +152,7 @@ public final class GetIntentResult {
         private String lastUpdatedDate;
         private String name;
         private String parentIntentSignature;
+        private String region;
         private @Nullable String version;
         public Builder() {}
         public Builder(GetIntentResult defaults) {
@@ -160,6 +165,7 @@ public final class GetIntentResult {
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
     	      this.name = defaults.name;
     	      this.parentIntentSignature = defaults.parentIntentSignature;
+    	      this.region = defaults.region;
     	      this.version = defaults.version;
         }
 
@@ -228,6 +234,14 @@ public final class GetIntentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetIntentResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
 
             this.version = version;
@@ -243,6 +257,7 @@ public final class GetIntentResult {
             _resultValue.lastUpdatedDate = lastUpdatedDate;
             _resultValue.name = name;
             _resultValue.parentIntentSignature = parentIntentSignature;
+            _resultValue.region = region;
             _resultValue.version = version;
             return _resultValue;
         }

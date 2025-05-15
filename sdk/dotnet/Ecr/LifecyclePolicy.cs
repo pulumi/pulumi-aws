@@ -118,6 +118,12 @@ namespace Pulumi.Aws.Ecr
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
         [Output("registryId")]
@@ -182,6 +188,12 @@ namespace Pulumi.Aws.Ecr
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the repository to apply the policy.
         /// </summary>
         [Input("repository", required: true)]
@@ -200,6 +212,12 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The registry ID where the repository was created.

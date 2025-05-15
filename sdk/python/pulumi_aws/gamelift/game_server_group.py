@@ -31,6 +31,7 @@ class GameServerGroupArgs:
                  auto_scaling_policy: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']] = None,
                  balancing_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  game_server_protection_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
@@ -50,6 +51,7 @@ class GameServerGroupArgs:
                Protected instances cannot be terminated while there are active game servers running except in the event
                of a forced game server group deletion.
                Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
                By default, all GameLift FleetIQ-supported Availability Zones are used.
@@ -66,6 +68,8 @@ class GameServerGroupArgs:
             pulumi.set(__self__, "balancing_strategy", balancing_strategy)
         if game_server_protection_policy is not None:
             pulumi.set(__self__, "game_server_protection_policy", game_server_protection_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpc_subnets is not None:
@@ -181,6 +185,18 @@ class GameServerGroupArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags
@@ -218,6 +234,7 @@ class _GameServerGroupState:
                  launch_template: Optional[pulumi.Input['GameServerGroupLaunchTemplateArgs']] = None,
                  max_size: Optional[pulumi.Input[builtins.int]] = None,
                  min_size: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -240,6 +257,7 @@ class _GameServerGroupState:
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         :param pulumi.Input[builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
@@ -265,6 +283,8 @@ class _GameServerGroupState:
             pulumi.set(__self__, "max_size", max_size)
         if min_size is not None:
             pulumi.set(__self__, "min_size", min_size)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
@@ -395,6 +415,18 @@ class _GameServerGroupState:
         pulumi.set(self, "min_size", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -457,6 +489,7 @@ class GameServerGroup(pulumi.CustomResource):
                  launch_template: Optional[pulumi.Input[Union['GameServerGroupLaunchTemplateArgs', 'GameServerGroupLaunchTemplateArgsDict']]] = None,
                  max_size: Optional[pulumi.Input[builtins.int]] = None,
                  min_size: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -582,6 +615,7 @@ class GameServerGroup(pulumi.CustomResource):
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         :param pulumi.Input[builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
@@ -721,6 +755,7 @@ class GameServerGroup(pulumi.CustomResource):
                  launch_template: Optional[pulumi.Input[Union['GameServerGroupLaunchTemplateArgs', 'GameServerGroupLaunchTemplateArgsDict']]] = None,
                  max_size: Optional[pulumi.Input[builtins.int]] = None,
                  min_size: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -751,6 +786,7 @@ class GameServerGroup(pulumi.CustomResource):
             if min_size is None and not opts.urn:
                 raise TypeError("Missing required property 'min_size'")
             __props__.__dict__["min_size"] = min_size
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -779,6 +815,7 @@ class GameServerGroup(pulumi.CustomResource):
             launch_template: Optional[pulumi.Input[Union['GameServerGroupLaunchTemplateArgs', 'GameServerGroupLaunchTemplateArgsDict']]] = None,
             max_size: Optional[pulumi.Input[builtins.int]] = None,
             min_size: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -806,6 +843,7 @@ class GameServerGroup(pulumi.CustomResource):
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         :param pulumi.Input[builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
@@ -825,6 +863,7 @@ class GameServerGroup(pulumi.CustomResource):
         __props__.__dict__["launch_template"] = launch_template
         __props__.__dict__["max_size"] = max_size
         __props__.__dict__["min_size"] = min_size
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -910,6 +949,14 @@ class GameServerGroup(pulumi.CustomResource):
         During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         """
         return pulumi.get(self, "min_size")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

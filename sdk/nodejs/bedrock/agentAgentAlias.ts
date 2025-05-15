@@ -71,6 +71,10 @@ export class AgentAgentAlias extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      */
     public readonly routingConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentAliasRoutingConfiguration[]>;
@@ -102,6 +106,7 @@ export class AgentAgentAlias extends pulumi.CustomResource {
             resourceInputs["agentAliasName"] = state ? state.agentAliasName : undefined;
             resourceInputs["agentId"] = state ? state.agentId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingConfigurations"] = state ? state.routingConfigurations : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -117,6 +122,7 @@ export class AgentAgentAlias extends pulumi.CustomResource {
             resourceInputs["agentAliasName"] = args ? args.agentAliasName : undefined;
             resourceInputs["agentId"] = args ? args.agentId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingConfigurations"] = args ? args.routingConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -156,6 +162,10 @@ export interface AgentAgentAliasState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      */
     routingConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentAliasRoutingConfiguration>[]>;
@@ -188,6 +198,10 @@ export interface AgentAgentAliasArgs {
      * Description of the alias.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      */

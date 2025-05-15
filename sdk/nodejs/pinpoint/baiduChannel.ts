@@ -71,6 +71,10 @@ export class BaiduChannel extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Platform credential Secret key from Baidu.
      */
     public readonly secretKey!: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class BaiduChannel extends pulumi.CustomResource {
             resourceInputs["apiKey"] = state ? state.apiKey : undefined;
             resourceInputs["applicationId"] = state ? state.applicationId : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretKey"] = state ? state.secretKey : undefined;
         } else {
             const args = argsOrState as BaiduChannelArgs | undefined;
@@ -106,6 +111,7 @@ export class BaiduChannel extends pulumi.CustomResource {
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -132,6 +138,10 @@ export interface BaiduChannelState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Platform credential Secret key from Baidu.
      */
     secretKey?: pulumi.Input<string>;
@@ -153,6 +163,10 @@ export interface BaiduChannelArgs {
      * Specifies whether to enable the channel. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Platform credential Secret key from Baidu.
      */

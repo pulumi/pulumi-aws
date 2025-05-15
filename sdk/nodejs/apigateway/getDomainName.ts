@@ -26,6 +26,7 @@ export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptio
     return pulumi.runtime.invoke("aws:apigateway/getDomainName:getDomainName", {
         "domainName": args.domainName,
         "domainNameId": args.domainNameId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -42,6 +43,7 @@ export interface GetDomainNameArgs {
      * The identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: string;
+    region?: string;
     /**
      * Key-value map of tags for the resource.
      */
@@ -90,6 +92,7 @@ export interface GetDomainNameResult {
      * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      */
     readonly policy: string;
+    readonly region: string;
     /**
      * ARN for an AWS-managed certificate that is used for validating the regional domain name.
      */
@@ -134,6 +137,7 @@ export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi
     return pulumi.runtime.invokeOutput("aws:apigateway/getDomainName:getDomainName", {
         "domainName": args.domainName,
         "domainNameId": args.domainNameId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -150,6 +154,7 @@ export interface GetDomainNameOutputArgs {
      * The identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of tags for the resource.
      */

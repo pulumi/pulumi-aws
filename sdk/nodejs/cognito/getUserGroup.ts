@@ -25,6 +25,7 @@ export function getUserGroup(args: GetUserGroupArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserGroup:getUserGroup", {
         "name": args.name,
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetUserGroupArgs {
      * Name of the user group.
      */
     name: string;
+    region?: string;
     /**
      * User pool the client belongs to.
      */
@@ -60,6 +62,7 @@ export interface GetUserGroupResult {
      * Precedence of the user group.
      */
     readonly precedence: number;
+    readonly region: string;
     /**
      * ARN of the IAM role to be associated with the user group.
      */
@@ -87,6 +90,7 @@ export function getUserGroupOutput(args: GetUserGroupOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserGroup:getUserGroup", {
         "name": args.name,
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -99,6 +103,7 @@ export interface GetUserGroupOutputArgs {
      * Name of the user group.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * User pool the client belongs to.
      */

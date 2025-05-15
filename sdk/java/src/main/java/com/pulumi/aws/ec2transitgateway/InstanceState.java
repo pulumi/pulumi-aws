@@ -120,6 +120,20 @@ public class InstanceState extends com.pulumi.resources.CustomResource {
         return this.instanceId;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * State of the instance. Valid values are `stopped`, `running`.
      * 
      * The following arguments are optional:

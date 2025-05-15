@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Cognito
         [Input("identityPoolName", required: true)]
         public string IdentityPoolName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("identityPoolName", required: true)]
         public Input<string> IdentityPoolName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -176,6 +182,7 @@ namespace Pulumi.Aws.Cognito
         /// Set of OpendID Connect provider ARNs.
         /// </summary>
         public readonly ImmutableArray<string> OpenidConnectProviderArns;
+        public readonly string Region;
         /// <summary>
         /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         /// </summary>
@@ -207,6 +214,8 @@ namespace Pulumi.Aws.Cognito
 
             ImmutableArray<string> openidConnectProviderArns,
 
+            string region,
+
             ImmutableArray<string> samlProviderArns,
 
             ImmutableDictionary<string, string> supportedLoginProviders,
@@ -221,6 +230,7 @@ namespace Pulumi.Aws.Cognito
             Id = id;
             IdentityPoolName = identityPoolName;
             OpenidConnectProviderArns = openidConnectProviderArns;
+            Region = region;
             SamlProviderArns = samlProviderArns;
             SupportedLoginProviders = supportedLoginProviders;
             Tags = tags;

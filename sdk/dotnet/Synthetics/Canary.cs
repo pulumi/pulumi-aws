@@ -107,6 +107,12 @@ namespace Pulumi.Aws.Synthetics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for individual canary runs. Detailed below.
         /// </summary>
         [Output("runConfig")]
@@ -287,6 +293,12 @@ namespace Pulumi.Aws.Synthetics
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for individual canary runs. Detailed below.
         /// </summary>
         [Input("runConfig")]
@@ -421,6 +433,12 @@ namespace Pulumi.Aws.Synthetics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for individual canary runs. Detailed below.

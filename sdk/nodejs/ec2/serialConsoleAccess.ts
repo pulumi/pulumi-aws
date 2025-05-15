@@ -58,6 +58,10 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
      * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a SerialConsoleAccess resource with the given unique name, arguments, and options.
@@ -73,9 +77,11 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SerialConsoleAccessState | undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as SerialConsoleAccessArgs | undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SerialConsoleAccess.__pulumiType, name, resourceInputs, opts);
@@ -90,6 +96,10 @@ export interface SerialConsoleAccessState {
      * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -100,4 +110,8 @@ export interface SerialConsoleAccessArgs {
      * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

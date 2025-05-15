@@ -76,6 +76,10 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
      * The name of the load balancer to which you want to enable session stickiness.
      */
     public readonly lbName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbStickinessPolicy resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
             resourceInputs["cookieDuration"] = state ? state.cookieDuration : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbStickinessPolicyArgs | undefined;
             if ((!args || args.cookieDuration === undefined) && !opts.urn) {
@@ -107,6 +112,7 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
             resourceInputs["cookieDuration"] = args ? args.cookieDuration : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbStickinessPolicy.__pulumiType, name, resourceInputs, opts);
@@ -129,6 +135,10 @@ export interface LbStickinessPolicyState {
      * The name of the load balancer to which you want to enable session stickiness.
      */
     lbName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -147,4 +157,8 @@ export interface LbStickinessPolicyArgs {
      * The name of the load balancer to which you want to enable session stickiness.
      */
     lbName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

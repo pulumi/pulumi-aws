@@ -85,6 +85,8 @@ type Analysis struct {
 	Permissions AnalysisPermissionArrayOutput `pulumi:"permissions"`
 	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
 	RecoveryWindowInDays pulumi.IntPtrOutput `pulumi:"recoveryWindowInDays"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity AnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// The analysis creation status.
@@ -151,6 +153,8 @@ type analysisState struct {
 	Permissions []AnalysisPermission `pulumi:"permissions"`
 	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
 	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *AnalysisSourceEntity `pulumi:"sourceEntity"`
 	// The analysis creation status.
@@ -185,6 +189,8 @@ type AnalysisState struct {
 	Permissions AnalysisPermissionArrayInput
 	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
 	RecoveryWindowInDays pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity AnalysisSourceEntityPtrInput
 	// The analysis creation status.
@@ -216,6 +222,8 @@ type analysisArgs struct {
 	Permissions []AnalysisPermission `pulumi:"permissions"`
 	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
 	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *AnalysisSourceEntity `pulumi:"sourceEntity"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -240,6 +248,8 @@ type AnalysisArgs struct {
 	Permissions AnalysisPermissionArrayInput
 	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
 	RecoveryWindowInDays pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity AnalysisSourceEntityPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -384,6 +394,11 @@ func (o AnalysisOutput) Permissions() AnalysisPermissionArrayOutput {
 // A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
 func (o AnalysisOutput) RecoveryWindowInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.IntPtrOutput { return v.RecoveryWindowInDays }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AnalysisOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.

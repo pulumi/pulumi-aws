@@ -49,6 +49,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The unique identifiers of a traffic sources.
         /// </summary>
         [Output("trafficSource")]
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string> AutoscalingGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The unique identifiers of a traffic sources.
         /// </summary>
         [Input("trafficSource")]
@@ -125,6 +137,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The unique identifiers of a traffic sources.

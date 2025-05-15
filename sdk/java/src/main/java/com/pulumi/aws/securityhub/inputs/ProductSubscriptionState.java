@@ -121,11 +121,27 @@ public final class ProductSubscriptionState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.productArn);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private ProductSubscriptionState() {}
 
     private ProductSubscriptionState(ProductSubscriptionState $) {
         this.arn = $.arn;
         this.productArn = $.productArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -262,6 +278,27 @@ public final class ProductSubscriptionState extends com.pulumi.resources.Resourc
          */
         public Builder productArn(String productArn) {
             return productArn(Output.of(productArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public ProductSubscriptionState build() {

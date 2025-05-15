@@ -496,14 +496,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.alpnPolicy);
     }
     /**
-     * ARN of the listener (matches `id`).
+     * ARN of the listener.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the listener (matches `id`).
+     * @return ARN of the listener.
      * 
      */
     public Output<String> arn() {
@@ -596,6 +596,20 @@ public class Listener extends com.pulumi.resources.CustomResource {
      */
     public Output<String> protocol() {
         return this.protocol;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.

@@ -110,6 +110,21 @@ public final class TrustProviderState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.policyReferenceName);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="sseSpecification")
     private @Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification;
 
@@ -182,6 +197,7 @@ public final class TrustProviderState extends com.pulumi.resources.ResourceArgs 
         this.nativeApplicationOidcOptions = $.nativeApplicationOidcOptions;
         this.oidcOptions = $.oidcOptions;
         this.policyReferenceName = $.policyReferenceName;
+        this.region = $.region;
         this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -331,6 +347,27 @@ public final class TrustProviderState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder policyReferenceName(String policyReferenceName) {
             return policyReferenceName(Output.of(policyReferenceName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder sseSpecification(@Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification) {

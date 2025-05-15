@@ -108,6 +108,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      */
@@ -144,6 +148,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["ipAddresses"] = state ? state.ipAddresses : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resolverEndpointType"] = state ? state.resolverEndpointType : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -163,6 +168,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resolverEndpointType"] = args ? args.resolverEndpointType : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -208,6 +214,10 @@ export interface ResolverEndpointState {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      */
@@ -250,6 +260,10 @@ export interface ResolverEndpointArgs {
      * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).

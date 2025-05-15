@@ -6,6 +6,7 @@ package com.pulumi.aws.emr.inputs;
 import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,10 +31,18 @@ public final class GetReleaseLabelsArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetReleaseLabelsArgs() {}
 
     private GetReleaseLabelsArgs(GetReleaseLabelsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -73,6 +82,15 @@ public final class GetReleaseLabelsArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder filters(GetReleaseLabelsFiltersArgs filters) {
             return filters(Output.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetReleaseLabelsArgs build() {

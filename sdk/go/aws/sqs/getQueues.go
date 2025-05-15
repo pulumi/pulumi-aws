@@ -54,6 +54,7 @@ func GetQueues(ctx *pulumi.Context, args *GetQueuesArgs, opts ...pulumi.InvokeOp
 type GetQueuesArgs struct {
 	// A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
 	QueueNamePrefix *string `pulumi:"queueNamePrefix"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getQueues.
@@ -63,6 +64,7 @@ type GetQueuesResult struct {
 	QueueNamePrefix *string `pulumi:"queueNamePrefix"`
 	// A list of queue URLs.
 	QueueUrls []string `pulumi:"queueUrls"`
+	Region    string   `pulumi:"region"`
 }
 
 func GetQueuesOutput(ctx *pulumi.Context, args GetQueuesOutputArgs, opts ...pulumi.InvokeOption) GetQueuesResultOutput {
@@ -78,6 +80,7 @@ func GetQueuesOutput(ctx *pulumi.Context, args GetQueuesOutputArgs, opts ...pulu
 type GetQueuesOutputArgs struct {
 	// A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
 	QueueNamePrefix pulumi.StringPtrInput `pulumi:"queueNamePrefix"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetQueuesOutputArgs) ElementType() reflect.Type {
@@ -111,6 +114,10 @@ func (o GetQueuesResultOutput) QueueNamePrefix() pulumi.StringPtrOutput {
 // A list of queue URLs.
 func (o GetQueuesResultOutput) QueueUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetQueuesResult) []string { return v.QueueUrls }).(pulumi.StringArrayOutput)
+}
+
+func (o GetQueuesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQueuesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

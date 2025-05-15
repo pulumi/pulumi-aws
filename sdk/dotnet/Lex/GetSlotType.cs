@@ -96,6 +96,9 @@ namespace Pulumi.Aws.Lex
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Version of the slot type.
         /// </summary>
@@ -115,6 +118,9 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Version of the slot type.
@@ -163,6 +169,7 @@ namespace Pulumi.Aws.Lex
         /// Name of the slot type. The name is not case sensitive.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Determines the slot resolution strategy that Amazon Lex
         /// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -191,6 +198,8 @@ namespace Pulumi.Aws.Lex
 
             string name,
 
+            string region,
+
             string valueSelectionStrategy,
 
             string? version)
@@ -202,6 +211,7 @@ namespace Pulumi.Aws.Lex
             Id = id;
             LastUpdatedDate = lastUpdatedDate;
             Name = name;
+            Region = region;
             ValueSelectionStrategy = valueSelectionStrategy;
             Version = version;
         }

@@ -88,6 +88,8 @@ type RouteTableAssociation struct {
 
 	// The gateway ID to create an association. Conflicts with `subnetId`.
 	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the routing table to associate with.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 	// The subnet ID to create an association. Conflicts with `gatewayId`.
@@ -129,6 +131,8 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 type routeTableAssociationState struct {
 	// The gateway ID to create an association. Conflicts with `subnetId`.
 	GatewayId *string `pulumi:"gatewayId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the routing table to associate with.
 	RouteTableId *string `pulumi:"routeTableId"`
 	// The subnet ID to create an association. Conflicts with `gatewayId`.
@@ -138,6 +142,8 @@ type routeTableAssociationState struct {
 type RouteTableAssociationState struct {
 	// The gateway ID to create an association. Conflicts with `subnetId`.
 	GatewayId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the routing table to associate with.
 	RouteTableId pulumi.StringPtrInput
 	// The subnet ID to create an association. Conflicts with `gatewayId`.
@@ -151,6 +157,8 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 type routeTableAssociationArgs struct {
 	// The gateway ID to create an association. Conflicts with `subnetId`.
 	GatewayId *string `pulumi:"gatewayId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the routing table to associate with.
 	RouteTableId string `pulumi:"routeTableId"`
 	// The subnet ID to create an association. Conflicts with `gatewayId`.
@@ -161,6 +169,8 @@ type routeTableAssociationArgs struct {
 type RouteTableAssociationArgs struct {
 	// The gateway ID to create an association. Conflicts with `subnetId`.
 	GatewayId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the routing table to associate with.
 	RouteTableId pulumi.StringInput
 	// The subnet ID to create an association. Conflicts with `gatewayId`.
@@ -257,6 +267,11 @@ func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ct
 // The gateway ID to create an association. Conflicts with `subnetId`.
 func (o RouteTableAssociationOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringPtrOutput { return v.GatewayId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RouteTableAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the routing table to associate with.

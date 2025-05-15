@@ -175,6 +175,10 @@ export class ExportTask extends pulumi.CustomResource {
      */
     public /*out*/ readonly percentProgress!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      */
     public readonly s3BucketName!: pulumi.Output<string>;
@@ -233,6 +237,7 @@ export class ExportTask extends pulumi.CustomResource {
             resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["percentProgress"] = state ? state.percentProgress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
             resourceInputs["s3Prefix"] = state ? state.s3Prefix : undefined;
             resourceInputs["snapshotTime"] = state ? state.snapshotTime : undefined;
@@ -264,6 +269,7 @@ export class ExportTask extends pulumi.CustomResource {
             resourceInputs["exportTaskIdentifier"] = args ? args.exportTaskIdentifier : undefined;
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
             resourceInputs["s3Prefix"] = args ? args.s3Prefix : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
@@ -310,6 +316,10 @@ export interface ExportTaskState {
      * Progress of the snapshot export task as a percentage.
      */
     percentProgress?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      */
@@ -371,6 +381,10 @@ export interface ExportTaskArgs {
      * ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
      */
     kmsKeyId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      */

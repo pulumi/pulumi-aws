@@ -155,6 +155,10 @@ export class BudgetAction extends pulumi.CustomResource {
      */
     public readonly notificationType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the budget action.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -169,7 +173,7 @@ export class BudgetAction extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a BudgetAction resource with the given unique name, arguments, and options.
@@ -194,6 +198,7 @@ export class BudgetAction extends pulumi.CustomResource {
             resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subscribers"] = state ? state.subscribers : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -232,12 +237,13 @@ export class BudgetAction extends pulumi.CustomResource {
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subscribers"] = args ? args.subscribers : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["actionId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BudgetAction.__pulumiType, name, resourceInputs, opts);
@@ -288,6 +294,10 @@ export interface BudgetActionState {
      * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      */
     notificationType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The status of the budget action.
      */
@@ -343,6 +353,10 @@ export interface BudgetActionArgs {
      */
     notificationType: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of subscribers. See Subscriber.
      */
     subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[]>;
@@ -350,8 +364,4 @@ export interface BudgetActionArgs {
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

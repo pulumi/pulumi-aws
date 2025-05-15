@@ -29,6 +29,7 @@ public final class GetUserResult {
     private String id;
     private @Nullable Boolean noPasswordRequired;
     private @Nullable List<String> passwords;
+    private String region;
     /**
      * @return Identifier for the user.
      * 
@@ -67,6 +68,9 @@ public final class GetUserResult {
     public List<String> passwords() {
         return this.passwords == null ? List.of() : this.passwords;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Identifier for the user.
      * 
@@ -97,6 +101,7 @@ public final class GetUserResult {
         private String id;
         private @Nullable Boolean noPasswordRequired;
         private @Nullable List<String> passwords;
+        private String region;
         private String userId;
         private @Nullable String userName;
         public Builder() {}
@@ -108,6 +113,7 @@ public final class GetUserResult {
     	      this.id = defaults.id;
     	      this.noPasswordRequired = defaults.noPasswordRequired;
     	      this.passwords = defaults.passwords;
+    	      this.region = defaults.region;
     	      this.userId = defaults.userId;
     	      this.userName = defaults.userName;
         }
@@ -157,6 +163,14 @@ public final class GetUserResult {
             return passwords(List.of(passwords));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userId(String userId) {
             if (userId == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "userId");
@@ -178,6 +192,7 @@ public final class GetUserResult {
             _resultValue.id = id;
             _resultValue.noPasswordRequired = noPasswordRequired;
             _resultValue.passwords = passwords;
+            _resultValue.region = region;
             _resultValue.userId = userId;
             _resultValue.userName = userName;
             return _resultValue;

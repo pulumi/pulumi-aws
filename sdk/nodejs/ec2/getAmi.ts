@@ -50,6 +50,7 @@ export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
+        "region": args.region,
         "tags": args.tags,
         "uefiData": args.uefiData,
     }, opts);
@@ -103,6 +104,7 @@ export interface GetAmiArgs {
      * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
     owners?: string[];
+    region?: string;
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.
@@ -228,6 +230,7 @@ export interface GetAmiResult {
      * for machine images.
      */
     readonly ramdiskId: string;
+    readonly region: string;
     /**
      * Device name of the root device.
      */
@@ -321,6 +324,7 @@ export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOutput
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
+        "region": args.region,
         "tags": args.tags,
         "uefiData": args.uefiData,
     }, opts);
@@ -374,6 +378,7 @@ export interface GetAmiOutputArgs {
      * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
     owners?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.

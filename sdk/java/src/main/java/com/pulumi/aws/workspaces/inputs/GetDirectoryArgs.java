@@ -32,6 +32,13 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
         return this.directoryId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags assigned to the WorkSpaces directory.
      * 
@@ -51,6 +58,7 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetDirectoryArgs(GetDirectoryArgs $) {
         this.directoryId = $.directoryId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder directoryId(String directoryId) {
             return directoryId(Output.of(directoryId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -56,6 +56,12 @@ namespace Pulumi.Aws.VerifiedAccess
     public partial class InstanceTrustProviderAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>
         [Output("verifiedaccessInstanceId")]
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class InstanceTrustProviderAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>
         [Input("verifiedaccessInstanceId", required: true)]
@@ -133,6 +145,12 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class InstanceTrustProviderAttachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>

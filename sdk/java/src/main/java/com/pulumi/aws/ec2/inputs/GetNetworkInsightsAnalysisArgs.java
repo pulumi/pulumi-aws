@@ -21,12 +21,20 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
     /**
      * Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetNetworkInsightsAnalysisFilterArgs>> filters;
 
     /**
      * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetNetworkInsightsAnalysisFilterArgs>>> filters() {
@@ -48,6 +56,13 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.networkInsightsAnalysisId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -60,6 +75,7 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
     private GetNetworkInsightsAnalysisArgs(GetNetworkInsightsAnalysisArgs $) {
         this.filters = $.filters;
         this.networkInsightsAnalysisId = $.networkInsightsAnalysisId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -84,6 +100,10 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -95,6 +115,10 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +128,10 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
 
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -131,6 +159,15 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
          */
         public Builder networkInsightsAnalysisId(String networkInsightsAnalysisId) {
             return networkInsightsAnalysisId(Output.of(networkInsightsAnalysisId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

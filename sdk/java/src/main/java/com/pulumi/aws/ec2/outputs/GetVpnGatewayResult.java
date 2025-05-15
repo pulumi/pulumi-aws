@@ -20,6 +20,7 @@ public final class GetVpnGatewayResult {
     private String availabilityZone;
     private @Nullable List<GetVpnGatewayFilter> filters;
     private String id;
+    private String region;
     private String state;
     private Map<String,String> tags;
 
@@ -41,6 +42,9 @@ public final class GetVpnGatewayResult {
     }
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     public String state() {
         return this.state;
@@ -64,6 +68,7 @@ public final class GetVpnGatewayResult {
         private String availabilityZone;
         private @Nullable List<GetVpnGatewayFilter> filters;
         private String id;
+        private String region;
         private String state;
         private Map<String,String> tags;
         public Builder() {}
@@ -75,6 +80,7 @@ public final class GetVpnGatewayResult {
     	      this.availabilityZone = defaults.availabilityZone;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
         }
@@ -129,6 +135,14 @@ public final class GetVpnGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetVpnGatewayResult", "state");
@@ -152,6 +166,7 @@ public final class GetVpnGatewayResult {
             _resultValue.availabilityZone = availabilityZone;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             return _resultValue;

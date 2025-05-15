@@ -25,6 +25,7 @@ public final class GetCoipPoolsResult {
      * 
      */
     private List<String> poolIds;
+    private String region;
     private @Nullable Map<String,String> tags;
 
     private GetCoipPoolsResult() {}
@@ -45,6 +46,9 @@ public final class GetCoipPoolsResult {
     public List<String> poolIds() {
         return this.poolIds;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -61,6 +65,7 @@ public final class GetCoipPoolsResult {
         private @Nullable List<GetCoipPoolsFilter> filters;
         private String id;
         private List<String> poolIds;
+        private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetCoipPoolsResult defaults) {
@@ -68,6 +73,7 @@ public final class GetCoipPoolsResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.poolIds = defaults.poolIds;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -100,6 +106,14 @@ public final class GetCoipPoolsResult {
             return poolIds(List.of(poolIds));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -110,6 +124,7 @@ public final class GetCoipPoolsResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.poolIds = poolIds;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

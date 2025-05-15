@@ -73,6 +73,8 @@ type SnapshotImport struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -142,6 +144,8 @@ type snapshotImportState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName *string `pulumi:"roleName"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -179,6 +183,8 @@ type SnapshotImportState struct {
 	OwnerId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrInput
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -211,6 +217,8 @@ type snapshotImportArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName *string `pulumi:"roleName"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -235,6 +243,8 @@ type SnapshotImportArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrInput
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -384,6 +394,11 @@ func (o SnapshotImportOutput) OwnerId() pulumi.StringOutput {
 // Indicates whether to permanently restore an archived snapshot.
 func (o SnapshotImportOutput) PermanentRestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotImport) pulumi.BoolPtrOutput { return v.PermanentRestore }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SnapshotImportOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`

@@ -204,6 +204,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly numberOfWorkers!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role associated with this job.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -268,6 +272,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["nonOverridableArguments"] = state ? state.nonOverridableArguments : undefined;
             resourceInputs["notificationProperty"] = state ? state.notificationProperty : undefined;
             resourceInputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             resourceInputs["sourceControlDetails"] = state ? state.sourceControlDetails : undefined;
@@ -298,6 +303,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["nonOverridableArguments"] = args ? args.nonOverridableArguments : undefined;
             resourceInputs["notificationProperty"] = args ? args.notificationProperty : undefined;
             resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             resourceInputs["sourceControlDetails"] = args ? args.sourceControlDetails : undefined;
@@ -380,6 +386,10 @@ export interface JobState {
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
     numberOfWorkers?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role associated with this job.
      */
@@ -481,6 +491,10 @@ export interface JobArgs {
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
     numberOfWorkers?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role associated with this job.
      */

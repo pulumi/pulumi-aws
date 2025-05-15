@@ -33,6 +33,8 @@ type LocationFsxOntapFileSystem struct {
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol LocationFsxOntapFileSystemProtocolOutput `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
 	// * Server Message Block (SMB): TCP port 445
@@ -96,6 +98,8 @@ type locationFsxOntapFileSystemState struct {
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol *LocationFsxOntapFileSystemProtocol `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
 	// * Server Message Block (SMB): TCP port 445
@@ -121,6 +125,8 @@ type LocationFsxOntapFileSystemState struct {
 	FsxFilesystemArn pulumi.StringPtrInput
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol LocationFsxOntapFileSystemProtocolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
 	// * Server Message Block (SMB): TCP port 445
@@ -145,6 +151,8 @@ func (LocationFsxOntapFileSystemState) ElementType() reflect.Type {
 type locationFsxOntapFileSystemArgs struct {
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol LocationFsxOntapFileSystemProtocol `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
 	// * Server Message Block (SMB): TCP port 445
@@ -156,14 +164,15 @@ type locationFsxOntapFileSystemArgs struct {
 	// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationFsxOntapFileSystem resource.
 type LocationFsxOntapFileSystemArgs struct {
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol LocationFsxOntapFileSystemProtocolInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
 	// * Server Message Block (SMB): TCP port 445
@@ -175,8 +184,7 @@ type LocationFsxOntapFileSystemArgs struct {
 	// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (LocationFsxOntapFileSystemArgs) ElementType() reflect.Type {
@@ -283,6 +291,11 @@ func (o LocationFsxOntapFileSystemOutput) FsxFilesystemArn() pulumi.StringOutput
 // The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 func (o LocationFsxOntapFileSystemOutput) Protocol() LocationFsxOntapFileSystemProtocolOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystem) LocationFsxOntapFileSystemProtocolOutput { return v.Protocol }).(LocationFsxOntapFileSystemProtocolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LocationFsxOntapFileSystemOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):

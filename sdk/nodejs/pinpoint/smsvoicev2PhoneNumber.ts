@@ -97,6 +97,10 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
      */
     public /*out*/ readonly phoneNumber!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Use this field to attach your phone number for an external registration process.
      */
     public readonly registrationId!: pulumi.Output<string | undefined>;
@@ -141,6 +145,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             resourceInputs["numberType"] = state ? state.numberType : undefined;
             resourceInputs["optOutListName"] = state ? state.optOutListName : undefined;
             resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registrationId"] = state ? state.registrationId : undefined;
             resourceInputs["selfManagedOptOutsEnabled"] = state ? state.selfManagedOptOutsEnabled : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -168,6 +173,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             resourceInputs["numberCapabilities"] = args ? args.numberCapabilities : undefined;
             resourceInputs["numberType"] = args ? args.numberType : undefined;
             resourceInputs["optOutListName"] = args ? args.optOutListName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["registrationId"] = args ? args.registrationId : undefined;
             resourceInputs["selfManagedOptOutsEnabled"] = args ? args.selfManagedOptOutsEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -225,6 +231,10 @@ export interface Smsvoicev2PhoneNumberState {
      */
     phoneNumber?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Use this field to attach your phone number for an external registration process.
      */
     registrationId?: pulumi.Input<string>;
@@ -276,6 +286,10 @@ export interface Smsvoicev2PhoneNumberArgs {
      * The name of the opt-out list to associate with the phone number.
      */
     optOutListName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Use this field to attach your phone number for an external registration process.
      */

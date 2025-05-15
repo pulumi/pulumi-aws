@@ -88,6 +88,7 @@ public final class GetImagePipelineResult {
      * 
      */
     private String platform;
+    private String region;
     /**
      * @return List of an object with schedule settings.
      * 
@@ -209,6 +210,9 @@ public final class GetImagePipelineResult {
     public String platform() {
         return this.platform;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return List of an object with schedule settings.
      * 
@@ -256,6 +260,7 @@ public final class GetImagePipelineResult {
         private String infrastructureConfigurationArn;
         private String name;
         private String platform;
+        private String region;
         private List<GetImagePipelineSchedule> schedules;
         private String status;
         private Map<String,String> tags;
@@ -278,6 +283,7 @@ public final class GetImagePipelineResult {
     	      this.infrastructureConfigurationArn = defaults.infrastructureConfigurationArn;
     	      this.name = defaults.name;
     	      this.platform = defaults.platform;
+    	      this.region = defaults.region;
     	      this.schedules = defaults.schedules;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
@@ -418,6 +424,14 @@ public final class GetImagePipelineResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schedules(List<GetImagePipelineSchedule> schedules) {
             if (schedules == null) {
               throw new MissingRequiredPropertyException("GetImagePipelineResult", "schedules");
@@ -462,6 +476,7 @@ public final class GetImagePipelineResult {
             _resultValue.infrastructureConfigurationArn = infrastructureConfigurationArn;
             _resultValue.name = name;
             _resultValue.platform = platform;
+            _resultValue.region = region;
             _resultValue.schedules = schedules;
             _resultValue.status = status;
             _resultValue.tags = tags;

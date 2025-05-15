@@ -64,6 +64,12 @@ namespace Pulumi.Aws.DataSync
         public Output<string> FsxFilesystemArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
         /// </summary>
         [Output("securityGroupArns")]
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.DataSync
         [Input("fsxFilesystemArn", required: true)]
         public Input<string> FsxFilesystemArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupArns", required: true)]
         private InputList<string>? _securityGroupArns;
 
@@ -200,6 +212,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("fsxFilesystemArn")]
         public Input<string>? FsxFilesystemArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupArns")]
         private InputList<string>? _securityGroupArns;

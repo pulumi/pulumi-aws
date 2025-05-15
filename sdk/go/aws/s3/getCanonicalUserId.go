@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := s3.GetCanonicalUserId(ctx, map[string]interface{}{}, nil)
+//			current, err := s3.GetCanonicalUserId(ctx, &s3.GetCanonicalUserIdArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -40,14 +40,19 @@ import (
 //	}
 //
 // ```
-func GetCanonicalUserId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCanonicalUserIdResult, error) {
+func GetCanonicalUserId(ctx *pulumi.Context, args *GetCanonicalUserIdArgs, opts ...pulumi.InvokeOption) (*GetCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCanonicalUserIdResult
-	err := ctx.Invoke("aws:s3/getCanonicalUserId:getCanonicalUserId", nil, &rv, opts...)
+	err := ctx.Invoke("aws:s3/getCanonicalUserId:getCanonicalUserId", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getCanonicalUserId.
+type GetCanonicalUserIdArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCanonicalUserId.
@@ -55,14 +60,26 @@ type GetCanonicalUserIdResult struct {
 	// Human-friendly name linked to the canonical user ID. The bucket owner's display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
 	DisplayName string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func GetCanonicalUserIdOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCanonicalUserIdResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCanonicalUserIdResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:s3/getCanonicalUserId:getCanonicalUserId", nil, GetCanonicalUserIdResultOutput{}, options).(GetCanonicalUserIdResultOutput), nil
-	}).(GetCanonicalUserIdResultOutput)
+func GetCanonicalUserIdOutput(ctx *pulumi.Context, args GetCanonicalUserIdOutputArgs, opts ...pulumi.InvokeOption) GetCanonicalUserIdResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetCanonicalUserIdResultOutput, error) {
+			args := v.(GetCanonicalUserIdArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:s3/getCanonicalUserId:getCanonicalUserId", args, GetCanonicalUserIdResultOutput{}, options).(GetCanonicalUserIdResultOutput), nil
+		}).(GetCanonicalUserIdResultOutput)
+}
+
+// A collection of arguments for invoking getCanonicalUserId.
+type GetCanonicalUserIdOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetCanonicalUserIdOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCanonicalUserIdArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getCanonicalUserId.
@@ -88,6 +105,10 @@ func (o GetCanonicalUserIdResultOutput) DisplayName() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetCanonicalUserIdResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCanonicalUserIdResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCanonicalUserIdResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCanonicalUserIdResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

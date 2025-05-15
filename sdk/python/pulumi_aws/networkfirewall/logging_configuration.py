@@ -23,14 +23,18 @@ __all__ = ['LoggingConfigurationArgs', 'LoggingConfiguration']
 class LoggingConfigurationArgs:
     def __init__(__self__, *,
                  firewall_arn: pulumi.Input[builtins.str],
-                 logging_configuration: pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']):
+                 logging_configuration: pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
         :param pulumi.Input[builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
         :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "firewall_arn", firewall_arn)
         pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="firewallArn")
@@ -56,21 +60,37 @@ class LoggingConfigurationArgs:
     def logging_configuration(self, value: pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']):
         pulumi.set(self, "logging_configuration", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LoggingConfigurationState:
     def __init__(__self__, *,
                  firewall_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']] = None):
+                 logging_configuration: Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoggingConfiguration resources.
         :param pulumi.Input[builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
         :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if firewall_arn is not None:
             pulumi.set(__self__, "firewall_arn", firewall_arn)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="firewallArn")
@@ -96,6 +116,18 @@ class _LoggingConfigurationState:
     def logging_configuration(self, value: Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']]):
         pulumi.set(self, "logging_configuration", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class LoggingConfiguration(pulumi.CustomResource):
 
@@ -107,6 +139,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Network Firewall Logging Configuration Resource
@@ -183,6 +216,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
         :param pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -278,6 +312,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,6 +328,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             if logging_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'logging_configuration'")
             __props__.__dict__["logging_configuration"] = logging_configuration
+            __props__.__dict__["region"] = region
         super(LoggingConfiguration, __self__).__init__(
             'aws:networkfirewall/loggingConfiguration:LoggingConfiguration',
             resource_name,
@@ -304,7 +340,8 @@ class LoggingConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             firewall_arn: Optional[pulumi.Input[builtins.str]] = None,
-            logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None) -> 'LoggingConfiguration':
+            logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LoggingConfiguration':
         """
         Get an existing LoggingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -314,6 +351,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
         :param pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -321,6 +359,7 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["firewall_arn"] = firewall_arn
         __props__.__dict__["logging_configuration"] = logging_configuration
+        __props__.__dict__["region"] = region
         return LoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -338,4 +377,12 @@ class LoggingConfiguration(pulumi.CustomResource):
         A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         """
         return pulumi.get(self, "logging_configuration")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

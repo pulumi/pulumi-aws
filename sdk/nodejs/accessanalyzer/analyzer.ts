@@ -36,6 +36,43 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Organization Unused Access Analyzer with analysis rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.accessanalyzer.Analyzer("example", {
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION_UNUSED_ACCESS",
+ *     configuration: {
+ *         unusedAccess: {
+ *             unusedAccessAge: 180,
+ *             analysisRule: {
+ *                 exclusions: [
+ *                     {
+ *                         accountIds: [
+ *                             "123456789012",
+ *                             "234567890123",
+ *                         ],
+ *                     },
+ *                     {
+ *                         resourceTags: [
+ *                             {
+ *                                 key1: "value1",
+ *                             },
+ *                             {
+ *                                 key2: "value2",
+ *                             },
+ *                         ],
+ *                     },
+ *                 ],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
@@ -87,6 +124,10 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<outputs.accessanalyzer.AnalyzerConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -115,6 +156,7 @@ export class Analyzer extends pulumi.CustomResource {
             resourceInputs["analyzerName"] = state ? state.analyzerName : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -125,6 +167,7 @@ export class Analyzer extends pulumi.CustomResource {
             }
             resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -154,6 +197,10 @@ export interface AnalyzerState {
      */
     configuration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfiguration>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -181,6 +228,10 @@ export interface AnalyzerArgs {
      * A block that specifies the configuration of the analyzer. Documented below
      */
     configuration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

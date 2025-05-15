@@ -26,6 +26,7 @@ class FrameworkArgs:
                  control_sets: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Framework resource.
@@ -35,6 +36,7 @@ class FrameworkArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the framework.
         :param pulumi.Input[builtins.str] name: Name of the framework.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if compliance_type is not None:
@@ -45,6 +47,8 @@ class FrameworkArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -100,6 +104,18 @@ class FrameworkArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -120,6 +136,7 @@ class _FrameworkState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  framework_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -133,6 +150,7 @@ class _FrameworkState:
         :param pulumi.Input[builtins.str] description: Description of the framework.
         :param pulumi.Input[builtins.str] framework_type: Framework type, such as a custom framework or a standard framework.
         :param pulumi.Input[builtins.str] name: Name of the framework.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
@@ -147,6 +165,8 @@ class _FrameworkState:
             pulumi.set(__self__, "framework_type", framework_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -229,6 +249,18 @@ class _FrameworkState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -261,6 +293,7 @@ class Framework(pulumi.CustomResource):
                  control_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -305,6 +338,7 @@ class Framework(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the framework.
         :param pulumi.Input[builtins.str] name: Name of the framework.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -366,6 +400,7 @@ class Framework(pulumi.CustomResource):
                  control_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -380,6 +415,7 @@ class Framework(pulumi.CustomResource):
             __props__.__dict__["control_sets"] = control_sets
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["framework_type"] = None
@@ -400,6 +436,7 @@ class Framework(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             framework_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Framework':
         """
@@ -418,6 +455,7 @@ class Framework(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the framework.
         :param pulumi.Input[builtins.str] framework_type: Framework type, such as a custom framework or a standard framework.
         :param pulumi.Input[builtins.str] name: Name of the framework.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -430,6 +468,7 @@ class Framework(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["framework_type"] = framework_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Framework(resource_name, opts=opts, __props__=__props__)
@@ -484,6 +523,14 @@ class Framework(pulumi.CustomResource):
         Name of the framework.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

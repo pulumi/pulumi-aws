@@ -82,7 +82,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The Amazon Web Services Region name.
      */
-    public /*out*/ readonly region!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
@@ -129,11 +129,11 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["bundleId"] = args ? args.bundleId : undefined;
             resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["region"] = undefined /*out*/;
             resourceInputs["supportCode"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
@@ -206,6 +206,10 @@ export interface BucketArgs {
      * The name for the bucket.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Web Services Region name.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

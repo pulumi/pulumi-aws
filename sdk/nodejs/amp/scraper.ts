@@ -58,6 +58,10 @@ export class Scraper extends pulumi.CustomResource {
      */
     public readonly destination!: pulumi.Output<outputs.amp.ScraperDestination | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
     public /*out*/ readonly roleArn!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["roleConfiguration"] = state ? state.roleConfiguration : undefined;
             resourceInputs["scrapeConfiguration"] = state ? state.scrapeConfiguration : undefined;
@@ -109,6 +114,7 @@ export class Scraper extends pulumi.CustomResource {
             }
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleConfiguration"] = args ? args.roleConfiguration : undefined;
             resourceInputs["scrapeConfiguration"] = args ? args.scrapeConfiguration : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -139,6 +145,10 @@ export interface ScraperState {
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
@@ -174,6 +184,10 @@ export interface ScraperArgs {
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
      */

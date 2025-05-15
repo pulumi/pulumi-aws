@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,6 +30,13 @@ public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.planId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Backup selection ID.
      * 
@@ -47,6 +56,7 @@ public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs
 
     private GetSelectionPlainArgs(GetSelectionPlainArgs $) {
         this.planId = $.planId;
+        this.region = $.region;
         this.selectionId = $.selectionId;
     }
 
@@ -76,6 +86,11 @@ public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder planId(String planId) {
             $.planId = planId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

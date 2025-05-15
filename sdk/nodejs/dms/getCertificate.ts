@@ -24,6 +24,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dms/getCertificate:getCertificate", {
         "certificateId": args.certificateId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -36,6 +37,7 @@ export interface GetCertificateArgs {
      * A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
      */
     certificateId: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -72,6 +74,7 @@ export interface GetCertificateResult {
      * The key length of the cryptographic algorithm being used.
      */
     readonly keyLength: number;
+    readonly region: string;
     /**
      * The algorithm for the certificate.
      */
@@ -106,6 +109,7 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dms/getCertificate:getCertificate", {
         "certificateId": args.certificateId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -118,5 +122,6 @@ export interface GetCertificateOutputArgs {
      * A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
      */
     certificateId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

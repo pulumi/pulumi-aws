@@ -93,6 +93,9 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
@@ -127,6 +133,7 @@ namespace Pulumi.Aws.ServiceQuotas
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Code of the service.
         /// </summary>
@@ -137,11 +144,14 @@ namespace Pulumi.Aws.ServiceQuotas
         private GetServiceResult(
             string id,
 
+            string region,
+
             string serviceCode,
 
             string serviceName)
         {
             Id = id;
+            Region = region;
             ServiceCode = serviceCode;
             ServiceName = serviceName;
         }

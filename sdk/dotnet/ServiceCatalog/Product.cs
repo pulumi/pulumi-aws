@@ -112,6 +112,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<Outputs.ProductProvisioningArtifactParameters> ProvisioningArtifactParameters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the product.
         /// </summary>
         [Output("status")]
@@ -238,6 +244,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<Inputs.ProductProvisioningArtifactParametersArgs> ProvisioningArtifactParameters { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Support information about the product.
         /// </summary>
         [Input("supportDescription")]
@@ -336,6 +348,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("provisioningArtifactParameters")]
         public Input<Inputs.ProductProvisioningArtifactParametersGetArgs>? ProvisioningArtifactParameters { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of the product.

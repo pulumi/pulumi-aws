@@ -25,12 +25,14 @@ class ProjectArgs:
                  data_delivery: Optional[pulumi.Input['ProjectDataDeliveryArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input['ProjectDataDeliveryArgs'] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[builtins.str] description: Specifies the description of the project.
         :param pulumi.Input[builtins.str] name: A name for the project.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if data_delivery is not None:
@@ -39,6 +41,8 @@ class ProjectArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -80,6 +84,18 @@ class ProjectArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -105,6 +121,7 @@ class _ProjectState:
                  last_updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  launch_count: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -121,6 +138,7 @@ class _ProjectState:
         :param pulumi.Input[builtins.str] last_updated_time: The date and time that the project was most recently updated.
         :param pulumi.Input[builtins.int] launch_count: The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
         :param pulumi.Input[builtins.str] name: A name for the project.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -147,6 +165,8 @@ class _ProjectState:
             pulumi.set(__self__, "launch_count", launch_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -288,6 +308,18 @@ class _ProjectState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
@@ -334,6 +366,7 @@ class Project(pulumi.CustomResource):
                  data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -409,6 +442,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[builtins.str] description: Specifies the description of the project.
         :param pulumi.Input[builtins.str] name: A name for the project.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -503,6 +537,7 @@ class Project(pulumi.CustomResource):
                  data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -516,6 +551,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["data_delivery"] = data_delivery
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["active_experiment_count"] = None
             __props__.__dict__["active_launch_count"] = None
@@ -548,6 +584,7 @@ class Project(pulumi.CustomResource):
             last_updated_time: Optional[pulumi.Input[builtins.str]] = None,
             launch_count: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Project':
@@ -569,6 +606,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_updated_time: The date and time that the project was most recently updated.
         :param pulumi.Input[builtins.int] launch_count: The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
         :param pulumi.Input[builtins.str] name: A name for the project.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -588,6 +626,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["last_updated_time"] = last_updated_time
         __props__.__dict__["launch_count"] = launch_count
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -680,6 +719,14 @@ class Project(pulumi.CustomResource):
         A name for the project.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Backup
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -169,6 +175,7 @@ namespace Pulumi.Aws.Backup
         /// Name of a parameter, for example, BackupPlanFrequency.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         /// </summary>
@@ -194,6 +201,8 @@ namespace Pulumi.Aws.Backup
 
             string name,
 
+            string region,
+
             string status,
 
             ImmutableDictionary<string, string> tags)
@@ -205,6 +214,7 @@ namespace Pulumi.Aws.Backup
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             Status = status;
             Tags = tags;
         }

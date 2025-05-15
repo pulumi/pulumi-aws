@@ -94,6 +94,10 @@ export class Probe extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the subnet.
      */
     public readonly sourceArn!: pulumi.Output<string>;
@@ -128,6 +132,7 @@ export class Probe extends pulumi.CustomResource {
             resourceInputs["packetSize"] = state ? state.packetSize : undefined;
             resourceInputs["probeId"] = state ? state.probeId : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -151,6 +156,7 @@ export class Probe extends pulumi.CustomResource {
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
             resourceInputs["packetSize"] = args ? args.packetSize : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["addressFamily"] = undefined /*out*/;
@@ -197,6 +203,10 @@ export interface ProbeState {
      */
     protocol?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the subnet.
      */
     sourceArn?: pulumi.Input<string>;
@@ -237,6 +247,10 @@ export interface ProbeArgs {
      * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
      */
     protocol: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the subnet.
      */

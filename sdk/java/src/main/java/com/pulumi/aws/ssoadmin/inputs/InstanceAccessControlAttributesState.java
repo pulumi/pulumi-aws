@@ -47,6 +47,21 @@ public final class InstanceAccessControlAttributesState extends com.pulumi.resou
         return Optional.ofNullable(this.instanceArn);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="status")
     private @Nullable Output<String> status;
 
@@ -66,6 +81,7 @@ public final class InstanceAccessControlAttributesState extends com.pulumi.resou
     private InstanceAccessControlAttributesState(InstanceAccessControlAttributesState $) {
         this.attributes = $.attributes;
         this.instanceArn = $.instanceArn;
+        this.region = $.region;
         this.status = $.status;
         this.statusReason = $.statusReason;
     }
@@ -138,6 +154,27 @@ public final class InstanceAccessControlAttributesState extends com.pulumi.resou
          */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder status(@Nullable Output<String> status) {

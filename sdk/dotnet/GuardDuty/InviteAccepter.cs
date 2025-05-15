@@ -72,6 +72,12 @@ namespace Pulumi.Aws.GuardDuty
         [Output("masterAccountId")]
         public Output<string> MasterAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a InviteAccepter resource with the given unique name, arguments, and options.
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.GuardDuty
         [Input("masterAccountId", required: true)]
         public Input<string> MasterAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public InviteAccepterArgs()
         {
         }
@@ -149,6 +161,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("masterAccountId")]
         public Input<string>? MasterAccountId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public InviteAccepterState()
         {

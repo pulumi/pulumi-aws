@@ -53,14 +53,16 @@ func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getPlan.
 type LookupPlanArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId string `pulumi:"contactId"`
+	ContactId string  `pulumi:"contactId"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPlan.
 type LookupPlanResult struct {
 	ContactId string `pulumi:"contactId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
 	Stages []GetPlanStage `pulumi:"stages"`
 }
@@ -77,7 +79,8 @@ func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pu
 // A collection of arguments for invoking getPlan.
 type LookupPlanOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId pulumi.StringInput `pulumi:"contactId"`
+	ContactId pulumi.StringInput    `pulumi:"contactId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPlanOutputArgs) ElementType() reflect.Type {
@@ -106,6 +109,10 @@ func (o LookupPlanResultOutput) ContactId() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupPlanResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupPlanResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.

@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServiceArgs Empty = new GetServiceArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
@@ -32,6 +41,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
     private GetServiceArgs() {}
 
     private GetServiceArgs(GetServiceArgs $) {
+        this.region = $.region;
         this.serviceName = $.serviceName;
     }
 
@@ -51,6 +61,15 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetServiceArgs defaults) {
             $ = new GetServiceArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

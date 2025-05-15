@@ -21,15 +21,19 @@ __all__ = ['MainRouteTableAssociationArgs', 'MainRouteTableAssociation']
 class MainRouteTableAssociationArgs:
     def __init__(__self__, *,
                  route_table_id: pulumi.Input[builtins.str],
-                 vpc_id: pulumi.Input[builtins.str]):
+                 vpc_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a MainRouteTableAssociation resource.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC whose main route table should be set
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -56,22 +60,38 @@ class MainRouteTableAssociationArgs:
     def vpc_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "vpc_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _MainRouteTableAssociationState:
     def __init__(__self__, *,
                  original_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering MainRouteTableAssociation resources.
         :param pulumi.Input[builtins.str] original_route_table_id: Used internally, see **Notes** below
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC whose main route table should be set
         """
         if original_route_table_id is not None:
             pulumi.set(__self__, "original_route_table_id", original_route_table_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_table_id is not None:
             pulumi.set(__self__, "route_table_id", route_table_id)
         if vpc_id is not None:
@@ -88,6 +108,18 @@ class _MainRouteTableAssociationState:
     @original_route_table_id.setter
     def original_route_table_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "original_route_table_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -123,6 +155,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -154,6 +187,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC whose main route table should be set
@@ -205,6 +239,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -216,6 +251,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MainRouteTableAssociationArgs.__new__(MainRouteTableAssociationArgs)
 
+            __props__.__dict__["region"] = region
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")
             __props__.__dict__["route_table_id"] = route_table_id
@@ -234,6 +270,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             original_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             route_table_id: Optional[pulumi.Input[builtins.str]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'MainRouteTableAssociation':
         """
@@ -244,6 +281,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] original_route_table_id: Used internally, see **Notes** below
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC whose main route table should be set
@@ -253,6 +291,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         __props__ = _MainRouteTableAssociationState.__new__(_MainRouteTableAssociationState)
 
         __props__.__dict__["original_route_table_id"] = original_route_table_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["route_table_id"] = route_table_id
         __props__.__dict__["vpc_id"] = vpc_id
         return MainRouteTableAssociation(resource_name, opts=opts, __props__=__props__)
@@ -264,6 +303,14 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         Used internally, see **Notes** below
         """
         return pulumi.get(self, "original_route_table_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="routeTableId")

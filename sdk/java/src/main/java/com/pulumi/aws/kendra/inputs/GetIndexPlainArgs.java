@@ -31,6 +31,13 @@ public final class GetIndexPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.id;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Metadata that helps organize the Indices you create.
      * 
@@ -50,6 +57,7 @@ public final class GetIndexPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetIndexPlainArgs(GetIndexPlainArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetIndexPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder id(String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

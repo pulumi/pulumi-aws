@@ -32,6 +32,7 @@ public final class GetEngineVersionResult {
     private String id;
     private String parameterGroupFamily;
     private @Nullable List<String> preferredVersions;
+    private String region;
     /**
      * @return Set of the time zones supported by this engine.
      * 
@@ -90,6 +91,9 @@ public final class GetEngineVersionResult {
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Set of the time zones supported by this engine.
      * 
@@ -144,6 +148,7 @@ public final class GetEngineVersionResult {
         private String id;
         private String parameterGroupFamily;
         private @Nullable List<String> preferredVersions;
+        private String region;
         private List<String> supportedTimezones;
         private Boolean supportsLogExportsToCloudwatch;
         private Boolean supportsReadReplica;
@@ -159,6 +164,7 @@ public final class GetEngineVersionResult {
     	      this.id = defaults.id;
     	      this.parameterGroupFamily = defaults.parameterGroupFamily;
     	      this.preferredVersions = defaults.preferredVersions;
+    	      this.region = defaults.region;
     	      this.supportedTimezones = defaults.supportedTimezones;
     	      this.supportsLogExportsToCloudwatch = defaults.supportsLogExportsToCloudwatch;
     	      this.supportsReadReplica = defaults.supportsReadReplica;
@@ -216,6 +222,14 @@ public final class GetEngineVersionResult {
         }
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "region");
+            }
+            this.region = region;
+            return this;
         }
         @CustomType.Setter
         public Builder supportedTimezones(List<String> supportedTimezones) {
@@ -279,6 +293,7 @@ public final class GetEngineVersionResult {
             _resultValue.id = id;
             _resultValue.parameterGroupFamily = parameterGroupFamily;
             _resultValue.preferredVersions = preferredVersions;
+            _resultValue.region = region;
             _resultValue.supportedTimezones = supportedTimezones;
             _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             _resultValue.supportsReadReplica = supportsReadReplica;

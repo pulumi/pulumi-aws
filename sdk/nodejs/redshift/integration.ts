@@ -172,6 +172,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
      */
     public readonly sourceArn!: pulumi.Output<string>;
@@ -209,6 +213,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["integrationName"] = state ? state.integrationName : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -229,6 +234,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationName"] = args ? args.integrationName : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetArn"] = args ? args.targetArn : undefined;
@@ -269,6 +275,10 @@ export interface IntegrationState {
      * You can only include this parameter if `sourceArn` references a DynamoDB table.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
      */
@@ -314,6 +324,10 @@ export interface IntegrationArgs {
      * You can only include this parameter if `sourceArn` references a DynamoDB table.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
      */

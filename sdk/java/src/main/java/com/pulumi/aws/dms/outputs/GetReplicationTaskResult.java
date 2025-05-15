@@ -32,6 +32,7 @@ public final class GetReplicationTaskResult {
      * 
      */
     private String migrationType;
+    private String region;
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
      * 
@@ -103,6 +104,9 @@ public final class GetReplicationTaskResult {
      */
     public String migrationType() {
         return this.migrationType;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
@@ -180,6 +184,7 @@ public final class GetReplicationTaskResult {
         private String cdcStartTime;
         private String id;
         private String migrationType;
+        private String region;
         private String replicationInstanceArn;
         private String replicationTaskArn;
         private String replicationTaskId;
@@ -197,6 +202,7 @@ public final class GetReplicationTaskResult {
     	      this.cdcStartTime = defaults.cdcStartTime;
     	      this.id = defaults.id;
     	      this.migrationType = defaults.migrationType;
+    	      this.region = defaults.region;
     	      this.replicationInstanceArn = defaults.replicationInstanceArn;
     	      this.replicationTaskArn = defaults.replicationTaskArn;
     	      this.replicationTaskId = defaults.replicationTaskId;
@@ -239,6 +245,14 @@ public final class GetReplicationTaskResult {
               throw new MissingRequiredPropertyException("GetReplicationTaskResult", "migrationType");
             }
             this.migrationType = migrationType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -327,6 +341,7 @@ public final class GetReplicationTaskResult {
             _resultValue.cdcStartTime = cdcStartTime;
             _resultValue.id = id;
             _resultValue.migrationType = migrationType;
+            _resultValue.region = region;
             _resultValue.replicationInstanceArn = replicationInstanceArn;
             _resultValue.replicationTaskArn = replicationTaskArn;
             _resultValue.replicationTaskId = replicationTaskId;

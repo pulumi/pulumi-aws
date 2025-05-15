@@ -97,6 +97,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
     public readonly rootVolumeEncryptionEnabled!: pulumi.Output<boolean | undefined>;
@@ -146,6 +150,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["computerName"] = state ? state.computerName : undefined;
             resourceInputs["directoryId"] = state ? state.directoryId : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootVolumeEncryptionEnabled"] = state ? state.rootVolumeEncryptionEnabled : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -167,6 +172,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             resourceInputs["bundleId"] = args ? args.bundleId : undefined;
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
@@ -203,6 +209,10 @@ export interface WorkspaceState {
      * The IP address of the WorkSpace.
      */
     ipAddress?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
@@ -249,6 +259,10 @@ export interface WorkspaceArgs {
      * The ID of the directory for the WorkSpace.
      */
     directoryId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      */

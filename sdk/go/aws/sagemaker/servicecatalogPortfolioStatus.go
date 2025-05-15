@@ -52,6 +52,8 @@ import (
 type ServicecatalogPortfolioStatus struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
@@ -89,11 +91,15 @@ func GetServicecatalogPortfolioStatus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServicecatalogPortfolioStatus resources.
 type servicecatalogPortfolioStatusState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status *string `pulumi:"status"`
 }
 
 type ServicecatalogPortfolioStatusState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringPtrInput
 }
@@ -103,12 +109,16 @@ func (ServicecatalogPortfolioStatusState) ElementType() reflect.Type {
 }
 
 type servicecatalogPortfolioStatusArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a ServicecatalogPortfolioStatus resource.
 type ServicecatalogPortfolioStatusArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringInput
 }
@@ -198,6 +208,11 @@ func (o ServicecatalogPortfolioStatusOutput) ToServicecatalogPortfolioStatusOutp
 
 func (o ServicecatalogPortfolioStatusOutput) ToServicecatalogPortfolioStatusOutputWithContext(ctx context.Context) ServicecatalogPortfolioStatusOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServicecatalogPortfolioStatusOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServicecatalogPortfolioStatus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.

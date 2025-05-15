@@ -84,17 +84,8 @@ namespace Pulumi.Aws.Synthetics
 
     public sealed class GetRuntimeVersionsArgs : global::Pulumi.InvokeArgs
     {
-        [Input("runtimeVersions")]
-        private List<Inputs.GetRuntimeVersionsRuntimeVersionArgs>? _runtimeVersions;
-
-        /// <summary>
-        /// List of runtime versions. See `runtime_versions` attribute reference.
-        /// </summary>
-        public List<Inputs.GetRuntimeVersionsRuntimeVersionArgs> RuntimeVersions
-        {
-            get => _runtimeVersions ?? (_runtimeVersions = new List<Inputs.GetRuntimeVersionsRuntimeVersionArgs>());
-            set => _runtimeVersions = value;
-        }
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetRuntimeVersionsArgs()
         {
@@ -104,17 +95,8 @@ namespace Pulumi.Aws.Synthetics
 
     public sealed class GetRuntimeVersionsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("runtimeVersions")]
-        private InputList<Inputs.GetRuntimeVersionsRuntimeVersionInputArgs>? _runtimeVersions;
-
-        /// <summary>
-        /// List of runtime versions. See `runtime_versions` attribute reference.
-        /// </summary>
-        public InputList<Inputs.GetRuntimeVersionsRuntimeVersionInputArgs> RuntimeVersions
-        {
-            get => _runtimeVersions ?? (_runtimeVersions = new InputList<Inputs.GetRuntimeVersionsRuntimeVersionInputArgs>());
-            set => _runtimeVersions = value;
-        }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetRuntimeVersionsInvokeArgs()
         {
@@ -130,6 +112,7 @@ namespace Pulumi.Aws.Synthetics
         /// Name of the AWS region from which runtime versions are fetched.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// List of runtime versions. See `runtime_versions` attribute reference.
         /// </summary>
@@ -139,9 +122,12 @@ namespace Pulumi.Aws.Synthetics
         private GetRuntimeVersionsResult(
             string id,
 
+            string region,
+
             ImmutableArray<Outputs.GetRuntimeVersionsRuntimeVersionResult> runtimeVersions)
         {
             Id = id;
+            Region = region;
             RuntimeVersions = runtimeVersions;
         }
     }

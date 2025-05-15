@@ -27,6 +27,7 @@ export function getProfilingGroup(args: GetProfilingGroupArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,7 @@ export interface GetProfilingGroupArgs {
      * The name of the profiling group.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -66,6 +68,7 @@ export interface GetProfilingGroupResult {
      * The status of the Profiling Group.
      */
     readonly profilingStatuses: outputs.codeguruprofiler.GetProfilingGroupProfilingStatus[];
+    readonly region: string;
     /**
      * Mapping of Key-Value tags for the resource.
      */
@@ -95,6 +98,7 @@ export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -106,4 +110,5 @@ export interface GetProfilingGroupOutputArgs {
      * The name of the profiling group.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

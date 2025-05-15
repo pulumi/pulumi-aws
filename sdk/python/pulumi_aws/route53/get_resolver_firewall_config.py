@@ -27,7 +27,7 @@ class GetResolverFirewallConfigResult:
     """
     A collection of values returned by getResolverFirewallConfig.
     """
-    def __init__(__self__, firewall_fail_open=None, id=None, owner_id=None, resource_id=None):
+    def __init__(__self__, firewall_fail_open=None, id=None, owner_id=None, region=None, resource_id=None):
         if firewall_fail_open and not isinstance(firewall_fail_open, str):
             raise TypeError("Expected argument 'firewall_fail_open' to be a str")
         pulumi.set(__self__, "firewall_fail_open", firewall_fail_open)
@@ -37,6 +37,9 @@ class GetResolverFirewallConfigResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         pulumi.set(__self__, "resource_id", resource_id)
@@ -44,6 +47,9 @@ class GetResolverFirewallConfigResult:
     @property
     @pulumi.getter(name="firewallFailOpen")
     def firewall_fail_open(self) -> builtins.str:
+        """
+        Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
+        """
         return pulumi.get(self, "firewall_fail_open")
 
     @property
@@ -57,7 +63,15 @@ class GetResolverFirewallConfigResult:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> builtins.str:
+        """
+        The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
+        """
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")
@@ -74,10 +88,12 @@ class AwaitableGetResolverFirewallConfigResult(GetResolverFirewallConfigResult):
             firewall_fail_open=self.firewall_fail_open,
             id=self.id,
             owner_id=self.owner_id,
+            region=self.region,
             resource_id=self.resource_id)
 
 
-def get_resolver_firewall_config(resource_id: Optional[builtins.str] = None,
+def get_resolver_firewall_config(region: Optional[builtins.str] = None,
+                                 resource_id: Optional[builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallConfigResult:
     """
     `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
@@ -97,10 +113,9 @@ def get_resolver_firewall_config(resource_id: Optional[builtins.str] = None,
 
 
     :param builtins.str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['resourceId'] = resource_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallConfig:getResolverFirewallConfig', __args__, opts=opts, typ=GetResolverFirewallConfigResult).value
@@ -109,8 +124,10 @@ def get_resolver_firewall_config(resource_id: Optional[builtins.str] = None,
         firewall_fail_open=pulumi.get(__ret__, 'firewall_fail_open'),
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         resource_id=pulumi.get(__ret__, 'resource_id'))
-def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_resolver_firewall_config_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                        resource_id: Optional[pulumi.Input[builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallConfigResult]:
     """
     `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
@@ -130,10 +147,9 @@ def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[built
 
 
     :param builtins.str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['resourceId'] = resource_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallConfig:getResolverFirewallConfig', __args__, opts=opts, typ=GetResolverFirewallConfigResult)
@@ -141,4 +157,5 @@ def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[built
         firewall_fail_open=pulumi.get(__response__, 'firewall_fail_open'),
         id=pulumi.get(__response__, 'id'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         resource_id=pulumi.get(__response__, 'resource_id')))

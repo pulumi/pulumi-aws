@@ -56,13 +56,15 @@ func GetStandardsControlAssociations(ctx *pulumi.Context, args *GetStandardsCont
 
 // A collection of arguments for invoking getStandardsControlAssociations.
 type GetStandardsControlAssociationsArgs struct {
+	Region *string `pulumi:"region"`
 	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
 	SecurityControlId string `pulumi:"securityControlId"`
 }
 
 // A collection of values returned by getStandardsControlAssociations.
 type GetStandardsControlAssociationsResult struct {
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// ID of the security control.
 	SecurityControlId string `pulumi:"securityControlId"`
 	// A list that provides the status and other details for each security control that applies to each enabled standard.
@@ -81,6 +83,7 @@ func GetStandardsControlAssociationsOutput(ctx *pulumi.Context, args GetStandard
 
 // A collection of arguments for invoking getStandardsControlAssociations.
 type GetStandardsControlAssociationsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
 	SecurityControlId pulumi.StringInput `pulumi:"securityControlId"`
 }
@@ -106,6 +109,10 @@ func (o GetStandardsControlAssociationsResultOutput) ToGetStandardsControlAssoci
 
 func (o GetStandardsControlAssociationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStandardsControlAssociationsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetStandardsControlAssociationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the security control.

@@ -20,12 +20,16 @@ __all__ = ['OrganizationsAccessArgs', 'OrganizationsAccess']
 @pulumi.input_type
 class OrganizationsAccessArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[builtins.bool]):
+                 enabled: pulumi.Input[builtins.bool],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationsAccess resource.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable AWS Organizations access.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -39,17 +43,33 @@ class OrganizationsAccessArgs:
     def enabled(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "enabled", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _OrganizationsAccessState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationsAccess resources.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable AWS Organizations access.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -63,6 +83,18 @@ class _OrganizationsAccessState:
     def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class OrganizationsAccess(pulumi.CustomResource):
 
@@ -73,6 +105,7 @@ class OrganizationsAccess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
@@ -93,6 +126,7 @@ class OrganizationsAccess(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable AWS Organizations access.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -132,6 +166,7 @@ class OrganizationsAccess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -144,6 +179,7 @@ class OrganizationsAccess(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["region"] = region
         super(OrganizationsAccess, __self__).__init__(
             'aws:servicecatalog/organizationsAccess:OrganizationsAccess',
             resource_name,
@@ -154,7 +190,8 @@ class OrganizationsAccess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[builtins.bool]] = None) -> 'OrganizationsAccess':
+            enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'OrganizationsAccess':
         """
         Get an existing OrganizationsAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -163,12 +200,14 @@ class OrganizationsAccess(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable AWS Organizations access.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _OrganizationsAccessState.__new__(_OrganizationsAccessState)
 
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["region"] = region
         return OrganizationsAccess(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -178,4 +217,12 @@ class OrganizationsAccess(pulumi.CustomResource):
         Whether to enable AWS Organizations access.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

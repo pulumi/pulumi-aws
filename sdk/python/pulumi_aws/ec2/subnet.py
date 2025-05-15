@@ -36,6 +36,7 @@ class SubnetArgs:
                  map_public_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Subnet resource.
@@ -60,6 +61,7 @@ class SubnetArgs:
                a public IP address. Default is `false`.
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -93,6 +95,8 @@ class SubnetArgs:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
         if private_dns_hostname_type_on_launch is not None:
             pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -295,6 +299,18 @@ class SubnetArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -327,6 +343,7 @@ class _SubnetState:
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -355,6 +372,7 @@ class _SubnetState:
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the subnet.
         :param pulumi.Input[builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID.
@@ -395,6 +413,8 @@ class _SubnetState:
             pulumi.set(__self__, "owner_id", owner_id)
         if private_dns_hostname_type_on_launch is not None:
             pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -625,6 +645,18 @@ class _SubnetState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -683,6 +715,7 @@ class Subnet(pulumi.CustomResource):
                  map_public_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -754,6 +787,7 @@ class Subnet(pulumi.CustomResource):
                a public IP address. Default is `false`.
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID.
         """
@@ -839,6 +873,7 @@ class Subnet(pulumi.CustomResource):
                  map_public_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -865,6 +900,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
             __props__.__dict__["outpost_arn"] = outpost_arn
             __props__.__dict__["private_dns_hostname_type_on_launch"] = private_dns_hostname_type_on_launch
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -901,6 +937,7 @@ class Subnet(pulumi.CustomResource):
             outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'Subnet':
@@ -934,6 +971,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the subnet.
         :param pulumi.Input[builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID.
@@ -960,6 +998,7 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["private_dns_hostname_type_on_launch"] = private_dns_hostname_type_on_launch
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc_id"] = vpc_id
@@ -1113,6 +1152,14 @@ class Subnet(pulumi.CustomResource):
         The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         """
         return pulumi.get(self, "private_dns_hostname_type_on_launch")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

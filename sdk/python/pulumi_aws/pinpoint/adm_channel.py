@@ -23,19 +23,23 @@ class AdmChannelArgs:
                  application_id: pulumi.Input[builtins.str],
                  client_id: pulumi.Input[builtins.str],
                  client_secret: pulumi.Input[builtins.str],
-                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AdmChannel resource.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -85,6 +89,18 @@ class AdmChannelArgs:
     def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AdmChannelState:
@@ -92,13 +108,15 @@ class _AdmChannelState:
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AdmChannel resources.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -108,6 +126,8 @@ class _AdmChannelState:
             pulumi.set(__self__, "client_secret", client_secret)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -157,6 +177,18 @@ class _AdmChannelState:
     def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class AdmChannel(pulumi.CustomResource):
 
@@ -170,6 +202,7 @@ class AdmChannel(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
@@ -203,6 +236,7 @@ class AdmChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -255,6 +289,7 @@ class AdmChannel(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -274,6 +309,7 @@ class AdmChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["region"] = region
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientId", "clientSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AdmChannel, __self__).__init__(
@@ -289,7 +325,8 @@ class AdmChannel(pulumi.CustomResource):
             application_id: Optional[pulumi.Input[builtins.str]] = None,
             client_id: Optional[pulumi.Input[builtins.str]] = None,
             client_secret: Optional[pulumi.Input[builtins.str]] = None,
-            enabled: Optional[pulumi.Input[builtins.bool]] = None) -> 'AdmChannel':
+            enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'AdmChannel':
         """
         Get an existing AdmChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -301,6 +338,7 @@ class AdmChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -310,6 +348,7 @@ class AdmChannel(pulumi.CustomResource):
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["region"] = region
         return AdmChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -343,4 +382,12 @@ class AdmChannel(pulumi.CustomResource):
         Specifies whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

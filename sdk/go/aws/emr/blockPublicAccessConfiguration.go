@@ -160,6 +160,8 @@ type BlockPublicAccessConfiguration struct {
 	BlockPublicSecurityGroupRules pulumi.BoolOutput `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput `pulumi:"permittedPublicSecurityGroupRuleRanges"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBlockPublicAccessConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -201,6 +203,8 @@ type blockPublicAccessConfigurationState struct {
 	BlockPublicSecurityGroupRules *bool `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange `pulumi:"permittedPublicSecurityGroupRuleRanges"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BlockPublicAccessConfigurationState struct {
@@ -210,6 +214,8 @@ type BlockPublicAccessConfigurationState struct {
 	BlockPublicSecurityGroupRules pulumi.BoolPtrInput
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BlockPublicAccessConfigurationState) ElementType() reflect.Type {
@@ -223,6 +229,8 @@ type blockPublicAccessConfigurationArgs struct {
 	BlockPublicSecurityGroupRules bool `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange `pulumi:"permittedPublicSecurityGroupRuleRanges"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BlockPublicAccessConfiguration resource.
@@ -233,6 +241,8 @@ type BlockPublicAccessConfigurationArgs struct {
 	BlockPublicSecurityGroupRules pulumi.BoolInput
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BlockPublicAccessConfigurationArgs) ElementType() reflect.Type {
@@ -334,6 +344,11 @@ func (o BlockPublicAccessConfigurationOutput) PermittedPublicSecurityGroupRuleRa
 	return o.ApplyT(func(v *BlockPublicAccessConfiguration) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput {
 		return v.PermittedPublicSecurityGroupRuleRanges
 	}).(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BlockPublicAccessConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlockPublicAccessConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BlockPublicAccessConfigurationArrayOutput struct{ *pulumi.OutputState }

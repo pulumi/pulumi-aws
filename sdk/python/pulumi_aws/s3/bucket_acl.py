@@ -25,13 +25,15 @@ class BucketAclArgs:
                  bucket: pulumi.Input[builtins.str],
                  access_control_policy: Optional[pulumi.Input['BucketAclAccessControlPolicyArgs']] = None,
                  acl: Optional[pulumi.Input[builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None):
+                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAcl resource.
         :param pulumi.Input[builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input['BucketAclAccessControlPolicyArgs'] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         if access_control_policy is not None:
@@ -40,6 +42,8 @@ class BucketAclArgs:
             pulumi.set(__self__, "acl", acl)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -89,6 +93,18 @@ class BucketAclArgs:
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BucketAclState:
@@ -96,13 +112,15 @@ class _BucketAclState:
                  access_control_policy: Optional[pulumi.Input['BucketAclAccessControlPolicyArgs']] = None,
                  acl: Optional[pulumi.Input[builtins.str]] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None):
+                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketAcl resources.
         :param pulumi.Input['BucketAclAccessControlPolicyArgs'] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if access_control_policy is not None:
             pulumi.set(__self__, "access_control_policy", access_control_policy)
@@ -112,6 +130,8 @@ class _BucketAclState:
             pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accessControlPolicy")
@@ -161,6 +181,18 @@ class _BucketAclState:
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class BucketAcl(pulumi.CustomResource):
 
@@ -174,6 +206,7 @@ class BucketAcl(pulumi.CustomResource):
                  acl: Optional[pulumi.Input[builtins.str]] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an S3 bucket ACL resource.
@@ -311,6 +344,7 @@ class BucketAcl(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -467,6 +501,7 @@ class BucketAcl(pulumi.CustomResource):
                  acl: Optional[pulumi.Input[builtins.str]] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,6 +517,7 @@ class BucketAcl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+            __props__.__dict__["region"] = region
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketAclV2:BucketAclV2"), pulumi.Alias(type_="aws:s3/bucketAclV2:BucketAclV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketAcl, __self__).__init__(
@@ -497,7 +533,8 @@ class BucketAcl(pulumi.CustomResource):
             access_control_policy: Optional[pulumi.Input[Union['BucketAclAccessControlPolicyArgs', 'BucketAclAccessControlPolicyArgsDict']]] = None,
             acl: Optional[pulumi.Input[builtins.str]] = None,
             bucket: Optional[pulumi.Input[builtins.str]] = None,
-            expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None) -> 'BucketAcl':
+            expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'BucketAcl':
         """
         Get an existing BucketAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -509,6 +546,7 @@ class BucketAcl(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -518,6 +556,7 @@ class BucketAcl(pulumi.CustomResource):
         __props__.__dict__["acl"] = acl
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+        __props__.__dict__["region"] = region
         return BucketAcl(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -551,4 +590,12 @@ class BucketAcl(pulumi.CustomResource):
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

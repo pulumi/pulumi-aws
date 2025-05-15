@@ -27,7 +27,7 @@ class GetLayerVersionResult:
     """
     A collection of values returned by getLayerVersion.
     """
-    def __init__(__self__, arn=None, code_sha256=None, compatible_architecture=None, compatible_architectures=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, version=None):
+    def __init__(__self__, arn=None, code_sha256=None, compatible_architecture=None, compatible_architectures=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, region=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -64,6 +64,9 @@ class GetLayerVersionResult:
         if license_info and not isinstance(license_info, str):
             raise TypeError("Expected argument 'license_info' to be a str")
         pulumi.set(__self__, "license_info", license_info)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if signing_job_arn and not isinstance(signing_job_arn, str):
             raise TypeError("Expected argument 'signing_job_arn' to be a str")
         pulumi.set(__self__, "signing_job_arn", signing_job_arn)
@@ -168,6 +171,11 @@ class GetLayerVersionResult:
         return pulumi.get(self, "license_info")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="signingJobArn")
     def signing_job_arn(self) -> builtins.str:
         """
@@ -227,6 +235,7 @@ class AwaitableGetLayerVersionResult(GetLayerVersionResult):
             layer_arn=self.layer_arn,
             layer_name=self.layer_name,
             license_info=self.license_info,
+            region=self.region,
             signing_job_arn=self.signing_job_arn,
             signing_profile_version_arn=self.signing_profile_version_arn,
             source_code_hash=self.source_code_hash,
@@ -237,6 +246,7 @@ class AwaitableGetLayerVersionResult(GetLayerVersionResult):
 def get_layer_version(compatible_architecture: Optional[builtins.str] = None,
                       compatible_runtime: Optional[builtins.str] = None,
                       layer_name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       version: Optional[builtins.int] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLayerVersionResult:
     """
@@ -263,6 +273,7 @@ def get_layer_version(compatible_architecture: Optional[builtins.str] = None,
     __args__['compatibleArchitecture'] = compatible_architecture
     __args__['compatibleRuntime'] = compatible_runtime
     __args__['layerName'] = layer_name
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lambda/getLayerVersion:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult).value
@@ -280,6 +291,7 @@ def get_layer_version(compatible_architecture: Optional[builtins.str] = None,
         layer_arn=pulumi.get(__ret__, 'layer_arn'),
         layer_name=pulumi.get(__ret__, 'layer_name'),
         license_info=pulumi.get(__ret__, 'license_info'),
+        region=pulumi.get(__ret__, 'region'),
         signing_job_arn=pulumi.get(__ret__, 'signing_job_arn'),
         signing_profile_version_arn=pulumi.get(__ret__, 'signing_profile_version_arn'),
         source_code_hash=pulumi.get(__ret__, 'source_code_hash'),
@@ -288,6 +300,7 @@ def get_layer_version(compatible_architecture: Optional[builtins.str] = None,
 def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              compatible_runtime: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              layer_name: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              version: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLayerVersionResult]:
     """
@@ -314,6 +327,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     __args__['compatibleArchitecture'] = compatible_architecture
     __args__['compatibleRuntime'] = compatible_runtime
     __args__['layerName'] = layer_name
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getLayerVersion:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult)
@@ -330,6 +344,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
         layer_arn=pulumi.get(__response__, 'layer_arn'),
         layer_name=pulumi.get(__response__, 'layer_name'),
         license_info=pulumi.get(__response__, 'license_info'),
+        region=pulumi.get(__response__, 'region'),
         signing_job_arn=pulumi.get(__response__, 'signing_job_arn'),
         signing_profile_version_arn=pulumi.get(__response__, 'signing_profile_version_arn'),
         source_code_hash=pulumi.get(__response__, 'source_code_hash'),

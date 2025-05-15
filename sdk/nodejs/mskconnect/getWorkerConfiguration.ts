@@ -22,6 +22,7 @@ export function getWorkerConfiguration(args: GetWorkerConfigurationArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetWorkerConfigurationArgs {
      * Name of the worker configuration.
      */
     name: string;
+    region?: string;
     /**
      * A map of tags assigned to the resource.
      */
@@ -65,6 +67,7 @@ export interface GetWorkerConfigurationResult {
      * contents of connect-distributed.properties file.
      */
     readonly propertiesFileContent: string;
+    readonly region: string;
     /**
      * A map of tags assigned to the resource.
      */
@@ -88,6 +91,7 @@ export function getWorkerConfigurationOutput(args: GetWorkerConfigurationOutputA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -100,6 +104,7 @@ export interface GetWorkerConfigurationOutputArgs {
      * Name of the worker configuration.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the resource.
      */

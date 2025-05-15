@@ -92,7 +92,8 @@ type LookupPatchBaselineArgs struct {
 	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
 	//
 	// The following arguments are optional:
-	Owner string `pulumi:"owner"`
+	Owner  string  `pulumi:"owner"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPatchBaseline.
@@ -119,6 +120,7 @@ type LookupPatchBaselineResult struct {
 	NamePrefix      *string `pulumi:"namePrefix"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	Owner           string  `pulumi:"owner"`
+	Region          string  `pulumi:"region"`
 	// List of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
 	// Action specified to take on patches included in the `rejectedPatches` list.
@@ -147,7 +149,8 @@ type LookupPatchBaselineOutputArgs struct {
 	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
 	//
 	// The following arguments are optional:
-	Owner pulumi.StringInput `pulumi:"owner"`
+	Owner  pulumi.StringInput    `pulumi:"owner"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPatchBaselineOutputArgs) ElementType() reflect.Type {
@@ -228,6 +231,10 @@ func (o LookupPatchBaselineResultOutput) OperatingSystem() pulumi.StringPtrOutpu
 
 func (o LookupPatchBaselineResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o LookupPatchBaselineResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of rejected patches.

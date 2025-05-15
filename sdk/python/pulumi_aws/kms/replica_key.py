@@ -26,6 +26,7 @@ class ReplicaKeyArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicaKey resource.
@@ -39,6 +40,7 @@ class ReplicaKeyArgs:
         :param pulumi.Input[builtins.str] description: A description of the KMS key.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
         :param pulumi.Input[builtins.str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "primary_key_arn", primary_key_arn)
@@ -52,6 +54,8 @@ class ReplicaKeyArgs:
             pulumi.set(__self__, "enabled", enabled)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -133,6 +137,18 @@ class ReplicaKeyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -158,6 +174,7 @@ class _ReplicaKeyState:
                  key_usage: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  primary_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -177,6 +194,7 @@ class _ReplicaKeyState:
         :param pulumi.Input[builtins.str] key_usage: The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
         :param pulumi.Input[builtins.str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         :param pulumi.Input[builtins.str] primary_key_arn: The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -202,6 +220,8 @@ class _ReplicaKeyState:
             pulumi.set(__self__, "policy", policy)
         if primary_key_arn is not None:
             pulumi.set(__self__, "primary_key_arn", primary_key_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -345,6 +365,18 @@ class _ReplicaKeyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -382,6 +414,7 @@ class ReplicaKey(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  primary_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -389,11 +422,30 @@ class ReplicaKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### AWS Provider v6 (and below)
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
         primary = aws.kms.Key("primary",
+            description="Multi-Region primary key",
+            deletion_window_in_days=30,
+            multi_region=True)
+        replica = aws.kms.ReplicaKey("replica",
+            description="Multi-Region replica key",
+            deletion_window_in_days=7,
+            primary_key_arn=primary.arn)
+        ```
+
+        ### AWS Provider v7 (and above)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.kms.Key("primary",
+            region="us-east-1",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
             multi_region=True)
@@ -423,6 +475,7 @@ class ReplicaKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
         :param pulumi.Input[builtins.str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         :param pulumi.Input[builtins.str] primary_key_arn: The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -436,11 +489,30 @@ class ReplicaKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### AWS Provider v6 (and below)
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
         primary = aws.kms.Key("primary",
+            description="Multi-Region primary key",
+            deletion_window_in_days=30,
+            multi_region=True)
+        replica = aws.kms.ReplicaKey("replica",
+            description="Multi-Region replica key",
+            deletion_window_in_days=7,
+            primary_key_arn=primary.arn)
+        ```
+
+        ### AWS Provider v7 (and above)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.kms.Key("primary",
+            region="us-east-1",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
             multi_region=True)
@@ -479,6 +551,7 @@ class ReplicaKey(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  primary_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -497,6 +570,7 @@ class ReplicaKey(pulumi.CustomResource):
             if primary_key_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_key_arn'")
             __props__.__dict__["primary_key_arn"] = primary_key_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["key_id"] = None
@@ -525,6 +599,7 @@ class ReplicaKey(pulumi.CustomResource):
             key_usage: Optional[pulumi.Input[builtins.str]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
             primary_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'ReplicaKey':
         """
@@ -549,6 +624,7 @@ class ReplicaKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_usage: The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
         :param pulumi.Input[builtins.str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         :param pulumi.Input[builtins.str] primary_key_arn: The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -567,6 +643,7 @@ class ReplicaKey(pulumi.CustomResource):
         __props__.__dict__["key_usage"] = key_usage
         __props__.__dict__["policy"] = policy
         __props__.__dict__["primary_key_arn"] = primary_key_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return ReplicaKey(resource_name, opts=opts, __props__=__props__)
@@ -662,6 +739,14 @@ class ReplicaKey(pulumi.CustomResource):
         The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
         """
         return pulumi.get(self, "primary_key_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

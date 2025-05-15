@@ -36,6 +36,7 @@ public final class GetPipelineDefinitionResult {
      * 
      */
     private List<GetPipelineDefinitionPipelineObject> pipelineObjects;
+    private String region;
 
     private GetPipelineDefinitionResult() {}
     /**
@@ -69,6 +70,9 @@ public final class GetPipelineDefinitionResult {
     public List<GetPipelineDefinitionPipelineObject> pipelineObjects() {
         return this.pipelineObjects;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -84,6 +88,7 @@ public final class GetPipelineDefinitionResult {
         private @Nullable List<GetPipelineDefinitionParameterValue> parameterValues;
         private String pipelineId;
         private List<GetPipelineDefinitionPipelineObject> pipelineObjects;
+        private String region;
         public Builder() {}
         public Builder(GetPipelineDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -92,6 +97,7 @@ public final class GetPipelineDefinitionResult {
     	      this.parameterValues = defaults.parameterValues;
     	      this.pipelineId = defaults.pipelineId;
     	      this.pipelineObjects = defaults.pipelineObjects;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -141,6 +147,14 @@ public final class GetPipelineDefinitionResult {
         public Builder pipelineObjects(GetPipelineDefinitionPipelineObject... pipelineObjects) {
             return pipelineObjects(List.of(pipelineObjects));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetPipelineDefinitionResult build() {
             final var _resultValue = new GetPipelineDefinitionResult();
             _resultValue.id = id;
@@ -148,6 +162,7 @@ public final class GetPipelineDefinitionResult {
             _resultValue.parameterValues = parameterValues;
             _resultValue.pipelineId = pipelineId;
             _resultValue.pipelineObjects = pipelineObjects;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

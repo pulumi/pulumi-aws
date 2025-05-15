@@ -108,6 +108,21 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -176,6 +191,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         this.bgpTransitGatewayAddresses = $.bgpTransitGatewayAddresses;
         this.insideCidrBlocks = $.insideCidrBlocks;
         this.peerAddress = $.peerAddress;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.transitGatewayAddress = $.transitGatewayAddress;
@@ -344,6 +360,27 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder peerAddress(String peerAddress) {
             return peerAddress(Output.of(peerAddress));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -28,7 +28,7 @@ class GetReplicationSetResult:
     """
     A collection of values returned by getReplicationSet.
     """
-    def __init__(__self__, arn=None, created_by=None, deletion_protected=None, id=None, last_modified_by=None, regions=None, status=None, tags=None):
+    def __init__(__self__, arn=None, created_by=None, deletion_protected=None, id=None, last_modified_by=None, region=None, regions=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetReplicationSetResult:
         if last_modified_by and not isinstance(last_modified_by, str):
             raise TypeError("Expected argument 'last_modified_by' to be a str")
         pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if region and not isinstance(region, list):
+            raise TypeError("Expected argument 'region' to be a list")
+        pulumi.set(__self__, "region", region)
         if regions and not isinstance(regions, list):
             raise TypeError("Expected argument 'regions' to be a list")
         pulumi.set(__self__, "regions", regions)
@@ -96,7 +99,19 @@ class GetReplicationSetResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use regions instead.""")
+    def region(self) -> Sequence['outputs.GetReplicationSetRegionResult']:
+        """
+        (**Deprecated**) The replication set's Regions. Use `regions` instead.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def regions(self) -> Sequence['outputs.GetReplicationSetRegionResult']:
+        """
+        The replication set's Regions.
+        """
         return pulumi.get(self, "regions")
 
     @property
@@ -128,6 +143,7 @@ class AwaitableGetReplicationSetResult(GetReplicationSetResult):
             deletion_protected=self.deletion_protected,
             id=self.id,
             last_modified_by=self.last_modified_by,
+            region=self.region,
             regions=self.regions,
             status=self.status,
             tags=self.tags)
@@ -165,6 +181,7 @@ def get_replication_set(tags: Optional[Mapping[str, builtins.str]] = None,
         deletion_protected=pulumi.get(__ret__, 'deletion_protected'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        region=pulumi.get(__ret__, 'region'),
         regions=pulumi.get(__ret__, 'regions'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -199,6 +216,7 @@ def get_replication_set_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
         deletion_protected=pulumi.get(__response__, 'deletion_protected'),
         id=pulumi.get(__response__, 'id'),
         last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        region=pulumi.get(__response__, 'region'),
         regions=pulumi.get(__response__, 'regions'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

@@ -30,6 +30,7 @@ public final class GetInstancesResult {
      * 
      */
     private List<String> instanceIdentifiers;
+    private String region;
     private Map<String,String> tags;
 
     private GetInstancesResult() {}
@@ -57,6 +58,9 @@ public final class GetInstancesResult {
     public List<String> instanceIdentifiers() {
         return this.instanceIdentifiers;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -74,6 +78,7 @@ public final class GetInstancesResult {
         private String id;
         private List<String> instanceArns;
         private List<String> instanceIdentifiers;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetInstancesResult defaults) {
@@ -82,6 +87,7 @@ public final class GetInstancesResult {
     	      this.id = defaults.id;
     	      this.instanceArns = defaults.instanceArns;
     	      this.instanceIdentifiers = defaults.instanceIdentifiers;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -125,6 +131,14 @@ public final class GetInstancesResult {
             return instanceIdentifiers(List.of(instanceIdentifiers));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetInstancesResult", "tags");
@@ -138,6 +152,7 @@ public final class GetInstancesResult {
             _resultValue.id = id;
             _resultValue.instanceArns = instanceArns;
             _resultValue.instanceIdentifiers = instanceIdentifiers;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

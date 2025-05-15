@@ -77,6 +77,8 @@ type VpcIpamResourceDiscovery struct {
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayOutput `pulumi:"operatingRegions"`
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -128,6 +130,8 @@ type vpcIpamResourceDiscoveryState struct {
 	OperatingRegions []VpcIpamResourceDiscoveryOperatingRegion `pulumi:"operatingRegions"`
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -147,6 +151,8 @@ type VpcIpamResourceDiscoveryState struct {
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayInput
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -162,6 +168,8 @@ type vpcIpamResourceDiscoveryArgs struct {
 	Description *string `pulumi:"description"`
 	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions []VpcIpamResourceDiscoveryOperatingRegion `pulumi:"operatingRegions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -172,6 +180,8 @@ type VpcIpamResourceDiscoveryArgs struct {
 	Description pulumi.StringPtrInput
 	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -293,6 +303,11 @@ func (o VpcIpamResourceDiscoveryOutput) OperatingRegions() VpcIpamResourceDiscov
 // The account ID for the account that manages the Resource Discovery
 func (o VpcIpamResourceDiscoveryOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcIpamResourceDiscoveryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

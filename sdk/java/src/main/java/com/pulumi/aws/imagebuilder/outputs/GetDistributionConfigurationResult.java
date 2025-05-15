@@ -45,6 +45,11 @@ public final class GetDistributionConfigurationResult {
      */
     private String name;
     /**
+     * @return AWS Region of distribution.
+     * 
+     */
+    private String region;
+    /**
      * @return Key-value map of resource tags for the distribution configuration.
      * 
      */
@@ -97,6 +102,13 @@ public final class GetDistributionConfigurationResult {
         return this.name;
     }
     /**
+     * @return AWS Region of distribution.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
+    /**
      * @return Key-value map of resource tags for the distribution configuration.
      * 
      */
@@ -120,6 +132,7 @@ public final class GetDistributionConfigurationResult {
         private List<GetDistributionConfigurationDistribution> distributions;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetDistributionConfigurationResult defaults) {
@@ -131,6 +144,7 @@ public final class GetDistributionConfigurationResult {
     	      this.distributions = defaults.distributions;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -194,6 +208,14 @@ public final class GetDistributionConfigurationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "tags");
@@ -210,6 +232,7 @@ public final class GetDistributionConfigurationResult {
             _resultValue.distributions = distributions;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

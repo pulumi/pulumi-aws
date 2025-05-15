@@ -185,6 +185,8 @@ type FirewallPolicy struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -236,6 +238,8 @@ type firewallPolicyState struct {
 	FirewallPolicy *FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -255,6 +259,8 @@ type FirewallPolicyState struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyPtrInput
 	// A friendly name of the firewall policy.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -276,6 +282,8 @@ type firewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -290,6 +298,8 @@ type FirewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyInput
 	// A friendly name of the firewall policy.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -406,6 +416,11 @@ func (o FirewallPolicyOutput) FirewallPolicy() FirewallPolicyFirewallPolicyOutpu
 // A friendly name of the firewall policy.
 func (o FirewallPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FirewallPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

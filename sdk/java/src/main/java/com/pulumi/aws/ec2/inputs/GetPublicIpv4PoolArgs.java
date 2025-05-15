@@ -32,6 +32,13 @@ public final class GetPublicIpv4PoolArgs extends com.pulumi.resources.InvokeArgs
         return this.poolId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Any tags for the address pool.
      * 
@@ -51,6 +58,7 @@ public final class GetPublicIpv4PoolArgs extends com.pulumi.resources.InvokeArgs
 
     private GetPublicIpv4PoolArgs(GetPublicIpv4PoolArgs $) {
         this.poolId = $.poolId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetPublicIpv4PoolArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder poolId(String poolId) {
             return poolId(Output.of(poolId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

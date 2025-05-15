@@ -56,6 +56,8 @@ type HsmClientCertificate struct {
 	HsmClientCertificateIdentifier pulumi.StringOutput `pulumi:"hsmClientCertificateIdentifier"`
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey pulumi.StringOutput `pulumi:"hsmClientCertificatePublicKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -101,6 +103,8 @@ type hsmClientCertificateState struct {
 	HsmClientCertificateIdentifier *string `pulumi:"hsmClientCertificateIdentifier"`
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey *string `pulumi:"hsmClientCertificatePublicKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -114,6 +118,8 @@ type HsmClientCertificateState struct {
 	HsmClientCertificateIdentifier pulumi.StringPtrInput
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -127,6 +133,8 @@ func (HsmClientCertificateState) ElementType() reflect.Type {
 type hsmClientCertificateArgs struct {
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier string `pulumi:"hsmClientCertificateIdentifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -135,6 +143,8 @@ type hsmClientCertificateArgs struct {
 type HsmClientCertificateArgs struct {
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -239,6 +249,11 @@ func (o HsmClientCertificateOutput) HsmClientCertificateIdentifier() pulumi.Stri
 // The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 func (o HsmClientCertificateOutput) HsmClientCertificatePublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.HsmClientCertificatePublicKey }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HsmClientCertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

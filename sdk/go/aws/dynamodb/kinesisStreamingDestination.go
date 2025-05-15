@@ -75,6 +75,8 @@ type KinesisStreamingDestination struct {
 
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringOutput `pulumi:"approximateCreationDateTimePrecision"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -119,6 +121,8 @@ func GetKinesisStreamingDestination(ctx *pulumi.Context,
 type kinesisStreamingDestinationState struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn *string `pulumi:"streamArn"`
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -128,6 +132,8 @@ type kinesisStreamingDestinationState struct {
 type KinesisStreamingDestinationState struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringPtrInput
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -141,6 +147,8 @@ func (KinesisStreamingDestinationState) ElementType() reflect.Type {
 type kinesisStreamingDestinationArgs struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn string `pulumi:"streamArn"`
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -151,6 +159,8 @@ type kinesisStreamingDestinationArgs struct {
 type KinesisStreamingDestinationArgs struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringInput
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -249,6 +259,11 @@ func (o KinesisStreamingDestinationOutput) ApproximateCreationDateTimePrecision(
 	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput {
 		return v.ApproximateCreationDateTimePrecision
 	}).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o KinesisStreamingDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.

@@ -73,6 +73,10 @@ export class Enabler extends pulumi.CustomResource {
      */
     public readonly accountIds!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Type of resources to scan.
      * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
      * At least one item is required.
@@ -93,6 +97,7 @@ export class Enabler extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EnablerState | undefined;
             resourceInputs["accountIds"] = state ? state.accountIds : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceTypes"] = state ? state.resourceTypes : undefined;
         } else {
             const args = argsOrState as EnablerArgs | undefined;
@@ -103,6 +108,7 @@ export class Enabler extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceTypes'");
             }
             resourceInputs["accountIds"] = args ? args.accountIds : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,6 +126,10 @@ export interface EnablerState {
      */
     accountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Type of resources to scan.
      * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
      * At least one item is required.
@@ -136,6 +146,10 @@ export interface EnablerArgs {
      * Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
      */
     accountIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of resources to scan.
      * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.

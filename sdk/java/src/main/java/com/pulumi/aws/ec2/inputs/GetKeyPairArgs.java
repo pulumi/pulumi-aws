@@ -22,12 +22,20 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Custom filter block as described below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Key Pairs. The given filters must match exactly one Key Pair
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetKeyPairFilterArgs>> filters;
 
     /**
      * @return Custom filter block as described below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Key Pairs. The given filters must match exactly one Key Pair
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetKeyPairFilterArgs>>> filters() {
@@ -79,6 +87,13 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.keyPairId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Any tags assigned to the Key Pair.
      * 
@@ -101,6 +116,7 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
         this.includePublicKey = $.includePublicKey;
         this.keyName = $.keyName;
         this.keyPairId = $.keyPairId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -125,6 +141,10 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Key Pairs. The given filters must match exactly one Key Pair
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -136,6 +156,10 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Key Pairs. The given filters must match exactly one Key Pair
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -145,6 +169,10 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param filters Custom filter block as described below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Key Pairs. The given filters must match exactly one Key Pair
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -214,6 +242,15 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder keyPairId(String keyPairId) {
             return keyPairId(Output.of(keyPairId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

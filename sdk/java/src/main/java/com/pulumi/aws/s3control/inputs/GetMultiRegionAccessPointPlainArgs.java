@@ -45,11 +45,27 @@ public final class GetMultiRegionAccessPointPlainArgs extends com.pulumi.resourc
         return this.name;
     }
 
+    /**
+     * The name of the region.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return The name of the region.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetMultiRegionAccessPointPlainArgs() {}
 
     private GetMultiRegionAccessPointPlainArgs(GetMultiRegionAccessPointPlainArgs $) {
         this.accountId = $.accountId;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -89,6 +105,17 @@ public final class GetMultiRegionAccessPointPlainArgs extends com.pulumi.resourc
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region The name of the region.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

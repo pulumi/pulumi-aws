@@ -17,6 +17,21 @@ public final class TrustStoreRevocationState extends com.pulumi.resources.Resour
     public static final TrustStoreRevocationState Empty = new TrustStoreRevocationState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * AWS assigned RevocationId, (number).
      * 
      */
@@ -94,6 +109,7 @@ public final class TrustStoreRevocationState extends com.pulumi.resources.Resour
     private TrustStoreRevocationState() {}
 
     private TrustStoreRevocationState(TrustStoreRevocationState $) {
+        this.region = $.region;
         this.revocationId = $.revocationId;
         this.revocationsS3Bucket = $.revocationsS3Bucket;
         this.revocationsS3Key = $.revocationsS3Key;
@@ -117,6 +133,27 @@ public final class TrustStoreRevocationState extends com.pulumi.resources.Resour
 
         public Builder(TrustStoreRevocationState defaults) {
             $ = new TrustStoreRevocationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

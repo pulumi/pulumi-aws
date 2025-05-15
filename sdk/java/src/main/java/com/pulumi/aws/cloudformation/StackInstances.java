@@ -265,6 +265,20 @@ public class StackInstances extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameterOverrides);
     }
     /**
+     * Region that the stack instance is associated with.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region that the stack instance is associated with.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Regions where you want to create stack instances in the specified `accounts`.
      * 
      */

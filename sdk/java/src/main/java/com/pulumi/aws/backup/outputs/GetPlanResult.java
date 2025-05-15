@@ -29,6 +29,7 @@ public final class GetPlanResult {
      */
     private String name;
     private String planId;
+    private String region;
     /**
      * @return Rules of a backup plan.
      * 
@@ -70,6 +71,9 @@ public final class GetPlanResult {
     public String planId() {
         return this.planId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Rules of a backup plan.
      * 
@@ -105,6 +109,7 @@ public final class GetPlanResult {
         private String id;
         private String name;
         private String planId;
+        private String region;
         private List<GetPlanRule> rules;
         private Map<String,String> tags;
         private String version;
@@ -115,6 +120,7 @@ public final class GetPlanResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.planId = defaults.planId;
+    	      this.region = defaults.region;
     	      this.rules = defaults.rules;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
@@ -153,6 +159,14 @@ public final class GetPlanResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPlanResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rules(List<GetPlanRule> rules) {
             if (rules == null) {
               throw new MissingRequiredPropertyException("GetPlanResult", "rules");
@@ -185,6 +199,7 @@ public final class GetPlanResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.planId = planId;
+            _resultValue.region = region;
             _resultValue.rules = rules;
             _resultValue.tags = tags;
             _resultValue.version = version;

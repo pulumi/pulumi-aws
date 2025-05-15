@@ -182,6 +182,8 @@ type Intent struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature pulumi.StringPtrOutput `pulumi:"parentIntentSignature"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// When the user answers "no" to the question defined in
 	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
 	// canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
@@ -274,6 +276,8 @@ type intentState struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// When the user answers "no" to the question defined in
 	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
 	// canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
@@ -334,6 +338,8 @@ type IntentState struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// When the user answers "no" to the question defined in
 	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
 	// canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
@@ -389,6 +395,8 @@ type intentArgs struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// When the user answers "no" to the question defined in
 	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
 	// canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
@@ -439,6 +447,8 @@ type IntentArgs struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// When the user answers "no" to the question defined in
 	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
 	// canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
@@ -620,6 +630,11 @@ func (o IntentOutput) Name() pulumi.StringOutput {
 // in the Alexa Skills Kit.
 func (o IntentOutput) ParentIntentSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringPtrOutput { return v.ParentIntentSignature }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IntentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // When the user answers "no" to the question defined in

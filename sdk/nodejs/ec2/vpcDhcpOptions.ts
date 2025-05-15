@@ -120,6 +120,10 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -149,6 +153,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
             resourceInputs["ntpServers"] = state ? state.ntpServers : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -159,6 +164,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
             resourceInputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             resourceInputs["ntpServers"] = args ? args.ntpServers : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
@@ -206,6 +212,10 @@ export interface VpcDhcpOptionsState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -243,6 +253,10 @@ export interface VpcDhcpOptionsArgs {
      * List of NTP servers to configure.
      */
     ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

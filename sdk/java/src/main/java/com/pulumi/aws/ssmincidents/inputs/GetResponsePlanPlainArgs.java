@@ -31,6 +31,13 @@ public final class GetResponsePlanPlainArgs extends com.pulumi.resources.InvokeA
         return this.arn;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The tags applied to the response plan.
      * 
@@ -50,6 +57,7 @@ public final class GetResponsePlanPlainArgs extends com.pulumi.resources.InvokeA
 
     private GetResponsePlanPlainArgs(GetResponsePlanPlainArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetResponsePlanPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder arn(String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

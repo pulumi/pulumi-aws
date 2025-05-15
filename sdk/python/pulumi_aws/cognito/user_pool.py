@@ -36,6 +36,7 @@ class UserPoolArgs:
                  mfa_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password_policy: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schemas: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]] = None,
                  sign_in_policy: Optional[pulumi.Input['UserPoolSignInPolicyArgs']] = None,
                  sms_authentication_message: Optional[pulumi.Input[builtins.str]] = None,
@@ -68,6 +69,7 @@ class UserPoolArgs:
                
                The following arguments are optional:
         :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration block for information about the user pool password policy. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input['UserPoolSignInPolicyArgs'] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
         :param pulumi.Input[builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -111,6 +113,8 @@ class UserPoolArgs:
             pulumi.set(__self__, "name", name)
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
         if sign_in_policy is not None:
@@ -312,6 +316,18 @@ class UserPoolArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]]:
         """
         Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
@@ -503,6 +519,7 @@ class _UserPoolState:
                  mfa_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password_policy: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schemas: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]] = None,
                  sign_in_policy: Optional[pulumi.Input['UserPoolSignInPolicyArgs']] = None,
                  sms_authentication_message: Optional[pulumi.Input[builtins.str]] = None,
@@ -543,6 +560,7 @@ class _UserPoolState:
                
                The following arguments are optional:
         :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration block for information about the user pool password policy. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input['UserPoolSignInPolicyArgs'] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
         :param pulumi.Input[builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -601,6 +619,8 @@ class _UserPoolState:
             pulumi.set(__self__, "name", name)
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
         if sign_in_policy is not None:
@@ -888,6 +908,18 @@ class _UserPoolState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]]:
         """
         Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
@@ -1089,6 +1121,7 @@ class UserPool(pulumi.CustomResource):
                  mfa_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password_policy: Optional[pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schemas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]]] = None,
                  sign_in_policy: Optional[pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']]] = None,
                  sms_authentication_message: Optional[pulumi.Input[builtins.str]] = None,
@@ -1185,6 +1218,7 @@ class UserPool(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']] password_policy: Configuration block for information about the user pool password policy. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
         :param pulumi.Input[builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -1298,6 +1332,7 @@ class UserPool(pulumi.CustomResource):
                  mfa_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password_policy: Optional[pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schemas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]]] = None,
                  sign_in_policy: Optional[pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']]] = None,
                  sms_authentication_message: Optional[pulumi.Input[builtins.str]] = None,
@@ -1335,6 +1370,7 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["mfa_configuration"] = mfa_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["password_policy"] = password_policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["schemas"] = schemas
             __props__.__dict__["sign_in_policy"] = sign_in_policy
             __props__.__dict__["sms_authentication_message"] = sms_authentication_message
@@ -1388,6 +1424,7 @@ class UserPool(pulumi.CustomResource):
             mfa_configuration: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             password_policy: Optional[pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schemas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]]] = None,
             sign_in_policy: Optional[pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']]] = None,
             sms_authentication_message: Optional[pulumi.Input[builtins.str]] = None,
@@ -1433,6 +1470,7 @@ class UserPool(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']] password_policy: Configuration block for information about the user pool password policy. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
         :param pulumi.Input[builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -1474,6 +1512,7 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["mfa_configuration"] = mfa_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["password_policy"] = password_policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["schemas"] = schemas
         __props__.__dict__["sign_in_policy"] = sign_in_policy
         __props__.__dict__["sms_authentication_message"] = sms_authentication_message
@@ -1660,6 +1699,14 @@ class UserPool(pulumi.CustomResource):
         Configuration block for information about the user pool password policy. Detailed below.
         """
         return pulumi.get(self, "password_policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

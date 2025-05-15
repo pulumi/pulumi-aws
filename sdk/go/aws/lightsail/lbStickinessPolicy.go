@@ -69,6 +69,8 @@ type LbStickinessPolicy struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbStickinessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -116,6 +118,8 @@ type lbStickinessPolicyState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName *string `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LbStickinessPolicyState struct {
@@ -125,6 +129,8 @@ type LbStickinessPolicyState struct {
 	Enabled pulumi.BoolPtrInput
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbStickinessPolicyState) ElementType() reflect.Type {
@@ -138,6 +144,8 @@ type lbStickinessPolicyArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName string `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbStickinessPolicy resource.
@@ -148,6 +156,8 @@ type LbStickinessPolicyArgs struct {
 	Enabled pulumi.BoolInput
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbStickinessPolicyArgs) ElementType() reflect.Type {
@@ -250,6 +260,11 @@ func (o LbStickinessPolicyOutput) Enabled() pulumi.BoolOutput {
 // The name of the load balancer to which you want to enable session stickiness.
 func (o LbStickinessPolicyOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LbStickinessPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LbStickinessPolicyArrayOutput struct{ *pulumi.OutputState }

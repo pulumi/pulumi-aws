@@ -48,6 +48,13 @@ public final class GetNotificationChannelPlainArgs extends com.pulumi.resources.
         return this.id;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
      * 
@@ -68,6 +75,7 @@ public final class GetNotificationChannelPlainArgs extends com.pulumi.resources.
     private GetNotificationChannelPlainArgs(GetNotificationChannelPlainArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.sns = $.sns;
     }
 
@@ -118,6 +126,11 @@ public final class GetNotificationChannelPlainArgs extends com.pulumi.resources.
          */
         public Builder id(String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

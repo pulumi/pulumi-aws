@@ -53,7 +53,8 @@ func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs,
 // A collection of arguments for invoking getDedicatedIpPool.
 type LookupDedicatedIpPoolArgs struct {
 	// Name of the dedicated IP pool.
-	PoolName string `pulumi:"poolName"`
+	PoolName string  `pulumi:"poolName"`
+	Region   *string `pulumi:"region"`
 	// A map of tags attached to the pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,6 +68,7 @@ type LookupDedicatedIpPoolResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	PoolName string `pulumi:"poolName"`
+	Region   string `pulumi:"region"`
 	// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
 	ScalingMode string `pulumi:"scalingMode"`
 	// A map of tags attached to the pool.
@@ -85,7 +87,8 @@ func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPool
 // A collection of arguments for invoking getDedicatedIpPool.
 type LookupDedicatedIpPoolOutputArgs struct {
 	// Name of the dedicated IP pool.
-	PoolName pulumi.StringInput `pulumi:"poolName"`
+	PoolName pulumi.StringInput    `pulumi:"poolName"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags attached to the pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -126,6 +129,10 @@ func (o LookupDedicatedIpPoolResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupDedicatedIpPoolResultOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.PoolName }).(pulumi.StringOutput)
+}
+
+func (o LookupDedicatedIpPoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.

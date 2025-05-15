@@ -53,7 +53,8 @@ func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.In
 // A collection of arguments for invoking getStreamKey.
 type GetStreamKeyArgs struct {
 	// ARN of the Channel.
-	ChannelArn string `pulumi:"channelArn"`
+	ChannelArn string  `pulumi:"channelArn"`
+	Region     *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -64,7 +65,8 @@ type GetStreamKeyResult struct {
 	Arn        string `pulumi:"arn"`
 	ChannelArn string `pulumi:"channelArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Stream Key value.
@@ -83,7 +85,8 @@ func GetStreamKeyOutput(ctx *pulumi.Context, args GetStreamKeyOutputArgs, opts .
 // A collection of arguments for invoking getStreamKey.
 type GetStreamKeyOutputArgs struct {
 	// ARN of the Channel.
-	ChannelArn pulumi.StringInput `pulumi:"channelArn"`
+	ChannelArn pulumi.StringInput    `pulumi:"channelArn"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -119,6 +122,10 @@ func (o GetStreamKeyResultOutput) ChannelArn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetStreamKeyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetStreamKeyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the resource.

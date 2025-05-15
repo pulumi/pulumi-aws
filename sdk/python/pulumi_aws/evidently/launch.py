@@ -28,6 +28,7 @@ class LaunchArgs:
                  metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  randomization_salt: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -38,6 +39,7 @@ class LaunchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]] metric_monitors: One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         :param pulumi.Input[builtins.str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['LaunchScheduledSplitsConfigArgs'] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -51,6 +53,8 @@ class LaunchArgs:
             pulumi.set(__self__, "name", name)
         if randomization_salt is not None:
             pulumi.set(__self__, "randomization_salt", randomization_salt)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scheduled_splits_config is not None:
             pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
         if tags is not None:
@@ -129,6 +133,18 @@ class LaunchArgs:
         pulumi.set(self, "randomization_salt", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduledSplitsConfig")
     def scheduled_splits_config(self) -> Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']]:
         """
@@ -166,6 +182,7 @@ class _LaunchState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project: Optional[pulumi.Input[builtins.str]] = None,
                  randomization_salt: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  status_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -184,6 +201,7 @@ class _LaunchState:
         :param pulumi.Input[builtins.str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['LaunchScheduledSplitsConfigArgs'] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[builtins.str] status: The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         :param pulumi.Input[builtins.str] status_reason: If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
@@ -211,6 +229,8 @@ class _LaunchState:
             pulumi.set(__self__, "project", project)
         if randomization_salt is not None:
             pulumi.set(__self__, "randomization_salt", randomization_salt)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scheduled_splits_config is not None:
             pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
         if status is not None:
@@ -345,6 +365,18 @@ class _LaunchState:
         pulumi.set(self, "randomization_salt", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduledSplitsConfig")
     def scheduled_splits_config(self) -> Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']]:
         """
@@ -431,6 +463,7 @@ class Launch(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project: Optional[pulumi.Input[builtins.str]] = None,
                  randomization_salt: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -708,6 +741,7 @@ class Launch(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -1004,6 +1038,7 @@ class Launch(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project: Optional[pulumi.Input[builtins.str]] = None,
                  randomization_salt: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -1025,6 +1060,7 @@ class Launch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["randomization_salt"] = randomization_salt
+            __props__.__dict__["region"] = region
             __props__.__dict__["scheduled_splits_config"] = scheduled_splits_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -1055,6 +1091,7 @@ class Launch(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             project: Optional[pulumi.Input[builtins.str]] = None,
             randomization_salt: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             status_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -1078,6 +1115,7 @@ class Launch(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[builtins.str] status: The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         :param pulumi.Input[builtins.str] status_reason: If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
@@ -1099,6 +1137,7 @@ class Launch(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["project"] = project
         __props__.__dict__["randomization_salt"] = randomization_salt
+        __props__.__dict__["region"] = region
         __props__.__dict__["scheduled_splits_config"] = scheduled_splits_config
         __props__.__dict__["status"] = status
         __props__.__dict__["status_reason"] = status_reason
@@ -1186,6 +1225,14 @@ class Launch(pulumi.CustomResource):
         When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         """
         return pulumi.get(self, "randomization_salt")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scheduledSplitsConfig")

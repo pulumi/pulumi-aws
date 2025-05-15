@@ -87,6 +87,9 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetReplicationInstanceArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The replication instance identifier.
         /// </summary>
@@ -109,6 +112,9 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetReplicationInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The replication instance identifier.
         /// </summary>
@@ -173,6 +179,7 @@ namespace Pulumi.Aws.Dms
         /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         /// </summary>
         public readonly bool PubliclyAccessible;
+        public readonly string Region;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replication instance.
         /// </summary>
@@ -222,6 +229,8 @@ namespace Pulumi.Aws.Dms
 
             bool publiclyAccessible,
 
+            string region,
+
             string replicationInstanceArn,
 
             string replicationInstanceClass,
@@ -248,6 +257,7 @@ namespace Pulumi.Aws.Dms
             NetworkType = networkType;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             PubliclyAccessible = publiclyAccessible;
+            Region = region;
             ReplicationInstanceArn = replicationInstanceArn;
             ReplicationInstanceClass = replicationInstanceClass;
             ReplicationInstanceId = replicationInstanceId;

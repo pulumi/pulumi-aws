@@ -22,13 +22,29 @@ __all__ = ['ReplicationConfigurationArgs', 'ReplicationConfiguration']
 @pulumi.input_type
 class ReplicationConfigurationArgs:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_configuration is not None:
             pulumi.set(__self__, "replication_configuration", replication_configuration)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replicationConfiguration")
@@ -46,17 +62,33 @@ class ReplicationConfigurationArgs:
 @pulumi.input_type
 class _ReplicationConfigurationState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_id: Optional[pulumi.Input[builtins.str]] = None,
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ReplicationConfiguration resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the replication configuration was created.
         :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registry_id is not None:
             pulumi.set(__self__, "registry_id", registry_id)
         if replication_configuration is not None:
             pulumi.set(__self__, "replication_configuration", replication_configuration)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="registryId")
@@ -91,6 +123,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_configuration: Optional[pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -170,6 +203,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         ...
@@ -268,6 +302,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_configuration: Optional[pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -278,6 +313,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationConfigurationArgs.__new__(ReplicationConfigurationArgs)
 
+            __props__.__dict__["region"] = region
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["registry_id"] = None
         super(ReplicationConfiguration, __self__).__init__(
@@ -290,6 +326,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registry_id: Optional[pulumi.Input[builtins.str]] = None,
             replication_configuration: Optional[pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None) -> 'ReplicationConfiguration':
         """
@@ -299,6 +336,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the replication configuration was created.
         :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
@@ -306,9 +344,18 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         __props__ = _ReplicationConfigurationState.__new__(_ReplicationConfigurationState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["registry_id"] = registry_id
         __props__.__dict__["replication_configuration"] = replication_configuration
         return ReplicationConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registryId")

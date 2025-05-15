@@ -78,6 +78,8 @@ type Attachment struct {
 	Elb pulumi.StringPtrOutput `pulumi:"elb"`
 	// ARN of a load balancer target group.
 	LbTargetGroupArn pulumi.StringPtrOutput `pulumi:"lbTargetGroupArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAttachment registers a new resource with the given unique name, arguments, and options.
@@ -119,6 +121,8 @@ type attachmentState struct {
 	Elb *string `pulumi:"elb"`
 	// ARN of a load balancer target group.
 	LbTargetGroupArn *string `pulumi:"lbTargetGroupArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AttachmentState struct {
@@ -128,6 +132,8 @@ type AttachmentState struct {
 	Elb pulumi.StringPtrInput
 	// ARN of a load balancer target group.
 	LbTargetGroupArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AttachmentState) ElementType() reflect.Type {
@@ -141,6 +147,8 @@ type attachmentArgs struct {
 	Elb *string `pulumi:"elb"`
 	// ARN of a load balancer target group.
 	LbTargetGroupArn *string `pulumi:"lbTargetGroupArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Attachment resource.
@@ -151,6 +159,8 @@ type AttachmentArgs struct {
 	Elb pulumi.StringPtrInput
 	// ARN of a load balancer target group.
 	LbTargetGroupArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AttachmentArgs) ElementType() reflect.Type {
@@ -253,6 +263,11 @@ func (o AttachmentOutput) Elb() pulumi.StringPtrOutput {
 // ARN of a load balancer target group.
 func (o AttachmentOutput) LbTargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringPtrOutput { return v.LbTargetGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AttachmentArrayOutput struct{ *pulumi.OutputState }

@@ -78,6 +78,7 @@ type GetInstanceTypeOfferingsArgs struct {
 	EngineType *string `pulumi:"engineType"`
 	// Filter response by host instance type.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
+	Region           *string `pulumi:"region"`
 	// Filter response by storage type.
 	StorageType *string `pulumi:"storageType"`
 }
@@ -91,7 +92,8 @@ type GetInstanceTypeOfferingsResult struct {
 	// Broker's instance type.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Broker's storage type.
 	StorageType *string `pulumi:"storageType"`
 }
@@ -111,6 +113,7 @@ type GetInstanceTypeOfferingsOutputArgs struct {
 	EngineType pulumi.StringPtrInput `pulumi:"engineType"`
 	// Filter response by host instance type.
 	HostInstanceType pulumi.StringPtrInput `pulumi:"hostInstanceType"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
 	// Filter response by storage type.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 }
@@ -154,6 +157,10 @@ func (o GetInstanceTypeOfferingsResultOutput) HostInstanceType() pulumi.StringPt
 // The provider-assigned unique ID for this managed resource.
 func (o GetInstanceTypeOfferingsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Broker's storage type.

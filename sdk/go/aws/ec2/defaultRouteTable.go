@@ -109,6 +109,8 @@ type DefaultRouteTable struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of objects. Detailed below
 	Routes DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -162,6 +164,8 @@ type defaultRouteTableState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of objects. Detailed below
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -183,6 +187,8 @@ type DefaultRouteTableState struct {
 	OwnerId pulumi.StringPtrInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of objects. Detailed below
 	Routes DefaultRouteTableRouteArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -204,6 +210,8 @@ type defaultRouteTableArgs struct {
 	DefaultRouteTableId string `pulumi:"defaultRouteTableId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of objects. Detailed below
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -218,6 +226,8 @@ type DefaultRouteTableArgs struct {
 	DefaultRouteTableId pulumi.StringInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of objects. Detailed below
 	Routes DefaultRouteTableRouteArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -331,6 +341,11 @@ func (o DefaultRouteTableOutput) OwnerId() pulumi.StringOutput {
 // List of virtual gateways for propagation.
 func (o DefaultRouteTableOutput) PropagatingVgws() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringArrayOutput { return v.PropagatingVgws }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DefaultRouteTableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of objects. Detailed below

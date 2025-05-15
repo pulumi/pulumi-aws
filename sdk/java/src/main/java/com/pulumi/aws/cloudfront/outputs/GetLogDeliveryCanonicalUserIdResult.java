@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLogDeliveryCanonicalUserIdResult {
@@ -17,7 +15,6 @@ public final class GetLogDeliveryCanonicalUserIdResult {
      * 
      */
     private String id;
-    private @Nullable String region;
 
     private GetLogDeliveryCanonicalUserIdResult() {}
     /**
@@ -26,9 +23,6 @@ public final class GetLogDeliveryCanonicalUserIdResult {
      */
     public String id() {
         return this.id;
-    }
-    public Optional<String> region() {
-        return Optional.ofNullable(this.region);
     }
 
     public static Builder builder() {
@@ -41,12 +35,10 @@ public final class GetLogDeliveryCanonicalUserIdResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private @Nullable String region;
         public Builder() {}
         public Builder(GetLogDeliveryCanonicalUserIdResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
-    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -57,16 +49,9 @@ public final class GetLogDeliveryCanonicalUserIdResult {
             this.id = id;
             return this;
         }
-        @CustomType.Setter
-        public Builder region(@Nullable String region) {
-
-            this.region = region;
-            return this;
-        }
         public GetLogDeliveryCanonicalUserIdResult build() {
             final var _resultValue = new GetLogDeliveryCanonicalUserIdResult();
             _resultValue.id = id;
-            _resultValue.region = region;
             return _resultValue;
         }
     }

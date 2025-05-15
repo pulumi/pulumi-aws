@@ -20,6 +20,7 @@ public final class GetInvocationResult {
     private String id;
     private String input;
     private @Nullable String qualifier;
+    private String region;
     /**
      * @return String result of the lambda function invocation.
      * 
@@ -43,6 +44,9 @@ public final class GetInvocationResult {
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return String result of the lambda function invocation.
      * 
@@ -64,6 +68,7 @@ public final class GetInvocationResult {
         private String id;
         private String input;
         private @Nullable String qualifier;
+        private String region;
         private String result;
         public Builder() {}
         public Builder(GetInvocationResult defaults) {
@@ -72,6 +77,7 @@ public final class GetInvocationResult {
     	      this.id = defaults.id;
     	      this.input = defaults.input;
     	      this.qualifier = defaults.qualifier;
+    	      this.region = defaults.region;
     	      this.result = defaults.result;
         }
 
@@ -106,6 +112,14 @@ public final class GetInvocationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInvocationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder result(String result) {
             if (result == null) {
               throw new MissingRequiredPropertyException("GetInvocationResult", "result");
@@ -119,6 +133,7 @@ public final class GetInvocationResult {
             _resultValue.id = id;
             _resultValue.input = input;
             _resultValue.qualifier = qualifier;
+            _resultValue.region = region;
             _resultValue.result = result;
             return _resultValue;
         }

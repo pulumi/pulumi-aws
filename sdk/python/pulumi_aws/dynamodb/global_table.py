@@ -23,15 +23,19 @@ __all__ = ['GlobalTableArgs', 'GlobalTable']
 class GlobalTableArgs:
     def __init__(__self__, *,
                  replicas: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         :param pulumi.Input[builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "replicas", replicas)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -57,23 +61,39 @@ class GlobalTableArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _GlobalTableState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]] = None):
         """
         Input properties used for looking up and filtering GlobalTable resources.
         :param pulumi.Input[builtins.str] arn: The ARN of the DynamoDB Global Table
         :param pulumi.Input[builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
 
@@ -103,6 +123,18 @@ class _GlobalTableState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]]:
         """
         Underlying DynamoDB Table. At least 1 replica must be defined. See below.
@@ -123,6 +155,7 @@ class GlobalTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -187,6 +220,7 @@ class GlobalTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         ...
@@ -270,6 +304,7 @@ class GlobalTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -281,6 +316,7 @@ class GlobalTable(pulumi.CustomResource):
             __props__ = GlobalTableArgs.__new__(GlobalTableArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
             __props__.__dict__["replicas"] = replicas
@@ -297,6 +333,7 @@ class GlobalTable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]]] = None) -> 'GlobalTable':
         """
         Get an existing GlobalTable resource's state with the given name, id, and optional extra
@@ -307,6 +344,7 @@ class GlobalTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The ARN of the DynamoDB Global Table
         :param pulumi.Input[builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -315,6 +353,7 @@ class GlobalTable(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["replicas"] = replicas
         return GlobalTable(resource_name, opts=opts, __props__=__props__)
 
@@ -333,6 +372,14 @@ class GlobalTable(pulumi.CustomResource):
         The name of the global table. Must match underlying DynamoDB Table names in all regions.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

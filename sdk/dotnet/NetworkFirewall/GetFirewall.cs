@@ -212,9 +212,14 @@ namespace Pulumi.Aws.NetworkFirewall
 
         /// <summary>
         /// Descriptive name of the firewall.
+        /// 
+        /// One or more of these arguments is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -244,9 +249,14 @@ namespace Pulumi.Aws.NetworkFirewall
 
         /// <summary>
         /// Descriptive name of the firewall.
+        /// 
+        /// One or more of these arguments is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -283,6 +293,10 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// Set of types for which to collect analysis metrics.
+        /// </summary>
+        public readonly ImmutableArray<string> EnabledAnalysisTypes;
+        /// <summary>
         /// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallEncryptionConfigurationResult> EncryptionConfigurations;
@@ -306,6 +320,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// Descriptive name of the firewall.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// A flag indicating whether the firewall is protected against changes to the subnet associations.
         /// </summary>
@@ -335,6 +350,8 @@ namespace Pulumi.Aws.NetworkFirewall
 
             string description,
 
+            ImmutableArray<string> enabledAnalysisTypes,
+
             ImmutableArray<Outputs.GetFirewallEncryptionConfigurationResult> encryptionConfigurations,
 
             string firewallPolicyArn,
@@ -346,6 +363,8 @@ namespace Pulumi.Aws.NetworkFirewall
             string id,
 
             string name,
+
+            string region,
 
             bool subnetChangeProtection,
 
@@ -360,12 +379,14 @@ namespace Pulumi.Aws.NetworkFirewall
             Arn = arn;
             DeleteProtection = deleteProtection;
             Description = description;
+            EnabledAnalysisTypes = enabledAnalysisTypes;
             EncryptionConfigurations = encryptionConfigurations;
             FirewallPolicyArn = firewallPolicyArn;
             FirewallPolicyChangeProtection = firewallPolicyChangeProtection;
             FirewallStatuses = firewallStatuses;
             Id = id;
             Name = name;
+            Region = region;
             SubnetChangeProtection = subnetChangeProtection;
             SubnetMappings = subnetMappings;
             Tags = tags;

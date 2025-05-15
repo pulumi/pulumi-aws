@@ -523,20 +523,19 @@ class GetControlControlMappingSourceResult(dict):
                  source_description: builtins.str,
                  source_frequency: builtins.str,
                  source_id: builtins.str,
+                 source_keywords: Sequence['outputs.GetControlControlMappingSourceSourceKeywordResult'],
                  source_name: builtins.str,
                  source_set_up_option: builtins.str,
                  source_type: builtins.str,
-                 troubleshooting_text: builtins.str,
-                 source_keyword: Optional['outputs.GetControlControlMappingSourceSourceKeywordResult'] = None):
+                 troubleshooting_text: builtins.str):
         pulumi.set(__self__, "source_description", source_description)
         pulumi.set(__self__, "source_frequency", source_frequency)
         pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "source_keywords", source_keywords)
         pulumi.set(__self__, "source_name", source_name)
         pulumi.set(__self__, "source_set_up_option", source_set_up_option)
         pulumi.set(__self__, "source_type", source_type)
         pulumi.set(__self__, "troubleshooting_text", troubleshooting_text)
-        if source_keyword is not None:
-            pulumi.set(__self__, "source_keyword", source_keyword)
 
     @property
     @pulumi.getter(name="sourceDescription")
@@ -552,6 +551,11 @@ class GetControlControlMappingSourceResult(dict):
     @pulumi.getter(name="sourceId")
     def source_id(self) -> builtins.str:
         return pulumi.get(self, "source_id")
+
+    @property
+    @pulumi.getter(name="sourceKeywords")
+    def source_keywords(self) -> Sequence['outputs.GetControlControlMappingSourceSourceKeywordResult']:
+        return pulumi.get(self, "source_keywords")
 
     @property
     @pulumi.getter(name="sourceName")
@@ -572,11 +576,6 @@ class GetControlControlMappingSourceResult(dict):
     @pulumi.getter(name="troubleshootingText")
     def troubleshooting_text(self) -> builtins.str:
         return pulumi.get(self, "troubleshooting_text")
-
-    @property
-    @pulumi.getter(name="sourceKeyword")
-    def source_keyword(self) -> Optional['outputs.GetControlControlMappingSourceSourceKeywordResult']:
-        return pulumi.get(self, "source_keyword")
 
 
 @pulumi.output_type
@@ -601,16 +600,20 @@ class GetControlControlMappingSourceSourceKeywordResult(dict):
 @pulumi.output_type
 class GetFrameworkControlSetResult(dict):
     def __init__(__self__, *,
+                 controls: Sequence['outputs.GetFrameworkControlSetControlResult'],
                  id: builtins.str,
-                 name: builtins.str,
-                 controls: Optional[Sequence['outputs.GetFrameworkControlSetControlResult']] = None):
+                 name: builtins.str):
         """
         :param builtins.str name: Name of the framework.
         """
+        pulumi.set(__self__, "controls", controls)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        if controls is not None:
-            pulumi.set(__self__, "controls", controls)
+
+    @property
+    @pulumi.getter
+    def controls(self) -> Sequence['outputs.GetFrameworkControlSetControlResult']:
+        return pulumi.get(self, "controls")
 
     @property
     @pulumi.getter
@@ -624,11 +627,6 @@ class GetFrameworkControlSetResult(dict):
         Name of the framework.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def controls(self) -> Optional[Sequence['outputs.GetFrameworkControlSetControlResult']]:
-        return pulumi.get(self, "controls")
 
 
 @pulumi.output_type

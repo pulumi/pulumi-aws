@@ -32,6 +32,13 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         return this.id;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
@@ -51,6 +58,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetQueueArgs(GetQueueArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

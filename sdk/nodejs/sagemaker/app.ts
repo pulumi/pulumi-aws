@@ -79,6 +79,10 @@ export class App extends pulumi.CustomResource {
      */
     public readonly domainId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      */
     public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
@@ -116,6 +120,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["appType"] = state ? state.appType : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceSpec"] = state ? state.resourceSpec : undefined;
             resourceInputs["spaceName"] = state ? state.spaceName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -135,6 +140,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["appName"] = args ? args.appName : undefined;
             resourceInputs["appType"] = args ? args.appType : undefined;
             resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceSpec"] = args ? args.resourceSpec : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -167,6 +173,10 @@ export interface AppState {
      * The domain ID.
      */
     domainId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      */
@@ -205,6 +215,10 @@ export interface AppArgs {
      * The domain ID.
      */
     domainId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      */

@@ -116,6 +116,10 @@ export class QueuePolicy extends pulumi.CustomResource {
      * URL of the SQS Queue to which to attach the policy.
      */
     public readonly queueUrl!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a QueuePolicy resource with the given unique name, arguments, and options.
@@ -132,6 +136,7 @@ export class QueuePolicy extends pulumi.CustomResource {
             const state = argsOrState as QueuePolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["queueUrl"] = state ? state.queueUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as QueuePolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -142,6 +147,7 @@ export class QueuePolicy extends pulumi.CustomResource {
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["queueUrl"] = args ? args.queueUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(QueuePolicy.__pulumiType, name, resourceInputs, opts);
@@ -157,6 +163,10 @@ export interface QueuePolicyState {
      * URL of the SQS Queue to which to attach the policy.
      */
     queueUrl?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -168,4 +178,8 @@ export interface QueuePolicyArgs {
      * URL of the SQS Queue to which to attach the policy.
      */
     queueUrl: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -47,6 +47,13 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Returns information on a specific Security Profile by Security Profile id
      * 
@@ -82,6 +89,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
     private GetSecurityProfileArgs(GetSecurityProfileArgs $) {
         this.instanceId = $.instanceId;
         this.name = $.name;
+        this.region = $.region;
         this.securityProfileId = $.securityProfileId;
         this.tags = $.tags;
     }
@@ -144,6 +152,15 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

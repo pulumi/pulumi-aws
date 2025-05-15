@@ -55,7 +55,8 @@ type LookupVirtualRouterArgs struct {
 	MeshName  string  `pulumi:"meshName"`
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name of the virtual router.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -73,6 +74,7 @@ type LookupVirtualRouterResult struct {
 	MeshName        string `pulumi:"meshName"`
 	MeshOwner       string `pulumi:"meshOwner"`
 	Name            string `pulumi:"name"`
+	Region          string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Virtual routers specification. See the `appmesh.VirtualRouter` resource for details.
@@ -96,7 +98,8 @@ type LookupVirtualRouterOutputArgs struct {
 	MeshName  pulumi.StringInput    `pulumi:"meshName"`
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
 	// Name of the virtual router.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -150,6 +153,10 @@ func (o LookupVirtualRouterResultOutput) MeshOwner() pulumi.StringOutput {
 
 func (o LookupVirtualRouterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualRouterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

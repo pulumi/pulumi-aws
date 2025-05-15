@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Ec2
         [Output("prefix")]
         public Output<string?> Prefix { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SpotDatafeedSubscription resource with the given unique name, arguments, and options.
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Ec2
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public SpotDatafeedSubscriptionArgs()
         {
         }
@@ -139,6 +151,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public SpotDatafeedSubscriptionState()
         {

@@ -56,7 +56,8 @@ type GetLocalDiskArgs struct {
 	// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
 	DiskPath *string `pulumi:"diskPath"`
 	// ARN of the gateway.
-	GatewayArn string `pulumi:"gatewayArn"`
+	GatewayArn string  `pulumi:"gatewayArn"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLocalDisk.
@@ -67,7 +68,8 @@ type GetLocalDiskResult struct {
 	DiskPath   string `pulumi:"diskPath"`
 	GatewayArn string `pulumi:"gatewayArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetLocalDiskOutput(ctx *pulumi.Context, args GetLocalDiskOutputArgs, opts ...pulumi.InvokeOption) GetLocalDiskResultOutput {
@@ -86,7 +88,8 @@ type GetLocalDiskOutputArgs struct {
 	// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
 	DiskPath pulumi.StringPtrInput `pulumi:"diskPath"`
 	// ARN of the gateway.
-	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
+	GatewayArn pulumi.StringInput    `pulumi:"gatewayArn"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLocalDiskOutputArgs) ElementType() reflect.Type {
@@ -128,6 +131,10 @@ func (o GetLocalDiskResultOutput) GatewayArn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetLocalDiskResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalDiskResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetLocalDiskResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalDiskResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

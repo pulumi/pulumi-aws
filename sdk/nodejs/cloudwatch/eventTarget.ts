@@ -582,6 +582,10 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly redshiftTarget!: pulumi.Output<outputs.cloudwatch.EventTargetRedshiftTarget | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
     public readonly retryPolicy!: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
@@ -638,6 +642,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["inputTransformer"] = state ? state.inputTransformer : undefined;
             resourceInputs["kinesisTarget"] = state ? state.kinesisTarget : undefined;
             resourceInputs["redshiftTarget"] = state ? state.redshiftTarget : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retryPolicy"] = state ? state.retryPolicy : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["rule"] = state ? state.rule : undefined;
@@ -666,6 +671,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["inputTransformer"] = args ? args.inputTransformer : undefined;
             resourceInputs["kinesisTarget"] = args ? args.kinesisTarget : undefined;
             resourceInputs["redshiftTarget"] = args ? args.redshiftTarget : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["rule"] = args ? args.rule : undefined;
@@ -736,6 +742,10 @@ export interface EventTargetState {
      * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
      */
     redshiftTarget?: pulumi.Input<inputs.cloudwatch.EventTargetRedshiftTarget>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
@@ -825,6 +835,10 @@ export interface EventTargetArgs {
      * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
      */
     redshiftTarget?: pulumi.Input<inputs.cloudwatch.EventTargetRedshiftTarget>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */

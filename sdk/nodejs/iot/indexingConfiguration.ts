@@ -74,6 +74,10 @@ export class IndexingConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Thing group indexing configuration. See below.
      */
     public readonly thingGroupIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
@@ -95,10 +99,12 @@ export class IndexingConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IndexingConfigurationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["thingGroupIndexingConfiguration"] = state ? state.thingGroupIndexingConfiguration : undefined;
             resourceInputs["thingIndexingConfiguration"] = state ? state.thingIndexingConfiguration : undefined;
         } else {
             const args = argsOrState as IndexingConfigurationArgs | undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["thingGroupIndexingConfiguration"] = args ? args.thingGroupIndexingConfiguration : undefined;
             resourceInputs["thingIndexingConfiguration"] = args ? args.thingIndexingConfiguration : undefined;
         }
@@ -111,6 +117,10 @@ export class IndexingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IndexingConfiguration resources.
  */
 export interface IndexingConfigurationState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Thing group indexing configuration. See below.
      */
@@ -125,6 +135,10 @@ export interface IndexingConfigurationState {
  * The set of arguments for constructing a IndexingConfiguration resource.
  */
 export interface IndexingConfigurationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Thing group indexing configuration. See below.
      */

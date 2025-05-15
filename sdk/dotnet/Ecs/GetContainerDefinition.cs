@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Ecs
         [Input("containerName", required: true)]
         public string ContainerName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ARN of the task definition which contains the container
         /// </summary>
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the task definition which contains the container
@@ -172,6 +178,7 @@ namespace Pulumi.Aws.Ecs
         /// Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         /// </summary>
         public readonly int MemoryReservation;
+        public readonly string Region;
         public readonly string TaskDefinition;
 
         [OutputConstructor]
@@ -196,6 +203,8 @@ namespace Pulumi.Aws.Ecs
 
             int memoryReservation,
 
+            string region,
+
             string taskDefinition)
         {
             ContainerName = containerName;
@@ -208,6 +217,7 @@ namespace Pulumi.Aws.Ecs
             ImageDigest = imageDigest;
             Memory = memory;
             MemoryReservation = memoryReservation;
+            Region = region;
             TaskDefinition = taskDefinition;
         }
     }

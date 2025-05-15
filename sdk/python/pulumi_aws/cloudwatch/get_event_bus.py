@@ -27,7 +27,7 @@ class GetEventBusResult:
     """
     A collection of values returned by getEventBus.
     """
-    def __init__(__self__, arn=None, description=None, id=None, kms_key_identifier=None, name=None):
+    def __init__(__self__, arn=None, description=None, id=None, kms_key_identifier=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetEventBusResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -81,6 +84,11 @@ class GetEventBusResult:
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetEventBusResult(GetEventBusResult):
     # pylint: disable=using-constant-test
@@ -92,10 +100,12 @@ class AwaitableGetEventBusResult(GetEventBusResult):
             description=self.description,
             id=self.id,
             kms_key_identifier=self.kms_key_identifier,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_event_bus(name: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventBusResult:
     """
     This data source can be used to fetch information about a specific
@@ -116,6 +126,7 @@ def get_event_bus(name: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getEventBus:getEventBus', __args__, opts=opts, typ=GetEventBusResult).value
 
@@ -124,8 +135,10 @@ def get_event_bus(name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_event_bus_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusResult]:
     """
     This data source can be used to fetch information about a specific
@@ -146,6 +159,7 @@ def get_event_bus_output(name: Optional[pulumi.Input[builtins.str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventBus:getEventBus', __args__, opts=opts, typ=GetEventBusResult)
     return __ret__.apply(lambda __response__: GetEventBusResult(
@@ -153,4 +167,5 @@ def get_event_bus_output(name: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

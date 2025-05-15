@@ -354,6 +354,21 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      * 
      */
@@ -602,6 +617,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         this.mfaConfiguration = $.mfaConfiguration;
         this.name = $.name;
         this.passwordPolicy = $.passwordPolicy;
+        this.region = $.region;
         this.schemas = $.schemas;
         this.signInPolicy = $.signInPolicy;
         this.smsAuthenticationMessage = $.smsAuthenticationMessage;
@@ -1100,6 +1116,27 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder passwordPolicy(UserPoolPasswordPolicyArgs passwordPolicy) {
             return passwordPolicy(Output.of(passwordPolicy));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

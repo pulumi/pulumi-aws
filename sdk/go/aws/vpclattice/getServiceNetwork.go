@@ -52,6 +52,7 @@ func LookupServiceNetwork(ctx *pulumi.Context, args *LookupServiceNetworkArgs, o
 
 // A collection of arguments for invoking getServiceNetwork.
 type LookupServiceNetworkArgs struct {
+	Region *string `pulumi:"region"`
 	// Identifier of the service network.
 	ServiceNetworkIdentifier string            `pulumi:"serviceNetworkIdentifier"`
 	Tags                     map[string]string `pulumi:"tags"`
@@ -75,6 +76,7 @@ type LookupServiceNetworkResult struct {
 	NumberOfAssociatedServices int `pulumi:"numberOfAssociatedServices"`
 	// Number of VPCs associated with this service network.
 	NumberOfAssociatedVpcs   int               `pulumi:"numberOfAssociatedVpcs"`
+	Region                   string            `pulumi:"region"`
 	ServiceNetworkIdentifier string            `pulumi:"serviceNetworkIdentifier"`
 	Tags                     map[string]string `pulumi:"tags"`
 }
@@ -90,6 +92,7 @@ func LookupServiceNetworkOutput(ctx *pulumi.Context, args LookupServiceNetworkOu
 
 // A collection of arguments for invoking getServiceNetwork.
 type LookupServiceNetworkOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier of the service network.
 	ServiceNetworkIdentifier pulumi.StringInput    `pulumi:"serviceNetworkIdentifier"`
 	Tags                     pulumi.StringMapInput `pulumi:"tags"`
@@ -152,6 +155,10 @@ func (o LookupServiceNetworkResultOutput) NumberOfAssociatedServices() pulumi.In
 // Number of VPCs associated with this service network.
 func (o LookupServiceNetworkResultOutput) NumberOfAssociatedVpcs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) int { return v.NumberOfAssociatedVpcs }).(pulumi.IntOutput)
+}
+
+func (o LookupServiceNetworkResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupServiceNetworkResultOutput) ServiceNetworkIdentifier() pulumi.StringOutput {

@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,10 +32,18 @@ public final class GetDistributionConfigurationsArgs extends com.pulumi.resource
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetDistributionConfigurationsArgs() {}
 
     private GetDistributionConfigurationsArgs(GetDistributionConfigurationsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -84,6 +93,15 @@ public final class GetDistributionConfigurationsArgs extends com.pulumi.resource
          */
         public Builder filters(GetDistributionConfigurationsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetDistributionConfigurationsArgs build() {

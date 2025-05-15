@@ -105,6 +105,10 @@ export class MailFrom extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly mailFromDomain!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a MailFrom resource with the given unique name, arguments, and options.
@@ -122,6 +126,7 @@ export class MailFrom extends pulumi.CustomResource {
             resourceInputs["behaviorOnMxFailure"] = state ? state.behaviorOnMxFailure : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as MailFromArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
@@ -133,6 +138,7 @@ export class MailFrom extends pulumi.CustomResource {
             resourceInputs["behaviorOnMxFailure"] = args ? args.behaviorOnMxFailure : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MailFrom.__pulumiType, name, resourceInputs, opts);
@@ -157,6 +163,10 @@ export interface MailFromState {
      * The following arguments are optional:
      */
     mailFromDomain?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -177,4 +187,8 @@ export interface MailFromArgs {
      * The following arguments are optional:
      */
     mailFromDomain: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -1096,6 +1096,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
      * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
      * 
@@ -1476,6 +1491,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.performanceInsightsRetentionPeriod = $.performanceInsightsRetentionPeriod;
         this.port = $.port;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.replicaMode = $.replicaMode;
         this.replicas = $.replicas;
         this.replicateSourceDb = $.replicateSourceDb;
@@ -3024,6 +3040,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

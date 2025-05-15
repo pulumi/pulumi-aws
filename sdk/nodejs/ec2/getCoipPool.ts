@@ -21,6 +21,7 @@ export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions)
         "filters": args.filters,
         "localGatewayRouteTableId": args.localGatewayRouteTableId,
         "poolId": args.poolId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,7 @@ export interface GetCoipPoolArgs {
      * ID of the specific COIP Pool to retrieve.
      */
     poolId?: string;
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
@@ -67,6 +69,7 @@ export interface GetCoipPoolResult {
      */
     readonly poolCidrs: string[];
     readonly poolId: string;
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -83,6 +86,7 @@ export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.In
         "filters": args.filters,
         "localGatewayRouteTableId": args.localGatewayRouteTableId,
         "poolId": args.poolId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -100,6 +104,7 @@ export interface GetCoipPoolOutputArgs {
      * ID of the specific COIP Pool to retrieve.
      */
     poolId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.

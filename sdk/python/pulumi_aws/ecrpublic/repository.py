@@ -25,11 +25,13 @@ class RepositoryArgs:
                  repository_name: pulumi.Input[builtins.str],
                  catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "repository_name", repository_name)
@@ -37,6 +39,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "catalog_data", catalog_data)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -75,6 +79,18 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -92,6 +108,7 @@ class _RepositoryState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_id: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  repository_uri: Optional[pulumi.Input[builtins.str]] = None,
@@ -101,6 +118,7 @@ class _RepositoryState:
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[builtins.str] arn: Full ARN of the repository.
         :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input[builtins.str] repository_uri: The URI of the repository.
@@ -113,6 +131,8 @@ class _RepositoryState:
             pulumi.set(__self__, "catalog_data", catalog_data)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registry_id is not None:
             pulumi.set(__self__, "registry_id", registry_id)
         if repository_name is not None:
@@ -156,6 +176,18 @@ class _RepositoryState:
     @force_destroy.setter
     def force_destroy(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="registryId")
@@ -228,6 +260,7 @@ class Repository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_data: Optional[pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -269,6 +302,7 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -330,6 +364,7 @@ class Repository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_data: Optional[pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -343,6 +378,7 @@ class Repository(pulumi.CustomResource):
 
             __props__.__dict__["catalog_data"] = catalog_data
             __props__.__dict__["force_destroy"] = force_destroy
+            __props__.__dict__["region"] = region
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
@@ -364,6 +400,7 @@ class Repository(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             catalog_data: Optional[pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
             force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registry_id: Optional[pulumi.Input[builtins.str]] = None,
             repository_name: Optional[pulumi.Input[builtins.str]] = None,
             repository_uri: Optional[pulumi.Input[builtins.str]] = None,
@@ -378,6 +415,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: Full ARN of the repository.
         :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input[builtins.str] repository_uri: The URI of the repository.
@@ -391,6 +429,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["catalog_data"] = catalog_data
         __props__.__dict__["force_destroy"] = force_destroy
+        __props__.__dict__["region"] = region
         __props__.__dict__["registry_id"] = registry_id
         __props__.__dict__["repository_name"] = repository_name
         __props__.__dict__["repository_uri"] = repository_uri
@@ -418,6 +457,14 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "force_destroy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registryId")

@@ -59,6 +59,8 @@ type ClientCertificate struct {
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringOutput `pulumi:"pemEncodedCertificate"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -105,6 +107,8 @@ type clientCertificateState struct {
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate *string `pulumi:"pemEncodedCertificate"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -122,6 +126,8 @@ type ClientCertificateState struct {
 	ExpirationDate pulumi.StringPtrInput
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -135,6 +141,8 @@ func (ClientCertificateState) ElementType() reflect.Type {
 type clientCertificateArgs struct {
 	// Description of the client certificate.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -143,6 +151,8 @@ type clientCertificateArgs struct {
 type ClientCertificateArgs struct {
 	// Description of the client certificate.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -257,6 +267,11 @@ func (o ClientCertificateOutput) ExpirationDate() pulumi.StringOutput {
 // The PEM-encoded public key of the client certificate.
 func (o ClientCertificateOutput) PemEncodedCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.PemEncodedCertificate }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClientCertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

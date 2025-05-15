@@ -24,6 +24,7 @@ public final class GetOntapStorageVirtualMachinesResult {
      * 
      */
     private List<String> ids;
+    private String region;
 
     private GetOntapStorageVirtualMachinesResult() {}
     public List<GetOntapStorageVirtualMachinesFilter> filters() {
@@ -43,6 +44,9 @@ public final class GetOntapStorageVirtualMachinesResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +60,14 @@ public final class GetOntapStorageVirtualMachinesResult {
         private @Nullable List<GetOntapStorageVirtualMachinesFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         public Builder() {}
         public Builder(GetOntapStorageVirtualMachinesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -92,11 +98,20 @@ public final class GetOntapStorageVirtualMachinesResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachinesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetOntapStorageVirtualMachinesResult build() {
             final var _resultValue = new GetOntapStorageVirtualMachinesResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

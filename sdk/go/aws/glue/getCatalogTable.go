@@ -59,6 +59,8 @@ type LookupCatalogTableArgs struct {
 	Name string `pulumi:"name"`
 	// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
 	QueryAsOfTime *string `pulumi:"queryAsOfTime"`
+	// Region of the target table.
+	Region *string `pulumi:"region"`
 	// The transaction ID at which to read the table contents.
 	TransactionId *int `pulumi:"transactionId"`
 }
@@ -86,6 +88,8 @@ type LookupCatalogTableResult struct {
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys []GetCatalogTablePartitionKey `pulumi:"partitionKeys"`
 	QueryAsOfTime *string                       `pulumi:"queryAsOfTime"`
+	// Region of the target table.
+	Region string `pulumi:"region"`
 	// Retention time for this table.
 	Retention int `pulumi:"retention"`
 	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
@@ -120,6 +124,8 @@ type LookupCatalogTableOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
 	QueryAsOfTime pulumi.StringPtrInput `pulumi:"queryAsOfTime"`
+	// Region of the target table.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The transaction ID at which to read the table contents.
 	TransactionId pulumi.IntPtrInput `pulumi:"transactionId"`
 }
@@ -195,6 +201,11 @@ func (o LookupCatalogTableResultOutput) PartitionKeys() GetCatalogTablePartition
 
 func (o LookupCatalogTableResultOutput) QueryAsOfTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.QueryAsOfTime }).(pulumi.StringPtrOutput)
+}
+
+// Region of the target table.
+func (o LookupCatalogTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Retention time for this table.

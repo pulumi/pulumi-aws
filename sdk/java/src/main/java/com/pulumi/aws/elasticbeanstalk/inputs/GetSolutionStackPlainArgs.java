@@ -60,11 +60,19 @@ public final class GetSolutionStackPlainArgs extends com.pulumi.resources.Invoke
         return this.nameRegex;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetSolutionStackPlainArgs() {}
 
     private GetSolutionStackPlainArgs(GetSolutionStackPlainArgs $) {
         this.mostRecent = $.mostRecent;
         this.nameRegex = $.nameRegex;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -111,6 +119,11 @@ public final class GetSolutionStackPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder nameRegex(String nameRegex) {
             $.nameRegex = nameRegex;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

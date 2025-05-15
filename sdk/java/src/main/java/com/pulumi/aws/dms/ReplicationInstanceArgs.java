@@ -196,6 +196,21 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      * 
      */
@@ -294,6 +309,7 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         this.networkType = $.networkType;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.replicationInstanceClass = $.replicationInstanceClass;
         this.replicationInstanceId = $.replicationInstanceId;
         this.replicationSubnetGroupId = $.replicationSubnetGroupId;
@@ -558,6 +574,27 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

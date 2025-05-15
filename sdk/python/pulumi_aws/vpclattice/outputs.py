@@ -245,7 +245,9 @@ class ListenerRuleAction(dict):
                  forward: Optional['outputs.ListenerRuleActionForward'] = None):
         """
         :param 'ListenerRuleActionFixedResponseArgs' fixed_response: Describes the rule action that returns a custom HTTP response.
+               See `fixed_response` Block for details.
         :param 'ListenerRuleActionForwardArgs' forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+               See `forward` Block for details.
         """
         if fixed_response is not None:
             pulumi.set(__self__, "fixed_response", fixed_response)
@@ -257,6 +259,7 @@ class ListenerRuleAction(dict):
     def fixed_response(self) -> Optional['outputs.ListenerRuleActionFixedResponse']:
         """
         Describes the rule action that returns a custom HTTP response.
+        See `fixed_response` Block for details.
         """
         return pulumi.get(self, "fixed_response")
 
@@ -265,6 +268,7 @@ class ListenerRuleAction(dict):
     def forward(self) -> Optional['outputs.ListenerRuleActionForward']:
         """
         The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        See `forward` Block for details.
         """
         return pulumi.get(self, "forward")
 
@@ -400,18 +404,19 @@ class ListenerRuleMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 http_match: Optional['outputs.ListenerRuleMatchHttpMatch'] = None):
+                 http_match: 'outputs.ListenerRuleMatchHttpMatch'):
         """
         :param 'ListenerRuleMatchHttpMatchArgs' http_match: The HTTP criteria that a rule must match.
+               See `http_match` Block for details.
         """
-        if http_match is not None:
-            pulumi.set(__self__, "http_match", http_match)
+        pulumi.set(__self__, "http_match", http_match)
 
     @property
     @pulumi.getter(name="httpMatch")
-    def http_match(self) -> Optional['outputs.ListenerRuleMatchHttpMatch']:
+    def http_match(self) -> 'outputs.ListenerRuleMatchHttpMatch':
         """
         The HTTP criteria that a rule must match.
+        See `http_match` Block for details.
         """
         return pulumi.get(self, "http_match")
 
@@ -442,9 +447,12 @@ class ListenerRuleMatchHttpMatch(dict):
                  method: Optional[builtins.str] = None,
                  path_match: Optional['outputs.ListenerRuleMatchHttpMatchPathMatch'] = None):
         """
-        :param Sequence['ListenerRuleMatchHttpMatchHeaderMatchArgs'] header_matches: The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        :param Sequence['ListenerRuleMatchHttpMatchHeaderMatchArgs'] header_matches: The header matches.
+               Matches incoming requests with rule based on request header value before applying rule action.
+               See `header_matches` Block for details.
         :param builtins.str method: The HTTP method type.
         :param 'ListenerRuleMatchHttpMatchPathMatchArgs' path_match: The path match.
+               See `path_match` Block for details.
         """
         if header_matches is not None:
             pulumi.set(__self__, "header_matches", header_matches)
@@ -457,7 +465,9 @@ class ListenerRuleMatchHttpMatch(dict):
     @pulumi.getter(name="headerMatches")
     def header_matches(self) -> Optional[Sequence['outputs.ListenerRuleMatchHttpMatchHeaderMatch']]:
         """
-        The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        The header matches.
+        Matches incoming requests with rule based on request header value before applying rule action.
+        See `header_matches` Block for details.
         """
         return pulumi.get(self, "header_matches")
 
@@ -474,6 +484,7 @@ class ListenerRuleMatchHttpMatch(dict):
     def path_match(self) -> Optional['outputs.ListenerRuleMatchHttpMatchPathMatch']:
         """
         The path match.
+        See `path_match` Block for details.
         """
         return pulumi.get(self, "path_match")
 
@@ -503,8 +514,10 @@ class ListenerRuleMatchHttpMatchHeaderMatch(dict):
                  case_sensitive: Optional[builtins.bool] = None):
         """
         :param 'ListenerRuleMatchHttpMatchHeaderMatchMatchArgs' match: The header match type.
+               See Header Match `match` Block for details.
         :param builtins.str name: The name of the header.
-        :param builtins.bool case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
+        :param builtins.bool case_sensitive: Indicates whether the match is case sensitive.
+               Default is `false`.
         """
         pulumi.set(__self__, "match", match)
         pulumi.set(__self__, "name", name)
@@ -516,6 +529,7 @@ class ListenerRuleMatchHttpMatchHeaderMatch(dict):
     def match(self) -> 'outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch':
         """
         The header match type.
+        See Header Match `match` Block for details.
         """
         return pulumi.get(self, "match")
 
@@ -531,7 +545,8 @@ class ListenerRuleMatchHttpMatchHeaderMatch(dict):
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> Optional[builtins.bool]:
         """
-        Indicates whether the match is case sensitive. Defaults to false.
+        Indicates whether the match is case sensitive.
+        Default is `false`.
         """
         return pulumi.get(self, "case_sensitive")
 
@@ -545,7 +560,8 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
         """
         :param builtins.str contains: Specifies a contains type match.
         :param builtins.str exact: Specifies an exact type match.
-        :param builtins.str prefix: Specifies a prefix type match. Matches the value with the prefix.
+        :param builtins.str prefix: Specifies a prefix type match.
+               Matches the value with the prefix.
         """
         if contains is not None:
             pulumi.set(__self__, "contains", contains)
@@ -574,7 +590,8 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[builtins.str]:
         """
-        Specifies a prefix type match. Matches the value with the prefix.
+        Specifies a prefix type match.
+        Matches the value with the prefix.
         """
         return pulumi.get(self, "prefix")
 
@@ -603,7 +620,9 @@ class ListenerRuleMatchHttpMatchPathMatch(dict):
                  case_sensitive: Optional[builtins.bool] = None):
         """
         :param 'ListenerRuleMatchHttpMatchPathMatchMatchArgs' match: The header match type.
-        :param builtins.bool case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
+               See Path Match `match` Block for details.
+        :param builtins.bool case_sensitive: Indicates whether the match is case sensitive.
+               Default is `false`.
         """
         pulumi.set(__self__, "match", match)
         if case_sensitive is not None:
@@ -614,6 +633,7 @@ class ListenerRuleMatchHttpMatchPathMatch(dict):
     def match(self) -> 'outputs.ListenerRuleMatchHttpMatchPathMatchMatch':
         """
         The header match type.
+        See Path Match `match` Block for details.
         """
         return pulumi.get(self, "match")
 
@@ -621,7 +641,8 @@ class ListenerRuleMatchHttpMatchPathMatch(dict):
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> Optional[builtins.bool]:
         """
-        Indicates whether the match is case sensitive. Defaults to false.
+        Indicates whether the match is case sensitive.
+        Default is `false`.
         """
         return pulumi.get(self, "case_sensitive")
 
@@ -633,7 +654,8 @@ class ListenerRuleMatchHttpMatchPathMatchMatch(dict):
                  prefix: Optional[builtins.str] = None):
         """
         :param builtins.str exact: Specifies an exact type match.
-        :param builtins.str prefix: Specifies a prefix type match. Matches the value with the prefix.
+        :param builtins.str prefix: Specifies a prefix type match.
+               Matches the value with the prefix.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -652,7 +674,8 @@ class ListenerRuleMatchHttpMatchPathMatchMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[builtins.str]:
         """
-        Specifies a prefix type match. Matches the value with the prefix.
+        Specifies a prefix type match.
+        Matches the value with the prefix.
         """
         return pulumi.get(self, "prefix")
 

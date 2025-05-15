@@ -41,6 +41,7 @@ export function getPublicIpv4Pools(args?: GetPublicIpv4PoolsArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -53,6 +54,7 @@ export interface GetPublicIpv4PoolsArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetPublicIpv4PoolsFilter[];
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
      *
@@ -75,6 +77,7 @@ export interface GetPublicIpv4PoolsResult {
      * List of all the pool IDs found.
      */
     readonly poolIds: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -111,6 +114,7 @@ export function getPublicIpv4PoolsOutput(args?: GetPublicIpv4PoolsOutputArgs, op
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -123,6 +127,7 @@ export interface GetPublicIpv4PoolsOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetPublicIpv4PoolsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
      *

@@ -163,6 +163,10 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a FunctionEventInvokeConfig resource with the given unique name, arguments, and options.
@@ -182,6 +186,7 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
             resourceInputs["maximumEventAgeInSeconds"] = state ? state.maximumEventAgeInSeconds : undefined;
             resourceInputs["maximumRetryAttempts"] = state ? state.maximumRetryAttempts : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as FunctionEventInvokeConfigArgs | undefined;
             if ((!args || args.functionName === undefined) && !opts.urn) {
@@ -192,6 +197,7 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
             resourceInputs["maximumEventAgeInSeconds"] = args ? args.maximumEventAgeInSeconds : undefined;
             resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FunctionEventInvokeConfig.__pulumiType, name, resourceInputs, opts);
@@ -224,6 +230,10 @@ export interface FunctionEventInvokeConfigState {
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -252,4 +262,8 @@ export interface FunctionEventInvokeConfigArgs {
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

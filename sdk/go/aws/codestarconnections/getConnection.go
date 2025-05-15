@@ -83,7 +83,8 @@ type LookupConnectionArgs struct {
 	// CodeStar Connection name.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -101,6 +102,7 @@ type LookupConnectionResult struct {
 	Name string `pulumi:"name"`
 	// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an codestarconnections.Host resource and use `hostArn` instead.
 	ProviderType string `pulumi:"providerType"`
+	Region       string `pulumi:"region"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -121,7 +123,8 @@ type LookupConnectionOutputArgs struct {
 	// CodeStar Connection name.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -172,6 +175,10 @@ func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 // Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an codestarconnections.Host resource and use `hostArn` instead.
 func (o LookupConnectionResultOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderType }).(pulumi.StringOutput)
+}
+
+func (o LookupConnectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of key-value resource tags to associate with the resource.

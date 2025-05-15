@@ -94,6 +94,12 @@ namespace Pulumi.Aws.DirectoryService
         public Output<int> RadiusTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Required for enabling RADIUS on the directory.
         /// </summary>
         [Output("sharedSecret")]
@@ -203,6 +209,12 @@ namespace Pulumi.Aws.DirectoryService
         [Input("radiusTimeout", required: true)]
         public Input<int> RadiusTimeout { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("sharedSecret", required: true)]
         private Input<string>? _sharedSecret;
 
@@ -280,6 +292,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("radiusTimeout")]
         public Input<int>? RadiusTimeout { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("sharedSecret")]
         private Input<string>? _sharedSecret;

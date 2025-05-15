@@ -105,6 +105,10 @@ export class ElasticCluster extends pulumi.CustomResource {
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      */
     public readonly shardCapacity!: pulumi.Output<number>;
@@ -152,6 +156,7 @@ export class ElasticCluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["shardCapacity"] = state ? state.shardCapacity : undefined;
             resourceInputs["shardCount"] = state ? state.shardCount : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -184,6 +189,7 @@ export class ElasticCluster extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["shardCapacity"] = args ? args.shardCapacity : undefined;
             resourceInputs["shardCount"] = args ? args.shardCount : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -246,6 +252,10 @@ export interface ElasticClusterState {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      */
     shardCapacity?: pulumi.Input<number>;
@@ -307,6 +317,10 @@ export interface ElasticClusterArgs {
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      */

@@ -53,6 +53,9 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
  *             .vpcId(exampleAwsVpc.id())
+ *             .enabledAnalysisTypes(            
+ *                 "TLS_SNI",
+ *                 "HTTP_HOST")
  *             .subnetMappings(FirewallSubnetMappingArgs.builder()
  *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
@@ -120,6 +123,20 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     * 
+     */
+    @Export(name="enabledAnalysisTypes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> enabledAnalysisTypes;
+
+    /**
+     * @return Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     * 
+     */
+    public Output<Optional<List<String>>> enabledAnalysisTypes() {
+        return Codegen.optional(this.enabledAnalysisTypes);
     }
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -190,6 +207,20 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.

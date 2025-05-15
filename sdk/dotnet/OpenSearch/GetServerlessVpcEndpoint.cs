@@ -87,6 +87,9 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessVpcEndpointArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The unique identifier of the endpoint.
         /// </summary>
@@ -101,6 +104,9 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessVpcEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The unique identifier of the endpoint.
         /// </summary>
@@ -129,6 +135,7 @@ namespace Pulumi.Aws.OpenSearch
         /// The name of the endpoint.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         /// </summary>
@@ -151,6 +158,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string name,
 
+            string region,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds,
@@ -162,6 +171,7 @@ namespace Pulumi.Aws.OpenSearch
             CreatedDate = createdDate;
             Id = id;
             Name = name;
+            Region = region;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
             VpcEndpointId = vpcEndpointId;

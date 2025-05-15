@@ -21,14 +21,18 @@ __all__ = ['LogDeliveryDestinationPolicyArgs', 'LogDeliveryDestinationPolicy']
 class LogDeliveryDestinationPolicyArgs:
     def __init__(__self__, *,
                  delivery_destination_name: pulumi.Input[builtins.str],
-                 delivery_destination_policy: pulumi.Input[builtins.str]):
+                 delivery_destination_policy: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LogDeliveryDestinationPolicy resource.
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
         :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
         pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="deliveryDestinationName")
@@ -54,21 +58,37 @@ class LogDeliveryDestinationPolicyArgs:
     def delivery_destination_policy(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "delivery_destination_policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LogDeliveryDestinationPolicyState:
     def __init__(__self__, *,
                  delivery_destination_name: Optional[pulumi.Input[builtins.str]] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[builtins.str]] = None):
+                 delivery_destination_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDeliveryDestinationPolicy resources.
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
         :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if delivery_destination_name is not None:
             pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
         if delivery_destination_policy is not None:
             pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="deliveryDestinationName")
@@ -94,6 +114,18 @@ class _LogDeliveryDestinationPolicyState:
     def delivery_destination_policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "delivery_destination_policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class LogDeliveryDestinationPolicy(pulumi.CustomResource):
 
@@ -105,6 +137,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_name: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_destination_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudWatch Logs Delivery Destination Policy.
@@ -134,6 +167,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
         :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -182,6 +216,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_name: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_destination_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,6 +232,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
             if delivery_destination_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_destination_policy'")
             __props__.__dict__["delivery_destination_policy"] = delivery_destination_policy
+            __props__.__dict__["region"] = region
         super(LogDeliveryDestinationPolicy, __self__).__init__(
             'aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy',
             resource_name,
@@ -208,7 +244,8 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             delivery_destination_name: Optional[pulumi.Input[builtins.str]] = None,
-            delivery_destination_policy: Optional[pulumi.Input[builtins.str]] = None) -> 'LogDeliveryDestinationPolicy':
+            delivery_destination_policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LogDeliveryDestinationPolicy':
         """
         Get an existing LogDeliveryDestinationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -218,6 +255,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
         :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -225,6 +263,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
 
         __props__.__dict__["delivery_destination_name"] = delivery_destination_name
         __props__.__dict__["delivery_destination_policy"] = delivery_destination_policy
+        __props__.__dict__["region"] = region
         return LogDeliveryDestinationPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -242,4 +281,12 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
         The contents of the policy.
         """
         return pulumi.get(self, "delivery_destination_policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

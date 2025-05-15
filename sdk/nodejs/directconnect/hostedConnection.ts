@@ -63,6 +63,10 @@ export class HostedConnection extends pulumi.CustomResource {
      */
     public readonly connectionId!: pulumi.Output<string>;
     /**
+     * The AWS Region where the connection is located.
+     */
+    public /*out*/ readonly connectionRegion!: pulumi.Output<string>;
+    /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
     public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
@@ -99,7 +103,9 @@ export class HostedConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerName!: pulumi.Output<string>;
     /**
-     * The AWS Region where the connection is located.
+     * (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
+     *
+     * @deprecated region is deprecated. Use connectionRegion instead.
      */
     public /*out*/ readonly region!: pulumi.Output<string>;
     /**
@@ -127,6 +133,7 @@ export class HostedConnection extends pulumi.CustomResource {
             resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
             resourceInputs["bandwidth"] = state ? state.bandwidth : undefined;
             resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["connectionRegion"] = state ? state.connectionRegion : undefined;
             resourceInputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
             resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
             resourceInputs["lagId"] = state ? state.lagId : undefined;
@@ -159,6 +166,7 @@ export class HostedConnection extends pulumi.CustomResource {
             resourceInputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
             resourceInputs["vlan"] = args ? args.vlan : undefined;
             resourceInputs["awsDevice"] = undefined /*out*/;
+            resourceInputs["connectionRegion"] = undefined /*out*/;
             resourceInputs["hasLogicalRedundancy"] = undefined /*out*/;
             resourceInputs["jumboFrameCapable"] = undefined /*out*/;
             resourceInputs["lagId"] = undefined /*out*/;
@@ -190,6 +198,10 @@ export interface HostedConnectionState {
      * The ID of the interconnect or LAG.
      */
     connectionId?: pulumi.Input<string>;
+    /**
+     * The AWS Region where the connection is located.
+     */
+    connectionRegion?: pulumi.Input<string>;
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
@@ -227,7 +239,9 @@ export interface HostedConnectionState {
      */
     providerName?: pulumi.Input<string>;
     /**
-     * The AWS Region where the connection is located.
+     * (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
+     *
+     * @deprecated region is deprecated. Use connectionRegion instead.
      */
     region?: pulumi.Input<string>;
     /**

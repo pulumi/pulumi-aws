@@ -31,8 +31,8 @@ namespace Pulumi.Aws.Oam
         /// });
         /// ```
         /// </summary>
-        public static Task<GetSinksResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSinksResult>("aws:oam/getSinks:getSinks", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetSinksResult> InvokeAsync(GetSinksArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSinksResult>("aws:oam/getSinks:getSinks", args ?? new GetSinksArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
@@ -54,8 +54,8 @@ namespace Pulumi.Aws.Oam
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSinksResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSinksResult>("aws:oam/getSinks:getSinks", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSinksResult> Invoke(GetSinksInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSinksResult>("aws:oam/getSinks:getSinks", args ?? new GetSinksInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
@@ -77,8 +77,31 @@ namespace Pulumi.Aws.Oam
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSinksResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSinksResult>("aws:oam/getSinks:getSinks", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSinksResult> Invoke(GetSinksInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSinksResult>("aws:oam/getSinks:getSinks", args ?? new GetSinksInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetSinksArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetSinksArgs()
+        {
+        }
+        public static new GetSinksArgs Empty => new GetSinksArgs();
+    }
+
+    public sealed class GetSinksInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetSinksInvokeArgs()
+        {
+        }
+        public static new GetSinksInvokeArgs Empty => new GetSinksInvokeArgs();
     }
 
 
@@ -93,15 +116,19 @@ namespace Pulumi.Aws.Oam
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSinksResult(
             ImmutableArray<string> arns,
 
-            string id)
+            string id,
+
+            string region)
         {
             Arns = arns;
             Id = id;
+            Region = region;
         }
     }
 }

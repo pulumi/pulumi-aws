@@ -52,6 +52,7 @@ func LookupDataLakeSettings(ctx *pulumi.Context, args *LookupDataLakeSettingsArg
 type LookupDataLakeSettingsArgs struct {
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId *string `pulumi:"catalogId"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDataLakeSettings.
@@ -77,6 +78,7 @@ type LookupDataLakeSettingsResult struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
+	Region         string   `pulumi:"region"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	TrustedResourceOwners []string `pulumi:"trustedResourceOwners"`
 }
@@ -94,6 +96,7 @@ func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettin
 type LookupDataLakeSettingsOutputArgs struct {
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDataLakeSettingsOutputArgs) ElementType() reflect.Type {
@@ -171,6 +174,10 @@ func (o LookupDataLakeSettingsResultOutput) Parameters() pulumi.StringMapOutput 
 // List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 func (o LookupDataLakeSettingsResultOutput) ReadOnlyAdmins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) []string { return v.ReadOnlyAdmins }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupDataLakeSettingsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).

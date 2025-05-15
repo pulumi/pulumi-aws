@@ -46,6 +46,12 @@ namespace Pulumi.Aws.CloudWatch
     public partial class ContributorInsightRule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the Contributor Insight Rule.
         /// </summary>
         [Output("resourceArn")]
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class ContributorInsightRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         /// </summary>
         [Input("ruleDefinition", required: true)]
@@ -159,6 +171,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class ContributorInsightRuleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ARN of the Contributor Insight Rule.
         /// </summary>

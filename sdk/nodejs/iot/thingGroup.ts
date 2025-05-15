@@ -89,6 +89,10 @@ export class ThingGroup extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.iot.ThingGroupProperties | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value mapping of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -116,6 +120,7 @@ export class ThingGroup extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentGroupName"] = state ? state.parentGroupName : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -124,6 +129,7 @@ export class ThingGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentGroupName"] = args ? args.parentGroupName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["metadatas"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface ThingGroupState {
      */
     properties?: pulumi.Input<inputs.iot.ThingGroupProperties>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value mapping of resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -183,6 +193,10 @@ export interface ThingGroupArgs {
      * The Thing Group properties. Defined below.
      */
     properties?: pulumi.Input<inputs.iot.ThingGroupProperties>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags
      */

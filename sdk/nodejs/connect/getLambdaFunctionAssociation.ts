@@ -24,6 +24,7 @@ export function getLambdaFunctionAssociation(args: GetLambdaFunctionAssociationA
     return pulumi.runtime.invoke("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", {
         "functionArn": args.functionArn,
         "instanceId": args.instanceId,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,7 @@ export interface GetLambdaFunctionAssociationArgs {
      * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
     instanceId: string;
+    region?: string;
 }
 
 /**
@@ -51,6 +53,7 @@ export interface GetLambdaFunctionAssociationResult {
      */
     readonly id: string;
     readonly instanceId: string;
+    readonly region: string;
 }
 /**
  * Provides details about a specific Connect Lambda Function Association.
@@ -72,6 +75,7 @@ export function getLambdaFunctionAssociationOutput(args: GetLambdaFunctionAssoci
     return pulumi.runtime.invokeOutput("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", {
         "functionArn": args.functionArn,
         "instanceId": args.instanceId,
+        "region": args.region,
     }, opts);
 }
 
@@ -87,4 +91,5 @@ export interface GetLambdaFunctionAssociationOutputArgs {
      * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
     instanceId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -94,6 +94,10 @@ export class InferenceProfile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -131,6 +135,7 @@ export class InferenceProfile extends pulumi.CustomResource {
             resourceInputs["modelSource"] = state ? state.modelSource : undefined;
             resourceInputs["models"] = state ? state.models : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -142,6 +147,7 @@ export class InferenceProfile extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["modelSource"] = args ? args.modelSource : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -188,6 +194,10 @@ export interface InferenceProfileState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      */
     status?: pulumi.Input<string>;
@@ -225,6 +235,10 @@ export interface InferenceProfileArgs {
      * The name of the inference profile.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags for the inference profile.
      */

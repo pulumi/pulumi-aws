@@ -318,11 +318,18 @@ namespace Pulumi.Aws.Ec2
         [Input("publicIp")]
         public string? PublicIp { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Elastic IPs in the current region. The given filters must match exactly one
+        /// Elastic IP whose data will be exported as attributes.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -362,11 +369,18 @@ namespace Pulumi.Aws.Ec2
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Elastic IPs in the current region. The given filters must match exactly one
+        /// Elastic IP whose data will be exported as attributes.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -450,6 +464,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of an address pool.
         /// </summary>
         public readonly string PublicIpv4Pool;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of tags associated with Elastic IP.
         /// </summary>
@@ -493,6 +508,8 @@ namespace Pulumi.Aws.Ec2
 
             string publicIpv4Pool,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -513,6 +530,7 @@ namespace Pulumi.Aws.Ec2
             PublicDns = publicDns;
             PublicIp = publicIp;
             PublicIpv4Pool = publicIpv4Pool;
+            Region = region;
             Tags = tags;
         }
     }

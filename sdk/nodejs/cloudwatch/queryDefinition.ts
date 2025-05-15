@@ -78,6 +78,10 @@ export class QueryDefinition extends pulumi.CustomResource {
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */
     public readonly queryString!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a QueryDefinition resource with the given unique name, arguments, and options.
@@ -96,6 +100,7 @@ export class QueryDefinition extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["queryDefinitionId"] = state ? state.queryDefinitionId : undefined;
             resourceInputs["queryString"] = state ? state.queryString : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as QueryDefinitionArgs | undefined;
             if ((!args || args.queryString === undefined) && !opts.urn) {
@@ -104,6 +109,7 @@ export class QueryDefinition extends pulumi.CustomResource {
             resourceInputs["logGroupNames"] = args ? args.logGroupNames : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +137,10 @@ export interface QueryDefinitionState {
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */
     queryString?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -149,4 +159,8 @@ export interface QueryDefinitionArgs {
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */
     queryString: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

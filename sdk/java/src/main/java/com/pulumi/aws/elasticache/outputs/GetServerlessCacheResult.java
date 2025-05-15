@@ -76,6 +76,7 @@ public final class GetServerlessCacheResult {
      * 
      */
     private GetServerlessCacheReaderEndpoint readerEndpoint;
+    private String region;
     /**
      * @return A list of the one or more VPC security groups associated with the serverless cache.
      * 
@@ -190,6 +191,9 @@ public final class GetServerlessCacheResult {
     public GetServerlessCacheReaderEndpoint readerEndpoint() {
         return this.readerEndpoint;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A list of the one or more VPC security groups associated with the serverless cache.
      * 
@@ -248,6 +252,7 @@ public final class GetServerlessCacheResult {
         private String majorEngineVersion;
         private String name;
         private GetServerlessCacheReaderEndpoint readerEndpoint;
+        private String region;
         private List<String> securityGroupIds;
         private Integer snapshotRetentionLimit;
         private String status;
@@ -269,6 +274,7 @@ public final class GetServerlessCacheResult {
     	      this.majorEngineVersion = defaults.majorEngineVersion;
     	      this.name = defaults.name;
     	      this.readerEndpoint = defaults.readerEndpoint;
+    	      this.region = defaults.region;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.snapshotRetentionLimit = defaults.snapshotRetentionLimit;
     	      this.status = defaults.status;
@@ -381,6 +387,14 @@ public final class GetServerlessCacheResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCacheResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             if (securityGroupIds == null) {
               throw new MissingRequiredPropertyException("GetServerlessCacheResult", "securityGroupIds");
@@ -441,6 +455,7 @@ public final class GetServerlessCacheResult {
             _resultValue.majorEngineVersion = majorEngineVersion;
             _resultValue.name = name;
             _resultValue.readerEndpoint = readerEndpoint;
+            _resultValue.region = region;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;
             _resultValue.status = status;

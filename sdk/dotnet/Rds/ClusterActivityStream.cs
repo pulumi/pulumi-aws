@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the DB cluster.
         /// </summary>
         [Output("resourceArn")]
@@ -181,6 +187,12 @@ namespace Pulumi.Aws.Rds
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the DB cluster.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -217,6 +229,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the DB cluster.

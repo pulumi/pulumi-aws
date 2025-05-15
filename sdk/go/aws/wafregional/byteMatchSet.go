@@ -64,6 +64,8 @@ type ByteMatchSet struct {
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayOutput `pulumi:"byteMatchTuples"`
 	// The name or description of the ByteMatchSet.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewByteMatchSet registers a new resource with the given unique name, arguments, and options.
@@ -100,6 +102,8 @@ type byteMatchSetState struct {
 	ByteMatchTuples []ByteMatchSetByteMatchTuple `pulumi:"byteMatchTuples"`
 	// The name or description of the ByteMatchSet.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ByteMatchSetState struct {
@@ -107,6 +111,8 @@ type ByteMatchSetState struct {
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayInput
 	// The name or description of the ByteMatchSet.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ByteMatchSetState) ElementType() reflect.Type {
@@ -118,6 +124,8 @@ type byteMatchSetArgs struct {
 	ByteMatchTuples []ByteMatchSetByteMatchTuple `pulumi:"byteMatchTuples"`
 	// The name or description of the ByteMatchSet.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ByteMatchSet resource.
@@ -126,6 +134,8 @@ type ByteMatchSetArgs struct {
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayInput
 	// The name or description of the ByteMatchSet.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ByteMatchSetArgs) ElementType() reflect.Type {
@@ -223,6 +233,11 @@ func (o ByteMatchSetOutput) ByteMatchTuples() ByteMatchSetByteMatchTupleArrayOut
 // The name or description of the ByteMatchSet.
 func (o ByteMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ByteMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ByteMatchSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ByteMatchSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ByteMatchSetArrayOutput struct{ *pulumi.OutputState }

@@ -48,6 +48,7 @@ public final class GetKeyResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Map of tags for the resource.
      * 
@@ -112,6 +113,9 @@ public final class GetKeyResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags for the resource.
      * 
@@ -144,6 +148,7 @@ public final class GetKeyResult {
         private String id;
         private String lastUpdatedDate;
         private String name;
+        private String region;
         private Map<String,String> tags;
         private String value;
         public Builder() {}
@@ -157,6 +162,7 @@ public final class GetKeyResult {
     	      this.id = defaults.id;
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.value = defaults.value;
         }
@@ -226,6 +232,14 @@ public final class GetKeyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetKeyResult", "tags");
@@ -251,6 +265,7 @@ public final class GetKeyResult {
             _resultValue.id = id;
             _resultValue.lastUpdatedDate = lastUpdatedDate;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.value = value;
             return _resultValue;

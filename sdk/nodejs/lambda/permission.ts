@@ -250,6 +250,10 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      */
     public readonly sourceAccount!: pulumi.Output<string | undefined>;
@@ -290,6 +294,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["principal"] = state ? state.principal : undefined;
             resourceInputs["principalOrgId"] = state ? state.principalOrgId : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceAccount"] = state ? state.sourceAccount : undefined;
             resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
             resourceInputs["statementId"] = state ? state.statementId : undefined;
@@ -312,6 +317,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["principalOrgId"] = args ? args.principalOrgId : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
             resourceInputs["statementId"] = args ? args.statementId : undefined;
@@ -358,6 +364,10 @@ export interface PermissionState {
      * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      */
@@ -416,6 +426,10 @@ export interface PermissionArgs {
      * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      */

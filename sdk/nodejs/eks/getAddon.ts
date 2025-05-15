@@ -28,6 +28,7 @@ export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("aws:eks/getAddon:getAddon", {
         "addonName": args.addonName,
         "clusterName": args.clusterName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,6 +46,7 @@ export interface GetAddonArgs {
      * Name of the EKS Cluster.
      */
     clusterName: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -82,6 +84,7 @@ export interface GetAddonResult {
      * Pod identity association for the EKS add-on.
      */
     readonly podIdentityAssociations: outputs.eks.GetAddonPodIdentityAssociation[];
+    readonly region: string;
     /**
      * ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
@@ -110,6 +113,7 @@ export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOut
     return pulumi.runtime.invokeOutput("aws:eks/getAddon:getAddon", {
         "addonName": args.addonName,
         "clusterName": args.clusterName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -127,5 +131,6 @@ export interface GetAddonOutputArgs {
      * Name of the EKS Cluster.
      */
     clusterName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

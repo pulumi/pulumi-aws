@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetRouteTableRoutesPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,6 +30,13 @@ public final class GetRouteTableRoutesPlainArgs extends com.pulumi.resources.Inv
      */
     public List<GetRouteTableRoutesFilter> filters() {
         return this.filters;
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -55,6 +64,7 @@ public final class GetRouteTableRoutesPlainArgs extends com.pulumi.resources.Inv
 
     private GetRouteTableRoutesPlainArgs(GetRouteTableRoutesPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
     }
 
@@ -95,6 +105,11 @@ public final class GetRouteTableRoutesPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder filters(GetRouteTableRoutesFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

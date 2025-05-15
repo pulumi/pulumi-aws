@@ -26,6 +26,7 @@ export function getAppregistryAttributeGroupAssociations(args?: GetAppregistryAt
     return pulumi.runtime.invoke("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -43,6 +44,7 @@ export interface GetAppregistryAttributeGroupAssociationsArgs {
      * The following arguments are optional:
      */
     name?: string;
+    region?: string;
 }
 
 /**
@@ -55,6 +57,7 @@ export interface GetAppregistryAttributeGroupAssociationsResult {
     readonly attributeGroupIds: string[];
     readonly id?: string;
     readonly name?: string;
+    readonly region: string;
 }
 /**
  * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
@@ -78,6 +81,7 @@ export function getAppregistryAttributeGroupAssociationsOutput(args?: GetAppregi
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -95,4 +99,5 @@ export interface GetAppregistryAttributeGroupAssociationsOutputArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

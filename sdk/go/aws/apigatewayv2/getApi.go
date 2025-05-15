@@ -51,7 +51,8 @@ func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getApi.
 type LookupApiArgs struct {
 	// API identifier.
-	ApiId string `pulumi:"apiId"`
+	ApiId  string  `pulumi:"apiId"`
+	Region *string `pulumi:"region"`
 	// Map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -84,6 +85,7 @@ type LookupApiResult struct {
 	Name string `pulumi:"name"`
 	// API protocol.
 	ProtocolType string `pulumi:"protocolType"`
+	Region       string `pulumi:"region"`
 	// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
 	RouteSelectionExpression string `pulumi:"routeSelectionExpression"`
 	// Map of resource tags.
@@ -104,7 +106,8 @@ func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulu
 // A collection of arguments for invoking getApi.
 type LookupApiOutputArgs struct {
 	// API identifier.
-	ApiId pulumi.StringInput `pulumi:"apiId"`
+	ApiId  pulumi.StringInput    `pulumi:"apiId"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -188,6 +191,10 @@ func (o LookupApiResultOutput) Name() pulumi.StringOutput {
 // API protocol.
 func (o LookupApiResultOutput) ProtocolType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.ProtocolType }).(pulumi.StringOutput)
+}
+
+func (o LookupApiResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.

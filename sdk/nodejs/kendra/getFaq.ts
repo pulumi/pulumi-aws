@@ -27,6 +27,7 @@ export function getFaq(args: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<G
     return pulumi.runtime.invoke("aws:kendra/getFaq:getFaq", {
         "faqId": args.faqId,
         "indexId": args.indexId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,7 @@ export interface GetFaqArgs {
      * Identifier of the index that contains the FAQ.
      */
     indexId: string;
+    region?: string;
     /**
      * Metadata that helps organize the FAQs you create.
      */
@@ -87,6 +89,7 @@ export interface GetFaqResult {
      * Name of the FAQ.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
@@ -128,6 +131,7 @@ export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOutputO
     return pulumi.runtime.invokeOutput("aws:kendra/getFaq:getFaq", {
         "faqId": args.faqId,
         "indexId": args.indexId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -144,6 +148,7 @@ export interface GetFaqOutputArgs {
      * Identifier of the index that contains the FAQ.
      */
     indexId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Metadata that helps organize the FAQs you create.
      */

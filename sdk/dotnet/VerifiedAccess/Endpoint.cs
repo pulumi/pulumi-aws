@@ -215,6 +215,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<Outputs.EndpointRdsOptions?> RdsOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of the the security groups IDs to associate with the Verified Access endpoint.
         /// </summary>
         [Output("securityGroupIds")]
@@ -355,6 +361,12 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("rdsOptions")]
         public Input<Inputs.EndpointRdsOptionsArgs>? RdsOptions { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -383,14 +395,6 @@ namespace Pulumi.Aws.VerifiedAccess
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -483,6 +487,12 @@ namespace Pulumi.Aws.VerifiedAccess
 
         [Input("rdsOptions")]
         public Input<Inputs.EndpointRdsOptionsGetArgs>? RdsOptions { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

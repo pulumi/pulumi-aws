@@ -30,6 +30,7 @@ export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulum
         "clusterVersion": args.clusterVersion,
         "nodeType": args.nodeType,
         "preferredNodeTypes": args.preferredNodeTypes,
+        "region": args.region,
     }, opts);
 }
 
@@ -53,6 +54,7 @@ export interface GetOrderableClusterArgs {
      * Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
     preferredNodeTypes?: string[];
+    region?: string;
 }
 
 /**
@@ -71,6 +73,7 @@ export interface GetOrderableClusterResult {
     readonly id: string;
     readonly nodeType: string;
     readonly preferredNodeTypes?: string[];
+    readonly region: string;
 }
 /**
  * Information about Redshift Orderable Clusters and valid parameter combinations.
@@ -98,6 +101,7 @@ export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, 
         "clusterVersion": args.clusterVersion,
         "nodeType": args.nodeType,
         "preferredNodeTypes": args.preferredNodeTypes,
+        "region": args.region,
     }, opts);
 }
 
@@ -121,4 +125,5 @@ export interface GetOrderableClusterOutputArgs {
      * Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
     preferredNodeTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
 }

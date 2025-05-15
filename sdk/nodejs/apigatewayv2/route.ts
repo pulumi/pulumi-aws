@@ -122,6 +122,10 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly operationName!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Request models for the route. Supported only for WebSocket APIs.
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -162,6 +166,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["authorizerId"] = state ? state.authorizerId : undefined;
             resourceInputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
             resourceInputs["operationName"] = state ? state.operationName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestModels"] = state ? state.requestModels : undefined;
             resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
             resourceInputs["routeKey"] = state ? state.routeKey : undefined;
@@ -182,6 +187,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
             resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
             resourceInputs["operationName"] = args ? args.operationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestModels"] = args ? args.requestModels : undefined;
             resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
             resourceInputs["routeKey"] = args ? args.routeKey : undefined;
@@ -228,6 +234,10 @@ export interface RouteState {
      * Operation name for the route. Must be between 1 and 64 characters in length.
      */
     operationName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Request models for the route. Supported only for WebSocket APIs.
      */
@@ -285,6 +295,10 @@ export interface RouteArgs {
      * Operation name for the route. Must be between 1 and 64 characters in length.
      */
     operationName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Request models for the route. Supported only for WebSocket APIs.
      */

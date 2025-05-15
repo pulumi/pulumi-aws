@@ -61,6 +61,8 @@ type Partner struct {
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The name of the partner that is authorized to send data.
 	PartnerName pulumi.StringOutput `pulumi:"partnerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// (Optional) The partner integration status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// (Optional) The status message provided by the partner.
@@ -117,6 +119,8 @@ type partnerState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// The name of the partner that is authorized to send data.
 	PartnerName *string `pulumi:"partnerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// (Optional) The partner integration status.
 	Status *string `pulumi:"status"`
 	// (Optional) The status message provided by the partner.
@@ -132,6 +136,8 @@ type PartnerState struct {
 	DatabaseName pulumi.StringPtrInput
 	// The name of the partner that is authorized to send data.
 	PartnerName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// (Optional) The partner integration status.
 	Status pulumi.StringPtrInput
 	// (Optional) The status message provided by the partner.
@@ -151,6 +157,8 @@ type partnerArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the partner that is authorized to send data.
 	PartnerName string `pulumi:"partnerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Partner resource.
@@ -163,6 +171,8 @@ type PartnerArgs struct {
 	DatabaseName pulumi.StringInput
 	// The name of the partner that is authorized to send data.
 	PartnerName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PartnerArgs) ElementType() reflect.Type {
@@ -270,6 +280,11 @@ func (o PartnerOutput) DatabaseName() pulumi.StringOutput {
 // The name of the partner that is authorized to send data.
 func (o PartnerOutput) PartnerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.PartnerName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PartnerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // (Optional) The partner integration status.

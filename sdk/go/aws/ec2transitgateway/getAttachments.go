@@ -28,6 +28,7 @@ func GetAttachments(ctx *pulumi.Context, args *GetAttachmentsArgs, opts ...pulum
 type GetAttachmentsArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetAttachmentsFilter `pulumi:"filters"`
+	Region  *string                `pulumi:"region"`
 	Tags    map[string]string      `pulumi:"tags"`
 }
 
@@ -37,8 +38,9 @@ type GetAttachmentsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.getAttachment][2] data source, searching by identifier.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetAttachmentsOutput(ctx *pulumi.Context, args GetAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetAttachmentsResultOutput {
@@ -54,6 +56,7 @@ func GetAttachmentsOutput(ctx *pulumi.Context, args GetAttachmentsOutputArgs, op
 type GetAttachmentsOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetAttachmentsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput          `pulumi:"region"`
 	Tags    pulumi.StringMapInput          `pulumi:"tags"`
 }
 
@@ -88,6 +91,10 @@ func (o GetAttachmentsResultOutput) Id() pulumi.StringOutput {
 // A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.getAttachment][2] data source, searching by identifier.
 func (o GetAttachmentsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAttachmentsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAttachmentsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAttachmentsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAttachmentsResultOutput) Tags() pulumi.StringMapOutput {

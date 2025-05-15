@@ -40,6 +40,7 @@ export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.Inv
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -60,6 +61,7 @@ export interface GetVirtualServiceArgs {
      * Name of the virtual service.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags.
      */
@@ -89,6 +91,7 @@ export interface GetVirtualServiceResult {
     readonly meshName: string;
     readonly meshOwner: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Resource owner's AWS account ID.
      */
@@ -135,6 +138,7 @@ export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -155,6 +159,7 @@ export interface GetVirtualServiceOutputArgs {
      * Name of the virtual service.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags.
      */

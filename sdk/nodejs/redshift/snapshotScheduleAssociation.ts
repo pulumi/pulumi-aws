@@ -70,6 +70,10 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The snapshot schedule identifier.
      */
     public readonly scheduleIdentifier!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SnapshotScheduleAssociationState | undefined;
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleIdentifier"] = state ? state.scheduleIdentifier : undefined;
         } else {
             const args = argsOrState as SnapshotScheduleAssociationArgs | undefined;
@@ -98,6 +103,7 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scheduleIdentifier'");
             }
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleIdentifier"] = args ? args.scheduleIdentifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -114,6 +120,10 @@ export interface SnapshotScheduleAssociationState {
      */
     clusterIdentifier?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The snapshot schedule identifier.
      */
     scheduleIdentifier?: pulumi.Input<string>;
@@ -127,6 +137,10 @@ export interface SnapshotScheduleAssociationArgs {
      * The cluster identifier.
      */
     clusterIdentifier: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The snapshot schedule identifier.
      */

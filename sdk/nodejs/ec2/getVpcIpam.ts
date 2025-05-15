@@ -27,6 +27,7 @@ export function getVpcIpam(args: GetVpcIpamArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIpam:getVpcIpam", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,7 @@ export interface GetVpcIpamArgs {
      * ID of the IPAM.
      */
     id: string;
+    region?: string;
 }
 
 /**
@@ -88,6 +90,7 @@ export interface GetVpcIpamResult {
      * ID of the default public scope.
      */
     readonly publicDefaultScopeId: string;
+    readonly region: string;
     /**
      * Number of resource discovery associations.
      */
@@ -133,6 +136,7 @@ export function getVpcIpamOutput(args: GetVpcIpamOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpam:getVpcIpam", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -144,4 +148,5 @@ export interface GetVpcIpamOutputArgs {
      * ID of the IPAM.
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

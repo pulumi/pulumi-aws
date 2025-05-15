@@ -175,6 +175,8 @@ type Authorizer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 	ProviderArns pulumi.StringArrayOutput `pulumi:"providerArns"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
@@ -231,6 +233,8 @@ type authorizerState struct {
 	Name *string `pulumi:"name"`
 	// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 	ProviderArns []string `pulumi:"providerArns"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
@@ -255,6 +259,8 @@ type AuthorizerState struct {
 	Name pulumi.StringPtrInput
 	// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 	ProviderArns pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.Input
 	// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
@@ -281,6 +287,8 @@ type authorizerArgs struct {
 	Name *string `pulumi:"name"`
 	// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 	ProviderArns []string `pulumi:"providerArns"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
@@ -304,6 +312,8 @@ type AuthorizerArgs struct {
 	Name pulumi.StringPtrInput
 	// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 	ProviderArns pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.Input
 	// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
@@ -436,6 +446,11 @@ func (o AuthorizerOutput) Name() pulumi.StringOutput {
 // List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 func (o AuthorizerOutput) ProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringArrayOutput { return v.ProviderArns }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AuthorizerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the associated REST API

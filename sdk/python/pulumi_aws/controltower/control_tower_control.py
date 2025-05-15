@@ -24,7 +24,8 @@ class ControlTowerControlArgs:
     def __init__(__self__, *,
                  control_identifier: pulumi.Input[builtins.str],
                  target_identifier: pulumi.Input[builtins.str],
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ControlTowerControl resource.
         :param pulumi.Input[builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
@@ -32,11 +33,14 @@ class ControlTowerControlArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "control_identifier", control_identifier)
         pulumi.set(__self__, "target_identifier", target_identifier)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="controlIdentifier")
@@ -76,6 +80,18 @@ class ControlTowerControlArgs:
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ControlTowerControlState:
@@ -83,12 +99,14 @@ class _ControlTowerControlState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  control_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_identifier: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ControlTowerControl resources.
         :param pulumi.Input[builtins.str] arn: The ARN of the EnabledControl resource.
         :param pulumi.Input[builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         :param pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_identifier: The ARN of the organizational unit.
                
                The following arguments are optional:
@@ -99,6 +117,8 @@ class _ControlTowerControlState:
             pulumi.set(__self__, "control_identifier", control_identifier)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_identifier is not None:
             pulumi.set(__self__, "target_identifier", target_identifier)
 
@@ -139,6 +159,18 @@ class _ControlTowerControlState:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -163,6 +195,7 @@ class ControlTowerControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -200,6 +233,7 @@ class ControlTowerControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_identifier: The ARN of the organizational unit.
                
                The following arguments are optional:
@@ -258,6 +292,7 @@ class ControlTowerControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -272,6 +307,7 @@ class ControlTowerControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'control_identifier'")
             __props__.__dict__["control_identifier"] = control_identifier
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["region"] = region
             if target_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'target_identifier'")
             __props__.__dict__["target_identifier"] = target_identifier
@@ -289,6 +325,7 @@ class ControlTowerControl(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             control_identifier: Optional[pulumi.Input[builtins.str]] = None,
             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target_identifier: Optional[pulumi.Input[builtins.str]] = None) -> 'ControlTowerControl':
         """
         Get an existing ControlTowerControl resource's state with the given name, id, and optional extra
@@ -300,6 +337,7 @@ class ControlTowerControl(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The ARN of the EnabledControl resource.
         :param pulumi.Input[builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_identifier: The ARN of the organizational unit.
                
                The following arguments are optional:
@@ -311,6 +349,7 @@ class ControlTowerControl(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["control_identifier"] = control_identifier
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["region"] = region
         __props__.__dict__["target_identifier"] = target_identifier
         return ControlTowerControl(resource_name, opts=opts, __props__=__props__)
 
@@ -337,6 +376,14 @@ class ControlTowerControl(pulumi.CustomResource):
         Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="targetIdentifier")

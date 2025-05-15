@@ -94,6 +94,7 @@ public final class GetTaskDefinitionResult {
      * 
      */
     private List<GetTaskDefinitionProxyConfiguration> proxyConfigurations;
+    private String region;
     /**
      * @return Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      * 
@@ -233,6 +234,9 @@ public final class GetTaskDefinitionResult {
     public List<GetTaskDefinitionProxyConfiguration> proxyConfigurations() {
         return this.proxyConfigurations;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      * 
@@ -303,6 +307,7 @@ public final class GetTaskDefinitionResult {
         private String pidMode;
         private List<GetTaskDefinitionPlacementConstraint> placementConstraints;
         private List<GetTaskDefinitionProxyConfiguration> proxyConfigurations;
+        private String region;
         private List<String> requiresCompatibilities;
         private Integer revision;
         private List<GetTaskDefinitionRuntimePlatform> runtimePlatforms;
@@ -328,6 +333,7 @@ public final class GetTaskDefinitionResult {
     	      this.pidMode = defaults.pidMode;
     	      this.placementConstraints = defaults.placementConstraints;
     	      this.proxyConfigurations = defaults.proxyConfigurations;
+    	      this.region = defaults.region;
     	      this.requiresCompatibilities = defaults.requiresCompatibilities;
     	      this.revision = defaults.revision;
     	      this.runtimePlatforms = defaults.runtimePlatforms;
@@ -467,6 +473,14 @@ public final class GetTaskDefinitionResult {
             return proxyConfigurations(List.of(proxyConfigurations));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requiresCompatibilities(List<String> requiresCompatibilities) {
             if (requiresCompatibilities == null) {
               throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "requiresCompatibilities");
@@ -548,6 +562,7 @@ public final class GetTaskDefinitionResult {
             _resultValue.pidMode = pidMode;
             _resultValue.placementConstraints = placementConstraints;
             _resultValue.proxyConfigurations = proxyConfigurations;
+            _resultValue.region = region;
             _resultValue.requiresCompatibilities = requiresCompatibilities;
             _resultValue.revision = revision;
             _resultValue.runtimePlatforms = runtimePlatforms;

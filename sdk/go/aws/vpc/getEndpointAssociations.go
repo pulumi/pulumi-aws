@@ -52,6 +52,7 @@ func GetEndpointAssociations(ctx *pulumi.Context, args *GetEndpointAssociationsA
 
 // A collection of arguments for invoking getEndpointAssociations.
 type GetEndpointAssociationsArgs struct {
+	Region *string `pulumi:"region"`
 	// ID of the specific VPC Endpoint to retrieve.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
@@ -62,6 +63,7 @@ type GetEndpointAssociationsResult struct {
 	Associations []GetEndpointAssociationsAssociation `pulumi:"associations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
+	Region        string `pulumi:"region"`
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
 
@@ -76,6 +78,7 @@ func GetEndpointAssociationsOutput(ctx *pulumi.Context, args GetEndpointAssociat
 
 // A collection of arguments for invoking getEndpointAssociations.
 type GetEndpointAssociationsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the specific VPC Endpoint to retrieve.
 	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 }
@@ -107,6 +110,10 @@ func (o GetEndpointAssociationsResultOutput) Associations() GetEndpointAssociati
 // The provider-assigned unique ID for this managed resource.
 func (o GetEndpointAssociationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointAssociationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetEndpointAssociationsResultOutput) VpcEndpointId() pulumi.StringOutput {

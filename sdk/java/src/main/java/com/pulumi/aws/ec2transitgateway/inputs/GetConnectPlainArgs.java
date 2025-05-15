@@ -32,6 +32,13 @@ public final class GetConnectPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value tags for the EC2 Transit Gateway Connect
      * 
@@ -66,6 +73,7 @@ public final class GetConnectPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetConnectPlainArgs(GetConnectPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
         this.transitGatewayConnectId = $.transitGatewayConnectId;
     }
@@ -107,6 +115,11 @@ public final class GetConnectPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filters(GetConnectFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

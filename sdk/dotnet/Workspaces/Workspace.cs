@@ -95,6 +95,12 @@ namespace Pulumi.Aws.Workspaces
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the data stored on the root volume is encrypted.
         /// </summary>
         [Output("rootVolumeEncryptionEnabled")]
@@ -201,6 +207,12 @@ namespace Pulumi.Aws.Workspaces
         public Input<string> DirectoryId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Indicates whether the data stored on the root volume is encrypted.
         /// </summary>
         [Input("rootVolumeEncryptionEnabled")]
@@ -273,6 +285,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Indicates whether the data stored on the root volume is encrypted.

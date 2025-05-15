@@ -27,6 +27,7 @@ export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmcontacts/getPlan:getPlan", {
         "contactId": args.contactId,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,7 @@ export interface GetPlanArgs {
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      */
     contactId: string;
+    region?: string;
 }
 
 /**
@@ -49,6 +51,7 @@ export interface GetPlanResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
      */
@@ -74,6 +77,7 @@ export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmcontacts/getPlan:getPlan", {
         "contactId": args.contactId,
+        "region": args.region,
     }, opts);
 }
 
@@ -85,4 +89,5 @@ export interface GetPlanOutputArgs {
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      */
     contactId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -72,6 +72,12 @@ namespace Pulumi.Aws.Route53
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
         /// Sharing is configured through AWS Resource Access Manager (AWS RAM).
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -150,6 +156,12 @@ namespace Pulumi.Aws.Route53
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -194,6 +206,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.

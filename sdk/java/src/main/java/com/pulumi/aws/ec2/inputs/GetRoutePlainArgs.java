@@ -180,10 +180,15 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ID of the specific Route Table containing the Route entry.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Import(name="routeTableId", required=true)
@@ -191,8 +196,6 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return ID of the specific Route Table containing the Route entry.
-     * 
-     * The following arguments are optional:
      * 
      */
     public String routeTableId() {
@@ -217,12 +220,16 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * VPC Peering Connection ID of the Route belonging to the Route Table.
      * 
+     * The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
+     * 
      */
     @Import(name="vpcPeeringConnectionId")
     private @Nullable String vpcPeeringConnectionId;
 
     /**
      * @return VPC Peering Connection ID of the Route belonging to the Route Table.
+     * 
+     * The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
      * 
      */
     public Optional<String> vpcPeeringConnectionId() {
@@ -243,6 +250,7 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
         this.localGatewayId = $.localGatewayId;
         this.natGatewayId = $.natGatewayId;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.transitGatewayId = $.transitGatewayId;
         this.vpcPeeringConnectionId = $.vpcPeeringConnectionId;
@@ -387,10 +395,13 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param routeTableId ID of the specific Route Table containing the Route entry.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -413,6 +424,8 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param vpcPeeringConnectionId VPC Peering Connection ID of the Route belonging to the Route Table.
+         * 
+         * The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
          * 
          * @return builder
          * 

@@ -26,6 +26,7 @@ class ResourceGatewayArgs:
                  vpc_id: pulumi.Input[builtins.str],
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ResourceGatewayTimeoutsArgs']] = None):
@@ -37,6 +38,7 @@ class ResourceGatewayArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
         :param pulumi.Input[builtins.str] name: Name of the resource gateway.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -46,6 +48,8 @@ class ResourceGatewayArgs:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
@@ -104,6 +108,18 @@ class ResourceGatewayArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -143,6 +159,7 @@ class _ResourceGatewayState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -155,6 +172,7 @@ class _ResourceGatewayState:
         :param pulumi.Input[builtins.str] arn: ARN of the resource gateway.
         :param pulumi.Input[builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
         :param pulumi.Input[builtins.str] name: Name of the resource gateway.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         :param pulumi.Input[builtins.str] status: Status of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
@@ -170,6 +188,8 @@ class _ResourceGatewayState:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if status is not None:
@@ -220,6 +240,18 @@ class _ResourceGatewayState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -315,6 +347,7 @@ class ResourceGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -382,6 +415,7 @@ class ResourceGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
         :param pulumi.Input[builtins.str] name: Name of the resource gateway.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -469,6 +503,7 @@ class ResourceGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -485,6 +520,7 @@ class ResourceGateway(pulumi.CustomResource):
 
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
@@ -510,6 +546,7 @@ class ResourceGateway(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -527,6 +564,7 @@ class ResourceGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the resource gateway.
         :param pulumi.Input[builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
         :param pulumi.Input[builtins.str] name: Name of the resource gateway.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         :param pulumi.Input[builtins.str] status: Status of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
@@ -543,6 +581,7 @@ class ResourceGateway(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["status"] = status
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -575,6 +614,14 @@ class ResourceGateway(pulumi.CustomResource):
         Name of the resource gateway.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupIds")

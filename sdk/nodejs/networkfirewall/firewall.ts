@@ -20,6 +20,10 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
  *     vpcId: exampleAwsVpc.id,
+ *     enabledAnalysisTypes: [
+ *         "TLS_SNI",
+ *         "HTTP_HOST",
+ *     ],
  *     subnetMappings: [{
  *         subnetId: exampleAwsSubnet.id,
  *     }],
@@ -79,6 +83,10 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     */
+    public readonly enabledAnalysisTypes!: pulumi.Output<string[] | undefined>;
+    /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
@@ -98,6 +106,10 @@ export class Firewall extends pulumi.CustomResource {
      * A friendly name of the firewall.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      */
@@ -139,11 +151,13 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabledAnalysisTypes"] = state ? state.enabledAnalysisTypes : undefined;
             resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicyArn"] = state ? state.firewallPolicyArn : undefined;
             resourceInputs["firewallPolicyChangeProtection"] = state ? state.firewallPolicyChangeProtection : undefined;
             resourceInputs["firewallStatuses"] = state ? state.firewallStatuses : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetChangeProtection"] = state ? state.subnetChangeProtection : undefined;
             resourceInputs["subnetMappings"] = state ? state.subnetMappings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -163,10 +177,12 @@ export class Firewall extends pulumi.CustomResource {
             }
             resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabledAnalysisTypes"] = args ? args.enabledAnalysisTypes : undefined;
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
             resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
             resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -198,6 +214,10 @@ export interface FirewallState {
      */
     description?: pulumi.Input<string>;
     /**
+     * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     */
+    enabledAnalysisTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration>;
@@ -217,6 +237,10 @@ export interface FirewallState {
      * A friendly name of the firewall.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      */
@@ -256,6 +280,10 @@ export interface FirewallArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     */
+    enabledAnalysisTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration>;
@@ -271,6 +299,10 @@ export interface FirewallArgs {
      * A friendly name of the firewall.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      */

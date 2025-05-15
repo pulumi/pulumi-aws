@@ -76,6 +76,10 @@ export class Notification extends pulumi.CustomResource {
      */
     public readonly notifications!: pulumi.Output<enums.autoscaling.NotificationType[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Topic ARN for notifications to be sent through
      */
     public readonly topicArn!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class Notification extends pulumi.CustomResource {
             const state = argsOrState as NotificationState | undefined;
             resourceInputs["groupNames"] = state ? state.groupNames : undefined;
             resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as NotificationArgs | undefined;
@@ -109,6 +114,7 @@ export class Notification extends pulumi.CustomResource {
             }
             resourceInputs["groupNames"] = args ? args.groupNames : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["topicArn"] = args ? args.topicArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -130,6 +136,10 @@ export interface NotificationState {
      */
     notifications?: pulumi.Input<pulumi.Input<enums.autoscaling.NotificationType>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Topic ARN for notifications to be sent through
      */
     topicArn?: pulumi.Input<string>;
@@ -148,6 +158,10 @@ export interface NotificationArgs {
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     notifications: pulumi.Input<pulumi.Input<enums.autoscaling.NotificationType>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Topic ARN for notifications to be sent through
      */

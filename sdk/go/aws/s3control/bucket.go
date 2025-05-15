@@ -63,6 +63,8 @@ type Bucket struct {
 	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
 	// Boolean whether Public Access Block is enabled.
 	PublicAccessBlockEnabled pulumi.BoolOutput `pulumi:"publicAccessBlockEnabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -115,6 +117,8 @@ type bucketState struct {
 	OutpostId *string `pulumi:"outpostId"`
 	// Boolean whether Public Access Block is enabled.
 	PublicAccessBlockEnabled *bool `pulumi:"publicAccessBlockEnabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -132,6 +136,8 @@ type BucketState struct {
 	OutpostId pulumi.StringPtrInput
 	// Boolean whether Public Access Block is enabled.
 	PublicAccessBlockEnabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -147,6 +153,8 @@ type bucketArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Identifier of the Outpost to contain this bucket.
 	OutpostId string `pulumi:"outpostId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -157,6 +165,8 @@ type BucketArgs struct {
 	Bucket pulumi.StringInput
 	// Identifier of the Outpost to contain this bucket.
 	OutpostId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -271,6 +281,11 @@ func (o BucketOutput) OutpostId() pulumi.StringOutput {
 // Boolean whether Public Access Block is enabled.
 func (o BucketOutput) PublicAccessBlockEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.BoolOutput { return v.PublicAccessBlockEnabled }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

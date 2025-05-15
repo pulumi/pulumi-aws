@@ -136,6 +136,8 @@ type InstanceAutomatedBackupsReplication struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
 	PreSignedUrl pulumi.StringPtrOutput `pulumi:"preSignedUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The retention period for the replicated automated backups, defaults to `7`.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
@@ -179,6 +181,8 @@ type instanceAutomatedBackupsReplicationState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
 	PreSignedUrl *string `pulumi:"preSignedUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The retention period for the replicated automated backups, defaults to `7`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
@@ -190,6 +194,8 @@ type InstanceAutomatedBackupsReplicationState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
 	PreSignedUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The retention period for the replicated automated backups, defaults to `7`.
 	RetentionPeriod pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
@@ -205,6 +211,8 @@ type instanceAutomatedBackupsReplicationArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
 	PreSignedUrl *string `pulumi:"preSignedUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The retention period for the replicated automated backups, defaults to `7`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
@@ -217,6 +225,8 @@ type InstanceAutomatedBackupsReplicationArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
 	PreSignedUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The retention period for the replicated automated backups, defaults to `7`.
 	RetentionPeriod pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
@@ -318,6 +328,11 @@ func (o InstanceAutomatedBackupsReplicationOutput) KmsKeyId() pulumi.StringOutpu
 // A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
 func (o InstanceAutomatedBackupsReplicationOutput) PreSignedUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceAutomatedBackupsReplication) pulumi.StringPtrOutput { return v.PreSignedUrl }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InstanceAutomatedBackupsReplicationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceAutomatedBackupsReplication) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The retention period for the replicated automated backups, defaults to `7`.

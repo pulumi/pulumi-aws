@@ -92,6 +92,8 @@ type NetworkAcl struct {
 	Ingress NetworkAclIngressArrayOutput `pulumi:"ingress"`
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,6 +145,8 @@ type networkAclState struct {
 	Ingress []NetworkAclIngress `pulumi:"ingress"`
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -162,6 +166,8 @@ type NetworkAclState struct {
 	Ingress NetworkAclIngressArrayInput
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,6 +187,8 @@ type networkAclArgs struct {
 	Egress []NetworkAclEgress `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
 	Ingress []NetworkAclIngress `pulumi:"ingress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -195,6 +203,8 @@ type NetworkAclArgs struct {
 	Egress NetworkAclEgressArrayInput
 	// Specifies an ingress rule. Parameters defined below.
 	Ingress NetworkAclIngressArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -308,6 +318,11 @@ func (o NetworkAclOutput) Ingress() NetworkAclIngressArrayOutput {
 // The ID of the AWS account that owns the network ACL.
 func (o NetworkAclOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NetworkAclOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of Subnet IDs to apply the ACL to

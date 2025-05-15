@@ -54,6 +54,8 @@ import (
 type EndpointServicePrivateDnsVerification struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -96,6 +98,8 @@ func GetEndpointServicePrivateDnsVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
 type endpointServicePrivateDnsVerificationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -106,6 +110,8 @@ type endpointServicePrivateDnsVerificationState struct {
 }
 
 type EndpointServicePrivateDnsVerificationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -120,6 +126,8 @@ func (EndpointServicePrivateDnsVerificationState) ElementType() reflect.Type {
 }
 
 type endpointServicePrivateDnsVerificationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -131,6 +139,8 @@ type endpointServicePrivateDnsVerificationArgs struct {
 
 // The set of arguments for constructing a EndpointServicePrivateDnsVerification resource.
 type EndpointServicePrivateDnsVerificationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -225,6 +235,11 @@ func (o EndpointServicePrivateDnsVerificationOutput) ToEndpointServicePrivateDns
 
 func (o EndpointServicePrivateDnsVerificationOutput) ToEndpointServicePrivateDnsVerificationOutputWithContext(ctx context.Context) EndpointServicePrivateDnsVerificationOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EndpointServicePrivateDnsVerificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointServicePrivateDnsVerification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the endpoint service.

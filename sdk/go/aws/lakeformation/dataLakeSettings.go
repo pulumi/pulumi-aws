@@ -199,6 +199,8 @@ type DataLakeSettings struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins pulumi.StringArrayOutput `pulumi:"readOnlyAdmins"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	//
 	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
@@ -255,6 +257,8 @@ type dataLakeSettingsState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	//
 	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
@@ -282,6 +286,8 @@ type DataLakeSettingsState struct {
 	Parameters pulumi.StringMapInput
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	//
 	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
@@ -313,6 +319,8 @@ type dataLakeSettingsArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	//
 	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
@@ -341,6 +349,8 @@ type DataLakeSettingsArgs struct {
 	Parameters pulumi.StringMapInput
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	//
 	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
@@ -486,6 +496,11 @@ func (o DataLakeSettingsOutput) Parameters() pulumi.StringMapOutput {
 // Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 func (o DataLakeSettingsOutput) ReadOnlyAdmins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.ReadOnlyAdmins }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DataLakeSettingsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).

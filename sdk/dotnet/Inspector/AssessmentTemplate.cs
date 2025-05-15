@@ -83,6 +83,12 @@ namespace Pulumi.Aws.Inspector
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The rules to be used during the run.
         /// </summary>
         [Output("rulesPackageArns")]
@@ -176,6 +182,12 @@ namespace Pulumi.Aws.Inspector
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rulesPackageArns", required: true)]
         private InputList<string>? _rulesPackageArns;
 
@@ -243,6 +255,12 @@ namespace Pulumi.Aws.Inspector
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("rulesPackageArns")]
         private InputList<string>? _rulesPackageArns;

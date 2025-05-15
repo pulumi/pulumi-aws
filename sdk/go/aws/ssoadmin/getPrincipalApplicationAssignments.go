@@ -61,7 +61,8 @@ type GetPrincipalApplicationAssignmentsArgs struct {
 	// An identifier for an object in IAM Identity Center, such as a user or group.
 	PrincipalId string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType string `pulumi:"principalType"`
+	PrincipalType string  `pulumi:"principalType"`
+	Region        *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPrincipalApplicationAssignments.
@@ -74,6 +75,7 @@ type GetPrincipalApplicationAssignmentsResult struct {
 	PrincipalId string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType string `pulumi:"principalType"`
+	Region        string `pulumi:"region"`
 }
 
 func GetPrincipalApplicationAssignmentsOutput(ctx *pulumi.Context, args GetPrincipalApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetPrincipalApplicationAssignmentsResultOutput {
@@ -94,7 +96,8 @@ type GetPrincipalApplicationAssignmentsOutputArgs struct {
 	// An identifier for an object in IAM Identity Center, such as a user or group.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	PrincipalType pulumi.StringInput    `pulumi:"principalType"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPrincipalApplicationAssignmentsOutputArgs) ElementType() reflect.Type {
@@ -139,6 +142,10 @@ func (o GetPrincipalApplicationAssignmentsResultOutput) PrincipalId() pulumi.Str
 // Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 func (o GetPrincipalApplicationAssignmentsResultOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsResult) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+func (o GetPrincipalApplicationAssignmentsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -25,6 +25,7 @@ public final class GetEmailIdentityResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetEmailIdentityResult() {}
     /**
@@ -48,6 +49,9 @@ public final class GetEmailIdentityResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +65,14 @@ public final class GetEmailIdentityResult {
         private String arn;
         private String email;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetEmailIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.email = defaults.email;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -93,11 +99,20 @@ public final class GetEmailIdentityResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetEmailIdentityResult build() {
             final var _resultValue = new GetEmailIdentityResult();
             _resultValue.arn = arn;
             _resultValue.email = email;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

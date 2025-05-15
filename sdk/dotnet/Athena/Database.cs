@@ -96,6 +96,12 @@ namespace Pulumi.Aws.Athena
         [Output("properties")]
         public Output<ImmutableDictionary<string, string>?> Properties { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Database resource with the given unique name, arguments, and options.
@@ -196,6 +202,12 @@ namespace Pulumi.Aws.Athena
             set => _properties = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DatabaseArgs()
         {
         }
@@ -257,6 +269,12 @@ namespace Pulumi.Aws.Athena
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DatabaseState()
         {

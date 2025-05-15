@@ -15,12 +15,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerRuleMatchHttpMatchHeaderMatch {
     /**
-     * @return Indicates whether the match is case sensitive. Defaults to false.
+     * @return Indicates whether the match is case sensitive.
+     * Default is `false`.
      * 
      */
     private @Nullable Boolean caseSensitive;
     /**
      * @return The header match type.
+     * See Header Match `match` Block for details.
      * 
      */
     private ListenerRuleMatchHttpMatchHeaderMatchMatch match;
@@ -32,7 +34,8 @@ public final class ListenerRuleMatchHttpMatchHeaderMatch {
 
     private ListenerRuleMatchHttpMatchHeaderMatch() {}
     /**
-     * @return Indicates whether the match is case sensitive. Defaults to false.
+     * @return Indicates whether the match is case sensitive.
+     * Default is `false`.
      * 
      */
     public Optional<Boolean> caseSensitive() {
@@ -40,6 +43,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatch {
     }
     /**
      * @return The header match type.
+     * See Header Match `match` Block for details.
      * 
      */
     public ListenerRuleMatchHttpMatchHeaderMatchMatch match() {

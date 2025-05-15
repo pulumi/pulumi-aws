@@ -27,7 +27,8 @@ class ConnectorProfileArgs:
                  connector_type: pulumi.Input[builtins.str],
                  connector_label: Optional[pulumi.Input[builtins.str]] = None,
                  kms_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
         :param pulumi.Input[builtins.str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
@@ -35,6 +36,7 @@ class ConnectorProfileArgs:
         :param pulumi.Input[builtins.str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[builtins.str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         :param pulumi.Input[builtins.str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "connection_mode", connection_mode)
         pulumi.set(__self__, "connector_profile_config", connector_profile_config)
@@ -45,6 +47,8 @@ class ConnectorProfileArgs:
             pulumi.set(__self__, "kms_arn", kms_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="connectionMode")
@@ -115,6 +119,18 @@ class ConnectorProfileArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ConnectorProfileState:
@@ -126,7 +142,8 @@ class _ConnectorProfileState:
                  connector_type: Optional[pulumi.Input[builtins.str]] = None,
                  credentials_arn: Optional[pulumi.Input[builtins.str]] = None,
                  kms_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectorProfile resources.
         :param pulumi.Input[builtins.str] arn: ARN of the connector profile.
@@ -136,6 +153,7 @@ class _ConnectorProfileState:
         :param pulumi.Input[builtins.str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[builtins.str] credentials_arn: ARN of the connector profile credentials.
         :param pulumi.Input[builtins.str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -153,6 +171,8 @@ class _ConnectorProfileState:
             pulumi.set(__self__, "kms_arn", kms_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -247,6 +267,18 @@ class _ConnectorProfileState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class ConnectorProfile(pulumi.CustomResource):
 
@@ -262,6 +294,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  connector_type: Optional[pulumi.Input[builtins.str]] = None,
                  kms_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an AppFlow connector profile resource.
@@ -340,6 +373,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         :param pulumi.Input[builtins.str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[builtins.str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -438,6 +472,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  connector_type: Optional[pulumi.Input[builtins.str]] = None,
                  kms_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,6 +494,7 @@ class ConnectorProfile(pulumi.CustomResource):
             __props__.__dict__["connector_type"] = connector_type
             __props__.__dict__["kms_arn"] = kms_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["credentials_arn"] = None
         super(ConnectorProfile, __self__).__init__(
@@ -478,7 +514,8 @@ class ConnectorProfile(pulumi.CustomResource):
             connector_type: Optional[pulumi.Input[builtins.str]] = None,
             credentials_arn: Optional[pulumi.Input[builtins.str]] = None,
             kms_arn: Optional[pulumi.Input[builtins.str]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'ConnectorProfile':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ConnectorProfile':
         """
         Get an existing ConnectorProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -493,6 +530,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[builtins.str] credentials_arn: ARN of the connector profile credentials.
         :param pulumi.Input[builtins.str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -506,6 +544,7 @@ class ConnectorProfile(pulumi.CustomResource):
         __props__.__dict__["credentials_arn"] = credentials_arn
         __props__.__dict__["kms_arn"] = kms_arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return ConnectorProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -568,4 +607,12 @@ class ConnectorProfile(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

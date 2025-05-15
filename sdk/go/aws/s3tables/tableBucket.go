@@ -67,6 +67,8 @@ type TableBucket struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Account ID of the account that owns the table bucket.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewTableBucket registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +117,8 @@ type tableBucketState struct {
 	Name *string `pulumi:"name"`
 	// Account ID of the account that owns the table bucket.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type TableBucketState struct {
@@ -134,6 +138,8 @@ type TableBucketState struct {
 	Name pulumi.StringPtrInput
 	// Account ID of the account that owns the table bucket.
 	OwnerAccountId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (TableBucketState) ElementType() reflect.Type {
@@ -151,6 +157,8 @@ type tableBucketArgs struct {
 	//
 	// The following argument is optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a TableBucket resource.
@@ -165,6 +173,8 @@ type TableBucketArgs struct {
 	//
 	// The following argument is optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (TableBucketArgs) ElementType() reflect.Type {
@@ -283,6 +293,11 @@ func (o TableBucketOutput) Name() pulumi.StringOutput {
 // Account ID of the account that owns the table bucket.
 func (o TableBucketOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TableBucketOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableBucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type TableBucketArrayOutput struct{ *pulumi.OutputState }

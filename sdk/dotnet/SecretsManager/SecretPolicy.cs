@@ -93,6 +93,12 @@ namespace Pulumi.Aws.SecretsManager
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Secret ARN.
         /// 
         /// The following arguments are optional:
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Secret ARN.
         /// 
         /// The following arguments are optional:
@@ -185,6 +197,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Secret ARN.

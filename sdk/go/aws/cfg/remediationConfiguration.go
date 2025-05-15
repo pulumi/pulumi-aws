@@ -103,6 +103,8 @@ type RemediationConfiguration struct {
 	MaximumAutomaticAttempts pulumi.IntPtrOutput `pulumi:"maximumAutomaticAttempts"`
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of resource.
 	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
@@ -168,6 +170,8 @@ type remediationConfigurationState struct {
 	MaximumAutomaticAttempts *int `pulumi:"maximumAutomaticAttempts"`
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters []RemediationConfigurationParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of resource.
 	ResourceType *string `pulumi:"resourceType"`
 	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
@@ -195,6 +199,8 @@ type RemediationConfigurationState struct {
 	MaximumAutomaticAttempts pulumi.IntPtrInput
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of resource.
 	ResourceType pulumi.StringPtrInput
 	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
@@ -224,6 +230,8 @@ type remediationConfigurationArgs struct {
 	MaximumAutomaticAttempts *int `pulumi:"maximumAutomaticAttempts"`
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters []RemediationConfigurationParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of resource.
 	ResourceType *string `pulumi:"resourceType"`
 	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
@@ -250,6 +258,8 @@ type RemediationConfigurationArgs struct {
 	MaximumAutomaticAttempts pulumi.IntPtrInput
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of resource.
 	ResourceType pulumi.StringPtrInput
 	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
@@ -381,6 +391,11 @@ func (o RemediationConfigurationOutput) MaximumAutomaticAttempts() pulumi.IntPtr
 // Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 func (o RemediationConfigurationOutput) Parameters() RemediationConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v *RemediationConfiguration) RemediationConfigurationParameterArrayOutput { return v.Parameters }).(RemediationConfigurationParameterArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RemediationConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of resource.

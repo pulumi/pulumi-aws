@@ -43,6 +43,7 @@ public final class GetInferenceProfileResult {
      * 
      */
     private List<GetInferenceProfileModel> models;
+    private String region;
     /**
      * @return The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
@@ -105,6 +106,9 @@ public final class GetInferenceProfileResult {
     public List<GetInferenceProfileModel> models() {
         return this.models;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
@@ -143,6 +147,7 @@ public final class GetInferenceProfileResult {
         private String inferenceProfileId;
         private String inferenceProfileName;
         private List<GetInferenceProfileModel> models;
+        private String region;
         private String status;
         private String type;
         private String updatedAt;
@@ -156,6 +161,7 @@ public final class GetInferenceProfileResult {
     	      this.inferenceProfileId = defaults.inferenceProfileId;
     	      this.inferenceProfileName = defaults.inferenceProfileName;
     	      this.models = defaults.models;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.type = defaults.type;
     	      this.updatedAt = defaults.updatedAt;
@@ -221,6 +227,14 @@ public final class GetInferenceProfileResult {
             return models(List.of(models));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInferenceProfileResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetInferenceProfileResult", "status");
@@ -253,6 +267,7 @@ public final class GetInferenceProfileResult {
             _resultValue.inferenceProfileId = inferenceProfileId;
             _resultValue.inferenceProfileName = inferenceProfileName;
             _resultValue.models = models;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.type = type;
             _resultValue.updatedAt = updatedAt;

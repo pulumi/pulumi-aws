@@ -79,6 +79,10 @@ export class DomainIdentity extends pulumi.CustomResource {
      */
     public readonly domain!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
     public /*out*/ readonly verificationToken!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class DomainIdentity extends pulumi.CustomResource {
             const state = argsOrState as DomainIdentityState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["verificationToken"] = state ? state.verificationToken : undefined;
         } else {
             const args = argsOrState as DomainIdentityArgs | undefined;
@@ -105,6 +110,7 @@ export class DomainIdentity extends pulumi.CustomResource {
                 throw new Error("Missing required property 'domain'");
             }
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["verificationToken"] = undefined /*out*/;
         }
@@ -126,6 +132,10 @@ export interface DomainIdentityState {
      */
     domain?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
     verificationToken?: pulumi.Input<string>;
@@ -139,4 +149,8 @@ export interface DomainIdentityArgs {
      * The domain name to assign to SES
      */
     domain: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

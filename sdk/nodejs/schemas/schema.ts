@@ -101,6 +101,10 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the registry in which this schema belongs.
      */
     public readonly registryName!: pulumi.Output<string>;
@@ -143,6 +147,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryName"] = state ? state.registryName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -163,6 +168,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -201,6 +207,10 @@ export interface SchemaState {
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the registry in which this schema belongs.
      */
@@ -243,6 +253,10 @@ export interface SchemaArgs {
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the registry in which this schema belongs.
      */

@@ -81,6 +81,10 @@ export class KeyAlias extends pulumi.CustomResource {
      * ARN of the key.
      */
     public readonly keyArn!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a KeyAlias resource with the given unique name, arguments, and options.
@@ -97,6 +101,7 @@ export class KeyAlias extends pulumi.CustomResource {
             const state = argsOrState as KeyAliasState | undefined;
             resourceInputs["aliasName"] = state ? state.aliasName : undefined;
             resourceInputs["keyArn"] = state ? state.keyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as KeyAliasArgs | undefined;
             if ((!args || args.aliasName === undefined) && !opts.urn) {
@@ -104,6 +109,7 @@ export class KeyAlias extends pulumi.CustomResource {
             }
             resourceInputs["aliasName"] = args ? args.aliasName : undefined;
             resourceInputs["keyArn"] = args ? args.keyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KeyAlias.__pulumiType, name, resourceInputs, opts);
@@ -124,6 +130,10 @@ export interface KeyAliasState {
      * ARN of the key.
      */
     keyArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -140,4 +150,8 @@ export interface KeyAliasArgs {
      * ARN of the key.
      */
     keyArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

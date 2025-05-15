@@ -55,7 +55,8 @@ type LookupDomainArgs struct {
 	// ID of the Domain. One of `name` or `id` is required
 	Id *string `pulumi:"id"`
 	// Name of the Domain. One of `name` or `id` is required.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDomain.
@@ -76,6 +77,7 @@ type LookupDomainResult struct {
 	Name             string `pulumi:"name"`
 	// URL of the Domain.
 	PortalUrl string `pulumi:"portalUrl"`
+	Region    string `pulumi:"region"`
 	// Status of the Domain.
 	Status string `pulumi:"status"`
 }
@@ -94,7 +96,8 @@ type LookupDomainOutputArgs struct {
 	// ID of the Domain. One of `name` or `id` is required
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the Domain. One of `name` or `id` is required.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDomainOutputArgs) ElementType() reflect.Type {
@@ -157,6 +160,10 @@ func (o LookupDomainResultOutput) Name() pulumi.StringOutput {
 // URL of the Domain.
 func (o LookupDomainResultOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+func (o LookupDomainResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the Domain.

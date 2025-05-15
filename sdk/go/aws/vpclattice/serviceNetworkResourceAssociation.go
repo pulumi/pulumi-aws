@@ -60,6 +60,8 @@ type ServiceNetworkResourceAssociation struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// DNS entry of the association in the service network.
 	DnsEntries ServiceNetworkResourceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier pulumi.StringOutput `pulumi:"resourceConfigurationIdentifier"`
 	// Identifier of the Service Network to associate the Resource to.
@@ -113,6 +115,8 @@ type serviceNetworkResourceAssociationState struct {
 	Arn *string `pulumi:"arn"`
 	// DNS entry of the association in the service network.
 	DnsEntries []ServiceNetworkResourceAssociationDnsEntry `pulumi:"dnsEntries"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
 	// Identifier of the Service Network to associate the Resource to.
@@ -131,6 +135,8 @@ type ServiceNetworkResourceAssociationState struct {
 	Arn pulumi.StringPtrInput
 	// DNS entry of the association in the service network.
 	DnsEntries ServiceNetworkResourceAssociationDnsEntryArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier pulumi.StringPtrInput
 	// Identifier of the Service Network to associate the Resource to.
@@ -149,6 +155,8 @@ func (ServiceNetworkResourceAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkResourceAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
 	// Identifier of the Service Network to associate the Resource to.
@@ -162,6 +170,8 @@ type serviceNetworkResourceAssociationArgs struct {
 
 // The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
 type ServiceNetworkResourceAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier pulumi.StringInput
 	// Identifier of the Service Network to associate the Resource to.
@@ -270,6 +280,11 @@ func (o ServiceNetworkResourceAssociationOutput) DnsEntries() ServiceNetworkReso
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) ServiceNetworkResourceAssociationDnsEntryArrayOutput {
 		return v.DnsEntries
 	}).(ServiceNetworkResourceAssociationDnsEntryArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceNetworkResourceAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of Resource Configuration to associate to the Service Network.

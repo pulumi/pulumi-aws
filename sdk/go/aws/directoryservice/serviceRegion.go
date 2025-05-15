@@ -181,6 +181,8 @@ type ServiceRegion struct {
 	DesiredNumberOfDomainControllers pulumi.IntOutput `pulumi:"desiredNumberOfDomainControllers"`
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the Region where you want to add domain controllers for replication.
 	RegionName pulumi.StringOutput `pulumi:"regionName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -234,6 +236,8 @@ type serviceRegionState struct {
 	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId *string `pulumi:"directoryId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the Region where you want to add domain controllers for replication.
 	RegionName *string `pulumi:"regionName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -249,6 +253,8 @@ type ServiceRegionState struct {
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the Region where you want to add domain controllers for replication.
 	RegionName pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -268,6 +274,8 @@ type serviceRegionArgs struct {
 	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId string `pulumi:"directoryId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the Region where you want to add domain controllers for replication.
 	RegionName string `pulumi:"regionName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -282,6 +290,8 @@ type ServiceRegionArgs struct {
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the Region where you want to add domain controllers for replication.
 	RegionName pulumi.StringInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -385,6 +395,11 @@ func (o ServiceRegionOutput) DesiredNumberOfDomainControllers() pulumi.IntOutput
 // The identifier of the directory to which you want to add Region replication.
 func (o ServiceRegionOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceRegionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceRegion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the Region where you want to add domain controllers for replication.

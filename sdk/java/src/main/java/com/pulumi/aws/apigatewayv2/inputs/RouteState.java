@@ -131,6 +131,21 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Request models for the route. Supported only for WebSocket APIs.
      * 
      */
@@ -215,6 +230,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         this.authorizerId = $.authorizerId;
         this.modelSelectionExpression = $.modelSelectionExpression;
         this.operationName = $.operationName;
+        this.region = $.region;
         this.requestModels = $.requestModels;
         this.requestParameters = $.requestParameters;
         this.routeKey = $.routeKey;
@@ -401,6 +417,27 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder operationName(String operationName) {
             return operationName(Output.of(operationName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

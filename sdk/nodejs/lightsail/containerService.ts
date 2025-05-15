@@ -167,6 +167,10 @@ export class ContainerService extends pulumi.CustomResource {
      */
     public readonly publicDomainNames!: pulumi.Output<outputs.lightsail.ContainerServicePublicDomainNames | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Lightsail resource type of the container service (i.e., ContainerService).
      */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
@@ -221,6 +225,7 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["privateDomainName"] = state ? state.privateDomainName : undefined;
             resourceInputs["privateRegistryAccess"] = state ? state.privateRegistryAccess : undefined;
             resourceInputs["publicDomainNames"] = state ? state.publicDomainNames : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["scale"] = state ? state.scale : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -240,6 +245,7 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["power"] = args ? args.power : undefined;
             resourceInputs["privateRegistryAccess"] = args ? args.privateRegistryAccess : undefined;
             resourceInputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scale"] = args ? args.scale : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -314,6 +320,10 @@ export interface ContainerServiceState {
      */
     publicDomainNames?: pulumi.Input<inputs.lightsail.ContainerServicePublicDomainNames>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Lightsail resource type of the container service (i.e., ContainerService).
      */
     resourceType?: pulumi.Input<string>;
@@ -376,6 +386,10 @@ export interface ContainerServiceArgs {
      * Defined below.
      */
     publicDomainNames?: pulumi.Input<inputs.lightsail.ContainerServicePublicDomainNames>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The scale specification for the container service. The scale specifies the allocated compute
      * nodes of the container service.

@@ -85,6 +85,10 @@ export class ConnectPeer extends pulumi.CustomResource {
      */
     public readonly peerAddress!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -120,6 +124,7 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["bgpTransitGatewayAddresses"] = state ? state.bgpTransitGatewayAddresses : undefined;
             resourceInputs["insideCidrBlocks"] = state ? state.insideCidrBlocks : undefined;
             resourceInputs["peerAddress"] = state ? state.peerAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["transitGatewayAddress"] = state ? state.transitGatewayAddress : undefined;
@@ -138,6 +143,7 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
             resourceInputs["insideCidrBlocks"] = args ? args.insideCidrBlocks : undefined;
             resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayAddress"] = args ? args.transitGatewayAddress : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
@@ -180,6 +186,10 @@ export interface ConnectPeerState {
      */
     peerAddress?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -213,6 +223,10 @@ export interface ConnectPeerArgs {
      * The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
      */
     peerAddress: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

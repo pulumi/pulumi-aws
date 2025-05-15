@@ -108,6 +108,9 @@ namespace Pulumi.Aws.ControlTower
 
     public sealed class GetControlsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The ARN of the organizational unit.
         /// </summary>
@@ -122,6 +125,9 @@ namespace Pulumi.Aws.ControlTower
 
     public sealed class GetControlsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The ARN of the organizational unit.
         /// </summary>
@@ -146,6 +152,7 @@ namespace Pulumi.Aws.ControlTower
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string TargetIdentifier;
 
         [OutputConstructor]
@@ -154,10 +161,13 @@ namespace Pulumi.Aws.ControlTower
 
             string id,
 
+            string region,
+
             string targetIdentifier)
         {
             EnabledControls = enabledControls;
             Id = id;
+            Region = region;
             TargetIdentifier = targetIdentifier;
         }
     }

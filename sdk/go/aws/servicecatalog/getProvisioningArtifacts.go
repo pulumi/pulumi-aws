@@ -57,7 +57,8 @@ type GetProvisioningArtifactsArgs struct {
 	// Product identifier.
 	//
 	// The following arguments are optional:
-	ProductId string `pulumi:"productId"`
+	ProductId string  `pulumi:"productId"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getProvisioningArtifacts.
@@ -68,6 +69,7 @@ type GetProvisioningArtifactsResult struct {
 	ProductId string `pulumi:"productId"`
 	// List with information about the provisioning artifacts. See details below.
 	ProvisioningArtifactDetails []GetProvisioningArtifactsProvisioningArtifactDetail `pulumi:"provisioningArtifactDetails"`
+	Region                      string                                               `pulumi:"region"`
 }
 
 func GetProvisioningArtifactsOutput(ctx *pulumi.Context, args GetProvisioningArtifactsOutputArgs, opts ...pulumi.InvokeOption) GetProvisioningArtifactsResultOutput {
@@ -86,7 +88,8 @@ type GetProvisioningArtifactsOutputArgs struct {
 	// Product identifier.
 	//
 	// The following arguments are optional:
-	ProductId pulumi.StringInput `pulumi:"productId"`
+	ProductId pulumi.StringInput    `pulumi:"productId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetProvisioningArtifactsOutputArgs) ElementType() reflect.Type {
@@ -126,6 +129,10 @@ func (o GetProvisioningArtifactsResultOutput) ProvisioningArtifactDetails() GetP
 	return o.ApplyT(func(v GetProvisioningArtifactsResult) []GetProvisioningArtifactsProvisioningArtifactDetail {
 		return v.ProvisioningArtifactDetails
 	}).(GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput)
+}
+
+func (o GetProvisioningArtifactsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

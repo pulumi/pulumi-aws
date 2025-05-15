@@ -55,6 +55,8 @@ type FastSnapshotRestore struct {
 
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the snapshot.
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
 	// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
@@ -100,6 +102,8 @@ func GetFastSnapshotRestore(ctx *pulumi.Context,
 type fastSnapshotRestoreState struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
@@ -110,6 +114,8 @@ type fastSnapshotRestoreState struct {
 type FastSnapshotRestoreState struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the snapshot.
 	SnapshotId pulumi.StringPtrInput
 	// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
@@ -124,6 +130,8 @@ func (FastSnapshotRestoreState) ElementType() reflect.Type {
 type fastSnapshotRestoreArgs struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone string `pulumi:"availabilityZone"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the snapshot.
 	SnapshotId string                       `pulumi:"snapshotId"`
 	Timeouts   *FastSnapshotRestoreTimeouts `pulumi:"timeouts"`
@@ -133,6 +141,8 @@ type fastSnapshotRestoreArgs struct {
 type FastSnapshotRestoreArgs struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the snapshot.
 	SnapshotId pulumi.StringInput
 	Timeouts   FastSnapshotRestoreTimeoutsPtrInput
@@ -228,6 +238,11 @@ func (o FastSnapshotRestoreOutput) ToFastSnapshotRestoreOutputWithContext(ctx co
 // Availability zone in which to enable fast snapshot restores.
 func (o FastSnapshotRestoreOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastSnapshotRestore) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FastSnapshotRestoreOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastSnapshotRestore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the snapshot.

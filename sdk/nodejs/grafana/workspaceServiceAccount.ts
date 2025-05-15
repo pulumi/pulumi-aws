@@ -65,6 +65,10 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the service account in the given Grafana workspace
      */
     public /*out*/ readonly serviceAccountId!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceServiceAccountState | undefined;
             resourceInputs["grafanaRole"] = state ? state.grafanaRole : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceAccountId"] = state ? state.serviceAccountId : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
@@ -100,6 +105,7 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
             }
             resourceInputs["grafanaRole"] = args ? args.grafanaRole : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["serviceAccountId"] = undefined /*out*/;
         }
@@ -120,6 +126,10 @@ export interface WorkspaceServiceAccountState {
      * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the service account in the given Grafana workspace
      */
@@ -142,6 +152,10 @@ export interface WorkspaceServiceAccountArgs {
      * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Grafana workspace with which the service account is associated.
      */

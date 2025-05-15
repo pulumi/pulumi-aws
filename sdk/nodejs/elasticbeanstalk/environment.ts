@@ -178,6 +178,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly queues!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
@@ -251,6 +255,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["platformArn"] = state ? state.platformArn : undefined;
             resourceInputs["pollInterval"] = state ? state.pollInterval : undefined;
             resourceInputs["queues"] = state ? state.queues : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
             resourceInputs["solutionStackName"] = state ? state.solutionStackName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -271,6 +276,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platformArn"] = args ? args.platformArn : undefined;
             resourceInputs["pollInterval"] = args ? args.pollInterval : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -366,6 +372,10 @@ export interface EnvironmentState {
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
@@ -447,6 +457,10 @@ export interface EnvironmentArgs {
      * use the default behavior, which is an exponential backoff
      */
     pollInterval?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed

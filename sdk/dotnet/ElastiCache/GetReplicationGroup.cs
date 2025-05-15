@@ -87,6 +87,9 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class GetReplicationGroupArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Identifier for the replication group.
         /// </summary>
@@ -101,6 +104,9 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class GetReplicationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Identifier for the replication group.
         /// </summary>
@@ -181,6 +187,7 @@ namespace Pulumi.Aws.ElastiCache
         /// The endpoint of the reader node in this node group (shard).
         /// </summary>
         public readonly string ReaderEndpointAddress;
+        public readonly string Region;
         /// <summary>
         /// Number of replica nodes in each node group.
         /// </summary>
@@ -229,6 +236,8 @@ namespace Pulumi.Aws.ElastiCache
 
             string readerEndpointAddress,
 
+            string region,
+
             int replicasPerNodeGroup,
 
             string replicationGroupId,
@@ -253,6 +262,7 @@ namespace Pulumi.Aws.ElastiCache
             Port = port;
             PrimaryEndpointAddress = primaryEndpointAddress;
             ReaderEndpointAddress = readerEndpointAddress;
+            Region = region;
             ReplicasPerNodeGroup = replicasPerNodeGroup;
             ReplicationGroupId = replicationGroupId;
             SnapshotRetentionLimit = snapshotRetentionLimit;

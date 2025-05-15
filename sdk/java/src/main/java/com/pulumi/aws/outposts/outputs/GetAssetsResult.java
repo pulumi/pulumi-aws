@@ -24,6 +24,7 @@ public final class GetAssetsResult {
      * 
      */
     private String id;
+    private String region;
     private @Nullable List<String> statusIdFilters;
 
     private GetAssetsResult() {}
@@ -47,6 +48,9 @@ public final class GetAssetsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public List<String> statusIdFilters() {
         return this.statusIdFilters == null ? List.of() : this.statusIdFilters;
     }
@@ -64,6 +68,7 @@ public final class GetAssetsResult {
         private List<String> assetIds;
         private @Nullable List<String> hostIdFilters;
         private String id;
+        private String region;
         private @Nullable List<String> statusIdFilters;
         public Builder() {}
         public Builder(GetAssetsResult defaults) {
@@ -72,6 +77,7 @@ public final class GetAssetsResult {
     	      this.assetIds = defaults.assetIds;
     	      this.hostIdFilters = defaults.hostIdFilters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.statusIdFilters = defaults.statusIdFilters;
         }
 
@@ -112,6 +118,14 @@ public final class GetAssetsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAssetsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder statusIdFilters(@Nullable List<String> statusIdFilters) {
 
             this.statusIdFilters = statusIdFilters;
@@ -126,6 +140,7 @@ public final class GetAssetsResult {
             _resultValue.assetIds = assetIds;
             _resultValue.hostIdFilters = hostIdFilters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.statusIdFilters = statusIdFilters;
             return _resultValue;
         }

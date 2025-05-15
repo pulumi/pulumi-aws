@@ -67,7 +67,8 @@ type GetIpamPreviewNextCidrArgs struct {
 	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId string `pulumi:"ipamPoolId"`
 	// Netmask length of the CIDR you would like to preview from the IPAM pool.
-	NetmaskLength *int `pulumi:"netmaskLength"`
+	NetmaskLength *int    `pulumi:"netmaskLength"`
+	Region        *string `pulumi:"region"`
 }
 
 // A collection of values returned by getIpamPreviewNextCidr.
@@ -79,6 +80,7 @@ type GetIpamPreviewNextCidrResult struct {
 	Id            string `pulumi:"id"`
 	IpamPoolId    string `pulumi:"ipamPoolId"`
 	NetmaskLength *int   `pulumi:"netmaskLength"`
+	Region        string `pulumi:"region"`
 }
 
 func GetIpamPreviewNextCidrOutput(ctx *pulumi.Context, args GetIpamPreviewNextCidrOutputArgs, opts ...pulumi.InvokeOption) GetIpamPreviewNextCidrResultOutput {
@@ -97,7 +99,8 @@ type GetIpamPreviewNextCidrOutputArgs struct {
 	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringInput `pulumi:"ipamPoolId"`
 	// Netmask length of the CIDR you would like to preview from the IPAM pool.
-	NetmaskLength pulumi.IntPtrInput `pulumi:"netmaskLength"`
+	NetmaskLength pulumi.IntPtrInput    `pulumi:"netmaskLength"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetIpamPreviewNextCidrOutputArgs) ElementType() reflect.Type {
@@ -139,6 +142,10 @@ func (o GetIpamPreviewNextCidrResultOutput) IpamPoolId() pulumi.StringOutput {
 
 func (o GetIpamPreviewNextCidrResultOutput) NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetIpamPreviewNextCidrResult) *int { return v.NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+func (o GetIpamPreviewNextCidrResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpamPreviewNextCidrResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -125,6 +125,12 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> OpenidConnectProviderArns { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         /// </summary>
         [Output("samlProviderArns")]
@@ -243,6 +249,12 @@ namespace Pulumi.Aws.Cognito
             set => _openidConnectProviderArns = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("samlProviderArns")]
         private InputList<string>? _samlProviderArns;
 
@@ -341,6 +353,12 @@ namespace Pulumi.Aws.Cognito
             get => _openidConnectProviderArns ?? (_openidConnectProviderArns = new InputList<string>());
             set => _openidConnectProviderArns = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("samlProviderArns")]
         private InputList<string>? _samlProviderArns;

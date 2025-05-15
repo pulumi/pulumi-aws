@@ -74,6 +74,10 @@ export class ByteMatchSet extends pulumi.CustomResource {
      * The name or description of the ByteMatchSet.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ByteMatchSet resource with the given unique name, arguments, and options.
@@ -90,10 +94,12 @@ export class ByteMatchSet extends pulumi.CustomResource {
             const state = argsOrState as ByteMatchSetState | undefined;
             resourceInputs["byteMatchTuples"] = state ? state.byteMatchTuples : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ByteMatchSetArgs | undefined;
             resourceInputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ByteMatchSet.__pulumiType, name, resourceInputs, opts);
@@ -112,6 +118,10 @@ export interface ByteMatchSetState {
      * The name or description of the ByteMatchSet.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -126,4 +136,8 @@ export interface ByteMatchSetArgs {
      * The name or description of the ByteMatchSet.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

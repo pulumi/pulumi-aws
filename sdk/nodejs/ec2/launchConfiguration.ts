@@ -138,6 +138,10 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     public readonly placementTenancy!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
     public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.LaunchConfigurationRootBlockDevice>;
@@ -185,6 +189,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["placementTenancy"] = state ? state.placementTenancy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["spotPrice"] = state ? state.spotPrice : undefined;
@@ -211,6 +216,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["placementTenancy"] = args ? args.placementTenancy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
@@ -285,6 +291,10 @@ export interface LaunchConfigurationState {
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      */
     placementTenancy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
@@ -365,6 +375,10 @@ export interface LaunchConfigurationArgs {
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      */
     placementTenancy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */

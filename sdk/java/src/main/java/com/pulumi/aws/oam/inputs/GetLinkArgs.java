@@ -32,6 +32,13 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
         return this.linkIdentifier;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -43,6 +50,7 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetLinkArgs(GetLinkArgs $) {
         this.linkIdentifier = $.linkIdentifier;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -83,6 +91,15 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder linkIdentifier(String linkIdentifier) {
             return linkIdentifier(Output.of(linkIdentifier));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

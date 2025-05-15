@@ -304,6 +304,10 @@ export class BucketObjectv2 extends pulumi.CustomResource {
      */
     public readonly overrideProvider!: pulumi.Output<outputs.s3.BucketObjectv2OverrideProvider | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
     public readonly serverSideEncryption!: pulumi.Output<string>;
@@ -379,6 +383,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
             resourceInputs["overrideProvider"] = state ? state.overrideProvider : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["sourceHash"] = state ? state.sourceHash : undefined;
@@ -412,6 +417,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
             resourceInputs["overrideProvider"] = args ? args.overrideProvider : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceHash"] = args ? args.sourceHash : undefined;
@@ -545,6 +551,10 @@ export interface BucketObjectv2State {
      */
     overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
     serverSideEncryption?: pulumi.Input<string>;
@@ -668,6 +678,10 @@ export interface BucketObjectv2Args {
      * Override provider-level configuration options. See Override Provider below for more details.
      */
     overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */

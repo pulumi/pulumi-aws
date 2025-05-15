@@ -131,6 +131,10 @@ export class BucketWebsiteConfiguration extends pulumi.CustomResource {
      */
     public readonly redirectAllRequestsTo!: pulumi.Output<outputs.s3.BucketWebsiteConfigurationRedirectAllRequestsTo | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
      */
@@ -166,6 +170,7 @@ export class BucketWebsiteConfiguration extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["indexDocument"] = state ? state.indexDocument : undefined;
             resourceInputs["redirectAllRequestsTo"] = state ? state.redirectAllRequestsTo : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingRuleDetails"] = state ? state.routingRuleDetails : undefined;
             resourceInputs["routingRules"] = state ? state.routingRules : undefined;
             resourceInputs["websiteDomain"] = state ? state.websiteDomain : undefined;
@@ -180,6 +185,7 @@ export class BucketWebsiteConfiguration extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["indexDocument"] = args ? args.indexDocument : undefined;
             resourceInputs["redirectAllRequestsTo"] = args ? args.redirectAllRequestsTo : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingRuleDetails"] = args ? args.routingRuleDetails : undefined;
             resourceInputs["routingRules"] = args ? args.routingRules : undefined;
             resourceInputs["websiteDomain"] = undefined /*out*/;
@@ -216,6 +222,10 @@ export interface BucketWebsiteConfigurationState {
      * Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      */
     redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationRedirectAllRequestsTo>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
@@ -259,6 +269,10 @@ export interface BucketWebsiteConfigurationArgs {
      * Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      */
     redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationRedirectAllRequestsTo>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.

@@ -140,6 +140,8 @@ type Service struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the namespace that you want to use to create the service.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -193,6 +195,8 @@ type serviceState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the namespace that you want to use to create the service.
 	NamespaceId *string `pulumi:"namespaceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -217,6 +221,8 @@ type ServiceState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the namespace that you want to use to create the service.
 	NamespaceId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -243,6 +249,8 @@ type serviceArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the namespace that you want to use to create the service.
 	NamespaceId *string `pulumi:"namespaceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
@@ -265,6 +273,8 @@ type ServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the namespace that you want to use to create the service.
 	NamespaceId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
@@ -396,6 +406,11 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 // The ID of the namespace that you want to use to create the service.
 func (o ServiceOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

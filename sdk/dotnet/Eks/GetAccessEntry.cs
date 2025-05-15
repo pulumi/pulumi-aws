@@ -114,6 +114,9 @@ namespace Pulumi.Aws.Eks
         [Input("principalArn", required: true)]
         public string PrincipalArn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -153,6 +156,9 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -206,6 +212,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string ModifiedAt;
         public readonly string PrincipalArn;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
@@ -236,6 +243,8 @@ namespace Pulumi.Aws.Eks
 
             string principalArn,
 
+            string region,
+
             ImmutableDictionary<string, string>? tags,
 
             ImmutableDictionary<string, string> tagsAll,
@@ -251,6 +260,7 @@ namespace Pulumi.Aws.Eks
             KubernetesGroups = kubernetesGroups;
             ModifiedAt = modifiedAt;
             PrincipalArn = principalArn;
+            Region = region;
             Tags = tags;
             TagsAll = tagsAll;
             Type = type;

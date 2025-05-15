@@ -101,6 +101,10 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly platform!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
      */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
@@ -156,6 +160,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["supportedOsVersions"] = state ? state.supportedOsVersions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -177,6 +182,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -239,6 +245,10 @@ export interface ComponentState {
      */
     platform?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
      */
     skipDestroy?: pulumi.Input<boolean>;
@@ -300,6 +310,10 @@ export interface ComponentArgs {
      * Platform of the component.
      */
     platform: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
      */

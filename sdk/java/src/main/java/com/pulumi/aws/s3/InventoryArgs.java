@@ -127,6 +127,21 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the schedule for generating inventory results (documented below).
      * 
      */
@@ -151,6 +166,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         this.includedObjectVersions = $.includedObjectVersions;
         this.name = $.name;
         this.optionalFields = $.optionalFields;
+        this.region = $.region;
         this.schedule = $.schedule;
     }
 
@@ -327,6 +343,27 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder optionalFields(String... optionalFields) {
             return optionalFields(List.of(optionalFields));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

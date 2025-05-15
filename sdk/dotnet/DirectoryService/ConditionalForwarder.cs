@@ -60,6 +60,12 @@ namespace Pulumi.Aws.DirectoryService
         public Output<ImmutableArray<string>> DnsIps { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name of the remote domain for which forwarders will be used.
         /// </summary>
         [Output("remoteDomainName")]
@@ -134,6 +140,12 @@ namespace Pulumi.Aws.DirectoryService
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The fully qualified domain name of the remote domain for which forwarders will be used.
         /// </summary>
         [Input("remoteDomainName", required: true)]
@@ -164,6 +176,12 @@ namespace Pulumi.Aws.DirectoryService
             get => _dnsIps ?? (_dnsIps = new InputList<string>());
             set => _dnsIps = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The fully qualified domain name of the remote domain for which forwarders will be used.

@@ -99,6 +99,20 @@ public class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resource
         return this.period;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      * 
      */

@@ -27,6 +27,11 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         Name = "example",
     ///         FirewallPolicyArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
     ///         VpcId = exampleAwsVpc.Id,
+    ///         EnabledAnalysisTypes = new[]
+    ///         {
+    ///             "TLS_SNI",
+    ///             "HTTP_HOST",
+    ///         },
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
@@ -74,6 +79,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+        /// </summary>
+        [Output("enabledAnalysisTypes")]
+        public Output<ImmutableArray<string>> EnabledAnalysisTypes { get; private set; } = null!;
+
+        /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
         [Output("encryptionConfiguration")]
@@ -102,6 +113,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
@@ -197,6 +214,18 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("enabledAnalysisTypes")]
+        private InputList<string>? _enabledAnalysisTypes;
+
+        /// <summary>
+        /// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+        /// </summary>
+        public InputList<string> EnabledAnalysisTypes
+        {
+            get => _enabledAnalysisTypes ?? (_enabledAnalysisTypes = new InputList<string>());
+            set => _enabledAnalysisTypes = value;
+        }
+
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
@@ -220,6 +249,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
@@ -283,6 +318,18 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("enabledAnalysisTypes")]
+        private InputList<string>? _enabledAnalysisTypes;
+
+        /// <summary>
+        /// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+        /// </summary>
+        public InputList<string> EnabledAnalysisTypes
+        {
+            get => _enabledAnalysisTypes ?? (_enabledAnalysisTypes = new InputList<string>());
+            set => _enabledAnalysisTypes = value;
+        }
+
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
@@ -318,6 +365,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.

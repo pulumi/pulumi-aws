@@ -169,6 +169,21 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      * 
      */
@@ -331,6 +346,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         this.networkInterfaceId = $.networkInterfaceId;
         this.networkInterfacePort = $.networkInterfacePort;
         this.preserveExistingData = $.preserveExistingData;
+        this.region = $.region;
         this.snapshotId = $.snapshotId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -569,6 +585,27 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
          */
         public Builder preserveExistingData(Boolean preserveExistingData) {
             return preserveExistingData(Output.of(preserveExistingData));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

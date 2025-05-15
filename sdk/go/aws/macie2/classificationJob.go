@@ -85,6 +85,8 @@ type ClassificationJob struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
 	S3JobDefinition ClassificationJobS3JobDefinitionOutput `pulumi:"s3JobDefinition"`
 	// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
@@ -153,6 +155,8 @@ type classificationJobState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
 	S3JobDefinition *ClassificationJobS3JobDefinition `pulumi:"s3JobDefinition"`
 	// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
@@ -186,6 +190,8 @@ type ClassificationJobState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
 	S3JobDefinition ClassificationJobS3JobDefinitionPtrInput
 	// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
@@ -219,6 +225,8 @@ type classificationJobArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
 	S3JobDefinition ClassificationJobS3JobDefinition `pulumi:"s3JobDefinition"`
 	// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
@@ -245,6 +253,8 @@ type ClassificationJobArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
 	S3JobDefinition ClassificationJobS3JobDefinitionInput
 	// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
@@ -388,6 +398,11 @@ func (o ClassificationJobOutput) Name() pulumi.StringOutput {
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o ClassificationJobOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClassificationJob) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClassificationJobOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClassificationJob) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)

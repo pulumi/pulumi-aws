@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Rds
         [Input("clusterIdentifier", required: true)]
         public string ClusterIdentifier { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -177,6 +183,7 @@ namespace Pulumi.Aws.Rds
         public readonly string PreferredBackupWindow;
         public readonly string PreferredMaintenanceWindow;
         public readonly string ReaderEndpoint;
+        public readonly string Region;
         public readonly string ReplicationSourceIdentifier;
         public readonly bool StorageEncrypted;
         /// <summary>
@@ -253,6 +260,8 @@ namespace Pulumi.Aws.Rds
 
             string readerEndpoint,
 
+            string region,
+
             string replicationSourceIdentifier,
 
             bool storageEncrypted,
@@ -294,6 +303,7 @@ namespace Pulumi.Aws.Rds
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ReaderEndpoint = readerEndpoint;
+            Region = region;
             ReplicationSourceIdentifier = replicationSourceIdentifier;
             StorageEncrypted = storageEncrypted;
             Tags = tags;

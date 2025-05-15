@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -82,6 +84,67 @@ import javax.annotation.Nullable;
  * 
  *         // Accepter's side of the connection.
  *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()
+ *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
+ *             .autoAccept(true)
+ *             .tags(Map.of("Side", "Accepter"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Cross-Region Peering (Same Account) AWS Provider v7 (and above)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.VpcPeeringConnection;
+ * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
+ * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;
+ * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new Vpc("main", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var peer = new Vpc("peer", VpcArgs.builder()
+ *             .region("us-west-2")
+ *             .cidrBlock("10.1.0.0/16")
+ *             .build());
+ * 
+ *         // Requester's side of the connection.
+ *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()
+ *             .vpcId(main.id())
+ *             .peerVpcId(peer.id())
+ *             .peerRegion("us-west-2")
+ *             .autoAccept(false)
+ *             .tags(Map.of("Side", "Requester"))
+ *             .build());
+ * 
+ *         // Accepter's side of the connection.
+ *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()
+ *             .region("us-west-2")
  *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
  *             .autoAccept(true)
  *             .tags(Map.of("Side", "Accepter"))
@@ -190,6 +253,20 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
      */
     public Output<String> peerVpcId() {
         return this.peerVpcId;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * A configuration block that describes [VPC Peering Connection]

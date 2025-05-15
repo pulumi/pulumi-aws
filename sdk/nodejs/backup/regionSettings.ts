@@ -75,6 +75,10 @@ export class RegionSettings extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      */
     public readonly resourceTypeManagementPreference!: pulumi.Output<{[key: string]: boolean}>;
@@ -96,6 +100,7 @@ export class RegionSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegionSettingsState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceTypeManagementPreference"] = state ? state.resourceTypeManagementPreference : undefined;
             resourceInputs["resourceTypeOptInPreference"] = state ? state.resourceTypeOptInPreference : undefined;
         } else {
@@ -103,6 +108,7 @@ export class RegionSettings extends pulumi.CustomResource {
             if ((!args || args.resourceTypeOptInPreference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypeOptInPreference'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceTypeManagementPreference"] = args ? args.resourceTypeManagementPreference : undefined;
             resourceInputs["resourceTypeOptInPreference"] = args ? args.resourceTypeOptInPreference : undefined;
         }
@@ -115,6 +121,10 @@ export class RegionSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegionSettings resources.
  */
 export interface RegionSettingsState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      */
@@ -129,6 +139,10 @@ export interface RegionSettingsState {
  * The set of arguments for constructing a RegionSettings resource.
  */
 export interface RegionSettingsArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      */

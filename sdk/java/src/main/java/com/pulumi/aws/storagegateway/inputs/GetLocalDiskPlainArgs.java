@@ -60,12 +60,20 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.gatewayArn;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetLocalDiskPlainArgs() {}
 
     private GetLocalDiskPlainArgs(GetLocalDiskPlainArgs $) {
         this.diskNode = $.diskNode;
         this.diskPath = $.diskPath;
         this.gatewayArn = $.gatewayArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -116,6 +124,11 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder gatewayArn(String gatewayArn) {
             $.gatewayArn = gatewayArn;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

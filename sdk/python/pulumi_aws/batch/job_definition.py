@@ -32,6 +32,7 @@ class JobDefinitionArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
                  scheduling_priority: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -50,6 +51,7 @@ class JobDefinitionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] platform_capabilities: Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         :param pulumi.Input[builtins.bool] propagate_tags: Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -74,6 +76,8 @@ class JobDefinitionArgs:
             pulumi.set(__self__, "platform_capabilities", platform_capabilities)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retry_strategy is not None:
             pulumi.set(__self__, "retry_strategy", retry_strategy)
         if scheduling_priority is not None:
@@ -206,6 +210,18 @@ class JobDefinitionArgs:
         pulumi.set(self, "propagate_tags", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
         """
@@ -268,6 +284,7 @@ class _JobDefinitionState:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
                  revision: Optional[pulumi.Input[builtins.int]] = None,
                  scheduling_priority: Optional[pulumi.Input[builtins.int]] = None,
@@ -288,6 +305,7 @@ class _JobDefinitionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] platform_capabilities: Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         :param pulumi.Input[builtins.bool] propagate_tags: Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[builtins.int] revision: Revision of the job definition.
         :param pulumi.Input[builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
@@ -320,6 +338,8 @@ class _JobDefinitionState:
             pulumi.set(__self__, "platform_capabilities", platform_capabilities)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retry_strategy is not None:
             pulumi.set(__self__, "retry_strategy", retry_strategy)
         if revision is not None:
@@ -468,6 +488,18 @@ class _JobDefinitionState:
         pulumi.set(self, "propagate_tags", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
         """
@@ -571,6 +603,7 @@ class JobDefinition(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
                  scheduling_priority: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -854,6 +887,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] platform_capabilities: Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         :param pulumi.Input[builtins.bool] propagate_tags: Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1158,6 +1192,7 @@ class JobDefinition(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
                  scheduling_priority: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1181,6 +1216,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["platform_capabilities"] = platform_capabilities
             __props__.__dict__["propagate_tags"] = propagate_tags
+            __props__.__dict__["region"] = region
             __props__.__dict__["retry_strategy"] = retry_strategy
             __props__.__dict__["scheduling_priority"] = scheduling_priority
             __props__.__dict__["tags"] = tags
@@ -1213,6 +1249,7 @@ class JobDefinition(pulumi.CustomResource):
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             propagate_tags: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
             revision: Optional[pulumi.Input[builtins.int]] = None,
             scheduling_priority: Optional[pulumi.Input[builtins.int]] = None,
@@ -1238,6 +1275,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] platform_capabilities: Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         :param pulumi.Input[builtins.bool] propagate_tags: Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[builtins.int] revision: Revision of the job definition.
         :param pulumi.Input[builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
@@ -1263,6 +1301,7 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["platform_capabilities"] = platform_capabilities
         __props__.__dict__["propagate_tags"] = propagate_tags
+        __props__.__dict__["region"] = region
         __props__.__dict__["retry_strategy"] = retry_strategy
         __props__.__dict__["revision"] = revision
         __props__.__dict__["scheduling_priority"] = scheduling_priority
@@ -1359,6 +1398,14 @@ class JobDefinition(pulumi.CustomResource):
         Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         """
         return pulumi.get(self, "propagate_tags")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retryStrategy")

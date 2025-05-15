@@ -317,6 +317,8 @@ type Cluster struct {
 	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
 	StorageMode pulumi.StringOutput `pulumi:"storageMode"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -414,6 +416,8 @@ type clusterState struct {
 	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
 	StorageMode *string `pulumi:"storageMode"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -473,6 +477,8 @@ type ClusterState struct {
 	NumberOfBrokerNodes pulumi.IntPtrInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
 	StorageMode pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -510,6 +516,8 @@ type clusterArgs struct {
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
 	StorageMode *string `pulumi:"storageMode"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -538,6 +546,8 @@ type ClusterArgs struct {
 	NumberOfBrokerNodes pulumi.IntInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
 	StorageMode pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -744,6 +754,11 @@ func (o ClusterOutput) NumberOfBrokerNodes() pulumi.IntOutput {
 // Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 func (o ClusterOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOpenMonitoringPtrOutput { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.

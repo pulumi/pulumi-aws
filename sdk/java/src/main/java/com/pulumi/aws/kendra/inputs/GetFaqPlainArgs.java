@@ -46,6 +46,13 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.indexId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Metadata that helps organize the FAQs you create.
      * 
@@ -66,6 +73,7 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetFaqPlainArgs(GetFaqPlainArgs $) {
         this.faqId = $.faqId;
         this.indexId = $.indexId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -106,6 +114,11 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder indexId(String indexId) {
             $.indexId = indexId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

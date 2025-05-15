@@ -93,6 +93,8 @@ type ClusterPolicy struct {
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// Resource policy for cluster.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewClusterPolicy registers a new resource with the given unique name, arguments, and options.
@@ -136,6 +138,8 @@ type clusterPolicyState struct {
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// Resource policy for cluster.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ClusterPolicyState struct {
@@ -144,6 +148,8 @@ type ClusterPolicyState struct {
 	CurrentVersion pulumi.StringPtrInput
 	// Resource policy for cluster.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ClusterPolicyState) ElementType() reflect.Type {
@@ -155,6 +161,8 @@ type clusterPolicyArgs struct {
 	ClusterArn string `pulumi:"clusterArn"`
 	// Resource policy for cluster.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterPolicy resource.
@@ -163,6 +171,8 @@ type ClusterPolicyArgs struct {
 	ClusterArn pulumi.StringInput
 	// Resource policy for cluster.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ClusterPolicyArgs) ElementType() reflect.Type {
@@ -264,6 +274,11 @@ func (o ClusterPolicyOutput) CurrentVersion() pulumi.StringOutput {
 // Resource policy for cluster.
 func (o ClusterPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ClusterPolicyArrayOutput struct{ *pulumi.OutputState }

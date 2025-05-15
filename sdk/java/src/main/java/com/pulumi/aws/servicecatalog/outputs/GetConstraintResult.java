@@ -39,6 +39,7 @@ public final class GetConstraintResult {
      * 
      */
     private String productId;
+    private String region;
     /**
      * @return Constraint status.
      * 
@@ -92,6 +93,9 @@ public final class GetConstraintResult {
     public String productId() {
         return this.productId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Constraint status.
      * 
@@ -123,6 +127,7 @@ public final class GetConstraintResult {
         private String parameters;
         private String portfolioId;
         private String productId;
+        private String region;
         private String status;
         private String type;
         public Builder() {}
@@ -135,6 +140,7 @@ public final class GetConstraintResult {
     	      this.parameters = defaults.parameters;
     	      this.portfolioId = defaults.portfolioId;
     	      this.productId = defaults.productId;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.type = defaults.type;
         }
@@ -194,6 +200,14 @@ public final class GetConstraintResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetConstraintResult", "status");
@@ -218,6 +232,7 @@ public final class GetConstraintResult {
             _resultValue.parameters = parameters;
             _resultValue.portfolioId = portfolioId;
             _resultValue.productId = productId;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.type = type;
             return _resultValue;

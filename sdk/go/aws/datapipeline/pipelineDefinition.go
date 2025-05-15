@@ -122,6 +122,8 @@ type PipelineDefinition struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayOutput `pulumi:"pipelineObjects"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPipelineDefinition registers a new resource with the given unique name, arguments, and options.
@@ -170,6 +172,8 @@ type pipelineDefinitionState struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects []PipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PipelineDefinitionState struct {
@@ -183,6 +187,8 @@ type PipelineDefinitionState struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PipelineDefinitionState) ElementType() reflect.Type {
@@ -200,6 +206,8 @@ type pipelineDefinitionArgs struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects []PipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PipelineDefinition resource.
@@ -214,6 +222,8 @@ type PipelineDefinitionArgs struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PipelineDefinitionArgs) ElementType() reflect.Type {
@@ -323,6 +333,11 @@ func (o PipelineDefinitionOutput) PipelineId() pulumi.StringOutput {
 // The following arguments are optional:
 func (o PipelineDefinitionOutput) PipelineObjects() PipelineDefinitionPipelineObjectArrayOutput {
 	return o.ApplyT(func(v *PipelineDefinition) PipelineDefinitionPipelineObjectArrayOutput { return v.PipelineObjects }).(PipelineDefinitionPipelineObjectArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PipelineDefinitionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PipelineDefinitionArrayOutput struct{ *pulumi.OutputState }

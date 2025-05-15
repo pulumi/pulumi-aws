@@ -123,6 +123,9 @@ namespace Pulumi.Aws.Mq
         [Input("brokerName")]
         public string? BrokerName { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -150,6 +153,9 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("brokerName")]
         public Input<string>? BrokerName { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -189,6 +195,7 @@ namespace Pulumi.Aws.Mq
         public readonly Outputs.GetBrokerLogsResult Logs;
         public readonly Outputs.GetBrokerMaintenanceWindowStartTimeResult MaintenanceWindowStartTime;
         public readonly bool PubliclyAccessible;
+        public readonly string Region;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly string StorageType;
         public readonly ImmutableArray<string> SubnetIds;
@@ -231,6 +238,8 @@ namespace Pulumi.Aws.Mq
 
             bool publiclyAccessible,
 
+            string region,
+
             ImmutableArray<string> securityGroups,
 
             string storageType,
@@ -258,6 +267,7 @@ namespace Pulumi.Aws.Mq
             Logs = logs;
             MaintenanceWindowStartTime = maintenanceWindowStartTime;
             PubliclyAccessible = publiclyAccessible;
+            Region = region;
             SecurityGroups = securityGroups;
             StorageType = storageType;
             SubnetIds = subnetIds;

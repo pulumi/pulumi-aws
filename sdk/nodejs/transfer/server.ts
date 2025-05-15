@@ -200,7 +200,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
-     * The ARN for a lambda function to use for the Identity provider.
+     * The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      */
     public readonly function!: pulumi.Output<string | undefined>;
     /**
@@ -244,6 +244,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */
     public readonly s3StorageOptions!: pulumi.Output<outputs.transfer.ServerS3StorageOptions>;
@@ -271,7 +275,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     /**
-     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      */
     public readonly sftpAuthenticationMethods!: pulumi.Output<string>;
     /**
@@ -326,6 +330,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["preAuthenticationLoginBanner"] = state ? state.preAuthenticationLoginBanner : undefined;
             resourceInputs["protocolDetails"] = state ? state.protocolDetails : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3StorageOptions"] = state ? state.s3StorageOptions : undefined;
             resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
             resourceInputs["sftpAuthenticationMethods"] = state ? state.sftpAuthenticationMethods : undefined;
@@ -351,6 +356,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["preAuthenticationLoginBanner"] = args?.preAuthenticationLoginBanner ? pulumi.secret(args.preAuthenticationLoginBanner) : undefined;
             resourceInputs["protocolDetails"] = args ? args.protocolDetails : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3StorageOptions"] = args ? args.s3StorageOptions : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["sftpAuthenticationMethods"] = args ? args.sftpAuthenticationMethods : undefined;
@@ -407,7 +413,7 @@ export interface ServerState {
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * The ARN for a lambda function to use for the Identity provider.
+     * The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      */
     function?: pulumi.Input<string>;
     /**
@@ -451,6 +457,10 @@ export interface ServerState {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */
     s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptions>;
@@ -478,7 +488,7 @@ export interface ServerState {
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
-     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      */
     sftpAuthenticationMethods?: pulumi.Input<string>;
     /**
@@ -532,7 +542,7 @@ export interface ServerArgs {
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * The ARN for a lambda function to use for the Identity provider.
+     * The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      */
     function?: pulumi.Input<string>;
     /**
@@ -572,6 +582,10 @@ export interface ServerArgs {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */
     s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptions>;
@@ -599,7 +613,7 @@ export interface ServerArgs {
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
-     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      */
     sftpAuthenticationMethods?: pulumi.Input<string>;
     /**

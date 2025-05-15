@@ -69,6 +69,7 @@ type GetInstanceTypeOfferingsArgs struct {
 	Filters []GetInstanceTypeOfferingsFilter `pulumi:"filters"`
 	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
 	LocationType *string `pulumi:"locationType"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceTypeOfferings.
@@ -83,6 +84,7 @@ type GetInstanceTypeOfferingsResult struct {
 	LocationTypes []string `pulumi:"locationTypes"`
 	// List of locations.
 	Locations []string `pulumi:"locations"`
+	Region    string   `pulumi:"region"`
 }
 
 func GetInstanceTypeOfferingsOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingsOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingsResultOutput {
@@ -100,6 +102,7 @@ type GetInstanceTypeOfferingsOutputArgs struct {
 	Filters GetInstanceTypeOfferingsFilterArrayInput `pulumi:"filters"`
 	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
 	LocationType pulumi.StringPtrInput `pulumi:"locationType"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstanceTypeOfferingsOutputArgs) ElementType() reflect.Type {
@@ -147,6 +150,10 @@ func (o GetInstanceTypeOfferingsResultOutput) LocationTypes() pulumi.StringArray
 // List of locations.
 func (o GetInstanceTypeOfferingsResultOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

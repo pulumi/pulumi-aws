@@ -114,6 +114,10 @@ export class CustomModel extends pulumi.CustomResource {
      */
     public readonly outputDataConfig!: pulumi.Output<outputs.bedrock.CustomModelOutputDataConfig | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -170,6 +174,7 @@ export class CustomModel extends pulumi.CustomResource {
             resourceInputs["jobName"] = state ? state.jobName : undefined;
             resourceInputs["jobStatus"] = state ? state.jobStatus : undefined;
             resourceInputs["outputDataConfig"] = state ? state.outputDataConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -203,6 +208,7 @@ export class CustomModel extends pulumi.CustomResource {
             resourceInputs["hyperparameters"] = args ? args.hyperparameters : undefined;
             resourceInputs["jobName"] = args ? args.jobName : undefined;
             resourceInputs["outputDataConfig"] = args ? args.outputDataConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -265,6 +271,10 @@ export interface CustomModelState {
      * S3 location for the output data.
      */
     outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
@@ -332,6 +342,10 @@ export interface CustomModelArgs {
      * S3 location for the output data.
      */
     outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */

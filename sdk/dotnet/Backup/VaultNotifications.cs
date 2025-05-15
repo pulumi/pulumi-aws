@@ -109,6 +109,12 @@ namespace Pulumi.Aws.Backup
         public Output<string> BackupVaultName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         /// </summary>
         [Output("snsTopicArn")]
@@ -179,6 +185,12 @@ namespace Pulumi.Aws.Backup
         public Input<string> BackupVaultName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         /// </summary>
         [Input("snsTopicArn", required: true)]
@@ -215,6 +227,12 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("backupVaultName")]
         public Input<string>? BackupVaultName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events

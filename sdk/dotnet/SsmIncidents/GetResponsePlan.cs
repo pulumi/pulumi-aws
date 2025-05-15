@@ -45,6 +45,9 @@ namespace Pulumi.Aws.SsmIncidents
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -70,6 +73,9 @@ namespace Pulumi.Aws.SsmIncidents
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -123,6 +129,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// The name of the PagerDuty configuration.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The tags applied to the response plan.
         /// </summary>
@@ -148,6 +155,8 @@ namespace Pulumi.Aws.SsmIncidents
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Actions = actions;
@@ -159,6 +168,7 @@ namespace Pulumi.Aws.SsmIncidents
             IncidentTemplates = incidentTemplates;
             Integrations = integrations;
             Name = name;
+            Region = region;
             Tags = tags;
         }
     }

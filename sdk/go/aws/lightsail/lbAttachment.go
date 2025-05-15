@@ -90,6 +90,8 @@ type LbAttachment struct {
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 	// The name of the Lightsail load balancer.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbAttachment registers a new resource with the given unique name, arguments, and options.
@@ -132,6 +134,8 @@ type lbAttachmentState struct {
 	InstanceName *string `pulumi:"instanceName"`
 	// The name of the Lightsail load balancer.
 	LbName *string `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LbAttachmentState struct {
@@ -139,6 +143,8 @@ type LbAttachmentState struct {
 	InstanceName pulumi.StringPtrInput
 	// The name of the Lightsail load balancer.
 	LbName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbAttachmentState) ElementType() reflect.Type {
@@ -150,6 +156,8 @@ type lbAttachmentArgs struct {
 	InstanceName string `pulumi:"instanceName"`
 	// The name of the Lightsail load balancer.
 	LbName string `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbAttachment resource.
@@ -158,6 +166,8 @@ type LbAttachmentArgs struct {
 	InstanceName pulumi.StringInput
 	// The name of the Lightsail load balancer.
 	LbName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbAttachmentArgs) ElementType() reflect.Type {
@@ -255,6 +265,11 @@ func (o LbAttachmentOutput) InstanceName() pulumi.StringOutput {
 // The name of the Lightsail load balancer.
 func (o LbAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LbAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LbAttachmentArrayOutput struct{ *pulumi.OutputState }

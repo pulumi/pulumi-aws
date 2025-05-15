@@ -38,6 +38,7 @@ export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOp
         "arn": args.arn,
         "loadBalancingAnomalyMitigation": args.loadBalancingAnomalyMitigation,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -55,6 +56,7 @@ export interface GetTargetGroupArgs {
      * Unique name of the target group.
      */
     name?: string;
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
      *
@@ -87,6 +89,7 @@ export interface GetTargetGroupResult {
     readonly protocol: string;
     readonly protocolVersion: string;
     readonly proxyProtocolV2: boolean;
+    readonly region: string;
     readonly slowStart: number;
     readonly stickiness: outputs.alb.GetTargetGroupStickiness;
     readonly tags: {[key: string]: string};
@@ -124,6 +127,7 @@ export function getTargetGroupOutput(args?: GetTargetGroupOutputArgs, opts?: pul
         "arn": args.arn,
         "loadBalancingAnomalyMitigation": args.loadBalancingAnomalyMitigation,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -141,6 +145,7 @@ export interface GetTargetGroupOutputArgs {
      * Unique name of the target group.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
      *

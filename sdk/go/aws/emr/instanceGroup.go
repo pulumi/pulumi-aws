@@ -111,6 +111,8 @@ type InstanceGroup struct {
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The number of instances currently running in this instance group.
 	RunningInstanceCount pulumi.IntOutput `pulumi:"runningInstanceCount"`
 	// The current status of the instance group.
@@ -206,6 +208,8 @@ type instanceGroupState struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The number of instances currently running in this instance group.
 	RunningInstanceCount *int `pulumi:"runningInstanceCount"`
 	// The current status of the instance group.
@@ -266,6 +270,8 @@ type InstanceGroupState struct {
 	InstanceType pulumi.StringPtrInput
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The number of instances currently running in this instance group.
 	RunningInstanceCount pulumi.IntPtrInput
 	// The current status of the instance group.
@@ -330,6 +336,8 @@ type instanceGroupArgs struct {
 	InstanceType string `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InstanceGroup resource.
@@ -387,6 +395,8 @@ type InstanceGroupArgs struct {
 	InstanceType pulumi.StringInput
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InstanceGroupArgs) ElementType() reflect.Type {
@@ -559,6 +569,11 @@ func (o InstanceGroupOutput) InstanceType() pulumi.StringOutput {
 // Human friendly name given to the instance group. Changing this forces a new resource to be created.
 func (o InstanceGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InstanceGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The number of instances currently running in this instance group.

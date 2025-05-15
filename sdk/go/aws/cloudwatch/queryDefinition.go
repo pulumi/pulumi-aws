@@ -63,6 +63,8 @@ type QueryDefinition struct {
 	QueryDefinitionId pulumi.StringOutput `pulumi:"queryDefinitionId"`
 	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewQueryDefinition registers a new resource with the given unique name, arguments, and options.
@@ -106,6 +108,8 @@ type queryDefinitionState struct {
 	QueryDefinitionId *string `pulumi:"queryDefinitionId"`
 	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 	QueryString *string `pulumi:"queryString"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type QueryDefinitionState struct {
@@ -117,6 +121,8 @@ type QueryDefinitionState struct {
 	QueryDefinitionId pulumi.StringPtrInput
 	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 	QueryString pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (QueryDefinitionState) ElementType() reflect.Type {
@@ -130,6 +136,8 @@ type queryDefinitionArgs struct {
 	Name *string `pulumi:"name"`
 	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 	QueryString string `pulumi:"queryString"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a QueryDefinition resource.
@@ -140,6 +148,8 @@ type QueryDefinitionArgs struct {
 	Name pulumi.StringPtrInput
 	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 	QueryString pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (QueryDefinitionArgs) ElementType() reflect.Type {
@@ -247,6 +257,11 @@ func (o QueryDefinitionOutput) QueryDefinitionId() pulumi.StringOutput {
 // The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 func (o QueryDefinitionOutput) QueryString() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.QueryString }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o QueryDefinitionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type QueryDefinitionArrayOutput struct{ *pulumi.OutputState }

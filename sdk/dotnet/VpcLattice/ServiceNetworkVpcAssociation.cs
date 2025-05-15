@@ -61,6 +61,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The IDs of the security groups.
         /// </summary>
         [Output("securityGroupIds")]
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class ServiceNetworkVpcAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -199,6 +211,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

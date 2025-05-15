@@ -23,6 +23,7 @@ export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getAuthorizer:getAuthorizer", {
         "authorizerId": args.authorizerId,
+        "region": args.region,
         "restApiId": args.restApiId,
     }, opts);
 }
@@ -35,6 +36,7 @@ export interface GetAuthorizerArgs {
      * Authorizer identifier.
      */
     authorizerId: string;
+    region?: string;
     /**
      * ID of the associated REST API.
      */
@@ -82,6 +84,7 @@ export interface GetAuthorizerResult {
      * List of the Amazon Cognito user pool ARNs.
      */
     readonly providerArns: string[];
+    readonly region: string;
     readonly restApiId: string;
     /**
      * Type of the authorizer.
@@ -107,6 +110,7 @@ export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getAuthorizer:getAuthorizer", {
         "authorizerId": args.authorizerId,
+        "region": args.region,
         "restApiId": args.restApiId,
     }, opts);
 }
@@ -119,6 +123,7 @@ export interface GetAuthorizerOutputArgs {
      * Authorizer identifier.
      */
     authorizerId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated REST API.
      */

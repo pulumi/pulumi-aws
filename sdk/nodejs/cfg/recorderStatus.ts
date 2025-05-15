@@ -109,6 +109,10 @@ export class RecorderStatus extends pulumi.CustomResource {
      * The name of the recorder
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a RecorderStatus resource with the given unique name, arguments, and options.
@@ -125,6 +129,7 @@ export class RecorderStatus extends pulumi.CustomResource {
             const state = argsOrState as RecorderStatusState | undefined;
             resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as RecorderStatusArgs | undefined;
             if ((!args || args.isEnabled === undefined) && !opts.urn) {
@@ -132,6 +137,7 @@ export class RecorderStatus extends pulumi.CustomResource {
             }
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RecorderStatus.__pulumiType, name, resourceInputs, opts);
@@ -150,6 +156,10 @@ export interface RecorderStatusState {
      * The name of the recorder
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -164,4 +174,8 @@ export interface RecorderStatusArgs {
      * The name of the recorder
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

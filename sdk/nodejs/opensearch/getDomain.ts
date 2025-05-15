@@ -26,6 +26,7 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
     return pulumi.runtime.invoke("aws:opensearch/getDomain:getDomain", {
         "domainName": args.domainName,
         "offPeakWindowOptions": args.offPeakWindowOptions,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -42,6 +43,7 @@ export interface GetDomainArgs {
      * Off Peak update options
      */
     offPeakWindowOptions?: inputs.opensearch.GetDomainOffPeakWindowOptions;
+    region?: string;
     /**
      * Tags assigned to the domain.
      */
@@ -149,6 +151,7 @@ export interface GetDomainResult {
      * Status of a configuration change in the domain.
      */
     readonly processing: boolean;
+    readonly region: string;
     /**
      * Domain snapshot related options.
      */
@@ -185,6 +188,7 @@ export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeO
     return pulumi.runtime.invokeOutput("aws:opensearch/getDomain:getDomain", {
         "domainName": args.domainName,
         "offPeakWindowOptions": args.offPeakWindowOptions,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -201,6 +205,7 @@ export interface GetDomainOutputArgs {
      * Off Peak update options
      */
     offPeakWindowOptions?: pulumi.Input<inputs.opensearch.GetDomainOffPeakWindowOptionsArgs>;
+    region?: pulumi.Input<string>;
     /**
      * Tags assigned to the domain.
      */

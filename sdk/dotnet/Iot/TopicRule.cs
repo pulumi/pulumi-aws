@@ -200,6 +200,12 @@ namespace Pulumi.Aws.Iot
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("republishes")]
         public Output<ImmutableArray<Outputs.TopicRuleRepublish>> Republishes { get; private set; } = null!;
 
@@ -416,6 +422,12 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("republishes")]
         private InputList<Inputs.TopicRuleRepublishArgs>? _republishes;
         public InputList<Inputs.TopicRuleRepublishArgs> Republishes
@@ -629,6 +641,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("republishes")]
         private InputList<Inputs.TopicRuleRepublishGetArgs>? _republishes;

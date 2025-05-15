@@ -67,6 +67,10 @@ export class DataCellsFilter extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Information about the data cells filter. See Table Data below for details.
      */
     public readonly tableData!: pulumi.Output<outputs.lakeformation.DataCellsFilterTableData | undefined>;
@@ -85,10 +89,12 @@ export class DataCellsFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataCellsFilterState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableData"] = state ? state.tableData : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as DataCellsFilterArgs | undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableData"] = args ? args.tableData : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
@@ -102,6 +108,10 @@ export class DataCellsFilter extends pulumi.CustomResource {
  */
 export interface DataCellsFilterState {
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Information about the data cells filter. See Table Data below for details.
      */
     tableData?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableData>;
@@ -112,6 +122,10 @@ export interface DataCellsFilterState {
  * The set of arguments for constructing a DataCellsFilter resource.
  */
 export interface DataCellsFilterArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Information about the data cells filter. See Table Data below for details.
      */

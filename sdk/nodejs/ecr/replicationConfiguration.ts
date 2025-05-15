@@ -111,6 +111,10 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID where the replication configuration was created.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -132,10 +136,12 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationConfigurationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
         } else {
             const args = argsOrState as ReplicationConfigurationArgs | undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
         }
@@ -148,6 +154,10 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationConfiguration resources.
  */
 export interface ReplicationConfigurationState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry ID where the replication configuration was created.
      */
@@ -162,6 +172,10 @@ export interface ReplicationConfigurationState {
  * The set of arguments for constructing a ReplicationConfiguration resource.
  */
 export interface ReplicationConfigurationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */

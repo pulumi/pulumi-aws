@@ -167,6 +167,12 @@ namespace Pulumi.Aws.EmrServerless
         public Output<Outputs.ApplicationNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The EMR release version associated with the application.
         /// </summary>
         [Output("releaseLabel")]
@@ -297,6 +303,12 @@ namespace Pulumi.Aws.EmrServerless
         public Input<Inputs.ApplicationNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The EMR release version associated with the application.
         /// </summary>
         [Input("releaseLabel", required: true)]
@@ -393,6 +405,12 @@ namespace Pulumi.Aws.EmrServerless
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ApplicationNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The EMR release version associated with the application.

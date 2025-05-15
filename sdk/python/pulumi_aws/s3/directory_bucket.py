@@ -26,6 +26,7 @@ class DirectoryBucketArgs:
                  data_redundancy: Optional[pulumi.Input[builtins.str]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input['DirectoryBucketLocationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
@@ -33,6 +34,7 @@ class DirectoryBucketArgs:
         :param pulumi.Input[builtins.str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -42,6 +44,8 @@ class DirectoryBucketArgs:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -95,6 +99,18 @@ class DirectoryBucketArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Bucket type. Valid values: `Directory`.
@@ -114,6 +130,7 @@ class _DirectoryBucketState:
                  data_redundancy: Optional[pulumi.Input[builtins.str]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input['DirectoryBucketLocationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DirectoryBucket resources.
@@ -122,6 +139,7 @@ class _DirectoryBucketState:
         :param pulumi.Input[builtins.str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         if arn is not None:
@@ -134,6 +152,8 @@ class _DirectoryBucketState:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -199,6 +219,18 @@ class _DirectoryBucketState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Bucket type. Valid values: `Directory`.
@@ -222,6 +254,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  data_redundancy: Optional[pulumi.Input[builtins.str]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -270,6 +303,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']] location: Bucket location. See Location below for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         ...
@@ -337,6 +371,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  data_redundancy: Optional[pulumi.Input[builtins.str]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -353,6 +388,7 @@ class DirectoryBucket(pulumi.CustomResource):
             __props__.__dict__["data_redundancy"] = data_redundancy
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["location"] = location
+            __props__.__dict__["region"] = region
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
         super(DirectoryBucket, __self__).__init__(
@@ -370,6 +406,7 @@ class DirectoryBucket(pulumi.CustomResource):
             data_redundancy: Optional[pulumi.Input[builtins.str]] = None,
             force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
             location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'DirectoryBucket':
         """
         Get an existing DirectoryBucket resource's state with the given name, id, and optional extra
@@ -383,6 +420,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']] location: Bucket location. See Location below for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -394,6 +432,7 @@ class DirectoryBucket(pulumi.CustomResource):
         __props__.__dict__["data_redundancy"] = data_redundancy
         __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["location"] = location
+        __props__.__dict__["region"] = region
         __props__.__dict__["type"] = type
         return DirectoryBucket(resource_name, opts=opts, __props__=__props__)
 
@@ -436,6 +475,14 @@ class DirectoryBucket(pulumi.CustomResource):
         Bucket location. See Location below for more details.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -99,6 +99,9 @@ namespace Pulumi.Aws.VerifiedPermissions
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPolicyStoreArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPolicyStoreInvokeArgs()
         {
@@ -137,6 +143,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// The date the Policy Store was last updated.
         /// </summary>
         public readonly string LastUpdatedDate;
+        public readonly string Region;
         /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
@@ -154,6 +161,8 @@ namespace Pulumi.Aws.VerifiedPermissions
 
             string lastUpdatedDate,
 
+            string region,
+
             ImmutableArray<Outputs.GetPolicyStoreValidationSettingResult> validationSettings)
         {
             Arn = arn;
@@ -161,6 +170,7 @@ namespace Pulumi.Aws.VerifiedPermissions
             Description = description;
             Id = id;
             LastUpdatedDate = lastUpdatedDate;
+            Region = region;
             ValidationSettings = validationSettings;
         }
     }

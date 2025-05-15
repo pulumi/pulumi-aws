@@ -61,12 +61,20 @@ public final class GetLocalDiskArgs extends com.pulumi.resources.InvokeArgs {
         return this.gatewayArn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetLocalDiskArgs() {}
 
     private GetLocalDiskArgs(GetLocalDiskArgs $) {
         this.diskNode = $.diskNode;
         this.diskPath = $.diskPath;
         this.gatewayArn = $.gatewayArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -148,6 +156,15 @@ public final class GetLocalDiskArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder gatewayArn(String gatewayArn) {
             return gatewayArn(Output.of(gatewayArn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetLocalDiskArgs build() {

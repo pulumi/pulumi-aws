@@ -514,6 +514,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         /// </summary>
         [Output("ruleGroup")]
@@ -620,6 +626,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         /// </summary>
         [Input("ruleGroup")]
@@ -686,6 +698,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.

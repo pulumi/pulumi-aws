@@ -438,6 +438,8 @@ type TaskDefinition struct {
 	PlacementConstraints TaskDefinitionPlacementConstraintArrayOutput `pulumi:"placementConstraints"`
 	// Configuration block for the App Mesh proxy. Detailed below.
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrOutput `pulumi:"proxyConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
@@ -526,6 +528,8 @@ type taskDefinitionState struct {
 	PlacementConstraints []TaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
 	// Configuration block for the App Mesh proxy. Detailed below.
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
@@ -579,6 +583,8 @@ type TaskDefinitionState struct {
 	PlacementConstraints TaskDefinitionPlacementConstraintArrayInput
 	// Configuration block for the App Mesh proxy. Detailed below.
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Revision of the task in a particular family.
@@ -632,6 +638,8 @@ type taskDefinitionArgs struct {
 	PlacementConstraints []TaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
 	// Configuration block for the App Mesh proxy. Detailed below.
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Configuration block for runtimePlatform that containers in your task may use.
@@ -678,6 +686,8 @@ type TaskDefinitionArgs struct {
 	PlacementConstraints TaskDefinitionPlacementConstraintArrayInput
 	// Configuration block for the App Mesh proxy. Detailed below.
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Configuration block for runtimePlatform that containers in your task may use.
@@ -853,6 +863,11 @@ func (o TaskDefinitionOutput) PlacementConstraints() TaskDefinitionPlacementCons
 // Configuration block for the App Mesh proxy. Detailed below.
 func (o TaskDefinitionOutput) ProxyConfiguration() TaskDefinitionProxyConfigurationPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionProxyConfigurationPtrOutput { return v.ProxyConfiguration }).(TaskDefinitionProxyConfigurationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TaskDefinitionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.

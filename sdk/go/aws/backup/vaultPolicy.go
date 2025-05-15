@@ -98,6 +98,8 @@ type VaultPolicy struct {
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
 	// The backup vault access policy document in JSON format.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewVaultPolicy registers a new resource with the given unique name, arguments, and options.
@@ -142,6 +144,8 @@ type vaultPolicyState struct {
 	BackupVaultName *string `pulumi:"backupVaultName"`
 	// The backup vault access policy document in JSON format.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type VaultPolicyState struct {
@@ -151,6 +155,8 @@ type VaultPolicyState struct {
 	BackupVaultName pulumi.StringPtrInput
 	// The backup vault access policy document in JSON format.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VaultPolicyState) ElementType() reflect.Type {
@@ -162,6 +168,8 @@ type vaultPolicyArgs struct {
 	BackupVaultName string `pulumi:"backupVaultName"`
 	// The backup vault access policy document in JSON format.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VaultPolicy resource.
@@ -170,6 +178,8 @@ type VaultPolicyArgs struct {
 	BackupVaultName pulumi.StringInput
 	// The backup vault access policy document in JSON format.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VaultPolicyArgs) ElementType() reflect.Type {
@@ -272,6 +282,11 @@ func (o VaultPolicyOutput) BackupVaultName() pulumi.StringOutput {
 // The backup vault access policy document in JSON format.
 func (o VaultPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VaultPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type VaultPolicyArrayOutput struct{ *pulumi.OutputState }

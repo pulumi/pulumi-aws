@@ -33,14 +33,16 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
     }
 
     /**
-     * Whether client certificate expiry is ignored. Default is `false`.
+     * Whether client certificate expiry is ignored.
+     * Default is `false`.
      * 
      */
     @Import(name="ignoreClientCertificateExpiry")
     private @Nullable Output<Boolean> ignoreClientCertificateExpiry;
 
     /**
-     * @return Whether client certificate expiry is ignored. Default is `false`.
+     * @return Whether client certificate expiry is ignored.
+     * Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> ignoreClientCertificateExpiry() {
@@ -48,14 +50,14 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
     }
 
     /**
-     * Valid values are `off`, `verify` and `passthrough`.
+     * Valid values are `off`, `passthrough`, and `verify`.
      * 
      */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
     /**
-     * @return Valid values are `off`, `verify` and `passthrough`.
+     * @return Valid values are `off`, `passthrough`, and `verify`.
      * 
      */
     public Output<String> mode() {
@@ -126,7 +128,8 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param ignoreClientCertificateExpiry Whether client certificate expiry is ignored. Default is `false`.
+         * @param ignoreClientCertificateExpiry Whether client certificate expiry is ignored.
+         * Default is `false`.
          * 
          * @return builder
          * 
@@ -137,7 +140,8 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param ignoreClientCertificateExpiry Whether client certificate expiry is ignored. Default is `false`.
+         * @param ignoreClientCertificateExpiry Whether client certificate expiry is ignored.
+         * Default is `false`.
          * 
          * @return builder
          * 
@@ -147,7 +151,7 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param mode Valid values are `off`, `verify` and `passthrough`.
+         * @param mode Valid values are `off`, `passthrough`, and `verify`.
          * 
          * @return builder
          * 
@@ -158,7 +162,7 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param mode Valid values are `off`, `verify` and `passthrough`.
+         * @param mode Valid values are `off`, `passthrough`, and `verify`.
          * 
          * @return builder
          * 

@@ -155,7 +155,9 @@ type TopicRule struct {
 	Kineses      TopicRuleKinesisArrayOutput     `pulumi:"kineses"`
 	Lambdas      TopicRuleLambdaArrayOutput      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name        pulumi.StringOutput           `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region      pulumi.StringOutput           `pulumi:"region"`
 	Republishes TopicRuleRepublishArrayOutput `pulumi:"republishes"`
 	S3          TopicRuleS3ArrayOutput        `pulumi:"s3"`
 	Sns         TopicRuleSnsArrayOutput       `pulumi:"sns"`
@@ -233,7 +235,9 @@ type topicRuleState struct {
 	Kineses      []TopicRuleKinesis     `pulumi:"kineses"`
 	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name        *string              `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region      *string              `pulumi:"region"`
 	Republishes []TopicRuleRepublish `pulumi:"republishes"`
 	S3          []TopicRuleS3        `pulumi:"s3"`
 	Sns         []TopicRuleSns       `pulumi:"sns"`
@@ -273,7 +277,9 @@ type TopicRuleState struct {
 	Kineses      TopicRuleKinesisArrayInput
 	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
-	Name        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region      pulumi.StringPtrInput
 	Republishes TopicRuleRepublishArrayInput
 	S3          TopicRuleS3ArrayInput
 	Sns         TopicRuleSnsArrayInput
@@ -315,7 +321,9 @@ type topicRuleArgs struct {
 	Kineses      []TopicRuleKinesis     `pulumi:"kineses"`
 	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name        *string              `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region      *string              `pulumi:"region"`
 	Republishes []TopicRuleRepublish `pulumi:"republishes"`
 	S3          []TopicRuleS3        `pulumi:"s3"`
 	Sns         []TopicRuleSns       `pulumi:"sns"`
@@ -352,7 +360,9 @@ type TopicRuleArgs struct {
 	Kineses      TopicRuleKinesisArrayInput
 	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
-	Name        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region      pulumi.StringPtrInput
 	Republishes TopicRuleRepublishArrayInput
 	S3          TopicRuleS3ArrayInput
 	Sns         TopicRuleSnsArrayInput
@@ -529,6 +539,11 @@ func (o TopicRuleOutput) Lambdas() TopicRuleLambdaArrayOutput {
 // The name of the rule.
 func (o TopicRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TopicRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o TopicRuleOutput) Republishes() TopicRuleRepublishArrayOutput {

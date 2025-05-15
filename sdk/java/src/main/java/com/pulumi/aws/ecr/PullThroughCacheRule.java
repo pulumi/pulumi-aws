@@ -111,6 +111,20 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
         return this.ecrRepositoryPrefix;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The registry ID where the repository was created.
      * 
      */

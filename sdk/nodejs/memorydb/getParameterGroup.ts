@@ -25,6 +25,7 @@ export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getParameterGroup:getParameterGroup", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetParameterGroupArgs {
      * Name of the parameter group.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags assigned to the parameter group.
      */
@@ -71,6 +73,7 @@ export interface GetParameterGroupResult {
      * Set of user-defined MemoryDB parameters applied by the parameter group.
      */
     readonly parameters: outputs.memorydb.GetParameterGroupParameter[];
+    readonly region: string;
     /**
      * Map of tags assigned to the parameter group.
      */
@@ -94,6 +97,7 @@ export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:memorydb/getParameterGroup:getParameterGroup", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -106,6 +110,7 @@ export interface GetParameterGroupOutputArgs {
      * Name of the parameter group.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the parameter group.
      */

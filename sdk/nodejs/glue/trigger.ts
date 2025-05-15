@@ -175,6 +175,10 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly predicate!: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
     public readonly schedule!: pulumi.Output<string | undefined>;
@@ -223,6 +227,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["eventBatchingConditions"] = state ? state.eventBatchingConditions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["predicate"] = state ? state.predicate : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["startOnCreation"] = state ? state.startOnCreation : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -244,6 +249,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["eventBatchingConditions"] = args ? args.eventBatchingConditions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["predicate"] = args ? args.predicate : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["startOnCreation"] = args ? args.startOnCreation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -290,6 +296,10 @@ export interface TriggerState {
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      */
     predicate?: pulumi.Input<inputs.glue.TriggerPredicate>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
@@ -348,6 +358,10 @@ export interface TriggerArgs {
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      */
     predicate?: pulumi.Input<inputs.glue.TriggerPredicate>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */

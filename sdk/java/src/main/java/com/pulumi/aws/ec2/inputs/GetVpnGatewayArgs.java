@@ -21,8 +21,8 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPN gateways.
+     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      * 
      */
     @Import(name="amazonSideAsn")
@@ -31,8 +31,8 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPN gateways.
+     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      * 
      */
     public Optional<Output<String>> amazonSideAsn() {
@@ -99,6 +99,13 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * State of the specific VPN Gateway to retrieve.
      * 
@@ -139,6 +146,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         this.availabilityZone = $.availabilityZone;
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.state = $.state;
         this.tags = $.tags;
     }
@@ -164,8 +172,8 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPN gateways.
+         * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -178,8 +186,8 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPN gateways.
+         * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -280,6 +288,15 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

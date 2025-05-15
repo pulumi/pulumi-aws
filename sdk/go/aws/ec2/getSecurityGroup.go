@@ -73,7 +73,8 @@ type LookupSecurityGroupArgs struct {
 	Id *string `pulumi:"id"`
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
 	Tags map[string]string `pulumi:"tags"`
@@ -93,6 +94,7 @@ type LookupSecurityGroupResult struct {
 	Filters     []GetSecurityGroupFilter `pulumi:"filters"`
 	Id          string                   `pulumi:"id"`
 	Name        string                   `pulumi:"name"`
+	Region      string                   `pulumi:"region"`
 	Tags        map[string]string        `pulumi:"tags"`
 	VpcId       string                   `pulumi:"vpcId"`
 }
@@ -114,7 +116,8 @@ type LookupSecurityGroupOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -164,6 +167,10 @@ func (o LookupSecurityGroupResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupSecurityGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSecurityGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupSecurityGroupResultOutput) Tags() pulumi.StringMapOutput {

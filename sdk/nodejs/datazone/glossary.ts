@@ -145,6 +145,10 @@ export class Glossary extends pulumi.CustomResource {
      */
     public readonly owningProjectIdentifier!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -166,6 +170,7 @@ export class Glossary extends pulumi.CustomResource {
             resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owningProjectIdentifier"] = state ? state.owningProjectIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as GlossaryArgs | undefined;
@@ -179,6 +184,7 @@ export class Glossary extends pulumi.CustomResource {
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["owningProjectIdentifier"] = args ? args.owningProjectIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -206,6 +212,10 @@ export interface GlossaryState {
      */
     owningProjectIdentifier?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      */
     status?: pulumi.Input<string>;
@@ -230,6 +240,10 @@ export interface GlossaryArgs {
      * The following arguments are optional:
      */
     owningProjectIdentifier: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      */

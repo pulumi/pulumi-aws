@@ -29,6 +29,7 @@ export function getPortfolioConstraints(args: GetPortfolioConstraintsArgs, opts?
         "acceptLanguage": args.acceptLanguage,
         "portfolioId": args.portfolioId,
         "productId": args.productId,
+        "region": args.region,
     }, opts);
 }
 
@@ -50,6 +51,7 @@ export interface GetPortfolioConstraintsArgs {
      * Product identifier.
      */
     productId?: string;
+    region?: string;
 }
 
 /**
@@ -73,6 +75,7 @@ export interface GetPortfolioConstraintsResult {
      * Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
      */
     readonly productId?: string;
+    readonly region: string;
 }
 /**
  * Provides information on Service Catalog Portfolio Constraints.
@@ -96,6 +99,7 @@ export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutpu
         "acceptLanguage": args.acceptLanguage,
         "portfolioId": args.portfolioId,
         "productId": args.productId,
+        "region": args.region,
     }, opts);
 }
 
@@ -117,4 +121,5 @@ export interface GetPortfolioConstraintsOutputArgs {
      * Product identifier.
      */
     productId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

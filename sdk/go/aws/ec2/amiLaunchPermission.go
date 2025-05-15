@@ -122,6 +122,8 @@ type AmiLaunchPermission struct {
 	OrganizationArn pulumi.StringPtrOutput `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrOutput `pulumi:"organizationalUnitArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAmiLaunchPermission registers a new resource with the given unique name, arguments, and options.
@@ -167,6 +169,8 @@ type amiLaunchPermissionState struct {
 	OrganizationArn *string `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn *string `pulumi:"organizationalUnitArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AmiLaunchPermissionState struct {
@@ -180,6 +184,8 @@ type AmiLaunchPermissionState struct {
 	OrganizationArn pulumi.StringPtrInput
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AmiLaunchPermissionState) ElementType() reflect.Type {
@@ -197,6 +203,8 @@ type amiLaunchPermissionArgs struct {
 	OrganizationArn *string `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn *string `pulumi:"organizationalUnitArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AmiLaunchPermission resource.
@@ -211,6 +219,8 @@ type AmiLaunchPermissionArgs struct {
 	OrganizationArn pulumi.StringPtrInput
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AmiLaunchPermissionArgs) ElementType() reflect.Type {
@@ -323,6 +333,11 @@ func (o AmiLaunchPermissionOutput) OrganizationArn() pulumi.StringPtrOutput {
 // ARN of an organizational unit for the launch permission.
 func (o AmiLaunchPermissionOutput) OrganizationalUnitArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringPtrOutput { return v.OrganizationalUnitArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AmiLaunchPermissionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AmiLaunchPermissionArrayOutput struct{ *pulumi.OutputState }

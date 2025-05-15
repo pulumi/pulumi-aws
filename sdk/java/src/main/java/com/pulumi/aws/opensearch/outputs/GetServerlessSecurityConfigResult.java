@@ -34,6 +34,7 @@ public final class GetServerlessSecurityConfigResult {
      * 
      */
     private String lastModifiedDate;
+    private String region;
     /**
      * @return SAML options for the security configuration.
      * 
@@ -77,6 +78,9 @@ public final class GetServerlessSecurityConfigResult {
     public String lastModifiedDate() {
         return this.lastModifiedDate;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return SAML options for the security configuration.
      * 
@@ -106,6 +110,7 @@ public final class GetServerlessSecurityConfigResult {
         private String description;
         private String id;
         private String lastModifiedDate;
+        private String region;
         private @Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions;
         private String type;
         public Builder() {}
@@ -116,6 +121,7 @@ public final class GetServerlessSecurityConfigResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.lastModifiedDate = defaults.lastModifiedDate;
+    	      this.region = defaults.region;
     	      this.samlOptions = defaults.samlOptions;
     	      this.type = defaults.type;
         }
@@ -161,6 +167,14 @@ public final class GetServerlessSecurityConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServerlessSecurityConfigResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder samlOptions(@Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions) {
 
             this.samlOptions = samlOptions;
@@ -184,6 +198,7 @@ public final class GetServerlessSecurityConfigResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.lastModifiedDate = lastModifiedDate;
+            _resultValue.region = region;
             _resultValue.samlOptions = samlOptions;
             _resultValue.type = type;
             return _resultValue;

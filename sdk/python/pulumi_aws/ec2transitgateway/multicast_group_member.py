@@ -22,16 +22,20 @@ class MulticastGroupMemberArgs:
     def __init__(__self__, *,
                  group_ip_address: pulumi.Input[builtins.str],
                  network_interface_id: pulumi.Input[builtins.str],
-                 transit_gateway_multicast_domain_id: pulumi.Input[builtins.str]):
+                 transit_gateway_multicast_domain_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a MulticastGroupMember resource.
         :param pulumi.Input[builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_ip_address", group_ip_address)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         pulumi.set(__self__, "transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="groupIpAddress")
@@ -69,23 +73,39 @@ class MulticastGroupMemberArgs:
     def transit_gateway_multicast_domain_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "transit_gateway_multicast_domain_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _MulticastGroupMemberState:
     def __init__(__self__, *,
                  group_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering MulticastGroupMember resources.
         :param pulumi.Input[builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         if group_ip_address is not None:
             pulumi.set(__self__, "group_ip_address", group_ip_address)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if transit_gateway_multicast_domain_id is not None:
             pulumi.set(__self__, "transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
 
@@ -114,6 +134,18 @@ class _MulticastGroupMemberState:
         pulumi.set(self, "network_interface_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -136,6 +168,7 @@ class MulticastGroupMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -158,6 +191,7 @@ class MulticastGroupMember(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         ...
@@ -199,6 +233,7 @@ class MulticastGroupMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -215,6 +250,7 @@ class MulticastGroupMember(pulumi.CustomResource):
             if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__.__dict__["network_interface_id"] = network_interface_id
+            __props__.__dict__["region"] = region
             if transit_gateway_multicast_domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_multicast_domain_id'")
             __props__.__dict__["transit_gateway_multicast_domain_id"] = transit_gateway_multicast_domain_id
@@ -230,6 +266,7 @@ class MulticastGroupMember(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             group_ip_address: Optional[pulumi.Input[builtins.str]] = None,
             network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             transit_gateway_multicast_domain_id: Optional[pulumi.Input[builtins.str]] = None) -> 'MulticastGroupMember':
         """
         Get an existing MulticastGroupMember resource's state with the given name, id, and optional extra
@@ -240,6 +277,7 @@ class MulticastGroupMember(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -248,6 +286,7 @@ class MulticastGroupMember(pulumi.CustomResource):
 
         __props__.__dict__["group_ip_address"] = group_ip_address
         __props__.__dict__["network_interface_id"] = network_interface_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["transit_gateway_multicast_domain_id"] = transit_gateway_multicast_domain_id
         return MulticastGroupMember(resource_name, opts=opts, __props__=__props__)
 
@@ -266,6 +305,14 @@ class MulticastGroupMember(pulumi.CustomResource):
         The group members' network interface ID to register with the transit gateway multicast group.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")

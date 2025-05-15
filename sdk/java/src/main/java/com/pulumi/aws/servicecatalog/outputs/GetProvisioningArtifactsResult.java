@@ -26,6 +26,7 @@ public final class GetProvisioningArtifactsResult {
      * 
      */
     private List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails;
+    private String region;
 
     private GetProvisioningArtifactsResult() {}
     public Optional<String> acceptLanguage() {
@@ -48,6 +49,9 @@ public final class GetProvisioningArtifactsResult {
     public List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails() {
         return this.provisioningArtifactDetails;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,6 +66,7 @@ public final class GetProvisioningArtifactsResult {
         private String id;
         private String productId;
         private List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails;
+        private String region;
         public Builder() {}
         public Builder(GetProvisioningArtifactsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,6 +74,7 @@ public final class GetProvisioningArtifactsResult {
     	      this.id = defaults.id;
     	      this.productId = defaults.productId;
     	      this.provisioningArtifactDetails = defaults.provisioningArtifactDetails;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -104,12 +110,21 @@ public final class GetProvisioningArtifactsResult {
         public Builder provisioningArtifactDetails(GetProvisioningArtifactsProvisioningArtifactDetail... provisioningArtifactDetails) {
             return provisioningArtifactDetails(List.of(provisioningArtifactDetails));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetProvisioningArtifactsResult build() {
             final var _resultValue = new GetProvisioningArtifactsResult();
             _resultValue.acceptLanguage = acceptLanguage;
             _resultValue.id = id;
             _resultValue.productId = productId;
             _resultValue.provisioningArtifactDetails = provisioningArtifactDetails;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

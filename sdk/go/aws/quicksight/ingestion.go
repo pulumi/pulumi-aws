@@ -68,6 +68,8 @@ type Ingestion struct {
 	//
 	// The following arguments are optional:
 	IngestionType pulumi.StringOutput `pulumi:"ingestionType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewIngestion registers a new resource with the given unique name, arguments, and options.
@@ -123,6 +125,8 @@ type ingestionState struct {
 	//
 	// The following arguments are optional:
 	IngestionType *string `pulumi:"ingestionType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type IngestionState struct {
@@ -140,6 +144,8 @@ type IngestionState struct {
 	//
 	// The following arguments are optional:
 	IngestionType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (IngestionState) ElementType() reflect.Type {
@@ -157,6 +163,8 @@ type ingestionArgs struct {
 	//
 	// The following arguments are optional:
 	IngestionType string `pulumi:"ingestionType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Ingestion resource.
@@ -171,6 +179,8 @@ type IngestionArgs struct {
 	//
 	// The following arguments are optional:
 	IngestionType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (IngestionArgs) ElementType() reflect.Type {
@@ -290,6 +300,11 @@ func (o IngestionOutput) IngestionStatus() pulumi.StringOutput {
 // The following arguments are optional:
 func (o IngestionOutput) IngestionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.IngestionType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IngestionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type IngestionArrayOutput struct{ *pulumi.OutputState }

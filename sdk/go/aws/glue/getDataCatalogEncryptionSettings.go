@@ -25,7 +25,8 @@ func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCa
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsArgs struct {
 	// ID of the Data Catalog. This is typically the AWS account ID.
-	CatalogId string `pulumi:"catalogId"`
+	CatalogId string  `pulumi:"catalogId"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDataCatalogEncryptionSettings.
@@ -34,7 +35,8 @@ type LookupDataCatalogEncryptionSettingsResult struct {
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting `pulumi:"dataCatalogEncryptionSettings"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupDataCatalogEncryptionSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataCatalogEncryptionSettingsResultOutput {
@@ -49,7 +51,8 @@ func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupD
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsOutputArgs struct {
 	// ID of the Data Catalog. This is typically the AWS account ID.
-	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	CatalogId pulumi.StringInput    `pulumi:"catalogId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDataCatalogEncryptionSettingsOutputArgs) ElementType() reflect.Type {
@@ -85,6 +88,10 @@ func (o LookupDataCatalogEncryptionSettingsResultOutput) DataCatalogEncryptionSe
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDataCatalogEncryptionSettingsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupDataCatalogEncryptionSettingsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

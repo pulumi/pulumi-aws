@@ -91,6 +91,8 @@ type ManagedPrefixList struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the AWS account that owns this prefix list.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -147,6 +149,8 @@ type managedPrefixListState struct {
 	Name *string `pulumi:"name"`
 	// ID of the AWS account that owns this prefix list.
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -168,6 +172,8 @@ type ManagedPrefixListState struct {
 	Name pulumi.StringPtrInput
 	// ID of the AWS account that owns this prefix list.
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -189,6 +195,8 @@ type managedPrefixListArgs struct {
 	MaxEntries int `pulumi:"maxEntries"`
 	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -203,6 +211,8 @@ type ManagedPrefixListArgs struct {
 	MaxEntries pulumi.IntInput
 	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -322,6 +332,11 @@ func (o ManagedPrefixListOutput) Name() pulumi.StringOutput {
 // ID of the AWS account that owns this prefix list.
 func (o ManagedPrefixListOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ManagedPrefixListOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

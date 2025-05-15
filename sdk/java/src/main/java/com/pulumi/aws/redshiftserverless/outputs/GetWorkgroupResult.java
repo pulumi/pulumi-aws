@@ -39,6 +39,7 @@ public final class GetWorkgroupResult {
      * 
      */
     private Boolean publiclyAccessible;
+    private String region;
     /**
      * @return An array of security group IDs to associate with the workgroup.
      * 
@@ -95,6 +96,9 @@ public final class GetWorkgroupResult {
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return An array of security group IDs to associate with the workgroup.
      * 
@@ -135,6 +139,7 @@ public final class GetWorkgroupResult {
         private String id;
         private String namespaceName;
         private Boolean publiclyAccessible;
+        private String region;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private String workgroupId;
@@ -148,6 +153,7 @@ public final class GetWorkgroupResult {
     	      this.id = defaults.id;
     	      this.namespaceName = defaults.namespaceName;
     	      this.publiclyAccessible = defaults.publiclyAccessible;
+    	      this.region = defaults.region;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
     	      this.workgroupId = defaults.workgroupId;
@@ -206,6 +212,14 @@ public final class GetWorkgroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             if (securityGroupIds == null) {
               throw new MissingRequiredPropertyException("GetWorkgroupResult", "securityGroupIds");
@@ -251,6 +265,7 @@ public final class GetWorkgroupResult {
             _resultValue.id = id;
             _resultValue.namespaceName = namespaceName;
             _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.region = region;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.subnetIds = subnetIds;
             _resultValue.workgroupId = workgroupId;

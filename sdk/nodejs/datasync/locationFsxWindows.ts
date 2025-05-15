@@ -78,6 +78,10 @@ export class LocationFsxWindows extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      */
     public readonly securityGroupArns!: pulumi.Output<string[]>;
@@ -120,6 +124,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -143,6 +148,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -183,6 +189,10 @@ export interface LocationFsxWindowsState {
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
     password?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      */
@@ -225,6 +235,10 @@ export interface LocationFsxWindowsArgs {
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
     password: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      */

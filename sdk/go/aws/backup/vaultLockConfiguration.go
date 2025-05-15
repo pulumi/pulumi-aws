@@ -63,6 +63,8 @@ type VaultLockConfiguration struct {
 	MaxRetentionDays pulumi.IntPtrOutput `pulumi:"maxRetentionDays"`
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrOutput `pulumi:"minRetentionDays"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewVaultLockConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +110,8 @@ type vaultLockConfigurationState struct {
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays *int `pulumi:"minRetentionDays"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type VaultLockConfigurationState struct {
@@ -121,6 +125,8 @@ type VaultLockConfigurationState struct {
 	MaxRetentionDays pulumi.IntPtrInput
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VaultLockConfigurationState) ElementType() reflect.Type {
@@ -136,6 +142,8 @@ type vaultLockConfigurationArgs struct {
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays *int `pulumi:"minRetentionDays"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VaultLockConfiguration resource.
@@ -148,6 +156,8 @@ type VaultLockConfigurationArgs struct {
 	MaxRetentionDays pulumi.IntPtrInput
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VaultLockConfigurationArgs) ElementType() reflect.Type {
@@ -260,6 +270,11 @@ func (o VaultLockConfigurationOutput) MaxRetentionDays() pulumi.IntPtrOutput {
 // The minimum retention period that the vault retains its recovery points.
 func (o VaultLockConfigurationOutput) MinRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.MinRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VaultLockConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type VaultLockConfigurationArrayOutput struct{ *pulumi.OutputState }

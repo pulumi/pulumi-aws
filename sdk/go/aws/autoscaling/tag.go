@@ -30,6 +30,8 @@ type Tag struct {
 
 	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tag to create. The `tag` block is documented below.
 	Tag TagTagOutput `pulumi:"tag"`
 }
@@ -72,6 +74,8 @@ func GetTag(ctx *pulumi.Context,
 type tagState struct {
 	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tag to create. The `tag` block is documented below.
 	Tag *TagTag `pulumi:"tag"`
 }
@@ -79,6 +83,8 @@ type tagState struct {
 type TagState struct {
 	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tag to create. The `tag` block is documented below.
 	Tag TagTagPtrInput
 }
@@ -90,6 +96,8 @@ func (TagState) ElementType() reflect.Type {
 type tagArgs struct {
 	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tag to create. The `tag` block is documented below.
 	Tag TagTag `pulumi:"tag"`
 }
@@ -98,6 +106,8 @@ type tagArgs struct {
 type TagArgs struct {
 	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tag to create. The `tag` block is documented below.
 	Tag TagTagInput
 }
@@ -192,6 +202,11 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // Name of the Autoscaling Group to apply the tag to.
 func (o TagOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TagOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tag to create. The `tag` block is documented below.

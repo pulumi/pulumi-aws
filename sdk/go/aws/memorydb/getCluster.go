@@ -51,7 +51,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Name of the cluster.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -94,7 +95,8 @@ type LookupClusterResult struct {
 	// The name of the parameter group associated with the cluster.
 	ParameterGroupName string `pulumi:"parameterGroupName"`
 	// Port number that this node is listening on.
-	Port int `pulumi:"port"`
+	Port   int    `pulumi:"port"`
+	Region string `pulumi:"region"`
 	// Set of VPC Security Group ID-s associated with this cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Set of shards in this cluster.
@@ -125,7 +127,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
 	// Name of the cluster.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the cluster.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -241,6 +244,10 @@ func (o LookupClusterResultOutput) ParameterGroupName() pulumi.StringOutput {
 // Port number that this node is listening on.
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of VPC Security Group ID-s associated with this cluster.

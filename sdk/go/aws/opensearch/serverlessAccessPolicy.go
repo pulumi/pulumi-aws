@@ -232,6 +232,8 @@ type ServerlessAccessPolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of access policy. Must be `data`.
 	//
 	// The following arguments are optional:
@@ -282,6 +284,8 @@ type serverlessAccessPolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion *string `pulumi:"policyVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of access policy. Must be `data`.
 	//
 	// The following arguments are optional:
@@ -297,6 +301,8 @@ type ServerlessAccessPolicyState struct {
 	Policy pulumi.StringPtrInput
 	// Version of the policy.
 	PolicyVersion pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of access policy. Must be `data`.
 	//
 	// The following arguments are optional:
@@ -314,6 +320,8 @@ type serverlessAccessPolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// JSON policy document to use as the content for the new policy
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of access policy. Must be `data`.
 	//
 	// The following arguments are optional:
@@ -328,6 +336,8 @@ type ServerlessAccessPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// JSON policy document to use as the content for the new policy
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of access policy. Must be `data`.
 	//
 	// The following arguments are optional:
@@ -439,6 +449,11 @@ func (o ServerlessAccessPolicyOutput) Policy() pulumi.StringOutput {
 // Version of the policy.
 func (o ServerlessAccessPolicyOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServerlessAccessPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of access policy. Must be `data`.

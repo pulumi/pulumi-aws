@@ -40,6 +40,7 @@ export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", {
         "filters": args.filters,
+        "region": args.region,
         "resolverEndpointId": args.resolverEndpointId,
     }, opts);
 }
@@ -52,10 +53,9 @@ export interface GetResolverEndpointArgs {
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
-     *
-     * In addition to all arguments above, the following attributes are exported:
      */
     filters?: inputs.route53.GetResolverEndpointFilter[];
+    region?: string;
     /**
      * ID of the Route53 Resolver Endpoint.
      */
@@ -66,19 +66,41 @@ export interface GetResolverEndpointArgs {
  * A collection of values returned by getResolverEndpoint.
  */
 export interface GetResolverEndpointResult {
+    /**
+     * Computed ARN of the Route53 Resolver Endpoint.
+     */
     readonly arn: string;
+    /**
+     * Direction of the queries to or from the Resolver Endpoint .
+     */
     readonly direction: string;
     readonly filters?: outputs.route53.GetResolverEndpointFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of IPaddresses that have been associated with the Resolver Endpoint.
+     */
     readonly ipAddresses: string[];
     readonly name: string;
+    /**
+     * The protocols used by the Resolver endpoint.
+     */
     readonly protocols: string[];
+    readonly region: string;
     readonly resolverEndpointId?: string;
+    /**
+     * The Resolver endpoint IP address type.
+     */
     readonly resolverEndpointType: string;
+    /**
+     * Current status of the Resolver Endpoint.
+     */
     readonly status: string;
+    /**
+     * ID of the Host VPC that the Resolver Endpoint resides in.
+     */
     readonly vpcId: string;
 }
 /**
@@ -114,6 +136,7 @@ export function getResolverEndpointOutput(args?: GetResolverEndpointOutputArgs, 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverEndpoint:getResolverEndpoint", {
         "filters": args.filters,
+        "region": args.region,
         "resolverEndpointId": args.resolverEndpointId,
     }, opts);
 }
@@ -126,10 +149,9 @@ export interface GetResolverEndpointOutputArgs {
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
-     *
-     * In addition to all arguments above, the following attributes are exported:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.route53.GetResolverEndpointFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * ID of the Route53 Resolver Endpoint.
      */

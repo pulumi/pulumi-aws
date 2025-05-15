@@ -9,11 +9,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceGroupArgs Empty = new ResourceGroupArgs();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
@@ -33,6 +50,7 @@ public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
     private ResourceGroupArgs() {}
 
     private ResourceGroupArgs(ResourceGroupArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -52,6 +70,27 @@ public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ResourceGroupArgs defaults) {
             $ = new ResourceGroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

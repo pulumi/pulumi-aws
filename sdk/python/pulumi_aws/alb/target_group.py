@@ -37,6 +37,7 @@ class TargetGroupArgs:
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_version: Optional[pulumi.Input[builtins.str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slow_start: Optional[pulumi.Input[builtins.int]] = None,
                  stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -65,6 +66,7 @@ class TargetGroupArgs:
                Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[builtins.bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -114,6 +116,8 @@ class TargetGroupArgs:
             pulumi.set(__self__, "protocol_version", protocol_version)
         if proxy_protocol_v2 is not None:
             pulumi.set(__self__, "proxy_protocol_v2", proxy_protocol_v2)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if slow_start is not None:
             pulumi.set(__self__, "slow_start", slow_start)
         if stickiness is not None:
@@ -315,6 +319,18 @@ class TargetGroupArgs:
         pulumi.set(self, "proxy_protocol_v2", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="slowStart")
     def slow_start(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -442,6 +458,7 @@ class _TargetGroupState:
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_version: Optional[pulumi.Input[builtins.str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slow_start: Optional[pulumi.Input[builtins.int]] = None,
                  stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -474,6 +491,7 @@ class _TargetGroupState:
                Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[builtins.bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -530,6 +548,8 @@ class _TargetGroupState:
             pulumi.set(__self__, "protocol_version", protocol_version)
         if proxy_protocol_v2 is not None:
             pulumi.set(__self__, "proxy_protocol_v2", proxy_protocol_v2)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if slow_start is not None:
             pulumi.set(__self__, "slow_start", slow_start)
         if stickiness is not None:
@@ -769,6 +789,18 @@ class _TargetGroupState:
         pulumi.set(self, "proxy_protocol_v2", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="slowStart")
     def slow_start(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -910,6 +942,7 @@ class TargetGroup(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_version: Optional[pulumi.Input[builtins.str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slow_start: Optional[pulumi.Input[builtins.int]] = None,
                  stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1047,6 +1080,7 @@ class TargetGroup(pulumi.CustomResource):
                Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[builtins.bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1210,6 +1244,7 @@ class TargetGroup(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_version: Optional[pulumi.Input[builtins.str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slow_start: Optional[pulumi.Input[builtins.int]] = None,
                  stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1242,6 +1277,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["protocol_version"] = protocol_version
             __props__.__dict__["proxy_protocol_v2"] = proxy_protocol_v2
+            __props__.__dict__["region"] = region
             __props__.__dict__["slow_start"] = slow_start
             __props__.__dict__["stickiness"] = stickiness
             __props__.__dict__["tags"] = tags
@@ -1284,6 +1320,7 @@ class TargetGroup(pulumi.CustomResource):
             protocol: Optional[pulumi.Input[builtins.str]] = None,
             protocol_version: Optional[pulumi.Input[builtins.str]] = None,
             proxy_protocol_v2: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             slow_start: Optional[pulumi.Input[builtins.int]] = None,
             stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1321,6 +1358,7 @@ class TargetGroup(pulumi.CustomResource):
                Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[builtins.bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1363,6 +1401,7 @@ class TargetGroup(pulumi.CustomResource):
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["protocol_version"] = protocol_version
         __props__.__dict__["proxy_protocol_v2"] = proxy_protocol_v2
+        __props__.__dict__["region"] = region
         __props__.__dict__["slow_start"] = slow_start
         __props__.__dict__["stickiness"] = stickiness
         __props__.__dict__["tags"] = tags
@@ -1520,6 +1559,14 @@ class TargetGroup(pulumi.CustomResource):
         Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         """
         return pulumi.get(self, "proxy_protocol_v2")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="slowStart")

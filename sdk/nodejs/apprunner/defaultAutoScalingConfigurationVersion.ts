@@ -65,6 +65,10 @@ export class DefaultAutoScalingConfigurationVersion extends pulumi.CustomResourc
      * The ARN of the App Runner auto scaling configuration that you want to set as the default.
      */
     public readonly autoScalingConfigurationArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DefaultAutoScalingConfigurationVersion resource with the given unique name, arguments, and options.
@@ -80,12 +84,14 @@ export class DefaultAutoScalingConfigurationVersion extends pulumi.CustomResourc
         if (opts.id) {
             const state = argsOrState as DefaultAutoScalingConfigurationVersionState | undefined;
             resourceInputs["autoScalingConfigurationArn"] = state ? state.autoScalingConfigurationArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DefaultAutoScalingConfigurationVersionArgs | undefined;
             if ((!args || args.autoScalingConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingConfigurationArn'");
             }
             resourceInputs["autoScalingConfigurationArn"] = args ? args.autoScalingConfigurationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DefaultAutoScalingConfigurationVersion.__pulumiType, name, resourceInputs, opts);
@@ -100,6 +106,10 @@ export interface DefaultAutoScalingConfigurationVersionState {
      * The ARN of the App Runner auto scaling configuration that you want to set as the default.
      */
     autoScalingConfigurationArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -110,4 +120,8 @@ export interface DefaultAutoScalingConfigurationVersionArgs {
      * The ARN of the App Runner auto scaling configuration that you want to set as the default.
      */
     autoScalingConfigurationArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

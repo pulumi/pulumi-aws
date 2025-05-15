@@ -156,6 +156,9 @@ namespace Pulumi.Aws.Polly
         [Input("languageCode")]
         public string? LanguageCode { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("voices")]
         private List<Inputs.GetVoicesVoiceArgs>? _voices;
 
@@ -194,6 +197,9 @@ namespace Pulumi.Aws.Polly
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("voices")]
         private InputList<Inputs.GetVoicesVoiceInputArgs>? _voices;
 
@@ -226,6 +232,7 @@ namespace Pulumi.Aws.Polly
         /// Language code of the voice.
         /// </summary>
         public readonly string? LanguageCode;
+        public readonly string Region;
         /// <summary>
         /// List of voices with their properties. See `voices` Attribute Reference below.
         /// </summary>
@@ -241,12 +248,15 @@ namespace Pulumi.Aws.Polly
 
             string? languageCode,
 
+            string region,
+
             ImmutableArray<Outputs.GetVoicesVoiceResult> voices)
         {
             Engine = engine;
             Id = id;
             IncludeAdditionalLanguageCodes = includeAdditionalLanguageCodes;
             LanguageCode = languageCode;
+            Region = region;
             Voices = voices;
         }
     }

@@ -15,17 +15,16 @@ public final class GetRegionResult {
      * 
      */
     private String description;
-    /**
-     * @return EC2 endpoint for the selected region.
-     * 
-     */
     private String endpoint;
     private String id;
     /**
-     * @return Name of the selected region.
+     * @deprecated
+     * name is deprecated. Use region instead.
      * 
      */
+    @Deprecated /* name is deprecated. Use region instead. */
     private String name;
+    private String region;
 
     private GetRegionResult() {}
     /**
@@ -35,10 +34,6 @@ public final class GetRegionResult {
     public String description() {
         return this.description;
     }
-    /**
-     * @return EC2 endpoint for the selected region.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
@@ -46,11 +41,16 @@ public final class GetRegionResult {
         return this.id;
     }
     /**
-     * @return Name of the selected region.
+     * @deprecated
+     * name is deprecated. Use region instead.
      * 
      */
+    @Deprecated /* name is deprecated. Use region instead. */
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -66,6 +66,7 @@ public final class GetRegionResult {
         private String endpoint;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetRegionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,6 +74,7 @@ public final class GetRegionResult {
     	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -107,12 +109,21 @@ public final class GetRegionResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRegionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetRegionResult build() {
             final var _resultValue = new GetRegionResult();
             _resultValue.description = description;
             _resultValue.endpoint = endpoint;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

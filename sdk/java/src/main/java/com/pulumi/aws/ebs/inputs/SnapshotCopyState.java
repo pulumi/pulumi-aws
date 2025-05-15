@@ -161,6 +161,21 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The region of the source snapshot.
      * 
      */
@@ -285,6 +300,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         this.ownerAlias = $.ownerAlias;
         this.ownerId = $.ownerId;
         this.permanentRestore = $.permanentRestore;
+        this.region = $.region;
         this.sourceRegion = $.sourceRegion;
         this.sourceSnapshotId = $.sourceSnapshotId;
         this.storageTier = $.storageTier;
@@ -509,6 +525,27 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder permanentRestore(Boolean permanentRestore) {
             return permanentRestore(Output.of(permanentRestore));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -81,6 +81,10 @@ export class PrefixListReference extends pulumi.CustomResource {
     public readonly prefixListId!: pulumi.Output<string>;
     public /*out*/ readonly prefixListOwnerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
     public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
@@ -107,6 +111,7 @@ export class PrefixListReference extends pulumi.CustomResource {
             resourceInputs["blackhole"] = state ? state.blackhole : undefined;
             resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
             resourceInputs["prefixListOwnerId"] = state ? state.prefixListOwnerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
@@ -119,6 +124,7 @@ export class PrefixListReference extends pulumi.CustomResource {
             }
             resourceInputs["blackhole"] = args ? args.blackhole : undefined;
             resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
             resourceInputs["prefixListOwnerId"] = undefined /*out*/;
@@ -141,6 +147,10 @@ export interface PrefixListReferenceState {
      */
     prefixListId?: pulumi.Input<string>;
     prefixListOwnerId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
@@ -165,6 +175,10 @@ export interface PrefixListReferenceArgs {
      * Identifier of EC2 Prefix List.
      */
     prefixListId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
