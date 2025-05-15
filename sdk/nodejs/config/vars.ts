@@ -194,7 +194,7 @@ Object.defineProperty(exports, "profile", {
 export declare const region: enums.Region | undefined;
 Object.defineProperty(exports, "region", {
     get() {
-        return __config.getObject<enums.Region>("region") ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+        return __config.getObject<enums.Region>("region");
     },
     enumerable: true,
 });

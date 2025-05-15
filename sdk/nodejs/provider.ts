@@ -122,7 +122,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             resourceInputs["noProxy"] = args ? args.noProxy : undefined;
             resourceInputs["profile"] = args ? args.profile : undefined;
-            resourceInputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retryMode"] = args ? args.retryMode : undefined;
             resourceInputs["s3UsEast1RegionalEndpoint"] = args ? args.s3UsEast1RegionalEndpoint : undefined;
             resourceInputs["s3UsePathStyle"] = pulumi.output(args ? args.s3UsePathStyle : undefined).apply(JSON.stringify);

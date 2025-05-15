@@ -915,9 +915,9 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			"region": {
 				Type: "aws:index/Region:Region",
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-				},
+				//Default: &tfbridge.DefaultInfo{
+				//	EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
+				//},
 				ForcesProviderReplace: tfbridge.True(),
 			},
 			"skip_region_validation": {
