@@ -595,6 +595,9 @@ func TestRegress2868(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "regress-2868"),
+			// TODO[pulumi/pulumi-aws#5521] `region` causes permanent diff without refresh
+			PreviewCommandlineFlags: []string{"--refresh"},
+			UpdateCommandlineFlags:  []string{"--refresh"},
 		})
 	// Disable envRegion mangling
 	test.Config = nil

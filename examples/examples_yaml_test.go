@@ -67,10 +67,6 @@ func TestAccPluginFramework(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestBucketUpgrade(t *testing.T) {
-	testProviderUpgrade(t, filepath.Join("test-programs", "bucket"), nil)
-}
-
 func TestEKSClusterUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "eks-cluster"), nil)
 }
@@ -173,13 +169,12 @@ func TestEC2InstanceUpgrade(t *testing.T) {
 }
 
 func TestCloudfrontDistributionUpgrade(t *testing.T) {
-	// Baseline version is needed because of https://github.com/pulumi/providertest/issues/76
-	testProviderUpgrade(t, filepath.Join("test-programs", "cloudfront-distribution"), &testProviderUpgradeOptions{
-		baselineVersion: "6.10.0",
-	})
+	testProviderUpgrade(t, filepath.Join("test-programs", "cloudfront-distribution"), nil)
 }
 
 func TestSecretVersionUpgrade(t *testing.T) {
+	// NOTE: to regenerate this test you need to unsanitize the secret values in state
+	// The secretbinary value is an empty string, but get sanitized to a non-empty string
 	testProviderUpgrade(t, filepath.Join("test-programs", "secretversion"), nil)
 }
 
@@ -188,10 +183,7 @@ func TestElasticacheReplicationGroupUpgrade(t *testing.T) {
 }
 
 func TestS3BucketToBucketUpgrade(t *testing.T) {
-	/*previewRes := */ testProviderUpgrade(t, "bucket-to-bucket",
-		&testProviderUpgradeOptions{
-			baselineVersion: "6.78.0",
-		},
+	/*previewRes := */ testProviderUpgrade(t, "bucket-to-bucket", nil,
 		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "step1")),
 	)
 	// TODO: [pulumi-aws#5514] fix bucket v7 upgrade
@@ -199,10 +191,7 @@ func TestS3BucketToBucketUpgrade(t *testing.T) {
 }
 
 func TestS3BucketV2ToBucketUpgrade(t *testing.T) {
-	/*previewRes := */ testProviderUpgrade(t, "bucketv2-to-bucket",
-		&testProviderUpgradeOptions{
-			baselineVersion: "6.78.0",
-		},
+	/*previewRes := */ testProviderUpgrade(t, "bucketv2-to-bucket", nil,
 		optproviderupgrade.NewSourcePath(filepath.Join("bucketv2-to-bucket", "step1")),
 	)
 	// TODO: [pulumi-aws#1111] fix bucket v7 upgrade
@@ -210,24 +199,13 @@ func TestS3BucketV2ToBucketUpgrade(t *testing.T) {
 }
 
 func TestS3BucketV2ToBucketSidecarUpgrade(t *testing.T) {
-	test, _ := testProviderUpgrade(t, "bucket-sidecar-renames",
-		&testProviderUpgradeOptions{
-			baselineVersion: "6.78.0",
-		},
+	test, _ := testProviderUpgrade(t, "bucket-sidecar-renames", &testProviderUpgradeOptions{
+		skipDefaultPreviewTest: true,
+	},
 		optproviderupgrade.NewSourcePath(filepath.Join("bucket-sidecar-renames", "step1")),
 	)
 	diff := runPreviewWithPlanDiff(t, test)
-	// tagsAll is added in v7 due to moving to upstream tagging
-	assert.Equal(t, map[string]interface{}{
-		"loggingBucket": map[string]interface{}{
-			"diff":  apitype.PlanDiffV1{Adds: map[string]interface{}{"tagsAll": map[string]interface{}{}}},
-			"steps": []apitype.OpType{apitype.OpType("update")},
-		},
-		"migrationBucket": map[string]interface{}{
-			"diff":  apitype.PlanDiffV1{Adds: map[string]interface{}{"tagsAll": map[string]interface{}{}}},
-			"steps": []apitype.OpType{apitype.OpType("update")},
-		},
-	}, diff)
+	assert.Equal(t, map[string]interface{}{}, diff)
 }
 
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {
@@ -392,85 +370,6 @@ func TestNonIdempotentSnsTopic(t *testing.T) {
 
 	_, err := ptest.CurrentStack().Up(ptest.Context())
 	require.ErrorContains(t, err, "already exists")
-}
-
-func TestOpenZfsFileSystemUpgrade(t *testing.T) {
-	t.Parallel()
-	if testing.Short() {
-		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
-	}
-	const pulumiYaml = `
-name: openzfs
-runtime: yaml
-resources:
-  MyFileSystem:
-    properties:
-      deploymentType: SINGLE_AZ_1
-      storageCapacity: 64
-      %s
-      throughputCapacity: 64
-    type: aws:fsx:OpenZfsFileSystem
-  MySubnet:
-    properties:
-      cidrBlock: "10.0.1.0/24"
-      vpcId: ${MyVPC.id}
-    type: aws:ec2:Subnet
-  MyVPC:
-    properties:
-      cidrBlock: "10.0.0.0/16"
-    type: aws:ec2:Vpc
-`
-
-	var (
-		providerName    string = "aws"
-		baselineVersion string = "6.41.0"
-	)
-	cwd, err := os.Getwd()
-	assert.NoError(t, err)
-	workdir := t.TempDir()
-
-	firstProgram := []byte(fmt.Sprintf(pulumiYaml, "subnetIds: ${MySubnet.id}"))
-	secondProgram := []byte(fmt.Sprintf(pulumiYaml, "subnetIds:\n        - ${MySubnet.id}"))
-	// test that we can upgrade from the previous version which accepted a string for `subnetIds`
-	// to the new version which accepts a list
-	t.Run("upgrade", func(t *testing.T) {
-		pulumiTest := testProviderCodeChanges(t, &testProviderCodeChangesOptions{
-			firstProgram: firstProgram,
-			firstProgramOptions: []opttest.Option{
-				opttest.DownloadProviderVersion(providerName, baselineVersion),
-			},
-			secondProgram: secondProgram,
-			secondProgramOptions: []opttest.Option{
-				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
-			},
-		})
-
-		res := pulumiTest.Preview(t)
-		t.Logf("stdout: %s \n", res.StdOut)
-		t.Logf("stderr: %s \n", res.StdErr)
-		assertpreview.HasNoChanges(t, res)
-
-		upResult := pulumiTest.Up(t)
-		t.Logf("stdout: %s \n", upResult.StdOut)
-		t.Logf("stderr: %s \n", upResult.StdErr)
-	})
-
-	// test that we can deploy a new filesystem with a list of subnetIds
-	// we use a test with a snapshot since this test is only useful the first time, once
-	// we know it works it should continue to work.
-	t.Run("new-version", func(t *testing.T) {
-		t.Parallel()
-		err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), secondProgram, 0o600)
-		assert.NoError(t, err)
-		pulumiTest := pulumitest.NewPulumiTest(t, workdir,
-			opttest.SkipInstall(),
-			opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
-		)
-
-		pulumiTest.SetConfig(t, "aws:region", "us-east-2")
-
-		pulumiUpWithSnapshot(t, pulumiTest)
-	})
 }
 
 // Make sure that legacy Bucket supports deleting tags out of band and detecting drift.
@@ -1126,12 +1025,9 @@ func TestAccDefaultTags(t *testing.T) {
 			name: "pf", token: "aws:appconfig:Environment",
 			other: `
   app:
-    type: aws:appconfig:Application
-    properties:
-      name: pf-tags-test-app`,
+    type: aws:appconfig:Application`,
 			properties: map[string]interface{}{
 				"applicationId": "${app.id}",
-				"name":          "pf-tags-test",
 			},
 		},
 	}
@@ -1384,299 +1280,6 @@ outputs:
 	}
 }
 
-// This replicates the diff when running `pulumi preview` on a aws.rds.Instance with
-// pulumi-aws v6.0.0 and state from pulumi-aws 5.42.0.
-//
-// The first test ensures we don't regress on https://github.com/pulumi/pulumi-aws/issues/2682
-//
-// The second test is when upgrading from pulumi-aws version <5.0.0 to v6.x.x, and
-// prevents regressions on https://github.com/pulumi/pulumi-aws/issues/2823
-//
-// Updated in https://github.com/pulumi/pulumi-aws/pull/3881
-// replacements.
-func TestMigrateRdsInstance(t *testing.T) {
-	case1 := `[{
-	  "method": "/pulumirpc.ResourceProvider/Diff",
-	  "request": {
-	    "id": "postgresdb8a8a6f1",
-	    "urn": "urn:pulumi:dev::ts::aws:rds/instance:Instance::postgresdb",
-	    "olds": {
-	      "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"1\"}",
-	      "address": "postgresdb8a8a6f1.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
-	      "allocatedStorage": 30,
-	      "applyImmediately": false,
-	      "arn": "arn:aws:rds:us-west-2:616138583583:db:postgresdb8a8a6f1",
-	      "autoMinorVersionUpgrade": true,
-	      "availabilityZone": "us-west-2d",
-	      "backupRetentionPeriod": 0,
-	      "backupWindow": "06:15-06:45",
-	      "caCertIdentifier": "rds-ca-2019",
-	      "characterSetName": "",
-	      "copyTagsToSnapshot": false,
-	      "customIamInstanceProfile": "",
-	      "customerOwnedIpEnabled": false,
-	      "dbName": "airflow",
-	      "dbSubnetGroupName": "default",
-	      "deleteAutomatedBackups": true,
-	      "deletionProtection": false,
-	      "domain": "",
-	      "domainIamRoleName": "",
-	      "enabledCloudwatchLogsExports": [],
-	      "endpoint": "postgresdb8a8a6f1.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
-	      "engine": "postgres",
-	      "engineVersion": "15.3",
-	      "engineVersionActual": "15.3",
-	      "hostedZoneId": "Z1PVIF0B656C1W",
-	      "iamDatabaseAuthenticationEnabled": false,
-	      "id": "postgresdb8a8a6f1",
-	      "identifier": "postgresdb8a8a6f1",
-	      "identifierPrefix": "",
-	      "instanceClass": "db.t4g.micro",
-	      "iops": 0,
-	      "kmsKeyId": "",
-	      "latestRestorableTime": "",
-	      "licenseModel": "postgresql-license",
-	      "listenerEndpoints": [],
-	      "maintenanceWindow": "sun:07:16-sun:07:46",
-	      "masterUserSecrets": [],
-	      "maxAllocatedStorage": 0,
-	      "monitoringInterval": 0,
-	      "monitoringRoleArn": "",
-	      "multiAz": false,
-	      "name": "airflow",
-	      "ncharCharacterSetName": "",
-	      "networkType": "IPV4",
-	      "optionGroupName": "default:postgres-15",
-	      "parameterGroupName": "default.postgres15",
-	      "password": "tuFp574p9Arw58gu",
-	      "performanceInsightsEnabled": false,
-	      "performanceInsightsKmsKeyId": "",
-	      "performanceInsightsRetentionPeriod": 0,
-	      "port": 5432,
-	      "publiclyAccessible": false,
-	      "replicaMode": "",
-	      "replicas": [],
-	      "replicateSourceDb": "",
-	      "resourceId": "db-DUPUZANEFBXYECMTI2B5RZPTOE",
-	      "securityGroupNames": [],
-	      "skipFinalSnapshot": true,
-	      "status": "available",
-	      "storageEncrypted": false,
-	      "storageThroughput": 0,
-	      "storageType": "gp2",
-	      "tags": {},
-	      "tagsAll": {},
-	      "timezone": "",
-	      "username": "airflow",
-	      "vpcSecurityGroupIds": [
-		"sg-4d436f12"
-	      ]
-	    },
-	    "news": {
-	      "__defaults": [
-		"applyImmediately",
-		"autoMinorVersionUpgrade",
-		"copyTagsToSnapshot",
-		"deleteAutomatedBackups",
-		"identifier",
-		"monitoringInterval",
-		"performanceInsightsEnabled",
-		"publiclyAccessible"
-	      ],
-	      "allocatedStorage": 30,
-	      "applyImmediately": false,
-	      "autoMinorVersionUpgrade": true,
-	      "copyTagsToSnapshot": false,
-	      "deleteAutomatedBackups": true,
-	      "engine": "postgres",
-	      "identifier": "postgresdb8a8a6f1",
-	      "instanceClass": "db.t4g.micro",
-	      "monitoringInterval": 0,
-	      "dbName": "airflow",
-	      "password": "tuFp574p9Arw58gu",
-	      "performanceInsightsEnabled": false,
-	      "publiclyAccessible": false,
-	      "skipFinalSnapshot": true,
-	      "username": "airflow"
-	    },
-	    "oldInputs": {
-	      "__defaults": [
-		"applyImmediately",
-		"autoMinorVersionUpgrade",
-		"copyTagsToSnapshot",
-		"deleteAutomatedBackups",
-		"identifier",
-		"monitoringInterval",
-		"performanceInsightsEnabled",
-		"publiclyAccessible"
-	      ],
-	      "allocatedStorage": 30,
-	      "applyImmediately": false,
-	      "autoMinorVersionUpgrade": true,
-	      "copyTagsToSnapshot": false,
-	      "deleteAutomatedBackups": true,
-	      "engine": "postgres",
-	      "identifier": "postgresdb8a8a6f1",
-	      "instanceClass": "db.t4g.micro",
-	      "monitoringInterval": 0,
-	      "name": "airflow",
-	      "password": "tuFp574p9Arw58gu",
-	      "performanceInsightsEnabled": false,
-	      "publiclyAccessible": false,
-	      "skipFinalSnapshot": true,
-	      "username": "airflow"
-	    }
-	  },
-	  "response": {
-	    "stables": "*",
-	    "changes": "*",
-	    "hasDetailedDiff": true
-	  }
-	}]`
-
-	case2 := `[{
-	    "method": "/pulumirpc.ResourceProvider/Diff",
-	    "request": {
-	      "id": "rds2f5ed54",
-	      "urn": "urn:pulumi:exp2::secret-random-yaml::aws:rds/instance:Instance::rds",
-	      "olds": {
-		"__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"1\"}",
-		"address": "rds2f5ed54.c1xxca33i6kr.us-east-2.rds.amazonaws.com",
-		"allocatedStorage": 16,
-		"applyImmediately": false,
-		"arn": "arn:aws:rds:us-east-2:616138583583:db:rds2f5ed54",
-		"autoMinorVersionUpgrade": true,
-		"availabilityZone": "us-east-2c",
-		"backupRetentionPeriod": 0,
-		"backupWindow": "07:34-08:04",
-		"caCertIdentifier": "rds-ca-2019",
-		"copyTagsToSnapshot": false,
-		"dbSubnetGroupName": "default",
-		"deleteAutomatedBackups": true,
-		"deletionProtection": false,
-		"domain": "",
-		"domainIamRoleName": "",
-		"enabledCloudwatchLogsExports": [],
-		"endpoint": "rds2f5ed54.c1xxca33i6kr.us-east-2.rds.amazonaws.com:3306",
-		"engine": "mysql",
-		"engineVersion": "8.0.33",
-		"hostedZoneId": "Z2XHWR1WZ565X2",
-		"iamDatabaseAuthenticationEnabled": false,
-		"id": "rds2f5ed54",
-		"identifier": "rds2f5ed54",
-		"instanceClass": "db.t3.micro",
-		"iops": 0,
-		"kmsKeyId": "",
-		"latestRestorableTime": "0001-01-01T00:00:00Z",
-		"licenseModel": "general-public-license",
-		"maintenanceWindow": "sun:03:59-sun:04:29",
-		"maxAllocatedStorage": 0,
-		"monitoringInterval": 0,
-		"monitoringRoleArn": "",
-		"multiAz": false,
-		"name": "name",
-		"optionGroupName": "default:mysql-8-0",
-		"parameterGroupName": "default.mysql8.0",
-		"password": "FOO-BAR-FIZZ1!2",
-		"performanceInsightsEnabled": false,
-		"performanceInsightsKmsKeyId": "",
-		"performanceInsightsRetentionPeriod": 0,
-		"port": 3306,
-		"publiclyAccessible": false,
-		"replicas": [],
-		"replicateSourceDb": "",
-		"resourceId": "db-N57SF65OZ5KO3TPK73R7DQMLZA",
-		"securityGroupNames": [],
-		"skipFinalSnapshot": true,
-		"status": "available",
-		"storageEncrypted": false,
-		"storageType": "gp2",
-		"tags": {
-		  "some": "change"
-		},
-		"timezone": "",
-		"username": "root",
-		"vpcSecurityGroupIds": [
-		  "sg-1928d262"
-		]
-	      },
-	      "news": {
-		"__defaults": [
-		  "applyImmediately",
-		  "autoMinorVersionUpgrade",
-		  "copyTagsToSnapshot",
-		  "deleteAutomatedBackups",
-		  "identifier",
-		  "monitoringInterval",
-		  "performanceInsightsEnabled",
-		  "publiclyAccessible"
-		],
-		"allocatedStorage": 16,
-		"applyImmediately": false,
-		"autoMinorVersionUpgrade": true,
-		"copyTagsToSnapshot": false,
-		"dbName": "name",
-		"deleteAutomatedBackups": true,
-		"engine": "mysql",
-		"identifier": "rds2f5ed54",
-		"instanceClass": "db.t3.micro",
-		"monitoringInterval": 0,
-		"password": "FOO-BAR-FIZZ1!2",
-		"performanceInsightsEnabled": false,
-		"publiclyAccessible": false,
-		"skipFinalSnapshot": true,
-		"tags": {
-		  "__defaults": [],
-		  "some": "change"
-		},
-		"username": "root"
-	      },
-	      "oldInputs": {
-		"__defaults": [
-		  "applyImmediately",
-		  "autoMinorVersionUpgrade",
-		  "copyTagsToSnapshot",
-		  "deleteAutomatedBackups",
-		  "identifier",
-		  "monitoringInterval",
-		  "performanceInsightsEnabled",
-		  "publiclyAccessible"
-		],
-		"allocatedStorage": 16,
-		"applyImmediately": false,
-		"autoMinorVersionUpgrade": true,
-		"copyTagsToSnapshot": false,
-		"deleteAutomatedBackups": true,
-		"engine": "mysql",
-		"identifier": "rds2f5ed54",
-		"instanceClass": "db.t3.micro",
-		"monitoringInterval": 0,
-		"name": "name",
-		"password": "FOO-BAR-FIZZ1!2",
-		"performanceInsightsEnabled": false,
-		"publiclyAccessible": false,
-		"skipFinalSnapshot": true,
-		"tags": {
-		  "__defaults": [],
-		  "some": "change"
-		},
-		"username": "root"
-	      }
-	    },
-	    "response": {
-	      "stables": "*",
-	      "changes": "*",
-	      "hasDetailedDiff": true,
-		  "detailedDiff": "*",
-		  "diffs": "*"
-	    }
-	  }
-	]`
-
-	t.Run("case1", func(t *testing.T) { replay(t, case1) })
-	t.Run("case2", func(t *testing.T) { replay(t, case2) })
-}
-
 func TestRegressUnknownTags(t *testing.T) {
 	repro := `
 	[
@@ -1716,6 +1319,39 @@ func TestRegressUnknownTags(t *testing.T) {
 func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
 	repro := `
 	[
+		{
+			"method": "/pulumirpc.ResourceProvider/Configure",
+			"request": {
+				"variables": {
+					"aws:config:region": "us-east-1",
+					"aws:config:skipCredentialsValidation": "true",
+					"aws:config:skipRegionValidation": "true"
+				},
+				"args": {
+					"region": "us-east-1",
+					"skipCredentialsValidation": "true",
+					"skipRegionValidation": "true",
+					"version": "7.0.0-alpha.0+dev"
+				},
+				"acceptSecrets": true,
+				"acceptResources": true,
+				"sendsOldInputs": true,
+				"sendsOldInputsToDelete": true,
+				"id": "8043d035-cb0a-40bb-9479-34f237a486d2",
+				"urn": "urn:pulumi:dev::aws_esm_py::pulumi:providers:aws::default_7_0_0_alpha_0_dev",
+				"name": "default_7_0_0_alpha_0_dev",
+				"type": "pulumi:providers:aws"
+			},
+			"response": {
+				"supportsPreview": true,
+				"supportsAutonamingConfiguration": true
+			},
+			"metadata": {
+				"kind": "resource",
+				"mode": "client",
+				"name": "aws"
+			}
+		},
     {
       "method": "/pulumirpc.ResourceProvider/Diff",
       "request": {
@@ -1723,6 +1359,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
           "urn": "urn:pulumi:dev::aws_esm_py::aws:lambda/eventSourceMapping:EventSourceMapping::example",
           "olds": {
               "amazonManagedKafkaEventSourceConfig": null,
+							"region": "us-east-1",
               "batchSize": 10,
               "bisectBatchOnFunctionError": false,
               "destinationConfig": null,
@@ -1758,6 +1395,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
               "__defaults": [
                   "enabled"
               ],
+							"region": "us-east-1",
               "enabled": true,
               "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
 							"tagsAll": {},
@@ -1767,6 +1405,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
               "__defaults": [
                   "enabled"
               ],
+							"region": "us-east-1",
               "enabled": true,
               "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
               "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"

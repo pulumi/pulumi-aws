@@ -1,0 +1,140 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-14T15:01:49.009742-04:00",
+      "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+      "version": "v3.169.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:7ewQjXNqGaQ=:v1:uWcp5W7enuggx2Kv:s4o/5DMVbu61eXqIXWK8CQ/aVB+mOA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::elasticache-replication-group::pulumi:pulumi:Stack::elasticache-replication-group-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "outputs": {
+          "replicationGroupArn": "arn:aws:elasticache:us-west-2:894850187425:replicationgroup:replicationgroup-2c32754"
+        },
+        "created": "2025-05-14T18:54:25.107819Z",
+        "modified": "2025-05-14T18:54:25.107819Z"
+      },
+      {
+        "urn": "urn:pulumi:test::elasticache-replication-group::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "00ac9b1b-7368-4498-a8ac-8f0b67f4fbde",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2025-05-14T18:54:29.058573Z",
+        "modified": "2025-05-14T18:54:29.058573Z"
+      },
+      {
+        "urn": "urn:pulumi:test::elasticache-replication-group::aws:elasticache/replicationGroup:ReplicationGroup::replicationGroup",
+        "custom": true,
+        "id": "replicationgroup-2c32754",
+        "type": "aws:elasticache/replicationGroup:ReplicationGroup",
+        "inputs": {
+          "__defaults": [
+            "authTokenUpdateStrategy",
+            "automaticFailoverEnabled",
+            "engine",
+            "multiAzEnabled",
+            "replicationGroupId"
+          ],
+          "atRestEncryptionEnabled": true,
+          "authTokenUpdateStrategy": "ROTATE",
+          "automaticFailoverEnabled": false,
+          "description": "Example Replication Group",
+          "engine": "redis",
+          "multiAzEnabled": false,
+          "nodeType": "cache.m4.large",
+          "numCacheClusters": 1,
+          "port": 6379,
+          "replicationGroupId": "replicationgroup-2c32754"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":2700000000000,\"update\":2400000000000},\"schema_version\":\"2\"}",
+          "applyImmediately": null,
+          "arn": "arn:aws:elasticache:us-west-2:894850187425:replicationgroup:replicationgroup-2c32754",
+          "atRestEncryptionEnabled": true,
+          "authToken": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "authTokenUpdateStrategy": "ROTATE",
+          "autoMinorVersionUpgrade": true,
+          "automaticFailoverEnabled": false,
+          "clusterEnabled": false,
+          "clusterMode": "disabled",
+          "configurationEndpointAddress": null,
+          "dataTieringEnabled": false,
+          "description": "Example Replication Group",
+          "engine": "redis",
+          "engineVersion": "7.1",
+          "engineVersionActual": "7.1.0",
+          "finalSnapshotIdentifier": null,
+          "globalReplicationGroupId": null,
+          "id": "replicationgroup-2c32754",
+          "ipDiscovery": "ipv4",
+          "kmsKeyId": "",
+          "logDeliveryConfigurations": [],
+          "maintenanceWindow": "wed:06:30-wed:07:30",
+          "memberClusters": [
+            "replicationgroup-2c32754-001"
+          ],
+          "multiAzEnabled": false,
+          "networkType": "ipv4",
+          "nodeType": "cache.m4.large",
+          "notificationTopicArn": null,
+          "numCacheClusters": 1,
+          "numNodeGroups": 1,
+          "parameterGroupName": "default.redis7",
+          "port": 6379,
+          "preferredCacheClusterAzs": null,
+          "primaryEndpointAddress": "replicationgroup-2c32754.8imw4e.ng.0001.usw2.cache.amazonaws.com",
+          "readerEndpointAddress": "replicationgroup-2c32754-ro.8imw4e.ng.0001.usw2.cache.amazonaws.com",
+          "replicasPerNodeGroup": 0,
+          "replicationGroupId": "replicationgroup-2c32754",
+          "securityGroupIds": [],
+          "securityGroupNames": [],
+          "snapshotArns": null,
+          "snapshotName": null,
+          "snapshotRetentionLimit": 0,
+          "snapshotWindow": "08:30-09:30",
+          "subnetGroupName": "default",
+          "transitEncryptionEnabled": false,
+          "transitEncryptionMode": "",
+          "userGroupIds": null
+        },
+        "parent": "urn:pulumi:test::elasticache-replication-group::pulumi:pulumi:Stack::elasticache-replication-group-test",
+        "provider": "urn:pulumi:test::elasticache-replication-group::pulumi:providers:aws::default::00ac9b1b-7368-4498-a8ac-8f0b67f4fbde",
+        "propertyDependencies": {
+          "atRestEncryptionEnabled": [],
+          "description": [],
+          "nodeType": [],
+          "numCacheClusters": [],
+          "port": []
+        },
+        "additionalSecretOutputs": [
+          "authToken"
+        ],
+        "created": "2025-05-14T19:01:48.975064Z",
+        "modified": "2025-05-14T19:01:48.975064Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

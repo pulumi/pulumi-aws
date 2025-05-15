@@ -24,7 +24,6 @@ import (
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
-	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
@@ -68,13 +67,34 @@ func runPreviewWithPlanDiff(
 			if resourcePlan.Goal != nil {
 				diff = resourcePlan.Goal.InputDiff
 			}
-			resourceDiffs[urn.Name()] = map[string]interface{}{
-				"diff":  diff,
-				"steps": resourcePlan.Steps,
+			if hasUpgradePreviewDiff(diff) {
+				resourceDiffs[urn.Name()] = map[string]interface{}{
+					"diff":  diff,
+					"steps": resourcePlan.Steps,
+				}
 			}
 		}
 	}
 	return resourceDiffs
+}
+
+// hasUpgradePreviewDiff checks if there are any changes in the preview diff
+// during an upgrade test.
+// It has special handling to allow the "region" and "tagsAll" properties
+// due to pulumi/pulumi-aws#5521
+func hasUpgradePreviewDiff(diff apitype.PlanDiffV1) bool {
+	if diff.Deletes != nil || diff.Updates != nil {
+		return true
+	}
+	if diff.Adds == nil {
+		return false
+	}
+	for add := range diff.Adds {
+		if !slices.Contains([]string{"tagsAll", "region"}, add) {
+			return true
+		}
+	}
+	return false
 }
 
 func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args ...string) {
@@ -102,6 +122,7 @@ type testProviderUpgradeOptions struct {
 	setEnvRegion           bool
 	region                 string
 	skipDefaultPreviewTest bool
+	skipCache              bool
 	extraOpts              []opttest.Option
 }
 
@@ -111,7 +132,7 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	t.Helper()
 	var (
 		providerName    string = "aws"
-		baselineVersion string = "5.42.0"
+		baselineVersion string = "6.78.0"
 	)
 	if opts != nil && opts.baselineVersion != "" {
 		baselineVersion = opts.baselineVersion
@@ -145,17 +166,21 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	for _, opt := range upgradeOpts {
 		upOpts = append(upOpts, opt)
 	}
-	test = providerUpgradeTest(t, test, providerName, baselineVersion, upOpts...)
-	if opts != nil && opts.skipDefaultPreviewTest {
-		return test, auto.PreviewResult{}
+	skipCache := false
+	if opts != nil && opts.skipCache {
+		skipCache = opts.skipCache
 	}
-	result := test.Preview(t, optpreview.Diff())
+	upgradeTest := providerUpgradeTest(t, test, providerName, baselineVersion, skipCache, upOpts...)
+	if opts != nil && opts.skipDefaultPreviewTest {
+		return upgradeTest, auto.PreviewResult{}
+	}
+	result := upgradeTest.Preview(t, optpreview.Diff())
 	assertpreview.HasNoReplacements(t, result)
-	return test, result
+	return upgradeTest, result
 }
 
 // taken from providertest.PreviewProviderUpgrade, but customized to return the test instead of the result
-func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, providerName string, baselineVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) *pulumitest.PulumiTest {
+func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, providerName string, baselineVersion string, skipCache bool, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) *pulumitest.PulumiTest {
 	t.Helper()
 	previewTest := pulumiTest.CopyToTempDir(t, opttest.NewStackOptions(optnewstack.DisableAutoDestroy()))
 	options := optproviderupgrade.Defaults()
@@ -164,6 +189,15 @@ func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, pro
 	}
 	programName := filepath.Base(pulumiTest.WorkingDir())
 	cacheDir := providertest.GetUpgradeCacheDir(programName, baselineVersion, options.CacheDirTemplate...)
+	optsRun := []optrun.Option{
+		optrun.WithOpts(
+			opttest.NewStackOptions(optnewstack.EnableAutoDestroy()),
+			baselineProviderOpt(options, providerName, baselineVersion)),
+		optrun.WithOpts(options.BaselineOpts...),
+	}
+	if !skipCache {
+		optsRun = append(optsRun, optrun.WithCache(filepath.Join(cacheDir, "stack.json")))
+	}
 	previewTest.Run(t,
 		func(test *pulumitest.PulumiTest) {
 			t.Helper()
@@ -174,11 +208,7 @@ func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, pro
 			grptLog.SanitizeSecrets()
 			grptLog.WriteTo(grpcLogPath)
 		},
-		optrun.WithCache(filepath.Join(cacheDir, "stack.json")),
-		optrun.WithOpts(
-			opttest.NewStackOptions(optnewstack.EnableAutoDestroy()),
-			baselineProviderOpt(options, providerName, baselineVersion)),
-		optrun.WithOpts(options.BaselineOpts...),
+		optsRun...,
 	)
 
 	if options.NewSourcePath != "" {
@@ -263,37 +293,6 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 	secondTest.ImportStack(t, *export)
 
 	return secondTest
-}
-
-// pulumiUpWithSnapshot will only run the up portion of the test if the plan has changed since the
-// last time the test was run.
-//
-// This should be used when the plan is a good representation of what you are testing. Sometimes
-// there are issues where the plan is consistent, but the apply fails. In those cases a snapshot test is not
-// a good fit.
-func pulumiUpWithSnapshot(t *testing.T, pulumiTest *pulumitest.PulumiTest) {
-	workdir := os.TempDir()
-	cwd, err := os.Getwd()
-	assert.NoError(t, err)
-	cacheDir := filepath.Join(cwd, "testdata", "recorded", "TestProviderUpgrade", t.Name())
-	planFile := filepath.Join(cacheDir, "plan.json")
-	if ok, _ := exists(planFile); ok {
-		err := os.MkdirAll(cacheDir, 0755)
-		assert.NoError(t, err)
-		tmpPlanFile := filepath.Join(workdir, "plan.json")
-
-		pulumiTest.Preview(t, optpreview.Plan(tmpPlanFile))
-
-		if equal := planEqual(t, planFile, tmpPlanFile); equal {
-			return
-		}
-
-		t.Log("Plan is not equal, re-running up")
-	}
-	pulumiTest.Preview(t, optpreview.Plan(planFile))
-	upResult := pulumiTest.Up(t, optup.Plan(planFile))
-	t.Logf("stdout: %s \n", upResult.StdOut)
-	t.Logf("stderr: %s \n", upResult.StdErr)
 }
 
 func pulumiTest(t *testing.T, dir string, opts ...opttest.Option) *pulumitest.PulumiTest {

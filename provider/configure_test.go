@@ -291,5 +291,5 @@ func replaySequence(t *testing.T, sequence string) {
 }
 
 func init() {
-	version.Version = "6.0.0"
+	version.Version = "7.0.0"
 }

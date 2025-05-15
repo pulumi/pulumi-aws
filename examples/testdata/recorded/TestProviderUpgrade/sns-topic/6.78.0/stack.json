@@ -1,0 +1,98 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-14T14:54:38.077151-04:00",
+      "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+      "version": "v3.169.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:XotxulCZc4E=:v1:UlplzlDvIVGIjMxU:8gyAnb6ZGj5qPcdY4vvTJ0+CJ2Z9tg=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-05-14T18:54:34.297807Z",
+        "modified": "2025-05-14T18:54:34.297807Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "eeef4185-e21b-4979-ad9a-163b26c27f97",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2025-05-14T18:54:36.48876Z",
+        "modified": "2025-05-14T18:54:36.48876Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::aws:sns/topic:Topic::user_updates",
+        "custom": true,
+        "id": "arn:aws:sns:us-west-2:894850187425:user-updates-topic",
+        "type": "aws:sns/topic:Topic",
+        "inputs": {
+          "__defaults": [
+            "contentBasedDeduplication",
+            "fifoTopic"
+          ],
+          "contentBasedDeduplication": false,
+          "fifoTopic": false,
+          "name": "user-updates-topic"
+        },
+        "outputs": {
+          "applicationFailureFeedbackRoleArn": "",
+          "applicationSuccessFeedbackRoleArn": "",
+          "applicationSuccessFeedbackSampleRate": 0,
+          "archivePolicy": "",
+          "arn": "arn:aws:sns:us-west-2:894850187425:user-updates-topic",
+          "beginningArchiveTime": "",
+          "contentBasedDeduplication": false,
+          "deliveryPolicy": "",
+          "displayName": "",
+          "fifoTopic": false,
+          "firehoseFailureFeedbackRoleArn": "",
+          "firehoseSuccessFeedbackRoleArn": "",
+          "firehoseSuccessFeedbackSampleRate": 0,
+          "httpFailureFeedbackRoleArn": "",
+          "httpSuccessFeedbackRoleArn": "",
+          "httpSuccessFeedbackSampleRate": 0,
+          "id": "arn:aws:sns:us-west-2:894850187425:user-updates-topic",
+          "kmsMasterKeyId": "",
+          "lambdaFailureFeedbackRoleArn": "",
+          "lambdaSuccessFeedbackRoleArn": "",
+          "lambdaSuccessFeedbackSampleRate": 0,
+          "name": "user-updates-topic",
+          "namePrefix": "",
+          "owner": "894850187425",
+          "policy": "{\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Condition\":{\"StringEquals\":{\"AWS:SourceOwner\":\"894850187425\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sns:us-west-2:894850187425:user-updates-topic\",\"Sid\":\"__default_statement_ID\"}],\"Version\":\"2008-10-17\"}",
+          "signatureVersion": 0,
+          "sqsFailureFeedbackRoleArn": "",
+          "sqsSuccessFeedbackRoleArn": "",
+          "sqsSuccessFeedbackSampleRate": 0,
+          "tracingConfig": ""
+        },
+        "parent": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-test",
+        "provider": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:providers:aws::default::eeef4185-e21b-4979-ad9a-163b26c27f97",
+        "propertyDependencies": {
+          "name": []
+        },
+        "created": "2025-05-14T18:54:38.065358Z",
+        "modified": "2025-05-14T18:54:38.065358Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

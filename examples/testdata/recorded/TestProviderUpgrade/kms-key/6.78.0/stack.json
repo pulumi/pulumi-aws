@@ -1,0 +1,92 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-14T14:54:30.311093-04:00",
+      "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+      "version": "v3.169.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:XKXneoCTug0=:v1:ZZPjMjH6JuOOd54h:j3SR6XIhex51Uzfx2Bt395CVwKOABw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:pulumi:Stack::aws_kms_key_Key_1-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-05-14T18:54:25.171261Z",
+        "modified": "2025-05-14T18:54:25.171261Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "3260159d-4e39-48bc-bfc1-015d517d8616",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2025-05-14T18:54:29.125506Z",
+        "modified": "2025-05-14T18:54:29.125506Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_kms_key_Key_1::aws:kms/key:Key::a",
+        "custom": true,
+        "id": "fa9c9450-9848-46c2-885e-9beed2185a5c",
+        "type": "aws:kms/key:Key",
+        "inputs": {
+          "__defaults": [
+            "bypassPolicyLockoutSafetyCheck",
+            "customerMasterKeySpec",
+            "enableKeyRotation",
+            "isEnabled",
+            "keyUsage"
+          ],
+          "bypassPolicyLockoutSafetyCheck": false,
+          "customerMasterKeySpec": "SYMMETRIC_DEFAULT",
+          "deletionWindowInDays": 10,
+          "description": "KMS key 1",
+          "enableKeyRotation": false,
+          "isEnabled": true,
+          "keyUsage": "ENCRYPT_DECRYPT"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":120000000000}}",
+          "arn": "arn:aws:kms:us-west-2:894850187425:key/fa9c9450-9848-46c2-885e-9beed2185a5c",
+          "bypassPolicyLockoutSafetyCheck": false,
+          "customKeyStoreId": "",
+          "customerMasterKeySpec": "SYMMETRIC_DEFAULT",
+          "deletionWindowInDays": 10,
+          "description": "KMS key 1",
+          "enableKeyRotation": false,
+          "id": "fa9c9450-9848-46c2-885e-9beed2185a5c",
+          "isEnabled": true,
+          "keyId": "fa9c9450-9848-46c2-885e-9beed2185a5c",
+          "keyUsage": "ENCRYPT_DECRYPT",
+          "multiRegion": false,
+          "policy": "{\"Id\":\"key-default-1\",\"Statement\":[{\"Action\":\"kms:*\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::894850187425:root\"},\"Resource\":\"*\",\"Sid\":\"Enable IAM User Permissions\"}],\"Version\":\"2012-10-17\"}",
+          "rotationPeriodInDays": 0,
+          "xksKeyId": ""
+        },
+        "parent": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:pulumi:Stack::aws_kms_key_Key_1-test",
+        "provider": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:providers:aws::default::3260159d-4e39-48bc-bfc1-015d517d8616",
+        "propertyDependencies": {
+          "deletionWindowInDays": [],
+          "description": []
+        },
+        "created": "2025-05-14T18:54:30.298197Z",
+        "modified": "2025-05-14T18:54:30.298197Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

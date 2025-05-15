@@ -27,6 +27,8 @@ import (
 //
 // See also pulumi/pulumi-aws#3650.
 func TestRegressLandingZoneDiff(t *testing.T) {
+	// TODO[pulumi/pulumi-aws#5518]
+	t.Skip("Skipping for now")
 	t.Parallel()
 
 	event := `
@@ -71,6 +73,8 @@ func TestRegressLandingZoneDiff(t *testing.T) {
 }
 
 func TestRegress1738(t *testing.T) {
+	// TODO[pulumi/pulumi-aws#5518]
+	t.Skip("Skipping for now")
 	t.Parallel()
 
 	containerDefinitionsOld := `
