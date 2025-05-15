@@ -41,7 +41,7 @@ type Provider struct {
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-	Region pulumi.StringPtrOutput `pulumi:"region"`
+	Region RegionPtrOutput `pulumi:"region"`
 	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
 	// `AWS_RETRY_MODE` environment variable.
 	RetryMode pulumi.StringPtrOutput `pulumi:"retryMode"`
@@ -66,7 +66,9 @@ func NewProvider(ctx *pulumi.Context,
 
 	if args.Region == nil {
 		if d := internal.GetEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
-			args.Region = pulumi.StringPtr(d.(string))
+			if s, ok := d.(string); ok {
+				args.Region = Region(s)
+			}
 		}
 	}
 	if args.SkipCredentialsValidation == nil {
@@ -136,7 +138,7 @@ type providerArgs struct {
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile *string `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-	Region *string `pulumi:"region"`
+	Region *Region `pulumi:"region"`
 	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
 	// `AWS_RETRY_MODE` environment variable.
 	RetryMode *string `pulumi:"retryMode"`
@@ -214,7 +216,7 @@ type ProviderArgs struct {
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrInput
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-	Region pulumi.StringPtrInput
+	Region RegionPtrInput
 	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
 	// `AWS_RETRY_MODE` environment variable.
 	RetryMode pulumi.StringPtrInput
@@ -338,8 +340,8 @@ func (o ProviderOutput) Profile() pulumi.StringPtrOutput {
 }
 
 // The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-func (o ProviderOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+func (o ProviderOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v *Provider) RegionPtrOutput { return v.Region }).(RegionPtrOutput)
 }
 
 // Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the

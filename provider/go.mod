@@ -33,6 +33,9 @@ replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250221232320-8d4cfd37a3cd
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.18.1
+
+	github.com/pulumi/pulumi/pkg/v3 => ../../pulumi/pkg
+	github.com/pulumi/pulumi/sdk/v3 => ../../pulumi/sdk
 )
 
 require (

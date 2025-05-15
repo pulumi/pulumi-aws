@@ -100,7 +100,9 @@ func GetRegion(ctx *pulumi.Context) string {
 	}
 	var value string
 	if d := internal.GetEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
-		value = d.(string)
+		if s, ok := d.(string); ok {
+			args.Region = aws.Region(s)
+		}
 	}
 	return value
 }
