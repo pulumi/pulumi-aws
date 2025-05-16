@@ -127,10 +127,8 @@ class _ConfigurationPolicyAssociationState:
         pulumi.set(self, "target_id", value)
 
 
+@pulumi.type_token("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")
 class ConfigurationPolicyAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -295,10 +295,8 @@ class _ProxyTargetState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:rds/proxyTarget:ProxyTarget")
 class ProxyTarget(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/proxyTarget:ProxyTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

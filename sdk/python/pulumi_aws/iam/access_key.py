@@ -224,10 +224,8 @@ class _AccessKeyState:
         pulumi.set(self, "user", value)
 
 
+@pulumi.type_token("aws:iam/accessKey:AccessKey")
 class AccessKey(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/accessKey:AccessKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

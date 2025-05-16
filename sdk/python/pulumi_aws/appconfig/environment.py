@@ -292,10 +292,8 @@ class _EnvironmentState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:appconfig/environment:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "aws:appconfig/environment:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

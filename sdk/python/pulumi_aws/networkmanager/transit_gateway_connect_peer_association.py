@@ -158,10 +158,8 @@ class _TransitGatewayConnectPeerAssociationState:
         pulumi.set(self, "transit_gateway_connect_peer_arn", value)
 
 
+@pulumi.type_token("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")
 class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

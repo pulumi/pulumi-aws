@@ -163,10 +163,8 @@ class _ParameterGroupState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:dax/parameterGroup:ParameterGroup")
 class ParameterGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:dax/parameterGroup:ParameterGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

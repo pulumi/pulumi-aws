@@ -254,10 +254,8 @@ class _AccessPointState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:efs/accessPoint:AccessPoint")
 class AccessPoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:efs/accessPoint:AccessPoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -95,10 +95,8 @@ class _UserPolicyAttachmentsExclusiveState:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive")
 class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

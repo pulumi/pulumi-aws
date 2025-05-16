@@ -345,10 +345,8 @@ class _RadiusSettingsState:
         pulumi.set(self, "use_same_username", value)
 
 
+@pulumi.type_token("aws:directoryservice/radiusSettings:RadiusSettings")
 class RadiusSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws:directoryservice/radiusSettings:RadiusSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

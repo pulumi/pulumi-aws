@@ -145,10 +145,8 @@ class _AssessmentTargetState:
         pulumi.set(self, "resource_group_arn", value)
 
 
+@pulumi.type_token("aws:inspector/assessmentTarget:AssessmentTarget")
 class AssessmentTarget(pulumi.CustomResource):
-
-    pulumi_type = "aws:inspector/assessmentTarget:AssessmentTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

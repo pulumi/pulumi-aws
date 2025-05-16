@@ -127,10 +127,8 @@ class _VpcAssociationAuthorizationState:
         pulumi.set(self, "zone_id", value)
 
 
+@pulumi.type_token("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")
 class VpcAssociationAuthorization(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -271,10 +271,8 @@ class _StandardsControlState:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("aws:securityhub/standardsControl:StandardsControl")
 class StandardsControl(pulumi.CustomResource):
-
-    pulumi_type = "aws:securityhub/standardsControl:StandardsControl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -507,10 +507,8 @@ class _PatchBaselineState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ssm/patchBaseline:PatchBaseline")
 class PatchBaseline(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/patchBaseline:PatchBaseline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

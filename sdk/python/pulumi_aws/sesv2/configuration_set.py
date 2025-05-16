@@ -350,10 +350,8 @@ class _ConfigurationSetState:
         pulumi.set(self, "vdm_options", value)
 
 
+@pulumi.type_token("aws:sesv2/configurationSet:ConfigurationSet")
 class ConfigurationSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/configurationSet:ConfigurationSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

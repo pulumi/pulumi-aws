@@ -175,10 +175,8 @@ class _ResourceSetState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:fms/resourceSet:ResourceSet")
 class ResourceSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:fms/resourceSet:ResourceSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

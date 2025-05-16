@@ -512,10 +512,8 @@ class _NetworkProfileState:
         pulumi.set(self, "uplink_loss_percent", value)
 
 
+@pulumi.type_token("aws:devicefarm/networkProfile:NetworkProfile")
 class NetworkProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:devicefarm/networkProfile:NetworkProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

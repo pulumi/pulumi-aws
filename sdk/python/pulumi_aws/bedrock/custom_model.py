@@ -566,10 +566,8 @@ class _CustomModelState:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws:bedrock/customModel:CustomModel")
 class CustomModel(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/customModel:CustomModel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

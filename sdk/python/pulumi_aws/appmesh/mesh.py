@@ -259,10 +259,8 @@ class _MeshState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:appmesh/mesh:Mesh")
 class Mesh(pulumi.CustomResource):
-
-    pulumi_type = "aws:appmesh/mesh:Mesh"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

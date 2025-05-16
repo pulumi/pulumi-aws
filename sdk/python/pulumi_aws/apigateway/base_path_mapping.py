@@ -223,10 +223,8 @@ class _BasePathMappingState:
         pulumi.set(self, "stage_name", value)
 
 
+@pulumi.type_token("aws:apigateway/basePathMapping:BasePathMapping")
 class BasePathMapping(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/basePathMapping:BasePathMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

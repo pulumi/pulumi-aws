@@ -360,10 +360,8 @@ class _VpcAttachmentState:
         pulumi.set(self, "vpc_arn", value)
 
 
+@pulumi.type_token("aws:networkmanager/vpcAttachment:VpcAttachment")
 class VpcAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/vpcAttachment:VpcAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

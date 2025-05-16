@@ -254,10 +254,8 @@ class _SigningProfilePermissionState:
         pulumi.set(self, "statement_id_prefix", value)
 
 
+@pulumi.type_token("aws:signer/signingProfilePermission:SigningProfilePermission")
 class SigningProfilePermission(pulumi.CustomResource):
-
-    pulumi_type = "aws:signer/signingProfilePermission:SigningProfilePermission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

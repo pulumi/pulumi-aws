@@ -566,10 +566,8 @@ class _StageState:
         pulumi.set(self, "xray_tracing_enabled", value)
 
 
+@pulumi.type_token("aws:apigateway/stage:Stage")
 class Stage(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/stage:Stage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

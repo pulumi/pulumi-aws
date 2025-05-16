@@ -305,10 +305,8 @@ class _UserProfileState:
         pulumi.set(self, "user_settings", value)
 
 
+@pulumi.type_token("aws:sagemaker/userProfile:UserProfile")
 class UserProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/userProfile:UserProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

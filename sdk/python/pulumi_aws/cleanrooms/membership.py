@@ -373,10 +373,8 @@ class _MembershipState:
         pulumi.set(self, "update_time", value)
 
 
+@pulumi.type_token("aws:cleanrooms/membership:Membership")
 class Membership(pulumi.CustomResource):
-
-    pulumi_type = "aws:cleanrooms/membership:Membership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

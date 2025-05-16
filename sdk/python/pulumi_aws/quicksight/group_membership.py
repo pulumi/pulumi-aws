@@ -203,10 +203,8 @@ class _GroupMembershipState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:quicksight/groupMembership:GroupMembership")
 class GroupMembership(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/groupMembership:GroupMembership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

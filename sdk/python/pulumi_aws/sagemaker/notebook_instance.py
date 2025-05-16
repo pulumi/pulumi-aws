@@ -613,10 +613,8 @@ class _NotebookInstanceState:
         pulumi.set(self, "volume_size", value)
 
 
+@pulumi.type_token("aws:sagemaker/notebookInstance:NotebookInstance")
 class NotebookInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/notebookInstance:NotebookInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

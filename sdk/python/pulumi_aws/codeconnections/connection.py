@@ -279,10 +279,8 @@ class _ConnectionState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:codeconnections/connection:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "aws:codeconnections/connection:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

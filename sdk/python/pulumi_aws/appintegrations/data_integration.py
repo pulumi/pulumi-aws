@@ -288,10 +288,8 @@ class _DataIntegrationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:appintegrations/dataIntegration:DataIntegration")
 class DataIntegration(pulumi.CustomResource):
-
-    pulumi_type = "aws:appintegrations/dataIntegration:DataIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

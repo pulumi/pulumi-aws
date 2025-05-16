@@ -127,10 +127,8 @@ class _InternetGatewayAttachmentState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")
 class InternetGatewayAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/internetGatewayAttachment:InternetGatewayAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -487,10 +487,8 @@ class _ConnectionState:
         pulumi.set(self, "vlan_id", value)
 
 
+@pulumi.type_token("aws:directconnect/connection:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/connection:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -318,10 +318,8 @@ class _ConnectPeerState:
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/connectPeer:ConnectPeer")
 class ConnectPeer(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/connectPeer:ConnectPeer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

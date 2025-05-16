@@ -456,10 +456,8 @@ class _TableState:
         pulumi.set(self, "ttl", value)
 
 
+@pulumi.type_token("aws:keyspaces/table:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "aws:keyspaces/table:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

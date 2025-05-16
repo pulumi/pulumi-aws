@@ -289,10 +289,8 @@ class _EventEndpointState:
         pulumi.set(self, "routing_config", value)
 
 
+@pulumi.type_token("aws:cloudwatch/eventEndpoint:EventEndpoint")
 class EventEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/eventEndpoint:EventEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

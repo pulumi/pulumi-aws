@@ -193,10 +193,8 @@ class _HumanTaskUIState:
         pulumi.set(self, "ui_template", value)
 
 
+@pulumi.type_token("aws:sagemaker/humanTaskUI:HumanTaskUI")
 class HumanTaskUI(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/humanTaskUI:HumanTaskUI"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

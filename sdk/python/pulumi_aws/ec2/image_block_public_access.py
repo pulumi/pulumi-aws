@@ -64,10 +64,8 @@ class _ImageBlockPublicAccessState:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess")
 class ImageBlockPublicAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

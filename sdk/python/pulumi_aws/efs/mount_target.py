@@ -311,10 +311,8 @@ class _MountTargetState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("aws:efs/mountTarget:MountTarget")
 class MountTarget(pulumi.CustomResource):
-
-    pulumi_type = "aws:efs/mountTarget:MountTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -174,10 +174,8 @@ class _VaultNotificationsState:
         pulumi.set(self, "sns_topic_arn", value)
 
 
+@pulumi.type_token("aws:backup/vaultNotifications:VaultNotifications")
 class VaultNotifications(pulumi.CustomResource):
-
-    pulumi_type = "aws:backup/vaultNotifications:VaultNotifications"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

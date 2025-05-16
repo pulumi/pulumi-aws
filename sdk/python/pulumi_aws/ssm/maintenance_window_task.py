@@ -480,10 +480,8 @@ class _MaintenanceWindowTaskState:
         pulumi.set(self, "window_task_id", value)
 
 
+@pulumi.type_token("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")
 class MaintenanceWindowTask(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/maintenanceWindowTask:MaintenanceWindowTask"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

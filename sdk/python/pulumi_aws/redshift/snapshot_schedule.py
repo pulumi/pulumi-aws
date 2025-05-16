@@ -292,10 +292,8 @@ class _SnapshotScheduleState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:redshift/snapshotSchedule:SnapshotSchedule")
 class SnapshotSchedule(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/snapshotSchedule:SnapshotSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

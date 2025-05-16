@@ -130,10 +130,8 @@ class _DataCatalogEncryptionSettingsState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")
 class DataCatalogEncryptionSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

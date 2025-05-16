@@ -288,10 +288,8 @@ class _FsxOpenZfsFileSystemState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem")
 class FsxOpenZfsFileSystem(pulumi.CustomResource):
-
-    pulumi_type = "aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -258,10 +258,8 @@ class _DeliveryChannelState:
         pulumi.set(self, "sns_topic_arn", value)
 
 
+@pulumi.type_token("aws:cfg/deliveryChannel:DeliveryChannel")
 class DeliveryChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/deliveryChannel:DeliveryChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

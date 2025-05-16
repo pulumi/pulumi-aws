@@ -306,10 +306,8 @@ class _DataQualityRulesetState:
         pulumi.set(self, "target_table", value)
 
 
+@pulumi.type_token("aws:glue/dataQualityRuleset:DataQualityRuleset")
 class DataQualityRuleset(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/dataQualityRuleset:DataQualityRuleset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

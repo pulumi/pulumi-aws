@@ -405,10 +405,8 @@ class _TrafficMirrorFilterRuleState:
         pulumi.set(self, "traffic_mirror_filter_id", value)
 
 
+@pulumi.type_token("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule")
 class TrafficMirrorFilterRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

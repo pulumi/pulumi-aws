@@ -128,10 +128,8 @@ class _SpotDatafeedSubscriptionState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")
 class SpotDatafeedSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

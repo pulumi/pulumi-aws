@@ -239,10 +239,8 @@ class _LogDeliverySourceState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logDeliverySource:LogDeliverySource")
 class LogDeliverySource(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logDeliverySource:LogDeliverySource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

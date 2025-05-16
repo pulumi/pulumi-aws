@@ -139,10 +139,8 @@ class _EnablerState:
         pulumi.set(self, "resource_types", value)
 
 
+@pulumi.type_token("aws:inspector2/enabler:Enabler")
 class Enabler(pulumi.CustomResource):
-
-    pulumi_type = "aws:inspector2/enabler:Enabler"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

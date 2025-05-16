@@ -492,10 +492,8 @@ class _EnvironmentState:
         pulumi.set(self, "user_parameters", value)
 
 
+@pulumi.type_token("aws:datazone/environment:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "aws:datazone/environment:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

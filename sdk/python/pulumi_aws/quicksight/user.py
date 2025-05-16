@@ -358,10 +358,8 @@ class _UserState:
         pulumi.set(self, "user_role", value)
 
 
+@pulumi.type_token("aws:quicksight/user:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/user:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

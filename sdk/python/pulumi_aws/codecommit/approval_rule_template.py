@@ -240,10 +240,8 @@ class _ApprovalRuleTemplateState:
         pulumi.set(self, "rule_content_sha256", value)
 
 
+@pulumi.type_token("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")
 class ApprovalRuleTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

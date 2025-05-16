@@ -689,10 +689,8 @@ class _QueueState:
         pulumi.set(self, "visibility_timeout_seconds", value)
 
 
+@pulumi.type_token("aws:sqs/queue:Queue")
 class Queue(pulumi.CustomResource):
-
-    pulumi_type = "aws:sqs/queue:Queue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

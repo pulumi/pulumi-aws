@@ -377,10 +377,8 @@ class _ApplicationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ssoadmin/application:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssoadmin/application:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

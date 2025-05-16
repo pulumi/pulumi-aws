@@ -302,10 +302,8 @@ class _RegexPatternSetState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:wafv2/regexPatternSet:RegexPatternSet")
 class RegexPatternSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafv2/regexPatternSet:RegexPatternSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

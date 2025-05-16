@@ -237,10 +237,8 @@ class _DefaultVpcDhcpOptionsState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")
 class DefaultVpcDhcpOptions(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

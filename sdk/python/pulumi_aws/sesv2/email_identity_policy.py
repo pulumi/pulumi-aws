@@ -158,10 +158,8 @@ class _EmailIdentityPolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy")
 class EmailIdentityPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

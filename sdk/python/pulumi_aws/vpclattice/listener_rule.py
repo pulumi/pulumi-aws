@@ -350,10 +350,8 @@ class _ListenerRuleState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:vpclattice/listenerRule:ListenerRule")
 class ListenerRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpclattice/listenerRule:ListenerRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

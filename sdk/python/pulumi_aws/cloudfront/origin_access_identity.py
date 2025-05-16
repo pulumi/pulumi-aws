@@ -175,10 +175,8 @@ class _OriginAccessIdentityState:
         pulumi.set(self, "s3_canonical_user_id", value)
 
 
+@pulumi.type_token("aws:cloudfront/originAccessIdentity:OriginAccessIdentity")
 class OriginAccessIdentity(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/originAccessIdentity:OriginAccessIdentity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

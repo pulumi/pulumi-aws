@@ -258,6 +258,29 @@ func (ProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerArgs)(nil)).Elem()
 }
 
+// This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+func (r *Provider) TerraformConfig(ctx *pulumi.Context) (ProviderTerraformConfigResultOutput, error) {
+	out, err := ctx.Call("pulumi:providers:aws/terraformConfig", nil, ProviderTerraformConfigResultOutput{}, r)
+	if err != nil {
+		return ProviderTerraformConfigResultOutput{}, err
+	}
+	return out.(ProviderTerraformConfigResultOutput), nil
+}
+
+type ProviderTerraformConfigResult struct {
+	Result map[string]interface{} `pulumi:"result"`
+}
+
+type ProviderTerraformConfigResultOutput struct{ *pulumi.OutputState }
+
+func (ProviderTerraformConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderTerraformConfigResult)(nil)).Elem()
+}
+
+func (o ProviderTerraformConfigResultOutput) Result() pulumi.MapOutput {
+	return o.ApplyT(func(v ProviderTerraformConfigResult) map[string]interface{} { return v.Result }).(pulumi.MapOutput)
+}
+
 type ProviderInput interface {
 	pulumi.Input
 
@@ -373,4 +396,5 @@ func (o ProviderOutput) Token() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), &Provider{})
 	pulumi.RegisterOutputType(ProviderOutput{})
+	pulumi.RegisterOutputType(ProviderTerraformConfigResultOutput{})
 }

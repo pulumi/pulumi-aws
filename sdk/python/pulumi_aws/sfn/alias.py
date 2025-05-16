@@ -194,10 +194,8 @@ class _AliasState:
         pulumi.set(self, "routing_configurations", value)
 
 
+@pulumi.type_token("aws:sfn/alias:Alias")
 class Alias(pulumi.CustomResource):
-
-    pulumi_type = "aws:sfn/alias:Alias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

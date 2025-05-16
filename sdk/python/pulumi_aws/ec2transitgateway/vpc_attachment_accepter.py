@@ -336,10 +336,8 @@ class _VpcAttachmentAccepterState:
         pulumi.set(self, "vpc_owner_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter")
 class VpcAttachmentAccepter(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

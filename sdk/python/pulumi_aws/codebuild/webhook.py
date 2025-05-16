@@ -306,10 +306,8 @@ class _WebhookState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("aws:codebuild/webhook:Webhook")
 class Webhook(pulumi.CustomResource):
-
-    pulumi_type = "aws:codebuild/webhook:Webhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

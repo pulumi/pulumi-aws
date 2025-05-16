@@ -446,10 +446,8 @@ class _ExportTaskState:
         pulumi.set(self, "warning_message", value)
 
 
+@pulumi.type_token("aws:rds/exportTask:ExportTask")
 class ExportTask(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/exportTask:ExportTask"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

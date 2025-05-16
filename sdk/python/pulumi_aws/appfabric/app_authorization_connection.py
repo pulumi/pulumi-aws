@@ -217,10 +217,8 @@ class _AppAuthorizationConnectionState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection")
 class AppAuthorizationConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

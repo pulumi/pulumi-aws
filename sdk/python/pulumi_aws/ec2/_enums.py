@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws:ec2/InstancePlatform:InstancePlatform")
 class InstancePlatform(builtins.str, Enum):
     LINUX_UNIX = "Linux/UNIX"
     RED_HAT_ENTERPRISE_LINUX = "Red Hat Enterprise Linux"
@@ -26,6 +27,7 @@ class InstancePlatform(builtins.str, Enum):
     WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web"
 
 
+@pulumi.type_token("aws:ec2/InstanceType:InstanceType")
 class InstanceType(builtins.str, Enum):
     A1_2_X_LARGE = "a1.2xlarge"
     A1_4_X_LARGE = "a1.4xlarge"
@@ -813,6 +815,7 @@ class InstanceType(builtins.str, Enum):
     G2_8_X_LARGE = "g2.8xlarge"
 
 
+@pulumi.type_token("aws:ec2/PlacementStrategy:PlacementStrategy")
 class PlacementStrategy(builtins.str, Enum):
     """
     The strategy of the placement group determines how the instances are organized within the group.
@@ -829,6 +832,7 @@ class PlacementStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("aws:ec2/ProtocolType:ProtocolType")
 class ProtocolType(builtins.str, Enum):
     ALL = "all"
     TCP = "tcp"
@@ -836,6 +840,7 @@ class ProtocolType(builtins.str, Enum):
     ICMP = "icmp"
 
 
+@pulumi.type_token("aws:ec2/Tenancy:Tenancy")
 class Tenancy(builtins.str, Enum):
     DEFAULT = "default"
     DEDICATED = "dedicated"

@@ -159,10 +159,8 @@ class _UserPolicyState:
         pulumi.set(self, "user", value)
 
 
+@pulumi.type_token("aws:iam/userPolicy:UserPolicy")
 class UserPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/userPolicy:UserPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

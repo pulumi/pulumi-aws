@@ -206,10 +206,8 @@ class _PermissionState:
         pulumi.set(self, "source_account", value)
 
 
+@pulumi.type_token("aws:acmpca/permission:Permission")
 class Permission(pulumi.CustomResource):
-
-    pulumi_type = "aws:acmpca/permission:Permission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

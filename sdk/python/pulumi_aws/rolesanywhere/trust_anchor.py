@@ -218,10 +218,8 @@ class _TrustAnchorState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:rolesanywhere/trustAnchor:TrustAnchor")
 class TrustAnchor(pulumi.CustomResource):
-
-    pulumi_type = "aws:rolesanywhere/trustAnchor:TrustAnchor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -496,10 +496,8 @@ class _ResolverState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:appsync/resolver:Resolver")
 class Resolver(pulumi.CustomResource):
-
-    pulumi_type = "aws:appsync/resolver:Resolver"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

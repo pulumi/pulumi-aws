@@ -209,10 +209,8 @@ class _PublicDnsNamespaceState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace")
 class PublicDnsNamespace(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

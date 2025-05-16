@@ -127,10 +127,8 @@ class _ResolverQueryLogConfigAssociationState:
         pulumi.set(self, "resource_id", value)
 
 
+@pulumi.type_token("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")
 class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

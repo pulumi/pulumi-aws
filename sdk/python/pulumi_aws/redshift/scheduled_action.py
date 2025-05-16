@@ -320,10 +320,8 @@ class _ScheduledActionState:
         pulumi.set(self, "target_action", value)
 
 
+@pulumi.type_token("aws:redshift/scheduledAction:ScheduledAction")
 class ScheduledAction(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/scheduledAction:ScheduledAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

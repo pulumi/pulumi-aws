@@ -112,10 +112,8 @@ class _InviteAccepterState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:securityhub/inviteAccepter:InviteAccepter")
 class InviteAccepter(pulumi.CustomResource):
-
-    pulumi_type = "aws:securityhub/inviteAccepter:InviteAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

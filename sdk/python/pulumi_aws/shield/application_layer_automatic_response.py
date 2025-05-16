@@ -121,10 +121,8 @@ class _ApplicationLayerAutomaticResponseState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")
 class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
-
-    pulumi_type = "aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

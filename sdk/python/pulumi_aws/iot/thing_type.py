@@ -227,10 +227,8 @@ class _ThingTypeState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:iot/thingType:ThingType")
 class ThingType(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/thingType:ThingType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

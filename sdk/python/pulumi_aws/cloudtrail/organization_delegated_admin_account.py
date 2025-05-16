@@ -128,10 +128,8 @@ class _OrganizationDelegatedAdminAccountState:
         pulumi.set(self, "service_principal", value)
 
 
+@pulumi.type_token("aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount")
 class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

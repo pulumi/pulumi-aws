@@ -127,10 +127,8 @@ class _AttachmentState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:elb/attachment:Attachment")
 class Attachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:elb/attachment:Attachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

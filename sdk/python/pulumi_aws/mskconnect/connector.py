@@ -531,10 +531,8 @@ class _ConnectorState:
         pulumi.set(self, "worker_configuration", value)
 
 
+@pulumi.type_token("aws:mskconnect/connector:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "aws:mskconnect/connector:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

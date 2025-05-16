@@ -207,10 +207,8 @@ class _LoadBalancerCookieStickinessPolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")
 class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

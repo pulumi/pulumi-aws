@@ -183,10 +183,8 @@ class _NamespaceState:
         pulumi.set(self, "table_bucket_arn", value)
 
 
+@pulumi.type_token("aws:s3tables/namespace:Namespace")
 class Namespace(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3tables/namespace:Namespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

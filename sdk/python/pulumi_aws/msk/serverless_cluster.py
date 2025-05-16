@@ -241,10 +241,8 @@ class _ServerlessClusterState:
         pulumi.set(self, "vpc_configs", value)
 
 
+@pulumi.type_token("aws:msk/serverlessCluster:ServerlessCluster")
 class ServerlessCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:msk/serverlessCluster:ServerlessCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

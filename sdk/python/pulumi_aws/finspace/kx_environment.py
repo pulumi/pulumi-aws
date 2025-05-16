@@ -378,10 +378,8 @@ class _KxEnvironmentState:
         pulumi.set(self, "transit_gateway_configuration", value)
 
 
+@pulumi.type_token("aws:finspace/kxEnvironment:KxEnvironment")
 class KxEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "aws:finspace/kxEnvironment:KxEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

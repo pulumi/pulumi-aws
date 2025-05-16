@@ -338,10 +338,8 @@ class _ProjectState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:datazone/project:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "aws:datazone/project:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

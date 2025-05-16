@@ -333,10 +333,8 @@ class _ConnectorState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("aws:transfer/connector:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "aws:transfer/connector:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

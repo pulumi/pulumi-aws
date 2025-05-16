@@ -255,10 +255,8 @@ class _UploadState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("aws:devicefarm/upload:Upload")
 class Upload(pulumi.CustomResource):
-
-    pulumi_type = "aws:devicefarm/upload:Upload"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -194,10 +194,8 @@ class _VirtualClusterState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:emrcontainers/virtualCluster:VirtualCluster")
 class VirtualCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:emrcontainers/virtualCluster:VirtualCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

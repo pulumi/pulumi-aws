@@ -209,10 +209,8 @@ class _SecretRotationState:
         pulumi.set(self, "secret_id", value)
 
 
+@pulumi.type_token("aws:secretsmanager/secretRotation:SecretRotation")
 class SecretRotation(pulumi.CustomResource):
-
-    pulumi_type = "aws:secretsmanager/secretRotation:SecretRotation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -297,10 +297,8 @@ class _PlaceIndexState:
         pulumi.set(self, "update_time", value)
 
 
+@pulumi.type_token("aws:location/placeIndex:PlaceIndex")
 class PlaceIndex(pulumi.CustomResource):
-
-    pulumi_type = "aws:location/placeIndex:PlaceIndex"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -167,10 +167,8 @@ class _ApplicationAccessScopeState:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope")
 class ApplicationAccessScope(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

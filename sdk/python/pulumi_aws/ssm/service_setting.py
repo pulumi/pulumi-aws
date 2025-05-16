@@ -159,10 +159,8 @@ class _ServiceSettingState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:ssm/serviceSetting:ServiceSetting")
 class ServiceSetting(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/serviceSetting:ServiceSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

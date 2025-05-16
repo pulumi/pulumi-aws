@@ -521,10 +521,8 @@ class _WorkgroupState:
         pulumi.set(self, "workgroup_name", value)
 
 
+@pulumi.type_token("aws:redshiftserverless/workgroup:Workgroup")
 class Workgroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshiftserverless/workgroup:Workgroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

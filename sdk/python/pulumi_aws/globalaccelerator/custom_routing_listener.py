@@ -109,10 +109,8 @@ class _CustomRoutingListenerState:
         pulumi.set(self, "port_ranges", value)
 
 
+@pulumi.type_token("aws:globalaccelerator/customRoutingListener:CustomRoutingListener")
 class CustomRoutingListener(pulumi.CustomResource):
-
-    pulumi_type = "aws:globalaccelerator/customRoutingListener:CustomRoutingListener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

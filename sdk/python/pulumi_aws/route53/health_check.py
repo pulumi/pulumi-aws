@@ -792,10 +792,8 @@ class _HealthCheckState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:route53/healthCheck:HealthCheck")
 class HealthCheck(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/healthCheck:HealthCheck"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

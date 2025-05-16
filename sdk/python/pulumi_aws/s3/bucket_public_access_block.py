@@ -244,10 +244,8 @@ class _BucketPublicAccessBlockState:
         pulumi.set(self, "restrict_public_buckets", value)
 
 
+@pulumi.type_token("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock")
 class BucketPublicAccessBlock(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -323,10 +323,8 @@ class _UsagePlanState:
         pulumi.set(self, "throttle_settings", value)
 
 
+@pulumi.type_token("aws:apigateway/usagePlan:UsagePlan")
 class UsagePlan(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/usagePlan:UsagePlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

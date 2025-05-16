@@ -731,10 +731,8 @@ class _DbInstanceState:
         pulumi.set(self, "vpc_subnet_ids", value)
 
 
+@pulumi.type_token("aws:timestreaminfluxdb/dbInstance:DbInstance")
 class DbInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws:timestreaminfluxdb/dbInstance:DbInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

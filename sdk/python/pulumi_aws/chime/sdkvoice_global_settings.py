@@ -66,10 +66,8 @@ class _SdkvoiceGlobalSettingsState:
         pulumi.set(self, "voice_connector", value)
 
 
+@pulumi.type_token("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings")
 class SdkvoiceGlobalSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -99,10 +99,8 @@ class _InvocationLoggingConfigurationState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration")
 class InvocationLoggingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

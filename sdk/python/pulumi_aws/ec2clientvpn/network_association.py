@@ -159,10 +159,8 @@ class _NetworkAssociationState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2clientvpn/networkAssociation:NetworkAssociation")
 class NetworkAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2clientvpn/networkAssociation:NetworkAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

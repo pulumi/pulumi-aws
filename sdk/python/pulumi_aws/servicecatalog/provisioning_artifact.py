@@ -424,10 +424,8 @@ class _ProvisioningArtifactState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:servicecatalog/provisioningArtifact:ProvisioningArtifact")
 class ProvisioningArtifact(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/provisioningArtifact:ProvisioningArtifact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -222,10 +222,8 @@ class _DomainEntryState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:lightsail/domainEntry:DomainEntry")
 class DomainEntry(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/domainEntry:DomainEntry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -119,10 +119,8 @@ class _QueuePolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:sqs/queuePolicy:QueuePolicy")
 class QueuePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:sqs/queuePolicy:QueuePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

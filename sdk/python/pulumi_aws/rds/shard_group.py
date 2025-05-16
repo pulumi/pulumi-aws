@@ -376,10 +376,8 @@ class _ShardGroupState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:rds/shardGroup:ShardGroup")
 class ShardGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/shardGroup:ShardGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

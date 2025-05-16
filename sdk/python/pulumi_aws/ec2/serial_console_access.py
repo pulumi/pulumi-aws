@@ -97,10 +97,8 @@ class _SerialConsoleAccessState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:ec2/serialConsoleAccess:SerialConsoleAccess")
 class SerialConsoleAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/serialConsoleAccess:SerialConsoleAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

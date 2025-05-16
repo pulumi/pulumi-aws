@@ -606,10 +606,8 @@ class _FleetState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:gamelift/fleet:Fleet")
 class Fleet(pulumi.CustomResource):
-
-    pulumi_type = "aws:gamelift/fleet:Fleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

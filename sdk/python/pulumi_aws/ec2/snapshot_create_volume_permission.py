@@ -127,10 +127,8 @@ class _SnapshotCreateVolumePermissionState:
         pulumi.set(self, "snapshot_id", value)
 
 
+@pulumi.type_token("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")
 class SnapshotCreateVolumePermission(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

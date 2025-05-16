@@ -474,10 +474,8 @@ class _ReportDefinitionState:
         pulumi.set(self, "time_unit", value)
 
 
+@pulumi.type_token("aws:cur/reportDefinition:ReportDefinition")
 class ReportDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws:cur/reportDefinition:ReportDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

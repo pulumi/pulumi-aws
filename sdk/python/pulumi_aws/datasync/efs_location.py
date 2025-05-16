@@ -333,10 +333,8 @@ class _EfsLocationState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("aws:datasync/efsLocation:EfsLocation")
 class EfsLocation(pulumi.CustomResource):
-
-    pulumi_type = "aws:datasync/efsLocation:EfsLocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

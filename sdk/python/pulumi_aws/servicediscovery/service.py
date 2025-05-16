@@ -383,10 +383,8 @@ class _ServiceState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:servicediscovery/service:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicediscovery/service:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

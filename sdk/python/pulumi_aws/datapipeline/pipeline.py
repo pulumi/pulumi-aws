@@ -177,10 +177,8 @@ class _PipelineState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:datapipeline/pipeline:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "aws:datapipeline/pipeline:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

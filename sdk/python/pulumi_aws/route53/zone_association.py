@@ -143,10 +143,8 @@ class _ZoneAssociationState:
         pulumi.set(self, "zone_id", value)
 
 
+@pulumi.type_token("aws:route53/zoneAssociation:ZoneAssociation")
 class ZoneAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/zoneAssociation:ZoneAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -158,10 +158,8 @@ class _ConditionalForwarderState:
         pulumi.set(self, "remote_domain_name", value)
 
 
+@pulumi.type_token("aws:directoryservice/conditionalForwarder:ConditionalForwarder")
 class ConditionalForwarder(pulumi.CustomResource):
-
-    pulumi_type = "aws:directoryservice/conditionalForwarder:ConditionalForwarder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

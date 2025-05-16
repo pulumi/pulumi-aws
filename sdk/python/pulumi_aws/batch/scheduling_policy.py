@@ -187,10 +187,8 @@ class _SchedulingPolicyState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:batch/schedulingPolicy:SchedulingPolicy")
 class SchedulingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:batch/schedulingPolicy:SchedulingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

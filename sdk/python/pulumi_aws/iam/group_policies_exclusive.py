@@ -95,10 +95,8 @@ class _GroupPoliciesExclusiveState:
         pulumi.set(self, "policy_names", value)
 
 
+@pulumi.type_token("aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive")
 class GroupPoliciesExclusive(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

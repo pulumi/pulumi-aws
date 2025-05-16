@@ -160,10 +160,8 @@ class _BucketAccessKeyState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:lightsail/bucketAccessKey:BucketAccessKey")
 class BucketAccessKey(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/bucketAccessKey:BucketAccessKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -242,10 +242,8 @@ class _ObservabilityConfigurationState:
         pulumi.set(self, "trace_configuration", value)
 
 
+@pulumi.type_token("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration")
 class ObservabilityConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -302,10 +302,8 @@ class _ClusterEndpointState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:neptune/clusterEndpoint:ClusterEndpoint")
 class ClusterEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:neptune/clusterEndpoint:ClusterEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

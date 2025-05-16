@@ -319,10 +319,8 @@ class _FilterState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:guardduty/filter:Filter")
 class Filter(pulumi.CustomResource):
-
-    pulumi_type = "aws:guardduty/filter:Filter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

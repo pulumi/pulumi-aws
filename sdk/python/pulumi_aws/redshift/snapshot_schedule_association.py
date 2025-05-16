@@ -127,10 +127,8 @@ class _SnapshotScheduleAssociationState:
         pulumi.set(self, "schedule_identifier", value)
 
 
+@pulumi.type_token("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")
 class SnapshotScheduleAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

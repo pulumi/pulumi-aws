@@ -318,10 +318,8 @@ class _StreamState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:qldb/stream:Stream")
 class Stream(pulumi.CustomResource):
-
-    pulumi_type = "aws:qldb/stream:Stream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

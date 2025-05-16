@@ -281,10 +281,8 @@ class _FrameworkState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:auditmanager/framework:Framework")
 class Framework(pulumi.CustomResource):
-
-    pulumi_type = "aws:auditmanager/framework:Framework"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -314,10 +314,8 @@ class _MemberState:
         pulumi.set(self, "volume_usage_in_bytes", value)
 
 
+@pulumi.type_token("aws:detective/member:Member")
 class Member(pulumi.CustomResource):
-
-    pulumi_type = "aws:detective/member:Member"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

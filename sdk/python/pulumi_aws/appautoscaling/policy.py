@@ -320,10 +320,8 @@ class _PolicyState:
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
 
 
+@pulumi.type_token("aws:appautoscaling/policy:Policy")
 class Policy(pulumi.CustomResource):
-
-    pulumi_type = "aws:appautoscaling/policy:Policy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

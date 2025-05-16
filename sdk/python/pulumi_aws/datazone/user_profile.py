@@ -257,10 +257,8 @@ class _UserProfileState:
         pulumi.set(self, "user_type", value)
 
 
+@pulumi.type_token("aws:datazone/userProfile:UserProfile")
 class UserProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:datazone/userProfile:UserProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

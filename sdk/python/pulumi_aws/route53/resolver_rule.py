@@ -331,10 +331,8 @@ class _ResolverRuleState:
         pulumi.set(self, "target_ips", value)
 
 
+@pulumi.type_token("aws:route53/resolverRule:ResolverRule")
 class ResolverRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/resolverRule:ResolverRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

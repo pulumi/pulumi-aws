@@ -190,10 +190,8 @@ class _BaiduChannelState:
         pulumi.set(self, "secret_key", value)
 
 
+@pulumi.type_token("aws:pinpoint/baiduChannel:BaiduChannel")
 class BaiduChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/baiduChannel:BaiduChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

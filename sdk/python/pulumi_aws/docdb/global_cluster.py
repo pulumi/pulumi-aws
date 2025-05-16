@@ -354,10 +354,8 @@ class _GlobalClusterState:
         pulumi.set(self, "storage_encrypted", value)
 
 
+@pulumi.type_token("aws:docdb/globalCluster:GlobalCluster")
 class GlobalCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:docdb/globalCluster:GlobalCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

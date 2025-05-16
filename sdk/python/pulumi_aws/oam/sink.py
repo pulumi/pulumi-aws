@@ -181,10 +181,8 @@ class _SinkState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:oam/sink:Sink")
 class Sink(pulumi.CustomResource):
-
-    pulumi_type = "aws:oam/sink:Sink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

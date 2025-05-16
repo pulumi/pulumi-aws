@@ -287,10 +287,8 @@ class _CloudFormationStackState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:serverlessrepository/cloudFormationStack:CloudFormationStack")
 class CloudFormationStack(pulumi.CustomResource):
-
-    pulumi_type = "aws:serverlessrepository/cloudFormationStack:CloudFormationStack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

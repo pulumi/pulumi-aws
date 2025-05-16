@@ -182,10 +182,8 @@ class _InputSecurityGroupState:
         pulumi.set(self, "whitelist_rules", value)
 
 
+@pulumi.type_token("aws:medialive/inputSecurityGroup:InputSecurityGroup")
 class InputSecurityGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:medialive/inputSecurityGroup:InputSecurityGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

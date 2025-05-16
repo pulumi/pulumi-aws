@@ -225,10 +225,8 @@ class _ServerlessVpcEndpointState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint")
 class ServerlessVpcEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

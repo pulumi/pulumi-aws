@@ -349,10 +349,8 @@ class _LocationFsxWindowsState:
         pulumi.set(self, "user", value)
 
 
+@pulumi.type_token("aws:datasync/locationFsxWindows:LocationFsxWindows")
 class LocationFsxWindows(pulumi.CustomResource):
-
-    pulumi_type = "aws:datasync/locationFsxWindows:LocationFsxWindows"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

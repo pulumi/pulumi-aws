@@ -368,10 +368,8 @@ class _ContactFlowState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:connect/contactFlow:ContactFlow")
 class ContactFlow(pulumi.CustomResource):
-
-    pulumi_type = "aws:connect/contactFlow:ContactFlow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

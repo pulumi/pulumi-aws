@@ -426,10 +426,8 @@ class _ReservedInstanceState:
         pulumi.set(self, "usage_price", value)
 
 
+@pulumi.type_token("aws:rds/reservedInstance:ReservedInstance")
 class ReservedInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/reservedInstance:ReservedInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

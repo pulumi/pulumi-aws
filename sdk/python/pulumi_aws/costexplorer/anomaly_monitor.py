@@ -256,10 +256,8 @@ class _AnomalyMonitorState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:costexplorer/anomalyMonitor:AnomalyMonitor")
 class AnomalyMonitor(pulumi.CustomResource):
-
-    pulumi_type = "aws:costexplorer/anomalyMonitor:AnomalyMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

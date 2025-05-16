@@ -274,10 +274,8 @@ class _RecordingConfigurationState:
         pulumi.set(self, "thumbnail_configuration", value)
 
 
+@pulumi.type_token("aws:ivs/recordingConfiguration:RecordingConfiguration")
 class RecordingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:ivs/recordingConfiguration:RecordingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

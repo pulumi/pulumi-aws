@@ -126,10 +126,8 @@ class _LinkAssociationState:
         pulumi.set(self, "link_id", value)
 
 
+@pulumi.type_token("aws:networkmanager/linkAssociation:LinkAssociation")
 class LinkAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/linkAssociation:LinkAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

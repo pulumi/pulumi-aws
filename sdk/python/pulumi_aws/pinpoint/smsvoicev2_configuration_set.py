@@ -225,10 +225,8 @@ class _Smsvoicev2ConfigurationSetState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet")
 class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

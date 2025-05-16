@@ -257,10 +257,8 @@ class _SmsPreferencesState:
         pulumi.set(self, "usage_report_s3_bucket", value)
 
 
+@pulumi.type_token("aws:sns/smsPreferences:SmsPreferences")
 class SmsPreferences(pulumi.CustomResource):
-
-    pulumi_type = "aws:sns/smsPreferences:SmsPreferences"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -291,10 +291,8 @@ class _ResponseHeadersPolicyState:
         pulumi.set(self, "server_timing_headers_config", value)
 
 
+@pulumi.type_token("aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")
 class ResponseHeadersPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

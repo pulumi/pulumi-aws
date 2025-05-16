@@ -368,10 +368,8 @@ class _EventSubscriptionState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:rds/eventSubscription:EventSubscription")
 class EventSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/eventSubscription:EventSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

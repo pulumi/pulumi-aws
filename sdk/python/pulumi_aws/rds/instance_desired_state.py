@@ -153,10 +153,8 @@ class _InstanceDesiredStateState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:rds/instanceDesiredState:InstanceDesiredState")
 class InstanceDesiredState(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/instanceDesiredState:InstanceDesiredState"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

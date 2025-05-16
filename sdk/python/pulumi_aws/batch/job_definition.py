@@ -586,10 +586,8 @@ class _JobDefinitionState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:batch/jobDefinition:JobDefinition")
 class JobDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws:batch/jobDefinition:JobDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

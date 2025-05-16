@@ -159,10 +159,8 @@ class _BucketAccelerateConfigurationState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration")
 class BucketAccelerateConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

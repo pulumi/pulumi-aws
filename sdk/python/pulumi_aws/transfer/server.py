@@ -927,10 +927,8 @@ class _ServerState:
         pulumi.set(self, "workflow_details", value)
 
 
+@pulumi.type_token("aws:transfer/server:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "aws:transfer/server:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

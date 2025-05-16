@@ -295,10 +295,8 @@ class _SiteToSiteVpnAttachmentState:
         pulumi.set(self, "vpn_connection_arn", value)
 
 
+@pulumi.type_token("aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")
 class SiteToSiteVpnAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

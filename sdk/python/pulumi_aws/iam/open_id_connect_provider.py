@@ -183,10 +183,8 @@ class _OpenIdConnectProviderState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("aws:iam/openIdConnectProvider:OpenIdConnectProvider")
 class OpenIdConnectProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/openIdConnectProvider:OpenIdConnectProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

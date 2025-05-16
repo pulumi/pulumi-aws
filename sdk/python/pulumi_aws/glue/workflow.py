@@ -257,10 +257,8 @@ class _WorkflowState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:glue/workflow:Workflow")
 class Workflow(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/workflow:Workflow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

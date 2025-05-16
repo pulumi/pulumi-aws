@@ -254,10 +254,8 @@ class _WorkspaceServiceAccountTokenState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken")
 class WorkspaceServiceAccountToken(pulumi.CustomResource):
-
-    pulumi_type = "aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -505,10 +505,8 @@ class _DataSourceState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("aws:kendra/dataSource:DataSource")
 class DataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws:kendra/dataSource:DataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

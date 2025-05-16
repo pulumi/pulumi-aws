@@ -127,10 +127,8 @@ class _VpcEndpointServiceAllowedPrincipleState:
         pulumi.set(self, "vpc_endpoint_service_id", value)
 
 
+@pulumi.type_token("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")
 class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

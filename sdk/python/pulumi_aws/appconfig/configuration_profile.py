@@ -401,10 +401,8 @@ class _ConfigurationProfileState:
         pulumi.set(self, "validators", value)
 
 
+@pulumi.type_token("aws:appconfig/configurationProfile:ConfigurationProfile")
 class ConfigurationProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:appconfig/configurationProfile:ConfigurationProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

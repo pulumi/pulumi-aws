@@ -307,10 +307,8 @@ class _OrganizationConformancePackState:
         pulumi.set(self, "template_s3_uri", value)
 
 
+@pulumi.type_token("aws:cfg/organizationConformancePack:OrganizationConformancePack")
 class OrganizationConformancePack(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/organizationConformancePack:OrganizationConformancePack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

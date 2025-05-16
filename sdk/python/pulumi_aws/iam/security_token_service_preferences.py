@@ -64,10 +64,8 @@ class _SecurityTokenServicePreferencesState:
         pulumi.set(self, "global_endpoint_token_version", value)
 
 
+@pulumi.type_token("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences")
 class SecurityTokenServicePreferences(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

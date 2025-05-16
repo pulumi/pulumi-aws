@@ -191,10 +191,8 @@ class _DomainNameState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:appsync/domainName:DomainName")
 class DomainName(pulumi.CustomResource):
-
-    pulumi_type = "aws:appsync/domainName:DomainName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

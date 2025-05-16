@@ -160,10 +160,8 @@ class _ArchiveRuleState:
         pulumi.set(self, "rule_name", value)
 
 
+@pulumi.type_token("aws:accessanalyzer/archiveRule:ArchiveRule")
 class ArchiveRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:accessanalyzer/archiveRule:ArchiveRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

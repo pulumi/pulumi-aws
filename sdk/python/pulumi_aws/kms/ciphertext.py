@@ -175,10 +175,8 @@ class _CiphertextState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:kms/ciphertext:Ciphertext")
 class Ciphertext(pulumi.CustomResource):
-
-    pulumi_type = "aws:kms/ciphertext:Ciphertext"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -518,10 +518,8 @@ class _TopicSubscriptionState:
         pulumi.set(self, "topic", value)
 
 
+@pulumi.type_token("aws:sns/topicSubscription:TopicSubscription")
 class TopicSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:sns/topicSubscription:TopicSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

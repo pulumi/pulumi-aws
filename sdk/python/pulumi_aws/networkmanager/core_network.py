@@ -422,10 +422,8 @@ class _CoreNetworkState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:networkmanager/coreNetwork:CoreNetwork")
 class CoreNetwork(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/coreNetwork:CoreNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

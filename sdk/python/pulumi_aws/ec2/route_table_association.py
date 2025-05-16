@@ -160,10 +160,8 @@ class _RouteTableAssociationState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("aws:ec2/routeTableAssociation:RouteTableAssociation")
 class RouteTableAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/routeTableAssociation:RouteTableAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

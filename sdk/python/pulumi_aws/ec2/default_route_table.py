@@ -266,10 +266,8 @@ class _DefaultRouteTableState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/defaultRouteTable:DefaultRouteTable")
 class DefaultRouteTable(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/defaultRouteTable:DefaultRouteTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

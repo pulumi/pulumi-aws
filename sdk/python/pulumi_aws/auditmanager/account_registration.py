@@ -177,10 +177,8 @@ class _AccountRegistrationState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:auditmanager/accountRegistration:AccountRegistration")
 class AccountRegistration(pulumi.CustomResource):
-
-    pulumi_type = "aws:auditmanager/accountRegistration:AccountRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

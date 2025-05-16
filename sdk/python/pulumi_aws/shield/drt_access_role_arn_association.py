@@ -90,10 +90,8 @@ class _DrtAccessRoleArnAssociationState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation")
 class DrtAccessRoleArnAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

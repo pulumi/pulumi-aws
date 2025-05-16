@@ -127,10 +127,8 @@ class _WorkingStorageState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:storagegateway/workingStorage:WorkingStorage")
 class WorkingStorage(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/workingStorage:WorkingStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -256,10 +256,8 @@ class _ServiceLinkedRoleState:
         pulumi.set(self, "unique_id", value)
 
 
+@pulumi.type_token("aws:iam/serviceLinkedRole:ServiceLinkedRole")
 class ServiceLinkedRole(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/serviceLinkedRole:ServiceLinkedRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

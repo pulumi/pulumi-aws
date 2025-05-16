@@ -589,10 +589,8 @@ class _LocationHdfsState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("aws:datasync/locationHdfs:LocationHdfs")
 class LocationHdfs(pulumi.CustomResource):
-
-    pulumi_type = "aws:datasync/locationHdfs:LocationHdfs"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

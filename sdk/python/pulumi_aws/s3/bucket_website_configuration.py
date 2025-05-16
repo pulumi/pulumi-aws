@@ -326,10 +326,8 @@ class _BucketWebsiteConfigurationState:
         pulumi.set(self, "website_endpoint", value)
 
 
+@pulumi.type_token("aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration")
 class BucketWebsiteConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _PolicyTableAssociationState:
         pulumi.set(self, "transit_gateway_policy_table_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation")
 class PolicyTableAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

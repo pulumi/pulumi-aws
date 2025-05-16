@@ -166,10 +166,8 @@ class _SubscriberNotificationState:
         pulumi.set(self, "subscriber_id", value)
 
 
+@pulumi.type_token("aws:securitylake/subscriberNotification:SubscriberNotification")
 class SubscriberNotification(pulumi.CustomResource):
-
-    pulumi_type = "aws:securitylake/subscriberNotification:SubscriberNotification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,10 +127,8 @@ class _WebAclAssociationState:
         pulumi.set(self, "web_acl_id", value)
 
 
+@pulumi.type_token("aws:wafregional/webAclAssociation:WebAclAssociation")
 class WebAclAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafregional/webAclAssociation:WebAclAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -527,10 +527,8 @@ class _FileSystemState:
         pulumi.set(self, "throughput_mode", value)
 
 
+@pulumi.type_token("aws:efs/fileSystem:FileSystem")
 class FileSystem(pulumi.CustomResource):
-
-    pulumi_type = "aws:efs/fileSystem:FileSystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

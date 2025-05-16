@@ -270,10 +270,8 @@ class _EventApiDestinationState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:cloudwatch/eventApiDestination:EventApiDestination")
 class EventApiDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/eventApiDestination:EventApiDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

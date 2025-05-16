@@ -163,10 +163,8 @@ class _NotificationState:
         pulumi.set(self, "topic_arn", value)
 
 
+@pulumi.type_token("aws:autoscaling/notification:Notification")
 class Notification(pulumi.CustomResource):
-
-    pulumi_type = "aws:autoscaling/notification:Notification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

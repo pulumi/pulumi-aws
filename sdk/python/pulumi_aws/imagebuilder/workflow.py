@@ -419,10 +419,8 @@ class _WorkflowState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:imagebuilder/workflow:Workflow")
 class Workflow(pulumi.CustomResource):
-
-    pulumi_type = "aws:imagebuilder/workflow:Workflow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -644,10 +644,8 @@ class _WorkspaceState:
         pulumi.set(self, "vpc_configuration", value)
 
 
+@pulumi.type_token("aws:grafana/workspace:Workspace")
 class Workspace(pulumi.CustomResource):
-
-    pulumi_type = "aws:grafana/workspace:Workspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

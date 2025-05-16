@@ -191,10 +191,8 @@ class _RouteState:
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/route:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/route:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

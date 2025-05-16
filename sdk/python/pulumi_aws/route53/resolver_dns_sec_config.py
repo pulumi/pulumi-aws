@@ -144,10 +144,8 @@ class _ResolverDnsSecConfigState:
         pulumi.set(self, "validation_status", value)
 
 
+@pulumi.type_token("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")
 class ResolverDnsSecConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

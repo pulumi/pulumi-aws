@@ -904,10 +904,8 @@ class _OpenZfsFileSystemState:
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
+@pulumi.type_token("aws:fsx/openZfsFileSystem:OpenZfsFileSystem")
 class OpenZfsFileSystem(pulumi.CustomResource):
-
-    pulumi_type = "aws:fsx/openZfsFileSystem:OpenZfsFileSystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -225,10 +225,8 @@ class _LandingZoneState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:controltower/landingZone:LandingZone")
 class LandingZone(pulumi.CustomResource):
-
-    pulumi_type = "aws:controltower/landingZone:LandingZone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

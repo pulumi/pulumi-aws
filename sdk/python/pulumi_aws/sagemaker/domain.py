@@ -598,10 +598,8 @@ class _DomainState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:sagemaker/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -224,10 +224,8 @@ class _HostedPrivateVirtualInterfaceAccepterState:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
+@pulumi.type_token("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter")
 class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

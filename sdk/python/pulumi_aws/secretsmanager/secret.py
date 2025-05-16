@@ -387,10 +387,8 @@ class _SecretState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:secretsmanager/secret:Secret")
 class Secret(pulumi.CustomResource):
-
-    pulumi_type = "aws:secretsmanager/secret:Secret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

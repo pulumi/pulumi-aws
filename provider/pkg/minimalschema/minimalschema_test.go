@@ -16,6 +16,7 @@ const (
 	minimalSchemaFile = "../../cmd/pulumi-resource-aws/schema-minimal.json"
 )
 
+// NOTE: might need to re-run `make provider` to reproduce failures in this test.
 func TestNoDanglingReferencesInLightSchema(t *testing.T) {
 	t.Parallel()
 
@@ -53,6 +54,10 @@ func TestNoDanglingReferencesInLightSchema(t *testing.T) {
 			r == "pulumi.json#/Asset" ||
 			r == "pulumi.json#/Archive":
 			// Ignore known special type references.
+			return
+		// This special form is needed to register Call() methods on an explicit provider.
+		// It is not considered a dangling reference.
+		case r == "#/resources/pulumi:providers:aws":
 			return
 		default:
 			require.Fail(t, fmt.Sprintf("Unexpected type reference kind: %q", r))

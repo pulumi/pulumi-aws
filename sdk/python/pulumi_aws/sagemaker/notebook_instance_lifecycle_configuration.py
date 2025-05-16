@@ -225,10 +225,8 @@ class _NotebookInstanceLifecycleConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")
 class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

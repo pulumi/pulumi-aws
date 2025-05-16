@@ -229,10 +229,8 @@ class _V2modelsBotVersionState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:lex/v2modelsBotVersion:V2modelsBotVersion")
 class V2modelsBotVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws:lex/v2modelsBotVersion:V2modelsBotVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

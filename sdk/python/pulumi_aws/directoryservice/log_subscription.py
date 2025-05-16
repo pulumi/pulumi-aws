@@ -127,10 +127,8 @@ class _LogSubscriptionState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:directoryservice/logSubscription:LogSubscription")
 class LogSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:directoryservice/logSubscription:LogSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

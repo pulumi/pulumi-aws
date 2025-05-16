@@ -226,10 +226,8 @@ class _EndpointState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:sagemaker/endpoint:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/endpoint:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

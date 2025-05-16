@@ -177,10 +177,8 @@ class _InsightState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:securityhub/insight:Insight")
 class Insight(pulumi.CustomResource):
-
-    pulumi_type = "aws:securityhub/insight:Insight"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -201,10 +201,8 @@ class _GroupState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:identitystore/group:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "aws:identitystore/group:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

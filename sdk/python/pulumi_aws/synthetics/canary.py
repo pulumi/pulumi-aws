@@ -742,10 +742,8 @@ class _CanaryState:
         pulumi.set(self, "zip_file", value)
 
 
+@pulumi.type_token("aws:synthetics/canary:Canary")
 class Canary(pulumi.CustomResource):
-
-    pulumi_type = "aws:synthetics/canary:Canary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

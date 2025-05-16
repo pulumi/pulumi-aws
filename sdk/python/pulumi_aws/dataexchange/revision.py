@@ -208,10 +208,8 @@ class _RevisionState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:dataexchange/revision:Revision")
 class Revision(pulumi.CustomResource):
-
-    pulumi_type = "aws:dataexchange/revision:Revision"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -176,10 +176,8 @@ class _SamlProviderState:
         pulumi.set(self, "valid_until", value)
 
 
+@pulumi.type_token("aws:iam/samlProvider:SamlProvider")
 class SamlProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/samlProvider:SamlProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

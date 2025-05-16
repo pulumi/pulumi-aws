@@ -267,10 +267,8 @@ class _InstanceState:
         pulumi.set(self, "verified_access_trust_providers", value)
 
 
+@pulumi.type_token("aws:verifiedaccess/instance:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "aws:verifiedaccess/instance:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

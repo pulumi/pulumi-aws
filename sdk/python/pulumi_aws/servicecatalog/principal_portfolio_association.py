@@ -199,10 +199,8 @@ class _PrincipalPortfolioAssociationState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")
 class PrincipalPortfolioAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

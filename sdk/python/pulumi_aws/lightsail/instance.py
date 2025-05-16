@@ -540,10 +540,8 @@ class _InstanceState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("aws:lightsail/instance:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/instance:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -603,10 +603,8 @@ class _AssociationState:
         pulumi.set(self, "wait_for_success_timeout_seconds", value)
 
 
+@pulumi.type_token("aws:ssm/association:Association")
 class Association(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/association:Association"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

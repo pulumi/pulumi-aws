@@ -375,10 +375,8 @@ class _EnvironmentProfileState:
         pulumi.set(self, "user_parameters", value)
 
 
+@pulumi.type_token("aws:datazone/environmentProfile:EnvironmentProfile")
 class EnvironmentProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:datazone/environmentProfile:EnvironmentProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -552,10 +552,8 @@ class _PipeState:
         pulumi.set(self, "target_parameters", value)
 
 
+@pulumi.type_token("aws:pipes/pipe:Pipe")
 class Pipe(pulumi.CustomResource):
-
-    pulumi_type = "aws:pipes/pipe:Pipe"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -225,10 +225,8 @@ class _VoiceConnectorStreamingState:
         pulumi.set(self, "voice_connector_id", value)
 
 
+@pulumi.type_token("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming")
 class VoiceConnectorStreaming(pulumi.CustomResource):
-
-    pulumi_type = "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

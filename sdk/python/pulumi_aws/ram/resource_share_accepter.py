@@ -208,10 +208,8 @@ class _ResourceShareAccepterState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:ram/resourceShareAccepter:ResourceShareAccepter")
 class ResourceShareAccepter(pulumi.CustomResource):
-
-    pulumi_type = "aws:ram/resourceShareAccepter:ResourceShareAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

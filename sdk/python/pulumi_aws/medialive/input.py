@@ -486,10 +486,8 @@ class _InputState:
         pulumi.set(self, "vpc", value)
 
 
+@pulumi.type_token("aws:medialive/input:Input")
 class Input(pulumi.CustomResource):
-
-    pulumi_type = "aws:medialive/input:Input"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

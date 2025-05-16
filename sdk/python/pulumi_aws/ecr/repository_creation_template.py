@@ -361,10 +361,8 @@ class _RepositoryCreationTemplateState:
         pulumi.set(self, "resource_tags", value)
 
 
+@pulumi.type_token("aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate")
 class RepositoryCreationTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

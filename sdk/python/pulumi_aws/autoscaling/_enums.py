@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws:autoscaling/Metric:Metric")
 class Metric(builtins.str, Enum):
     """
     See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
@@ -39,6 +40,7 @@ class Metric(builtins.str, Enum):
     GROUP_AND_WARM_POOL_TOTAL_CAPACITY = "GroupAndWarmPoolTotalCapacity"
 
 
+@pulumi.type_token("aws:autoscaling/MetricsGranularity:MetricsGranularity")
 class MetricsGranularity(builtins.str, Enum):
     """
     See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
@@ -46,6 +48,7 @@ class MetricsGranularity(builtins.str, Enum):
     ONE_MINUTE = "1Minute"
 
 
+@pulumi.type_token("aws:autoscaling/NotificationType:NotificationType")
 class NotificationType(builtins.str, Enum):
     """
     See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html

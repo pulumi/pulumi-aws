@@ -345,10 +345,8 @@ class _ControlState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:auditmanager/control:Control")
 class Control(pulumi.CustomResource):
-
-    pulumi_type = "aws:auditmanager/control:Control"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

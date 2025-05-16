@@ -194,10 +194,8 @@ class _CapacityProviderState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ecs/capacityProvider:CapacityProvider")
 class CapacityProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecs/capacityProvider:CapacityProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

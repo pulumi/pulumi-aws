@@ -193,10 +193,8 @@ class _WebAclLoggingConfigurationState:
         pulumi.set(self, "resource_arn", value)
 
 
+@pulumi.type_token("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")
 class WebAclLoggingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -570,10 +570,8 @@ class _CatalogTableState:
         pulumi.set(self, "view_original_text", value)
 
 
+@pulumi.type_token("aws:glue/catalogTable:CatalogTable")
 class CatalogTable(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/catalogTable:CatalogTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

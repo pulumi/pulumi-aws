@@ -394,10 +394,8 @@ class _PresetState:
         pulumi.set(self, "video_watermarks", value)
 
 
+@pulumi.type_token("aws:elastictranscoder/preset:Preset")
 class Preset(pulumi.CustomResource):
-
-    pulumi_type = "aws:elastictranscoder/preset:Preset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

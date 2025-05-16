@@ -300,10 +300,8 @@ class _S3LocationState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("aws:datasync/s3Location:S3Location")
 class S3Location(pulumi.CustomResource):
-
-    pulumi_type = "aws:datasync/s3Location:S3Location"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

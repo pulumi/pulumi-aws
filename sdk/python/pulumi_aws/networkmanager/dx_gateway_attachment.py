@@ -316,10 +316,8 @@ class _DxGatewayAttachmentState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")
 class DxGatewayAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

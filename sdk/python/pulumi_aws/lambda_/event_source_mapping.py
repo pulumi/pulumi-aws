@@ -1058,10 +1058,8 @@ class _EventSourceMappingState:
         pulumi.set(self, "uuid", value)
 
 
+@pulumi.type_token("aws:lambda/eventSourceMapping:EventSourceMapping")
 class EventSourceMapping(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/eventSourceMapping:EventSourceMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

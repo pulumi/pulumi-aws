@@ -176,10 +176,8 @@ class _ListenerState:
         pulumi.set(self, "protocol", value)
 
 
+@pulumi.type_token("aws:globalaccelerator/listener:Listener")
 class Listener(pulumi.CustomResource):
-
-    pulumi_type = "aws:globalaccelerator/listener:Listener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -600,10 +600,8 @@ class _RouteState:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
+@pulumi.type_token("aws:ec2/route:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/route:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

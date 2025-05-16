@@ -143,10 +143,8 @@ class _DashboardState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:cloudwatch/dashboard:Dashboard")
 class Dashboard(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/dashboard:Dashboard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

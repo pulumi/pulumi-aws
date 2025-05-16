@@ -297,10 +297,8 @@ class _CustomPluginState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:mskconnect/customPlugin:CustomPlugin")
 class CustomPlugin(pulumi.CustomResource):
-
-    pulumi_type = "aws:mskconnect/customPlugin:CustomPlugin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

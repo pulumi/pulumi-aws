@@ -328,10 +328,8 @@ class _LbState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:lightsail/lb:Lb")
 class Lb(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/lb:Lb"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

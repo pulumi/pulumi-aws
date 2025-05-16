@@ -193,10 +193,8 @@ class _ResolverFirewallDomainListState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList")
 class ResolverFirewallDomainList(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -239,10 +239,8 @@ class _PullThroughCacheRuleState:
         pulumi.set(self, "upstream_repository_prefix", value)
 
 
+@pulumi.type_token("aws:ecr/pullThroughCacheRule:PullThroughCacheRule")
 class PullThroughCacheRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecr/pullThroughCacheRule:PullThroughCacheRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

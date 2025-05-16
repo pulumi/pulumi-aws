@@ -138,10 +138,8 @@ class _DelegationSignerRecordState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:route53domains/delegationSignerRecord:DelegationSignerRecord")
 class DelegationSignerRecord(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53domains/delegationSignerRecord:DelegationSignerRecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

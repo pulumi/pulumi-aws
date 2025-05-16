@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,11 +12,13 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws:alb/IpAddressType:IpAddressType")
 class IpAddressType(builtins.str, Enum):
     IPV4 = "ipv4"
     DUALSTACK = "dualstack"
 
 
+@pulumi.type_token("aws:alb/LoadBalancerType:LoadBalancerType")
 class LoadBalancerType(builtins.str, Enum):
     APPLICATION = "application"
     NETWORK = "network"

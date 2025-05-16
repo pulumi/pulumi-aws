@@ -255,10 +255,8 @@ class _TransitGatewayPeeringState:
         pulumi.set(self, "transit_gateway_peering_attachment_id", value)
 
 
+@pulumi.type_token("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")
 class TransitGatewayPeering(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/transitGatewayPeering:TransitGatewayPeering"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

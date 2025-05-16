@@ -565,10 +565,8 @@ class _KeyState:
         pulumi.set(self, "xks_key_id", value)
 
 
+@pulumi.type_token("aws:kms/key:Key")
 class Key(pulumi.CustomResource):
-
-    pulumi_type = "aws:kms/key:Key"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -305,10 +305,8 @@ class _AssetTypeState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:datazone/assetType:AssetType")
 class AssetType(pulumi.CustomResource):
-
-    pulumi_type = "aws:datazone/assetType:AssetType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

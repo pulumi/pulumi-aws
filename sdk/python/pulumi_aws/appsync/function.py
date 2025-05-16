@@ -449,10 +449,8 @@ class _FunctionState:
         pulumi.set(self, "sync_config", value)
 
 
+@pulumi.type_token("aws:appsync/function:Function")
 class Function(pulumi.CustomResource):
-
-    pulumi_type = "aws:appsync/function:Function"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

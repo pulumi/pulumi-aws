@@ -1041,10 +1041,8 @@ class _ListenerState:
         pulumi.set(self, "tcp_idle_timeout_seconds", value)
 
 
+@pulumi.type_token("aws:lb/listener:Listener")
 class Listener(pulumi.CustomResource):
-
-    pulumi_type = "aws:lb/listener:Listener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

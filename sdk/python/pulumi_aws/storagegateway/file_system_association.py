@@ -319,10 +319,8 @@ class _FileSystemAssociationState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("aws:storagegateway/fileSystemAssociation:FileSystemAssociation")
 class FileSystemAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/fileSystemAssociation:FileSystemAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

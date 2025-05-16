@@ -220,10 +220,8 @@ class _VpcLinkState:
         pulumi.set(self, "target_arn", value)
 
 
+@pulumi.type_token("aws:apigateway/vpcLink:VpcLink")
 class VpcLink(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/vpcLink:VpcLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

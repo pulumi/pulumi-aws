@@ -400,10 +400,8 @@ class _OrganizationManagedRuleState:
         pulumi.set(self, "tag_value_scope", value)
 
 
+@pulumi.type_token("aws:cfg/organizationManagedRule:OrganizationManagedRule")
 class OrganizationManagedRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/organizationManagedRule:OrganizationManagedRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

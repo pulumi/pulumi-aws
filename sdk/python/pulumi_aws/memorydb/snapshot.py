@@ -290,10 +290,8 @@ class _SnapshotState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:memorydb/snapshot:Snapshot")
 class Snapshot(pulumi.CustomResource):
-
-    pulumi_type = "aws:memorydb/snapshot:Snapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

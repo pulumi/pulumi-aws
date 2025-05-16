@@ -225,10 +225,8 @@ class _BucketIntelligentTieringConfigurationState:
         pulumi.set(self, "tierings", value)
 
 
+@pulumi.type_token("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")
 class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

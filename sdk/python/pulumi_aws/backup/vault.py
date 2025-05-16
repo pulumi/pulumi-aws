@@ -241,10 +241,8 @@ class _VaultState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:backup/vault:Vault")
 class Vault(pulumi.CustomResource):
-
-    pulumi_type = "aws:backup/vault:Vault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

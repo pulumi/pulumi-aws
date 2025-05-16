@@ -626,10 +626,8 @@ class _RegisteredDomainState:
         pulumi.set(self, "whois_server", value)
 
 
+@pulumi.type_token("aws:route53domains/registeredDomain:RegisteredDomain")
 class RegisteredDomain(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53domains/registeredDomain:RegisteredDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

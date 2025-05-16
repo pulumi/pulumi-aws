@@ -160,10 +160,8 @@ class _UploadBufferState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:storagegateway/uploadBuffer:UploadBuffer")
 class UploadBuffer(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/uploadBuffer:UploadBuffer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

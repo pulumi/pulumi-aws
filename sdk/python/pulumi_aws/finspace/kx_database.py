@@ -264,10 +264,8 @@ class _KxDatabaseState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:finspace/kxDatabase:KxDatabase")
 class KxDatabase(pulumi.CustomResource):
-
-    pulumi_type = "aws:finspace/kxDatabase:KxDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

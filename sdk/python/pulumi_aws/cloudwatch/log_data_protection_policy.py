@@ -127,10 +127,8 @@ class _LogDataProtectionPolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy")
 class LogDataProtectionPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

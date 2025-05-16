@@ -264,10 +264,8 @@ class _ProductSubscriptionState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:securityhub/productSubscription:ProductSubscription")
 class ProductSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:securityhub/productSubscription:ProductSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

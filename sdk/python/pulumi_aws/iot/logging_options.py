@@ -159,10 +159,8 @@ class _LoggingOptionsState:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.type_token("aws:iot/loggingOptions:LoggingOptions")
 class LoggingOptions(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/loggingOptions:LoggingOptions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

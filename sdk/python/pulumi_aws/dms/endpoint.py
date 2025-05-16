@@ -864,10 +864,8 @@ class _EndpointState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("aws:dms/endpoint:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:dms/endpoint:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

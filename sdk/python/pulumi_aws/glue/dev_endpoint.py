@@ -704,10 +704,8 @@ class _DevEndpointState:
         pulumi.set(self, "zeppelin_remote_spark_interpreter_port", value)
 
 
+@pulumi.type_token("aws:glue/devEndpoint:DevEndpoint")
 class DevEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/devEndpoint:DevEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

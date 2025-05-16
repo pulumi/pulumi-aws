@@ -819,10 +819,8 @@ class _DomainState:
         pulumi.set(self, "vpc_options", value)
 
 
+@pulumi.type_token("aws:opensearch/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

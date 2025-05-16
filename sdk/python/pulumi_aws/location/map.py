@@ -265,10 +265,8 @@ class _MapState:
         pulumi.set(self, "update_time", value)
 
 
+@pulumi.type_token("aws:location/map:Map")
 class Map(pulumi.CustomResource):
-
-    pulumi_type = "aws:location/map:Map"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
